@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>存档工作台 · 影作</title>
+    <style>body{margin:0;background:#17130f;color:#f2e5c9;font:18px/1.7 sans-serif}main{max-width:1000px;margin:auto;padding:32px}a{color:#d7a253}[hidden]{display:none!important}</style>
+  </head>
+  <body>
+    <header class="site-header"><a class="wordmark" href="./">影作<span>回到作品入口</span></a></header>
+    <main class="probe-page project-lab">
+      <p class="eyebrow">T03 · 正式项目数据层</p>
+      <h1>作品能留下，也能接着做。</h1>
+      <p>这个工作台用于检查正式存档、备份恢复与文件往返。它使用正式的 yingzuo-v1 数据库；角色画面与完整演出将在后续任务接入。</p>
+      <p id="project-runtime">脚本尚未启动；以下操作暂不可用。</p>
+      <p id="project-status" role="status" aria-live="polite">正在等待存档初始化。</p>
+      <dl class="project-summary"><div><dt>当前项目</dt><dd id="project-id">尚未读取</dd></div><div><dt>保存版本</dt><dd id="project-revision">—</dd></div><div><dt>剧情检查点</dt><dd id="project-node">—</dd></div></dl>
+      <fieldset id="project-editor" disabled>
+        <legend id="project-editor-title">编辑草稿</legend>
+        <label for="project-title">作品名称（最多 24 个 Unicode 码点）<input id="project-title" type="text" autocomplete="off" /></label>
+        <label for="project-palette">配色</label><select id="project-palette"><option value="vermilion-v1">朱砂</option><option value="indigo-v1">靛青</option><option value="woodland-v1">山林</option></select>
+        <label for="project-pattern">纹样</label><select id="project-pattern"><option value="cloud-v1">云纹</option><option value="wave-v1">水纹</option><option value="flower-v1">花纹</option></select>
+        <p>普通编辑在停止操作 500 毫秒后保存，连续操作最长等待 2 秒。编辑稿不会改变已开演的冻结造型。</p>
+      </fieldset>
+      <div class="probe-actions">
+        <button class="button primary" id="project-save" disabled>立即保存</button>
+        <button class="button subtle" id="project-retry" disabled>重试待保存操作</button>
+        <button class="button subtle" id="project-cancel" disabled>取消待提交操作</button>
+        <button class="button subtle" id="project-memory" disabled>明确继续未保存进度</button>
+        <button class="button subtle" id="project-takeover" disabled>明确用当前稿接管</button>
+      </div>
+      <section aria-labelledby="file-title">
+        <h2 id="file-title">带走与接续</h2>
+        <div class="probe-actions"><button class="button subtle" id="project-export" disabled>导出当前项目</button><button class="button subtle" id="project-export-raw" disabled>导出存储原始记录</button></div>
+        <label for="project-import">导入项目 JSON，作为新项目接续<input id="project-import" type="file" accept=".json,application/json" disabled /></label>
+        <p>导入先完整验证，成功后才归档当前项目并替换；错误文件不会覆盖现有作品。导出内容包含尚未保存的候选与已排队编辑。</p>
+        <label class="check-label"><input id="archive-ack" type="checkbox" />允许替换已有的“上一项目”（可先导出存储记录）</label>
+        <div class="probe-actions"><button class="button subtle" id="project-new" disabled>归档当前并新建</button><button class="button subtle" id="project-previous" disabled>恢复上一项目</button></div>
+      </section>
+      <section aria-labelledby="recovery-title">
+        <h2 id="recovery-title">损坏记录恢复</h2>
+        <p>载入遇到损坏时会停在这里，等待明确选择。未知版本或超限原稿会保留并停止覆盖。</p>
+        <label class="check-label"><input id="quarantine-ack" type="checkbox" />允许替换已有的隔离原稿（可先导出存储记录）</label>
+        <div class="probe-actions"><button class="button subtle" id="project-recover" disabled>恢复已读取的有效备份</button><button class="button subtle" id="project-fresh" disabled>双损坏原稿已可导出，明确新建</button></div>
+      </section>
+      <p id="project-operation" role="status"></p>
+      <details><summary>查看可导出的项目内容</summary><textarea id="project-json" rows="16" readonly aria-label="可导出的项目JSON"></textarea></details>
+      <p><a class="text-link" href="./probe.html">返回独立兼容探针</a></p>
+    </main>
+    <script type="module" src="/src/features/project-lab/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "assetVersion": 1,
+  "appVersion": "0.0.1",
+  "projectId": "fixture-project-1",
+  "title": "灯下等你",
+  "savedAt": "2026-10-16T08:00:00.000Z",
+  "saveRevision": 3,
+  "writerId": "fixture-writer",
+  "appearance": {
+    "templateId": "chenxiang-v1",
+    "patternId": "wave-v1",
+    "paletteId": "indigo-v1",
+    "colorSlots": { "body": 0, "sleeve": 1, "hem": 2 },
+    "carvedSegments": [true, true, false]
+  },
+  "stage": { "backgroundId": "plain-v1", "lampX": 0.1, "puppetDistance": 0.2 },
+  "pose": {
+    "x": 0.5, "y": 0.55, "scale": 0.8, "facing": 1,
+    "joints": { "head": 0, "leftShoulder": 0, "leftElbow": 0, "rightShoulder": 0,
+      "rightElbow": 0, "leftHip": 0, "leftKnee": 0, "rightHip": 0, "rightKnee": 0 }
+  },
+  "story": {
+    "storyId": "reunion", "definitionVersion": 1, "runId": "fixture-run-1", "revision": 8,
+    "mode": "full", "nodeId": "call-light", "approach": "call-first", "approachSource": "user",
+    "castSnapshot": {
+      "appearance": {
+        "templateId": "chenxiang-v1", "patternId": "cloud-v1", "paletteId": "vermilion-v1",
+        "colorSlots": { "body": 0, "sleeve": 1, "hem": 2 }, "carvedSegments": [true, true, true]
+      },
+      "sharedMotif": "cloud-v1", "motherPaletteId": "mother-v1", "guardianPaletteId": "guardian-v1", "assetVersion": 1
+    },
+    "assistedNodeIds": ["memory-wave", "road"], "presetAppearanceUsed": false, "completedAt": null
+  },
+  "museum": { "visitedExhibitIds": ["E01", "E04"] },
+  "performance": null, "partialRecording": null, "lastRoute": "/story"
+}

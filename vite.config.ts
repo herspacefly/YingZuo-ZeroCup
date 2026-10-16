@@ -13,6 +13,7 @@ export default defineConfig({
       input: {
         main: fileURLToPath(new URL('./index.html', import.meta.url)),
         probe: fileURLToPath(new URL('./probe.html', import.meta.url)),
+        project: fileURLToPath(new URL('./project.html', import.meta.url)),
       },
     },
   },

@@ -1,0 +1,19 @@
+.project-lab { max-width: 1100px; }
+.project-lab label { display: block; margin: 14px 0; font-size: 14px; color: #d6c5a8; }
+.project-lab input[type="text"], .project-lab select, .project-lab textarea { display: block; color: #f2e5c9; background: #231d17; border: 1px solid #705538; border-radius: 2px; min-height: 44px; padding: 10px 12px; font: inherit; width: 100%; max-width: 650px; margin-top: 7px; }
+.project-lab select option { background: #231d17; color: #f2e5c9; }
+.project-lab textarea { max-width: none; font-family: Consolas, monospace; font-size: 13px; }
+.project-lab fieldset { margin: 24px 0; border: 1px solid #57412d; padding: 15px 24px; }
+.project-lab legend { color: #d7a253; padding: 0 8px; }
+.project-lab fieldset p, .project-lab section p { color: #baaa8f; font-size: 14px; }
+.project-lab .check-label { display: flex; align-items: center; min-height: 44px; }
+.project-lab input[type="checkbox"] { width: 22px; height: 22px; margin-right: 12px; }
+.project-lab input[type="file"] { display: block; margin: 12px 0; max-width: 100%; font-size: 14px; }
+.project-summary { border-left: 2px solid #946c3a; padding: 8px 16px; font-size: 13px; overflow-wrap: break-word; }
+.project-summary div { margin: 5px 0; }
+.project-summary dt { color: #b5a488; }
+.project-summary dd { margin-left: 0; }
+#project-status { padding: 15px 18px; border: 1px solid #75603e; color: #e6cf9f; }
+#project-status[data-state="error"], #project-status[data-state="conflict"], #project-status[data-state="unsupported"] { border-color: #bc674e; color: #ffb499; }
+.project-lab summary { cursor: pointer; padding: 12px 0; }
+@media (max-width: 720px) { .project-lab fieldset { padding: 12px; } }

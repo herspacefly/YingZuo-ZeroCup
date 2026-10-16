@@ -7,7 +7,7 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T00_complete_G1_pending",
+  "stage": "T00_T03_complete_G1_pending_T02",
   "activeTaskId": null,
   "lastVerifiedCommit": "25e694d6cfcc0519224c480902eff26cb6e24776",
   "features": {
@@ -140,12 +140,12 @@
       "id": "T03",
       "title": "项目/剧情类型与事务式草稿恢复",
       "priority": "P0",
-      "status": "todo",
+      "status": "done",
       "dependsOn": [
         "T00"
       ],
-      "owner": null,
-      "branch": null,
+      "owner": "codex-root",
+      "branch": "main",
       "touchFiles": [
         "src/domain/types.ts",
         "src/domain/defaults.ts",
@@ -157,7 +157,24 @@
         "src/persistence/storage.ts",
         "src/persistence/project-file.ts",
         "tests/fixtures/",
-        "tests/unit/storage.test.ts"
+        "tests/unit/storage.test.ts",
+        "tests/unit/project.test.ts",
+        "tests/unit/project-store.test.ts",
+        "tests/e2e/project-storage.spec.ts",
+        "src/features/project-lab/",
+        "src/app/bootstrap.ts",
+        "project.html",
+        "vite.config.ts",
+        "scripts/verify-legacy.mjs",
+        "README.md",
+        "START_HERE.md",
+        "docs/STATE.md",
+        "docs/verification.md",
+        "docs/tasks.json",
+        "docs/contracts/project-v1.md",
+        "src/app/identity.ts",
+        "probe.html",
+        "docs/evidence/"
       ],
       "acceptanceRefs": [
         "T03",
@@ -168,9 +185,14 @@
         "DATA-05"
       ],
       "checkpointCommit": null,
-      "nextAction": "先用合法/损坏fixture确定Project与Story结构，再实现统一串行保存、IndexedDB事务版本检查与失败保留；先验DATA-01至05。",
+      "nextAction": "T03分层数据验收已完成。优先T01角色与资产契约；T02消费ProjectStore建立产品页面，T01完成后接T15纯剧情命令。真实全剧SAVE与IE验收留后续任务。",
       "blocker": null,
-      "verification": [],
+      "verification": [
+        "2026-10-16: npm test，80/80通过，覆盖DATA-01至05、事务回滚/恢复/并发、串行保存与防抖时序。",
+        "2026-10-16: npm run build通过，npm run verify:legacy确认6份legacy JS为ES5，三个HTML均有modern/legacy入口。",
+        "2026-10-16: 最终 npm run test:e2e -- --workers=2，34/34通过；含原T00与正式数据工作台两尺寸、真实文件、备份恢复、双标签和待提交连续输入。",
+        "2026-10-16: 独立只读审查发现的问题均已修复，并由实际单测和浏览器回归验证；合同、失败与未验收边界见docs/contracts/project-v1.md及docs/verification.md。"
+      ],
       "phase": "G1"
     },
     {
