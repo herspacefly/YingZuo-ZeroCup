@@ -1,0 +1,2969 @@
+{
+  "storyId": "reunion",
+  "definitionVersion": 1,
+  "assetVersion": 1,
+  "startNodeId": "intro",
+  "title": "影作·一幕团圆",
+  "adaptationCredit": "据传统故事《劈山救母》原创交互改编。共同纹样、对白、记忆同台与事件顺序为本作原创；C5仅核对京剧梗概，不作为完整皮影戏本。",
+  "nodes": [
+    {
+      "id": "intro",
+      "kind": "cinematic",
+      "act": 0,
+      "title": "一盏灯，一出戏",
+      "lead": "三圣母被压在华山下，沉香要把母亲带回家。这一次，你来牵动他的影偶。",
+      "actors": [
+        "chenxiang",
+        "mother"
+      ],
+      "entryPoses": {
+        "chenxiang": {
+          "x": 0.32,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": 1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        },
+        "mother": {
+          "x": 0.68,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": -1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        }
+      },
+      "entryStage": {
+        "backgroundId": "home-v1",
+        "lampX": 0,
+        "puppetDistance": 0.2
+      },
+      "entrySceneLayers": [
+        {
+          "id": "home-window",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "home-floor",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-left",
+          "x": 0,
+          "y": 0,
+          "opacity": 0
+        },
+        {
+          "id": "mountain-right",
+          "x": 0,
+          "y": 0,
+          "opacity": 0
+        }
+      ],
+      "subtitles": [
+        {
+          "startMs": 0,
+          "endMs": 4000,
+          "speaker": "narrator",
+          "text": "一盏灯亮起，一出戏就有了地方。",
+          "contentKind": "original-adaptation"
+        },
+        {
+          "startMs": 4000,
+          "endMs": 8000,
+          "speaker": "narrator",
+          "text": "三圣母被压在华山下，沉香要把母亲带回家。",
+          "contentKind": "original-adaptation"
+        },
+        {
+          "startMs": 8000,
+          "endMs": 13000,
+          "speaker": "narrator",
+          "text": "这一回，你来牵动他的影偶。",
+          "contentKind": "original-adaptation"
+        },
+        {
+          "startMs": 13000,
+          "endMs": 18000,
+          "speaker": "narrator",
+          "text": "先为他备好行装。",
+          "contentKind": "original-adaptation"
+        }
+      ],
+      "fullTiming": {
+        "targetMs": 18000,
+        "minDurationMs": 18000
+      },
+      "guidedTiming": {
+        "targetMs": 10000,
+        "minDurationMs": 10000
+      },
+      "allowedActions": [
+        "COMPLETE_SCENE",
+        "SET_MODE"
+      ],
+      "completion": {
+        "kind": "scene",
+        "activation": "automatic",
+        "skippable": true
+      },
+      "next": {
+        "default": "craft"
+      },
+      "prerequisites": {
+        "approach": null,
+        "frozenCast": false
+      },
+      "assetIds": [
+        "chenxiang-v1-head-color",
+        "chenxiang-v1-head-mask",
+        "chenxiang-v1-head-regions",
+        "chenxiang-v1-left-forearm-color",
+        "chenxiang-v1-left-forearm-mask",
+        "chenxiang-v1-left-forearm-regions",
+        "chenxiang-v1-left-shin-color",
+        "chenxiang-v1-left-shin-mask",
+        "chenxiang-v1-left-shin-regions",
+        "chenxiang-v1-left-thigh-color",
+        "chenxiang-v1-left-thigh-mask",
+        "chenxiang-v1-left-thigh-regions",
+        "chenxiang-v1-left-upper-arm-color",
+        "chenxiang-v1-left-upper-arm-mask",
+        "chenxiang-v1-left-upper-arm-regions",
+        "chenxiang-v1-right-forearm-color",
+        "chenxiang-v1-right-forearm-mask",
+        "chenxiang-v1-right-forearm-regions",
+        "chenxiang-v1-right-shin-color",
+        "chenxiang-v1-right-shin-mask",
+        "chenxiang-v1-right-shin-regions",
+        "chenxiang-v1-right-thigh-color",
+        "chenxiang-v1-right-thigh-mask",
+        "chenxiang-v1-right-thigh-regions",
+        "chenxiang-v1-right-upper-arm-color",
+        "chenxiang-v1-right-upper-arm-mask",
+        "chenxiang-v1-right-upper-arm-regions",
+        "chenxiang-v1-torso-color",
+        "chenxiang-v1-torso-mask",
+        "chenxiang-v1-torso-regions",
+        "cloud-v1-cut-1",
+        "cloud-v1-cut-2",
+        "cloud-v1-cut-3",
+        "flower-v1-cut-1",
+        "flower-v1-cut-2",
+        "flower-v1-cut-3",
+        "mother-v1-head-color",
+        "mother-v1-head-mask",
+        "mother-v1-head-regions",
+        "mother-v1-left-forearm-color",
+        "mother-v1-left-forearm-mask",
+        "mother-v1-left-forearm-regions",
+        "mother-v1-left-upper-arm-color",
+        "mother-v1-left-upper-arm-mask",
+        "mother-v1-left-upper-arm-regions",
+        "mother-v1-right-forearm-color",
+        "mother-v1-right-forearm-mask",
+        "mother-v1-right-forearm-regions",
+        "mother-v1-right-upper-arm-color",
+        "mother-v1-right-upper-arm-mask",
+        "mother-v1-right-upper-arm-regions",
+        "mother-v1-torso-color",
+        "mother-v1-torso-mask",
+        "mother-v1-torso-regions",
+        "scene-home-floor",
+        "scene-home-window",
+        "scene-mountain-left",
+        "scene-mountain-right",
+        "wave-v1-cut-1",
+        "wave-v1-cut-2",
+        "wave-v1-cut-3"
+      ],
+      "sourceIds": [
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "contentKind": "original-adaptation",
+      "entryAttachments": []
+    },
+    {
+      "id": "craft",
+      "kind": "interaction",
+      "act": 0,
+      "title": "先为他备好行装",
+      "lead": "云、水、花三种原创纹样都能走完整场。确认开演时，将保留这场戏的造型。",
+      "actors": [
+        "chenxiang"
+      ],
+      "entryPoses": {
+        "chenxiang": {
+          "x": 0.5,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": 1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        }
+      },
+      "entryStage": {
+        "backgroundId": "plain-v1",
+        "lampX": 0,
+        "puppetDistance": 0.2
+      },
+      "entrySceneLayers": [],
+      "subtitles": [],
+      "fullTiming": {
+        "targetMs": 45000,
+        "minDurationMs": 0
+      },
+      "guidedTiming": {
+        "targetMs": 20000,
+        "minDurationMs": 0
+      },
+      "allowedActions": [
+        "COMPLETE_INTERACTION",
+        "SET_MODE"
+      ],
+      "completion": {
+        "kind": "craft"
+      },
+      "next": {
+        "default": "memory-wave"
+      },
+      "prerequisites": {
+        "approach": null,
+        "frozenCast": false
+      },
+      "assetIds": [
+        "chenxiang-v1-head-color",
+        "chenxiang-v1-head-mask",
+        "chenxiang-v1-head-regions",
+        "chenxiang-v1-left-forearm-color",
+        "chenxiang-v1-left-forearm-mask",
+        "chenxiang-v1-left-forearm-regions",
+        "chenxiang-v1-left-shin-color",
+        "chenxiang-v1-left-shin-mask",
+        "chenxiang-v1-left-shin-regions",
+        "chenxiang-v1-left-thigh-color",
+        "chenxiang-v1-left-thigh-mask",
+        "chenxiang-v1-left-thigh-regions",
+        "chenxiang-v1-left-upper-arm-color",
+        "chenxiang-v1-left-upper-arm-mask",
+        "chenxiang-v1-left-upper-arm-regions",
+        "chenxiang-v1-right-forearm-color",
+        "chenxiang-v1-right-forearm-mask",
+        "chenxiang-v1-right-forearm-regions",
+        "chenxiang-v1-right-shin-color",
+        "chenxiang-v1-right-shin-mask",
+        "chenxiang-v1-right-shin-regions",
+        "chenxiang-v1-right-thigh-color",
+        "chenxiang-v1-right-thigh-mask",
+        "chenxiang-v1-right-thigh-regions",
+        "chenxiang-v1-right-upper-arm-color",
+        "chenxiang-v1-right-upper-arm-mask",
+        "chenxiang-v1-right-upper-arm-regions",
+        "chenxiang-v1-torso-color",
+        "chenxiang-v1-torso-mask",
+        "chenxiang-v1-torso-regions",
+        "cloud-v1-cut-1",
+        "cloud-v1-cut-2",
+        "cloud-v1-cut-3",
+        "flower-v1-cut-1",
+        "flower-v1-cut-2",
+        "flower-v1-cut-3",
+        "wave-v1-cut-1",
+        "wave-v1-cut-2",
+        "wave-v1-cut-3"
+      ],
+      "sourceIds": [
+        "C2",
+        "C6"
+      ],
+      "contentKind": "original-adaptation",
+      "entryAttachments": []
+    },
+    {
+      "id": "memory-wave",
+      "kind": "interaction",
+      "act": 1,
+      "title": "灯下记得",
+      "lead": "记忆里，先牵动沉香的手向母亲招呼。袖口的纹样，是他们共同的记号。",
+      "actors": [
+        "chenxiang",
+        "mother"
+      ],
+      "entryPoses": {
+        "chenxiang": {
+          "x": 0.32,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": 1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        },
+        "mother": {
+          "x": 0.68,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": -1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        }
+      },
+      "entryStage": {
+        "backgroundId": "home-v1",
+        "lampX": 0,
+        "puppetDistance": 0.2
+      },
+      "entrySceneLayers": [
+        {
+          "id": "home-window",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "home-floor",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-left",
+          "x": 0,
+          "y": 0,
+          "opacity": 0
+        },
+        {
+          "id": "mountain-right",
+          "x": 0,
+          "y": 0,
+          "opacity": 0
+        }
+      ],
+      "subtitles": [
+        {
+          "startMs": 0,
+          "endMs": 11666,
+          "speaker": "narrator",
+          "text": "记忆里。",
+          "contentKind": "original-adaptation"
+        },
+        {
+          "startMs": 11666,
+          "endMs": 23333,
+          "speaker": "mother",
+          "text": "走远了，也记得回头看看。",
+          "contentKind": "original-adaptation"
+        },
+        {
+          "startMs": 23333,
+          "endMs": 35000,
+          "speaker": "chenxiang",
+          "text": "我记得。",
+          "contentKind": "original-adaptation"
+        }
+      ],
+      "fullTiming": {
+        "targetMs": 35000,
+        "minDurationMs": 0
+      },
+      "guidedTiming": {
+        "targetMs": 12000,
+        "minDurationMs": 0
+      },
+      "allowedActions": [
+        "COMPLETE_INTERACTION",
+        "SET_MODE"
+      ],
+      "completion": {
+        "kind": "wave",
+        "target": {
+          "x": 0.38,
+          "y": 0.42,
+          "width": 0.12,
+          "height": 0.18
+        },
+        "overlapRatio": 0.35,
+        "holdMs": 300
+      },
+      "next": {
+        "default": "memory-separate"
+      },
+      "prerequisites": {
+        "approach": null,
+        "frozenCast": true
+      },
+      "assetIds": [
+        "chenxiang-v1-head-color",
+        "chenxiang-v1-head-mask",
+        "chenxiang-v1-head-regions",
+        "chenxiang-v1-left-forearm-color",
+        "chenxiang-v1-left-forearm-mask",
+        "chenxiang-v1-left-forearm-regions",
+        "chenxiang-v1-left-shin-color",
+        "chenxiang-v1-left-shin-mask",
+        "chenxiang-v1-left-shin-regions",
+        "chenxiang-v1-left-thigh-color",
+        "chenxiang-v1-left-thigh-mask",
+        "chenxiang-v1-left-thigh-regions",
+        "chenxiang-v1-left-upper-arm-color",
+        "chenxiang-v1-left-upper-arm-mask",
+        "chenxiang-v1-left-upper-arm-regions",
+        "chenxiang-v1-right-forearm-color",
+        "chenxiang-v1-right-forearm-mask",
+        "chenxiang-v1-right-forearm-regions",
+        "chenxiang-v1-right-shin-color",
+        "chenxiang-v1-right-shin-mask",
+        "chenxiang-v1-right-shin-regions",
+        "chenxiang-v1-right-thigh-color",
+        "chenxiang-v1-right-thigh-mask",
+        "chenxiang-v1-right-thigh-regions",
+        "chenxiang-v1-right-upper-arm-color",
+        "chenxiang-v1-right-upper-arm-mask",
+        "chenxiang-v1-right-upper-arm-regions",
+        "chenxiang-v1-torso-color",
+        "chenxiang-v1-torso-mask",
+        "chenxiang-v1-torso-regions",
+        "cloud-v1-cut-1",
+        "cloud-v1-cut-2",
+        "cloud-v1-cut-3",
+        "flower-v1-cut-1",
+        "flower-v1-cut-2",
+        "flower-v1-cut-3",
+        "mother-v1-head-color",
+        "mother-v1-head-mask",
+        "mother-v1-head-regions",
+        "mother-v1-left-forearm-color",
+        "mother-v1-left-forearm-mask",
+        "mother-v1-left-forearm-regions",
+        "mother-v1-left-upper-arm-color",
+        "mother-v1-left-upper-arm-mask",
+        "mother-v1-left-upper-arm-regions",
+        "mother-v1-right-forearm-color",
+        "mother-v1-right-forearm-mask",
+        "mother-v1-right-forearm-regions",
+        "mother-v1-right-upper-arm-color",
+        "mother-v1-right-upper-arm-mask",
+        "mother-v1-right-upper-arm-regions",
+        "mother-v1-torso-color",
+        "mother-v1-torso-mask",
+        "mother-v1-torso-regions",
+        "scene-home-floor",
+        "scene-home-window",
+        "scene-mountain-left",
+        "scene-mountain-right",
+        "wave-v1-cut-1",
+        "wave-v1-cut-2",
+        "wave-v1-cut-3"
+      ],
+      "sourceIds": [
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "contentKind": "original-adaptation",
+      "entryAttachments": []
+    },
+    {
+      "id": "memory-separate",
+      "kind": "cinematic",
+      "act": 1,
+      "title": "一幕山影，隔开两人",
+      "lead": "一声低鼓后，山片合拢。母亲仍短暂透过窄隙可见，随后只剩一点灯光。",
+      "actors": [
+        "chenxiang",
+        "mother"
+      ],
+      "entryPoses": {
+        "chenxiang": {
+          "x": 0.32,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": 1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        },
+        "mother": {
+          "x": 0.68,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": -1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        }
+      },
+      "entryStage": {
+        "backgroundId": "home-v1",
+        "lampX": 0,
+        "puppetDistance": 0.2
+      },
+      "entrySceneLayers": [
+        {
+          "id": "home-window",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "home-floor",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-left",
+          "x": 0,
+          "y": 0,
+          "opacity": 0
+        },
+        {
+          "id": "mountain-right",
+          "x": 0,
+          "y": 0,
+          "opacity": 0
+        }
+      ],
+      "subtitles": [
+        {
+          "startMs": 0,
+          "endMs": 8000,
+          "speaker": "narrator",
+          "text": "三圣母被压在华山之下。沉香从此踏上寻母的路。",
+          "contentKind": "original-adaptation"
+        }
+      ],
+      "fullTiming": {
+        "targetMs": 8000,
+        "minDurationMs": 8000
+      },
+      "guidedTiming": {
+        "targetMs": 8000,
+        "minDurationMs": 8000
+      },
+      "allowedActions": [
+        "COMPLETE_SCENE",
+        "SET_MODE"
+      ],
+      "completion": {
+        "kind": "scene",
+        "activation": "automatic",
+        "skippable": false
+      },
+      "next": {
+        "default": "road"
+      },
+      "prerequisites": {
+        "approach": null,
+        "frozenCast": true
+      },
+      "assetIds": [
+        "chenxiang-v1-head-color",
+        "chenxiang-v1-head-mask",
+        "chenxiang-v1-head-regions",
+        "chenxiang-v1-left-forearm-color",
+        "chenxiang-v1-left-forearm-mask",
+        "chenxiang-v1-left-forearm-regions",
+        "chenxiang-v1-left-shin-color",
+        "chenxiang-v1-left-shin-mask",
+        "chenxiang-v1-left-shin-regions",
+        "chenxiang-v1-left-thigh-color",
+        "chenxiang-v1-left-thigh-mask",
+        "chenxiang-v1-left-thigh-regions",
+        "chenxiang-v1-left-upper-arm-color",
+        "chenxiang-v1-left-upper-arm-mask",
+        "chenxiang-v1-left-upper-arm-regions",
+        "chenxiang-v1-right-forearm-color",
+        "chenxiang-v1-right-forearm-mask",
+        "chenxiang-v1-right-forearm-regions",
+        "chenxiang-v1-right-shin-color",
+        "chenxiang-v1-right-shin-mask",
+        "chenxiang-v1-right-shin-regions",
+        "chenxiang-v1-right-thigh-color",
+        "chenxiang-v1-right-thigh-mask",
+        "chenxiang-v1-right-thigh-regions",
+        "chenxiang-v1-right-upper-arm-color",
+        "chenxiang-v1-right-upper-arm-mask",
+        "chenxiang-v1-right-upper-arm-regions",
+        "chenxiang-v1-torso-color",
+        "chenxiang-v1-torso-mask",
+        "chenxiang-v1-torso-regions",
+        "cloud-v1-cut-1",
+        "cloud-v1-cut-2",
+        "cloud-v1-cut-3",
+        "flower-v1-cut-1",
+        "flower-v1-cut-2",
+        "flower-v1-cut-3",
+        "mother-v1-head-color",
+        "mother-v1-head-mask",
+        "mother-v1-head-regions",
+        "mother-v1-left-forearm-color",
+        "mother-v1-left-forearm-mask",
+        "mother-v1-left-forearm-regions",
+        "mother-v1-left-upper-arm-color",
+        "mother-v1-left-upper-arm-mask",
+        "mother-v1-left-upper-arm-regions",
+        "mother-v1-right-forearm-color",
+        "mother-v1-right-forearm-mask",
+        "mother-v1-right-forearm-regions",
+        "mother-v1-right-upper-arm-color",
+        "mother-v1-right-upper-arm-mask",
+        "mother-v1-right-upper-arm-regions",
+        "mother-v1-torso-color",
+        "mother-v1-torso-mask",
+        "mother-v1-torso-regions",
+        "scene-home-floor",
+        "scene-home-window",
+        "scene-mountain-left",
+        "scene-mountain-right",
+        "wave-v1-cut-1",
+        "wave-v1-cut-2",
+        "wave-v1-cut-3"
+      ],
+      "sourceIds": [
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "contentKind": "original-adaptation",
+      "entryAttachments": []
+    },
+    {
+      "id": "road",
+      "kind": "interaction",
+      "act": 2,
+      "title": "带着灯上路",
+      "lead": "沿山路前行，抬手扶过石沿。操作可以停下来，也可以明确请求代演。",
+      "actors": [
+        "chenxiang"
+      ],
+      "entryPoses": {
+        "chenxiang": {
+          "x": 0.5,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": 1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        }
+      },
+      "entryStage": {
+        "backgroundId": "road-v1",
+        "lampX": 0,
+        "puppetDistance": 0.2
+      },
+      "entrySceneLayers": [
+        {
+          "id": "mountain-far",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "road-near",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "road-path",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "road-ledge",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        }
+      ],
+      "subtitles": [
+        {
+          "startMs": 0,
+          "endMs": 60000,
+          "speaker": "narrator",
+          "text": "路还长，灯随你一起走。",
+          "contentKind": "original-adaptation"
+        }
+      ],
+      "fullTiming": {
+        "targetMs": 60000,
+        "minDurationMs": 0
+      },
+      "guidedTiming": {
+        "targetMs": 13000,
+        "minDurationMs": 0
+      },
+      "allowedActions": [
+        "COMPLETE_INTERACTION",
+        "SET_MODE"
+      ],
+      "completion": {
+        "kind": "road",
+        "target": {
+          "x": 0.7,
+          "y": 0.42,
+          "width": 0.16,
+          "height": 0.36
+        },
+        "overlapRatio": 0.35,
+        "holdMs": 300
+      },
+      "next": {
+        "default": "training"
+      },
+      "prerequisites": {
+        "approach": null,
+        "frozenCast": true
+      },
+      "assetIds": [
+        "chenxiang-v1-head-color",
+        "chenxiang-v1-head-mask",
+        "chenxiang-v1-head-regions",
+        "chenxiang-v1-left-forearm-color",
+        "chenxiang-v1-left-forearm-mask",
+        "chenxiang-v1-left-forearm-regions",
+        "chenxiang-v1-left-shin-color",
+        "chenxiang-v1-left-shin-mask",
+        "chenxiang-v1-left-shin-regions",
+        "chenxiang-v1-left-thigh-color",
+        "chenxiang-v1-left-thigh-mask",
+        "chenxiang-v1-left-thigh-regions",
+        "chenxiang-v1-left-upper-arm-color",
+        "chenxiang-v1-left-upper-arm-mask",
+        "chenxiang-v1-left-upper-arm-regions",
+        "chenxiang-v1-right-forearm-color",
+        "chenxiang-v1-right-forearm-mask",
+        "chenxiang-v1-right-forearm-regions",
+        "chenxiang-v1-right-shin-color",
+        "chenxiang-v1-right-shin-mask",
+        "chenxiang-v1-right-shin-regions",
+        "chenxiang-v1-right-thigh-color",
+        "chenxiang-v1-right-thigh-mask",
+        "chenxiang-v1-right-thigh-regions",
+        "chenxiang-v1-right-upper-arm-color",
+        "chenxiang-v1-right-upper-arm-mask",
+        "chenxiang-v1-right-upper-arm-regions",
+        "chenxiang-v1-torso-color",
+        "chenxiang-v1-torso-mask",
+        "chenxiang-v1-torso-regions",
+        "scene-mountain-far",
+        "scene-road-ledge",
+        "scene-road-near",
+        "scene-road-path"
+      ],
+      "sourceIds": [
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "contentKind": "original-adaptation",
+      "entryAttachments": []
+    },
+    {
+      "id": "training",
+      "kind": "cinematic",
+      "act": 2,
+      "title": "学艺，得斧，再到华山",
+      "lead": "这一小段以分镜交代学艺与得斧，不增加第四个可动角色。",
+      "actors": [
+        "chenxiang"
+      ],
+      "entryPoses": {
+        "chenxiang": {
+          "x": 0.5,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": 1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        }
+      },
+      "entryStage": {
+        "backgroundId": "road-v1",
+        "lampX": 0,
+        "puppetDistance": 0.2
+      },
+      "entrySceneLayers": [
+        {
+          "id": "mountain-far",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "road-near",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "road-path",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "road-ledge",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        }
+      ],
+      "subtitles": [
+        {
+          "startMs": 0,
+          "endMs": 12000,
+          "speaker": "narrator",
+          "text": "沉香学艺得斧，再到华山。",
+          "contentKind": "original-adaptation"
+        }
+      ],
+      "fullTiming": {
+        "targetMs": 12000,
+        "minDurationMs": 12000
+      },
+      "guidedTiming": {
+        "targetMs": 7000,
+        "minDurationMs": 7000
+      },
+      "allowedActions": [
+        "COMPLETE_SCENE",
+        "SET_MODE"
+      ],
+      "completion": {
+        "kind": "scene",
+        "activation": "automatic",
+        "skippable": false
+      },
+      "next": {
+        "default": "guardian"
+      },
+      "prerequisites": {
+        "approach": null,
+        "frozenCast": true
+      },
+      "assetIds": [
+        "chenxiang-axe",
+        "chenxiang-v1-head-color",
+        "chenxiang-v1-head-mask",
+        "chenxiang-v1-head-regions",
+        "chenxiang-v1-left-forearm-color",
+        "chenxiang-v1-left-forearm-mask",
+        "chenxiang-v1-left-forearm-regions",
+        "chenxiang-v1-left-shin-color",
+        "chenxiang-v1-left-shin-mask",
+        "chenxiang-v1-left-shin-regions",
+        "chenxiang-v1-left-thigh-color",
+        "chenxiang-v1-left-thigh-mask",
+        "chenxiang-v1-left-thigh-regions",
+        "chenxiang-v1-left-upper-arm-color",
+        "chenxiang-v1-left-upper-arm-mask",
+        "chenxiang-v1-left-upper-arm-regions",
+        "chenxiang-v1-right-forearm-color",
+        "chenxiang-v1-right-forearm-mask",
+        "chenxiang-v1-right-forearm-regions",
+        "chenxiang-v1-right-shin-color",
+        "chenxiang-v1-right-shin-mask",
+        "chenxiang-v1-right-shin-regions",
+        "chenxiang-v1-right-thigh-color",
+        "chenxiang-v1-right-thigh-mask",
+        "chenxiang-v1-right-thigh-regions",
+        "chenxiang-v1-right-upper-arm-color",
+        "chenxiang-v1-right-upper-arm-mask",
+        "chenxiang-v1-right-upper-arm-regions",
+        "chenxiang-v1-torso-color",
+        "chenxiang-v1-torso-mask",
+        "chenxiang-v1-torso-regions",
+        "scene-mountain-far",
+        "scene-road-ledge",
+        "scene-road-near",
+        "scene-road-path"
+      ],
+      "sourceIds": [
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "contentKind": "original-adaptation",
+      "entryAttachments": [
+        {
+          "actorId": "chenxiang",
+          "attachmentId": "axe"
+        }
+      ]
+    },
+    {
+      "id": "guardian",
+      "kind": "interaction",
+      "act": 3,
+      "title": "山前的阻拦",
+      "lead": "二郎神短促阻拦；牵动沉香手杆架挡一次，随后二郎神退场。",
+      "actors": [
+        "chenxiang",
+        "guardian"
+      ],
+      "entryPoses": {
+        "chenxiang": {
+          "x": 0.32,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": 1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        },
+        "guardian": {
+          "x": 0.68,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": -1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        }
+      },
+      "entryStage": {
+        "backgroundId": "road-v1",
+        "lampX": 0,
+        "puppetDistance": 0.2
+      },
+      "entrySceneLayers": [
+        {
+          "id": "mountain-far",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "road-near",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "road-path",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "road-ledge",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        }
+      ],
+      "subtitles": [
+        {
+          "startMs": 0,
+          "endMs": 35000,
+          "speaker": "narrator",
+          "text": "沉香越过阻拦，来到山前。",
+          "contentKind": "original-adaptation"
+        }
+      ],
+      "fullTiming": {
+        "targetMs": 35000,
+        "minDurationMs": 0
+      },
+      "guidedTiming": {
+        "targetMs": 10000,
+        "minDurationMs": 0
+      },
+      "allowedActions": [
+        "COMPLETE_INTERACTION",
+        "SET_MODE"
+      ],
+      "completion": {
+        "kind": "block",
+        "target": {
+          "x": 0.46,
+          "y": 0.4,
+          "width": 0.16,
+          "height": 0.2
+        },
+        "overlapRatio": 0.35,
+        "holdMs": 300
+      },
+      "next": {
+        "default": "approach-choice"
+      },
+      "prerequisites": {
+        "approach": null,
+        "frozenCast": true
+      },
+      "assetIds": [
+        "chenxiang-v1-head-color",
+        "chenxiang-v1-head-mask",
+        "chenxiang-v1-head-regions",
+        "chenxiang-v1-left-forearm-color",
+        "chenxiang-v1-left-forearm-mask",
+        "chenxiang-v1-left-forearm-regions",
+        "chenxiang-v1-left-shin-color",
+        "chenxiang-v1-left-shin-mask",
+        "chenxiang-v1-left-shin-regions",
+        "chenxiang-v1-left-thigh-color",
+        "chenxiang-v1-left-thigh-mask",
+        "chenxiang-v1-left-thigh-regions",
+        "chenxiang-v1-left-upper-arm-color",
+        "chenxiang-v1-left-upper-arm-mask",
+        "chenxiang-v1-left-upper-arm-regions",
+        "chenxiang-v1-right-forearm-color",
+        "chenxiang-v1-right-forearm-mask",
+        "chenxiang-v1-right-forearm-regions",
+        "chenxiang-v1-right-shin-color",
+        "chenxiang-v1-right-shin-mask",
+        "chenxiang-v1-right-shin-regions",
+        "chenxiang-v1-right-thigh-color",
+        "chenxiang-v1-right-thigh-mask",
+        "chenxiang-v1-right-thigh-regions",
+        "chenxiang-v1-right-upper-arm-color",
+        "chenxiang-v1-right-upper-arm-mask",
+        "chenxiang-v1-right-upper-arm-regions",
+        "chenxiang-v1-torso-color",
+        "chenxiang-v1-torso-mask",
+        "chenxiang-v1-torso-regions",
+        "guardian-staff",
+        "guardian-v1-head-color",
+        "guardian-v1-head-mask",
+        "guardian-v1-head-regions",
+        "guardian-v1-right-forearm-color",
+        "guardian-v1-right-forearm-mask",
+        "guardian-v1-right-forearm-regions",
+        "guardian-v1-right-upper-arm-color",
+        "guardian-v1-right-upper-arm-mask",
+        "guardian-v1-right-upper-arm-regions",
+        "guardian-v1-torso-color",
+        "guardian-v1-torso-mask",
+        "guardian-v1-torso-regions",
+        "scene-mountain-far",
+        "scene-road-ledge",
+        "scene-road-near",
+        "scene-road-path"
+      ],
+      "sourceIds": [
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "contentKind": "original-adaptation",
+      "entryAttachments": [
+        {
+          "actorId": "guardian",
+          "attachmentId": "staff"
+        }
+      ]
+    },
+    {
+      "id": "approach-choice",
+      "kind": "choice",
+      "act": 3,
+      "title": "山在眼前",
+      "lead": "你想怎样替沉香演这一刻？两条路都将团圆，改变的是呼唤与开山的先后。",
+      "actors": [
+        "chenxiang"
+      ],
+      "entryPoses": {
+        "chenxiang": {
+          "x": 0.5,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": 1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        }
+      },
+      "entryStage": {
+        "backgroundId": "mountain-v1",
+        "lampX": 0,
+        "puppetDistance": 0.2
+      },
+      "entrySceneLayers": [
+        {
+          "id": "mountain-far",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-left",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-right",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-dust",
+          "x": 0,
+          "y": 0,
+          "opacity": 0
+        }
+      ],
+      "subtitles": [],
+      "fullTiming": {
+        "targetMs": 15000,
+        "minDurationMs": 0
+      },
+      "guidedTiming": {
+        "targetMs": 5000,
+        "minDurationMs": 0
+      },
+      "allowedActions": [
+        "CHOOSE",
+        "SET_MODE"
+      ],
+      "completion": {
+        "kind": "choice"
+      },
+      "next": {
+        "call-first": "call-light",
+        "split-first": "split-axe"
+      },
+      "prerequisites": {
+        "approach": null,
+        "frozenCast": true
+      },
+      "assetIds": [
+        "chenxiang-v1-head-color",
+        "chenxiang-v1-head-mask",
+        "chenxiang-v1-head-regions",
+        "chenxiang-v1-left-forearm-color",
+        "chenxiang-v1-left-forearm-mask",
+        "chenxiang-v1-left-forearm-regions",
+        "chenxiang-v1-left-shin-color",
+        "chenxiang-v1-left-shin-mask",
+        "chenxiang-v1-left-shin-regions",
+        "chenxiang-v1-left-thigh-color",
+        "chenxiang-v1-left-thigh-mask",
+        "chenxiang-v1-left-thigh-regions",
+        "chenxiang-v1-left-upper-arm-color",
+        "chenxiang-v1-left-upper-arm-mask",
+        "chenxiang-v1-left-upper-arm-regions",
+        "chenxiang-v1-right-forearm-color",
+        "chenxiang-v1-right-forearm-mask",
+        "chenxiang-v1-right-forearm-regions",
+        "chenxiang-v1-right-shin-color",
+        "chenxiang-v1-right-shin-mask",
+        "chenxiang-v1-right-shin-regions",
+        "chenxiang-v1-right-thigh-color",
+        "chenxiang-v1-right-thigh-mask",
+        "chenxiang-v1-right-thigh-regions",
+        "chenxiang-v1-right-upper-arm-color",
+        "chenxiang-v1-right-upper-arm-mask",
+        "chenxiang-v1-right-upper-arm-regions",
+        "chenxiang-v1-torso-color",
+        "chenxiang-v1-torso-mask",
+        "chenxiang-v1-torso-regions",
+        "scene-mountain-dust",
+        "scene-mountain-far",
+        "scene-mountain-left",
+        "scene-mountain-right"
+      ],
+      "sourceIds": [
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "contentKind": "original-adaptation",
+      "entryAttachments": []
+    },
+    {
+      "id": "call-light",
+      "kind": "interaction",
+      "act": 3,
+      "title": "先举灯呼唤",
+      "lead": "山缝仍闭合。移动灯，让共同纹样的投影经过山缝，并保持片刻。",
+      "actors": [
+        "chenxiang",
+        "mother"
+      ],
+      "entryPoses": {
+        "chenxiang": {
+          "x": 0.32,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": 1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        },
+        "mother": {
+          "x": 0.68,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": -1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        }
+      },
+      "entryStage": {
+        "backgroundId": "mountain-v1",
+        "lampX": 0,
+        "puppetDistance": 0.2
+      },
+      "entrySceneLayers": [
+        {
+          "id": "mountain-far",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-left",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-right",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-dust",
+          "x": 0,
+          "y": 0,
+          "opacity": 0
+        }
+      ],
+      "subtitles": [
+        {
+          "startMs": 0,
+          "endMs": 50000,
+          "speaker": "chenxiang",
+          "text": "娘，你看见了吗？",
+          "contentKind": "original-adaptation"
+        }
+      ],
+      "fullTiming": {
+        "targetMs": 50000,
+        "minDurationMs": 0
+      },
+      "guidedTiming": {
+        "targetMs": 16000,
+        "minDurationMs": 0
+      },
+      "allowedActions": [
+        "COMPLETE_INTERACTION",
+        "SET_MODE"
+      ],
+      "completion": {
+        "kind": "light",
+        "target": {
+          "x": 0.46,
+          "y": 0.38,
+          "width": 0.14,
+          "height": 0.28
+        },
+        "overlapRatio": 0.35,
+        "holdMs": 600
+      },
+      "next": {
+        "default": "call-response"
+      },
+      "prerequisites": {
+        "approach": "call-first",
+        "frozenCast": true
+      },
+      "assetIds": [
+        "chenxiang-v1-head-color",
+        "chenxiang-v1-head-mask",
+        "chenxiang-v1-head-regions",
+        "chenxiang-v1-left-forearm-color",
+        "chenxiang-v1-left-forearm-mask",
+        "chenxiang-v1-left-forearm-regions",
+        "chenxiang-v1-left-shin-color",
+        "chenxiang-v1-left-shin-mask",
+        "chenxiang-v1-left-shin-regions",
+        "chenxiang-v1-left-thigh-color",
+        "chenxiang-v1-left-thigh-mask",
+        "chenxiang-v1-left-thigh-regions",
+        "chenxiang-v1-left-upper-arm-color",
+        "chenxiang-v1-left-upper-arm-mask",
+        "chenxiang-v1-left-upper-arm-regions",
+        "chenxiang-v1-right-forearm-color",
+        "chenxiang-v1-right-forearm-mask",
+        "chenxiang-v1-right-forearm-regions",
+        "chenxiang-v1-right-shin-color",
+        "chenxiang-v1-right-shin-mask",
+        "chenxiang-v1-right-shin-regions",
+        "chenxiang-v1-right-thigh-color",
+        "chenxiang-v1-right-thigh-mask",
+        "chenxiang-v1-right-thigh-regions",
+        "chenxiang-v1-right-upper-arm-color",
+        "chenxiang-v1-right-upper-arm-mask",
+        "chenxiang-v1-right-upper-arm-regions",
+        "chenxiang-v1-torso-color",
+        "chenxiang-v1-torso-mask",
+        "chenxiang-v1-torso-regions",
+        "cloud-v1-cut-1",
+        "cloud-v1-cut-2",
+        "cloud-v1-cut-3",
+        "flower-v1-cut-1",
+        "flower-v1-cut-2",
+        "flower-v1-cut-3",
+        "mother-v1-head-color",
+        "mother-v1-head-mask",
+        "mother-v1-head-regions",
+        "mother-v1-left-forearm-color",
+        "mother-v1-left-forearm-mask",
+        "mother-v1-left-forearm-regions",
+        "mother-v1-left-upper-arm-color",
+        "mother-v1-left-upper-arm-mask",
+        "mother-v1-left-upper-arm-regions",
+        "mother-v1-right-forearm-color",
+        "mother-v1-right-forearm-mask",
+        "mother-v1-right-forearm-regions",
+        "mother-v1-right-upper-arm-color",
+        "mother-v1-right-upper-arm-mask",
+        "mother-v1-right-upper-arm-regions",
+        "mother-v1-torso-color",
+        "mother-v1-torso-mask",
+        "mother-v1-torso-regions",
+        "scene-mountain-dust",
+        "scene-mountain-far",
+        "scene-mountain-left",
+        "scene-mountain-right",
+        "wave-v1-cut-1",
+        "wave-v1-cut-2",
+        "wave-v1-cut-3"
+      ],
+      "sourceIds": [
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "contentKind": "original-adaptation",
+      "entryAttachments": []
+    },
+    {
+      "id": "call-response",
+      "kind": "cinematic",
+      "act": 3,
+      "title": "山后先有回应",
+      "lead": "母亲先回应，山仍没有打开；接下来还要举斧开山。",
+      "actors": [
+        "chenxiang",
+        "mother"
+      ],
+      "entryPoses": {
+        "chenxiang": {
+          "x": 0.32,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": 1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        },
+        "mother": {
+          "x": 0.68,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": -1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        }
+      },
+      "entryStage": {
+        "backgroundId": "mountain-v1",
+        "lampX": 0,
+        "puppetDistance": 0.2
+      },
+      "entrySceneLayers": [
+        {
+          "id": "mountain-far",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-left",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-right",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-dust",
+          "x": 0,
+          "y": 0,
+          "opacity": 0
+        }
+      ],
+      "subtitles": [
+        {
+          "startMs": 0,
+          "endMs": 5000,
+          "speaker": "mother",
+          "text": "我看见你的光了。",
+          "contentKind": "original-adaptation"
+        }
+      ],
+      "fullTiming": {
+        "targetMs": 5000,
+        "minDurationMs": 5000
+      },
+      "guidedTiming": {
+        "targetMs": 5000,
+        "minDurationMs": 5000
+      },
+      "allowedActions": [
+        "COMPLETE_SCENE",
+        "SET_MODE"
+      ],
+      "completion": {
+        "kind": "scene",
+        "activation": "automatic",
+        "skippable": false
+      },
+      "next": {
+        "default": "call-split"
+      },
+      "prerequisites": {
+        "approach": "call-first",
+        "frozenCast": true
+      },
+      "assetIds": [
+        "chenxiang-v1-head-color",
+        "chenxiang-v1-head-mask",
+        "chenxiang-v1-head-regions",
+        "chenxiang-v1-left-forearm-color",
+        "chenxiang-v1-left-forearm-mask",
+        "chenxiang-v1-left-forearm-regions",
+        "chenxiang-v1-left-shin-color",
+        "chenxiang-v1-left-shin-mask",
+        "chenxiang-v1-left-shin-regions",
+        "chenxiang-v1-left-thigh-color",
+        "chenxiang-v1-left-thigh-mask",
+        "chenxiang-v1-left-thigh-regions",
+        "chenxiang-v1-left-upper-arm-color",
+        "chenxiang-v1-left-upper-arm-mask",
+        "chenxiang-v1-left-upper-arm-regions",
+        "chenxiang-v1-right-forearm-color",
+        "chenxiang-v1-right-forearm-mask",
+        "chenxiang-v1-right-forearm-regions",
+        "chenxiang-v1-right-shin-color",
+        "chenxiang-v1-right-shin-mask",
+        "chenxiang-v1-right-shin-regions",
+        "chenxiang-v1-right-thigh-color",
+        "chenxiang-v1-right-thigh-mask",
+        "chenxiang-v1-right-thigh-regions",
+        "chenxiang-v1-right-upper-arm-color",
+        "chenxiang-v1-right-upper-arm-mask",
+        "chenxiang-v1-right-upper-arm-regions",
+        "chenxiang-v1-torso-color",
+        "chenxiang-v1-torso-mask",
+        "chenxiang-v1-torso-regions",
+        "cloud-v1-cut-1",
+        "cloud-v1-cut-2",
+        "cloud-v1-cut-3",
+        "flower-v1-cut-1",
+        "flower-v1-cut-2",
+        "flower-v1-cut-3",
+        "mother-v1-head-color",
+        "mother-v1-head-mask",
+        "mother-v1-head-regions",
+        "mother-v1-left-forearm-color",
+        "mother-v1-left-forearm-mask",
+        "mother-v1-left-forearm-regions",
+        "mother-v1-left-upper-arm-color",
+        "mother-v1-left-upper-arm-mask",
+        "mother-v1-left-upper-arm-regions",
+        "mother-v1-right-forearm-color",
+        "mother-v1-right-forearm-mask",
+        "mother-v1-right-forearm-regions",
+        "mother-v1-right-upper-arm-color",
+        "mother-v1-right-upper-arm-mask",
+        "mother-v1-right-upper-arm-regions",
+        "mother-v1-torso-color",
+        "mother-v1-torso-mask",
+        "mother-v1-torso-regions",
+        "scene-mountain-dust",
+        "scene-mountain-far",
+        "scene-mountain-left",
+        "scene-mountain-right",
+        "wave-v1-cut-1",
+        "wave-v1-cut-2",
+        "wave-v1-cut-3"
+      ],
+      "sourceIds": [
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "contentKind": "original-adaptation",
+      "entryAttachments": []
+    },
+    {
+      "id": "call-split",
+      "kind": "interaction",
+      "act": 3,
+      "title": "回应之后，举斧开山",
+      "lead": "稳住身杆，举斧停一瞬，再落下；山片打开。",
+      "actors": [
+        "chenxiang"
+      ],
+      "entryPoses": {
+        "chenxiang": {
+          "x": 0.5,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": 1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        }
+      },
+      "entryStage": {
+        "backgroundId": "mountain-v1",
+        "lampX": 0,
+        "puppetDistance": 0.2
+      },
+      "entrySceneLayers": [
+        {
+          "id": "mountain-far",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-left",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-right",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-dust",
+          "x": 0,
+          "y": 0,
+          "opacity": 0
+        }
+      ],
+      "subtitles": [],
+      "fullTiming": {
+        "targetMs": 45000,
+        "minDurationMs": 0
+      },
+      "guidedTiming": {
+        "targetMs": 14000,
+        "minDurationMs": 0
+      },
+      "allowedActions": [
+        "COMPLETE_INTERACTION",
+        "SET_MODE"
+      ],
+      "completion": {
+        "kind": "axe",
+        "target": {
+          "x": 0.4,
+          "y": 0.25,
+          "width": 0.25,
+          "height": 0.3
+        },
+        "raisedAngleRange": [
+          1,
+          1.4
+        ],
+        "landedAngleRange": [
+          -0.5,
+          0.2
+        ],
+        "holdMs": 500
+      },
+      "next": {
+        "default": "reunion-reach"
+      },
+      "prerequisites": {
+        "approach": "call-first",
+        "frozenCast": true
+      },
+      "assetIds": [
+        "chenxiang-axe",
+        "chenxiang-v1-head-color",
+        "chenxiang-v1-head-mask",
+        "chenxiang-v1-head-regions",
+        "chenxiang-v1-left-forearm-color",
+        "chenxiang-v1-left-forearm-mask",
+        "chenxiang-v1-left-forearm-regions",
+        "chenxiang-v1-left-shin-color",
+        "chenxiang-v1-left-shin-mask",
+        "chenxiang-v1-left-shin-regions",
+        "chenxiang-v1-left-thigh-color",
+        "chenxiang-v1-left-thigh-mask",
+        "chenxiang-v1-left-thigh-regions",
+        "chenxiang-v1-left-upper-arm-color",
+        "chenxiang-v1-left-upper-arm-mask",
+        "chenxiang-v1-left-upper-arm-regions",
+        "chenxiang-v1-right-forearm-color",
+        "chenxiang-v1-right-forearm-mask",
+        "chenxiang-v1-right-forearm-regions",
+        "chenxiang-v1-right-shin-color",
+        "chenxiang-v1-right-shin-mask",
+        "chenxiang-v1-right-shin-regions",
+        "chenxiang-v1-right-thigh-color",
+        "chenxiang-v1-right-thigh-mask",
+        "chenxiang-v1-right-thigh-regions",
+        "chenxiang-v1-right-upper-arm-color",
+        "chenxiang-v1-right-upper-arm-mask",
+        "chenxiang-v1-right-upper-arm-regions",
+        "chenxiang-v1-torso-color",
+        "chenxiang-v1-torso-mask",
+        "chenxiang-v1-torso-regions",
+        "scene-mountain-dust",
+        "scene-mountain-far",
+        "scene-mountain-left",
+        "scene-mountain-right"
+      ],
+      "sourceIds": [
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "contentKind": "original-adaptation",
+      "entryAttachments": [
+        {
+          "actorId": "chenxiang",
+          "attachmentId": "axe"
+        }
+      ]
+    },
+    {
+      "id": "split-axe",
+      "kind": "interaction",
+      "act": 3,
+      "title": "先挥斧开山",
+      "lead": "先稳身、举斧、停顿，再落斧。山片打开后，尘影还遮着人。",
+      "actors": [
+        "chenxiang"
+      ],
+      "entryPoses": {
+        "chenxiang": {
+          "x": 0.5,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": 1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        }
+      },
+      "entryStage": {
+        "backgroundId": "mountain-v1",
+        "lampX": 0,
+        "puppetDistance": 0.2
+      },
+      "entrySceneLayers": [
+        {
+          "id": "mountain-far",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-left",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-right",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-dust",
+          "x": 0,
+          "y": 0,
+          "opacity": 0
+        }
+      ],
+      "subtitles": [],
+      "fullTiming": {
+        "targetMs": 45000,
+        "minDurationMs": 0
+      },
+      "guidedTiming": {
+        "targetMs": 14000,
+        "minDurationMs": 0
+      },
+      "allowedActions": [
+        "COMPLETE_INTERACTION",
+        "SET_MODE"
+      ],
+      "completion": {
+        "kind": "axe",
+        "target": {
+          "x": 0.4,
+          "y": 0.25,
+          "width": 0.25,
+          "height": 0.3
+        },
+        "raisedAngleRange": [
+          1,
+          1.4
+        ],
+        "landedAngleRange": [
+          -0.5,
+          0.2
+        ],
+        "holdMs": 500
+      },
+      "next": {
+        "default": "split-search"
+      },
+      "prerequisites": {
+        "approach": "split-first",
+        "frozenCast": true
+      },
+      "assetIds": [
+        "chenxiang-axe",
+        "chenxiang-v1-head-color",
+        "chenxiang-v1-head-mask",
+        "chenxiang-v1-head-regions",
+        "chenxiang-v1-left-forearm-color",
+        "chenxiang-v1-left-forearm-mask",
+        "chenxiang-v1-left-forearm-regions",
+        "chenxiang-v1-left-shin-color",
+        "chenxiang-v1-left-shin-mask",
+        "chenxiang-v1-left-shin-regions",
+        "chenxiang-v1-left-thigh-color",
+        "chenxiang-v1-left-thigh-mask",
+        "chenxiang-v1-left-thigh-regions",
+        "chenxiang-v1-left-upper-arm-color",
+        "chenxiang-v1-left-upper-arm-mask",
+        "chenxiang-v1-left-upper-arm-regions",
+        "chenxiang-v1-right-forearm-color",
+        "chenxiang-v1-right-forearm-mask",
+        "chenxiang-v1-right-forearm-regions",
+        "chenxiang-v1-right-shin-color",
+        "chenxiang-v1-right-shin-mask",
+        "chenxiang-v1-right-shin-regions",
+        "chenxiang-v1-right-thigh-color",
+        "chenxiang-v1-right-thigh-mask",
+        "chenxiang-v1-right-thigh-regions",
+        "chenxiang-v1-right-upper-arm-color",
+        "chenxiang-v1-right-upper-arm-mask",
+        "chenxiang-v1-right-upper-arm-regions",
+        "chenxiang-v1-torso-color",
+        "chenxiang-v1-torso-mask",
+        "chenxiang-v1-torso-regions",
+        "scene-mountain-dust",
+        "scene-mountain-far",
+        "scene-mountain-left",
+        "scene-mountain-right"
+      ],
+      "sourceIds": [
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "contentKind": "original-adaptation",
+      "entryAttachments": [
+        {
+          "actorId": "chenxiang",
+          "attachmentId": "axe"
+        }
+      ]
+    },
+    {
+      "id": "split-search",
+      "kind": "interaction",
+      "act": 3,
+      "title": "穿过尘影，寻找母亲",
+      "lead": "山已经打开。移动灯，让纹样投影穿过尘隙，找到母亲的轮廓。",
+      "actors": [
+        "chenxiang",
+        "mother"
+      ],
+      "entryPoses": {
+        "chenxiang": {
+          "x": 0.32,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": 1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        },
+        "mother": {
+          "x": 0.68,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": -1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        }
+      },
+      "entryStage": {
+        "backgroundId": "mountain-v1",
+        "lampX": 0,
+        "puppetDistance": 0.2
+      },
+      "entrySceneLayers": [
+        {
+          "id": "mountain-far",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-left",
+          "x": -0.55,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-right",
+          "x": 0.55,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-dust",
+          "x": 0,
+          "y": 0,
+          "opacity": 0.8
+        }
+      ],
+      "subtitles": [],
+      "fullTiming": {
+        "targetMs": 50000,
+        "minDurationMs": 0
+      },
+      "guidedTiming": {
+        "targetMs": 16000,
+        "minDurationMs": 0
+      },
+      "allowedActions": [
+        "COMPLETE_INTERACTION",
+        "SET_MODE"
+      ],
+      "completion": {
+        "kind": "light",
+        "target": {
+          "x": 0.46,
+          "y": 0.38,
+          "width": 0.14,
+          "height": 0.28
+        },
+        "overlapRatio": 0.35,
+        "holdMs": 600
+      },
+      "next": {
+        "default": "split-response"
+      },
+      "prerequisites": {
+        "approach": "split-first",
+        "frozenCast": true
+      },
+      "assetIds": [
+        "chenxiang-v1-head-color",
+        "chenxiang-v1-head-mask",
+        "chenxiang-v1-head-regions",
+        "chenxiang-v1-left-forearm-color",
+        "chenxiang-v1-left-forearm-mask",
+        "chenxiang-v1-left-forearm-regions",
+        "chenxiang-v1-left-shin-color",
+        "chenxiang-v1-left-shin-mask",
+        "chenxiang-v1-left-shin-regions",
+        "chenxiang-v1-left-thigh-color",
+        "chenxiang-v1-left-thigh-mask",
+        "chenxiang-v1-left-thigh-regions",
+        "chenxiang-v1-left-upper-arm-color",
+        "chenxiang-v1-left-upper-arm-mask",
+        "chenxiang-v1-left-upper-arm-regions",
+        "chenxiang-v1-right-forearm-color",
+        "chenxiang-v1-right-forearm-mask",
+        "chenxiang-v1-right-forearm-regions",
+        "chenxiang-v1-right-shin-color",
+        "chenxiang-v1-right-shin-mask",
+        "chenxiang-v1-right-shin-regions",
+        "chenxiang-v1-right-thigh-color",
+        "chenxiang-v1-right-thigh-mask",
+        "chenxiang-v1-right-thigh-regions",
+        "chenxiang-v1-right-upper-arm-color",
+        "chenxiang-v1-right-upper-arm-mask",
+        "chenxiang-v1-right-upper-arm-regions",
+        "chenxiang-v1-torso-color",
+        "chenxiang-v1-torso-mask",
+        "chenxiang-v1-torso-regions",
+        "cloud-v1-cut-1",
+        "cloud-v1-cut-2",
+        "cloud-v1-cut-3",
+        "flower-v1-cut-1",
+        "flower-v1-cut-2",
+        "flower-v1-cut-3",
+        "mother-v1-head-color",
+        "mother-v1-head-mask",
+        "mother-v1-head-regions",
+        "mother-v1-left-forearm-color",
+        "mother-v1-left-forearm-mask",
+        "mother-v1-left-forearm-regions",
+        "mother-v1-left-upper-arm-color",
+        "mother-v1-left-upper-arm-mask",
+        "mother-v1-left-upper-arm-regions",
+        "mother-v1-right-forearm-color",
+        "mother-v1-right-forearm-mask",
+        "mother-v1-right-forearm-regions",
+        "mother-v1-right-upper-arm-color",
+        "mother-v1-right-upper-arm-mask",
+        "mother-v1-right-upper-arm-regions",
+        "mother-v1-torso-color",
+        "mother-v1-torso-mask",
+        "mother-v1-torso-regions",
+        "scene-mountain-dust",
+        "scene-mountain-far",
+        "scene-mountain-left",
+        "scene-mountain-right",
+        "wave-v1-cut-1",
+        "wave-v1-cut-2",
+        "wave-v1-cut-3"
+      ],
+      "sourceIds": [
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "contentKind": "original-adaptation",
+      "entryAttachments": []
+    },
+    {
+      "id": "split-response",
+      "kind": "cinematic",
+      "act": 3,
+      "title": "这一次，看见她",
+      "lead": "母亲从遮挡中出现，给予回应。",
+      "actors": [
+        "chenxiang",
+        "mother"
+      ],
+      "entryPoses": {
+        "chenxiang": {
+          "x": 0.32,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": 1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        },
+        "mother": {
+          "x": 0.68,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": -1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        }
+      },
+      "entryStage": {
+        "backgroundId": "mountain-v1",
+        "lampX": 0,
+        "puppetDistance": 0.2
+      },
+      "entrySceneLayers": [
+        {
+          "id": "mountain-far",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-left",
+          "x": -0.55,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-right",
+          "x": 0.55,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-dust",
+          "x": 0,
+          "y": 0,
+          "opacity": 0
+        }
+      ],
+      "subtitles": [
+        {
+          "startMs": 0,
+          "endMs": 5000,
+          "speaker": "mother",
+          "text": "我在这里。",
+          "contentKind": "original-adaptation"
+        }
+      ],
+      "fullTiming": {
+        "targetMs": 5000,
+        "minDurationMs": 5000
+      },
+      "guidedTiming": {
+        "targetMs": 5000,
+        "minDurationMs": 5000
+      },
+      "allowedActions": [
+        "COMPLETE_SCENE",
+        "SET_MODE"
+      ],
+      "completion": {
+        "kind": "scene",
+        "activation": "automatic",
+        "skippable": false
+      },
+      "next": {
+        "default": "reunion-reach"
+      },
+      "prerequisites": {
+        "approach": "split-first",
+        "frozenCast": true
+      },
+      "assetIds": [
+        "chenxiang-v1-head-color",
+        "chenxiang-v1-head-mask",
+        "chenxiang-v1-head-regions",
+        "chenxiang-v1-left-forearm-color",
+        "chenxiang-v1-left-forearm-mask",
+        "chenxiang-v1-left-forearm-regions",
+        "chenxiang-v1-left-shin-color",
+        "chenxiang-v1-left-shin-mask",
+        "chenxiang-v1-left-shin-regions",
+        "chenxiang-v1-left-thigh-color",
+        "chenxiang-v1-left-thigh-mask",
+        "chenxiang-v1-left-thigh-regions",
+        "chenxiang-v1-left-upper-arm-color",
+        "chenxiang-v1-left-upper-arm-mask",
+        "chenxiang-v1-left-upper-arm-regions",
+        "chenxiang-v1-right-forearm-color",
+        "chenxiang-v1-right-forearm-mask",
+        "chenxiang-v1-right-forearm-regions",
+        "chenxiang-v1-right-shin-color",
+        "chenxiang-v1-right-shin-mask",
+        "chenxiang-v1-right-shin-regions",
+        "chenxiang-v1-right-thigh-color",
+        "chenxiang-v1-right-thigh-mask",
+        "chenxiang-v1-right-thigh-regions",
+        "chenxiang-v1-right-upper-arm-color",
+        "chenxiang-v1-right-upper-arm-mask",
+        "chenxiang-v1-right-upper-arm-regions",
+        "chenxiang-v1-torso-color",
+        "chenxiang-v1-torso-mask",
+        "chenxiang-v1-torso-regions",
+        "cloud-v1-cut-1",
+        "cloud-v1-cut-2",
+        "cloud-v1-cut-3",
+        "flower-v1-cut-1",
+        "flower-v1-cut-2",
+        "flower-v1-cut-3",
+        "mother-v1-head-color",
+        "mother-v1-head-mask",
+        "mother-v1-head-regions",
+        "mother-v1-left-forearm-color",
+        "mother-v1-left-forearm-mask",
+        "mother-v1-left-forearm-regions",
+        "mother-v1-left-upper-arm-color",
+        "mother-v1-left-upper-arm-mask",
+        "mother-v1-left-upper-arm-regions",
+        "mother-v1-right-forearm-color",
+        "mother-v1-right-forearm-mask",
+        "mother-v1-right-forearm-regions",
+        "mother-v1-right-upper-arm-color",
+        "mother-v1-right-upper-arm-mask",
+        "mother-v1-right-upper-arm-regions",
+        "mother-v1-torso-color",
+        "mother-v1-torso-mask",
+        "mother-v1-torso-regions",
+        "scene-mountain-dust",
+        "scene-mountain-far",
+        "scene-mountain-left",
+        "scene-mountain-right",
+        "wave-v1-cut-1",
+        "wave-v1-cut-2",
+        "wave-v1-cut-3"
+      ],
+      "sourceIds": [
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "contentKind": "original-adaptation",
+      "entryAttachments": []
+    },
+    {
+      "id": "reunion-reach",
+      "kind": "interaction",
+      "act": 4,
+      "title": "这一回，握住",
+      "lead": "慢慢把沉香的手牵向母亲。你停下时，角色也会等待。",
+      "actors": [
+        "chenxiang",
+        "mother"
+      ],
+      "entryPoses": {
+        "chenxiang": {
+          "x": 0.4,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": 1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        },
+        "mother": {
+          "x": 0.6,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": -1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        }
+      },
+      "entryStage": {
+        "backgroundId": "mountain-v1",
+        "lampX": 0,
+        "puppetDistance": 0.2
+      },
+      "entrySceneLayers": [
+        {
+          "id": "mountain-far",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-left",
+          "x": -0.55,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-right",
+          "x": 0.55,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-dust",
+          "x": 0,
+          "y": 0,
+          "opacity": 0
+        }
+      ],
+      "subtitles": [],
+      "fullTiming": {
+        "targetMs": 45000,
+        "minDurationMs": 0
+      },
+      "guidedTiming": {
+        "targetMs": 17000,
+        "minDurationMs": 0
+      },
+      "allowedActions": [
+        "COMPLETE_INTERACTION",
+        "SET_MODE"
+      ],
+      "completion": {
+        "kind": "reach",
+        "target": {
+          "x": 0.46,
+          "y": 0.51,
+          "width": 0.12,
+          "height": 0.16
+        },
+        "maxDistanceRatio": 0.04,
+        "maxSnapRatio": 0.02
+      },
+      "next": {
+        "default": "reunion-hold"
+      },
+      "prerequisites": {
+        "approach": null,
+        "frozenCast": true
+      },
+      "assetIds": [
+        "chenxiang-v1-head-color",
+        "chenxiang-v1-head-mask",
+        "chenxiang-v1-head-regions",
+        "chenxiang-v1-left-forearm-color",
+        "chenxiang-v1-left-forearm-mask",
+        "chenxiang-v1-left-forearm-regions",
+        "chenxiang-v1-left-shin-color",
+        "chenxiang-v1-left-shin-mask",
+        "chenxiang-v1-left-shin-regions",
+        "chenxiang-v1-left-thigh-color",
+        "chenxiang-v1-left-thigh-mask",
+        "chenxiang-v1-left-thigh-regions",
+        "chenxiang-v1-left-upper-arm-color",
+        "chenxiang-v1-left-upper-arm-mask",
+        "chenxiang-v1-left-upper-arm-regions",
+        "chenxiang-v1-right-forearm-color",
+        "chenxiang-v1-right-forearm-mask",
+        "chenxiang-v1-right-forearm-regions",
+        "chenxiang-v1-right-shin-color",
+        "chenxiang-v1-right-shin-mask",
+        "chenxiang-v1-right-shin-regions",
+        "chenxiang-v1-right-thigh-color",
+        "chenxiang-v1-right-thigh-mask",
+        "chenxiang-v1-right-thigh-regions",
+        "chenxiang-v1-right-upper-arm-color",
+        "chenxiang-v1-right-upper-arm-mask",
+        "chenxiang-v1-right-upper-arm-regions",
+        "chenxiang-v1-torso-color",
+        "chenxiang-v1-torso-mask",
+        "chenxiang-v1-torso-regions",
+        "cloud-v1-cut-1",
+        "cloud-v1-cut-2",
+        "cloud-v1-cut-3",
+        "flower-v1-cut-1",
+        "flower-v1-cut-2",
+        "flower-v1-cut-3",
+        "mother-v1-head-color",
+        "mother-v1-head-mask",
+        "mother-v1-head-regions",
+        "mother-v1-left-forearm-color",
+        "mother-v1-left-forearm-mask",
+        "mother-v1-left-forearm-regions",
+        "mother-v1-left-upper-arm-color",
+        "mother-v1-left-upper-arm-mask",
+        "mother-v1-left-upper-arm-regions",
+        "mother-v1-right-forearm-color",
+        "mother-v1-right-forearm-mask",
+        "mother-v1-right-forearm-regions",
+        "mother-v1-right-upper-arm-color",
+        "mother-v1-right-upper-arm-mask",
+        "mother-v1-right-upper-arm-regions",
+        "mother-v1-torso-color",
+        "mother-v1-torso-mask",
+        "mother-v1-torso-regions",
+        "scene-mountain-dust",
+        "scene-mountain-far",
+        "scene-mountain-left",
+        "scene-mountain-right",
+        "wave-v1-cut-1",
+        "wave-v1-cut-2",
+        "wave-v1-cut-3"
+      ],
+      "sourceIds": [
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "contentKind": "original-adaptation",
+      "entryAttachments": []
+    },
+    {
+      "id": "reunion-hold",
+      "kind": "cinematic",
+      "act": 4,
+      "title": "让我看看你",
+      "lead": "让两只影偶安静停留四秒，然后由你点击谢幕。",
+      "actors": [
+        "chenxiang",
+        "mother"
+      ],
+      "entryPoses": {
+        "chenxiang": {
+          "x": 0.4,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": 1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        },
+        "mother": {
+          "x": 0.6,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": -1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        }
+      },
+      "entryStage": {
+        "backgroundId": "mountain-v1",
+        "lampX": 0,
+        "puppetDistance": 0.2
+      },
+      "entrySceneLayers": [
+        {
+          "id": "mountain-far",
+          "x": 0,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-left",
+          "x": -0.55,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-right",
+          "x": 0.55,
+          "y": 0,
+          "opacity": 1
+        },
+        {
+          "id": "mountain-dust",
+          "x": 0,
+          "y": 0,
+          "opacity": 0
+        }
+      ],
+      "subtitles": [
+        {
+          "startMs": 0,
+          "endMs": 2000,
+          "speaker": "chenxiang",
+          "text": "娘，我回来了。",
+          "contentKind": "original-adaptation"
+        },
+        {
+          "startMs": 2000,
+          "endMs": 4000,
+          "speaker": "mother",
+          "text": "让我看看你。",
+          "contentKind": "original-adaptation"
+        }
+      ],
+      "fullTiming": {
+        "targetMs": 4000,
+        "minDurationMs": 4000
+      },
+      "guidedTiming": {
+        "targetMs": 4000,
+        "minDurationMs": 4000
+      },
+      "allowedActions": [
+        "COMPLETE_SCENE",
+        "SET_MODE"
+      ],
+      "completion": {
+        "kind": "scene",
+        "activation": "user",
+        "skippable": false
+      },
+      "next": {
+        "default": "curtain"
+      },
+      "prerequisites": {
+        "approach": null,
+        "frozenCast": true
+      },
+      "assetIds": [
+        "chenxiang-v1-head-color",
+        "chenxiang-v1-head-mask",
+        "chenxiang-v1-head-regions",
+        "chenxiang-v1-left-forearm-color",
+        "chenxiang-v1-left-forearm-mask",
+        "chenxiang-v1-left-forearm-regions",
+        "chenxiang-v1-left-shin-color",
+        "chenxiang-v1-left-shin-mask",
+        "chenxiang-v1-left-shin-regions",
+        "chenxiang-v1-left-thigh-color",
+        "chenxiang-v1-left-thigh-mask",
+        "chenxiang-v1-left-thigh-regions",
+        "chenxiang-v1-left-upper-arm-color",
+        "chenxiang-v1-left-upper-arm-mask",
+        "chenxiang-v1-left-upper-arm-regions",
+        "chenxiang-v1-right-forearm-color",
+        "chenxiang-v1-right-forearm-mask",
+        "chenxiang-v1-right-forearm-regions",
+        "chenxiang-v1-right-shin-color",
+        "chenxiang-v1-right-shin-mask",
+        "chenxiang-v1-right-shin-regions",
+        "chenxiang-v1-right-thigh-color",
+        "chenxiang-v1-right-thigh-mask",
+        "chenxiang-v1-right-thigh-regions",
+        "chenxiang-v1-right-upper-arm-color",
+        "chenxiang-v1-right-upper-arm-mask",
+        "chenxiang-v1-right-upper-arm-regions",
+        "chenxiang-v1-torso-color",
+        "chenxiang-v1-torso-mask",
+        "chenxiang-v1-torso-regions",
+        "cloud-v1-cut-1",
+        "cloud-v1-cut-2",
+        "cloud-v1-cut-3",
+        "flower-v1-cut-1",
+        "flower-v1-cut-2",
+        "flower-v1-cut-3",
+        "mother-v1-head-color",
+        "mother-v1-head-mask",
+        "mother-v1-head-regions",
+        "mother-v1-left-forearm-color",
+        "mother-v1-left-forearm-mask",
+        "mother-v1-left-forearm-regions",
+        "mother-v1-left-upper-arm-color",
+        "mother-v1-left-upper-arm-mask",
+        "mother-v1-left-upper-arm-regions",
+        "mother-v1-right-forearm-color",
+        "mother-v1-right-forearm-mask",
+        "mother-v1-right-forearm-regions",
+        "mother-v1-right-upper-arm-color",
+        "mother-v1-right-upper-arm-mask",
+        "mother-v1-right-upper-arm-regions",
+        "mother-v1-torso-color",
+        "mother-v1-torso-mask",
+        "mother-v1-torso-regions",
+        "scene-mountain-dust",
+        "scene-mountain-far",
+        "scene-mountain-left",
+        "scene-mountain-right",
+        "wave-v1-cut-1",
+        "wave-v1-cut-2",
+        "wave-v1-cut-3"
+      ],
+      "sourceIds": [
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "contentKind": "original-adaptation",
+      "entryAttachments": []
+    },
+    {
+      "id": "curtain",
+      "kind": "curtain",
+      "act": 4,
+      "title": "幕后的双手",
+      "lead": "影偶欠身，帷幕半拢，灯、关节和竹杆进入视野；这场戏的幕后向你展开。",
+      "actors": [
+        "chenxiang",
+        "mother"
+      ],
+      "entryPoses": {
+        "chenxiang": {
+          "x": 0.4,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": 1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        },
+        "mother": {
+          "x": 0.6,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": -1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        }
+      },
+      "entryStage": {
+        "backgroundId": "plain-v1",
+        "lampX": 0,
+        "puppetDistance": 0.2
+      },
+      "entrySceneLayers": [],
+      "subtitles": [
+        {
+          "startMs": 0,
+          "endMs": 15000,
+          "speaker": "narrator",
+          "text": "这一场的操偶者：你。",
+          "contentKind": "original-adaptation"
+        }
+      ],
+      "fullTiming": {
+        "targetMs": 15000,
+        "minDurationMs": 15000
+      },
+      "guidedTiming": {
+        "targetMs": 8000,
+        "minDurationMs": 8000
+      },
+      "allowedActions": [
+        "COMPLETE_SCENE",
+        "SET_MODE"
+      ],
+      "completion": {
+        "kind": "scene",
+        "activation": "automatic",
+        "skippable": false
+      },
+      "next": {
+        "default": "completed"
+      },
+      "prerequisites": {
+        "approach": null,
+        "frozenCast": true
+      },
+      "assetIds": [
+        "chenxiang-v1-head-color",
+        "chenxiang-v1-head-mask",
+        "chenxiang-v1-head-regions",
+        "chenxiang-v1-left-forearm-color",
+        "chenxiang-v1-left-forearm-mask",
+        "chenxiang-v1-left-forearm-regions",
+        "chenxiang-v1-left-shin-color",
+        "chenxiang-v1-left-shin-mask",
+        "chenxiang-v1-left-shin-regions",
+        "chenxiang-v1-left-thigh-color",
+        "chenxiang-v1-left-thigh-mask",
+        "chenxiang-v1-left-thigh-regions",
+        "chenxiang-v1-left-upper-arm-color",
+        "chenxiang-v1-left-upper-arm-mask",
+        "chenxiang-v1-left-upper-arm-regions",
+        "chenxiang-v1-right-forearm-color",
+        "chenxiang-v1-right-forearm-mask",
+        "chenxiang-v1-right-forearm-regions",
+        "chenxiang-v1-right-shin-color",
+        "chenxiang-v1-right-shin-mask",
+        "chenxiang-v1-right-shin-regions",
+        "chenxiang-v1-right-thigh-color",
+        "chenxiang-v1-right-thigh-mask",
+        "chenxiang-v1-right-thigh-regions",
+        "chenxiang-v1-right-upper-arm-color",
+        "chenxiang-v1-right-upper-arm-mask",
+        "chenxiang-v1-right-upper-arm-regions",
+        "chenxiang-v1-torso-color",
+        "chenxiang-v1-torso-mask",
+        "chenxiang-v1-torso-regions",
+        "cloud-v1-cut-1",
+        "cloud-v1-cut-2",
+        "cloud-v1-cut-3",
+        "flower-v1-cut-1",
+        "flower-v1-cut-2",
+        "flower-v1-cut-3",
+        "mother-v1-head-color",
+        "mother-v1-head-mask",
+        "mother-v1-head-regions",
+        "mother-v1-left-forearm-color",
+        "mother-v1-left-forearm-mask",
+        "mother-v1-left-forearm-regions",
+        "mother-v1-left-upper-arm-color",
+        "mother-v1-left-upper-arm-mask",
+        "mother-v1-left-upper-arm-regions",
+        "mother-v1-right-forearm-color",
+        "mother-v1-right-forearm-mask",
+        "mother-v1-right-forearm-regions",
+        "mother-v1-right-upper-arm-color",
+        "mother-v1-right-upper-arm-mask",
+        "mother-v1-right-upper-arm-regions",
+        "mother-v1-torso-color",
+        "mother-v1-torso-mask",
+        "mother-v1-torso-regions",
+        "wave-v1-cut-1",
+        "wave-v1-cut-2",
+        "wave-v1-cut-3"
+      ],
+      "sourceIds": [
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "contentKind": "original-adaptation",
+      "entryAttachments": []
+    },
+    {
+      "id": "completed",
+      "kind": "terminal",
+      "act": 4,
+      "title": "同台成馆",
+      "lead": "本场已谢幕。节目单从冻结造型、路线与协助记录生成；逛展不再改变剧情进度。",
+      "actors": [
+        "chenxiang",
+        "mother"
+      ],
+      "entryPoses": {
+        "chenxiang": {
+          "x": 0.4,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": 1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        },
+        "mother": {
+          "x": 0.6,
+          "y": 0.68,
+          "scale": 0.8,
+          "facing": -1,
+          "joints": {
+            "head": 0,
+            "leftShoulder": 0,
+            "leftElbow": 0,
+            "rightShoulder": 0,
+            "rightElbow": 0,
+            "leftHip": 0,
+            "leftKnee": 0,
+            "rightHip": 0,
+            "rightKnee": 0
+          }
+        }
+      },
+      "entryStage": {
+        "backgroundId": "plain-v1",
+        "lampX": 0,
+        "puppetDistance": 0.2
+      },
+      "entrySceneLayers": [],
+      "subtitles": [],
+      "fullTiming": {
+        "targetMs": 0,
+        "minDurationMs": 0
+      },
+      "guidedTiming": {
+        "targetMs": 0,
+        "minDurationMs": 0
+      },
+      "allowedActions": [
+        "SET_MODE"
+      ],
+      "completion": {
+        "kind": "terminal"
+      },
+      "next": null,
+      "prerequisites": {
+        "approach": null,
+        "frozenCast": true
+      },
+      "assetIds": [
+        "chenxiang-v1-head-color",
+        "chenxiang-v1-head-mask",
+        "chenxiang-v1-head-regions",
+        "chenxiang-v1-left-forearm-color",
+        "chenxiang-v1-left-forearm-mask",
+        "chenxiang-v1-left-forearm-regions",
+        "chenxiang-v1-left-shin-color",
+        "chenxiang-v1-left-shin-mask",
+        "chenxiang-v1-left-shin-regions",
+        "chenxiang-v1-left-thigh-color",
+        "chenxiang-v1-left-thigh-mask",
+        "chenxiang-v1-left-thigh-regions",
+        "chenxiang-v1-left-upper-arm-color",
+        "chenxiang-v1-left-upper-arm-mask",
+        "chenxiang-v1-left-upper-arm-regions",
+        "chenxiang-v1-right-forearm-color",
+        "chenxiang-v1-right-forearm-mask",
+        "chenxiang-v1-right-forearm-regions",
+        "chenxiang-v1-right-shin-color",
+        "chenxiang-v1-right-shin-mask",
+        "chenxiang-v1-right-shin-regions",
+        "chenxiang-v1-right-thigh-color",
+        "chenxiang-v1-right-thigh-mask",
+        "chenxiang-v1-right-thigh-regions",
+        "chenxiang-v1-right-upper-arm-color",
+        "chenxiang-v1-right-upper-arm-mask",
+        "chenxiang-v1-right-upper-arm-regions",
+        "chenxiang-v1-torso-color",
+        "chenxiang-v1-torso-mask",
+        "chenxiang-v1-torso-regions",
+        "cloud-v1-cut-1",
+        "cloud-v1-cut-2",
+        "cloud-v1-cut-3",
+        "flower-v1-cut-1",
+        "flower-v1-cut-2",
+        "flower-v1-cut-3",
+        "mother-v1-head-color",
+        "mother-v1-head-mask",
+        "mother-v1-head-regions",
+        "mother-v1-left-forearm-color",
+        "mother-v1-left-forearm-mask",
+        "mother-v1-left-forearm-regions",
+        "mother-v1-left-upper-arm-color",
+        "mother-v1-left-upper-arm-mask",
+        "mother-v1-left-upper-arm-regions",
+        "mother-v1-right-forearm-color",
+        "mother-v1-right-forearm-mask",
+        "mother-v1-right-forearm-regions",
+        "mother-v1-right-upper-arm-color",
+        "mother-v1-right-upper-arm-mask",
+        "mother-v1-right-upper-arm-regions",
+        "mother-v1-torso-color",
+        "mother-v1-torso-mask",
+        "mother-v1-torso-regions",
+        "wave-v1-cut-1",
+        "wave-v1-cut-2",
+        "wave-v1-cut-3"
+      ],
+      "sourceIds": [
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "contentKind": "original-adaptation",
+      "entryAttachments": []
+    }
+  ],
+  "subtitleTimebase": "full-target-ms"
+}

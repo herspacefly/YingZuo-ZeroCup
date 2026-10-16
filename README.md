@@ -1,6 +1,6 @@
 # 影作 · 一幕团圆
 
-据传统故事《劈山救母》原创交互改编的短戏与数字展馆。已有 **T00 工程与兼容探针**、**T03 正式项目数据层**与 **T01 占位资产契约**：Canvas 灯影试作、事务存档与恢复、三角色分件、纹样和场景检查。完整短戏、正式美术与展馆仍待后续任务实施。
+据传统故事《劈山救母》原创交互改编的短戏与数字展馆。已有 **T00工程**、**T03正式数据层**、**T01占位资产**与 **T15文字剧情状态机**。文字排演可走通完整/导览的两条路径，并保存、刷新接续；角色动画、手动操偶、正式页面与展馆仍待后续接入。
 
 接手先读 [START_HERE](START_HERE.md)、[项目约定](AGENTS.md)、[当前状态](docs/STATE.md)和[任务账本](docs/tasks.json)。设计依据见[主方案](docs/plans/2026-10-15-yingzuo-design-and-implementation.md)与[叙事稿](docs/content/2026-10-15-yingzuo-story-bible.md)。
 
@@ -13,7 +13,7 @@ npm ci
 npm run dev
 ```
 
-默认打开 <http://127.0.0.1:5173/>。首页为灯影试作；[运行检查](http://127.0.0.1:5173/probe.html)使用独立探针库；[存档工作台](http://127.0.0.1:5173/project.html)用于正式项目数据、自动保存、恢复与文件检查；[资产检查](http://127.0.0.1:5173/assets.html)显示三角色中性组装、镂空与场景层。无运行时 CDN、远程字体、API 或环境密钥。使用静态本地服务器，不能直接双击 HTML 运行模块。
+默认打开 <http://127.0.0.1:5173/>。首页为灯影试作；[运行检查](http://127.0.0.1:5173/probe.html)使用独立探针库；[存档工作台](http://127.0.0.1:5173/project.html)用于正式项目数据、自动保存、恢复与文件检查；[资产检查](http://127.0.0.1:5173/assets.html)显示三角色中性组装、镂空与场景层；[文字排演](http://127.0.0.1:5173/story.html)验证节点、两路径、完成时间与正式存档。无运行时 CDN、远程字体、API 或环境密钥。使用静态本地服务器，不能直接双击 HTML 运行模块。
 
 ## 检查与生产预览
 
@@ -26,11 +26,12 @@ npx playwright install chromium
 npm run test:e2e
 npm run verify:state
 npm run verify:assets
+npm run verify:content
 ```
 
 `test:e2e` 会启动生产预览服务，占用 4173 端口；请先停止该端口上的其他预览服务。测试含 1440×900 与 390×844 Chromium 视口，手机视口属于模拟。测试截图和失败诊断写到忽略的 `test-results/`。T00 已保留两张[桌面](docs/evidence/t00-desktop.png)／[窄屏](docs/evidence/t00-mobile.png)检查截图。
 
-`verify:assets` 检查实际 PNG 解码、透明覆盖、颜色区标签、引用、CSV 与哈希，草稿结构有效时通过。`npm run verify:assets -- --release` 在当前 draft / unknown 状态明确 **NOT_READY / 退出码 2**。结构通过不表示美术、文化或许可已审。T15 实施前没有 `verify:content`。
+`verify:assets`检查实际PNG、引用、CSV与哈希；`verify:content`检查18节点图、两条路径、角色/附件/姿态/图层、字幕时间基准与来源/资源引用。开发结构有效时通过。两项加`-- --release`均在当前阶段明确NOT_READY/退出码2；正式美术、文化与许可审定仍待T10。
 
 ```powershell
 npm run build
@@ -58,7 +59,15 @@ npm run preview
 - 草稿损坏时停下来检查备份；明确恢复后保留损坏原稿，继续编辑、保存和刷新。未知版本和超限原稿保留且停止覆盖。
 - 两标签冲突后保留双方版本，暂停自动覆盖；当前未保存稿可导出，明确接管才重读并再次检查版本。
 
-原始记录导出是 `yingzuo-raw-snapshots-v1` 诊断包，使用类型标记保留损坏值，不能当 Project 文件导入。工作台用于数据接线检查，尚无剧情运行器。正式产品页面、操偶和剧情命令在 T02/T05/T15 接入，接口以 [ProjectV1 合同](docs/contracts/project-v1.md) 为准。
+原始记录导出是 `yingzuo-raw-snapshots-v1` 诊断包，使用类型标记保留损坏值，不能当Project文件导入。工作台用于数据接线检查；文字排演通过同一个ProjectStore提交剧情命令，接口以[ProjectV1合同](docs/contracts/project-v1.md)为准。
+
+## 文字排演与剧情接线
+
+story.html提供显式开始、跳过序幕、编辑稿/默认影偶开演、两条路径、文字协助、四秒静候、谢幕和稳定成果摘要。它不提供手动操偶；操作段按明确协助记录，自动分镜不算协助。两模式用同一故事和完成条件；切模式需暂停并重开当前短节点。
+
+推进先保存再应用，失败时保留旧节点和可导出候选，可原样重试/取消/明确内存继续。进入curtain仅写一次完成时间，成果ID由runId派生；刷新默认暂停，不重新选择已保存路线。新项目先归档，既有演出不会被组件重挂载重置。
+
+消费者先读[剧情合同](docs/contracts/story-v1.md)，复用domain/story.ts与app/story-commands.ts。T16/T17再接NodeScope、演员调度、实际时钟/输入/几何判定；文字排演通过不代表完整图像流程或实际演出时长验收。
 
 ## 占位资源与消费者
 

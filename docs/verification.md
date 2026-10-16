@@ -125,3 +125,25 @@ T03 源码检查点：bef273f2a5d13621c185a8289dee154514676102；80/80 单元检
 本轮没有实现双角色运行时成影、IK、灯影投影、剧情状态机或正式产品路由。完整两路径/恢复、正式美术/文化/许可、真实IE/实体手机/Safari、性能与情绪验收未执行，分别留给T02/T04/T10/T11/T15—T18。T01通过不代表G1或整场完成。上述两张布局诊断图保留在docs/evidence。清理临时test-results的操作两次被自动审批以“blocked by policy”拒绝（含改用已核对的显式文件路径），工具未给更具体原因；四张回归截图和.last-run.json仍留在忽略目录，未提交。
 
 T01已验证源码检查点：15f9650119d97fffd2accea82f64c5a4e07be9fc；以上100项单元、42项生产浏览器与8份legacy ES5检查对应这份实现。
+
+## 2026-10-16：T15 版本化文字剧本、守卫命令与保存
+
+- 执行者codex-root，main；独立审查者t15_contract_audit只读需求/代码，无共享写入。依赖与锁文件未变；新增verify:content脚本，不读取或提交用户暂存的赛事DOCX/PPTX。
+- reunion-v1.json共18节点，每路径15节点；full/guided共享事件顺序与完成条件，唯一选择汇合到团圆。明确角色入口姿态/灯位/场景/附件，字幕以full目标时间轴记录，并通过subtitlesForMode映射到guided。
+- beginStory与四类剧情命令均经Store.commit；run/revision/nodeId旧身份no-op，当前非法动作/payload拒绝。确认编辑稿时从队列执行时最新appearance冻结；明确默认影偶时冻结defaultAppearance，编辑稿保留。
+- reunion-hold至少4秒后需用户点击；进入curtain一次写completedAt，成果ID只派生runId:reunion。保存候选未成功不应用下一节点；失败可导出、重试同一候选、取消或明确内存继续，完成时间不重建。
+- storyEntry返回独立入口副本和新generation token，恢复/模式变化都暂停并重开当前短节点。文本页的过场时钟可暂停，失焦/隐藏/长卡顿暂停；实际动画、NodeScope与输入/几何判定留T16/T17。
+
+实际执行：
+
+- `npm test`：7文件141/141通过，新增41项，包括full/guided×两路线×手动证据/明确协助，重复身份、错动作/跳过、冻结/预设、完成时间、静候/模式、配置图/资源/字幕反例，以及ProjectStore+fake-indexeddb事务失败/导出/取消/明确内存继续/同候选重试。
+- `npm run build`（含typecheck）通过；`npm run verify:legacy`确认10份legacy JS为ES5，五个HTML具备modern/legacy入口。
+- `npm run verify:content`通过节点、路径、角色/关节限位/附件、场景初值、字幕基准、来源与资源引用；`verify:assets`仍通过80张PNG的实际检查；`verify:state`通过19任务依赖与证据记录。
+- 子进程实际确认verify-content与verify-assets的`--release`均退出2/NOT_READY；没有把开发结构通过冒称正式内容、文化或素材许可审定。
+- 最终`npm run test:e2e -- --workers=2`：56/56通过，约1.1分钟。Chromium156.0.8078.4，桌面1440×900、模拟手机390×844，各28项。新增14项验证四种文字路径/模式组合、选择前后真实刷新、暂停切模式重挂载、团圆写入故障/候选真实下载/重试/谢幕同完成时间和legacy运行；原42项回归通过。
+- 最短停留与过场等待由Playwright虚拟时钟加速；它检查门槛与暂停接续，不是6—8分钟或三分钟实际体验时长验收。合成手动evidence也不是实际鼠标/触屏/键盘操偶验收。
+- http://127.0.0.1:5173/story.html实际可用，已查看并保留evidence/t15-desktop.png（1440×1000）与t15-mobile.png（390×844，滚动至选择节点），仅作文字工程布局证据。
+- 只读审查发现三项接口问题并已修复复核：导览字幕未定时间映射、修改稿被恒标预设、必要兵器未列入强制资源检查。修复均有对应反例检查，未发现新的T15阻塞。
+- 本轮逐文件使用显式路径、无Force/无递归，成功删除test-results中的5个临时文件及空目录，实际Test-Path=false；未再遗留临时诊断材料。docs/evidence中证据截图保留。
+
+尚未完成：正式产品hash路由（T02）、双角色运行时成影/投影/IK（T04）、真实手动与键盘动作/协助短片/场面清理（T07/T16/T17）、八展品及成果PNG（T18/T09）、正式美术与内容审定（T10）、真实IE/实体手机/Safari、完整图形SAVE流程、性能与情绪验收。T15的STORY-01/02/07通过仅覆盖文字/领域和持久化边界，G1仍待T02。

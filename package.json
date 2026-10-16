@@ -16,6 +16,7 @@
     "test:e2e": "playwright test",
     "verify:state": "node scripts/verify-state.mjs",
     "verify:assets": "node scripts/verify-assets.mjs",
+    "verify:content": "node scripts/verify-content.mjs",
     "verify:legacy": "node scripts/verify-legacy.mjs"
   },
   "devDependencies": {

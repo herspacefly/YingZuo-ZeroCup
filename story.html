@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>影作 · 文字排演</title></head>
+<body>
+  <header><a href="./">影作·一幕团圆</a><nav aria-label="工程入口"><a href="./assets.html">资产检查</a><a href="./project.html">存档工作台</a></nav></header>
+  <main>
+    <p class="eyebrow">T15 / STORY DEFINITION 1</p><h1>先让这出戏，从头到尾讲通。</h1>
+    <p>据传统故事《劈山救母》原创交互改编。这里是文字排演检查页：角色动画与操偶尚未接入，操作段明确按文字协助记载。字幕以完整文本显示。</p>
+    <p id="story-status" role="status" data-state="loading">正在读取正式项目；JavaScript不可用时可阅读本页说明。</p><p id="story-operation" role="alert"></p>
+    <section class="toolbar" aria-label="排演控制">
+      <label>演出节奏<select id="story-mode"><option value="full">完整版</option><option value="guided">导览版</option></select></label>
+      <button id="story-start" disabled>开始文字排演</button><button id="story-play" disabled>继续这一小段</button><button id="story-pause" disabled>暂停</button>
+      <button id="story-skip" disabled>跳过序幕</button>
+    </section>
+    <article id="story-node" data-node="none" aria-labelledby="node-title">
+      <p id="node-act" class="eyebrow">尚未开演</p><h2 id="node-title">为这一场留一个起点。</h2><p id="node-lead">开始后，进度将通过正式事务存档保存。刷新从当前短节点起点暂停接续。</p>
+      <p id="node-clock">暂停 · 0 秒</p><div id="node-subtitles"></div><p id="cast-summary"></p>
+      <div class="actions"><button id="story-craft" hidden disabled>用我已编辑的造型开演</button><button id="story-preset" hidden disabled>采用默认影偶开演（预设）</button><button id="story-assist" hidden disabled>文字代演这一段（记录协助）</button>
+        <button id="story-choose-call" hidden disabled>先举灯呼唤</button><button id="story-choose-split" hidden disabled>先挥斧开山</button><button id="story-complete" hidden disabled>确认片段结束</button></div>
+      <p id="result-summary"></p>
+    </article>
+    <section aria-labelledby="save-title"><h2 id="save-title">保存与接续</h2><p>保存完成才应用下一节点。失败时可导出候选、原样重试、取消，或明确仅在本页继续；仅在本页继续的进度不能靠刷新恢复。</p>
+      <div class="actions"><button id="story-export" disabled>导出当前项目 JSON</button><button id="story-retry" disabled>重试保存</button><button id="story-cancel" disabled>取消待保存动作</button><button id="story-memory" disabled>仅在本页继续（未保存）</button></div>
+      <details><summary>建立新的编辑项目</summary><p>归档当前有效项目后新建；本场的身份不会被复用。重新开始需要再次确认文字排演。</p><label><input id="archive-ack" type="checkbox">允许替换已有的上一项目（可先导出）</label><button id="story-new" disabled>归档并新建项目</button></details>
+      <p>损坏、未知版本和多标签冲突可前往<a href="./project.html">存档工作台</a>处理，本页不自动覆盖。</p>
+    </section>
+  </main><footer>文字排演检查 · 完整图像、交互与节点场面调度由后续任务接入。</footer>
+  <script type="module" src="/src/features/story-lab/main.ts"></script>
+</body></html>
