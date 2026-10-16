@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>影作 · T01 资产检查</title></head>
+<body>
+  <header><a href="./">影作·一幕团圆</a><nav aria-label="工程入口"><a href="./project.html">存档工作台</a><a href="./probe.html">兼容探针</a></nav></header>
+  <main>
+    <p class="eyebrow">T01 / ASSET VERSION 1</p><h1>角色与场景 · 占位资源检查</h1>
+    <p>原创几何草稿，用于核对分件、关节、镂空和图层。正式美术、完整剧情与双角色成影仍待后续任务。</p>
+    <p id="asset-status" role="status" data-state="loading">正在加载 80 张本地 PNG；JavaScript 不可用时，仅显示本页说明。</p>
+    <button id="retry-assets" type="button">重新加载资源</button>
+    <section class="inspection" aria-labelledby="puppet-title">
+      <div class="controls"><h2 id="puppet-title">单角色中性组装</h2>
+        <fieldset id="asset-controls" disabled>
+          <label>角色<select id="puppet"><option value="chenxiang-v1">沉香 · 十部件</option><option value="mother-v1">母亲 · 六部件</option><option value="guardian-v1">二郎神 · 四部件</option></select></label>
+          <label>图层检查<select id="map"><option value="color">彩色</option><option value="mask">白色 alpha 遮罩</option><option value="regions">颜色区编码</option></select></label>
+          <label>共同纹样<select id="pattern"><option value="cloud-v1">云纹</option><option value="wave-v1">水纹</option><option value="flower-v1">花纹</option></select></label>
+          <label><input id="carve" type="checkbox" checked>显示三段镂空（母亲袖口呼应）</label>
+          <label><input id="guides" type="checkbox" checked>显示关节与投影框</label>
+          <label><input id="prop" type="checkbox">显示手持附件及其框</label>
+        </fieldset>
+        <p id="puppet-summary"></p><p class="note">本页仅显示模板中性姿态；没有操偶、灯影投影或剧情推进。固定角色不读取编辑稿外观。</p>
+      </div>
+      <canvas id="puppet-canvas" width="800" height="600" aria-label="角色分件组装预览">浏览器不支持画布，请查看资产契约和 PNG 文件。</canvas>
+    </section>
+    <section aria-labelledby="pattern-title"><h2 id="pattern-title">三种纹样 · 各三段</h2><p>白色 alpha 表示刻去的区域；三段相加形成完整纹样。</p><div id="pattern-gallery" class="gallery"></div></section>
+    <section aria-labelledby="scene-title"><h2 id="scene-title">场景层与开山边界</h2>
+      <div class="scene-controls"><label>场景<select id="scene"><option value="home-v1">家中</option><option value="road-v1">山路</option><option value="mountain-v1">山前</option><option value="plain-v1">素幕</option></select></label>
+        <label>山片开合<input id="split" type="range" min="0" max="100" value="0"></label><label>尘幕<input id="dust" type="range" min="0" max="100" value="0"></label></div>
+      <canvas id="scene-canvas" width="1024" height="768" aria-label="场景图层预览"></canvas><p id="scene-summary"></p>
+    </section>
+    <section><h2>色板与来源状态</h2><p>三套可编辑五色板与两套角色固定色。均为本作设计选择，不声称复原某一流派。</p><div id="palette-gallery" class="gallery"></div>
+      <p>资源均为 draft，许可登记 unknown，尚未进行正式审定。文化资料只用于事实核对，未复用页面图片或录音。</p><ul id="source-list"></ul>
+    </section>
+  </main><footer>工程检查页 · 后续 T04 接二维成影，T10 替换正式资产。</footer>
+  <script type="module" src="/src/features/asset-lab/main.ts"></script>
+</body></html>

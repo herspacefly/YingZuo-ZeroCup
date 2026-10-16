@@ -18,7 +18,7 @@
 4. 工程查 [主设计与实施方案](docs/plans/2026-10-15-yingzuo-design-and-implementation.md)；剧情、美术与展品查 [叙事执行稿](docs/content/2026-10-15-yingzuo-story-bible.md)。
 5. 做一个可检查的小步骤，更新 nextAction、实际验证和必要交接，再停止。
 
-**T00 工程与 T03 正式项目数据层已完成。**Canvas 灯影试作、独立探针与[正式存档工作台](http://127.0.0.1:5173/project.html)可运行，已实现事务存档、自动保存、备份恢复、JSON 导入导出与多标签冲突处理。启动见 [README](README.md)，接口见 [ProjectV1 合同](docs/contracts/project-v1.md)，实际验收见 [验证记录](docs/verification.md)。完整短戏、角色、展馆及正式产品页面尚未接入；下一项优先 **T01**，T02 也可按边界领取。G1 仍待 T02。
+**T00 工程、T03 正式项目数据层、T01 占位资产契约已完成。**Canvas 灯影试作、独立探针、[正式存档工作台](http://127.0.0.1:5173/project.html)与[资产检查页](http://127.0.0.1:5173/assets.html)可运行。已有事务保存与恢复、三角色占位分件、纹样、场景层及资源校验。启动见 [README](README.md)，接口见 [ProjectV1](docs/contracts/project-v1.md)／[资产合同](docs/contracts/assets-v1.md)，实际验收见 [验证记录](docs/verification.md)。完整短戏、正式美术、展馆与产品页面尚未接入；下一项优先 **T15 文字全剧与状态机**，T02 页面导航、T04 成影也满足依赖。G1 仍待 T02。
 
 Canvas 2D 完整覆盖故事和展馆；Three.js 增强空间与材料。本地用户剧情恢复与开发者接手是两套机制，都必须完成。
 
@@ -26,4 +26,4 @@ Canvas 2D 完整覆盖故事和展馆；Three.js 增强空间与材料。本地�
 
 ## 新会话接续提示
 
-> 请继续本仓库《影作·一幕团圆》2.0。先读 START_HERE.md、AGENTS.md、docs/STATE.md、docs/tasks.json，核对文件与 Git 差异，保留已有成果，不重新生成覆盖工程。T00/T03 已完成，已有 ProjectV1、严格验证、正式事务存档与串行 Store；消费者先读 docs/contracts/project-v1.md。优先 T01 角色与资产契约，T02 页面导航也可按边界领取；其后依赖满足时接 T15 文字全剧。按依赖接续一个明确小步骤，记录真实检查并更新状态。不要恢复成旧版“单偶工坊＋录制优先”的范围。
+> 请继续本仓库《影作·一幕团圆》2.0。先读 START_HERE.md、AGENTS.md、docs/STATE.md、docs/tasks.json，核对文件与 Git 差异，保留已有成果，不重新生成覆盖工程。T00/T03/T01 已完成，已有 ProjectV1、事务存档、串行 Store 与三角色资产契约；消费者先读 docs/contracts/project-v1.md 和 assets-v1.md。优先 T15 文字全剧与幂等状态机，T02 页面导航、T04 成影也可按边界领取。占位图为 draft，正式美术/文化/许可审定仍待 T10。按依赖接续一个明确小步骤，记录真实检查并更新状态。不要恢复成旧版“单偶工坊＋录制优先”的范围。

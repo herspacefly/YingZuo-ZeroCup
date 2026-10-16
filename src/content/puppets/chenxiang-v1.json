@@ -1,0 +1,423 @@
+{
+  "id": "chenxiang-v1",
+  "assetVersion": 1,
+  "label": "沉香",
+  "control": "user",
+  "defaultPaletteId": "vermilion-v1",
+  "units": "world",
+  "nominalHeight": 0.9,
+  "coordinateSystem": "x-right-y-up",
+  "root": "torso-pivot",
+  "parts": [
+    {
+      "partId": "torso",
+      "parentJoint": null,
+      "pivot": [
+        0,
+        0
+      ],
+      "bindAngleRad": 0,
+      "bounds": {
+        "minX": -0.115,
+        "minY": -0.08,
+        "maxX": 0.115,
+        "maxY": 0.31
+      },
+      "drawOrder": 20,
+      "maskAssetId": "chenxiang-v1-torso-mask",
+      "colorAssetId": "chenxiang-v1-torso-color",
+      "colorMapAssetId": "chenxiang-v1-torso-regions"
+    },
+    {
+      "partId": "head",
+      "parentJoint": "head",
+      "pivot": [
+        0,
+        0
+      ],
+      "bindAngleRad": 0,
+      "bounds": {
+        "minX": -0.065,
+        "minY": -0.012,
+        "maxX": 0.12,
+        "maxY": 0.3
+      },
+      "drawOrder": 40,
+      "maskAssetId": "chenxiang-v1-head-mask",
+      "colorAssetId": "chenxiang-v1-head-color",
+      "colorMapAssetId": "chenxiang-v1-head-regions"
+    },
+    {
+      "partId": "leftUpperArm",
+      "parentJoint": "leftShoulder",
+      "pivot": [
+        0,
+        0
+      ],
+      "bindAngleRad": 0,
+      "bounds": {
+        "minX": -0.043,
+        "minY": -0.185,
+        "maxX": 0.043,
+        "maxY": 0.025
+      },
+      "drawOrder": 10,
+      "maskAssetId": "chenxiang-v1-left-upper-arm-mask",
+      "colorAssetId": "chenxiang-v1-left-upper-arm-color",
+      "colorMapAssetId": "chenxiang-v1-left-upper-arm-regions"
+    },
+    {
+      "partId": "leftForearm",
+      "parentJoint": "leftElbow",
+      "pivot": [
+        0,
+        0
+      ],
+      "bindAngleRad": 0,
+      "bounds": {
+        "minX": -0.034,
+        "minY": -0.17,
+        "maxX": 0.034,
+        "maxY": 0.018
+      },
+      "drawOrder": 11,
+      "maskAssetId": "chenxiang-v1-left-forearm-mask",
+      "colorAssetId": "chenxiang-v1-left-forearm-color",
+      "colorMapAssetId": "chenxiang-v1-left-forearm-regions"
+    },
+    {
+      "partId": "leftThigh",
+      "parentJoint": "leftHip",
+      "pivot": [
+        0,
+        0
+      ],
+      "bindAngleRad": 0,
+      "bounds": {
+        "minX": -0.036,
+        "minY": -0.155,
+        "maxX": 0.036,
+        "maxY": 0.02
+      },
+      "drawOrder": 5,
+      "maskAssetId": "chenxiang-v1-left-thigh-mask",
+      "colorAssetId": "chenxiang-v1-left-thigh-color",
+      "colorMapAssetId": "chenxiang-v1-left-thigh-regions"
+    },
+    {
+      "partId": "leftShin",
+      "parentJoint": "leftKnee",
+      "pivot": [
+        0,
+        0
+      ],
+      "bindAngleRad": 0,
+      "bounds": {
+        "minX": -0.035,
+        "minY": -0.13,
+        "maxX": 0.075,
+        "maxY": 0.018
+      },
+      "drawOrder": 6,
+      "maskAssetId": "chenxiang-v1-left-shin-mask",
+      "colorAssetId": "chenxiang-v1-left-shin-color",
+      "colorMapAssetId": "chenxiang-v1-left-shin-regions"
+    },
+    {
+      "partId": "rightUpperArm",
+      "parentJoint": "rightShoulder",
+      "pivot": [
+        0,
+        0
+      ],
+      "bindAngleRad": 0,
+      "bounds": {
+        "minX": -0.043,
+        "minY": -0.185,
+        "maxX": 0.043,
+        "maxY": 0.025
+      },
+      "drawOrder": 30,
+      "maskAssetId": "chenxiang-v1-right-upper-arm-mask",
+      "colorAssetId": "chenxiang-v1-right-upper-arm-color",
+      "colorMapAssetId": "chenxiang-v1-right-upper-arm-regions"
+    },
+    {
+      "partId": "rightForearm",
+      "parentJoint": "rightElbow",
+      "pivot": [
+        0,
+        0
+      ],
+      "bindAngleRad": 0,
+      "bounds": {
+        "minX": -0.034,
+        "minY": -0.17,
+        "maxX": 0.034,
+        "maxY": 0.018
+      },
+      "drawOrder": 31,
+      "maskAssetId": "chenxiang-v1-right-forearm-mask",
+      "colorAssetId": "chenxiang-v1-right-forearm-color",
+      "colorMapAssetId": "chenxiang-v1-right-forearm-regions"
+    },
+    {
+      "partId": "rightThigh",
+      "parentJoint": "rightHip",
+      "pivot": [
+        0,
+        0
+      ],
+      "bindAngleRad": 0,
+      "bounds": {
+        "minX": -0.036,
+        "minY": -0.155,
+        "maxX": 0.036,
+        "maxY": 0.02
+      },
+      "drawOrder": 5,
+      "maskAssetId": "chenxiang-v1-right-thigh-mask",
+      "colorAssetId": "chenxiang-v1-right-thigh-color",
+      "colorMapAssetId": "chenxiang-v1-right-thigh-regions"
+    },
+    {
+      "partId": "rightShin",
+      "parentJoint": "rightKnee",
+      "pivot": [
+        0,
+        0
+      ],
+      "bindAngleRad": 0,
+      "bounds": {
+        "minX": -0.035,
+        "minY": -0.13,
+        "maxX": 0.075,
+        "maxY": 0.018
+      },
+      "drawOrder": 6,
+      "maskAssetId": "chenxiang-v1-right-shin-mask",
+      "colorAssetId": "chenxiang-v1-right-shin-color",
+      "colorMapAssetId": "chenxiang-v1-right-shin-regions"
+    }
+  ],
+  "joints": [
+    {
+      "jointId": "head",
+      "parentJoint": null,
+      "anchor": [
+        0,
+        0.3
+      ],
+      "restAngleRad": 0,
+      "enabled": true,
+      "minRad": -0.4,
+      "maxRad": 0.4,
+      "defaultRad": 0
+    },
+    {
+      "jointId": "leftShoulder",
+      "parentJoint": null,
+      "anchor": [
+        -0.085,
+        0.24
+      ],
+      "restAngleRad": 0,
+      "enabled": true,
+      "minRad": -1.8,
+      "maxRad": 1.4,
+      "defaultRad": 0
+    },
+    {
+      "jointId": "leftElbow",
+      "parentJoint": "leftShoulder",
+      "anchor": [
+        0,
+        -0.17
+      ],
+      "restAngleRad": 0,
+      "enabled": true,
+      "minRad": -2.4,
+      "maxRad": 0,
+      "defaultRad": 0
+    },
+    {
+      "jointId": "rightShoulder",
+      "parentJoint": null,
+      "anchor": [
+        0.085,
+        0.24
+      ],
+      "restAngleRad": 0,
+      "enabled": true,
+      "minRad": -1.4,
+      "maxRad": 1.8,
+      "defaultRad": 0
+    },
+    {
+      "jointId": "rightElbow",
+      "parentJoint": "rightShoulder",
+      "anchor": [
+        0,
+        -0.17
+      ],
+      "restAngleRad": 0,
+      "enabled": true,
+      "minRad": 0,
+      "maxRad": 2.4,
+      "defaultRad": 0
+    },
+    {
+      "jointId": "leftHip",
+      "parentJoint": null,
+      "anchor": [
+        -0.05,
+        -0.03
+      ],
+      "restAngleRad": 0,
+      "enabled": true,
+      "minRad": -0.45,
+      "maxRad": 0.45,
+      "defaultRad": 0
+    },
+    {
+      "jointId": "leftKnee",
+      "parentJoint": "leftHip",
+      "anchor": [
+        0,
+        -0.14
+      ],
+      "restAngleRad": 0,
+      "enabled": true,
+      "minRad": 0,
+      "maxRad": 0.8,
+      "defaultRad": 0
+    },
+    {
+      "jointId": "rightHip",
+      "parentJoint": null,
+      "anchor": [
+        0.05,
+        -0.03
+      ],
+      "restAngleRad": 0,
+      "enabled": true,
+      "minRad": -0.45,
+      "maxRad": 0.45,
+      "defaultRad": 0
+    },
+    {
+      "jointId": "rightKnee",
+      "parentJoint": "rightHip",
+      "anchor": [
+        0,
+        -0.14
+      ],
+      "restAngleRad": 0,
+      "enabled": true,
+      "minRad": -0.8,
+      "maxRad": 0,
+      "defaultRad": 0
+    }
+  ],
+  "arms": [
+    {
+      "side": "left",
+      "shoulder": "leftShoulder",
+      "elbow": "leftElbow",
+      "handLocal": [
+        0,
+        -0.15
+      ],
+      "upperLength": 0.17,
+      "lowerLength": 0.15,
+      "bendSign": -1
+    },
+    {
+      "side": "right",
+      "shoulder": "rightShoulder",
+      "elbow": "rightElbow",
+      "handLocal": [
+        0,
+        -0.15
+      ],
+      "upperLength": 0.17,
+      "lowerLength": 0.15,
+      "bendSign": 1
+    }
+  ],
+  "rods": [
+    {
+      "id": "body",
+      "partId": "torso",
+      "point": [
+        0,
+        0.14
+      ]
+    },
+    {
+      "id": "leftHand",
+      "partId": "leftForearm",
+      "point": [
+        0,
+        -0.15
+      ]
+    },
+    {
+      "id": "rightHand",
+      "partId": "rightForearm",
+      "point": [
+        0,
+        -0.15
+      ]
+    }
+  ],
+  "bounds": {
+    "minX": -0.16,
+    "minY": -0.3,
+    "maxX": 0.16,
+    "maxY": 0.6
+  },
+  "motionEnvelope": {
+    "minX": -0.6,
+    "minY": -0.5,
+    "maxX": 0.6,
+    "maxY": 0.7
+  },
+  "boundsMeaning": "neutral-image-union; motionEnvelope is conservative before root scale/facing; attachments have separate bounds",
+  "motifPlacement": {
+    "partId": "torso",
+    "bounds": {
+      "minX": -0.065,
+      "minY": -0.035,
+      "maxX": 0.065,
+      "maxY": 0.23
+    },
+    "source": "appearance.patternId",
+    "segments": "appearance.carvedSegments"
+  },
+  "attachments": [
+    {
+      "id": "axe",
+      "assetId": "chenxiang-axe",
+      "partId": "rightForearm",
+      "anchor": [
+        0,
+        -0.15
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": {
+        "minX": -0.05,
+        "minY": -0.22,
+        "maxX": 0.14,
+        "maxY": 0.12
+      },
+      "bindAngleRad": 0,
+      "drawOrder": 35,
+      "defaultVisible": false
+    }
+  ],
+  "note": "原创几何占位；十/六/四部件为本作数字简化，不是传统影偶标准。未使用的九关节 Pose 字段必须为 0。"
+}

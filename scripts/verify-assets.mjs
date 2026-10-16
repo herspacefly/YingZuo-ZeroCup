@@ -1,15 +1,103 @@
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, realpathSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { inflateSync } from 'node:zlib';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { validateAssetCatalog } from '../src/content/asset-contract.ts';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
-const expected = ['docs/assets.csv', 'src/content/manifest.json'];
-const missing = expected.filter(file => !existsSync(path.join(root, file)));
-if (missing.length) {
-  console.log(`NOT_READY: 资产清单尚未建立（${missing.join(', ')}）。T00 仅使用代码绘制的原创占位图形；未进行正式素材、许可或文化审定。`);
-  // A distinct nonzero result prevents release checks from treating absence as approval.
-  process.exitCode = 2;
-} else {
-  console.error('NOT_READY: TODO(T01) implement manifest/schema/path/hash checks once the actual asset contract exists; TODO(T10) add release review checks. No asset approval has been performed.');
-  process.exitCode = 2;
+const json = file => JSON.parse(readFileSync(path.join(root,file),'utf8'));
+if (!existsSync(path.join(root,'src/content/manifest.json')) || !existsSync(path.join(root,'docs/assets.csv'))) {
+  console.error('NOT_READY: T01 asset manifest or CSV absent.'); process.exit(2);
 }
+const catalog = {
+  manifest: json('src/content/manifest.json'), palettes: json('src/content/palettes.json'), patterns: json('src/content/patterns.json'), scenes: json('src/content/scenes.json'),
+  puppets: ['chenxiang-v1','mother-v1','guardian-v1'].map(id => json(`src/content/puppets/${id}.json`)),
+};
+const errors = validateAssetCatalog(catalog);
+const check = (ok, message) => { if (!ok) errors.push(message); };
+const columns = ['id','type','path','creator','sourceUrl','license','credit','usage','reviewStatus','sha256'];
+const rows = readFileSync(path.join(root,'docs/assets.csv'),'utf8').trimEnd().split(/\r?\n/);
+check(rows.shift() === columns.join(','), 'CSV columns do not match contract');
+const csvEntries = new Map();
+for (const row of rows) {
+  const cells = [...row.matchAll(/(?:^|,)"((?:[^"]|"")*)"(?=,|$)/g)].map(match => match[1].replaceAll('""','"'));
+  check(cells.length === columns.length, 'Malformed CSV row');
+  check(row === cells.map(value=>'"'+value.replaceAll('"','""')+'"').join(','), 'Noncanonical CSV row');
+  check(!csvEntries.has(cells[0]), `Duplicate CSV id ${cells[0]}`); csvEntries.set(cells[0], cells);
+}
+check(csvEntries.size === catalog.manifest.assets.length, 'CSV/manifest count mismatch');
+
+function decodePNG(bytes) {
+  if (bytes.subarray(0,8).toString('hex') !== '89504e470d0a1a0a') throw new Error('PNG signature');
+  let width, height, offset = 8; const chunks = []; let ended = false;
+  while (offset+12 <= bytes.length) {
+    const size = bytes.readUInt32BE(offset), type = bytes.toString('ascii',offset+4,offset+8);
+    if (offset+12+size > bytes.length) throw new Error('PNG truncated');
+    if (type === 'IHDR') {
+      width=bytes.readUInt32BE(offset+8);height=bytes.readUInt32BE(offset+12);
+      if (size !== 13 || bytes[offset+16] !== 8 || bytes[offset+17] !== 6 || bytes[offset+18] !== 0 || bytes[offset+19] !== 0 || bytes[offset+20] !== 0) throw new Error('Expected noninterlaced RGBA8 PNG');
+    }
+    if (type === 'IDAT') chunks.push(bytes.subarray(offset+8,offset+8+size));
+    if (type === 'IEND') { ended = true; break; }
+    offset += 12+size;
+  }
+  if (!ended || !width || !height || width > 2048 || height > 2048) throw new Error('PNG header/end/dimensions');
+  const stride=width*4, raw=inflateSync(Buffer.concat(chunks), { maxOutputLength: (stride+1)*height });
+  if (raw.length !== (stride+1)*height) throw new Error('PNG scanline length');
+  const pixels=Buffer.alloc(stride*height);
+  const paeth=(a,b,c)=>{const p=a+b-c,pa=Math.abs(p-a),pb=Math.abs(p-b),pc=Math.abs(p-c);return pa<=pb&&pa<=pc?a:pb<=pc?b:c;};
+  for(let y=0;y<height;y++) {
+    const filter=raw[y*(stride+1)]; if(filter>4) throw new Error('PNG filter');
+    for(let x=0;x<stride;x++) {
+      const a=x>=4?pixels[y*stride+x-4]:0,b=y?pixels[(y-1)*stride+x]:0,c=y&&x>=4?pixels[(y-1)*stride+x-4]:0;
+      pixels[y*stride+x]=(raw[y*(stride+1)+1+x]+([0,a,b,Math.floor((a+b)/2),paeth(a,b,c)][filter]))&255;
+    }
+  }
+  return {width,height,pixels};
+}
+const decoded = new Map(); const actualPaths = new Set();
+const publicRoot = realpathSync(path.join(root,'public'))+path.sep;
+for (const asset of catalog.manifest.assets) {
+  const cells = csvEntries.get(asset.id);
+  check(cells && columns.every((key,i) => cells[i] === String(asset[key])), `CSV differs from manifest: ${asset.id}`);
+  if (!/^assets\/(puppets|masks|scenes)\/[a-zA-Z0-9/_-]+\.png$/.test(asset.path)) continue;
+  try {
+    const target=realpathSync(path.join(root,'public',asset.path));
+    if (!target.startsWith(publicRoot)) throw new Error('asset symlink escapes public');
+    const bytes=readFileSync(target); actualPaths.add(asset.path);
+    check(createHash('sha256').update(bytes).digest('hex') === asset.sha256, `hash mismatch: ${asset.id}`);
+    const image=decodePNG(bytes); decoded.set(asset.id,image);
+    check(image.width === asset.width && image.height === asset.height, `PNG dimensions: ${asset.id}`);
+    let visible=0, transparent=0, validCodes=true;
+    const colorCodes = new Set(['255,0,0','0,255,0','0,0,255','255,255,0']);
+    for(let i=0;i<image.pixels.length;i+=4) {
+      const [r,g,b,a] = image.pixels.subarray(i,i+4);
+      if(a) {
+        visible++;
+        if (asset.type === 'color-map' && !colorCodes.has(`${r},${g},${b}`)) validCodes=false;
+        if (['alpha-mask','carving-mask'].includes(asset.type) && !(r === 255 && g === 255 && b === 255)) validCodes=false;
+      } else transparent++;
+    }
+    check(validCodes, `PNG mask/region RGB encoding: ${asset.id}`);
+    check(visible>0 && transparent>0, `PNG must have visible content and transparency: ${asset.id}`);
+  } catch(error) { errors.push(`file ${asset.id}: ${error.message}`); }
+}
+for(const puppet of catalog.puppets) for(const part of puppet.parts) {
+  const images=[part.maskAssetId,part.colorAssetId,part.colorMapAssetId].map(id=>decoded.get(id));
+  if(images.every(Boolean) && images.every(image=>image.pixels.length === images[0].pixels.length)) {
+    let match=true;
+    for(let i=3;i<images[0].pixels.length;i+=4) if(images.some(image=>image.pixels[i] !== images[0].pixels[i])) { match=false;break; }
+    check(match, `color/mask/region alpha differs: ${puppet.id}/${part.partId}`);
+  }
+}
+const walk=directory=>readdirSync(directory,{withFileTypes:true}).flatMap(entry=>entry.isDirectory()?walk(path.join(directory,entry.name)):[path.join(directory,entry.name)]);
+const files=walk(path.join(root,'public/assets')).filter(file=>file.endsWith('.png'));
+check(files.length === actualPaths.size && files.every(file=>actualPaths.has(path.relative(path.join(root,'public'),file).split(path.sep).join('/'))), 'unlisted PNG files under public/assets');
+const sources=json('src/content/sources.json');
+check(sources.schemaVersion === 1 && sources.sources.map(s=>s.id).sort().join(',') === 'C1,C2,C3,C4,C5,C6,C7', 'source registry IDs/version');
+for(const source of sources.sources) check(source.title && source.publisher && /^https:\/\//.test(source.url) && source.checkedAt && ['readable','blocked'].includes(source.accessStatus) && ['page','official-search-index','unverified'].includes(source.verificationMethod) && source.verificationNote && source.usage === 'reference-only' && source.textLicense === 'unknown' && source.imageLicense === 'unknown' && source.audioLicense === 'unknown' && Array.isArray(source.supportedFacts) && Array.isArray(source.excludedClaims), `source metadata ${source.id}`);
+if(errors.length) { console.error(errors.slice(0,40).join('\n')); console.error(`FAIL: ${errors.length} asset error(s).`);process.exitCode=1; }
+else if(process.argv.includes('--release') && catalog.manifest.assets.some(asset=>asset.reviewStatus !== 'reviewed' || asset.license === 'unknown')) {
+  console.error('NOT_READY: release review pending; original placeholders are draft and licenses unknown. Structural success is not art, culture or license approval.');process.exitCode=2;
+} else console.log(`PASS: ${decoded.size} PNGs decoded; alpha/region maps, references, paths, CSV and SHA-256 agree; 7 reference records. DRAFT ONLY: no release/art/cultural/license approval.`);

@@ -290,7 +290,7 @@ intro -> craft -> memory-wave -> memory-separate
 ## 10. 来源与更新约定
 
 - **C1**：[UNESCO，中国皮影戏项目页](https://ich.unesco.org/en/RL/chinese-shadow-puppetry-00421)，核对基本表演形式与名录信息。该站有访问验证时，以 C2 的名录叙述交叉核对，不把被阻拦页面说成已读全文。
-- **C2**：[中国非物质文化遗产网，皮影戏资料](https://www.ihchina.cn/Article/Index/detail?id=26209)，工艺、区域差异及湖北相关入口；不用文中历史统计推断 2026 年实时数量。
+- **C2**：[中国非物质文化遗产网，皮影戏资料](https://www.ihchina.cn/news_1_details/26209.html)，工艺、区域差异及湖北相关入口；不用文中历史统计推断 2026 年实时数量。2026-10-16 核对旧路由超时，改用同站可读路径；原地址保存在 sources.json。
 - **C3**：[河北省文化和旅游厅，冀南皮影戏](https://whly.hebei.gov.cn/c/2012-12-21/558059.html)，核对剧目与当地表演特点。
 - **C4**：[中国文联，2013 年全国木偶皮影戏展演综述](https://www.cflac.org.cn/new_ys/ysxj/dt/201308/t20130808_213289.html)，核对唐山市皮影剧团《劈山救母》的演出实例。转载报道不是完整戏本。
 - **C5**：[文化和旅游部，京剧《宝莲灯》演出梗概](https://www.mct.gov.cn/ggfw/zyjzzt/yanchu/yanchuwqhg/201909/t20190923_846995.html)，核对核心人物与救母主线；这是京剧版本，不声称为皮影统一版本。

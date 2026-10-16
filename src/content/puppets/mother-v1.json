@@ -1,0 +1,324 @@
+{
+  "id": "mother-v1",
+  "assetVersion": 1,
+  "label": "母亲",
+  "control": "scripted",
+  "defaultPaletteId": "mother-v1",
+  "units": "world",
+  "nominalHeight": 0.9,
+  "coordinateSystem": "x-right-y-up",
+  "root": "torso-pivot",
+  "parts": [
+    {
+      "partId": "torso",
+      "parentJoint": null,
+      "pivot": [
+        0,
+        0
+      ],
+      "bindAngleRad": 0,
+      "bounds": {
+        "minX": -0.115,
+        "minY": -0.3,
+        "maxX": 0.115,
+        "maxY": 0.31
+      },
+      "drawOrder": 20,
+      "maskAssetId": "mother-v1-torso-mask",
+      "colorAssetId": "mother-v1-torso-color",
+      "colorMapAssetId": "mother-v1-torso-regions"
+    },
+    {
+      "partId": "head",
+      "parentJoint": "head",
+      "pivot": [
+        0,
+        0
+      ],
+      "bindAngleRad": 0,
+      "bounds": {
+        "minX": -0.065,
+        "minY": -0.012,
+        "maxX": 0.12,
+        "maxY": 0.3
+      },
+      "drawOrder": 40,
+      "maskAssetId": "mother-v1-head-mask",
+      "colorAssetId": "mother-v1-head-color",
+      "colorMapAssetId": "mother-v1-head-regions"
+    },
+    {
+      "partId": "leftUpperArm",
+      "parentJoint": "leftShoulder",
+      "pivot": [
+        0,
+        0
+      ],
+      "bindAngleRad": 0,
+      "bounds": {
+        "minX": -0.043,
+        "minY": -0.185,
+        "maxX": 0.043,
+        "maxY": 0.025
+      },
+      "drawOrder": 10,
+      "maskAssetId": "mother-v1-left-upper-arm-mask",
+      "colorAssetId": "mother-v1-left-upper-arm-color",
+      "colorMapAssetId": "mother-v1-left-upper-arm-regions"
+    },
+    {
+      "partId": "leftForearm",
+      "parentJoint": "leftElbow",
+      "pivot": [
+        0,
+        0
+      ],
+      "bindAngleRad": 0,
+      "bounds": {
+        "minX": -0.034,
+        "minY": -0.17,
+        "maxX": 0.034,
+        "maxY": 0.018
+      },
+      "drawOrder": 11,
+      "maskAssetId": "mother-v1-left-forearm-mask",
+      "colorAssetId": "mother-v1-left-forearm-color",
+      "colorMapAssetId": "mother-v1-left-forearm-regions"
+    },
+    {
+      "partId": "rightUpperArm",
+      "parentJoint": "rightShoulder",
+      "pivot": [
+        0,
+        0
+      ],
+      "bindAngleRad": 0,
+      "bounds": {
+        "minX": -0.043,
+        "minY": -0.185,
+        "maxX": 0.043,
+        "maxY": 0.025
+      },
+      "drawOrder": 30,
+      "maskAssetId": "mother-v1-right-upper-arm-mask",
+      "colorAssetId": "mother-v1-right-upper-arm-color",
+      "colorMapAssetId": "mother-v1-right-upper-arm-regions"
+    },
+    {
+      "partId": "rightForearm",
+      "parentJoint": "rightElbow",
+      "pivot": [
+        0,
+        0
+      ],
+      "bindAngleRad": 0,
+      "bounds": {
+        "minX": -0.034,
+        "minY": -0.17,
+        "maxX": 0.034,
+        "maxY": 0.018
+      },
+      "drawOrder": 31,
+      "maskAssetId": "mother-v1-right-forearm-mask",
+      "colorAssetId": "mother-v1-right-forearm-color",
+      "colorMapAssetId": "mother-v1-right-forearm-regions"
+    }
+  ],
+  "joints": [
+    {
+      "jointId": "head",
+      "parentJoint": null,
+      "anchor": [
+        0,
+        0.3
+      ],
+      "restAngleRad": 0,
+      "enabled": true,
+      "minRad": -0.32000000000000006,
+      "maxRad": 0.32000000000000006,
+      "defaultRad": 0
+    },
+    {
+      "jointId": "leftShoulder",
+      "parentJoint": null,
+      "anchor": [
+        -0.085,
+        0.24
+      ],
+      "restAngleRad": 0,
+      "enabled": true,
+      "minRad": -1.4400000000000002,
+      "maxRad": 1.1199999999999999,
+      "defaultRad": 0
+    },
+    {
+      "jointId": "leftElbow",
+      "parentJoint": "leftShoulder",
+      "anchor": [
+        0,
+        -0.17
+      ],
+      "restAngleRad": 0,
+      "enabled": true,
+      "minRad": -1.92,
+      "maxRad": 0,
+      "defaultRad": 0
+    },
+    {
+      "jointId": "rightShoulder",
+      "parentJoint": null,
+      "anchor": [
+        0.085,
+        0.24
+      ],
+      "restAngleRad": 0,
+      "enabled": true,
+      "minRad": -1.1199999999999999,
+      "maxRad": 1.4400000000000002,
+      "defaultRad": 0
+    },
+    {
+      "jointId": "rightElbow",
+      "parentJoint": "rightShoulder",
+      "anchor": [
+        0,
+        -0.17
+      ],
+      "restAngleRad": 0,
+      "enabled": true,
+      "minRad": 0,
+      "maxRad": 1.92,
+      "defaultRad": 0
+    },
+    {
+      "jointId": "leftHip",
+      "parentJoint": null,
+      "anchor": [
+        -0.05,
+        -0.03
+      ],
+      "restAngleRad": 0,
+      "enabled": false,
+      "minRad": 0,
+      "maxRad": 0,
+      "defaultRad": 0
+    },
+    {
+      "jointId": "leftKnee",
+      "parentJoint": "leftHip",
+      "anchor": [
+        0,
+        -0.14
+      ],
+      "restAngleRad": 0,
+      "enabled": false,
+      "minRad": 0,
+      "maxRad": 0,
+      "defaultRad": 0
+    },
+    {
+      "jointId": "rightHip",
+      "parentJoint": null,
+      "anchor": [
+        0.05,
+        -0.03
+      ],
+      "restAngleRad": 0,
+      "enabled": false,
+      "minRad": 0,
+      "maxRad": 0,
+      "defaultRad": 0
+    },
+    {
+      "jointId": "rightKnee",
+      "parentJoint": "rightHip",
+      "anchor": [
+        0,
+        -0.14
+      ],
+      "restAngleRad": 0,
+      "enabled": false,
+      "minRad": 0,
+      "maxRad": 0,
+      "defaultRad": 0
+    }
+  ],
+  "arms": [
+    {
+      "side": "left",
+      "shoulder": "leftShoulder",
+      "elbow": "leftElbow",
+      "handLocal": [
+        0,
+        -0.15
+      ],
+      "upperLength": 0.17,
+      "lowerLength": 0.15,
+      "bendSign": -1
+    },
+    {
+      "side": "right",
+      "shoulder": "rightShoulder",
+      "elbow": "rightElbow",
+      "handLocal": [
+        0,
+        -0.15
+      ],
+      "upperLength": 0.17,
+      "lowerLength": 0.15,
+      "bendSign": 1
+    }
+  ],
+  "rods": [
+    {
+      "id": "body",
+      "partId": "torso",
+      "point": [
+        0,
+        0.14
+      ]
+    },
+    {
+      "id": "leftHand",
+      "partId": "leftForearm",
+      "point": [
+        0,
+        -0.15
+      ]
+    },
+    {
+      "id": "rightHand",
+      "partId": "rightForearm",
+      "point": [
+        0,
+        -0.15
+      ]
+    }
+  ],
+  "bounds": {
+    "minX": -0.16,
+    "minY": -0.3,
+    "maxX": 0.16,
+    "maxY": 0.6
+  },
+  "motionEnvelope": {
+    "minX": -0.6,
+    "minY": -0.5,
+    "maxX": 0.6,
+    "maxY": 0.7
+  },
+  "boundsMeaning": "neutral-image-union; motionEnvelope is conservative before root scale/facing; attachments have separate bounds",
+  "motifPlacement": {
+    "partId": "rightUpperArm",
+    "bounds": {
+      "minX": -0.025,
+      "minY": -0.14,
+      "maxX": 0.025,
+      "maxY": -0.045
+    },
+    "source": "castSnapshot.sharedMotif",
+    "segments": "all"
+  },
+  "attachments": [],
+  "note": "原创几何占位；十/六/四部件为本作数字简化，不是传统影偶标准。未使用的九关节 Pose 字段必须为 0。"
+}

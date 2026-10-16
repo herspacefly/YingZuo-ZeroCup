@@ -1,6 +1,6 @@
 # 影作 · 一幕团圆
 
-据传统故事《劈山救母》原创交互改编的短戏与数字展馆。已有 **T00 工程与兼容探针**和 **T03 正式项目数据层**：Canvas 灯影试作、事务存档、备份恢复、JSON 导入导出和多标签冲突处理。完整短戏、正式角色与展馆仍待后续任务实施。
+据传统故事《劈山救母》原创交互改编的短戏与数字展馆。已有 **T00 工程与兼容探针**、**T03 正式项目数据层**与 **T01 占位资产契约**：Canvas 灯影试作、事务存档与恢复、三角色分件、纹样和场景检查。完整短戏、正式美术与展馆仍待后续任务实施。
 
 接手先读 [START_HERE](START_HERE.md)、[项目约定](AGENTS.md)、[当前状态](docs/STATE.md)和[任务账本](docs/tasks.json)。设计依据见[主方案](docs/plans/2026-10-15-yingzuo-design-and-implementation.md)与[叙事稿](docs/content/2026-10-15-yingzuo-story-bible.md)。
 
@@ -13,7 +13,7 @@ npm ci
 npm run dev
 ```
 
-默认打开 <http://127.0.0.1:5173/>。首页为灯影试作；[运行检查](http://127.0.0.1:5173/probe.html)使用独立探针库；[存档工作台](http://127.0.0.1:5173/project.html)用于正式项目数据、自动保存、恢复与文件检查。无运行时 CDN、远程字体、API 或环境密钥。使用静态本地服务器，不能直接双击 HTML 运行模块。
+默认打开 <http://127.0.0.1:5173/>。首页为灯影试作；[运行检查](http://127.0.0.1:5173/probe.html)使用独立探针库；[存档工作台](http://127.0.0.1:5173/project.html)用于正式项目数据、自动保存、恢复与文件检查；[资产检查](http://127.0.0.1:5173/assets.html)显示三角色中性组装、镂空与场景层。无运行时 CDN、远程字体、API 或环境密钥。使用静态本地服务器，不能直接双击 HTML 运行模块。
 
 ## 检查与生产预览
 
@@ -30,7 +30,7 @@ npm run verify:assets
 
 `test:e2e` 会启动生产预览服务，占用 4173 端口；请先停止该端口上的其他预览服务。测试含 1440×900 与 390×844 Chromium 视口，手机视口属于模拟。测试截图和失败诊断写到忽略的 `test-results/`。T00 已保留两张[桌面](docs/evidence/t00-desktop.png)／[窄屏](docs/evidence/t00-mobile.png)检查截图。
 
-`verify:assets` 当前明确输出 **NOT_READY 并返回退出码 2**，因为 T01 尚未建立正式资产清单。不能据此声称素材已审。T15 实施前没有 `verify:content`。
+`verify:assets` 检查实际 PNG 解码、透明覆盖、颜色区标签、引用、CSV 与哈希，草稿结构有效时通过。`npm run verify:assets -- --release` 在当前 draft / unknown 状态明确 **NOT_READY / 退出码 2**。结构通过不表示美术、文化或许可已审。T15 实施前没有 `verify:content`。
 
 ```powershell
 npm run build
@@ -59,5 +59,11 @@ npm run preview
 - 两标签冲突后保留双方版本，暂停自动覆盖；当前未保存稿可导出，明确接管才重读并再次检查版本。
 
 原始记录导出是 `yingzuo-raw-snapshots-v1` 诊断包，使用类型标记保留损坏值，不能当 Project 文件导入。工作台用于数据接线检查，尚无剧情运行器。正式产品页面、操偶和剧情命令在 T02/T05/T15 接入，接口以 [ProjectV1 合同](docs/contracts/project-v1.md) 为准。
+
+## 占位资源与消费者
+
+T01 提供三角色十/六/四部件、统一九关节字段、三种分段镂空、五套色板（含两个固定角色色）与三组场景层。80 张 PNG 全部由本地 Canvas2D 生成，来源脚本为 `node scripts/generate-placeholder-assets.mjs`，未使用外部图片/字体；来源和许可保持真实草稿状态。正式原画替换后不要再运行此占位生成器覆盖它们。
+
+T04/T15/T16 先读 [资产合同](docs/contracts/assets-v1.md)；类型位于 src/content/asset-types.ts，模板/清单位于 src/content。assets.html 仅供中性姿态和图层检查，没有运行时操偶、双角色成影、IK 或剧情。文化资料 C1—C7 在 sources.json 登记访问情况和引用边界。
 
 实际结果、失败修复与未测试范围见 [验证记录](docs/verification.md)。当前不包含后台、分享或自由录制。

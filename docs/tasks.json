@@ -7,7 +7,7 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T00_T03_complete_G1_pending_T02",
+  "stage": "T00_T01_T03_complete_G1_pending_T02",
   "activeTaskId": null,
   "lastVerifiedCommit": "bef273f2a5d13621c185a8289dee154514676102",
   "features": {
@@ -78,12 +78,12 @@
       "id": "T01",
       "title": "三角色、场面与文化资产契约",
       "priority": "P0",
-      "status": "todo",
+      "status": "done",
       "dependsOn": [
         "T00"
       ],
-      "owner": null,
-      "branch": null,
+      "owner": "codex-root",
+      "branch": "main",
       "touchFiles": [
         "docs/assets.csv",
         "src/content/manifest.json",
@@ -94,15 +94,37 @@
         "src/content/puppets/guardian-v1.json",
         "public/assets/puppets/",
         "public/assets/masks/",
-        "public/assets/scenes/"
+        "public/assets/scenes/",
+        "src/content/",
+        "scripts/generate-placeholder-assets.mjs",
+        "scripts/verify-assets.mjs",
+        "scripts/verify-legacy.mjs",
+        "src/features/asset-lab/",
+        "assets.html",
+        "vite.config.ts",
+        "tests/unit/assets.test.ts",
+        "tests/e2e/assets.spec.ts",
+        "docs/contracts/assets-v1.md",
+        "docs/content/2026-10-15-yingzuo-story-bible.md",
+        "README.md",
+        "START_HERE.md",
+        "docs/STATE.md",
+        "docs/verification.md",
+        "docs/evidence/",
+        "docs/tasks.json"
       ],
       "acceptanceRefs": [
         "T01"
       ],
       "checkpointCommit": null,
-      "nextAction": "按角色复杂度先交沉香、母亲、二郎神占位分件与pivot/关节，再交共用山片，正式画稿随后替换。",
+      "nextAction": "T01占位资产与契约已完成。优先T15文字全剧；T04消费assets-v1合同实现双角色成影，T10替换正式资源并审定文化/许可，不能把结构通过当作素材审定。",
       "blocker": null,
-      "verification": [],
+      "verification": [
+        "2026-10-16: verify:assets解码80张PNG，alpha/颜色区、引用/路径/尺寸、CSV与SHA-256通过；重复生成哈希一致，release门禁实际退出2（draft/unknown）。",
+        "2026-10-16: npm test，100/100通过（含20项资产契约）；typecheck/build通过，四个HTML和8份legacy JS通过ES5检查。",
+        "2026-10-16: 最终生产包浏览器检查42/42通过；桌面与模拟手机分别检查资源组装/镂空/场景、缺图重试、Canvas失败与legacy包，并回归T00/T03。",
+        "2026-10-16: 已查看T01宽窄屏截图；独立审查发现的DOM append、骨长/手杆与遮挡校验遗漏已修复。C1—C7真实访问边界已登记，无正式美术/文化/许可审定。详见assets-v1合同与verification。"
+      ],
       "phase": "G2"
     },
     {

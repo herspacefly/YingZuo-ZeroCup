@@ -1,0 +1,276 @@
+{
+  "assetVersion": 1,
+  "coordinates": "normalized-screen-x-right-y-down",
+  "actorOrder": 10,
+  "layerOrder": "ascending",
+  "scenes": [
+    {
+      "id": "plain-v1",
+      "label": "素幕",
+      "background": "#F2E5C9",
+      "layers": []
+    },
+    {
+      "id": "home-v1",
+      "label": "家中与窗灯",
+      "background": "#F2E5C9",
+      "layers": [
+        {
+          "id": "home-window",
+          "assetId": "scene-home-window",
+          "order": 0,
+          "x": 0,
+          "y": 0,
+          "opacity": 1,
+          "xRange": [
+            0,
+            0
+          ],
+          "yRange": [
+            0,
+            0
+          ],
+          "opacityRange": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "home-floor",
+          "assetId": "scene-home-floor",
+          "order": 1,
+          "x": 0,
+          "y": 0,
+          "opacity": 1,
+          "xRange": [
+            0,
+            0
+          ],
+          "yRange": [
+            0,
+            0
+          ],
+          "opacityRange": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "mountain-left",
+          "assetId": "scene-mountain-left",
+          "order": 20,
+          "x": 0,
+          "y": 0,
+          "opacity": 0,
+          "xRange": [
+            -0.55,
+            0
+          ],
+          "yRange": [
+            0,
+            0
+          ],
+          "opacityRange": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "mountain-right",
+          "assetId": "scene-mountain-right",
+          "order": 21,
+          "x": 0,
+          "y": 0,
+          "opacity": 0,
+          "xRange": [
+            0,
+            0.55
+          ],
+          "yRange": [
+            0,
+            0
+          ],
+          "opacityRange": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "road-v1",
+      "label": "山路与阻拦",
+      "background": "#E3DECF",
+      "layers": [
+        {
+          "id": "mountain-far",
+          "assetId": "scene-mountain-far",
+          "order": 0,
+          "x": 0,
+          "y": 0,
+          "opacity": 1,
+          "xRange": [
+            0,
+            0
+          ],
+          "yRange": [
+            0,
+            0
+          ],
+          "opacityRange": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "road-near",
+          "assetId": "scene-road-near",
+          "order": 2,
+          "x": 0,
+          "y": 0,
+          "opacity": 1,
+          "xRange": [
+            0,
+            0
+          ],
+          "yRange": [
+            0,
+            0
+          ],
+          "opacityRange": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "road-path",
+          "assetId": "scene-road-path",
+          "order": 3,
+          "x": 0,
+          "y": 0,
+          "opacity": 1,
+          "xRange": [
+            0,
+            0
+          ],
+          "yRange": [
+            0,
+            0
+          ],
+          "opacityRange": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "road-ledge",
+          "assetId": "scene-road-ledge",
+          "order": 4,
+          "x": 0,
+          "y": 0,
+          "opacity": 1,
+          "xRange": [
+            0,
+            0
+          ],
+          "yRange": [
+            0,
+            0
+          ],
+          "opacityRange": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mountain-v1",
+      "label": "山前与团圆",
+      "background": "#F2E5C9",
+      "layers": [
+        {
+          "id": "mountain-far",
+          "assetId": "scene-mountain-far",
+          "order": 0,
+          "x": 0,
+          "y": 0,
+          "opacity": 1,
+          "xRange": [
+            0,
+            0
+          ],
+          "yRange": [
+            0,
+            0
+          ],
+          "opacityRange": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "mountain-left",
+          "assetId": "scene-mountain-left",
+          "order": 20,
+          "x": 0,
+          "y": 0,
+          "opacity": 1,
+          "xRange": [
+            -0.55,
+            0
+          ],
+          "yRange": [
+            0,
+            0
+          ],
+          "opacityRange": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "mountain-right",
+          "assetId": "scene-mountain-right",
+          "order": 21,
+          "x": 0,
+          "y": 0,
+          "opacity": 1,
+          "xRange": [
+            0,
+            0.55
+          ],
+          "yRange": [
+            0,
+            0
+          ],
+          "opacityRange": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "mountain-dust",
+          "assetId": "scene-mountain-dust",
+          "order": 30,
+          "x": 0,
+          "y": 0,
+          "opacity": 0,
+          "xRange": [
+            0,
+            0
+          ],
+          "yRange": [
+            0,
+            0
+          ],
+          "opacityRange": [
+            0,
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "note": "母亲先绘于 actorOrder=10，前景山片20/21遮挡；开合为归一化 x 位移，尘幕为 opacity。无可执行回调。"
+}

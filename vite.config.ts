@@ -14,6 +14,7 @@ export default defineConfig({
         main: fileURLToPath(new URL('./index.html', import.meta.url)),
         probe: fileURLToPath(new URL('./probe.html', import.meta.url)),
         project: fileURLToPath(new URL('./project.html', import.meta.url)),
+        assets: fileURLToPath(new URL('./assets.html', import.meta.url)),
       },
     },
   },
