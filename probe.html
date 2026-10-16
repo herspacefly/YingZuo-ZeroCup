@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>运行检查 · 影作</title>
+    <style>body{margin:0;background:#17130f;color:#f2e5c9;font:18px/1.7 sans-serif}main{max-width:1000px;margin:auto;padding:32px}a{color:#d7a253}[hidden]{display:none!important}</style>
+  </head>
+  <body>
+    <header class="site-header"><a class="wordmark" href="./">影作<span>回到作品入口</span></a></header>
+    <main class="probe-page">
+      <p class="eyebrow">T00 · 独立兼容探针</p>
+      <h1>灯亮了，记录也要留下。</h1>
+      <p>这里只测试 Canvas 与浏览器事务存储，使用独立测试数据库，不是正式作品存档。真实 IE11 / IE 模式仍需单独验证。</p>
+      <p id="runtime-status">脚本未启动；以上文字不依赖 JavaScript。</p>
+      <figure class="light-study">
+        <canvas id="shadow-canvas" width="960" height="720" role="img" aria-label="可调节灯位与偶幕距离的二维占位影偶">当前浏览器无法显示 Canvas。仍可查看检查说明。</canvas>
+        <p id="canvas-status" role="status">正在等待画布初始化。</p>
+        <div class="light-controls" id="light-controls" hidden>
+          <label for="lamp-x">灯位 <output id="lamp-value" for="lamp-x">50</output><input id="lamp-x" type="range" min="0" max="100" value="50" /></label>
+          <label for="puppet-distance">偶幕距离 <output id="distance-value" for="puppet-distance">30</output><input id="puppet-distance" type="range" min="10" max="55" value="30" /></label>
+          <button id="reset-light" class="button subtle" type="button">灯归原处</button>
+        </div>
+      </figure>
+      <section aria-labelledby="storage-title">
+        <h2 id="storage-title">提交与回滚</h2>
+        <p>保存当前灯位后刷新，检查能否恢复；再中止一次写入，检查旧记录和备份是否完整保留。</p>
+        <div class="probe-actions">
+          <button class="button primary" id="save-probe" type="button" disabled>保存当前灯位</button>
+          <button class="button subtle" id="abort-probe" type="button" disabled>验证中止回滚</button>
+          <button class="button subtle" id="export-probe" type="button" disabled>导出当前测试记录</button>
+        </div>
+        <p id="storage-status" role="status" aria-live="polite">尚未检查存储。JavaScript 启动后检查。</p>
+        <p id="export-status" role="status"></p>
+        <pre id="stored-value" aria-label="当前已提交记录">没有已提交记录</pre>
+      </section>
+    </main>
+    <script type="module" src="/src/app/bootstrap.ts"></script>
+  </body>
+</html>

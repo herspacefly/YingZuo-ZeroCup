@@ -1,0 +1,32 @@
+{
+  "name": "yingzuo-reunion",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "24.x",
+    "npm": "12.x"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.node.json",
+    "test": "vitest run",
+    "build": "npm run typecheck && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test:e2e": "playwright test",
+    "verify:state": "node scripts/verify-state.mjs",
+    "verify:assets": "node scripts/verify-assets.mjs",
+    "verify:legacy": "node scripts/verify-legacy.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@types/node": "^24.0.0",
+    "@vitejs/plugin-legacy": "7.2.1",
+    "acorn": "^8.0.0",
+    "fake-indexeddb": "6.2.5",
+    "terser": "5.51.2",
+    "typescript": "7.0.2",
+    "vite": "7.3.7",
+    "vitest": "5.0.4"
+  }
+}

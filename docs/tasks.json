@@ -1,0 +1,647 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-16",
+  "projectName": "影作·一幕团圆",
+  "projectRoot": ".",
+  "competitionGroup": "零组",
+  "sourcePolicy": "开幕式PPT为准",
+  "selectedTheme": "匠心传成，非遗焕新",
+  "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
+  "stage": "T00_complete_G1_pending",
+  "activeTaskId": null,
+  "lastVerifiedCommit": null,
+  "features": {
+    "singlePuppetRecording": "planned_optional",
+    "onlineShare": "planned_optional"
+  },
+  "statusValues": [
+    "todo",
+    "in_progress",
+    "blocked",
+    "done"
+  ],
+  "tasks": [
+    {
+      "id": "T00",
+      "title": "工程、Canvas与事务存储兼容探针",
+      "priority": "P0",
+      "status": "done",
+      "dependsOn": [],
+      "owner": "codex-root",
+      "branch": "main",
+      "touchFiles": [
+        "package.json",
+        "package-lock.json",
+        "tsconfig.json",
+        "vite.config.ts",
+        "index.html",
+        "src/app/bootstrap.ts",
+        ".gitignore",
+        ".env.example",
+        "scripts/verify-state.mjs",
+        "scripts/verify-assets.mjs",
+        "src/probes/",
+        "src/styles/probe.css",
+        "tests/unit/probe-storage.test.ts",
+        "tests/e2e/probe.spec.ts",
+        "playwright.config.ts",
+        "vitest.config.ts",
+        "tsconfig.node.json",
+        "src/vite-env.d.ts",
+        "README.md",
+        "START_HERE.md",
+        "docs/STATE.md",
+        "docs/verification.md",
+        "docs/tasks.json",
+        ".gitattributes",
+        "scripts/verify-legacy.mjs",
+        "docs/evidence/",
+        "docs/plans/2026-10-15-yingzuo-design-and-implementation.md"
+      ],
+      "acceptanceRefs": [
+        "T00"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "T00 已验收；优先领取 T03 的 fixture/领域类型与正式串行存储。真实 IE11/IE模式补测保留在 T11，不能据 legacy 冒烟宣称全兼容。",
+      "blocker": null,
+      "verification": [
+        "2026-10-16: npm run typecheck / npm run build 通过，现代与显式 IE11 legacy 入口已生成。",
+        "2026-10-16: npm run verify:legacy，4 个 legacy JS 文件通过 ES5 语法检查；真实 IE 尚未实测。",
+        "2026-10-16: npm test，7/7 存储单测通过。",
+        "2026-10-16: npm run test:e2e -- --workers=2，14/14 通过，桌面1440x900与模拟手机390x844，含真实IDB提交/回滚/刷新、并发冲突、下载及legacy包冒烟。",
+        "2026-10-16: npm run verify:state 通过；verify:assets 按阶段输出 NOT_READY，退出码2，未进行正式素材审定。",
+        "2026-10-16: dev/preview 实际启动；独立代码审查复核无T00阻塞；视觉证据和未测边界见 docs/verification.md。"
+      ],
+      "phase": "G1"
+    },
+    {
+      "id": "T01",
+      "title": "三角色、场面与文化资产契约",
+      "priority": "P0",
+      "status": "todo",
+      "dependsOn": [
+        "T00"
+      ],
+      "owner": null,
+      "branch": null,
+      "touchFiles": [
+        "docs/assets.csv",
+        "src/content/manifest.json",
+        "src/content/sources.json",
+        "src/content/palettes.json",
+        "src/content/puppets/chenxiang-v1.json",
+        "src/content/puppets/mother-v1.json",
+        "src/content/puppets/guardian-v1.json",
+        "public/assets/puppets/",
+        "public/assets/masks/",
+        "public/assets/scenes/"
+      ],
+      "acceptanceRefs": [
+        "T01"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "按角色复杂度先交沉香、母亲、二郎神占位分件与pivot/关节，再交共用山片，正式画稿随后替换。",
+      "blocker": null,
+      "verification": [],
+      "phase": "G2"
+    },
+    {
+      "id": "T02",
+      "title": "故事与展馆页面、导航和设计基线",
+      "priority": "P0",
+      "status": "todo",
+      "dependsOn": [
+        "T00"
+      ],
+      "owner": null,
+      "branch": null,
+      "touchFiles": [
+        "src/app/router.ts",
+        "src/styles/",
+        "src/features/intro/view.ts",
+        "src/features/craft/view.ts",
+        "src/features/light/view.ts",
+        "src/features/story/view.ts",
+        "src/features/museum/view.ts",
+        "src/features/practice/view.ts",
+        "src/features/result/view.ts",
+        "src/features/about/view.ts"
+      ],
+      "acceptanceRefs": [
+        "T02"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "建立所有hash入口与宽窄屏骨架，用可读静态文字表明下一步；不在路由组件里自行推进剧情。",
+      "blocker": null,
+      "verification": [],
+      "phase": "G1"
+    },
+    {
+      "id": "T03",
+      "title": "项目/剧情类型与事务式草稿恢复",
+      "priority": "P0",
+      "status": "todo",
+      "dependsOn": [
+        "T00"
+      ],
+      "owner": null,
+      "branch": null,
+      "touchFiles": [
+        "src/domain/types.ts",
+        "src/domain/defaults.ts",
+        "src/domain/limits.ts",
+        "src/domain/validation.ts",
+        "src/domain/migrations.ts",
+        "src/app/store.ts",
+        "src/app/commands.ts",
+        "src/persistence/storage.ts",
+        "src/persistence/project-file.ts",
+        "tests/fixtures/",
+        "tests/unit/storage.test.ts"
+      ],
+      "acceptanceRefs": [
+        "T03",
+        "DATA-01",
+        "DATA-02",
+        "DATA-03",
+        "DATA-04",
+        "DATA-05"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "先用合法/损坏fixture确定Project与Story结构，再实现统一串行保存、IndexedDB事务版本检查与失败保留；先验DATA-01至05。",
+      "blocker": null,
+      "verification": [],
+      "phase": "G1"
+    },
+    {
+      "id": "T04",
+      "title": "双角色二维成影、关节与投影",
+      "priority": "P0",
+      "status": "todo",
+      "dependsOn": [
+        "T01",
+        "T03"
+      ],
+      "owner": null,
+      "branch": null,
+      "touchFiles": [
+        "src/domain/pose.ts",
+        "src/domain/projection.ts",
+        "src/renderers/canvas/",
+        "tests/unit/pose.test.ts",
+        "tests/unit/projection.test.ts"
+      ],
+      "acceptanceRefs": [
+        "T04"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "先让同一帧显示沉香与母亲两种RenderActor，再验证正逆投影和两骨手臂，随后接不同部件数模板。",
+      "blocker": null,
+      "verification": [],
+      "phase": "G2"
+    },
+    {
+      "id": "T05",
+      "title": "制偶、共同纹样与灯影操作",
+      "priority": "P0",
+      "status": "todo",
+      "dependsOn": [
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "owner": null,
+      "branch": null,
+      "touchFiles": [
+        "src/features/craft/",
+        "src/app/commands.ts",
+        "src/features/light/"
+      ],
+      "acceptanceRefs": [
+        "T05",
+        "SAVE-01"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "将纹样和颜色接到实际遮罩，预览母亲袖口的同纹呼应，完成灯影滑块与有效保存，确认开演时交出冻结快照。",
+      "blocker": null,
+      "verification": [],
+      "phase": "G2"
+    },
+    {
+      "id": "T06",
+      "title": "三维戏台盒与幕前幕后转换",
+      "priority": "P0",
+      "status": "todo",
+      "dependsOn": [
+        "T01",
+        "T02",
+        "T04"
+      ],
+      "owner": null,
+      "branch": null,
+      "touchFiles": [
+        "src/renderers/three/",
+        "src/app/capabilities.ts"
+      ],
+      "acceptanceRefs": [
+        "T06"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "先把Canvas双角色成影贴到幕面，再做工坊近景/幕前/幕后/展台四种明确机位；低性能可退二维。",
+      "blocker": null,
+      "verification": [],
+      "phase": "G2"
+    },
+    {
+      "id": "T07",
+      "title": "三杆输入、基础动作与独立练习台",
+      "priority": "P0",
+      "status": "todo",
+      "dependsOn": [
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "owner": null,
+      "branch": null,
+      "touchFiles": [
+        "src/features/practice/",
+        "src/story/interactions.ts",
+        "src/app/commands.ts",
+        "src/content/actions.json"
+      ],
+      "acceptanceRefs": [
+        "T07"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "实现用户仅控沉香的杆输入、清理与五种基础动作，再给剧情与展品复用；不把输入完成直接写成任意跳幕。",
+      "blocker": null,
+      "verification": [],
+      "phase": "G2"
+    },
+    {
+      "id": "T08",
+      "title": "P1十五秒单偶录制与暂停恢复",
+      "priority": "P1",
+      "status": "todo",
+      "dependsOn": [
+        "T03",
+        "T07",
+        "T13"
+      ],
+      "owner": null,
+      "branch": null,
+      "touchFiles": [
+        "src/domain/recorder.ts",
+        "src/domain/playback.ts",
+        "tests/unit/recorder.test.ts",
+        "tests/e2e/replay.spec.ts",
+        "src/persistence/storage.ts"
+      ],
+      "acceptanceRefs": [
+        "T08",
+        "CLIP-01"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "仅在G3通过且feature启用后，在谢幕后练习台接入单偶固定30Hz/450帧录制；不采集整场或双角色剧情。",
+      "blocker": null,
+      "verification": [],
+      "phase": "G4"
+    },
+    {
+      "id": "T09",
+      "title": "团圆留影、节目单与编排重演",
+      "priority": "P0",
+      "status": "todo",
+      "dependsOn": [
+        "T05",
+        "T17"
+      ],
+      "owner": null,
+      "branch": null,
+      "touchFiles": [
+        "src/features/result/",
+        "src/story/replay.ts",
+        "src/persistence/project-file.ts",
+        "tests/e2e/story-and-resume.spec.ts"
+      ],
+      "acceptanceRefs": [
+        "T09",
+        "SAVE-03"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "先由runId派生成果ID和节目单，再按冻结外观/分支生成双角色留影；按编排重演只读，不假装完整动作录像。",
+      "blocker": null,
+      "verification": [],
+      "phase": "G2"
+    },
+    {
+      "id": "T10",
+      "title": "四幕视听、八展品与正式资产",
+      "priority": "P0",
+      "status": "todo",
+      "dependsOn": [
+        "T01",
+        "T02",
+        "T15"
+      ],
+      "owner": null,
+      "branch": null,
+      "touchFiles": [
+        "src/content/",
+        "public/assets/",
+        "src/features/about/view.ts",
+        "docs/assets.csv",
+        "scripts/verify-assets.mjs",
+        "scripts/verify-content.mjs"
+      ],
+      "acceptanceRefs": [
+        "T10",
+        "CULT-01"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "按叙事稿替换占位角色/三套场景、逐节点校字幕声音，再审E01至E08来源与传统/原创/示意边界。",
+      "blocker": null,
+      "verification": [],
+      "phase": "G3"
+    },
+    {
+      "id": "T11",
+      "title": "完整/导览、手机二维与实际IE验收",
+      "priority": "P0",
+      "status": "todo",
+      "dependsOn": [
+        "T05",
+        "T06",
+        "T09",
+        "T10",
+        "T16",
+        "T17",
+        "T18"
+      ],
+      "owner": null,
+      "branch": null,
+      "touchFiles": [
+        "src/styles/legacy.css",
+        "src/app/capabilities.ts",
+        "vite.config.ts",
+        "tests/e2e/fallback.spec.ts",
+        "docs/verification.md"
+      ],
+      "acceptanceRefs": [
+        "T11",
+        "SAVE-01",
+        "SAVE-02",
+        "SAVE-03",
+        "SAVE-04",
+        "SAVE-05",
+        "SAVE-06",
+        "SAVE-07",
+        "STORY-03",
+        "STORY-04",
+        "STORY-05",
+        "STORY-06",
+        "DESIGN-01"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "在生产包按环境矩阵完成两路径、字幕/协助/展馆/保存，真实IE记录单列；未获得环境不能标全兼容。",
+      "blocker": null,
+      "verification": [],
+      "phase": "G3"
+    },
+    {
+      "id": "T12",
+      "title": "可选真实分享后端",
+      "priority": "P1",
+      "status": "todo",
+      "dependsOn": [
+        "T09",
+        "T13"
+      ],
+      "owner": null,
+      "branch": null,
+      "touchFiles": [
+        "server/",
+        "src/persistence/share-client.ts",
+        ".env.example",
+        "package.json",
+        "package-lock.json"
+      ],
+      "acceptanceRefs": [
+        "T12"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "仅在G3通过且onlineShare启用后实现不可变已团圆项目分享、请求幂等、重启后跨设备读取与按编排重演。",
+      "blocker": null,
+      "verification": [],
+      "phase": "G4"
+    },
+    {
+      "id": "T13",
+      "title": "完整情绪体验、视觉与性能打磨",
+      "priority": "P0",
+      "status": "todo",
+      "dependsOn": [
+        "T06",
+        "T09",
+        "T10",
+        "T11",
+        "T18"
+      ],
+      "owner": null,
+      "branch": null,
+      "touchFiles": [
+        "src/styles/",
+        "src/renderers/",
+        "src/features/",
+        "public/assets/",
+        "docs/verification.md"
+      ],
+      "acceptanceRefs": [
+        "T13",
+        "EMO-01",
+        "EMO-02",
+        "EMO-03",
+        "EMO-04",
+        "CULT-02",
+        "STORY-08"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "邀请至少3位未参与开发者实际体验，记录动机、选择、最后伸手是否可感；修复阻塞并验证预算和节点清理。",
+      "blocker": null,
+      "verification": [],
+      "phase": "G3"
+    },
+    {
+      "id": "T14",
+      "title": "可提交包、实际验证与开发接手演练",
+      "priority": "P0",
+      "status": "todo",
+      "dependsOn": [
+        "T13"
+      ],
+      "conditionalDependencies": [
+        {
+          "feature": "onlineShare",
+          "when": "enabled",
+          "taskId": "T12"
+        }
+      ],
+      "owner": null,
+      "branch": null,
+      "touchFiles": [
+        "README.md",
+        "docs/verification.md",
+        "docs/assets.csv",
+        "docs/STATE.md",
+        "docs/tasks.json",
+        "release/"
+      ],
+      "acceptanceRefs": [
+        "T14"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "确认T13与已启用P1依赖真实完成，在干净目录复现安装/构建/两路径，完成另一开发者只凭仓库接手的演练。",
+      "blocker": null,
+      "verification": [],
+      "phase": "G4"
+    },
+    {
+      "priority": "P0",
+      "status": "todo",
+      "owner": null,
+      "branch": null,
+      "checkpointCommit": null,
+      "blocker": null,
+      "verification": [],
+      "phase": "G2",
+      "id": "T15",
+      "title": "版本化剧本、纯状态机与命令幂等",
+      "dependsOn": [
+        "T01",
+        "T03"
+      ],
+      "touchFiles": [
+        "src/content/stories/reunion-v1.json",
+        "src/domain/story.ts",
+        "scripts/verify-content.mjs",
+        "package.json",
+        "tests/unit/story.test.ts"
+      ],
+      "acceptanceRefs": [
+        "T15",
+        "STORY-01",
+        "STORY-02",
+        "STORY-07"
+      ],
+      "nextAction": "先用文字运行器走通两路径与四幕节点，检验版本、前置条件、双击和保存失败；再加verify:content入口。"
+    },
+    {
+      "priority": "P0",
+      "status": "todo",
+      "owner": null,
+      "branch": null,
+      "checkpointCommit": null,
+      "blocker": null,
+      "verification": [],
+      "phase": "G2",
+      "id": "T16",
+      "title": "可跳过序幕与短节点场面调度",
+      "dependsOn": [
+        "T02",
+        "T04",
+        "T15"
+      ],
+      "touchFiles": [
+        "src/story/director.ts",
+        "src/story/node-scope.ts",
+        "src/features/intro/events.ts",
+        "src/features/story/subtitles.ts",
+        "tests/unit/director.test.ts"
+      ],
+      "acceptanceRefs": [
+        "T16",
+        "STORY-08"
+      ],
+      "nextAction": "先挂载一个短节点，实现脚本第二角色、字幕、灯位/图层初值与暂停清理，再接序幕和晚到加载丢弃。"
+    },
+    {
+      "priority": "P0",
+      "status": "todo",
+      "owner": null,
+      "branch": null,
+      "checkpointCommit": null,
+      "blocker": null,
+      "verification": [],
+      "phase": "G2",
+      "id": "T17",
+      "title": "四幕双路径、用户伸手与谢幕闭环",
+      "dependsOn": [
+        "T05",
+        "T07",
+        "T15",
+        "T16"
+      ],
+      "touchFiles": [
+        "src/features/story/",
+        "src/story/interactions.ts",
+        "src/app/commands.ts",
+        "tests/e2e/story-and-resume.spec.ts"
+      ],
+      "acceptanceRefs": [
+        "T17",
+        "STORY-01",
+        "STORY-02",
+        "STORY-03",
+        "STORY-04",
+        "STORY-06",
+        "STORY-07"
+      ],
+      "nextAction": "占位美术先完整演出一条路径与真实刷新，再补先呼唤/先开山差异、共纹回收、牵手与幂等谢幕。"
+    },
+    {
+      "priority": "P0",
+      "status": "todo",
+      "owner": null,
+      "branch": null,
+      "checkpointCommit": null,
+      "blocker": null,
+      "verification": [],
+      "phase": "G2",
+      "id": "T18",
+      "title": "五区八展品、已有演示复用与剧情返回",
+      "dependsOn": [
+        "T01",
+        "T02",
+        "T04",
+        "T15"
+      ],
+      "touchFiles": [
+        "src/features/museum/",
+        "src/content/exhibits.json",
+        "src/content/facts.json",
+        "tests/e2e/museum.spec.ts"
+      ],
+      "acceptanceRefs": [
+        "T18",
+        "STORY-05",
+        "CULT-02"
+      ],
+      "nextAction": "从E01/E04做直达展签与灯影复用，再建五区八件结构；逛展暂停剧情，返回原节点，不锁知识。"
+    }
+  ],
+  "originalWorkspace": "D:/.MyLearning/VSCodeProject/ZeroCup",
+  "designVersion": "2.0",
+  "storyBible": "docs/content/2026-10-15-yingzuo-story-bible.md",
+  "optionalFeaturePolicy": "T08/T12仅在对应feature为enabled时成为T14的条件依赖；省略时标omitted，保留任务todo并注明未实施，不伪造done。",
+  "conditionalDependencies": {
+    "T14": {
+      "singlePuppetRecording": [
+        "T08"
+      ],
+      "onlineShare": [
+        "T12"
+      ]
+    }
+  }
+}
