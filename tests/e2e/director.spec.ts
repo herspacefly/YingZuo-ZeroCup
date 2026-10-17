@@ -72,8 +72,10 @@ test('skip is explicit only in intro and interaction, choice and quiet hold cann
   for(const id of ['road','approach-choice','reunion-hold'] as const){
     await seed(page,at(id));await page.goto('/#/story');await ready(page);await expect(page.locator('#story-skip')).toBeHidden();
     if(id==='reunion-hold'){await page.locator('#story-play').click();await advance(page,4000);await expect(node(page)).toHaveAttribute('data-elapsed','4000');}
-    else await expect(page.locator('#story-play')).toBeDisabled();
-    await advance(page,20000);expect((await stored(page)).story!.nodeId).toBe(id);await expect(page.locator('#story-finish')).toBeHidden();
+    else if(id==='approach-choice')await expect(page.locator('#story-play')).toBeDisabled();
+    else await page.locator('#story-play').click();
+    await advance(page,20000);expect((await stored(page)).story!.nodeId).toBe(id);
+    if(id==='reunion-hold')await expect(page.locator('#story-finish')).toHaveText('谢幕');else await expect(page.locator('#story-finish')).toBeHidden();
   }
 });
 

@@ -18,6 +18,8 @@ actorLocalBounds/projectedPoseBounds取所有已变换部件与显式可见附�
 
 mountCanvasRenderer(host,catalog,onStatus)返回canvas/update/resize/pause/reset/dispose。CanvasFrame为瞬时纯数据：actors最多2位、stage、可选sceneLayers、attachments和showRods。固定角色只用自己的色板；母亲只用传入sharedMotif，不读取当前编辑稿。frame验证模板、配色/纹样、场景白名单与参数范围、附件宿主，之后复制并夹关节；Renderer不会悄悄平移导演的入口构图。
 
+T17新增可选actorOpacity，键只允许当前帧演员，值必须为有限0—1，验证后独立复制。它只在角色局部save/restore内作用于globalAlpha，不能改其他演员/场景透明度，也不写存档。透明演员仍加载全部部件，使渐显/退出不触发资源闪烁。
+
 按清单加载当前演员、纹样、可见附件与场景层。TextureCache校验本地路径和真实解码尺寸；Image.onload/error都有清理，更新代号拒绝旧帧结果。T07增加hasAll快速路径：已加载齐全的姿态帧同步绘制，不逐帧清空/隐藏画布或标loading；资源变化仍走加载与代号检查。只保留当前帧资源；部件纹理按actor/part缓存，配色/色槽/相关纹样变化才重建，退出释放canvas像素。失败重试追加本页数字代次查询参数，避免同一文档的解码图片缓存继续提供已修复前的坏图。
 
 PartCompositor读取精确RGB标签，body/sleeve/hem按色槽取色，fixed保留原图RGB；alpha取原遮罩。镂空只在独立部件Canvas用destination-out，再绘入舞台，因此不会擦掉背景或另一位演员。禁止Canvas.filter/OffscreenCanvas/Image.decode等必需依赖；当前没有半影模糊，暖色幕面与几何投影属于交互近似。

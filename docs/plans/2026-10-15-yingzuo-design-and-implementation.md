@@ -790,11 +790,13 @@ API 与静态站同源优先，客户端通过配置决定是否显示分享按�
 
 优先级 P0；阶段 G2；依赖：T05, T07, T15, T16。
 
-目标文件：`src/features/story/`、`src/story/interactions.ts`、`src/app/commands.ts`、`tests/e2e/story-and-resume.spec.ts`。
+目标文件：`src/features/story/`、`src/story/node-interaction.ts`、`src/story/play-staging.ts`、`src/app/story-scene-commands.ts`、`src/renderers/canvas/`及相关单元/整场测试。复用既有interactions与领域commands，不改存档含义。
 
 1. 先占位走完制偶→母子记忆→路→阻拦→一分支→相见→谢幕，并做突然关闭恢复。
 2. 补两路径真实顺序/光影任务/对白、共同纹样回收与宽容伸手。
 3. 用同内容配置跑完整/导览；切模式从短节点重启，成果/完成时间不重复。
+
+实施细节见[交互计划](2026-10-17-t17-interactive-story.md)与[图形整场合同](../contracts/story-play-v1.md)。实际手臂/纹样/手点观察、单时钟输入和协助、4秒后用户谢幕均不将瞬时位姿写入存档；原始占位素材继续留待T10正式美术替换。
 
 验收引用：T17、STORY-01、STORY-02、STORY-03、STORY-04、STORY-06、STORY-07；任务号自身指上述步骤的真实完成证据。
 

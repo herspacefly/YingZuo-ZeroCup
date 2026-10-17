@@ -7,6 +7,12 @@ import type { CanvasFrame } from '../../src/renderers/canvas/types';
 const frame=():CanvasFrame=>({actors:[{actorId:'chenxiang',templateId:'chenxiang-v1',appearance:defaultAppearance(),pose:defaultPose()},
   {actorId:'mother',templateId:'mother-v1',paletteId:'mother-v1',sharedMotif:'wave-v1',pose:defaultPose()}],stage:{backgroundId:'home-v1',lampX:0,puppetDistance:.2}});
 describe('production drawing boundary',()=>{
+  it('fades only current actors with finite alpha while keeping their geometry and resources loaded',()=>{
+    const input=frame();input.actorOpacity={mother:.2};const ready=prepareFrame(input,assetCatalog);
+    expect(ready.actorOpacity).toEqual({mother:.2});expect(requiredAssets(ready,assetCatalog)).toContain('mother-v1-head-mask');
+    input.actorOpacity.mother=1;expect(ready.actorOpacity!.mother).toBe(.2);
+    for(const invalid of [{mother:NaN},{mother:1.1},{guardian:.5}])expect(()=>prepareFrame({...frame(),actorOpacity:invalid},assetCatalog)).toThrow('显影');
+  });
   it('takes an independent frame and keeps fixed palette and motif separate from editor changes',()=>{
     const input=frame(),ready=prepareFrame(input,assetCatalog); input.actors[0]!.pose.x=.8;
     if(input.actors[0]!.actorId==='chenxiang')input.actors[0]!.appearance.patternId='flower-v1';

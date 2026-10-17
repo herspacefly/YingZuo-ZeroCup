@@ -26,7 +26,7 @@ export function mountCanvasRenderer(host: HTMLElement, catalog: AssetCatalog, on
   }
   function drawActor(actor: RenderActor,template: PuppetTemplate) {
     const t=1.2/(1.2-frame!.stage.puppetDistance), root=projectLocalPoint({x:0,y:0},actor.pose,frame!.stage);
-    ctx!.save(); ctx!.translate(root.x,root.y); ctx!.scale(t*actor.pose.scale*actor.pose.facing,t*actor.pose.scale);
+    ctx!.save(); ctx!.globalAlpha=frame!.actorOpacity?.[actor.actorId]??1; ctx!.translate(root.x,root.y); ctx!.scale(t*actor.pose.scale*actor.pose.facing,t*actor.pose.scale);
     const operations: { order:number; draw():void }[]=template.parts.map(part=>({order:part.drawOrder,draw(){
       const transform=partTransform(template,actor.pose,part);
       ctx!.save(); ctx!.translate(transform.x,transform.y); ctx!.rotate(transform.angle);

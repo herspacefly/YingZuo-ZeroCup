@@ -57,4 +57,6 @@ sharedMotif取实际冻结appearance.patternId；母亲与二郎神使用固定�
 
 `storyEntry(project, definition, generation)`返回节点初值的独立副本、当前guard和新挂载token，始终paused=true/elapsedMs=0。generation为调用者管理的临时计数；同revision内重挂载也需更新它。T16已用NodeScope在队列内核对token，复用唯一时钟；自动场须播满targetMs，退出清理与下一幕保留旧帧见[导演合同](director-v1.md)。互动及用户谢幕不能由该自动入口完成。
 
-`story.html`是文字检查页：操作段用明确文字协助，过场有可暂停时钟，页面隐藏/失焦/超过250ms停顿时暂停；刷新或模式变化重开当前短节点。没有动画、声音、手动操偶、完整展馆或成果PNG；不能据此声称STORY-03—06全部图形流程已验收。
+T17图形产品按[图形整场合同](story-play-v1.md)接实际区域/手点、明确分支与协助、4秒静候及用户谢幕；保存的仍只有上述稳定节点/决定/冻结配置。
+
+`story.html`是文字检查页：操作段用明确文字协助，过场有可暂停时钟，页面隐藏/失焦/超过250ms停顿时暂停；刷新或模式变化重开当前短节点。没有动画、声音、手动操偶、完整展馆或成果PNG；其验证与图形产品分别记录。

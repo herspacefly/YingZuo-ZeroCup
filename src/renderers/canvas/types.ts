@@ -8,5 +8,7 @@ export interface CanvasFrame {
   sceneLayers?: { id: string; x: number; y: number; opacity: number }[];
   attachments?: { actorId: RenderActor['actorId']; attachmentId: string }[];
   showRods?: boolean;
+  /** Transient staging fade; actor geometry/assets remain present and preloaded. */
+  actorOpacity?: Partial<Record<RenderActor['actorId'],number>>;
 }
 export type CanvasStatus = { state: 'loading' | 'ready' | 'error'; message: string };

@@ -36,8 +36,17 @@ export function prepareFrame(input: CanvasFrame, catalog: AssetCatalog): CanvasF
     props.add(key);
   }
   if (input.showRods !== undefined && typeof input.showRods !== 'boolean') throw new Error('杆显示设置无效。');
+  const actorOpacity:CanvasFrame['actorOpacity']={};
+  if(input.actorOpacity!==undefined){
+    if(!input.actorOpacity||typeof input.actorOpacity!=='object'||Array.isArray(input.actorOpacity))throw new Error('角色显影设置无效。');
+    for(const [id,opacity]of Object.entries(input.actorOpacity)){
+      if(!ids.has(id)||!number(opacity,0,1))throw new Error('角色显影设置无效。');
+      actorOpacity[id as RenderActor['actorId']]=opacity;
+    }
+  }
   const sceneLayers=(input.sceneLayers??[]).map(layer=>({id:layer.id,x:layer.x,y:layer.y,opacity:layer.opacity}));
-  return JSON.parse(JSON.stringify({ actors, stage:input.stage, sceneLayers, attachments:input.attachments ?? [], showRods:!!input.showRods })) as CanvasFrame;
+  return JSON.parse(JSON.stringify({ actors, stage:input.stage, sceneLayers, attachments:input.attachments ?? [], showRods:!!input.showRods,
+    ...(input.actorOpacity===undefined?{}:{actorOpacity}) })) as CanvasFrame;
 }
 export function requiredAssets(frame: CanvasFrame, catalog: AssetCatalog): string[] {
   const ids = new Set<string>();

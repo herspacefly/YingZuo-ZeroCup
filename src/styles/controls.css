@@ -14,6 +14,9 @@ fieldset { border:0; padding:0; margin:0; min-width:0; } legend { font-family:Si
 .rod-lines { position:absolute; width:100%; height:100%; pointer-events:none; } .rod-lines line { stroke:#715033; stroke-width:2; }
 .rod-handle { position:absolute; transform:translate(-50%,-50%); width:48px; height:48px; padding:0; border-radius:50%; pointer-events:auto; touch-action:none; -ms-touch-action:none; background:#282117; color:#f2e5c9; border:2px solid #a18458; }
 .rod-handle[aria-pressed=true] { background:#b83b30; border-color:#f2e5c9; } .rod-handle:focus { z-index:2; }
+.story-target { fill:#d7a25322; stroke:#d7a253; stroke-width:2; stroke-dasharray:6 4; }
+.story-region { fill:none; stroke:#fff0d6; stroke-width:2; }
+.story-choices .button { display:flex; width:100%; }
 .carve-segments { display:flex; flex-wrap:wrap; margin:12px -4px; } .carve-segments .button { flex:1 1 28%; min-width:70px; padding:8px; margin:4px; }
 .carve-segments [aria-pressed=true] { background:#d7a253; color:#17130f; } .craft-confirmation { border-top:1px solid #66503b; margin-top:24px; padding-top:20px; }
 .craft-confirmation .button { display:flex; width:100%; } .craft-trial { border-top:1px solid #66503b; margin-top:20px; padding-top:14px; } .craft-trial .direction-pad { max-width:520px; }

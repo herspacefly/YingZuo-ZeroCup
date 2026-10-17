@@ -1,14 +1,17 @@
 import { currentStoryNode, reduceStory, StoryCommandError } from '../domain/story';
-import type { StoryGuard } from '../domain/story-types';
+import type { InteractionEvidence,StoryGuard } from '../domain/story-types';
 import { reunionDefinition } from '../content/reunion';
 import type { ProjectStore } from './store';
 
 export type SceneCommand=StoryGuard&({action:'COMPLETE_SCENE';source:'script'}|
-  {action:'COMPLETE_SCENE';source:'user';skipped:true}|{action:'SET_MODE';mode:'full'|'guided'});
-export interface SceneObservation {token:string;paused:boolean;elapsedMs:number;now:string}
+  {action:'COMPLETE_SCENE';source:'user';skipped?:true}|{action:'SET_MODE';mode:'full'|'guided'}|
+  {action:'CHOOSE';approach:'call-first'|'split-first'}|
+  {action:'COMPLETE_INTERACTION';source:'user';evidence:InteractionEvidence}|
+  {action:'COMPLETE_INTERACTION';source:'assistance'});
+export interface SceneObservation {token:string;paused:boolean;elapsedMs:number;now:string;assistanceElapsedMs?:number}
 /** Scope and persisted guard are checked inside the same serial operation, not only before enqueue. */
 export function submitScopedSceneCommand(store:ProjectStore,scope:{isCurrent(token:string):boolean},command:SceneCommand,observation:SceneObservation){
-  const action={...command},context={...observation};
+  const action=JSON.parse(JSON.stringify(command)) as SceneCommand,context={...observation};
   return store.commit(project=>{
     if(!scope.isCurrent(context.token))return null;
     const story=project.story;if(!story||story.runId!==action.runId||story.revision!==action.expectedRevision||story.nodeId!==action.expectedNodeId)return null;
@@ -18,6 +21,8 @@ export function submitScopedSceneCommand(store:ProjectStore,scope:{isCurrent(tok
       const duration=story.mode==='full'?node.fullTiming.targetMs:node.guidedTiming.targetMs;
       if(context.paused||!Number.isFinite(context.elapsedMs)||context.elapsedMs<duration)throw new StoryCommandError('片段还没有播放到结束。');
     }
+    if(action.action==='COMPLETE_INTERACTION'&&action.source==='assistance'&&
+      (!Number.isFinite(context.assistanceElapsedMs)||(context.assistanceElapsedMs??0)<3000))throw new StoryCommandError('请先播放本段协助动作。');
     return reduceStory(project,action,context,reunionDefinition);
   });
 }

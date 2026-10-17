@@ -34,4 +34,4 @@ T04已将制偶、灯影、练习和剧情场面接到同一Canvas渲染器；�
 
 宽屏场面和控制区并排，手机上下布局；菜单与作品工具有明确展开状态、44px主要目标和可见焦点，切页聚焦标题。禁用JavaScript时保留静态故事/展馆介绍。无远程字体或运行时CDN。CSS有字面值与基础IE回退，legacy包和Chromium冒烟不等于真实IE运行验收。
 
-T04接口见canvas-v1.md；T05制偶/灯影见craft-v1.md，T07操偶见practice-v1.md，T16场面见director-v1.md；T17接故事交互，T18接展签及演示，T09接成果输出。新增消费者须保持导航、保存与清理边界，按PageContext.isBusy读取根操作锁。
+T04接口见canvas-v1.md；T05制偶/灯影见craft-v1.md，T07操偶见practice-v1.md，T16场面见director-v1.md；T17图形交互见story-play-v1.md，T18接展签及演示，T09接成果输出。T17十次真实操作/离页检查输入与时钟释放，恢复稳定节点而不恢复瞬时拖动；完整SAVE矩阵及实体设备仍留T11。新增消费者须保持导航、保存与清理边界，按PageContext.isBusy读取根操作锁。

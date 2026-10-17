@@ -37,6 +37,29 @@ afterEach(() => {
 });
 
 describe('scoped scene commands at the real Store/IDB boundary', () => {
+  it('requires an explicit branch and stores it once without changing the frozen cast',async()=>{
+    const {store,storage}=await open(at('approach-choice')),scope=createNodeScope('choice',vi.fn()),before=store.getState().project!;
+    const command:SceneCommand={...storyGuard(before.story!),action:'CHOOSE',approach:'split-first'};
+    await submitScopedSceneCommand(store,scope,command,observation(scope,{paused:true,elapsedMs:0}));
+    const saved=decodeStoredProject((await storage.readRaw()).draft);expect(saved.story).toMatchObject({nodeId:'split-axe',approach:'split-first',approachSource:'user',castSnapshot:before.story!.castSnapshot});
+    await submitScopedSceneCommand(store,scope,command,observation(scope));expect(store.getState().project!.saveRevision).toBe(saved.saveRevision);
+  });
+  it('rejects paused manual completion and records only an explicitly played assistance clip',async()=>{
+    const {store}=await open(at('memory-wave')),scope=createNodeScope('wave',vi.fn()),guard=storyGuard(store.getState().project!.story!);
+    const manual:SceneCommand={...guard,action:'COMPLETE_INTERACTION',source:'user',evidence:{kind:'wave',overlapRatio:1,heldMs:300}};
+    expect(await submitScopedSceneCommand(store,scope,manual,observation(scope,{paused:true}))).toMatchObject({ok:false});
+    const help:SceneCommand={...guard,action:'COMPLETE_INTERACTION',source:'assistance'};
+    for(const duration of [undefined,NaN,2999])expect(await submitScopedSceneCommand(store,scope,help,observation(scope,{assistanceElapsedMs:duration}))).toMatchObject({ok:false});
+    await submitScopedSceneCommand(store,scope,help,observation(scope,{assistanceElapsedMs:3200}));
+    expect(store.getState().project!.story).toMatchObject({nodeId:'memory-separate',assistedNodeIds:['memory-wave']});
+  });
+  it('requires a user curtain action after four seconds and retries the same completedAt after failure',async()=>{
+    const {store,storage,later}=await open(at('reunion-hold')),scope=createNodeScope('hold',vi.fn()),command:SceneCommand={...storyGuard(store.getState().project!.story!),action:'COMPLETE_SCENE',source:'user'};
+    expect(await submitScopedSceneCommand(store,scope,command,observation(scope,{elapsedMs:3999}))).toMatchObject({ok:false});
+    failNextDraft();expect(await submitScopedSceneCommand(store,scope,command,observation(scope,{elapsedMs:4000}))).toMatchObject({ok:false});
+    expect(store.getState().project!.story!.completedAt).toBeNull();const candidate=store.getExportProject()!;later();await store.retryPending();
+    expect(decodeStoredProject((await storage.readRaw()).draft).story).toEqual(candidate.story);expect(candidate.story!.completedAt).toBe(NOW);
+  });
   it.each([{ mode: 'full' as const, target: 18000 }, { mode: 'guided' as const, target: 10000 }])(
     'requires the $mode target ($target ms), rather than the shorter minimum', async ({ mode, target }) => {
       const { store, storage } = await open(at('intro', 'call-first', mode));
