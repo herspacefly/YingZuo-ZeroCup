@@ -214,3 +214,5 @@ T04已验证源码检查点：4297769f29dc02892c58abfcd3e218a0b0d804db；以上1
 - 5173响应200，已查看evidence/t07-practice-desktop.png和t07-practice-mobile.png；宽窄屏无横向溢出。截图临时脚本与test-results的5文件/4目录逐项显式路径、无Force/无递归清理，Test-Path均false。两托管工作树归档仍queued/目录仍在。
 
 T07达到自身验收；下一项优先T05，再T16/T17占位整场。真实IE/实体手机/Safari、完整图形SAVE/手动可达性、全剧性能/时长/情绪、正式美术/文化/许可仍未验收。接口以practice-v1与canvas-v1为准。
+
+T07已验证源码检查点：b7bbff6bb123d582195e029f6db3f106a092dac1；以上209项单元、122项生产浏览器、13份legacy ES5及资产/内容检查对应此实现。
