@@ -18,7 +18,7 @@
 4. 工程查 [主设计与实施方案](docs/plans/2026-10-15-yingzuo-design-and-implementation.md)；剧情、美术与展品查 [叙事执行稿](docs/content/2026-10-15-yingzuo-story-bible.md)。
 5. 做一个可检查的小步骤，更新 nextAction、实际验证和必要交接，再停止。
 
-**T00、T03、T01、T15、T02、T04、T07、T05及T16已完成。**[产品首页](http://127.0.0.1:5173/#/)已有八入口、五区八件目录与节目单；[制偶页](http://127.0.0.1:5173/#/craft)有双角色刻纹/着色/共纹预览与确认冻结、归档重开，[练习台](http://127.0.0.1:5173/#/practice)有三杆鼠标/触屏/键盘操作、五动作和姿态保存；剧场已有序幕/自动短场面、同步字幕、暂停切节奏与检查点，互动节点仍待T17。[文字排演](http://127.0.0.1:5173/story.html)可走两路径并保存接续；project/assets/study/probe.html保留独立检查入口。启动见[README](README.md)，消费者读[ProjectV1](docs/contracts/project-v1.md)／[资产](docs/contracts/assets-v1.md)／[剧情](docs/contracts/story-v1.md)／[导航](docs/contracts/navigation-v1.md)／[Canvas](docs/contracts/canvas-v1.md)／[练习](docs/contracts/practice-v1.md)／[制偶合同](docs/contracts/craft-v1.md)／[导演合同](docs/contracts/director-v1.md)，真实证据见[验证记录](docs/verification.md)。下一项优先 **T17占位图形整场**；正式美术、八展品演示和成果PNG仍未完成。
+**T00、T03、T01、T15、T02、T04、T07、T05、T16及T17已完成。**[产品首页](http://127.0.0.1:5173/#/)已有八入口；[制偶](http://127.0.0.1:5173/#/craft)有刻纹/着色/同纹与冻结开演，[练习](http://127.0.0.1:5173/#/practice)有三杆与五动作，[剧场](http://127.0.0.1:5173/#/story)可走两模式、两分支的实际操偶/键盘/明确协助、寻光落斧、最后伸手、四秒静候及用户谢幕，并保存稳定节点接续。消费者先读[图形整场合同](docs/contracts/story-play-v1.md)、[导演](docs/contracts/director-v1.md)、[剧情](docs/contracts/story-v1.md)及[Canvas](docs/contracts/canvas-v1.md)，其他合同仍在docs/contracts。299项单元、216项生产浏览器检查与构建通过，详见[验证记录](docs/verification.md)。下一项优先 **T18五区八展品说明与演示复用**；正式美术/声音、Three增强和成果PNG仍未完成。
 
 Canvas 2D 完整覆盖故事和展馆；Three.js 增强空间与材料。本地用户剧情恢复与开发者接手是两套机制，都必须完成。
 
@@ -26,4 +26,4 @@ Canvas 2D 完整覆盖故事和展馆；Three.js 增强空间与材料。本地�
 
 ## 新会话接续提示
 
-> 请继续本仓库《影作·一幕团圆》2.0。先读START_HERE.md、AGENTS.md、docs/STATE.md、docs/tasks.json，核对文件与Git差异，保留已有成果，不重新生成覆盖工程。T00/T03/T01/T15/T02/T04/T07/T05/T16已完成，已有事务存档、串行Store、三角色资产、guarded剧情命令、八页hash、双角色Canvas/IK/投影/bbox及独立三杆练习/五动作/唯一时钟/有限几何观察。消费者先读docs/contracts下project-v1、assets-v1、story-v1、navigation-v1、canvas-v1、practice-v1、craft-v1。T16已有导演/NodeScope/单时钟/同步字幕/双缓冲/自动场scope命令，消费director-v1；优先T17占位图形整场，先一条真实操偶路径和刷新，再补分支与伸手。craft已有分段刻纹/色槽/临时身杆/确认冻结与归档重开，light已有灯位/距离控制；practice只保存编辑Pose，不改冻结剧情；memory/error需明确保存，不自动重试。自动短场面、文字排演与展馆目录不等于整场手动/正式展品验收；正式美术/文化/许可仍待T10。按依赖接续一个明确小步骤，记录真实检查并更新状态，不恢复成录制优先。
+> 请继续本仓库《影作·一幕团圆》2.0。先读START_HERE.md、AGENTS.md、docs/STATE.md、docs/tasks.json，核对文件/Git/暂存与端口，保留已有成果和用户DOCX/PPTX，不从零覆盖。T17图形双路径已完成，消费story-play-v1/director-v1/story-v1/canvas-v1及已有craft/practice合同；299单元/216生产浏览器通过，当前仍为静音几何排演。优先领取T18，从E01/E04接五区八展品短说明、来源展开与已有刻纹/关节/灯影演示复用，直接逛展不锁内容，返回原稳定剧情节点。瞬时杆位不入档；失败候选、明确内存继续、唯一时钟/NodeScope与清理边界保持。T06/T09/T10/T11后续按依赖，正式美术/文化/许可未验收；P1录制/分享仍在T13/G3后。完成一个真实可检查步骤，记录实际证据与SHA，清理临时文件并更新交接。

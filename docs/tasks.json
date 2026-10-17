@@ -7,9 +7,9 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T16_complete_T17_ready",
+  "stage": "T17_complete",
   "activeTaskId": null,
-  "lastVerifiedCommit": "f0e1ec7d68746ba8152e583de7e96dba751c0be6",
+  "lastVerifiedCommit": "c13b20d3063ce990e198d7f4e02933dbb9917b39",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -770,12 +770,21 @@
     },
     {
       "priority": "P0",
-      "status": "todo",
-      "owner": null,
-      "branch": null,
-      "checkpointCommit": null,
+      "status": "done",
+      "owner": "codex-root",
+      "branch": "main",
+      "checkpointCommit": "c13b20d3063ce990e198d7f4e02933dbb9917b39",
       "blocker": null,
-      "verification": [],
+      "verification": [
+        "2026-10-17: npm test，22文件299/299通过，新增31项实际几何/可达性、稳定手点、Canvas alpha与真实Store候选/门禁；两模式同完成条件。",
+        "2026-10-17: 最终npm run build含typecheck通过（11.60秒），生产源码之后未改；verify:legacy确认13份ES5 JS，六HTML含modern/legacy入口。",
+        "2026-10-17: 最终npm run test:e2e -- --workers=2，216/216通过（7.1分钟），桌面1440x900与模拟手机390x844各108项；新增44项，原172项回归。",
+        "2026-10-17: 完整/导览两路径手动、原生键盘、明确协助到completed；实际招手/上路/架挡/纹样寻光/稳斧落手/最后伸手，四秒后用户谢幕；唯一分支、冻结、完成时间与成果ID不重复。",
+        "2026-10-17: 真实鼠标/CDP触屏/Touch回退/键盘、暂停/失焦/协助重演、刷新/模式/展馆返回/JSON新浏览器导入、失败同候选重试、内存不隐写、十次操偶退出清理与旧回调拒绝通过。",
+        "2026-10-17: 独立几何/输入审查无剩余生产阻塞；284组近手探针未被有限收束拉远；四张t17-light/reunion桌面/手机证据已查看，远山对比修正使母亲衣身可辨。",
+        "2026-10-17: verify:assets通过80 PNG、verify:content通过18节点/两路径、verify:state通过19任务；正式release/实际IE/实体手机/Safari/完整SAVE/真实时长情绪性能/正式美术声音文化许可未验收。",
+        "2026-10-17: test-results的5文件/4子目录已核对绝对路径后逐项无Force/无递归删除，Test-Path=false；旧T16证据恢复原版；两托管工作树归档queued、目录仍在。源码c13b20d3063ce990e198d7f4e02933dbb9917b39。"
+      ],
       "phase": "G2",
       "id": "T17",
       "title": "四幕双路径、用户伸手与谢幕闭环",
@@ -787,9 +796,35 @@
       ],
       "touchFiles": [
         "src/features/story/",
-        "src/story/interactions.ts",
-        "src/app/commands.ts",
-        "tests/e2e/story-and-resume.spec.ts"
+        "tests/e2e/story-and-resume.spec.ts",
+        "tests/e2e/story-keyboard.spec.ts",
+        "src/story/node-interaction.ts",
+        "src/story/play-staging.ts",
+        "src/features/story/rod-controls.ts",
+        "src/app/story-scene-commands.ts",
+        "src/renderers/canvas/frame.ts",
+        "src/renderers/canvas/types.ts",
+        "src/renderers/canvas/renderer.ts",
+        "src/styles/controls.css",
+        "src/styles/layout.css",
+        "tests/unit/node-interaction.test.ts",
+        "tests/unit/play-staging.test.ts",
+        "tests/unit/canvas-frame.test.ts",
+        "tests/unit/story-scene-commands.test.ts",
+        "tests/e2e/director.spec.ts",
+        "docs/contracts/story-play-v1.md",
+        "docs/contracts/director-v1.md",
+        "docs/contracts/story-v1.md",
+        "docs/contracts/canvas-v1.md",
+        "docs/contracts/navigation-v1.md",
+        "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
+        "docs/plans/2026-10-17-t17-interactive-story.md",
+        "docs/STATE.md",
+        "docs/tasks.json",
+        "docs/verification.md",
+        "docs/evidence/",
+        "README.md",
+        "START_HERE.md"
       ],
       "acceptanceRefs": [
         "T17",
@@ -800,7 +835,7 @@
         "STORY-06",
         "STORY-07"
       ],
-      "nextAction": "占位美术先完整演出一条路径与真实刷新，再补先呼唤/先开山差异、共纹回收、牵手与幂等谢幕。"
+      "nextAction": "T17占位图形整场已验收；消费story-play-v1/director-v1/story-v1/canvas-v1。优先T18五区八展品短说明/来源展开与已有演示复用，返回剧情保留稳定节点；正式艺术/声音留T10，完整SAVE与实体兼容留T11。"
     },
     {
       "priority": "P0",
