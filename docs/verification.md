@@ -236,3 +236,5 @@ T07已验证源码检查点：b7bbff6bb123d582195e029f6db3f106a092dac1；以上2
 - 原5173已不可用，本轮重新启动会话17320并响应200。四张t05-craft/light-desktop/mobile证据图已查看，无横向溢出。临时截图脚本及test-results的5文件/4目录逐项显式路径、无Force/无递归清理，两Test-Path为false。
 
 T05及本轮SAVE-01范围达到自身验收，下一项优先T16，再T17占位整场。真实IE/实体手机/Safari、图形全剧/完整SAVE-01—07、全剧性能/时长/情绪和正式美术/文化/许可仍未验收。接口见craft-v1、ProjectV1与Canvas合同。
+
+T05已验证源码检查点：3e8880cdc856744a03be66d1fc18481d9c4a4c0e；以上229项单元、144项生产浏览器、13份legacy ES5及资产/内容检查对应此实现。

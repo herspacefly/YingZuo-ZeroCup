@@ -42,7 +42,7 @@
 
 字段2文件由t05_fields完成，提交f48a29ebb853b676103901e496cdfe87ef6abf2d；身杆1文件由t05_body_rod完成，提交2c95d780d27a023ff2b075a9b1a5975d8d432282。主Agent按文件集成，补产品/开演/验收并统一验证。工作树工具初始返回detached HEAD，集成人已建立codex/t05-editor-fields与codex/t05-body-rod分支保留提交；以后应在派发前先核对并建立独立分支。两树请求归档返回queued，目录仍在；旧T04/T07的queued树也不手动递归删除。
 
-T05源码检查点将在实际提交后写入。上一T07为b7bbff6bb123d582195e029f6db3f106a092dac1；T04为4297769f29dc02892c58abfcd3e218a0b0d804db。更早T00/T03/T01/T15/T02证据与SHA见verification和账本。
+T05已验证源码检查点：3e8880cdc856744a03be66d1fc18481d9c4a4c0e，对应229项单元、144项生产浏览器和13份legacy ES5；后续交接元数据提交不改变实现。上一T07为b7bbff6bb123d582195e029f6db3f106a092dac1；T04为4297769f29dc02892c58abfcd3e218a0b0d804db。更早T00/T03/T01/T15/T02证据与SHA见verification和账本。
 
 ## 下一位首先执行
 
