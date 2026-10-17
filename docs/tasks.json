@@ -7,7 +7,7 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "G1_verified_T04_ready",
+  "stage": "T04_verified_T07_ready",
   "activeTaskId": null,
   "lastVerifiedCommit": "d9c26e635c606e39d911c21222fe2e59a7fe47af",
   "features": {
@@ -250,27 +250,50 @@
       "id": "T04",
       "title": "双角色二维成影、关节与投影",
       "priority": "P0",
-      "status": "todo",
+      "status": "done",
       "dependsOn": [
         "T01",
         "T03"
       ],
-      "owner": null,
-      "branch": null,
+      "owner": "codex-root",
+      "branch": "main",
       "touchFiles": [
         "src/domain/pose.ts",
         "src/domain/projection.ts",
         "src/renderers/canvas/",
         "tests/unit/pose.test.ts",
-        "tests/unit/projection.test.ts"
+        "tests/unit/projection.test.ts",
+        "src/features/shared/canvas-stage.ts",
+        "src/features/craft/view.ts",
+        "src/features/light/view.ts",
+        "src/features/practice/view.ts",
+        "src/features/story/view.ts",
+        "src/styles/layout.css",
+        "src/styles/controls.css",
+        "tests/e2e/canvas-stage.spec.ts",
+        "docs/contracts/canvas-v1.md",
+        "docs/plans/2026-10-17-t04-canvas-baseline.md",
+        "docs/evidence/",
+        "docs/tasks.json",
+        "docs/STATE.md",
+        "docs/verification.md",
+        "START_HERE.md",
+        "README.md",
+        "tests/unit/canvas-frame.test.ts",
+        "docs/contracts/navigation-v1.md"
       ],
       "acceptanceRefs": [
         "T04"
       ],
       "checkpointCommit": null,
-      "nextAction": "先让同一帧显示沉香与母亲两种RenderActor，再验证正逆投影和两骨手臂，随后接不同部件数模板。",
+      "nextAction": "T04已验收。优先T07三杆输入、键盘/触屏与五种时间动作，复用canvas-v1的逆投影/IK/真实bbox与单一渲染入口；随后T05刻纹/灯控/确认冻结、T16节点导演。当前只是节点暂停构图，不是图形全剧、正式美术或完整SAVE验收。",
       "blocker": null,
-      "verification": [],
+      "verification": [
+        "2026-10-17: npm test，11文件177/177通过；新增25项姿态/IK/附件/实际bbox/正逆投影/镜像缩放/letterbox检查与5项Canvas帧边界检查。typecheck/build通过，六个HTML/13份legacy JS通过ES5解析。",
+        "2026-10-17: 最终生产包浏览器100/100通过，2.2分钟；桌面1440×900、模拟手机390×844各50项。新增16项检查双角色编辑/冻结、节点暂停构图、镂空保留背景、缺图/像素读取失败/真实重新请求与重试、Canvas失败可读、迟到加载与十次进出/resize释放，以及legacy图像；原84项回归通过。",
+        "2026-10-17: verify:assets/verify:content/verify:state通过。查看并保留T04制偶宽窄屏和序幕宽屏3张截图。独立数学工作树提交7ff5c01cae75868e29aa8e50dbd2dde91fc7040d的4文件已集成；只读审查3项修复及解码缓存重试反例已复核。",
+        "2026-10-17: 本轮截图脚本与test-results五个文件及空目录均显式无Force/无递归清理。托管数学工作树已请求归档但工具返回queued，未声称已移除。几何资源仍draft/unknown；实际IE/实体手机/图形全剧/性能与正式文化美术仍未验收。"
+      ],
       "phase": "G2"
     },
     {

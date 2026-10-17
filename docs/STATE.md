@@ -1,49 +1,50 @@
 # 当前开发状态与交接
 
-更新日期：2026-10-17。当前执行者codex-root；实际分支main。用户暂存的两个赛事DOCX/PPTX未读取、未改动，不纳入开发提交。
+更新日期：2026-10-17。codex-root；实际分支main。用户暂存的两份赛事DOCX/PPTX未读取、未改动，不包含在开发提交。
 
-## 当前阶段与运行入口
+## 当前阶段与入口
 
-**T00、T03、T01、T15及T02已完成。G1工程、数据与页面基线齐备；当前无占用任务，下一项优先T04。**
+**T00、T03、T01、T15、T02及T04已完成；当前无占用任务，下一项优先T07。**
 
-- Node v24.18.1 / npm 12.0.2；TypeScript7.0.2、Vite7.3.7 / legacy7.2.1；依赖与锁文件本轮未变。npm ci恢复，npm run dev启动。
-- 本轮重新启动的开发服务为 http://127.0.0.1:5173/ （会话76803）；产品首页实际可加载。新会话先查实际端口，不重复启动。
-- index.html现在是产品外壳：八个根hash入口、E01—E08目录、制偶配色/纹样、剧情检查点与节目单，共用一个ProjectStore。宽屏场面/侧栏与手机上下布局、保存反馈、候选保护、文件导入导出、恢复后明确重读已接入。
-- study.html保留原T00独立灯影试作；probe.html仍用独立探针库。project.html为T03正式存档工作台，assets.html为T01中性组装检查页，story.html为T15完整/导览双路径的文字排演。它们在产品中以新窗口链接保留。
-- src/content与public/assets仍为80张原创几何占位PNG（三角色十/六/四部件、2附件、9镂空、9场景层）。产品幕面目前是CSS静态构图，未把工程探针冒接为正式渲染器。
-- 图形双角色、IK/投影、操偶输入、节点导演、完整刻纹、八展品演示、成果PNG与正式艺术设计仍待对应任务，不提供录制/分享空入口。
+- 环境仍为Node v24.18.1 / npm12.0.2、TypeScript7.0.2、Vite7.3.7 / legacy7.2.1；依赖与锁文件未变。npm ci恢复，npm run dev启动。
+- http://127.0.0.1:5173/ 实际响应200，复用上轮开发服务。index为产品外壳，八根hash与E01—E08目录共用一个ProjectStore。
+- craft已用生产Canvas显示编辑沉香与母亲预览；颜色、已存分段镂空和袖口共纹在独立部件中合成。母亲固定配色，已有本场时共纹读取冻结快照。当前没有新增刻纹控件。
+- light/practice显示编辑稿的真实几何投影/姿态，尚无灯控/拖杆。story显示当前节点入口姿态、冻结造型、场景层和附件，保持暂停；没有自动演出或新推进后门。
+- study/probe仍是独立T00试作/探针；project为正式存档工作台，assets为中性组装检查，story.html为可走两模式两路径的文字排演。它们不替代产品演出。
+- 80张原创几何占位PNG、来源与许可状态未改，全部draft/unknown。正式人物/场景/声音留T10；展馆仍是目录，成果PNG、Three、完整操偶/导演/图形全剧均未完成。
 
-## 本轮实际检查（T02）
+## 本轮实际验证（T04）
 
-- npm test：8文件147/147通过，新增6项hash解析、八根/八子入口、旧入口规范化、未知节点拒绝、导航守卫与销毁检查。
-- npm run build含typecheck通过；六个HTML都有modern/legacy入口，verify:legacy确认13份legacy JS通过ES5解析。
-- 最终生产包浏览器84/84通过，约1.8分钟；Chromium156.0.8078.4。桌面1440×900与模拟手机390×844各42项，新增28项产品接线检查，原56项回归通过。
-- 新增浏览器检查覆盖返回/刷新不变projectId/runId/节点/决定/冻结配置，显式导览开演与跳序，十次重挂载，编辑稿保存，候选失败/阻止切页/真实下载/同run重试，内存继续，归档导入与取消，恢复后重读，未知/损坏保护，真实节目单，键盘/菜单、legacy及无JS。
-- 首轮83/84：旧文字排演的3.9秒门槛断言混入真实墙钟时间，在负载下超过4秒；将测试时钟冻结在显式tick之间后完整84项复核通过。生产停留门槛未改，虚拟时钟仍不是实际演出时长验收。
-- verify:assets通过80张PNG解码/alpha/区域/引用/CSV/哈希；verify:content通过18节点、两条15节点路径及角色/附件/字幕/来源契约；verify:state通过。正式release门禁仍未就绪，资源draft、许可unknown。
-- 已查看并保留docs/evidence/t02-desktop.png、t02-mobile.png、t02-craft.png、t02-museum-mobile.png。1440/390宽截图外补查1920/1024/360宽制偶页，无横向溢出；这些是工程视觉基线。
-- 独立只读审查发现的菜单force参数与恢复后重读缺口已修复并复核。工具面板用open属性和CSS控制，不依赖details原生折叠支持。
-- 本轮截图脚本与test-results的5个临时文件、空目录均以显式路径、无Force/无递归清理；Test-Path均为false。四张docs/evidence证据图保留。
-- 真实IE11/IE模式、实体手机/Safari、完整图形SAVE-01—07、全剧时长、性能、情绪与正式素材/文化内容：未验收。
+- npm test：11文件177/177通过，新增30项（25姿态/投影，5Canvas数据帧边界）。包含两手IK重合/伸展/超限、任意pivot/bind/rest、禁用关节、附件、实际角点bbox、极灯位/镜像/缩放与letterbox往返。
+- 最终npm run build含typecheck通过，六个HTML有modern/legacy入口；verify:legacy确认13份legacy JS为ES5。
+- 最终生产包浏览器100/100通过，2.2分钟；Chromium156.0.8078.4，1440×900桌面与390×844模拟手机各50项。新增16项验证真实双人预览、冻结母亲/节点画面、镂空保留背景、缺图及像素读取失败/重试重新请求、Canvas不可用、迟到加载、十次进出/resize清理、legacy；原84项回归通过。
+- 早期图像检查曾错误用朱色像素判断靛色影偶，已改为实际深色像素与图像差异。绘制失败测试进一步发现文档解码图片缓存会复用同URL；失败后清资源并追加数字重试代次，已实际验证新请求与恢复，不放松断言。
+- verify:assets通过80张PNG解码/alpha/颜色区/引用/CSV/哈希；verify:content通过18节点/两路径与角色/字幕/来源契约；verify:state通过。release仍未就绪，未重复未改动的正式门禁。
+- 已查看并保留docs/evidence/t04-craft-desktop.png、t04-craft-mobile.png、t04-story-desktop.png。画布按4:3 letterbox等比显示，宽窄屏无横向溢出；是工程视觉证据，不是正式艺术验收。
+- 独立只读审查三项已修复复核：绘制失败清缓存、场景覆盖只取白名单数值、工厂异常/空帧清签名并取消旧加载。同序部件用原下标稳定排序，未依赖旧浏览器sort稳定性。
+- 本轮截图脚本、test-results的5个文件和空目录已逐项、显式路径、无Force/无递归清理；Test-Path为false。证据截图保留。
+- 实际IE11/IE模式、实体手机/Safari、完整图形SAVE-01—07、手动可达性、全剧时长、性能、情绪及正式美术/文化/许可：未验收。
 
-## 接线与保存边界
+## 接线约束
 
-- 消费者先读docs/contracts/project-v1.md、assets-v1.md、story-v1.md及navigation-v1.md。src/app/bootstrap.ts持有唯一Store订阅；每个PageView有update/dispose，切页先清理再挂载。
-- URL只决定页面，不任意推进剧情。仅明确开演生成一次runId；序幕跳过使用已有guarded命令。进入展馆/结果/练习不推进，目录不记VISIT；结果仅由真实curtain/completed派生。
-- route仅存Project.lastRoute根路径，展品子hash不是新存档字段。制偶控件显示getExportProject最新编辑/候选，冻结角色不随编辑改变。
-- 所有保存继续走串行ProjectStore和事务版本比较。普通编辑500ms防抖、最长2秒；剧情候选成功后才应用，失败保留旧页与可导出候选。未知版本、恢复、冲突不静默覆盖。
-- 导入先验证文件并锁定读/写期间导航，再归档替换；文件读取晚到不会替换后来的项目。独立工作台恢复/接管后，先导出本页未保存稿，再明确重新读取。
-- pagehide/HMR清理路由、页面、订阅、保存计时器与下载URL；BFCache恢复重载。当前没有演出动画/声音循环，后续接入时必须纳入PageView.dispose，不能把T02十次进出当作未来渲染循环验收。
-- 原始记录诊断包不是作品JSON。P1录制字段默认null；未实现录制器或分享服务。
+- 先读docs/contracts的project-v1、assets-v1、story-v1、navigation-v1、canvas-v1。领域层无DOM/Three；共享类型/存档版本未变。
+- 世界宽2/高1.5、灯深1.2；根归一化x右/y下，模板世界y上。facing只在根一次镜像。输入先扣容器/letterbox，再逆投影/逆根变换，杆柄必须走同一正投影。
+- constrainPoseToStage返回{pose,bounds,fits}，bbox含当前姿态全部部件及可见附件。必要时缩小但scale不低于.6；无法全纳明确fits=false，不把受限手部当目标已达成。
+- Renderer只接actors/stage/sceneLayers/attachments纯数据帧，最多两角；固定角色不带Appearance。局部部件上色/alpha/镂空后才进入舞台，前景山片在演员后画。Renderer不重排导演入口根位置。
+- 当前update/resize按需绘制，没有RAF或演出计时器。T07/T16必须沿用唯一时钟驱动，不另开多条动画循环。PageView.dispose清事件/resize/缓存/图像回调/Canvas，旧加载不能复活旧页。
+- 预览边界适配不回写Project；剧情仍只保存稳定节点/决定/冻结配置。所有写入继续走串行Store与事务版本检查，URL或画布不推进节点。
+
+## 并行工作与检查点
+
+纯数学4文件由t04_math在独立codex/t04-pose-projection工作树完成，提交7ff5c01cae75868e29aa8e50dbd2dde91fc7040d；主Agent按相同文件集集成并完整验证。未重装依赖。只读审查者t02_route_audit不写文件。
+
+托管工作树C:/Users/zhang/.codex/worktrees/t04-pose-projection/ZeroCup已请求归档，工具返回queued；本轮未声称目录已移除。它保留已提交贡献，可通过任务附件恢复/处理，不手动递归删Git工作树。
+
+T03检查点bef273f2a5d13621c185a8289dee154514676102；T01为15f9650119d97fffd2accea82f64c5a4e07be9fc；T15为a619ab40e44e8ea91ef3d63deeaa7f12aa1a23cd；T02为d9c26e635c606e39d911c21222fe2e59a7fe47af。T04源提交完成后由tasks.json登记实际SHA，交接元数据提交不改变已验证实现。
 
 ## 下一位首先执行
 
-1. 核对Git、暂存区与端口，保留已有成果。两个赛事DOCX/PPTX仍是用户暂存内容，不读取、不混入提交。真实源码检查点查tasks.json，不从历史文案猜测。
-2. 领取依赖已满足的 **T04双角色二维成影、关节与投影**：先按资产合同实现姿态/两骨手臂、正逆投影与双角色Canvas，保持同屏最多两角、仅沉香可控。工程assets.html的中性组装不算运行时完成。
-3. T04用真实渲染替换现有stageFrame占位，保持产品PageView生命周期与单一Store入口。剧情数据仍只存稳定节点/决定/冻结配置；不要把DOM、纹理、RAF句柄写存档。
-4. 随后T07/T05/T16/T17先做占位整场，再接T18展品与T09成果。T10正式皮影/场景/声音与文化核对仍待实施；P1在G3后才做。
-5. T11需在真实IE环境验完整二维流程和文件下载；ES5与Chromium强制legacy不能替代。实体设备、团队真实姓名/工时与官方提交时刻也未落实。
-
-## 已验证检查点
-
-T03：bef273f2a5d13621c185a8289dee154514676102。T01：15f9650119d97fffd2accea82f64c5a4e07be9fc。T15：a619ab40e44e8ea91ef3d63deeaa7f12aa1a23cd。T02：d9c26e635c606e39d911c21222fe2e59a7fe47af，对应147项单元、84项生产浏览器和13份legacy ES5检查；交接元数据提交不改变已验证实现。
+1. 核对Git/暂存区和端口，保留两份用户暂存赛事文档，不读取或混入提交。
+2. 领取T07三杆输入与五种时间动作：仅沉香可控，复用逆投影、solveArm、真实bbox和杆连接；覆盖鼠标/触屏/键盘、暂停清按键与离开清事件。不把输入直接转成任意剧情完成。
+3. T05刻纹/灯控/确认冻结也已满足依赖；随后T16接NodeScope和唯一时钟，T17走通占位整场与最后伸手，T18/T09接展品/成果。
+4. 正式艺术设计与文化核对留T10；真实IE和全图形恢复留T11；P1录制/分享仍在G3之后。
