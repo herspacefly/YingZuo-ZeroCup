@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-16",
+  "updatedAt": "2026-10-17",
   "projectName": "影作·一幕团圆",
   "projectRoot": ".",
   "competitionGroup": "零组",
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T00_T01_T03_T15_complete_G1_pending_T02",
+  "stage": "G1_verified_T04_ready",
   "activeTaskId": null,
   "lastVerifiedCommit": "a619ab40e44e8ea91ef3d63deeaa7f12aa1a23cd",
   "features": {
@@ -131,12 +131,12 @@
       "id": "T02",
       "title": "故事与展馆页面、导航和设计基线",
       "priority": "P0",
-      "status": "todo",
+      "status": "done",
       "dependsOn": [
         "T00"
       ],
-      "owner": null,
-      "branch": null,
+      "owner": "codex-root",
+      "branch": "main",
       "touchFiles": [
         "src/app/router.ts",
         "src/styles/",
@@ -147,15 +147,44 @@
         "src/features/museum/view.ts",
         "src/features/practice/view.ts",
         "src/features/result/view.ts",
-        "src/features/about/view.ts"
+        "src/features/about/view.ts",
+        "src/app/bootstrap.ts",
+        "src/app/session.ts",
+        "src/app/view.ts",
+        "src/features/shared/",
+        "src/content/museum-outline.ts",
+        "src/probes/bootstrap.ts",
+        "index.html",
+        "study.html",
+        "probe.html",
+        "vite.config.ts",
+        "scripts/verify-legacy.mjs",
+        "tests/unit/router.test.ts",
+        "tests/e2e/navigation.spec.ts",
+        "tests/e2e/probe.spec.ts",
+        "docs/contracts/navigation-v1.md",
+        "docs/plans/2026-10-17-t02-page-baseline.md",
+        "docs/evidence/",
+        "docs/STATE.md",
+        "docs/tasks.json",
+        "docs/verification.md",
+        "START_HERE.md",
+        "README.md",
+        "tests/e2e/project-storage.spec.ts",
+        "tests/e2e/story-state.spec.ts"
       ],
       "acceptanceRefs": [
         "T02"
       ],
       "checkpointCommit": null,
-      "nextAction": "建立所有hash入口与宽窄屏骨架，用可读静态文字表明下一步；不在路由组件里自行推进剧情。",
+      "nextAction": "T02已验收，G1工程/页面/数据基线齐备。优先T04双角色成影、姿态/两骨手臂与正逆投影，消费assets-v1和navigation-v1；再接T07/T05/T16/T17占位整场。当前静态幕面、展馆目录和节目单不是图形全剧/正式展品/成果PNG验收。",
       "blocker": null,
-      "verification": [],
+      "verification": [
+        "2026-10-17: npm test，8文件147/147通过；新增6项路由契约/规范化/拒绝导航/销毁检查。typecheck/build通过，六个HTML及13份legacy JS通过ES5检查。",
+        "2026-10-17: 最终生产包浏览器84/84通过（桌面1440×900与模拟手机390×844，各42项）。新增28项检查八入口/八展品、返回刷新、显式开演/跳序、十次重挂载、编辑稿与冻结版本、候选失败/真实下载/同run重试、内存继续、归档导入/取消、恢复重读、未知/损坏保护、节目单、键盘/菜单、legacy及无JS。",
+        "2026-10-17: verify:assets/verify:content/verify:state通过；资源仍draft/unknown，真实IE、手动操偶和完整图形SAVE仍未验收。只读审查发现的菜单force参数与恢复后重读入口已修复复核。",
+        "2026-10-17: 已查看并保留T02首页宽窄屏、制偶宽屏、展馆窄屏四张截图，补查1920/1024/360宽均无横向溢出；清理本轮临时截图脚本与test-results。旧文字排演首轮3.9秒门槛受实时时钟扰动，冻结测试时钟后完整84项复核通过，未改生产门槛。"
+      ],
       "phase": "G1"
     },
     {

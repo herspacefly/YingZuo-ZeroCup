@@ -10,7 +10,7 @@ for (const file of files) {
   try { parse(readFileSync(path.join(root, 'assets', file), 'utf8'), { ecmaVersion: 5, sourceType: 'script' }); }
   catch (error) { throw new Error(`${file} is not ES5: ${error.message}`, { cause: error }); }
 }
-for (const page of ['index.html', 'probe.html', 'project.html', 'assets.html', 'story.html']) {
+for (const page of ['index.html', 'study.html', 'probe.html', 'project.html', 'assets.html', 'story.html']) {
   const html = readFileSync(path.join(root, page), 'utf8');
   if (!html.includes('type="module"') || !html.includes('nomodule') || !html.includes('vite-legacy-polyfill') || !html.includes('vite-legacy-entry')) {
     throw new Error(`${page} does not contain both modern and legacy bootstraps.`);

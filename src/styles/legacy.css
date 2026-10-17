@@ -1,0 +1,6 @@
+/* Functional layout uses Flex, normal flow, literal colors and explicit sizes.
+   Decoration may simplify on IE; actual IE runtime acceptance remains T11. */
+@media all and (-ms-high-contrast:none),(-ms-high-contrast:active) {
+ .site-header { display:block; } .site-nav { display:inline-flex; vertical-align:middle; } .wordmark { display:inline-flex; vertical-align:middle; } .project-toggle { display:inline-block; vertical-align:middle; }
+ .stage-frame { background:#e7d3a9; } .mountain { background:#b7b6a4; } .mountain-front { background:#8b998f; } .stage-light { box-shadow:none; } .page-enter { animation:none; }
+}

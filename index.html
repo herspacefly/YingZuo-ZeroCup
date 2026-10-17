@@ -6,49 +6,35 @@
     <meta name="theme-color" content="#17130f" />
     <meta name="description" content="影作·一幕团圆，据传统故事《劈山救母》原创交互改编。先从一束光，认识幕后的影偶。" />
     <title>影作 · 一幕团圆</title>
-    <style>body{margin:0;background:#17130f;color:#f2e5c9;font:18px/1.7 serif}main{max-width:1200px;margin:auto;padding:32px}a{color:#d7a253}[hidden]{display:none!important}</style>
+    <style>body{margin:0;background:#17130f;color:#f2e5c9;font:18px/1.8 serif}main{max-width:1200px;margin:auto;padding:32px}a{color:#d7a253}[hidden]{display:none!important}</style>
   </head>
   <body>
     <a class="skip-link" href="#main">跳到主要内容</a>
     <header class="site-header">
-      <a class="wordmark" href="./" aria-label="影作首页">影作<span>一幕团圆</span></a>
-      <span class="header-note">一盏灯 · 一张幕 · 一出戏</span>
+      <a class="wordmark" href="#/" aria-label="影作首页"><span class="brand-mark" aria-hidden="true">影</span><span>影作<small>一幕团圆</small></span></a>
+      <button id="menu-toggle" class="menu-toggle" aria-controls="primary-nav" aria-expanded="false" hidden>菜单</button>
+      <nav id="primary-nav" class="site-nav" aria-label="主要导航"><a href="#/">剧场</a><a href="#/craft">制偶</a><a href="#/museum">展馆</a><a href="#/result">节目单</a><a href="#/about">关于</a></nav>
+      <button id="open-project-tools" class="project-toggle" aria-controls="project-tools" aria-expanded="false" hidden>我的作品 <span id="save-state" role="status" data-state="loading">读取中</span></button>
+      <span id="app-runtime" hidden></span>
     </header>
-    <main id="main">
-      <section class="opening" aria-labelledby="title">
-        <div class="opening-copy">
-          <p class="eyebrow">匠心传成，非遗焕新</p>
-          <h1 id="title">隔着一张幕，<br />让思念有了形。</h1>
-          <p class="lead">沉香要越过山，找到母亲。<br />这一次，你将成为幕后的操偶者。</p>
-          <p class="adaptation">据传统故事《劈山救母》原创交互改编</p>
-          <a class="button primary" href="#light-study">先试一束光 <span aria-hidden="true">↗</span></a>
-          <a class="text-link" href="#story-preview">认识这出戏</a>
-          <p class="quiet-note">当前开放灯影试作，完整短戏与展馆正在制作。</p>
-        </div>
-        <figure class="light-study" id="light-study" aria-labelledby="study-title">
-          <div class="stage-topline"><span id="study-title">灯影试作</span><span>01 / 幕后的一束光</span></div>
-          <canvas id="shadow-canvas" width="960" height="720" role="img" aria-label="原创占位影偶立在灯幕前，移动灯位或改变偶幕距离，可以观察影子的变化。">原创占位影偶：一束灯照过影偶，在幕上留下影子。当前浏览器无法显示画布。</canvas>
-          <p id="canvas-status" class="canvas-status" role="status">灯影还未启动。你仍可以阅读下方的故事介绍。</p>
-          <div class="light-controls" id="light-controls" hidden>
-            <label for="lamp-x">移一移灯 <output id="lamp-value" for="lamp-x">50</output><input id="lamp-x" type="range" min="0" max="100" value="50" /></label>
-            <label for="puppet-distance">偶离幕远一点 <output id="distance-value" for="puppet-distance">30</output><input id="puppet-distance" type="range" min="10" max="55" value="30" /></label>
-            <button id="reset-light" class="button subtle" type="button">灯归原处</button>
-          </div>
-          <figcaption>原创占位图形与简化光影示意；正式角色将随短戏制作。</figcaption>
-        </figure>
-      </section>
-      <section id="story-preview" class="story-preview" aria-labelledby="story-title">
-        <p class="eyebrow">一幕团圆</p>
-        <h2 id="story-title">从灯下的回应，到山后的相见。</h2>
-        <p>为沉香留下一道纹样，陪他上路，替他举灯或开山，最后亲手让母子伸手相见。这是本作正在制作的四幕短戏。</p>
-        <ol class="act-list"><li><span>一</span> 灯下</li><li><span>二</span> 上路</li><li><span>三</span> 山前</li><li><span>四</span> 团圆</li></ol>
-      </section>
-      <section id="museum-preview" class="museum-preview" aria-labelledby="museum-title">
-        <h2 id="museum-title">一出戏，也是一座小小的馆。</h2>
-        <p>未来可从一张皮、一道刻、一束光、一双手、一出戏五个展区，认识刚才幕后的材料、关节与协作。展馆正在制作。</p>
-      </section>
-    </main>
-    <footer><span>影作 · 零组</span><a href="./probe.html">运行检查</a></footer>
+    <div id="app-notice" class="app-notice" role="status" hidden></div>
+    <div class="project-tools-wrap">
+      <details id="project-tools" class="project-tools" hidden><summary>我的作品与保存</summary>
+        <p id="storage-detail">作品读取中。</p><p id="project-operation" role="alert"></p>
+        <div class="tool-actions"><button id="export-project">导出当前作品</button><button id="retry-save">重试保存</button><button id="cancel-pending">取消待保存动作</button><button id="continue-memory">仅在本页继续（未保存）</button></div>
+        <label class="file-control">导入作品 JSON<input id="import-project" type="file" accept="application/json,.json"></label>
+        <label class="acknowledge"><input id="archive-ack" type="checkbox">允许替换已有的上一项目（可先导出保留）</label>
+        <div class="tool-actions"><button id="new-project">归档并新建作品</button><button id="export-raw">导出存储原始记录</button><a href="./project.html" target="_blank" rel="noopener noreferrer">存档恢复与冲突检查（新窗口） ↗</a></div>
+        <p class="quiet-note">在新窗口处理存档后，先导出本页需要保留的未保存稿，再重新读取。重新读取会放弃本页尚未保存的内容。</p>
+        <button id="reload-project">处理完成，重新读取本机作品</button>
+      </details>
+    </div>
+    <main id="main" tabindex="-1"><div id="app-view">
+      <section><p>匠心传成，非遗焕新</p><h1 id="fallback-title">隔着一张幕，让思念有了形。</h1><p>沉香要越过山，找到母亲。这一次，你将成为幕后的操偶者。</p><p>据传统故事《劈山救母》原创交互改编。当前为排演版，人物场面仍在制作。</p><a href="#static-story">认识这出戏</a> · <a href="#static-museum">看看展馆目录</a></section>
+      <section id="static-story"><h2>从灯下的回应，到山后的相见。</h2><p>为沉香留一道纹样，陪他上路，替他举灯或开山，最后让母子伸手相见。灯下、上路、山前、团圆，是本作的四幕。</p></section>
+      <section id="static-museum"><h2>一出戏，也是一座小小的馆。</h2><p>一张皮、一道刻、一束光、一双手、一出戏，五个展区随时开放。展品图文与演示正在布展。</p><p>本页保留可读介绍。启用JavaScript后，可以保存造型、切换页面和接续作品。</p></section>
+    </div></main>
+    <footer class="site-footer"><span>影作 · 零组 / 据传统故事原创交互改编</span><a href="#/about">让幕后的创作，也被看见 ↗</a></footer>
     <script type="module" src="/src/app/bootstrap.ts"></script>
   </body>
 </html>

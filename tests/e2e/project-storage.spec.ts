@@ -5,7 +5,8 @@ import corrupt from '../fixtures/corrupt-project.json' with { type: 'json' };
 import future from '../fixtures/unknown-version.json' with { type: 'json' };
 
 async function seed(page: Page, records: Record<string, unknown>) {
-  await page.goto('/');
+  // The study page does not open the formal store, so fixture seeding has no competing writer.
+  await page.goto('/study.html');
   await page.evaluate(async entries => {
     const database = await new Promise<IDBDatabase>((resolve, reject) => {
       const request = indexedDB.open('yingzuo-v1', 1);

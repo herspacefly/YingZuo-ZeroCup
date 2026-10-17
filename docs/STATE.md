@@ -1,55 +1,49 @@
 # 当前开发状态与交接
 
-更新日期：2026-10-16。当前执行者 codex-root；实际分支 main。
+更新日期：2026-10-17。当前执行者codex-root；实际分支main。用户暂存的两个赛事DOCX/PPTX未读取、未改动，不纳入开发提交。
 
 ## 当前阶段与运行入口
 
-**T00、T03、T01及T15已完成；G1仍待T02正式页面与导航。**
+**T00、T03、T01、T15及T02已完成。G1工程、数据与页面基线齐备；当前无占用任务，下一项优先T04。**
 
-- Node v24.18.1 / npm 12.0.2；TypeScript 7.0.2、Vite 7.3.7 / legacy 7.2.1，依赖和 package-lock.json 本轮未变。
-- `npm ci` 恢复依赖，`npm run dev` 启动。当前会话 http://127.0.0.1:5173/ 仍运行，story.html实际可加载；换会话需先核对实际端口。
-- index.html 为原 T00 灯影试作，probe.html 使用独立探针库。project.html 是 T03 正式存档工作台，使用 yingzuo-v1/snapshots；完整演出与产品 hash 页面尚未接入。
-- 正式数据包含编辑外观、冻结角色、稳定剧情节点与决定、展品访问、P1可空字段，严格拒绝坏数据与未知版本。T15已实现纯命令与文字推进；录制、Three.js及图形整场尚未实现。
-- 实际源文件与接口见 src/domain、src/persistence、src/app/store.ts、commands.ts、identity.ts；消费者先读 docs/contracts/project-v1.md。
-- assets.html 为 T01 工程检查页；src/content 与 public/assets 提供三角色十/六/四部件、九关节字段、纹样、色板和场景层，共80张原创几何占位 PNG。消费者先读 docs/contracts/assets-v1.md；此页不是 T04 的生产渲染器。
-- story.html为文字排演检查页；18节点、两路径、暂停切模式、明确协助、一次完成时间与派生成果摘要均经ProjectStore提交。消费者读docs/contracts/story-v1.md；它不是T16/T17图形导演或手动操偶。
+- Node v24.18.1 / npm 12.0.2；TypeScript7.0.2、Vite7.3.7 / legacy7.2.1；依赖与锁文件本轮未变。npm ci恢复，npm run dev启动。
+- 本轮重新启动的开发服务为 http://127.0.0.1:5173/ （会话76803）；产品首页实际可加载。新会话先查实际端口，不重复启动。
+- index.html现在是产品外壳：八个根hash入口、E01—E08目录、制偶配色/纹样、剧情检查点与节目单，共用一个ProjectStore。宽屏场面/侧栏与手机上下布局、保存反馈、候选保护、文件导入导出、恢复后明确重读已接入。
+- study.html保留原T00独立灯影试作；probe.html仍用独立探针库。project.html为T03正式存档工作台，assets.html为T01中性组装检查页，story.html为T15完整/导览双路径的文字排演。它们在产品中以新窗口链接保留。
+- src/content与public/assets仍为80张原创几何占位PNG（三角色十/六/四部件、2附件、9镂空、9场景层）。产品幕面目前是CSS静态构图，未把工程探针冒接为正式渲染器。
+- 图形双角色、IK/投影、操偶输入、节点导演、完整刻纹、八展品演示、成果PNG与正式艺术设计仍待对应任务，不提供录制/分享空入口。
 
-## 本轮实际检查
+## 本轮实际检查（T02）
 
-- 7个单元测试文件，141/141通过；T15新增41项，覆盖两模式/两路径/手动证据与明确协助、身份幂等、冻结/预设、暂停模式、静候、内容反例，以及真实Store与fake-indexeddb的失败/候选/重试边界。
-- 类型检查与生产构建通过；五个HTML有modern/legacy入口，10份legacy JS通过ES5解析。
-- 最终生产包浏览器检查56/56（约1.1分钟），Chromium156.0.8078.4，桌面1440×900、模拟手机390×844，各28项。T15新增14项：四种模式/路线组合、选择前后刷新、暂停切模式、团圆保存故障/真实下载/重试和legacy入口；原42项回归也通过。节点等待由Playwright虚拟时钟加速，不构成实际演出时长或情绪验收。
-- verify:content通过18节点图、两条15节点路径、演员/关节/附件/场景、字幕时间基准、来源/资源引用。verify:assets通过80张PNG的解码/透明覆盖/编码/CSV/哈希。release仍明确NOT_READY，结构成功不表示正式审定。
-- t15-desktop.png、t15-mobile.png已查看并保留于docs/evidence，显示选择节点的宽窄屏文字布局；不属于正式产品视觉验收。
-- 实际命令、修复原因与未测边界见 docs/verification.md。源码检查点以 tasks.json 中各任务 checkpointCommit / lastVerifiedCommit 为准，交接提交不改变已验证应用实现。
-- 真实 IE11/IE 模式、实体手机/Safari、全剧情、整场 SAVE-01—07、性能、时长、情绪与正式资产/文化内容：未验收。
-- 资源全部draft、许可unknown。sources.json登记7条文化资料及可读/索引/受阻状态，未复用外部媒体；没有正式素材/文化审定结论。
+- npm test：8文件147/147通过，新增6项hash解析、八根/八子入口、旧入口规范化、未知节点拒绝、导航守卫与销毁检查。
+- npm run build含typecheck通过；六个HTML都有modern/legacy入口，verify:legacy确认13份legacy JS通过ES5解析。
+- 最终生产包浏览器84/84通过，约1.8分钟；Chromium156.0.8078.4。桌面1440×900与模拟手机390×844各42项，新增28项产品接线检查，原56项回归通过。
+- 新增浏览器检查覆盖返回/刷新不变projectId/runId/节点/决定/冻结配置，显式导览开演与跳序，十次重挂载，编辑稿保存，候选失败/阻止切页/真实下载/同run重试，内存继续，归档导入与取消，恢复后重读，未知/损坏保护，真实节目单，键盘/菜单、legacy及无JS。
+- 首轮83/84：旧文字排演的3.9秒门槛断言混入真实墙钟时间，在负载下超过4秒；将测试时钟冻结在显式tick之间后完整84项复核通过。生产停留门槛未改，虚拟时钟仍不是实际演出时长验收。
+- verify:assets通过80张PNG解码/alpha/区域/引用/CSV/哈希；verify:content通过18节点、两条15节点路径及角色/附件/字幕/来源契约；verify:state通过。正式release门禁仍未就绪，资源draft、许可unknown。
+- 已查看并保留docs/evidence/t02-desktop.png、t02-mobile.png、t02-craft.png、t02-museum-mobile.png。1440/390宽截图外补查1920/1024/360宽制偶页，无横向溢出；这些是工程视觉基线。
+- 独立只读审查发现的菜单force参数与恢复后重读缺口已修复并复核。工具面板用open属性和CSS控制，不依赖details原生折叠支持。
+- 本轮截图脚本与test-results的5个临时文件、空目录均以显式路径、无Force/无递归清理；Test-Path均为false。四张docs/evidence证据图保留。
+- 真实IE11/IE模式、实体手机/Safari、完整图形SAVE-01—07、全剧时长、性能、情绪与正式素材/文化内容：未验收。
 
-## 正式保存与恢复边界
+## 接线与保存边界
 
-- draft/backup/previous-project 存整份 Project JSON 字符串；raw-invalid 保留损坏原稿。T00 数据库保持独立。
-- 普通编辑 500 ms 防抖、连续最长 2 秒，定时器只请求保存。编辑和立即命令共用串行队列，事务完成后才应用剧情候选。
-- 保存比较 projectId、saveRevision 和完整已读内容 token；冲突暂停自动覆盖。新建、导入和恢复上一项目走同事务归档入口；新项目 backup 使用本项目有效基线，上一项目独立保留。
-- 备份提升重读并核对原 draft/backup/隔离记录，原子隔离与提升；之后保存可继续。格式有效但未知的版本，以及超限原稿，均不自动降级覆盖。
-- 失败候选与排队编辑可通过 getExportProject 导出；可原样重试、明确内存继续或取消。工作台编辑控件显示待提交稿，摘要仍显示实际应用的项目/节点。
-- 导入作为新编辑项目生成新 projectId，但保留原 runId、决定与冻结角色；重新排演的新 projectId/runId 由后续 T15/T17 明确生成。原始记录诊断包不是作品 JSON。
-- Project 默认 P0 录制字段 null；可选短片仅验证数据字段，不提供录制按钮或功能。姿态和录制动作实现留给相应任务。
+- 消费者先读docs/contracts/project-v1.md、assets-v1.md、story-v1.md及navigation-v1.md。src/app/bootstrap.ts持有唯一Store订阅；每个PageView有update/dispose，切页先清理再挂载。
+- URL只决定页面，不任意推进剧情。仅明确开演生成一次runId；序幕跳过使用已有guarded命令。进入展馆/结果/练习不推进，目录不记VISIT；结果仅由真实curtain/completed派生。
+- route仅存Project.lastRoute根路径，展品子hash不是新存档字段。制偶控件显示getExportProject最新编辑/候选，冻结角色不随编辑改变。
+- 所有保存继续走串行ProjectStore和事务版本比较。普通编辑500ms防抖、最长2秒；剧情候选成功后才应用，失败保留旧页与可导出候选。未知版本、恢复、冲突不静默覆盖。
+- 导入先验证文件并锁定读/写期间导航，再归档替换；文件读取晚到不会替换后来的项目。独立工作台恢复/接管后，先导出本页未保存稿，再明确重新读取。
+- pagehide/HMR清理路由、页面、订阅、保存计时器与下载URL；BFCache恢复重载。当前没有演出动画/声音循环，后续接入时必须纳入PageView.dispose，不能把T02十次进出当作未来渲染循环验收。
+- 原始记录诊断包不是作品JSON。P1录制字段默认null；未实现录制器或分享服务。
 
 ## 下一位首先执行
 
-1. 核对 Git、暂存区与端口，保留现有工程。用户的两个赛事 DOCX/PPTX 已暂存，未读取，也不混入本轮提交。
-2. 优先领取 **T02**：建立正式产品hash路由与宽窄屏页面骨架，统一消费ProjectStore和已实现的剧情入口；不能另写localStorage或由路由组件任意推进节点。G1还差此项。
-3. T15已可供消费：startStory/submitStoryCommand、storyEntry、reunionSummary与subtitlesForMode见剧情合同。默认/编辑稿开演的来源必须与实际行为一致；guard之外，T16还须实现挂载token和真实场面清理。若并行代码需独立工作树，先协调共享接口与边界。
-4. **T04** 也已满足依赖：消费资产合同，在现有领域层接姿态/两骨手臂/正逆投影和双角色Canvas。不能把 T01 单角色中性检查页算作成影完成。
-5. 随后按 T04/T07 → T05/T16 → T17 占位整场推进；P1 录制/分享仍在 G3 后，不能提前成为团圆必经步骤。
-6. T11 在真实 IE 环境验生产包、完整二维路径与文件下载。ES5 检查及 Chromium 强制 legacy 加载不能替代该项。
+1. 核对Git、暂存区与端口，保留已有成果。两个赛事DOCX/PPTX仍是用户暂存内容，不读取、不混入提交。真实源码检查点查tasks.json，不从历史文案猜测。
+2. 领取依赖已满足的 **T04双角色二维成影、关节与投影**：先按资产合同实现姿态/两骨手臂、正逆投影与双角色Canvas，保持同屏最多两角、仅沉香可控。工程assets.html的中性组装不算运行时完成。
+3. T04用真实渲染替换现有stageFrame占位，保持产品PageView生命周期与单一Store入口。剧情数据仍只存稳定节点/决定/冻结配置；不要把DOM、纹理、RAF句柄写存档。
+4. 随后T07/T05/T16/T17先做占位整场，再接T18展品与T09成果。T10正式皮影/场景/声音与文化核对仍待实施；P1在G3后才做。
+5. T11需在真实IE环境验完整二维流程和文件下载；ES5与Chromium强制legacy不能替代。实体设备、团队真实姓名/工时与官方提交时刻也未落实。
 
-## 交接与未完成
+## 已验证检查点
 
-本轮T15已完成，当前没有占用中的应用任务。独立只读审查发现的导览字幕、默认造型来源与附件引用问题已修复并复核。T02、T04—T14、T16—T18仍待实施（T08/T12为G3后可选）。图形双路径、手动伸手、谢幕镜头、五区八展品、成果PNG与正式页面接入尚未完成。团队真实姓名/工时、实体设备、IE环境和官方提交时刻仍待落实。保留两张T15文字布局截图；本轮已逐文件、无Force/无递归清理5个临时诊断文件与空目录，test-results实际不存在。
-
-T03 已验证源码检查点：bef273f2a5d13621c185a8289dee154514676102。后续交接提交只登记该 SHA，不改变应用实现。
-
-T01 已验证源码检查点：15f9650119d97fffd2accea82f64c5a4e07be9fc，对应T01验收。
-
-T15已验证源码检查点：a619ab40e44e8ea91ef3d63deeaa7f12aa1a23cd；当前最后已验证实现以此为准。后续交接提交只登记证据，不改变应用实现。
+T03：bef273f2a5d13621c185a8289dee154514676102。T01：15f9650119d97fffd2accea82f64c5a4e07be9fc。T15：a619ab40e44e8ea91ef3d63deeaa7f12aa1a23cd。T02源码提交后由tasks.json登记真实SHA；交接元数据提交不改变已验证实现。

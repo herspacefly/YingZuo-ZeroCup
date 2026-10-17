@@ -8,7 +8,7 @@ async function setLamp(page: Page, value: number) {
 test('production canvas responds to keyboard and has no horizontal overflow', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
-  await page.goto('/');
+  await page.goto('/study.html');
   await expect(page.locator('#canvas-status')).toHaveAttribute('data-state', 'ready');
   const before = await page.locator('canvas').evaluate((element: HTMLCanvasElement) => element.toDataURL());
   await page.locator('#lamp-x').focus();
@@ -112,7 +112,7 @@ test('legacy production chunks operate in Chromium smoke check, not an IE test',
 test('readable story and museum introduction survives disabled JavaScript', async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
-  await page.goto('http://127.0.0.1:4173/');
+  await page.goto('http://127.0.0.1:4173/study.html');
   await expect(page.locator('#title')).toHaveText('隔着一张幕，让思念有了形。');
   await expect(page.locator('#title')).toBeVisible();
   await page.getByRole('link', { name: '认识这出戏' }).click();
@@ -126,7 +126,7 @@ test('Canvas initialization failure leaves honest readable fallback', async ({ p
   await page.addInitScript(() => {
     HTMLCanvasElement.prototype.getContext = (() => null) as typeof HTMLCanvasElement.prototype.getContext;
   });
-  await page.goto('/');
+  await page.goto('/study.html');
   await expect(page.locator('#canvas-status')).toHaveAttribute('data-state', 'unavailable');
   await expect(page.locator('#light-controls')).toBeHidden();
   await expect(page.locator('#story-title')).toBeVisible();

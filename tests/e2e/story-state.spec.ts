@@ -12,7 +12,9 @@ async function stored(page:Page):Promise<ProjectV1>{
   });
 }
 async function start(page:Page,mode:'full'|'guided'){
-  await page.clock.install();await page.goto('/story.html');await saved(page);await page.locator('#story-mode').selectOption(mode);
+  // Freeze between explicit ticks: the 3.9s boundary must not include test-runner wall time.
+  await page.clock.install({time:new Date('2026-10-17T00:00:00.000Z')});await page.goto('/story.html');await saved(page);
+  await page.clock.pauseAt('2026-10-17T00:10:00.000Z');await page.locator('#story-mode').selectOption(mode);
   await page.locator('#story-start').click();await expect(node(page)).toHaveAttribute('data-node','intro');await saved(page);
 }
 const interactions=['memory-wave','road','guardian','call-light','call-split','split-axe','split-search','reunion-reach'];
