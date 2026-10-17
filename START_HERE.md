@@ -18,7 +18,7 @@
 4. 工程查 [主设计与实施方案](docs/plans/2026-10-15-yingzuo-design-and-implementation.md)；剧情、美术与展品查 [叙事执行稿](docs/content/2026-10-15-yingzuo-story-bible.md)。
 5. 做一个可检查的小步骤，更新 nextAction、实际验证和必要交接，再停止。
 
-**T00、T03、T01、T15、T02、T04、T07、T05、T16及T17已完成。**[产品首页](http://127.0.0.1:5173/#/)已有八入口；[制偶](http://127.0.0.1:5173/#/craft)有刻纹/着色/同纹与冻结开演，[练习](http://127.0.0.1:5173/#/practice)有三杆与五动作，[剧场](http://127.0.0.1:5173/#/story)可走两模式、两分支的实际操偶/键盘/明确协助、寻光落斧、最后伸手、四秒静候及用户谢幕，并保存稳定节点接续。消费者先读[图形整场合同](docs/contracts/story-play-v1.md)、[导演](docs/contracts/director-v1.md)、[剧情](docs/contracts/story-v1.md)及[Canvas](docs/contracts/canvas-v1.md)，其他合同仍在docs/contracts。299项单元、216项生产浏览器检查与构建通过，详见[验证记录](docs/verification.md)。下一项优先 **T18五区八展品说明与演示复用**；正式美术/声音、Three增强和成果PNG仍未完成。
+**T00、T03、T01、T15、T02、T04、T07、T05、T16、T17及T18已完成。**[产品首页](http://127.0.0.1:5173/#/)已有八入口；[制偶](http://127.0.0.1:5173/#/craft)有刻纹/着色/同纹与冻结开演，[练习](http://127.0.0.1:5173/#/practice)有三杆与五动作，[剧场](http://127.0.0.1:5173/#/story)可走两模式、两分支的实际操偶/键盘/明确协助、寻光落斧、最后伸手、四秒静候及用户谢幕，并保存稳定节点接续。[展馆](http://127.0.0.1:5173/#/museum)已接五区八件两层说明/来源、局部成影试验与真实参与/署名。消费者先读[展馆合同](docs/contracts/museum-v1.md)、[图形整场合同](docs/contracts/story-play-v1.md)、[导演](docs/contracts/director-v1.md)、[剧情](docs/contracts/story-v1.md)及[Canvas](docs/contracts/canvas-v1.md)。309项单元、252项生产浏览器检查与构建通过，详见[验证记录](docs/verification.md)。下一项优先 **T09团圆留影PNG、节目单与只读编排重演**；正式美术/声音、Three增强仍未完成，G2尚未齐备。
 
 Canvas 2D 完整覆盖故事和展馆；Three.js 增强空间与材料。本地用户剧情恢复与开发者接手是两套机制，都必须完成。
 
@@ -26,4 +26,4 @@ Canvas 2D 完整覆盖故事和展馆；Three.js 增强空间与材料。本地�
 
 ## 新会话接续提示
 
-> 请继续本仓库《影作·一幕团圆》2.0。先读START_HERE.md、AGENTS.md、docs/STATE.md、docs/tasks.json，核对文件/Git/暂存与端口，保留已有成果和用户DOCX/PPTX，不从零覆盖。T17图形双路径已完成，消费story-play-v1/director-v1/story-v1/canvas-v1及已有craft/practice合同；299单元/216生产浏览器通过，当前仍为静音几何排演。优先领取T18，从E01/E04接五区八展品短说明、来源展开与已有刻纹/关节/灯影演示复用，直接逛展不锁内容，返回原稳定剧情节点。瞬时杆位不入档；失败候选、明确内存继续、唯一时钟/NodeScope与清理边界保持。T06/T09/T10/T11后续按依赖，正式美术/文化/许可未验收；P1录制/分享仍在T13/G3后。完成一个真实可检查步骤，记录实际证据与SHA，清理临时文件并更新交接。
+> 请继续本仓库《影作·一幕团圆》2.0。先读START_HERE.md、AGENTS.md、docs/STATE.md、docs/tasks.json，核对文件/Git/暂存与端口，保留已有成果和用户DOCX/PPTX，不从零覆盖。T17图形双路径与T18二维展馆已完成，消费museum-v1/story-play-v1/director-v1/story-v1/canvas-v1及已有craft/practice合同；309单元/252生产浏览器通过，源码c6ccc7abc4f072bb5c1a0f0733caf3bc60486c0a，仍为静音几何排演。优先领取T09，先接真实团圆PNG/节目单，再接只读编排重演，不能称完整动作录像或改变原场完成时间。展馆临时试验取冻结/默认外观，不污染作品；实际打开才记VISIT，返回原稳定节点0ms暂停。唯一创作者为零组张宇翔（SpaceFly）。失败候选、明确内存继续、唯一时钟/NodeScope与清理边界保持。T06/T10/T11按依赖，正式美术声音/文化许可与实体兼容未验收，G2尚未齐备；P1录制/分享仍在T13/G3后。完成一个可检查步骤，记录实际证据与SHA，清理临时文件并更新交接。

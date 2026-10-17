@@ -7,9 +7,9 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T17_complete",
+  "stage": "T18_complete",
   "activeTaskId": null,
-  "lastVerifiedCommit": "c13b20d3063ce990e198d7f4e02933dbb9917b39",
+  "lastVerifiedCommit": "c6ccc7abc4f072bb5c1a0f0733caf3bc60486c0a",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -835,16 +835,24 @@
         "STORY-06",
         "STORY-07"
       ],
-      "nextAction": "T17占位图形整场已验收；消费story-play-v1/director-v1/story-v1/canvas-v1。优先T18五区八展品短说明/来源展开与已有演示复用，返回剧情保留稳定节点；正式艺术/声音留T10，完整SAVE与实体兼容留T11。"
+      "nextAction": "T17占位图形整场已验收，消费story-play-v1/director-v1/story-v1/canvas-v1；T18二维展馆另已验收。下一项优先T09成果PNG/节目单/只读编排重演，T06/T10/T11按依赖；正式艺术声音和完整SAVE/实体兼容仍未验收。"
     },
     {
       "priority": "P0",
-      "status": "todo",
-      "owner": null,
-      "branch": null,
-      "checkpointCommit": null,
+      "status": "done",
+      "owner": "codex-root",
+      "branch": "main",
+      "checkpointCommit": "c6ccc7abc4f072bb5c1a0f0733caf3bc60486c0a",
       "blocker": null,
-      "verification": [],
+      "verification": [
+        "2026-10-17: 最终npm test为24文件309/309；新增内容/证据契约8项与冻结/默认演示副本边界2项。",
+        "2026-10-17: 最终npm run build含typecheck通过（11.95秒）；13份legacy JS为ES5、六HTML有双入口。80资产/18节点+五区八件/19任务检查通过。",
+        "2026-10-17: 首轮T18定向31/32的手机长帧按设计暂停，改受控时钟验证返回并补导入/真实缺图重试后36/36通过（55.8秒），未改生产暂停门槛。",
+        "2026-10-17: 最终全量生产浏览器252/252通过（9.0分钟），桌面1440x900与模拟手机390x844各126；新增36项、原216项回归。Chromium156.0.8078.4。",
+        "2026-10-17: 八展品/来源/键盘、冻结/默认演示与真实几何不改作品、E08本人单人署名与真实节目单、两模式两路径返回、VISIT失败重试/导出/内存不隐写、未知损坏保护、导入重置、十次退出/迟到拒绝、图片重试、Canvas回退和legacy通过。",
+        "2026-10-17: 生产/交接只读复核无阻塞；四张t18-museum/light宽窄屏证据已查看，无横向溢出。test-results的5文件/4子目录逐项清理，Test-Path=false；旧T16证据恢复，两T18工作树归档queued且目录仍在。",
+        "2026-10-17: 源码c6ccc7abc4f072bb5c1a0f0733caf3bc60486c0a；唯一创作者张宇翔（SpaceFly）来自本人确认。真实IE/实体手机/Safari/完整SAVE/时长性能情绪/正式美术声音文化许可未验收，G2尚未齐备。"
+      ],
       "phase": "G2",
       "id": "T18",
       "title": "五区八展品、已有演示复用与剧情返回",
@@ -858,14 +866,34 @@
         "src/features/museum/",
         "src/content/exhibits.json",
         "src/content/facts.json",
-        "tests/e2e/museum.spec.ts"
+        "src/content/museum.ts",
+        "src/content/museum-outline.ts",
+        "src/content/museum-contract.ts",
+        "src/content/sources.json",
+        "src/styles/museum.css",
+        "src/app/bootstrap.ts",
+        "scripts/verify-content.mjs",
+        "tests/unit/museum-content.test.ts",
+        "tests/e2e/museum.spec.ts",
+        "tests/e2e/navigation.spec.ts",
+        "docs/contracts/museum-v1.md",
+        "docs/contracts/navigation-v1.md",
+        "docs/plans/2026-10-17-t18-museum.md",
+        "docs/content/2026-10-15-yingzuo-story-bible.md",
+        "docs/STATE.md",
+        "docs/tasks.json",
+        "docs/verification.md",
+        "docs/evidence/",
+        "README.md",
+        "START_HERE.md",
+        "tests/unit/museum-demo.test.ts"
       ],
       "acceptanceRefs": [
         "T18",
         "STORY-05",
         "CULT-02"
       ],
-      "nextAction": "从E01/E04做直达展签与灯影复用，再建五区八件结构；逛展暂停剧情，返回原节点，不锁知识。"
+      "nextAction": "T18二维展馆已验收，消费museum-v1与导航/Canvas合同。下一项优先T09真实双角色团圆PNG/节目单/只读编排重演；T06后续以相同E01—E08接三维，T10正式艺术/声音文化许可与T11完整SAVE/实体兼容仍待验收。"
     }
   ],
   "originalWorkspace": "D:/.MyLearning/VSCodeProject/ZeroCup",
