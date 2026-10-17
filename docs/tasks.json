@@ -7,9 +7,9 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T05_complete",
+  "stage": "T16_complete_T17_ready",
   "activeTaskId": null,
-  "lastVerifiedCommit": "3e8880cdc856744a03be66d1fc18481d9c4a4c0e",
+  "lastVerifiedCommit": "f0e1ec7d68746ba8152e583de7e96dba751c0be6",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -715,12 +715,19 @@
     },
     {
       "priority": "P0",
-      "status": "todo",
-      "owner": null,
-      "branch": null,
-      "checkpointCommit": null,
+      "status": "done",
+      "owner": "codex-root",
+      "branch": "main",
+      "checkpointCommit": "f0e1ec7d68746ba8152e583de7e96dba751c0be6",
       "blocker": null,
-      "verification": [],
+      "verification": [
+        "2026-10-17: 最终npm test，20文件268/268通过；新增导演15、NodeScope13、真实Store/IDB场面命令11项。",
+        "2026-10-17: 最终npm run build含typecheck通过；13份legacy JS为ES5，六HTML有modern/legacy入口，实际IE未测。",
+        "2026-10-17: 最终npm run test:e2e -- --workers=2，172/172通过，5.6分钟；Chromium156.0.8078.4，1440x900桌面/390x844模拟手机各86项，新增28项。",
+        "2026-10-17: 自动短场面/18与10秒序幕、字幕/模式/暂停恢复、取消候选/精确重试/内存不自动写、双缓冲资源错误/重试/迟到拒绝、十次播放退出/单时钟/事件释放、Canvas回退与legacy冒烟通过；未把互动/选择/用户谢幕当自动完成。",
+        "2026-10-17: verify:assets的80张PNG、verify:content的18节点/两路径通过；verify:state核对19任务。两张生产截图已查看，宽窄屏无横向溢出；真实声音仅清理替身验证，正式美术仍draft。",
+        "2026-10-17: 只读审查五项已修复复核；首轮168/172的四项旧暂停文案失败已保留原断言修复。test-results的5文件/4子目录逐项清理，Test-Path=false。源码检查点f0e1ec7d68746ba8152e583de7e96dba751c0be6；两份用户赛事文档未读/未改/未纳入提交。"
+      ],
       "phase": "G2",
       "id": "T16",
       "title": "可跳过序幕与短节点场面调度",
@@ -734,13 +741,32 @@
         "src/story/node-scope.ts",
         "src/features/intro/events.ts",
         "src/features/story/subtitles.ts",
-        "tests/unit/director.test.ts"
+        "tests/unit/director.test.ts",
+        "src/features/story/view.ts",
+        "src/features/story/controller.ts",
+        "src/features/shared/canvas-stage.ts",
+        "src/styles/layout.css",
+        "src/app/story-scene-commands.ts",
+        "tests/unit/node-scope.test.ts",
+        "tests/unit/story-scene-commands.test.ts",
+        "tests/e2e/director.spec.ts",
+        "docs/contracts/director-v1.md",
+        "docs/contracts/navigation-v1.md",
+        "docs/contracts/canvas-v1.md",
+        "docs/contracts/story-v1.md",
+        "docs/plans/2026-10-17-t16-director-baseline.md",
+        "docs/STATE.md",
+        "docs/tasks.json",
+        "docs/verification.md",
+        "docs/evidence/",
+        "README.md",
+        "START_HERE.md"
       ],
       "acceptanceRefs": [
         "T16",
         "STORY-08"
       ],
-      "nextAction": "先挂载一个短节点，实现脚本第二角色、字幕、灯位/图层初值与暂停清理，再接序幕和晚到加载丢弃。"
+      "nextAction": "T16已验收。领取T17复用director-v1/NodeScope/唯一时钟，先一条占位图形整场与真实刷新，再接两路差异、实际显影/开山、共纹、最后用户伸手/四秒静候/用户谢幕；不把ended当互动成功。"
     },
     {
       "priority": "P0",

@@ -1,52 +1,48 @@
 # 当前开发状态与交接
 
-更新日期：2026-10-17。codex-root；实际分支main。两份用户暂存赛事DOCX/PPTX未读取/未改动，暂存blob保持原值，不纳入开发提交。
+更新日期：2026-10-17。codex-root，main。两份用户暂存赛事DOCX/PPTX未读取、未修改、未纳入开发提交，暂存blob保持原值。
 
 ## 当前阶段与入口
 
-**T00、T03、T01、T15、T02、T04、T07及T05已完成；当前无任务占用。下一项优先T16节点导演/NodeScope/序幕，再T17占位整场。**
+**T00/T03/T01/T15/T02/T04/T07/T05/T16已完成；下一项优先T17占位图形整场。** 当前源码检查点f0e1ec7d68746ba8152e583de7e96dba751c0be6。
 
-- 环境Node v24.18.1 / npm12.0.2、TypeScript7.0.2、Vite7.3.7 / legacy7.2.1；依赖/锁未变。npm ci恢复，npm run dev启动。原5173服务本轮已停止，重新启动的会话17320仍在，实际响应200。
-- craft已有双角色三段镂空/还原/完成下一段、三套色板与衣身/袖/下摆色槽，同一部件遮罩真实成影；母亲未冻结时预览当前纹样，有本场时保持castSnapshot.sharedMotif。身杆鼠标/触屏/方向键/按钮试提为可重置临时排演，不写practice保存Pose。
-- craft可用编辑稿或默认影偶明确开演。无run直接访问时一个候选内显式跳序并确认craft，保存成功进memory-wave；已有intro/craft保留run和mode。默认冻结默认Appearance并标preset，编辑稿不被擦掉。失败保留旧实际节点、同一冻结候选和后续排队编辑；全局重试成功后可点继续已冻结演出。
-- 已冻结场可明确归档重开：保存最新编辑，原子归档旧项目，保留外观/舞台/Pose/标题建立无story的新项目，再由用户确认新run。已有上一归档时需明确替换；失败不导航。普通编辑不改旧场造型、决定或完成时间。
-- light已有灯位[-.8,.8]、偶幕距离[.05,.4]滑块/原生键盘/逐步按钮/重置、几何倍率与真实保存。只改编辑Stage，预览适配不写Pose，剧情使用自己的entryStage。
-- practice已有独立三杆与五动作、唯一时钟、暂停/步进和Pose保存；恢复默认暂停。memory/error自动操作只编辑可导出稿，明确保存才重试磁盘。P1字段不创建假录制。
-- story仍显示当前节点入口暂停构图，尚无图形导演/整场推进。story.html文字排演可走完整/导览两路径并存档，project/assets/study/probe.html保留检查入口。
-- 五区八件仍为目录，80张几何PNG为draft/unknown；正式人物/场景/声音/文化与许可留T10。Three、成果PNG、图形全剧、P1录制/分享未实施。
+- Node v24.18.1 / npm12.0.2，TypeScript7.0.2，Vite7.3.7/legacy7.2.1；锁与依赖不变。npm ci恢复，npm run dev启动。5173会话17320仍可用，本轮HTTP实际200。
+- 剧场已接18秒完整/10秒导览序幕、绝对时间短场面、当前字幕/完整台词、暂停/继续/重开、暂停切模式与明确跳序。刷新、回到页面或切模式成功后，从当前短节点0毫秒暂停重建。
+- 每个节点有新generation/NodeScope，单个animation-clock；失焦、隐藏、异常及超过250ms断档暂停，不补墙钟。Renderer仍无RAF。下一幕独立加载，旧scope已停但旧Canvas/台词保留到新幕ready；失败可重试，离页释放两套舞台并拒绝晚到图片。
+- 自动场须播满当前模式targetMs，经队列内scope与run/revision/node校验才提交。失败保留旧节点与同一候选；取消后可在末帧再确认。memory/error播放不自动写盘，末尾需明确确认进入下一段。普通路由自动保存不打断播放。
+- interaction/choice仍在暂停构图，craft已有明确冻结确认；reunion-hold播满4秒也不自动完成。图形操偶、唯一分支、最后伸手和用户谢幕待T17，不存在全剧跳过后门。
+- craft已有刻纹/着色/共纹、可重置临时身杆、使用编辑稿或默认影偶明确冻结及归档重开；light已有灯位/距离与真实保存；practice已有三杆/五动作/唯一时钟/Pose保存。这些与冻结剧情、节点初值彼此独立。
+- story.html仍为可走完整/导览两路径的文字排演；project/assets/study/probe.html保留独立检查入口。五区八件目前只有目录，80张PNG仍draft/unknown。当前二维静音几何排演，不是正式艺术、声音或Three镜头交付。
 
-## 本轮实际验证（T05）
+## 本轮实际检查（T16）
 
-- npm test：17文件229/229通过，新增20项（字段10、craft保存/归档10）。含真实Store排队字段合并、严格坏值、最新外观一次冻结/默认标记、旧guard/重复确认、失败候选/排队编辑/取消、归档保留最新编辑及上一项目保护。
-- 最终npm run build含typecheck通过；六HTML有modern/legacy入口，verify:legacy确认13份legacy JS为ES5。最终构建后源码未再改变。
-- 最终npm run test:e2e -- --workers=2：144/144通过，4.6分钟。Chromium156.0.8078.4，1440×900桌面和390×844模拟手机各72项；新增22项T05，原122项回归通过。
-- 新流程覆盖三段/部位颜色/共纹真实图像与SAVE-01刷新、同一事件内未保存编辑立即确认/重复点击、默认使用旧craft run、失败候选冻结与后续编辑分开/真实导出重试、归档重开与已有归档保护、灯影键盘/步进/上限/重置/刷新及旧节点图像不变、内存继续不自动写盘、试杆真实鼠标/CDP触屏/Touch回退标识与取消、旧Pose/剧情不变、十次craft/light进出事件清理、Canvas不可用、legacy新流程冒烟。
-- 初轮定向18/20，三处色槽控件的隐式label混入选项文字，精确名称无法定位。已加明确aria-label并保留原精确断言，最终两视口通过；没有降低断言。T04的craft resize计数因新增身杆overlay实际从1变2，明确标注两所有者，离页仍要求回0。
-- 只读审查发现候选已冻结而摘要仍称可同步改母亲纹样，已区分“待保存候选”与“后续编辑稿”；最终复核无新增阻塞。
-- verify:assets通过80张PNG/alpha/区域/CSV/哈希，verify:content通过18节点/两路径，verify:state通过19任务。未重复未改动的release门禁；正式发布/艺术/文化/许可仍未就绪。
-- 已查看并保留docs/evidence/t05-craft-desktop.png、t05-craft-mobile.png、t05-light-desktop.png、t05-light-mobile.png。无横向溢出，控件/共纹/镂空可见；不是正式美术验收。
-- 截图临时脚本与test-results的5文件/4目录已逐项显式路径、无Force/无递归删除，Test-Path均false。托管工作树归档仍queued，不能声称目录已移除。
-- 实际IE/IE模式、实体手机/Safari、图形全剧手动可达性/完整SAVE-01—07、全剧性能/时长/情绪及正式美术/文化/许可：未验收。
+- 最终npm test：20文件268/268通过，新增39项（导演15、NodeScope13、串行场面命令11）。覆盖18节点/两模式、绝对时间/合法bbox/冻结隔离、独立静态分镜、节点退出/事件/timer/audio替身、真实Store/IDB排队与候选。
+- 最终npm run build含typecheck通过，29.69秒；之后源码未再改变。modern/legacy六HTML仍生成，verify:legacy确认13份JS为ES5。verify:assets通过80张PNG/alpha/区域/CSV/哈希，verify:content通过18节点/两路径；verify:state通过19任务。未改正式release门禁，未重复其NOT_READY检查。
+- 最终npm run test:e2e -- --workers=2：172/172通过，5.6分钟。Chromium156.0.8078.4，1440×900桌面/390×844模拟手机各86项；新增28项，原144项回归通过。虚拟时钟加速门槛检查，不是实际6—8分钟体验验收。
+- 定向首轮17/20：字幕断言误写为剧本没有的“救母”，按既有台词修正；一个十次播放实例被普通路由自动保存打断，已区分保存原因。新增28项在第一次全量中均通过。
+- 全量首轮168/172（5.5分钟）：两处旧回归在桌面/手机都依赖“暂停接续”提示。恢复该真实提示，保留原断言；没有放松剧情/事务检查。最终全量172/172通过。
+- 只读审查五项已修复并复核：回应不提前开山、单台词也有减少动态分镜、取消候选解锁末帧、路由保存不打断、采样异常不泄漏未挂载Canvas。另按截图把序幕后半段山片变为半透明幕后示意，使操偶杆实际可见。
+- 已查看并保留docs/evidence/2026-10-17-t16-director-desktop.png与mobile.png，生产浏览器验证无横向溢出，字幕/角色/显杆与宽窄屏控件可读；这些是排演与布局证据。
+- 实际IE/IE模式、实体手机/Safari、图形全剧手动可达性/完整SAVE-01—07、全剧性能/时长/情绪、正式美术/文化/许可：未验收。音频仅清理替身，没有实际声音素材。
 
-## 消费者与约束
+## 消费者与数据边界
 
-- 读docs/contracts的project-v1、assets-v1、story-v1、navigation-v1、canvas-v1、practice-v1、craft-v1。Project版本未变。字段编辑继续经唯一Store，禁止旧APPEARANCE/STAGE覆盖排队字段。
-- T05新增CARVE_SEGMENT/CARVE_NEXT/COLOR_SLOT/APPLY_PALETTE/LAMP_X/PUPPET_DISTANCE；APPLY_PALETTE复位0/1/2，既有PALETTE保留色槽。普通字段沿用500ms/最长2秒自动保存，input/change/步进不自动flush保护状态。
-- confirmCraft捕获guard，执行时取最新外观，只持久化最终冻结候选；archiveForRehearsal先保存最新编辑再原子归档，不复用旧run。候选和根isBusy保护仍有效，未知版本/冲突不自动覆盖。
-- 世界宽2/高1.5、灯深1.2，根归一化x右/y下，世界y上；输入先扣Canvas/letterbox再逆投影/IK，facing在根只镜像一次。实际bbox包含显式附件，scale不低于.6，fits=false不能当命中。
-- Renderer无独立RAF，已有资源的姿态帧同步绘制。T07共享animation-clock可给T16复用，NodeScope应持唯一时钟，暂停/失焦/隐藏/长断档清输入与连续观察，不叠加第二循环。
-- 五动作稳定ID及有限几何观察见practice-v1；T16/T17必须从受限后的实际手点/区域判定，用runId/revision/nodeId guard提交，动画结束不能直接改剧情。
-- T05新增试杆/字段事件均dispose；身杆临时Pose与practice持久Pose、节点entryPose是独立边界。T16导演必须使用节点entryStage，不读取可编辑Project.stage。
+先读docs/contracts下project-v1、assets-v1、story-v1、navigation-v1、canvas-v1、practice-v1、craft-v1及新增director-v1。Project/资产/18节点版本不变。
 
-## 并行与检查点
+- createSceneDirector捕获entry字段、模式与冻结外观；尚未冻结时只捕获一次编辑Appearance。只有沉香Pose和灯位/距离可作为临时输入，固定演员保持自身色板。sample输出纯帧/字幕/亮度/标签，无Store/DOM/时钟/命令。
+- NodeScope先失活、逆序清理，退出后登记立即清理；onError失败也完成其余清理再报告。scope持时钟与节点事件，页面单独拥有正在显示/等待资源的两套stage；保留旧帧不等于保留旧导演。
+- submitScopedSceneCommand在Store队列执行时重验scope和guard；自动完成只允许cinematic/curtain且activation=automatic。必须在停钟前捕获未暂停观察；不要在每帧闭包里直接写进度。
+- craft冻结、普通编辑与归档入口沿用craft-v1；未知版本/冲突禁止覆盖。身杆临时Pose、practice持久Pose、节点entryPose是独立边界。T17不得将末帧或时长当互动成功。
+- 世界宽2/高1.5、灯深1.2、根归一化x右/y下、世界y上、scale下限.6与附件实际bbox继续有效。T17需复用受限后的实际手点/区域、连续hold与明确协助，不保存整场位姿。
 
-字段2文件由t05_fields完成，提交f48a29ebb853b676103901e496cdfe87ef6abf2d；身杆1文件由t05_body_rod完成，提交2c95d780d27a023ff2b075a9b1a5975d8d432282。主Agent按文件集成，补产品/开演/验收并统一验证。工作树工具初始返回detached HEAD，集成人已建立codex/t05-editor-fields与codex/t05-body-rod分支保留提交；以后应在派发前先核对并建立独立分支。两树请求归档返回queued，目录仍在；旧T04/T07的queued树也不手动递归删除。
+## 并行、检查点与清理
 
-T05已验证源码检查点：3e8880cdc856744a03be66d1fc18481d9c4a4c0e，对应229项单元、144项生产浏览器和13份legacy ES5；后续交接元数据提交不改变实现。上一T07为b7bbff6bb123d582195e029f6db3f106a092dac1；T04为4297769f29dc02892c58abfcd3e218a0b0d804db。更早T00/T03/T01/T15/T02证据与SHA见verification和账本。
+两独立工作树派发前已建codex分支。导演贡献ec4dc9925298462421f3d93c3a94b59feea543a4；NodeScope贡献ec27b0c8c2f895399c6f86f5809ab99a3fae80d4；场面命令测试22a96489e821f257fa1df5620b6b82f7400b473d。主目录按文件集成并修复、接线、统一验证。只读审查t02_route_audit最终未发现实际阻塞。
+
+T16已验证源码f0e1ec7d68746ba8152e583de7e96dba751c0be6；后续交接元数据不改变实现。T05为3e8880cdc856744a03be66d1fc18481d9c4a4c0e，旧阶段证据见verification与账本。本轮两工作树归档请求返回queued，目录仍在，旧T04/T07/T05同类目录也不手动递归删除。test-results的5文件/4子目录已在核对绝对路径后逐项无Force/无递归删除，Test-Path=false；证据图保留。
 
 ## 下一位首先执行
 
-1. 核对Git/端口/暂存区，保留两份用户赛事文档，不读、不混入提交；现可从5173使用制偶/灯影/练习。
-2. 领取T16，先读主方案8/短节点及story-v1：NodeScope、唯一时钟、脚本第二角色/字幕、节点灯位/图层初值、暂停重开与晚到资源拒绝；接序幕可跳过，不创造新URL推进后门。
-3. 随后T17走一条占位图形整场与刷新，再补唯一分支两路、共纹回收、用户最后伸手、四秒静候及幂等谢幕；T18展品、T09成果PNG。
-4. 正式艺术与文化留T10，真实IE和完整图形恢复留T11，P1录制/分享仍在T13/G3之后。
+1. 先核对Git/暂存/端口，保留用户两份赛事文档；当前可从5173访问剧场、制偶、灯影与练习。
+2. 领取T17，复用director-v1、practice-v1、story-v1与唯一时钟；先走一条占位图形整场与真实刷新。山前前景目前会遮住人物，必须结合寻光/举斧实现真实显影与开合，逐场查看实际画面及手点，不能只凭合法帧数据宣称可达；再补两路差异、共纹回收、最后用户伸手、至少4秒静候及幂等谢幕。
+3. T18接五区八展品，T09接成果PNG；正式艺术/声音与文化留T10，真实IE与完整图形恢复留T11。P1录制/分享仍在T13/G3之后。
