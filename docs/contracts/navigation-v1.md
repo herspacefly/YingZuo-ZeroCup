@@ -4,7 +4,7 @@
 
 ## 入口与持久化
 
-index.html为产品外壳，八个根入口是`#/`、`#/craft`、`#/light`、`#/story`、`#/museum`、`#/practice`、`#/result`、`#/about`。展品子入口仅接受`#/museum/E01`至`E08`。路由写入Project.lastRoute时只存根路径，展品目录不触发VISIT，也不写任何剧情字段。
+index.html为产品外壳，八个根入口是`#/`、`#/craft`、`#/light`、`#/story`、`#/museum`、`#/practice`、`#/result`、`#/about`。展品子入口仅接受`#/museum/E01`至`E08`。路由写入Project.lastRoute时只存根路径；展品目录不触发VISIT，T18只为实际打开的展签提交VISIT，不写任何剧情字段。
 
 `parseHash`只解析白名单，空hash规范到首页，`#/stage`单次replace到practice。原首页的light-study/story-preview/museum-preview分别规范到灯影/关于/展馆。任意节点、查询参数或未知展品不成为剧情命令，回首页并显示提示。链接、直接地址、浏览器前进/返回和刷新共用同一解析器。
 
@@ -30,8 +30,8 @@ pagehide/HMR统一清理路由、页面监听、Store订阅、Store计时器与�
 
 T04已将制偶、灯影、练习和剧情场面接到同一Canvas渲染器；显示静止的真实分件、几何投影与节点初始层，仍明确标记排演资源。study.html保留原T00独立灯影试作，其百分比坐标和探针数据不是正式舞台配置；probe.html仍使用独立探针库。project/assets/story.html继续作为数据、资产、文字工程入口，在新窗口打开。
 
-展馆只有五区八件的可读目录，正文/来源/互动由T18补齐；文化资料沿用sources.json访问边界，不复用外部媒体。首页CSS幕面与Canvas几何影偶都不取代T10正式原画。
+T18已接五区八件两层说明、来源、局部演示和真实参与记录；文化资料沿用sources.json访问边界，不复用外部媒体。演示只取冻结外观或明确示例，不修改用户编辑稿；进入展馆不要求通关，返回剧场从原稳定节点暂停重开。详见museum-v1.md。首页CSS幕面与Canvas几何影偶都不取代T10正式原画。
 
 宽屏场面和控制区并排，手机上下布局；菜单与作品工具有明确展开状态、44px主要目标和可见焦点，切页聚焦标题。禁用JavaScript时保留静态故事/展馆介绍。无远程字体或运行时CDN。CSS有字面值与基础IE回退，legacy包和Chromium冒烟不等于真实IE运行验收。
 
-T04接口见canvas-v1.md；T05制偶/灯影见craft-v1.md，T07操偶见practice-v1.md，T16场面见director-v1.md；T17图形交互见story-play-v1.md，T18接展签及演示，T09接成果输出。T17十次真实操作/离页检查输入与时钟释放，恢复稳定节点而不恢复瞬时拖动；完整SAVE矩阵及实体设备仍留T11。新增消费者须保持导航、保存与清理边界，按PageContext.isBusy读取根操作锁。
+T04接口见canvas-v1.md；T05制偶/灯影见craft-v1.md，T07操偶见practice-v1.md，T16场面见director-v1.md；T17图形交互见story-play-v1.md，T18展签及演示见museum-v1.md，T09接成果输出。T17/T18十次操作/离页检查输入、时钟与资源释放，恢复稳定节点而不恢复瞬时拖动；完整SAVE矩阵及实体设备仍留T11。新增消费者须保持导航、保存与清理边界，按PageContext.isBusy读取根操作锁。
