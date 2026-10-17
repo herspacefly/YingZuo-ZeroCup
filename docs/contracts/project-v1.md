@@ -48,7 +48,7 @@
 | `takeOver()` | 仅用户明确接管时重读当前稿，再用新基线进行事务比较；不同 projectId 或不支持格式仍拒绝 |
 | `dispose()` | 清掉防抖、最长等待、订阅和连接；旧定时器不写入 |
 
-更改单个外观字段应使用 PALETTE/PATTERN 命令，让字段在队列执行时应用到最新外观；APPEARANCE 仅用于明确整体替换，避免页面捕获旧外观覆盖其他排队修改。
+更改单个外观字段应使用 PALETTE/PATTERN、T05的CARVE_SEGMENT/CARVE_NEXT/COLOR_SLOT命令，让字段在队列执行时应用到最新外观。APPLY_PALETTE明确复位该套默认色槽；PALETTE保留色槽。灯影用LAMP_X/PUPPET_DISTANCE分别修改最新字段。APPEARANCE/STAGE仅用于明确整体替换，避免页面捕获旧快照覆盖其他排队修改，详见[制偶合同](craft-v1.md)。
 
 待提交时，标题/外观编辑控件从 getExportProject 读取候选及排队编辑，项目身份/剧情摘要仍显示 getState 的实际应用状态；不能每次订阅回调用旧稿回填编辑框，否则会丢掉连续输入。
 

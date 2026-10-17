@@ -1,32 +1,101 @@
 import { append, element, link, scope } from '../shared/dom';
-import { editable, heading, pageLinks, paletteLabel, patternLabel, pendingNote } from '../shared/pieces';
+import { editable, heading, pageLinks, paletteLabel, patternLabel } from '../shared/pieces';
 import { canvasStage, editorFrame } from '../shared/canvas-stage';
+import { mountCraftBodyRod } from './body-rod';
+import { archiveForRehearsal, confirmCraft } from '../../app/craft-commands';
+import { newIdentifier } from '../../app/identity';
+import { storyGuard } from '../../domain/story';
+import { constrainPoseToStage } from '../../domain/pose';
+import { moveRodBy } from '../../domain/rod-input';
+import { assetCatalog } from '../../content/catalog';
 import type { PageFactory } from '../../app/view';
-import type { PaletteId, PatternId } from '../../domain/types';
+import type { StoreState } from '../../app/store';
+import type { PaletteId, PatternId, Pose, StageConfig } from '../../domain/types';
 import palettes from '../../content/palettes.json';
 import patterns from '../../content/patterns.json';
 
-export const mountCraft: PageFactory = (host, ctx) => {
-  const life = scope(); append(host, heading('先备行装', '把你的选择，留在衣角。', '云、水、花，三种纹样都能走到团圆。颜色与纹样先保存在编辑稿里。'), pageLinks());
-  const layout = element('section', 'workspace'), stage = canvasStage('沉香与母亲 · 分件、颜色与袖口共纹的几何排演。母亲使用固定配色；已有演出时保留本场共纹。');
-  const panel = element('div', 'control-panel'), fieldset = element('fieldset'), legend = element('legend', '', '沉香的行装'); fieldset.appendChild(legend);
-  const pattern = element('select'), palette = element('select'); pattern.id = 'craft-pattern'; palette.id = 'craft-palette';
-  for (const p of patterns.patterns) { const option = element('option', '', p.label); option.value = p.id; pattern.appendChild(option); }
-  for (const p of palettes.palettes.filter(p => p.editable)) { const option = element('option', '', p.label); option.value = p.id; palette.appendChild(option); }
-  const patternLabelNode = element('label', '', '衣上的纹样'), paletteLabelNode = element('label', '', '这一套颜色'); append(patternLabelNode, pattern); append(paletteLabelNode, palette); append(fieldset, patternLabelNode, paletteLabelNode);
-  const summary = element('p', 'selection-summary'), swatches = element('div', 'palette-swatches'); swatches.setAttribute('aria-hidden', 'true');
-  const save = element('button', 'button secondary', '保存这身行装');
-  append(panel, fieldset, swatches, summary, save, pendingNote('颜色和纹样已进入同一张真实幕面。分段刻纹与操偶尚未开放，当前不会替你完成制偶节点。'), link('回到这一场 →', '#/story')); append(layout, stage.figure, panel); host.appendChild(layout);
-  life.on(pattern, 'change', () => ctx.edit({ type: 'PATTERN', patternId: pattern.value as PatternId }));
-  life.on(palette, 'change', () => ctx.edit({ type: 'PALETTE', paletteId: palette.value as PaletteId }));
-  life.on(save, 'click', () => { void ctx.run(() => ctx.store.flush()); });
-  return { update(state) {
-    const draft = ctx.store.getExportProject() ?? state.project; fieldset.disabled = !editable(state); save.disabled = !editable(state) || state.hasPending || state.status === 'saving';
-    if (!draft) { stage.update(null); summary.textContent = '请先处理作品存档，再继续制作。'; return; }
-    stage.update(()=>editorFrame(draft,true,true));
-    pattern.value = draft.appearance.patternId; palette.value = draft.appearance.paletteId;
-    summary.textContent = `${patternLabel(pattern.value)} · ${paletteLabel(palette.value)}${state.project?.story?.castSnapshot ? '。这是编辑稿；本场已经冻结的造型保持不变。' : '。确认开演前，还可以继续修改。'}`;
-    while (swatches.firstChild) swatches.removeChild(swatches.firstChild);
-    for (const color of palettes.palettes.find(p => p.id === palette.value)!.colors) { const span = element('span', 'swatch'); span.style.backgroundColor = color; swatches.appendChild(span); }
-  }, dispose() { life.dispose(); stage.dispose(); } };
+const template=assetCatalog.puppets.find(item=>item.id==='chenxiang-v1')!;
+const colorNames:Record<string,string>={'#B83B30':'朱红','#D7A253':'金黄','#314C58':'靛青','#17130F':'墨黑','#F2E5C9':'米白','#8BA6A4':'青灰','#4F6B49':'苔绿','#A26A42':'赭棕'};
+export const mountCraft:PageFactory=(host,ctx)=>{
+  const life=scope();append(host,heading('先备行装','把你的选择，留在衣角。','选一道纹，揭开三段镂空，再把颜色留在衣上。云、水、花都能走到团圆。'),pageLinks());
+  const layout=element('section','workspace craft-workspace'),stage=canvasStage('沉香与母亲 · 原创几何排演。母亲固定配色，袖口同纹是本作的舞台呼应。');
+  const panel=element('div','control-panel'),field=element('fieldset');field.appendChild(element('legend','','沉香的行装'));
+  const pattern=element('select'),palette=element('select');pattern.id='craft-pattern';palette.id='craft-palette';
+  for(const p of patterns.patterns){const option=element('option','',p.label);option.value=p.id;pattern.appendChild(option);}
+  for(const p of palettes.palettes.filter(item=>item.editable)){const option=element('option','',p.label);option.value=p.id;palette.appendChild(option);}
+  const patternLabelNode=element('label','','衣上的纹样'),paletteLabelNode=element('label','','这一套颜色');append(patternLabelNode,pattern);append(paletteLabelNode,palette);
+  const cuts=element('div','carve-segments');cuts.setAttribute('role','group');cuts.setAttribute('aria-label','三段镂空');
+  const cutButtons=[0,1,2].map(index=>{const button=element('button','button secondary');button.id=`craft-cut-${index+1}`;button.type='button';cuts.appendChild(button);
+    life.on(button,'click',()=>{if(!allowed())return;const current=ctx.store.getExportProject()!;ctx.edit({type:'CARVE_SEGMENT',index:index as 0|1|2,carved:!current.appearance.carvedSegments[index]});});return button;});
+  const nextCut=element('button','button secondary','完成下一段');nextCut.id='craft-cut-next';
+  const cutStatus=element('p','quiet-note');cutStatus.id='craft-cut-status';cutStatus.setAttribute('role','status');
+  const apply=element('button','button secondary','采用这套配色');apply.id='craft-apply-palette';
+  const colorToggle=element('button','button secondary','分别给衣身、袖、下摆着色');colorToggle.setAttribute('aria-expanded','false');colorToggle.setAttribute('aria-controls','craft-colors');
+  const colors=element('div');colors.id='craft-colors';colors.hidden=true;const slots=new Map<'body'|'sleeve'|'hem',HTMLSelectElement>();
+  for(const [slot,label]of [['body','衣身颜色'],['sleeve','袖的颜色'],['hem','下摆颜色']] as const){
+    const group=element('label','',label),select=element('select');select.id=`craft-${slot}`;select.setAttribute('aria-label',label);for(let i=0;i<5;i++){const option=element('option');option.value=String(i);select.appendChild(option);}group.appendChild(select);colors.appendChild(group);slots.set(slot,select);
+    life.on(select,'change',()=>{if(allowed())ctx.edit({type:'COLOR_SLOT',slot,colorIndex:Number(select.value)});});
+  }
+  const swatches=element('div','palette-swatches');swatches.setAttribute('aria-hidden','true');
+  const summary=element('p','selection-summary'),save=element('button','button secondary','保存这身行装');summary.id='craft-summary';
+  append(field,patternLabelNode,cuts,nextCut,cutStatus,paletteLabelNode,swatches,apply,colorToggle,colors);append(panel,field,summary,save);
+  const confirmation=element('section','craft-confirmation'),confirmationText=element('p','quiet-note'),mode=element('select');mode.id='craft-mode';
+  for(const [value,label]of [['full','完整演出'],['guided','三分钟导览']]){const option=element('option','',label);option.value=value!;mode.appendChild(option);}
+  const modeLabel=element('label','','新场的节奏');modeLabel.appendChild(mode);
+  const play=element('button','button primary','用这身行装开演'),preset=element('button','button secondary','采用默认影偶开演');play.id='craft-confirm';preset.id='craft-preset';
+  const restart=element('button','button secondary','归档旧场，用新造型重新开演');restart.id='craft-restart';
+  const acknowledgeLabel=element('label','acknowledge'),acknowledge=element('input');acknowledge.type='checkbox';acknowledge.id='craft-archive-ack';append(acknowledgeLabel,acknowledge,element('span','','允许替换已有的上一项目（可先导出）'));
+  const back=link('继续本场已冻结的演出 →','#/story');back.id='craft-return';
+  append(confirmation,confirmationText,modeLabel,play,preset,back,restart,acknowledgeLabel);panel.appendChild(confirmation);
+  append(layout,stage.figure,panel);host.appendChild(layout);
+  const trial=element('div','craft-trial'),trialHelp=element('p','quiet-note','试提身杆：拖动幕下握柄，或聚焦后用方向键。这里的试提可重置，不改练习台存下的姿态。');
+  const trialPad=element('div','direction-pad');trialPad.setAttribute('role','group');trialPad.setAttribute('aria-label','试提身杆逐步操作');
+  for(const [label,delta]of [['身杆向左',{x:-.025,y:0}],['身杆向上',{x:0,y:.025}],['身杆向下',{x:0,y:-.025}],['身杆向右',{x:.025,y:0}]] as const){const button=element('button','',label);trialPad.appendChild(button);life.on(button,'click',()=>{if(bodyModel&&canTry()){const fit=moveRodBy(template,bodyModel.pose,bodyModel.stage,'body',delta);if(fit.fits){trialPose=fit.pose;render();}}});}
+  const resetTrial=element('button','button secondary','重置试提');life.on(resetTrial,'click',()=>{trialPose=null;render();});append(trial,trialHelp,trialPad,resetTrial);stage.figure.appendChild(trial);
+  let state:StoreState|null=null,trialPose:Pose|null=null,projectId='',disposed=false,bodyModel:{pose:Pose;stage:StageConfig}|null=null;
+  const body=mountCraftBodyRod(stage,pose=>{trialPose=pose;render();});
+  const allowed=()=>!!state&&editable(state)&&!ctx.isBusy();
+  const canTry=()=>allowed()&&!state!.hasPending&&stage.getStatus().state==='ready';
+  function syncControls(){
+    body.update(bodyModel,canTry());const advance=allowed()&&!state!.hasPending&&state!.status!=='saving'&&stage.getStatus().state==='ready';
+    play.disabled=preset.disabled=restart.disabled=mode.disabled=acknowledge.disabled=!advance;
+    trialPad.querySelectorAll('button').forEach(button=>{button.disabled=!canTry();});resetTrial.disabled=!canTry();
+  }
+  const offStatus=stage.subscribe(syncControls);
+  function render(){
+    if(disposed||!state)return;const draft=ctx.store.getExportProject()??state.project,story=state.project?.story;
+    field.disabled=!allowed();save.disabled=!allowed()||state.hasPending||state.status==='saving';
+    if(!draft){stage.update(null);bodyModel=null;body.update(null,false);summary.textContent='请先处理作品存档，再继续制作。';play.disabled=preset.disabled=restart.disabled=true;return;}
+    if(draft.projectId!==projectId){trialPose=null;projectId=draft.projectId;}
+    let frame;
+    try {frame=editorFrame(draft,true,true);if(trialPose){const fit=constrainPoseToStage(trialPose,template,frame.stage);if(fit.fits)frame.actors[0]!.pose=fit.pose;}}
+    catch(error){bodyModel=null;body.update(null,false);stage.update(()=>{throw error;});return;}
+    bodyModel={pose:frame.actors[0]!.pose,stage:frame.stage};stage.update(frame);body.update(bodyModel,canTry());
+    pattern.value=draft.appearance.patternId;palette.value=draft.appearance.paletteId;
+    const count=draft.appearance.carvedSegments.filter(Boolean).length;cutStatus.textContent=`已揭开 ${count}/3 段；刻去的地方会透出幕光。`;
+    cutButtons.forEach((button,index)=>{const cut=draft.appearance.carvedSegments[index];button.textContent=`${cut?'还原':'刻'}第${index+1}段`;button.setAttribute('aria-pressed',String(cut));});nextCut.disabled=count===3;
+    const selected=palettes.palettes.find(item=>item.id===draft.appearance.paletteId)!;
+    for(const [slot,select]of slots){for(let i=0;i<5;i++)select.options[i]!.textContent=colorNames[selected.colors[i]!]!;select.value=String(draft.appearance.colorSlots[slot]);}
+    while(swatches.firstChild)swatches.removeChild(swatches.firstChild);for(const color of selected.colors){const span=element('span','swatch');span.style.backgroundColor=color;swatches.appendChild(span);}
+    summary.textContent=`${patternLabel(pattern.value)} · ${paletteLabel(palette.value)}。${state.hasPending&&draft.story?.castSnapshot?'待保存的本场造型已冻结；后续修改排队到编辑稿，不改候选演出。':story?.castSnapshot?'这是编辑稿；本场已冻结的造型和母亲袖纹保持不变。':'母亲袖口预览同一道纹。确认开演前还可以修改。'}`;
+    const frozen=!!story?.castSnapshot;
+    modeLabel.hidden=!!story;play.hidden=preset.hidden=frozen;
+    back.hidden=!story;restart.hidden=acknowledgeLabel.hidden=!frozen;
+    back.textContent=frozen?'继续本场已冻结的演出 →':'回到当前剧情 →';
+    confirmationText.textContent=frozen?'本场已冻结。继续会使用原造型；归档重开会保留现在的编辑稿并建立新项目，随后由你确认新场。':'开演会保存并冻结本场造型，直接进入第一幕；本页制作可跳过，默认影偶会标为预设造型。';
+    syncControls();
+  }
+  life.on(pattern,'change',()=>{if(allowed())ctx.edit({type:'PATTERN',patternId:pattern.value as PatternId});});
+  life.on(palette,'change',()=>{if(allowed())ctx.edit({type:'PALETTE',paletteId:palette.value as PaletteId});});
+  life.on(nextCut,'click',()=>{if(allowed())ctx.edit({type:'CARVE_NEXT'});});
+  life.on(apply,'click',()=>{if(allowed())ctx.edit({type:'APPLY_PALETTE',paletteId:palette.value as PaletteId});});
+  life.on(colorToggle,'click',()=>{colors.hidden=!colors.hidden;colorToggle.setAttribute('aria-expanded',String(!colors.hidden));});
+  life.on(save,'click',()=>{if(allowed()&&!state!.hasPending)void ctx.run(()=>ctx.store.flush());});
+  function open(presetAppearanceUsed:boolean){
+    if(!allowed()||state!.hasPending)return;const story=ctx.store.getState().project?.story;if(story?.castSnapshot)return;
+    void ctx.durable(()=>confirmCraft(ctx.store,{runId:story?.runId??newIdentifier('run'),mode:mode.value as 'full'|'guided',presetAppearanceUsed,guard:story?storyGuard(story):null,now:new Date().toISOString()}),{path:'/story',exhibitId:null});
+  }
+  life.on(play,'click',()=>open(false));life.on(preset,'click',()=>open(true));
+  life.on(restart,'click',()=>{if(allowed()&&!state!.hasPending)void ctx.durable(()=>archiveForRehearsal(ctx.store,acknowledge.checked),{path:'/craft',exhibitId:null});});
+  return {update(next){state=next;render();},dispose(){disposed=true;offStatus();body.dispose();life.dispose();stage.dispose();}};
 };

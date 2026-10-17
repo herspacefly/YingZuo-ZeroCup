@@ -30,4 +30,4 @@ PartCompositor读取精确RGB标签，body/sleeve/hem按色槽取色，fixed保�
 
 shared/canvas-stage.ts拥有可读状态与重试、帧签名去重和生命周期；T07暴露canvas/screen/getStatus/subscribe，订阅立即给当前状态，工厂异常/空帧也通知，dispose清订阅。craft显示编辑沉香与母亲预览：已有本场时母亲袖纹来自castSnapshot.sharedMotif；未开演时仅预览候选共纹，不写冻结快照。light读取编辑稿的舞台/姿态，预览适配不回写Project；practice已按[练习合同](practice-v1.md)接输入与POSE保存。story只显示已保存节点entryPoses/entryStage/entrySceneLayers/entryAttachments，外观优先本场冻结快照；保持暂停，不自动推进或写姿态。
 
-T07已接独立三杆输入、五时间动作、唯一时钟与有限几何观察。T05接分段刻纹、真实灯控和确认冻结；T16复用时钟接导演；T17验可达性与整场手动/协助；T18复用演示，T09输出成果。基础通过不表示后续任务、真实IE、正式美术或全剧SAVE/性能/时长验收完成。
+T07已接独立三杆输入、五时间动作、唯一时钟与有限几何观察；T05已接分段刻纹、色槽/同纹、临时身杆试提、真实灯控和确认冻结，详见craft-v1.md。T16复用时钟接导演；T17验可达性与整场手动/协助；T18复用演示，T09输出成果。基础通过不表示后续任务、真实IE、正式美术或全剧SAVE/性能/时长验收完成。
