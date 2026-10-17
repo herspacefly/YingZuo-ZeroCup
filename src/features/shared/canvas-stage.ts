@@ -51,6 +51,8 @@ export function canvasStage(caption: string) {
   life.on(retry,'click',()=>{if(last)void renderer.update(last);});
   return {
     figure,canvas:renderer.canvas,screen,
+    resize:()=>renderer.resize(),
+    retry(){if(!disposed&&last)void renderer.update(last);},
     getStatus:()=>({...currentStatus}),
     subscribe(listener:(status:CanvasStatus)=>void) {listeners.add(listener);listener({...currentStatus});return()=>listeners.delete(listener);},
     update(input:CanvasFrame|null|(()=>CanvasFrame|null)) {

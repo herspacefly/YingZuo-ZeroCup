@@ -55,6 +55,6 @@ sharedMotif取实际冻结appearance.patternId；母亲与二郎神使用固定�
 
 命令经Store.commit立即生成候选。事务完成前，getState().project仍为旧节点；getExportProject可导出候选。失败后不卸载原节点，显示未保存，可重试原候选、导出、取消，或明确仅在本页继续。retryPending不重跑reducer，不重新生成runId或completedAt。并发/未知版本保护沿用T03。
 
-`storyEntry(project, definition, generation)`返回节点初值的独立副本、当前guard和新挂载token，始终paused=true/elapsedMs=0。generation为调用者管理的临时计数；同revision内重挂载也需更新它。T16还需检查该token，清理音频、RAF、输入和异步资源。
+`storyEntry(project, definition, generation)`返回节点初值的独立副本、当前guard和新挂载token，始终paused=true/elapsedMs=0。generation为调用者管理的临时计数；同revision内重挂载也需更新它。T16已用NodeScope在队列内核对token，复用唯一时钟；自动场须播满targetMs，退出清理与下一幕保留旧帧见[导演合同](director-v1.md)。互动及用户谢幕不能由该自动入口完成。
 
 `story.html`是文字检查页：操作段用明确文字协助，过场有可暂停时钟，页面隐藏/失焦/超过250ms停顿时暂停；刷新或模式变化重开当前短节点。没有动画、声音、手动操偶、完整展馆或成果PNG；不能据此声称STORY-03—06全部图形流程已验收。

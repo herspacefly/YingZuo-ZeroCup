@@ -16,7 +16,7 @@ createHashRouter通过HashLocationPort读、push、replace与监听；接受回�
 
 PageContext的route是本次挂载的稳定副本；普通编辑走edit，立即保存走run/flush，剧情和项目替换走durable。durable覆盖文件读取与事务等待，期间禁止切页；失败候选未处理也禁止切页。文件读取晚到或页面已离开时，不再调用替换入口。成功持久化后才切到目标页面。
 
-pagehide/HMR统一清理路由、页面监听、Store订阅、Store计时器与连接、下载URL。BFCache恢复时重载并读取本机存档。T04舞台、T07输入/单时钟及T05试杆已在PageView.dispose清理；T16新增导演/声音仍须遵守同一边界。T02十次进出只证明当时接线，本轮T05/T07各有新增播放/输入清理验证，不代表未来全剧循环验收。
+pagehide/HMR统一清理路由、页面监听、Store订阅、Store计时器与连接、下载URL。BFCache恢复时重载并读取本机存档。T04舞台、T07输入/单时钟及T05试杆均在PageView.dispose清理；T16新增NodeScope、导演时钟、字幕和待显示stage也遵守同一边界。T16十次播放/重开/离页验证只覆盖当前自动短场面，不代表未来全剧循环验收；音频清理钩子目前仅替身验证。
 
 ## 已实现的真实操作
 
@@ -34,4 +34,4 @@ T04已将制偶、灯影、练习和剧情场面接到同一Canvas渲染器；�
 
 宽屏场面和控制区并排，手机上下布局；菜单与作品工具有明确展开状态、44px主要目标和可见焦点，切页聚焦标题。禁用JavaScript时保留静态故事/展馆介绍。无远程字体或运行时CDN。CSS有字面值与基础IE回退，legacy包和Chromium冒烟不等于真实IE运行验收。
 
-T04接口见canvas-v1.md；T05制偶/灯影见craft-v1.md，T07操偶见practice-v1.md；T16/T17接节点导演和故事交互；T18接展签及演示；T09接成果输出。新增消费者须保持导航、保存与清理边界，按PageContext.isBusy读取根操作锁。
+T04接口见canvas-v1.md；T05制偶/灯影见craft-v1.md，T07操偶见practice-v1.md，T16场面见director-v1.md；T17接故事交互，T18接展签及演示，T09接成果输出。新增消费者须保持导航、保存与清理边界，按PageContext.isBusy读取根操作锁。
