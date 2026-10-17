@@ -18,7 +18,7 @@ actorLocalBounds/projectedPoseBounds取所有已变换部件与显式可见附�
 
 mountCanvasRenderer(host,catalog,onStatus)返回canvas/update/resize/pause/reset/dispose。CanvasFrame为瞬时纯数据：actors最多2位、stage、可选sceneLayers、attachments和showRods。固定角色只用自己的色板；母亲只用传入sharedMotif，不读取当前编辑稿。frame验证模板、配色/纹样、场景白名单与参数范围、附件宿主，之后复制并夹关节；Renderer不会悄悄平移导演的入口构图。
 
-按清单加载当前演员、纹样、可见附件与场景层。TextureCache校验本地路径和真实解码尺寸；Image.onload/error都有清理，更新代号拒绝旧帧结果。只保留当前帧资源；部件纹理按actor/part缓存，配色/色槽/相关纹样变化才重建，退出释放canvas像素。失败重试追加本页数字代次查询参数，避免同一文档的解码图片缓存继续提供已修复前的坏图。
+按清单加载当前演员、纹样、可见附件与场景层。TextureCache校验本地路径和真实解码尺寸；Image.onload/error都有清理，更新代号拒绝旧帧结果。T07增加hasAll快速路径：已加载齐全的姿态帧同步绘制，不逐帧清空/隐藏画布或标loading；资源变化仍走加载与代号检查。只保留当前帧资源；部件纹理按actor/part缓存，配色/色槽/相关纹样变化才重建，退出释放canvas像素。失败重试追加本页数字代次查询参数，避免同一文档的解码图片缓存继续提供已修复前的坏图。
 
 PartCompositor读取精确RGB标签，body/sleeve/hem按色槽取色，fixed保留原图RGB；alpha取原遮罩。镂空只在独立部件Canvas用destination-out，再绘入舞台，因此不会擦掉背景或另一位演员。禁止Canvas.filter/OffscreenCanvas/Image.decode等必需依赖；当前没有半影模糊，暖色幕面与几何投影属于交互近似。
 
@@ -28,6 +28,6 @@ PartCompositor读取精确RGB标签，body/sleeve/hem按色槽取色，fixed保�
 
 ## 产品消费者与剩余范围
 
-shared/canvas-stage.ts拥有可读状态与重试、帧签名去重和生命周期。craft显示编辑沉香与母亲预览：已有本场时母亲袖纹来自castSnapshot.sharedMotif；未开演时仅预览候选共纹，不写冻结快照。light/practice读取编辑稿的舞台/姿态，预览可适配边界但不回写Project。story只显示已保存节点entryPoses/entryStage/entrySceneLayers/entryAttachments，外观优先本场冻结快照；保持暂停，不自动推进或写姿态。
+shared/canvas-stage.ts拥有可读状态与重试、帧签名去重和生命周期；T07暴露canvas/screen/getStatus/subscribe，订阅立即给当前状态，工厂异常/空帧也通知，dispose清订阅。craft显示编辑沉香与母亲预览：已有本场时母亲袖纹来自castSnapshot.sharedMotif；未开演时仅预览候选共纹，不写冻结快照。light读取编辑稿的舞台/姿态，预览适配不回写Project；practice已按[练习合同](practice-v1.md)接输入与POSE保存。story只显示已保存节点entryPoses/entryStage/entrySceneLayers/entryAttachments，外观优先本场冻结快照；保持暂停，不自动推进或写姿态。
 
-T05接分段刻纹、真实灯控和确认冻结；T07接输入、命中和时间动作；T16接唯一时钟与导演；T17验可达性与整场手动/协助；T18复用演示，T09输出成果。当前基础通过不表示这些任务、真实IE、正式美术或全剧SAVE/性能/时长验收完成。
+T07已接独立三杆输入、五时间动作、唯一时钟与有限几何观察。T05接分段刻纹、真实灯控和确认冻结；T16复用时钟接导演；T17验可达性与整场手动/协助；T18复用演示，T09输出成果。基础通过不表示后续任务、真实IE、正式美术或全剧SAVE/性能/时长验收完成。

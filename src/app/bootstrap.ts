@@ -115,7 +115,7 @@ async function mount() {
     const changed = !!current;
     page?.dispose(); clear(host); current = parsed.route;
     const context: PageContext = {
-      store: opened, route: parsed.route, navigate: route => router?.navigate(route), run, durable, notify,
+      store: opened, route: parsed.route, navigate: route => router?.navigate(route), isBusy:()=>locked, run, durable, notify,
       edit(command) { void run(() => opened.edit(command)); },
       start(mode) {
         const story = opened.getState().project?.story;

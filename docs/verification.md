@@ -194,3 +194,23 @@ T02已验证源码检查点：d9c26e635c606e39d911c21222fe2e59a7fe47af；以上1
 T04已达到自身基础验收；下一项优先T07。当前没有半影模糊或精确光学仿真，也不是导演/手动可达性/完整图形SAVE、真实IE/实体手机/Safari、全剧性能/时长/情绪、正式美术/文化/许可验收。详见canvas-v1合同及STATE。
 
 T04已验证源码检查点：4297769f29dc02892c58abfcd3e218a0b0d804db；以上177项单元、100项生产浏览器、13份legacy ES5及资源/内容检查对应这份实现。
+
+## 2026-10-17：T07 三杆练习、五动作与有限几何观察
+
+- codex-root在main实现独立练习与输入/保存/Canvas快速帧；t07_actions在独立codex/t07-actions完成5文件，提交4e8670d5e2a79f5216019a923f50dfa0c52253a5后按文件集成。只读审查由t02_route_audit完成，最终无新增阻塞。依赖、ProjectV1及资产版本不变，两份用户暂存赛事文档未读/未改/未纳入开发提交。
+- 三48px握柄从实际连接展开并保留抓取偏移，鼠标/Pointer触屏与Touch回退、标识匹配/取消、方向键持续/松开、方向按钮/原生range、镜像大小均经逆投影/IK/附件bbox。固定角色不受手动输入。
+- 五动作采用稳定ID与绝对毫秒关键帧，公开pose/elapsed/finished/attachments/bounds/fits；唯一时钟在失焦/隐藏/超过250ms断档暂停，不补墙钟。Renderer已有资源时同步绘制，无独立RAF。减少动态可250ms步进。
+- 有限观察提供归一目标转世界、目标覆盖比、手距/幕宽、角度与连续hold；无Store或StoryCommand依赖。练习不启动/推进剧情，不改变冻结配置和P1字段。Pose经串行队列每200ms限频并尾随，恢复默认暂停；memory/error需明确保存才重试写盘。导入前锁定并提交旧姿态，旧时钟不能覆盖新项目。
+
+实际检查：
+
+- npm test：15文件209/209通过，新增32项（动作/观察20、杆4、时钟8），覆盖两帧率等时、取消/迟到/长断档、镜像缩放/灯位/两手IK/真实附件bbox与几何坏值。
+- 最终npm run build含typecheck通过；verify:legacy的13份legacy JS通过ES5语法检查，六HTML有modern/legacy入口。
+- 最终npm run test:e2e -- --workers=2：122/122通过，2.6分钟；Chromium156.0.8078.4，桌面1440×900/模拟手机390×844各61项，新增22项，原100项回归。
+- 新增流程验证实际鼠标与CDP触屏、Touch回退/取消/多结束标识、按键/失焦/原生range、快速末次输入保存刷新、五动作/边界/暂停继续/隐藏/长卡顿/减少动态、导入保留旧末姿态且新稿不被旧帧覆盖、失败导出不自动重试、内存继续需明确保存、Canvas故障与十次播放进出后应用事件/RAF/旧Canvas清理。
+- 审查发现并修复下拉刷新重置值、节流末次遗漏、换斧未重新适配、自动flush越过memory/error保护；保护读真实Store状态，避免根busy将页面状态覆写saving造成误判。
+- 首轮测试错误包括归档键误用previousProject（实际previous-project），把Playwright晚装的8个hit-target hook计入应用泄漏，以及hash切换未重跑Canvas故障init script。按真实合同键、生产bundle调用来源与真实reload修正；计数同时检查入页增加、离页回基线，未降低应用断言。
+- verify:assets通过80张PNG/alpha/区域/CSV/哈希，verify:content通过18节点/两路径，verify:state通过19任务；未重复未改动的release门禁。
+- 5173响应200，已查看evidence/t07-practice-desktop.png和t07-practice-mobile.png；宽窄屏无横向溢出。截图临时脚本与test-results的5文件/4目录逐项显式路径、无Force/无递归清理，Test-Path均false。两托管工作树归档仍queued/目录仍在。
+
+T07达到自身验收；下一项优先T05，再T16/T17占位整场。真实IE/实体手机/Safari、完整图形SAVE/手动可达性、全剧性能/时长/情绪、正式美术/文化/许可仍未验收。接口以practice-v1与canvas-v1为准。

@@ -11,6 +11,7 @@ export class TextureCache {
   get(id: string): HTMLImageElement {
     const image = this.images.get(id); if (!image) throw new Error(`资源尚未就绪：${id}`); return image;
   }
+  hasAll(ids:readonly string[]) {return ids.every(id=>this.images.has(id));}
   private loadOne(id: string): Promise<HTMLImageElement> {
     if (this.disposed) return Promise.reject(new Error('画布已离开，未再加载资源。'));
     if (this.images.has(id)) return Promise.resolve(this.images.get(id)!);

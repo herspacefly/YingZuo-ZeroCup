@@ -5,6 +5,7 @@ import type { AppRoute } from './router';
 export interface PageContext {
   store: ProjectStore; route: AppRoute;
   navigate(route: AppRoute): void;
+  isBusy():boolean;
   run(job: () => Promise<unknown>): Promise<void>;
   edit(command: EditorCommand): void;
   start(mode: 'full' | 'guided'): void;

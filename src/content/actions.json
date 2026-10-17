@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "timeUnit": "ms",
+  "angleUnit": "rad",
+  "rootOffset": "normalized-x-right-y-down; x follows base facing",
+  "interpolation": "smoothstep between absolute-time offset keyframes; hold last frame",
+  "actions": [
+    {
+      "id": "wave-v1", "label": "挥手", "durationMs": 2600, "attachmentIds": [],
+      "keyframes": [
+        { "atMs": 0, "joints": {} },
+        { "atMs": 500, "joints": { "rightShoulder": 1.6, "rightElbow": 0.9, "head": 0.06 } },
+        { "atMs": 800, "joints": { "rightShoulder": 1.4, "rightElbow": 1.5, "head": 0.06 } },
+        { "atMs": 1100, "joints": { "rightShoulder": 1.6, "rightElbow": 0.8, "head": 0.06 } },
+        { "atMs": 1400, "joints": { "rightShoulder": 1.4, "rightElbow": 1.5, "head": 0.06 } },
+        { "atMs": 1700, "joints": { "rightShoulder": 1.6, "rightElbow": 0.8, "head": 0.06 } },
+        { "atMs": 2000, "joints": { "rightShoulder": 1.4, "rightElbow": 1.5, "head": 0.06 } },
+        { "atMs": 2300, "joints": { "rightShoulder": 1.6, "rightElbow": 0.9, "head": 0.06 } },
+        { "atMs": 2600, "joints": { "rightShoulder": 1.5, "rightElbow": 1, "head": 0.06 } }
+      ]
+    },
+    {
+      "id": "walk-v1", "label": "上路", "durationMs": 3200, "attachmentIds": [],
+      "keyframes": [
+        { "atMs": 0, "x": 0, "y": 0, "joints": {} },
+        { "atMs": 400, "x": 0.015, "y": -0.008, "joints": { "leftHip": -0.34, "leftKnee": 0.32, "rightHip": 0.34, "rightKnee": -0.08, "leftShoulder": 0.22, "rightShoulder": -0.22 } },
+        { "atMs": 800, "x": 0.03, "y": 0, "joints": { "leftHip": 0.34, "leftKnee": 0.08, "rightHip": -0.34, "rightKnee": -0.32, "leftShoulder": -0.22, "rightShoulder": 0.22 } },
+        { "atMs": 1200, "x": 0.045, "y": -0.008, "joints": { "leftHip": -0.34, "leftKnee": 0.32, "rightHip": 0.34, "rightKnee": -0.08, "leftShoulder": 0.22, "rightShoulder": -0.22 } },
+        { "atMs": 1600, "x": 0.06, "y": 0, "joints": { "leftHip": 0.34, "leftKnee": 0.08, "rightHip": -0.34, "rightKnee": -0.32, "leftShoulder": -0.22, "rightShoulder": 0.22 } },
+        { "atMs": 2000, "x": 0.075, "y": -0.008, "joints": { "leftHip": -0.34, "leftKnee": 0.32, "rightHip": 0.34, "rightKnee": -0.08, "leftShoulder": 0.22, "rightShoulder": -0.22 } },
+        { "atMs": 2400, "x": 0.09, "y": 0, "joints": { "leftHip": 0.34, "leftKnee": 0.08, "rightHip": -0.34, "rightKnee": -0.32, "leftShoulder": -0.22, "rightShoulder": 0.22 } },
+        { "atMs": 2800, "x": 0.105, "y": -0.008, "joints": { "leftHip": -0.34, "leftKnee": 0.32, "rightHip": 0.34, "rightKnee": -0.08, "leftShoulder": 0.22, "rightShoulder": -0.22 } },
+        { "atMs": 3200, "x": 0.12, "y": 0, "joints": {} }
+      ]
+    },
+    {
+      "id": "bow-v1", "label": "谢幕", "durationMs": 2200, "attachmentIds": [],
+      "keyframes": [
+        { "atMs": 0, "y": 0, "joints": {} },
+        { "atMs": 700, "y": 0.025, "joints": { "head": -0.36, "leftShoulder": -0.2, "leftElbow": -0.45, "rightShoulder": 0.2, "rightElbow": 0.45, "leftKnee": 0.28, "rightKnee": -0.28 } },
+        { "atMs": 1500, "y": 0.025, "joints": { "head": -0.36, "leftShoulder": -0.2, "leftElbow": -0.45, "rightShoulder": 0.2, "rightElbow": 0.45, "leftKnee": 0.28, "rightKnee": -0.28 } },
+        { "atMs": 2200, "y": 0, "joints": {} }
+      ]
+    },
+    {
+      "id": "raise-axe-v1", "label": "举斧", "durationMs": 2800, "attachmentIds": ["axe"],
+      "keyframes": [
+        { "atMs": 0, "joints": {} },
+        { "atMs": 700, "joints": { "rightShoulder": 1.45, "rightElbow": 1.35, "leftShoulder": -0.45, "leftElbow": -1, "head": 0.1 } },
+        { "atMs": 1300, "joints": { "rightShoulder": 1.45, "rightElbow": 1.35, "leftShoulder": -0.45, "leftElbow": -1, "head": 0.1 } },
+        { "atMs": 1800, "y": 0.012, "joints": { "rightShoulder": -0.8, "rightElbow": 0.2, "leftShoulder": -0.3, "leftElbow": -0.8, "head": -0.2 } },
+        { "atMs": 2400, "joints": { "rightShoulder": -0.6, "rightElbow": 0.3, "leftShoulder": -0.3, "leftElbow": -0.6, "head": -0.1 } },
+        { "atMs": 2800, "joints": { "rightShoulder": -0.6, "rightElbow": 0.3, "leftShoulder": -0.3, "leftElbow": -0.6, "head": -0.1 } }
+      ]
+    },
+    {
+      "id": "reach-v1", "label": "伸手", "durationMs": 1800, "attachmentIds": [],
+      "keyframes": [
+        { "atMs": 0, "x": 0, "joints": {} },
+        { "atMs": 900, "x": 0.015, "joints": { "rightShoulder": 1.45, "rightElbow": 0.12, "leftShoulder": -0.25, "leftElbow": -0.35, "head": 0.08 } },
+        { "atMs": 1800, "x": 0.025, "joints": { "rightShoulder": 1.55, "rightElbow": 0.08, "leftShoulder": -0.25, "leftElbow": -0.35, "head": 0.08 } }
+      ]
+    }
+  ]
+}

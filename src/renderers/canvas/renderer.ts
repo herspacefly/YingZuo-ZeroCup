@@ -76,11 +76,13 @@ export function mountCanvasRenderer(host: HTMLElement, catalog: AssetCatalog, on
     canvas.width=Math.max(1,Math.round(width*ratio)); canvas.height=Math.max(1,Math.round(height*ratio)); draw();
   }
   async function update(input: CanvasFrame) {
-    const token=++generation; ready=false;
+    const token=++generation;
     if(disposed) return;
     if(!ctx) { fail(new Error('此浏览器无法启动 Canvas 2D，文字内容仍可阅读。')); return; }
     try {
-      frame=prepareFrame(input,catalog); const ids=requiredAssets(frame,catalog); clear(); status('loading','正在准备影偶与幕面…');
+      frame=prepareFrame(input,catalog); const ids=requiredAssets(frame,catalog);
+      if(assets.hasAll(ids)) {assets.retain(ids);compositor.retain(frame.actors.map(actor=>actor.actorId));ready=true;draw();return;}
+      ready=false;clear();status('loading','正在准备影偶与幕面…');
       await assets.load(ids);
       if(disposed||token!==generation) return;
       assets.retain(ids); compositor.retain(frame.actors.map(actor=>actor.actorId)); ready=true; resize();
