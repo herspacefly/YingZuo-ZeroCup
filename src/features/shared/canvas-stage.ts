@@ -8,6 +8,7 @@ import type { ProjectV1 } from '../../domain/types';
 import { mountCanvasRenderer } from '../../renderers/canvas/renderer';
 import type { CanvasFrame, CanvasStatus } from '../../renderers/canvas/types';
 import { append, element, scope } from './dom';
+import { mountSpatialStage } from './spatial-stage';
 
 export function editorFrame(project: ProjectV1, duet = false, showRods = false): CanvasFrame {
   const stage={...project.stage}, pose={...project.pose,joints:{...project.pose.joints}};
@@ -43,11 +44,13 @@ export function canvasStage(caption: string) {
   const foot=element('figcaption','stage-caption'); append(foot,element('p','',caption),status,retry); append(figure,screen,foot);
   const life=scope(); let last:CanvasFrame|null=null,signature='',disposed=false;
   let currentStatus:CanvasStatus={state:'loading',message:'正在准备影偶与幕面…'};
+  let spatial:ReturnType<typeof mountSpatialStage>|null=null;
   const listeners=new Set<(status:CanvasStatus)=>void>();
   const renderer=mountCanvasRenderer(screen,assetCatalog,update=>{
     if(status.textContent!==update.message)status.textContent=update.message; status.setAttribute('data-state',update.state); retry.hidden=update.state!=='error'; renderer.canvas.hidden=update.state!=='ready';
-    currentStatus=update;listeners.forEach(listener=>listener(update));
+    currentStatus=update;spatial?.update(last,update.state);listeners.forEach(listener=>listener(update));
   });
+  spatial=mountSpatialStage(figure,renderer.canvas);
   life.on(retry,'click',()=>{if(last)void renderer.update(last);});
   return {
     figure,canvas:renderer.canvas,screen,
@@ -59,11 +62,11 @@ export function canvasStage(caption: string) {
       if(disposed)return;
       let frame:CanvasFrame|null;
       try {frame=typeof input==='function'?input():input;}
-      catch(error) {signature='';last=null;renderer.reset();figure.hidden=false;renderer.canvas.hidden=true;status.setAttribute('data-state','error');status.textContent=error instanceof Error?error.message:String(error);retry.hidden=true;currentStatus={state:'error',message:status.textContent};listeners.forEach(listener=>listener(currentStatus));return;}
+      catch(error) {signature='';last=null;renderer.reset();spatial.update(null,'error');figure.hidden=false;renderer.canvas.hidden=true;status.setAttribute('data-state','error');status.textContent=error instanceof Error?error.message:String(error);retry.hidden=true;currentStatus={state:'error',message:status.textContent};listeners.forEach(listener=>listener(currentStatus));return;}
       const next=JSON.stringify(frame); if(signature===next)return; signature=next;last=frame;
       figure.hidden=!frame;
-      if(frame)void renderer.update(frame);else {renderer.reset();currentStatus={state:'loading',message:'幕面已清空。'};listeners.forEach(listener=>listener(currentStatus));}
+      if(frame)void renderer.update(frame);else {renderer.reset();spatial.update(null,'loading');currentStatus={state:'loading',message:'幕面已清空。'};listeners.forEach(listener=>listener(currentStatus));}
     },
-    dispose() { disposed=true;last=null;signature='';listeners.clear();life.dispose();renderer.pause();renderer.dispose(); },
+    dispose() { disposed=true;last=null;signature='';listeners.clear();life.dispose();spatial.dispose();renderer.pause();renderer.dispose(); },
   };
 }
