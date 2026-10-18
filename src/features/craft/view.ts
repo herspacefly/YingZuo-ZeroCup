@@ -18,7 +18,7 @@ const template=assetCatalog.puppets.find(item=>item.id==='chenxiang-v1')!;
 const colorNames:Record<string,string>={'#B83B30':'朱红','#D7A253':'金黄','#314C58':'靛青','#17130F':'墨黑','#F2E5C9':'米白','#8BA6A4':'青灰','#4F6B49':'苔绿','#A26A42':'赭棕'};
 export const mountCraft:PageFactory=(host,ctx)=>{
   const life=scope();append(host,heading('先备行装','把你的选择，留在衣角。','选一道纹，揭开三段镂空，再把颜色留在衣上。云、水、花都能走到团圆。'),pageLinks());
-  const layout=element('section','workspace craft-workspace'),stage=canvasStage('沉香与母亲 · 原创几何排演。母亲固定配色，袖口同纹是本作的舞台呼应。');
+  const layout=element('section','workspace craft-workspace'),stage=canvasStage('沉香与母亲 · 原创皮影风格设计稿。母亲固定配色，袖口同纹是本作的舞台呼应。');
   const panel=element('div','control-panel'),field=element('fieldset');field.appendChild(element('legend','','沉香的行装'));
   const pattern=element('select'),palette=element('select');pattern.id='craft-pattern';palette.id='craft-palette';
   for(const p of patterns.patterns){const option=element('option','',p.label);option.value=p.id;pattern.appendChild(option);}

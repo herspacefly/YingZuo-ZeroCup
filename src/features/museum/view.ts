@@ -67,7 +67,7 @@ export const mountMuseum:PageFactory=(host,ctx)=>{
     if(['layers','carving','joints','light'].includes(selected.demo))demo=mountMuseumDemo(display,selected.demo as 'layers'|'carving'|'joints'|'light');
     else if(selected.demo==='ensemble')ensemble=mountMuseumEnsemble(display);
     else if(selected.demo==='credits'){
-      const layout=element('div','workspace museum-credits'),panel=element('div','control-panel');portrait=canvasStage('本场影偶或未开演示例 · 原创几何排演。');
+      const layout=element('div','workspace museum-credits'),panel=element('div','control-panel');portrait=canvasStage('本场影偶或未开演示例 · 原创皮影风格设计稿。');
       append(programme,programmeTitle,programmeRows,programmeLink);panel.appendChild(programme);append(layout,portrait.figure,panel);display.appendChild(layout);
     }
     if(selected.panels.length){

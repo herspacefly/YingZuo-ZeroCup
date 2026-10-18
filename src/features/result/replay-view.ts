@@ -9,7 +9,7 @@ import { mountSubtitles } from '../story/subtitles';
 export function mountReunionReplay(host:HTMLElement,project:ProjectV1){
   const life=scope(),replay=createReunionReplay(project),root=element('section','result-replay');root.id='result-replay-player';
   const title=element('h2','','按本场编排再演'),intro=element('p','quiet-note','沿用这场冻结的影偶与已选路线，操作片段由程序演出。这里不复刻当时的鼠标轨迹，原场的进度与完成时间保持不变。');
-  const stage=canvasStage('本场编排重演 · 程序动作与原创几何排演。'),panel=element('div','control-panel'),layout=element('div','workspace');
+  const stage=canvasStage('本场编排重演 · 程序动作与原创皮影风格设计稿。'),panel=element('div','control-panel'),layout=element('div','workspace');
   const chooseLabel=element('label','','重演片段'),choose=element('select');choose.id='replay-segment';chooseLabel.appendChild(choose);
   replay.segments.forEach((item,index)=>{const option=element('option','',`${String(index+1).padStart(2,'0')} · ${item.title}`);option.value=String(index);choose.appendChild(option);});
   const status=element('p','selection-summary');status.id='replay-status';status.setAttribute('role','status');

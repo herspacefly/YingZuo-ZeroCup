@@ -4,7 +4,7 @@
 
 ## 交付与状态
 
-- 80 张原创程序生成 PNG：20 个角色部件 × 彩色/alpha/颜色区三图，2 个手持附件，9 个镂空分段，9 个场景图层。
+- 80 张原创设计 PNG：20 个角色部件 × 彩色/alpha/颜色区三图，2 个手持附件，9 个镂空分段，9 个场景图层。T10设计稿以侧脸、冠髻、衣纹、金边、铆点和局部镂空替换几何占位；角色图2倍旧分辨率，场景1536×1152，骨架/bounds/杆/手点/附件锚点与资源ID不变。
 - 沉香十部件九活动关节，母亲六部件五活动关节，二郎神四部件三活动关节。后两者按脚本控制，不附加可编辑 Appearance。
 - `manifest.json` 与 `docs/assets.csv` 对每个本地文件登记作者、来源、用途、许可、审定状态及 SHA-256。全部为 draft / unknown，不表示正式美术、文化或发布许可已审定。
 - `sources.json` 的 C1—C7 只登记资料与证据边界。可读正文、仅核对官方索引、受验证拦截分别记录；没有下载或复用页面媒体。
@@ -40,8 +40,8 @@
 
 ## 复现与检查
 
-`node scripts/generate-placeholder-assets.mjs` 使用锁定的 Playwright/Chromium Canvas2D 生成几何轮廓、PNG及清单；不需网络媒体或字体。generator 源码是草稿来源，manualEdits=none。正式替换资源须更新实际来源/审定/许可和哈希，不能再用本工具覆盖已审原画。
+当前使用`node scripts/generate-designed-assets.mjs`，来源为scripts/art/的可读原创Canvas路径；生成同一80张图，统一三图alpha与精确色区并更新清单/CSV/哈希，不重新生成骨架。docs/art/t10-art-direction.png为内置image_gen艺术方向参考，提示与用途同步登记；运行时未直接切割该图。provenance.kind支持original-vector-design，设计审看与许可仍为draft/unknown。旧generate-placeholder-assets.mjs检测到设计版会拒绝覆盖，不能用旧几何生成器还原当前素材。
 
-`npm run verify:assets` 解码 PNG、检查 alpha/颜色编码、白名单引用、路径、尺寸、CSV和哈希，草稿结构有效时退出0。`npm run verify:assets -- --release` 在草稿或未知许可存在时退出2（NOT_READY）；文件/契约错误退出1。结构通过不是发布批准。
+`npm run verify:assets` 解码 PNG、检查 alpha/颜色编码、白名单引用、路径、尺寸、CSV和哈希，草稿结构有效时退出0。`npm run verify:assets -- --release`还检查docs/reviews/t10-review.json逐项当前内容SHA、作者审看/权利及证据文件SHA，草稿或证据欠缺时退出2（NOT_READY）；文件/契约错误退出1。不能用任意许可字符串或旧版审定通过；结构通过不是发布批准。
 
 `assets.html` 是单角色中性组装和场景检查页。没有 RAF、剧情推进、IK 或灯影投影；缺资源/Canvas时明确失败、清空组装画布并允许重试，离开清除加载回调和事件。T04 的生产渲染器不能直接以本页代替。

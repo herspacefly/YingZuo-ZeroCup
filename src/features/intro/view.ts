@@ -15,7 +15,7 @@ export const mountIntro: PageFactory = (host, ctx) => {
   append(story, element('p', 'eyebrow', '这一出戏'), element('h2', '', '从灯下的回应，到山后的相见。'), element('p', 'section-lead', '为沉香留一道纹样，陪他上路，替他举灯或开山，最后让母子伸手相见。'));
   const acts = element('ol', 'act-list');
   ['灯下记得', '带着灯上路', '山前一线光', '这一回，握住'].forEach((label, i) => { const li = element('li'); append(li, element('span', 'act-number', ['一', '二', '三', '四'][i]!), element('span', '', label)); acts.appendChild(li); });
-  append(story, acts, element('p', 'adaptation', '据传统故事《劈山救母》原创交互改编。当前为排演版，影偶场面正在制作。')); host.appendChild(story);
+  append(story, acts, element('p', 'adaptation', '据传统故事《劈山救母》原创交互改编。三位影偶与分层场景采用本作原创皮影风格设计稿。')); host.appendChild(story);
   const museum = element('section', 'museum-invitation');
   append(museum, element('p', 'eyebrow', '同台成馆'), element('h2', '', '看一出戏，\n也看看幕后的双手。'), element('p', '', '一张皮、一道刻、一束光、一双手、一出戏。五个入口，随时可以走进去。'), link('翻开八件展品的目录 ↗', '#/museum', 'button secondary')); host.appendChild(museum);
   life.on(primary, 'click', () => ctx.start('full')); life.on(guided, 'click', () => ctx.start('guided'));

@@ -1,12 +1,14 @@
 // Original geometric drafts. No external media, fonts, random seed, or image editing.
 // The committed JSON and PNGs are consumed at runtime; this tool is development only.
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { chromium } from '@playwright/test';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
+const existingManifest=path.join(root,'src/content/manifest.json');
+if(existsSync(existingManifest)&&JSON.parse(readFileSync(existingManifest,'utf8')).provenance.kind!=='original-procedural-placeholder')throw new Error('Designed assets exist. Refusing to overwrite them with placeholders. Use the current design generator.');
 const writeJSON = (file, value) => {
   mkdirSync(path.dirname(path.join(root, file)), { recursive: true });
   writeFileSync(path.join(root, file), JSON.stringify(value, null, 2) + '\n');

@@ -4,7 +4,7 @@
 
 ## 字段编辑与可见结果
 
-craft使用同一双角色Canvas。三段按钮可刻去/还原，完成下一段在执行时寻找首个未刻段；颜色和镂空都在独立部件遮罩中合成，不擦掉背景或母亲。衣身/袖/下摆分别选五色索引，采用整套配色可恢复该套的默认色槽。三种纹样和颜色没有剧情能力或结局差异，资源仍为原创几何排演。
+craft使用同一双角色Canvas。三段按钮可刻去/还原，完成下一段在执行时寻找首个未刻段；颜色和镂空都在独立部件遮罩中合成，不擦掉背景或母亲。衣身/袖/下摆分别选五色索引，采用整套配色可恢复该套的默认色槽。三种纹样和颜色没有剧情能力或结局差异，T10资源已为原创皮影风格设计稿，原骨架/色槽与用户刻纹范围保留。
 
 新增EditorCommand：CARVE_SEGMENT(index 0/1/2, carved boolean)、CARVE_NEXT、COLOR_SLOT(slot body/sleeve/hem, colorIndex 0..4)、APPLY_PALETTE(paletteId)、LAMP_X(lampX)、PUPPET_DISTANCE(puppetDistance)。命令在Store队列执行时修改最新字段，不能捕获整份旧APPEARANCE/STAGE覆盖其他编辑。APPLY_PALETTE同时复位colorSlots为0/1/2，既有PALETTE只换色板。坏索引/部位/布尔/数值明确拒绝。
 

@@ -1,6 +1,6 @@
 # T16 节点导演与清理接口
 
-日期：2026-10-17。消费story-v1、canvas-v1、practice-v1；ProjectV1与资产版本不变。导演与界面当前使用几何排演素材、二维场面和静音字幕，不代表正式艺术或声音交付。
+日期：2026-10-17。消费story-v1、canvas-v1、practice-v1；ProjectV1与资产版本不变。导演使用原创皮影风格设计稿与完整字幕；T10剧场可明确开启有限合成短音，不代表正式艺术/听感审定。
 
 ## 纯数据导演
 
@@ -31,3 +31,5 @@ listen/timeout保护迟到事件，audio仅登记退出时暂停并归零，不�
 T17复用本导演、NodeScope与唯一时钟接沉香输入、实际几何观察、明确协助、唯一分支和用户谢幕，详见[图形整场合同](story-play-v1.md)。只有互动段传入临时Pose/灯控，自动短场面仍保留导演脚本；操作时间超过targetMs不会自行完成。舞台回应、显影和山片开合由纯stagePlayFrame消费真实成功后的阶段，不将ended当互动成功。
 
 reunion-hold播满4秒只开放用户“谢幕”，刷新使用确定的稳定手点构图。瞬时姿态/协助时间不入存档；失败、取消和明确内存继续沿用本合同。完整SAVE矩阵、实际时长/情绪/性能、实体设备及正式美术仍需各自验收。
+
+T10声音由story/controller的createStageSound统一拥有，sample传同一rt.elapsed/mode；点击播放先发当前时刻以保留0ms cue，实际interaction evidence开始resolution时才发送开山/寻光/握手事件。stop/closeScope先发playing:false，重开reset，页面dispose关闭context；没有音频RAF或存档字段。声音故障不推进或阻断剧情，详见audio-v1.md。

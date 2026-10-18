@@ -12,7 +12,7 @@ import { mountReunionReplay } from './replay-view';
 
 export const mountResult:PageFactory=(host,ctx)=>{
   const life=scope(),head=heading('一幕团圆 / 本场节目单','这一场，还在路上。','团圆之后，属于这一场的造型、选择与协作会在这里留下。');host.appendChild(head);
-  const layout=element('section','result-layout'),figure=element('figure','result-portrait'),capture=element('div','result-capture'),caption=element('figcaption','stage-caption','1600 × 1200 · 依本场冻结构图生成的团圆留影，当前为原创几何排演。');
+  const layout=element('section','result-layout'),figure=element('figure','result-portrait'),capture=element('div','result-capture'),caption=element('figcaption','stage-caption','1600 × 1200 · 依本场冻结构图生成的团圆留影，当前为原创皮影风格设计稿。');
   capture.id='result-capture';append(figure,capture,caption);
   const programme=element('section','programme result-programme'),title=element('h2'),details=element('dl','programme-list'),resume=link('回到这一场 →','#/story','button secondary');
   const id=element('p','result-identity'),saveState=element('p','quiet-note'),operation=element('p','selection-summary');id.id='result-id';saveState.id='result-save-note';operation.id='result-operation';operation.setAttribute('role','status');

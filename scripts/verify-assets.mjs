@@ -4,6 +4,7 @@ import { inflateSync } from 'node:zlib';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { validateAssetCatalog } from '../src/content/asset-contract.ts';
+import { releaseProblems } from './review-gate.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const json = file => JSON.parse(readFileSync(path.join(root,file),'utf8'));
@@ -98,6 +99,9 @@ const sources=json('src/content/sources.json');
 check(sources.schemaVersion === 1 && sources.sources.map(s=>s.id).sort().join(',') === 'C1,C2,C3,C4,C5,C6,C7', 'source registry IDs/version');
 for(const source of sources.sources) check(source.title && source.publisher && /^https:\/\//.test(source.url) && source.checkedAt && ['readable','blocked'].includes(source.accessStatus) && ['page','official-search-index','unverified'].includes(source.verificationMethod) && source.verificationNote && source.usage === 'reference-only' && source.textLicense === 'unknown' && source.imageLicense === 'unknown' && source.audioLicense === 'unknown' && Array.isArray(source.supportedFacts) && Array.isArray(source.excludedClaims), `source metadata ${source.id}`);
 if(errors.length) { console.error(errors.slice(0,40).join('\n')); console.error(`FAIL: ${errors.length} asset error(s).`);process.exitCode=1; }
-else if(process.argv.includes('--release') && catalog.manifest.assets.some(asset=>asset.reviewStatus !== 'reviewed' || asset.license === 'unknown')) {
-  console.error('NOT_READY: release review pending; original placeholders are draft and licenses unknown. Structural success is not art, culture or license approval.');process.exitCode=2;
+else if(process.argv.includes('--release')) {
+  const issues=releaseProblems('assets');
+  for(const asset of catalog.manifest.assets)if(asset.reviewStatus!=='reviewed'||asset.license==='unknown')issues.push(`${asset.id}: asset review or license pending`);
+  if(issues.length){console.error(`NOT_READY: ${issues.length} release review/rights items pending:\n${issues.slice(0,8).join('\n')}`);process.exitCode=2;}
+  else console.log(`PASS: ${decoded.size} PNGs and their current author review/rights evidence agree.`);
 } else console.log(`PASS: ${decoded.size} PNGs decoded; alpha/region maps, references, paths, CSV and SHA-256 agree; 7 reference records. DRAFT ONLY: no release/art/cultural/license approval.`);
