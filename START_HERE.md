@@ -18,7 +18,7 @@
 4. 工程查 [主设计与实施方案](docs/plans/2026-10-15-yingzuo-design-and-implementation.md)；剧情、美术与展品查 [叙事执行稿](docs/content/2026-10-15-yingzuo-story-bible.md)。
 5. 做一个可检查的小步骤，更新 nextAction、实际验证和必要交接，再停止。
 
-**G2任务集已齐备；参考图分件与背景调整已提交。** 三角色比例、服饰、手型和三场景采用本项目AI方向图裁切并测量绑定；背景亮度84%/饱和度76%，人物保留原色与细节，换色和刻纹继续可用。368单元、最终构建及138项受影响浏览器检查通过；326整站在最后20张颜色分区修正前通过，详见[状态](docs/STATE.md)。127项设计/文化/权利审看仍pending，T10未标done；实际IE/手机/Safari、完整SAVE与真实性能时长情绪仍待验收。
+**G2任务集齐备；审看册与验收准备已就绪。** [当前审看册](http://127.0.0.1:5173/docs/reviews/t10-review.html)可浏览127项内容、实际图像和来源；文件版见docs/reviews/t10-review.html。当前参考图美术保持原样，本轮补文化访问记录并通过12项内容/审看单元、4项展馆定向及最终构建。127项仍pending，已发出作者内容/设计和本项目素材使用范围两项确认，未收到明确答复；T10仍in_progress，T11/T13仍todo。SAVE、设备与性能缺口和记录模板见docs/acceptance/t11-readiness.md，实际边界见[状态](docs/STATE.md)。
 
 Canvas 2D 完整覆盖故事和展馆；Three.js 增强空间与材料。本地用户剧情恢复与开发者接手是两套机制，都必须完成。
 
@@ -26,4 +26,4 @@ Canvas 2D 完整覆盖故事和展馆；Three.js 增强空间与材料。本地�
 
 ## 新会话接续提示
 
-> 请继续本仓库《影作·一幕团圆》2.0。先读START_HERE.md、AGENTS.md、docs/STATE.md、docs/tasks.json，核对Git/暂存与端口，用户DOCX/PPTX不读不改不提交。当前源码d1cf278e8371545ed713579d2d536439b402f16d：三角色与三背景按AI参考图分件，比例/服饰/手型直接取图，背景亮度84%/饱和度76%。generate-reference-assets.mjs可字节一致重生成80 PNG与绑定；旧占位/路径生成器拒绝覆盖。人物800px/world、背景1024x768，JointId/零位/单位与ProjectV1未改，关节绑定位置随参考比例修订。source-relative-rgb保留原图明暗，脸掌/金墨线fixed，袖区按部位着色。368单元、最终构建/ES5、80资产、内容/状态及最后138项受影响检查通过；326整站在最后20张分区修正前通过，未重复全量。新组装study和九张舞台证据已保存、临时文件已清理，5173实测HTTP200。唯一成员张宇翔（SpaceFly）；127项审看全pending，不能把美术要求当全部文化/权利批准。T10仍in_progress，完成后再T11实体兼容/完整SAVE和T13真实性能/时长/情绪/听感，P1仍在T13/G3后。保持冻结/稳定节点/串行保存、唯一时钟与清理合同。
+> 请继续本仓库《影作·一幕团圆》2.0。先读START_HERE.md、AGENTS.md、docs/STATE.md、docs/tasks.json，核对Git/暂存/端口；用户DOCX/PPTX不读不改不提交。当前源码4eaede044c80afe730ad7f8e42eb8270d8a8576b，T10只读审看册、文化后续访问核对与T11/SAVE/性能准备已就绪；实际美术仍为参考图分件+背景84%亮度/76%饱和度。node scripts/build-review-packet.mjs --check核对127项快照，当前全部pending；已向作者询问内容/设计与本项目原创素材比赛使用范围，检查明确答复后据真实证据登记，不把“继续”当批准。12单元、4项现代/legacy展馆定向、114模块46.23秒构建/ES5、80图/内容检查通过；审看页HTTP桌面/file桌面/HTTP模拟手机均127项83图且零业务存储调用。静态入口gzip99,815bytes不是冷启动/fps验收。SAVE-02关页/加载窗口及SAVE-07产品双标签/500ms精确E2E仍缺，可先预检准备，但T11/T13保留todo直到原依赖与真实环境验收满足。唯一成员张宇翔（SpaceFly），保持冻结/稳定节点/串行保存/唯一时钟及清理；P1仍G3后。5173实测HTTP200，临时文件已清理。

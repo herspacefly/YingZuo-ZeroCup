@@ -7,9 +7,9 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T10_reference_visual_checkpoint",
+  "stage": "T10_review_packet_ready_awaiting_author",
   "activeTaskId": "T10",
-  "lastVerifiedCommit": "d1cf278e8371545ed713579d2d536439b402f16d",
+  "lastVerifiedCommit": "4eaede044c80afe730ad7f8e42eb8270d8a8576b",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -579,14 +579,18 @@
         "scripts/generate-reference-assets.mjs",
         "docs/content/2026-10-15-yingzuo-story-bible.md",
         "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-        "docs/plans/2026-10-18-t10-reference-reconstruction.md"
+        "docs/plans/2026-10-18-t10-reference-reconstruction.md",
+        "scripts/build-review-packet.mjs",
+        "docs/plans/2026-10-18-t10-review-packet.md",
+        "scripts/inspect-build-budget.mjs",
+        "docs/acceptance/"
       ],
       "acceptanceRefs": [
         "T10",
         "CULT-01"
       ],
-      "checkpointCommit": "d1cf278e8371545ed713579d2d536439b402f16d",
-      "nextAction": "参考图比例/服饰/手型和三背景已接入，背景亮度84%/饱和度76%突出人物。368单元、最终构建/ES5、80资产/内容与最后138定向通过；326整站在最后20分区修正前通过。继续实际画面打磨与真实逐项审看，127项仍pending，不把修改要求当许可批准；完成T10再T11/T13。",
+      "checkpointCommit": "4eaede044c80afe730ad7f8e42eb8270d8a8576b",
+      "nextAction": "审看册与内容核对/验收准备已完成，检查已发出的内容设计与本项目原创素材使用范围两项作者确认；有明确真实结论后登记对应证据，不能把“继续”当批准。未确认项保留pending；可先补SAVE-02关页和SAVE-07产品双标签/500ms边界预检，不提前将T11/T13标done。",
       "blocker": null,
       "verification": [
         "2026-10-18: 343基线复现；新增18声音生命周期与4审看契约，最终30文件365/365通过，typecheck通过。",
@@ -605,7 +609,16 @@
         "2026-10-18参考图重建：最后定向首轮137/138，手机归档保护未观察到error；单独5/5及相同源码完整138/138通过。静态实时事务强制保护；按钮与路由自动保存竞态仅可能解释，未实证根因，未改保存规则/放宽断言。",
         "2026-10-18参考图重建：生成器重跑86文件全字节一致，两个旧生成器退出1且86文件不变；独立审查确认部位色区、绑定幂等与五类binding变更使审定失效。127记录全pending，release资产/内容240/48待核，真实退出2。",
         "2026-10-18参考图重建：目检组装/动作/三背景宽窄屏，保留study与九张新舞台证据；20张历史证据恢复。两临时脚本/两重复裁图及test-results的1文件0子目录安全清理。背景贡献2ce39b6d4bb211f3809c9f2b799a6cf6284d1b87已集成，预览删除、树归档queued/目录仍在。5173 HTTP200。",
-        "2026-10-18参考图重建：已验证源码d1cf278e8371545ed713579d2d536439b402f16d；用户DOCX/PPTX未读未改未提交、暂存blob不变。T10仍in_progress，实体兼容/完整SAVE/真实性能时长情绪听感留T11/T13。"
+        "2026-10-18参考图重建：已验证源码d1cf278e8371545ed713579d2d536439b402f16d；用户DOCX/PPTX未读未改未提交、暂存blob不变。T10仍in_progress，实体兼容/完整SAVE/真实性能时长情绪听感留T11/T13。",
+        "2026-10-18审看册：只读审看册已生成，127项覆盖80图/18节点/8展品/20事实/1声音，附83张原图/运行预览、来源与当前摘要。HTTP桌面、file桌面、HTTP模拟手机均实际验证127项/83图、筛选、中文角色搜索、来源跳转、键盘、无横向溢出、零业务存储调用；两张宽窄屏截图已目检。",
+        "2026-10-18审看册：生成器--check当前通过；主动改变产物的负例真实退出1/STALE，恢复后通过；重生成字节一致，账本字节不变。独立只读审查确认摘要失效提示、转义、本地路径、筛选/导航/打印与预算范围无实质阻塞。",
+        "2026-10-18审看册：独立文化复核未发现20事实/八展签的实质文化错误；只补C4/C6/C7同日直读波动和官方索引核对记录，保留此前成功读取。旧路径计划标历史版本，叙事稿“均未制作”校正为已接入设计稿但审看未完成。",
+        "2026-10-18审看册：本轮2文件12/12内容与审看契约单元通过1.16秒；最终build含typecheck通过114模块46.23秒，14份legacy ES5/六HTML双入口通过；4/4展馆现代/legacy宽窄屏定向通过10.4秒。80PNG/内容/状态检查通过。没有无新疑点重跑既有368单元/326整站，既有艺术与业务逻辑未改。",
+        "2026-10-18审看册：静态现代入口及4个显式modulepreload gzip合计99,815bytes（97.48KiB），低于200KiB；逐文件SHA与index SHA保存在t10-static-entry-budget.json。仅静态JS体积，不代表冷启动、图片/字体、fps、实体设备或完整时长验收。",
+        "2026-10-18审看册：SAVE/设备/性能准备表已列现有证据和缺口：关闭标签后新页恢复、保存后资源加载前关闭、产品双标签改色/推进及不足500ms选分支仍须补验；持续10秒低于24fps提示尚未实现。T11/T13保留todo，不跳依赖。",
+        "2026-10-18审看册：127项仍全pending、0 granted，当前摘要均匹配；release资产/内容仍分别240/48待核并真实退出2。已发送内容/设计与本项目原创素材比赛使用范围两项作者确认，尚未收到明确结论；“继续”不视为批准。",
+        "2026-10-18审看册：本轮无新工作树/依赖/美术资源或临时脚本；test-results核对绝对路径/无reparse后逐项清理1文件0子目录，目录不存在。历史截图无本轮差异。用户DOCX/PPTX未读未改未提交，暂存blob原值；5173仍HTTP200，4173回归预览结束。",
+        "2026-10-18审看册：已验证源码4eaede044c80afe730ad7f8e42eb8270d8a8576b，原参考分件视觉与业务生产逻辑保留。"
       ],
       "phase": "G3"
     },
