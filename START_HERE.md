@@ -18,7 +18,7 @@
 4. 工程查 [主设计与实施方案](docs/plans/2026-10-15-yingzuo-design-and-implementation.md)；剧情、美术与展品查 [叙事执行稿](docs/content/2026-10-15-yingzuo-story-bible.md)。
 5. 做一个可检查的小步骤，更新 nextAction、实际验证和必要交接，再停止。
 
-**T00、T03、T01、T15、T02、T04、T07、T05、T16、T17、T18、T09及T06已完成，G2任务集齐备。** 两模式/两分支可操偶到伸手、静候与谢幕，五区八件随时可逛；团圆后有1600×1200 PNG、本场JSON与14段只读编排。各共享幕面下可点“展开戏台空间”，切换工坊/幕前/幕后/展台；同一Canvas成影与分件/刻纹/灯/三杆联动，无WebGL和legacy保留完整二维。消费者先读[空间合同](docs/contracts/three-v1.md)、[成果合同](docs/contracts/result-v1.md)、[展馆合同](docs/contracts/museum-v1.md)、[图形整场合同](docs/contracts/story-play-v1.md)及既有Canvas/导演合同。343项单元、308项生产浏览器检查与构建通过，详见[验证记录](docs/verification.md)。下一项优先 **T10正式角色、场景、有限声音与文化许可审定**；当前仍是静音几何排演，实体兼容/完整SAVE与真实性能/时长/情绪未验收。
+**G2任务集已齐备；T10设计稿与有限声音检查点已提交。** 三角色/三场景80张PNG已换原创皮影风格设计稿，并按作者选择增加细密花叶透空与金线；原骨架、杆点、色槽与用户刻纹保留。剧场默认静音，可明确开启短合成舞台音效，暂停/切页停声。两模式/两分支、团圆、五区八件、成果和四机位沿用原闭环。365单元、功能版326项整站回归通过；细密刻纹精修后，58项图形/声音定向与最终构建通过，未重复整站全量，详见[状态](docs/STATE.md)。素材/文化/许可127项作者审看仍pending，T10未标done；实际IE/手机/Safari、完整SAVE与真实性能时长情绪未验收。
 
 Canvas 2D 完整覆盖故事和展馆；Three.js 增强空间与材料。本地用户剧情恢复与开发者接手是两套机制，都必须完成。
 
@@ -26,4 +26,4 @@ Canvas 2D 完整覆盖故事和展馆；Three.js 增强空间与材料。本地�
 
 ## 新会话接续提示
 
-> 请继续本仓库《影作·一幕团圆》2.0。先读START_HERE.md、AGENTS.md、docs/STATE.md、docs/tasks.json，核对文件/Git/暂存与端口，保留用户DOCX/PPTX，不从零覆盖。T06三维空间、T09团圆成果、T18展馆及T17整场已完成，G2任务集齐备；343单元/308生产浏览器通过，已验证源码b41315b95c86b7e43bba02289dcdf7f31a8ad417。消费three-v1/result-v1/museum-v1/story-play-v1/director-v1/story-v1/canvas-v1及craft/practice合同。下一项优先T10：按叙事稿设计正式三角色/三套场景、逐节点字幕和有限声音，静音完整，并审八展品来源、传统/原创/模型边界与许可，未人工审定不能标reviewed。当前仍是静音几何排演；空间主动加载，低档512、常规1024，不拥有输入/剧情时钟/存档，离页释放GPU。唯一创作者为零组张宇翔（SpaceFly）。失败候选、明确内存继续、唯一时钟/NodeScope、冻结/稳定节点与串行保存边界保持。T11实体兼容/完整SAVE、T13真实性能时长情绪随后；P1录制/分享仍在T13/G3后。完成一个可检查步骤，记录实际证据与SHA，清理临时文件并更新交接。
+> 请继续本仓库《影作·一幕团圆》2.0。先读START_HERE.md、AGENTS.md、docs/STATE.md、docs/tasks.json，核对文件/Git/暂存与端口，保留用户DOCX/PPTX，不从零覆盖。T10原创设计稿与可选有限合成声音检查点45e47d0e3e296bcc20a25650e2748a361d624262已提交。365单元、功能版326全量通过；作者选择增加接近参考图的细密刻纹，精修后58项Canvas/Three/WebAudio定向、80 PNG检查与最终构建通过，未重复整站全量。5173服务会话82145收尾实测HTTP200。scripts/art与generate-designed-assets生成同80 PNG，骨架/ID/色槽/杆/手点和ProjectV1不变，不能运行旧占位生成器覆盖。实际剧场默认静音，音效沿唯一时钟与真实interaction证据，无额外RAF/循环/唱腔；旧close迟到错误不覆盖新开关。docs/art有内置image_gen方向图与提示，实际舞台为原创路径图。127项审看/权利全pending，按真实作者确认登记证据，不自动reviewed/granted。先读assets-v1/audio-v1及three/result/museum/story-play/director/canvas合同，保持冻结/稳定节点/串行保存与清理。唯一成员张宇翔（SpaceFly）；继续沿细密刻纹方向结合实际画面与听感打磨，不能把风格选择当作全部内容/许可已批准。T10完成后才T11实体兼容/完整SAVE与T13真实性能时长情绪，P1仍在T13/G3后。完成可检查步骤，保留真实SHA并清理临时文件。
