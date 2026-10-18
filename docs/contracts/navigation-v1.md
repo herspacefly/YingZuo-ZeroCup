@@ -22,7 +22,7 @@ pagehide/HMR统一清理路由、页面监听、Store订阅、Store计时器与�
 
 - 首页和无run的story页仅在用户明确开演时生成一次runId，交给startStory；已有run只继续，不重建。序幕可通过已有guarded用户跳过命令进入craft，不提供其他越级推进。
 - craft的纹样、配色、三段镂空/色槽调用字段命令，控件从getExportProject显示最新稿。T05接显式开演/默认影偶冻结与归档重开，现有冻结角色与决定不变。light接灯位/偶幕距离；两页普通输入不自动重试memory/error。细节见craft-v1.md。
-- 结果页仅由reunionSummary派生已保存curtain/completed节目单，未团圆只显示进度。没有PNG、重演、录制或分享空按钮。
+- 结果页由reunionSummary派生真实curtain/completed节目单、1600×1200双偶留影与只读编排重演；未团圆只显示进度。下载如实反馈，编码/导入/新建/离页受锁与generation保护，接口见result-v1.md。没有P1录制或分享空按钮。
 - “我的作品”可导出当前稿/候选、导出原始记录、导入、新建归档、重试、取消候选或明确内存继续；复用现有串行Store。下载只报告已请求浏览器，不声称文件已写盘。
 - 未知版本、损坏恢复、多标签冲突持续显示并保护原稿。恢复/接管在独立project.html工作台明确处理；返回后先导出需要保留的页面稿，再点“重新读取本机作品”。没有后台自动接管或静默覆盖。
 
@@ -34,4 +34,4 @@ T18已接五区八件两层说明、来源、局部演示和真实参与记录�
 
 宽屏场面和控制区并排，手机上下布局；菜单与作品工具有明确展开状态、44px主要目标和可见焦点，切页聚焦标题。禁用JavaScript时保留静态故事/展馆介绍。无远程字体或运行时CDN。CSS有字面值与基础IE回退，legacy包和Chromium冒烟不等于真实IE运行验收。
 
-T04接口见canvas-v1.md；T05制偶/灯影见craft-v1.md，T07操偶见practice-v1.md，T16场面见director-v1.md；T17图形交互见story-play-v1.md，T18展签及演示见museum-v1.md，T09接成果输出。T17/T18十次操作/离页检查输入、时钟与资源释放，恢复稳定节点而不恢复瞬时拖动；完整SAVE矩阵及实体设备仍留T11。新增消费者须保持导航、保存与清理边界，按PageContext.isBusy读取根操作锁。
+T04接口见canvas-v1.md；T05制偶/灯影见craft-v1.md，T07操偶见practice-v1.md，T16场面见director-v1.md；T17图形交互见story-play-v1.md，T18展签及演示见museum-v1.md，T09成果输出见result-v1.md。T17/T18/T09十次操作/离页检查输入、时钟与资源释放，恢复稳定节点而不恢复瞬时拖动；完整SAVE矩阵及实体设备仍留T11。新增消费者须保持导航、保存与清理边界，按PageContext.isBusy读取根操作锁。

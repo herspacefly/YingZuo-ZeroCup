@@ -116,12 +116,12 @@ test('workbench recovery can be explicitly reread without leaving the product st
   expect((await stored(page)).story).toEqual(fixture.story); await expect(page.locator('#app-view')).toContainText('暂停接续');
 });
 
-test('a real curtain checkpoint produces a programme without inventing PNG or replay actions', async ({ page }) => {
+test('a real curtain checkpoint produces the actual programme and prepared reunion image', async ({ page }) => {
   const project = { ...fixture, story: { ...fixture.story, nodeId: 'curtain', revision: 15, completedAt: '2026-10-17T00:00:00.000Z' } };
   await seed(page, project); await page.goto('/#/result'); await saved(page);
   await expect(page.locator('#app-view h1')).toHaveText('这一回，终于相见。'); await expect(page.locator('.programme')).toContainText('先举灯呼唤');
   await expect(page.locator('.programme')).toContainText('团圆已保存，谢幕尚未结束'); expect((await stored(page)).story).toEqual(project.story);
-  await expect(page.getByRole('button', { name: '保存留影', exact: true })).toHaveCount(0);
+  await expect(page.locator('#result-png')).toBeEnabled();
 });
 
 for (const [label, draft, backup, status] of [
