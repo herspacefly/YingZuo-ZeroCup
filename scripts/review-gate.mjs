@@ -4,10 +4,14 @@ import {reviewProblems} from '../src/content/review-contract.ts';
 const root=new URL('../',import.meta.url),ledgerFile=new URL('docs/reviews/t10-review.json',root);
 const json=file=>JSON.parse(readFileSync(new URL(file,root),'utf8').replace(/^\uFEFF/,''));
 const digest=value=>createHash('sha256').update(typeof value==='string'?value:JSON.stringify(value)).digest('hex');
-export function assetReviewSubject(asset,provenance){const {reviewStatus:_workflow,...content}=asset;return {id:'asset:'+asset.id,sha256:digest([content,provenance]),rightsRequired:true,license:asset.license};}
+export function assetReviewSubject(asset,provenance,bindings=null){const {reviewStatus:_workflow,...content}=asset;return {id:'asset:'+asset.id,sha256:digest([content,provenance,bindings]),rightsRequired:true,license:asset.license};}
 export function exhibitReviewSubject(item,sources){return {id:'exhibit:'+item.id,sha256:digest([item,item.sourceIds.map(id=>sources.find(source=>source.id===id))]),rightsRequired:false};}
 export function reviewSubjects(kind){
-  if(kind==='assets'){const manifest=json('src/content/manifest.json');return manifest.assets.map(asset=>assetReviewSubject(asset,manifest.provenance));}
+  if(kind==='assets'){
+    const manifest=json('src/content/manifest.json');
+    const bindings={puppets:['chenxiang-v1','mother-v1','guardian-v1'].map(id=>json(`src/content/puppets/${id}.json`)),scenes:json('src/content/scenes.json'),patterns:json('src/content/patterns.json'),palettes:json('src/content/palettes.json'),colorMapEncoding:manifest.colorMapEncoding};
+    return manifest.assets.map(asset=>assetReviewSubject(asset,manifest.provenance,bindings));
+  }
   const sources=json('src/content/sources.json').sources;
   return [
     ...json('src/content/stories/reunion-v1.json').nodes.map(node=>({id:'story:'+node.id,sha256:digest(node),rightsRequired:false})),

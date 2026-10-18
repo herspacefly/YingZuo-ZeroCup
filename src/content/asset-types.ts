@@ -12,7 +12,7 @@ export interface AssetEntry {
 export interface AssetManifest {
   assetVersion: 1;
   provenance: { kind: string; generator: string; tool: string; intent: string; externalMedia: boolean; manualEdits: string; licenseNote: string };
-  colorMapEncoding: { body: number[]; sleeve: number[]; hem: number[]; fixed: number[]; outside: string; fixedMeaning: string; sampling: string };
+  colorMapEncoding: { body: number[]; sleeve: number[]; hem: number[]; fixed: number[]; outside: string; fixedMeaning: string; sampling: string; recolor?: 'replace' | 'source-relative-rgb' };
   assets: AssetEntry[];
 }
 export interface PuppetPart {

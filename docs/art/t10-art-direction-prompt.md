@@ -1,6 +1,8 @@
 # T10 艺术方向参考图
 
-工具：内置image_gen，2026-10-18。输出：t10-art-direction.png。用途：原创角色/场景的艺术方向参考，未切割为运行时部件；实际80张PNG由scripts/art/可读路径生成。该图不表示传统实物、艺人作品或特定流派的复原，未下载外部媒体。最终设计与项目使用许可仍由张宇翔（SpaceFly）审看确认。
+工具：内置image_gen，2026-10-18。输出：t10-art-direction.png。初始用途为原创角色/场景的艺术方向参考；作者随后明确要求复刻比例、服饰、手型和背景并允许分割裁切，当前已作为实际人物/背景分件源，由scripts/art/reference-*.mjs与generate-reference-assets.mjs确定性裁切、剔纸和绑定，附件/可刻纹样仍为原生路径。未另外生成变体，也未下载外部媒体。该图不表示传统实物、艺人作品或特定流派的复原。最终设计与项目使用许可仍由张宇翔（SpaceFly）审看确认。
+
+原图SHA256：a518985ab1ee8951c9e1eba372c95c10a135114da77da315b913615899056df6。实际裁切规则、原图关节点与比例在reference-puppets.mjs，九背景采样规则在reference-scenery.mjs；当前重建方案见../plans/2026-10-18-t10-reference-reconstruction.md。下列为原始生成提示，保留历史意图，不伪称是本次裁切的新生成提示。
 
 完整提示：
 

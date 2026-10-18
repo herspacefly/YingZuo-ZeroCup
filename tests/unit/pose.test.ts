@@ -50,7 +50,7 @@ describe('posed template transforms', () => {
     shoulder.restAngleRad = 0.2;
     const pose = defaultPose(); pose.joints.rightShoulder = Math.PI / 2 - 0.2; pose.joints.rightElbow = 0.3;
     const elbow = jointTransform(template, pose, 'rightElbow');
-    closePoint(elbow, { x: 0.255, y: 0.24 }); expect(elbow.angle).toBeCloseTo(Math.PI / 2 + 0.3);
+    closePoint(elbow, { x: shoulder.anchor[0]+template.arms.find(a=>a.side==='right')!.upperLength, y: shoulder.anchor[1] }); expect(elbow.angle).toBeCloseTo(Math.PI / 2 + 0.3);
     expect(jointTransform(template, pose, null)).toEqual({ x: 0, y: 0, angle: 0 });
   });
 

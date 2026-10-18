@@ -43,15 +43,15 @@ async function failOneSave(page:Page){await page.evaluate(()=>{const put=IDBObje
 async function manual(page:Page,id:string){
   await page.locator('#story-play').click();
   if(id==='memory-wave'){await range(page,'#story-rod-rightShoulder',1.8);await range(page,'#story-rod-rightElbow',.52);await advance(page,3000);}
-  else if(id==='road'){await range(page,'#story-rod-x',.735);await range(page,'#story-rod-y',.665);await advance(page,2400);}
-  else if(id==='guardian'){await range(page,'#story-rod-x',.485);await range(page,'#story-rod-y',.545);await range(page,'#story-rod-rightElbow',.6);await advance(page,2400);}
+  else if(id==='road'){await range(page,'#story-rod-x',.775);await range(page,'#story-rod-y',.66);await advance(page,2400);}
+  else if(id==='guardian'){await range(page,'#story-rod-x',.53);await range(page,'#story-rod-y',.58);await advance(page,2400);}
   else if(['call-light','split-search'].includes(id)){
-    await range(page,'#story-distance',.4);await range(page,'#story-rod-x',.52);await range(page,'#story-rod-y',.565);await advance(page,2600);
+    await range(page,'#story-distance',.4);await range(page,'#story-rod-x',.535);await range(page,'#story-rod-y',.565);await advance(page,2600);
   }else if(['call-split','split-axe'].includes(id)){
     await range(page,'#story-rod-rightShoulder',1.2);await advance(page,700);await expect(runtime(page)).toHaveAttribute('data-interaction','raised');
     await range(page,'#story-rod-rightShoulder',0);await advance(page,4300);
   }else if(id==='reunion-reach'){
-    await advance(page,2000);await range(page,'#story-rod-x',.415);await range(page,'#story-rod-y',.555);await range(page,'#story-rod-rightShoulder',.01);await advance(page,1000);
+    await advance(page,2000);await range(page,'#story-rod-x',.47);await range(page,'#story-rod-y',.555);await range(page,'#story-rod-rightShoulder',.01);await advance(page,1000);
   }else throw new Error(`Unknown interactive ${id}`);
 }
 
@@ -119,7 +119,7 @@ test('pausing the assisted axe restarts a valid short gesture instead of losing 
 
 test('reunion requires a final hand operation, four quiet seconds and explicit curtain; retry keeps the same result',async({page})=>{
   await fakeClock(page);await seed(page,projectAt('reunion-reach'));await page.goto('/#/story');await ready(page);await page.locator('#story-play').click();await advance(page,2000);
-  await range(page,'#story-rod-x',.415);await range(page,'#story-rod-y',.555);await advance(page,1000);expect((await stored(page)).story!.nodeId).toBe('reunion-reach');
+  await range(page,'#story-rod-x',.47);await range(page,'#story-rod-y',.555);await advance(page,1000);expect((await stored(page)).story!.nodeId).toBe('reunion-reach');
   await range(page,'#story-rod-rightShoulder',.01);await advance(page,1000);await ready(page,'reunion-hold');await page.locator('#story-play').click();await advance(page,3900);await expect(page.locator('#story-finish')).toBeHidden();
   await page.screenshot({path:`docs/evidence/t17-reunion-${test.info().project.name.startsWith('desktop')?'desktop':'mobile'}.png`,fullPage:true});
   await advance(page,100);await expect(page.locator('#story-finish')).toHaveText('谢幕');expect((await stored(page)).story!.completedAt).toBeNull();await failOneSave(page);await page.locator('#story-finish').click();

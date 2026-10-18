@@ -50,10 +50,12 @@ describe('T01 asset consumers',()=>{
   });
   it('keeps neutral hands at the declared two-bone length and feet inside 0.9-high bounds',()=>{
     const puppet=copy().puppets[0]!;
-    const elbow=neutralJointTransform(puppet,'rightElbow');expect(elbow.x).toBeCloseTo(.085);expect(elbow.y).toBeCloseTo(.07);
+    const arm=puppet.arms.find(a=>a.side==='right')!,shoulder=puppet.joints.find(j=>j.jointId==='rightShoulder')!;
+    const elbow=neutralJointTransform(puppet,'rightElbow');expect(elbow.x).toBeCloseTo(shoulder.anchor[0]);expect(elbow.y).toBeCloseTo(shoulder.anchor[1]-arm.upperLength);
     const shin=puppet.parts.find(p=>p.partId==='rightShin')!,t=neutralPartTransform(puppet,shin);
-    expect(t.y+shin.bounds.minY).toBeCloseTo(-.30);
-    puppet.bounds.minY=-.29;expect(validateAssetCatalog({...copy(),puppets:[puppet,...copy().puppets.slice(1)]}).join(';')).toContain('neutral bounds');
+    expect(t.y+shin.bounds.minY).toBeGreaterThanOrEqual(puppet.bounds.minY-1e-10);
+    expect(puppet.bounds.maxY-puppet.bounds.minY).toBeCloseTo(.9);
+    puppet.bounds.minY=t.y+shin.bounds.minY+.01;expect(validateAssetCatalog({...copy(),puppets:[puppet,...copy().puppets.slice(1)]}).join(';')).toContain('neutral bounds');
   });
   it('maps an image pivot to the joint after bind rotation instead of translating it twice',()=>{
     const puppet=copy().puppets[0]!,part=puppet.parts.find(p=>p.partId==='rightForearm')!;

@@ -16,8 +16,9 @@ export function validateAssetCatalog(catalog: AssetCatalog): string[] {
   try {
     const { manifest, puppets, palettes, patterns, scenes } = catalog;
     for (const config of [manifest, ...puppets, palettes, patterns, scenes]) check(config.assetVersion === 1, 'assetVersion must be 1');
-    check(['original-procedural-placeholder','original-vector-design'].includes(manifest.provenance.kind) && !!manifest.provenance.generator && !!manifest.provenance.tool && !!manifest.provenance.intent, 'provenance missing');
+    check(['original-procedural-placeholder','original-vector-design','original-ai-reference-cutout'].includes(manifest.provenance.kind) && !!manifest.provenance.generator && !!manifest.provenance.tool && !!manifest.provenance.intent, 'provenance missing');
     check(manifest.colorMapEncoding.sampling === 'nearest' && manifest.colorMapEncoding.fixedMeaning === 'preserve-source-color' && manifest.colorMapEncoding.outside === 'alpha=0', 'color map semantics');
+    check(manifest.colorMapEncoding.recolor === undefined || ['replace','source-relative-rgb'].includes(manifest.colorMapEncoding.recolor), 'color map recolor mode');
     for (const [slot, value] of Object.entries({ body: [255,0,0], sleeve: [0,255,0], hem: [0,0,255], fixed: [255,255,0] })) check(JSON.stringify(manifest.colorMapEncoding[slot as 'body']) === JSON.stringify(value), `color code ${slot}`);
     const assets = new Map<string, AssetEntry>(); const paths = new Set<string>(); const referenced = new Set<string>();
     for (const asset of manifest.assets) {

@@ -45,16 +45,16 @@ for(const mode of ['full','guided'] as const)for(const approach of ['call-first'
         if(id==='memory-wave'){
           await rangeKeys(page,'#story-rod-rightShoulder',1.8);await rangeKeys(page,'#story-rod-rightElbow',.52);await advance(page,3000);
         }else if(id==='road'){
-          await rangeKeys(page,'#story-rod-x',.735);await rangeKeys(page,'#story-rod-y',.665);await advance(page,2400);
+          await rangeKeys(page,'#story-rod-x',.775);await rangeKeys(page,'#story-rod-y',.66);await advance(page,2400);
         }else if(id==='guardian'){
-          await rangeKeys(page,'#story-rod-x',.485);await rangeKeys(page,'#story-rod-y',.545);await rangeKeys(page,'#story-rod-rightElbow',.6);await advance(page,2400);
+          await rangeKeys(page,'#story-rod-x',.53);await rangeKeys(page,'#story-rod-y',.58);await advance(page,2400);
         }else if(id==='call-light'||id==='split-search'){
-          await rangeKeys(page,'#story-distance',.4);await rangeKeys(page,'#story-rod-x',.52);await rangeKeys(page,'#story-rod-y',.565);await advance(page,2600);
+          await rangeKeys(page,'#story-distance',.4);await rangeKeys(page,'#story-rod-x',.535);await rangeKeys(page,'#story-rod-y',.565);await advance(page,2600);
         }else if(id==='call-split'||id==='split-axe'){
           await rangeKeys(page,'#story-rod-rightShoulder',1.2);await advance(page,700);await expect(runtime(page)).toHaveAttribute('data-interaction','raised');
           await rangeKeys(page,'#story-rod-rightShoulder',0);await advance(page,4300);
         }else if(id==='reunion-reach'){
-          await advance(page,2000);await rangeKeys(page,'#story-rod-x',.415);await rangeKeys(page,'#story-rod-y',.555);await rangeKeys(page,'#story-rod-rightShoulder',.01);await advance(page,1000);
+          await advance(page,2000);await rangeKeys(page,'#story-rod-x',.47);await rangeKeys(page,'#story-rod-y',.555);await rangeKeys(page,'#story-rod-rightShoulder',.01);await advance(page,1000);
         }else {
           await advance(page,mode==='full'?node.fullTiming.targetMs:node.guidedTiming.targetMs);
           if(id==='reunion-hold'){await expect(page.locator('#story-finish')).toHaveText('谢幕');await enter(page,'#story-finish');}

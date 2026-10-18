@@ -90,6 +90,17 @@ for(const puppet of catalog.puppets) for(const part of puppet.parts) {
     let match=true;
     for(let i=3;i<images[0].pixels.length;i+=4) if(images.some(image=>image.pixels[i] !== images[0].pixels[i])) { match=false;break; }
     check(match, `color/mask/region alpha differs: ${puppet.id}/${part.partId}`);
+    if(catalog.manifest.provenance.kind==='original-ai-reference-cutout'){
+      const counts=new Map(),regions=images[2].pixels;
+      for(let i=0;i<regions.length;i+=4)if(regions[i+3]){const key=`${regions[i]},${regions[i+1]},${regions[i+2]}`;counts.set(key,(counts.get(key)??0)+1);}
+      const editable=[...counts.keys()].filter(code=>code!=='255,255,0');
+      if(part.partId==='head')check(editable.length===0,`face and head edges must retain source colors: ${puppet.id}`);
+      else if(/UpperArm|Forearm/.test(part.partId)){
+        check(editable.every(code=>code==='0,255,0'),`arm cloth must use sleeve slot: ${puppet.id}/${part.partId}`);
+        if(puppet.control==='user')check((counts.get('0,255,0')??0)>=32,`sleeve control has no cloth surface: ${puppet.id}/${part.partId}`);
+      }else if(part.partId==='torso')check(!counts.has('0,255,0'),`torso cannot use sleeve slot: ${puppet.id}`);
+      else check(editable.every(code=>code==='0,0,255'),`leg costume must use hem slot: ${puppet.id}/${part.partId}`);
+    }
   }
 }
 const walk=directory=>readdirSync(directory,{withFileTypes:true}).flatMap(entry=>entry.isDirectory()?walk(path.join(directory,entry.name)):[path.join(directory,entry.name)]);

@@ -18,10 +18,10 @@
       ],
       "bindAngleRad": 0,
       "bounds": {
-        "minX": -0.115,
-        "minY": -0.3,
-        "maxX": 0.115,
-        "maxY": 0.31
+        "minX": -0.34479653482275163,
+        "minY": -0.2861164937877579,
+        "maxX": 0.32479197537900373,
+        "maxY": 0.3741365553402485
       },
       "drawOrder": 20,
       "maskAssetId": "guardian-v1-torso-mask",
@@ -37,10 +37,10 @@
       ],
       "bindAngleRad": 0,
       "bounds": {
-        "minX": -0.065,
-        "minY": -0.012,
-        "maxX": 0.12,
-        "maxY": 0.3
+        "minX": -0.27042060868574036,
+        "minY": -0.0636042402826855,
+        "maxX": 0.058680041034993725,
+        "maxY": 0.2753448079334321
       },
       "drawOrder": 40,
       "maskAssetId": "guardian-v1-head-mask",
@@ -56,10 +56,10 @@
       ],
       "bindAngleRad": 0,
       "bounds": {
-        "minX": -0.043,
-        "minY": -0.185,
-        "maxX": 0.043,
-        "maxY": 0.025
+        "minX": -0.09918348758169823,
+        "minY": -0.2316565670692824,
+        "maxX": 0.015319481615767941,
+        "maxY": 0.016741304871653418
       },
       "drawOrder": 30,
       "maskAssetId": "guardian-v1-right-upper-arm-mask",
@@ -75,10 +75,10 @@
       ],
       "bindAngleRad": 0,
       "bounds": {
-        "minX": -0.034,
-        "minY": -0.17,
-        "maxX": 0.034,
-        "maxY": 0.018
+        "minX": -0.04003082656385822,
+        "minY": -0.1946849211867878,
+        "maxX": 0.10658169677761188,
+        "maxY": 0.02234842708547456
       },
       "drawOrder": 31,
       "maskAssetId": "guardian-v1-right-forearm-mask",
@@ -91,8 +91,8 @@
       "jointId": "head",
       "parentJoint": null,
       "anchor": [
-        0,
-        0.3
+        0.03590561951441924,
+        0.33853869827881
       ],
       "restAngleRad": 0,
       "enabled": true,
@@ -104,8 +104,8 @@
       "jointId": "leftShoulder",
       "parentJoint": null,
       "anchor": [
-        -0.085,
-        0.24
+        -0.0871993616778753,
+        0.24620996238458906
       ],
       "restAngleRad": 0,
       "enabled": false,
@@ -118,7 +118,7 @@
       "parentJoint": "leftShoulder",
       "anchor": [
         0,
-        -0.17
+        -0.1743987233557506
       ],
       "restAngleRad": 0,
       "enabled": false,
@@ -130,8 +130,8 @@
       "jointId": "rightShoulder",
       "parentJoint": null,
       "anchor": [
-        0.085,
-        0.24
+        -0.03590561951441924,
+        0.33853869827881
       ],
       "restAngleRad": 0,
       "enabled": true,
@@ -144,7 +144,7 @@
       "parentJoint": "rightShoulder",
       "anchor": [
         0,
-        -0.17
+        -0.21543371708651543
       ],
       "restAngleRad": 0,
       "enabled": true,
@@ -156,8 +156,8 @@
       "jointId": "leftHip",
       "parentJoint": null,
       "anchor": [
-        -0.05,
-        -0.03
+        -0.05129374216345606,
+        -0.030776245298073632
       ],
       "restAngleRad": 0,
       "enabled": false,
@@ -170,7 +170,7 @@
       "parentJoint": "leftHip",
       "anchor": [
         0,
-        -0.14
+        -0.14362247805767697
       ],
       "restAngleRad": 0,
       "enabled": false,
@@ -182,8 +182,8 @@
       "jointId": "rightHip",
       "parentJoint": null,
       "anchor": [
-        0.05,
-        -0.03
+        0.05129374216345606,
+        -0.030776245298073632
       ],
       "restAngleRad": 0,
       "enabled": false,
@@ -196,7 +196,7 @@
       "parentJoint": "rightHip",
       "anchor": [
         0,
-        -0.14
+        -0.14362247805767697
       ],
       "restAngleRad": 0,
       "enabled": false,
@@ -212,10 +212,10 @@
       "elbow": "rightElbow",
       "handLocal": [
         0,
-        -0.15
+        -0.11284623275960333
       ],
-      "upperLength": 0.17,
-      "lowerLength": 0.15,
+      "upperLength": 0.21543371708651543,
+      "lowerLength": 0.11284623275960333,
       "bendSign": 1
     }
   ],
@@ -225,7 +225,7 @@
       "partId": "torso",
       "point": [
         0,
-        0.14
+        0.14362247805767697
       ]
     },
     {
@@ -233,21 +233,21 @@
       "partId": "rightForearm",
       "point": [
         0,
-        -0.15
+        -0.11284623275960333
       ]
     }
   ],
   "bounds": {
-    "minX": -0.16,
-    "minY": -0.3,
-    "maxX": 0.16,
-    "maxY": 0.6
+    "minX": -0.34479653482275163,
+    "minY": -0.2861164937877579,
+    "maxX": 0.32479197537900373,
+    "maxY": 0.6138835062122422
   },
   "motionEnvelope": {
-    "minX": -0.6,
-    "minY": -0.5,
-    "maxX": 0.6,
-    "maxY": 0.7
+    "minX": -0.85,
+    "minY": -0.8,
+    "maxX": 0.85,
+    "maxY": 0.85
   },
   "boundsMeaning": "neutral-image-union; motionEnvelope is conservative before root scale/facing; attachments have separate bounds",
   "motifPlacement": null,
@@ -258,7 +258,7 @@
       "partId": "rightForearm",
       "anchor": [
         0,
-        -0.15
+        -0.11284623275960333
       ],
       "pivot": [
         0,
@@ -275,5 +275,5 @@
       "defaultVisible": false
     }
   ],
-  "note": "本作原创皮影风格设计稿；十/六/四部件为数字简化，不是传统影偶标准。原关节、bounds、杆与附件锚点保留，未使用的九关节Pose字段恒0。"
+  "note": "由本项目AI方向图按作者要求裁切的皮影设计稿；原图关节点测量绑定，头身比例/袖形/手型/衣饰直接取图，Pose仍为既有世界坐标与关节弧度偏移。"
 }

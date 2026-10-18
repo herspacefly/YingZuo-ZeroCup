@@ -115,7 +115,7 @@ story.html提供显式开始、跳过序幕、编辑稿/默认影偶开演、两
 
 ## 原创设计资源与消费者
 
-T10设计稿沿用T01三角色十/六/四部件、九关节、三种分段镂空、五套色板和三组场景层，细化侧脸、冠髻、衣缘、镂空、铆点与窗/灯/山路。80张PNG由`scripts/art/`原创路径经`node scripts/generate-designed-assets.mjs`生成；颜色/alpha/标签统一，资源ID、骨架和存档含义不变。内置image_gen的[艺术方向图](docs/art/t10-art-direction.png)及[完整提示](docs/art/t10-art-direction-prompt.md)作为参考，实际舞台使用独立路径绘图。旧占位生成器已加保护拒绝覆盖设计版。素材与文化审看仍为draft/unknown，127项当前对象已登记，不代作者授权。
+T10设计稿沿用T01三角色十/六/四部件、九关节、三种分段镂空、五套色板和三组场景层。按作者要求直接拆分内置image_gen的[艺术方向图](docs/art/t10-art-direction.png)，复刻人物比例、服饰、手型与背景；[完整原提示和当前用途](docs/art/t10-art-direction-prompt.md)同步保留。当前用`node scripts/generate-reference-assets.mjs`从`scripts/art/reference-*.mjs`确定性生成80张PNG并同步比例绑定，三图alpha/标签统一；换色保留原图纹理，原资源ID与存档坐标/关节含义不变。旧占位/路径生成器均保护新分件版，不可覆盖。素材与文化审看仍为draft/unknown，127项当前对象及绑定/配色摘要已登记，不代作者授权。
 
 T04/T15/T16 先读 [资产合同](docs/contracts/assets-v1.md)；类型位于 src/content/asset-types.ts，模板/清单位于 src/content。assets.html 仅供中性姿态和图层检查，没有运行时操偶、双角色成影、IK 或剧情。文化资料 C1—C7 在 sources.json 登记访问情况和引用边界。
 

@@ -9,7 +9,7 @@ import type { CanvasFrame, CanvasStatus } from './types';
 /** Event-driven renderer: update/resize draw once; the future director owns the only clock. */
 export function mountCanvasRenderer(host: HTMLElement, catalog: AssetCatalog, onStatus: (status: CanvasStatus) => void) {
   const canvas=document.createElement('canvas'); canvas.className='shadow-stage'; canvas.setAttribute('role','img');
-  canvas.setAttribute('aria-label','皮影舞台，角色与场景为原创几何排演示意'); host.appendChild(canvas);
+  canvas.setAttribute('aria-label','皮影舞台，人物与场景为原创皮影风格设计稿'); host.appendChild(canvas);
   const assets=new TextureCache(catalog.manifest), compositor=new PartCompositor(assets,catalog);
   let ctx: CanvasRenderingContext2D | null = null, frame: CanvasFrame | null=null, generation=0, disposed=false, ready=false, draws=0;
   try { ctx=canvas.getContext('2d'); } catch { ctx=null; }
@@ -66,7 +66,7 @@ export function mountCanvasRenderer(host: HTMLElement, catalog: AssetCatalog, on
       for(const actor of frame.actors) drawActor(actor,catalog.puppets.find(item=>item.id===actor.templateId)!);
       ctx.restore(); for(const layer of layers.filter(item=>item.order>=catalog.scenes.actorOrder)) drawLayer(layer);
       ctx.restore(); draws++; canvas.setAttribute('data-draws',String(draws)); canvas.setAttribute('data-actors',frame.actors.map(actor=>actor.actorId).join(','));
-      canvas.setAttribute('data-scene',frame.stage.backgroundId); status('ready',`幕上${frame.actors.length}位角色 · 几何排演示意`);
+      canvas.setAttribute('data-scene',frame.stage.backgroundId); status('ready',`幕上${frame.actors.length}位角色 · 皮影设计稿`);
     } catch(error) { if(ctx) { canvas.width=canvas.width; ctx=canvas.getContext('2d'); } fail(error); }
   }
   function resize() {

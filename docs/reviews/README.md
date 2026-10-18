@@ -8,4 +8,4 @@ t10-review.json列出当前127项：80张PNG、18节点、8展品、20事实、1
 
 verify:assets --release检查当前PNG哈希、清单reviewStatus/许可和逐项审定/权利记录；verify:content --release检查节点/展品/事实/声音源哈希及审看，声音另核权利。证据文件缺失或改变会使记录无效。未齐备退出2并列出实际待核ID，格式/资源错误退出1。这是证据完备性检查，不能替代作者的文化判断、视觉/听感判断或实际授权。
 
-本轮提供内置image_gen艺术方向图及完整提示（docs/art/）、四张舞台截图（docs/evidence/t10-*）、可读路径源（scripts/art/）和合成声音配方（src/audio/、src/content/sound-cues.ts）。它们是审看的具体对象，尚未标成提交定稿。
+本轮提供内置image_gen方向图及完整原提示（docs/art/）、实际分件组装与宽窄屏舞台截图（docs/art/t10-reference-puppet-study.png、docs/evidence/t10-reference-*）、测量裁切/绑定规则（scripts/art/reference-*.mjs）、原生附件/纹样与合成声音配方。资产审定摘要包括实际PNG/元数据、provenance、模板绑定、场景、纹样、配色和色区着色模式，调整比例或来源配色会使旧审定失效。它们是审看的具体对象，尚未标成提交定稿。

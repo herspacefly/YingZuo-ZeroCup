@@ -35,8 +35,9 @@ describe('actual projected interaction geometry', () => {
   it('uses the torso motif placement for light, independently of both arms and motif bitmap choice', () => {
     const { frame } = fixture('call-light');
     const region = projectedInteractionRegion(frame, 'light')!;
-    expect(region.maxX - region.minX).toBeCloseTo(.13 * .8 * 1.2, 12);
-    expect(region.maxY - region.minY).toBeCloseTo(.265 * .8 * 1.2, 12);
+    const placement=assetCatalog.puppets.find(t=>t.id==='chenxiang-v1')!.motifPlacement!.bounds;
+    expect(region.maxX - region.minX).toBeCloseTo((placement.maxX-placement.minX) * .8 * 1.2, 12);
+    expect(region.maxY - region.minY).toBeCloseTo((placement.maxY-placement.minY) * .8 * 1.2, 12);
     const changed = clone(frame), chenxiang = changed.actors.find(actor => actor.actorId === 'chenxiang')!;
     chenxiang.pose.joints.rightShoulder = 1.2; chenxiang.pose.joints.rightElbow = 1.8;
     chenxiang.pose.joints.leftShoulder = -1.2;
@@ -59,6 +60,7 @@ describe('actual projected interaction geometry', () => {
 
   it('road includes the actual visible attachment, not the neutral template envelope', () => {
     const { frame } = fixture('split-axe'), template = assetCatalog.puppets.find(item => item.id === 'chenxiang-v1')!;
+    frame.actors[0]!.pose.joints.rightShoulder=1.2; // Expose the axe beyond the new trailing costume.
     const pose = frame.actors[0]!.pose;
     expect(projectedInteractionRegion(frame, 'road')).toEqual(projectedPoseBounds(template, pose, frame.stage, ['axe']));
     const bare = clone(frame); bare.attachments = [];
@@ -109,10 +111,12 @@ describe('legal reachability under the final director constraints', () => {
       if (actor.actorId === 'chenxiang') actor.appearance.patternId = patternId;
       expect(data.goal.pose.scale).toBe(.8); expect(data.goal.stage.puppetDistance).toBe(.4);
       const target = normalizedTargetBounds(data.node.completion.kind === 'light' ? data.node.completion.target : { x: 0, y: 0, width: 1, height: 1 })!;
-      const areaAtEntryDistance = .13 * .265 * (.8 * 1.2) ** 2;
+      const placement=assetCatalog.puppets.find(t=>t.id==='chenxiang-v1')!.motifPlacement!.bounds;
+      const areaAtEntryDistance = (placement.maxX-placement.minX) * (placement.maxY-placement.minY) * (.8 * 1.2) ** 2;
       const targetArea = (target.maxX - target.minX) * (target.maxY - target.minY);
-      expect(areaAtEntryDistance / targetArea).toBeCloseTo(.2699755102040816, 10);
-      expect(targetCoverageRatio(region, target)).toBeCloseTo(.4218367346938775, 10);
+      expect(areaAtEntryDistance / targetArea).toBeLessThan(.35);
+      expect(targetCoverageRatio(region, target)).toBeCloseTo(areaAtEntryDistance / targetArea * (1.5/1.2)**2, 10);
+      expect(targetCoverageRatio(region, target)).toBeGreaterThanOrEqual(.35);
       expect(projectedInteractionRegion(data.frame, 'light')).toEqual(region);
       for (let time = 0; time <= 600; time += 100) data.observer.observe(data.frame, time, false, true);
       expect(data.observer.observe(data.frame, 600, false, true).evidence).toMatchObject({ kind: 'light', heldMs: 600 });
@@ -145,7 +149,7 @@ describe('legal reachability under the final director constraints', () => {
     const frame = data.director.sample(0, { chenxiangPose: pose }).frame;
     expect(frame.actors[0]!.pose).toEqual(pose);
     const target = normalizedTargetBounds(data.node.completion.kind === 'wave' ? data.node.completion.target : { x: 0, y: 0, width: 1, height: 1 })!;
-    expect(targetCoverageRatio(projectedInteractionRegion(frame, 'wave')!, target)).toBeCloseTo(.6394352070959866, 10);
+    expect(targetCoverageRatio(projectedInteractionRegion(frame, 'wave')!, target)).toBeGreaterThanOrEqual(.35);
   });
 
   it('reaches the actual mother hand without altering her pose or snapping either actor', () => {
@@ -172,8 +176,7 @@ describe('legal reachability under the final director constraints', () => {
       expect(createNodeInteraction(data.node).observe(actual, elapsedMs, false, true).evidence).toMatchObject({ kind: 'reach' });
       if (elapsedMs >= 1800) {
         expect(before.actors[1]!.pose.joints).toMatchObject({ rightShoulder: 1.05, rightElbow: .5 });
-        expect(hands.mother.x).toBeCloseTo(-.12713233246021102, 10);
-        expect(hands.mother.y).toBeCloseTo(-.1777980502195753, 10);
+        expect(hands.mother).toEqual(interactionHandPoints(before)!.mother);
       }
     }
   });

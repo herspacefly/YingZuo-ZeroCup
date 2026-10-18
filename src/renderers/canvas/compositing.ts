@@ -1,5 +1,6 @@
 import type { AssetCatalog, PuppetPart, PuppetTemplate, RenderActor } from '../../content/asset-types';
 import type { TextureCache } from './texture-cache';
+import { tintSourceChannel } from './recolor';
 
 export function canvas2D(width: number, height: number) {
   const canvas = document.createElement('canvas'); canvas.width = width; canvas.height = height;
@@ -33,6 +34,9 @@ export class PartCompositor {
       const palette = this.catalog.palettes.palettes.find(item => item.id === paletteId);
       if (!palette) throw new Error(`没有这套配色：${paletteId}`);
       const colors = palette.colors.map(rgb), codes = new Map([['255,0,0',slots.body],['0,255,0',slots.sleeve],['0,0,255',slots.hem]]);
+      const baseline = this.catalog.palettes.palettes.find(item => item.id === template.defaultPaletteId);
+      if (!baseline) throw new Error(`没有来源配色：${template.defaultPaletteId}`);
+      const bases = baseline.colors.map(rgb), baseCodes = new Map([['255,0,0',0],['0,255,0',1],['0,0,255',2]]);
       for (let i=0;i<color.data.length;i+=4) {
         color.data[i+3] = alpha[i+3]!;
         if (!alpha[i+3]) continue;
@@ -40,7 +44,10 @@ export class PartCompositor {
         if (code === '255,255,0') continue; // fixed source pixels, including outlines.
         const index = codes.get(code), replacement = index === undefined ? undefined : colors[index];
         if (!replacement) throw new Error(`部件颜色区无法识别：${part.partId}`);
-        color.data[i]=replacement[0]!; color.data[i+1]=replacement[1]!; color.data[i+2]=replacement[2]!;
+        if (this.catalog.manifest.colorMapEncoding.recolor === 'source-relative-rgb') {
+          const base = bases[baseCodes.get(code)!]!;
+          for (let channel=0;channel<3;channel++) color.data[i+channel]=tintSourceChannel(color.data[i+channel]!,base[channel]!,replacement[channel]!);
+        } else { color.data[i]=replacement[0]!; color.data[i+1]=replacement[1]!; color.data[i+2]=replacement[2]!; }
       }
       context.putImageData(color,0,0);
       if (motif?.partId === part.partId && patternId) {

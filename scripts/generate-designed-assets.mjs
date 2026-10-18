@@ -11,6 +11,7 @@ const root=fileURLToPath(new URL('../',import.meta.url));
 const json=file=>JSON.parse(readFileSync(path.join(root,file),'utf8'));
 const save=(file,value)=>writeFileSync(path.join(root,file),JSON.stringify(value,null,2)+'\n');
 const manifest=json('src/content/manifest.json'),palettes=json('src/content/palettes.json');
+if(!['original-procedural-placeholder','original-vector-design'].includes(manifest.provenance.kind))throw new Error('Current assets use reference cutouts; use generate-reference-assets.mjs instead of overwriting the new art.');
 const puppets=['chenxiang-v1','mother-v1','guardian-v1'].map(role=>json(`src/content/puppets/${role}.json`));
 const tasks=[];
 for(const puppet of puppets)for(const part of puppet.parts){
