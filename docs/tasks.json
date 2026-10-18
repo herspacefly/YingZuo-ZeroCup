@@ -7,9 +7,9 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T09_complete",
+  "stage": "T06_complete",
   "activeTaskId": null,
-  "lastVerifiedCommit": "15150e10822965a5739a2770c58bfb3f62e4272c",
+  "lastVerifiedCommit": "b41315b95c86b7e43bba02289dcdf7f31a8ad417",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -352,25 +352,54 @@
       "id": "T06",
       "title": "三维戏台盒与幕前幕后转换",
       "priority": "P0",
-      "status": "todo",
+      "status": "done",
       "dependsOn": [
         "T01",
         "T02",
         "T04"
       ],
-      "owner": null,
-      "branch": null,
+      "owner": "codex-root",
+      "branch": "main",
       "touchFiles": [
         "src/renderers/three/",
-        "src/app/capabilities.ts"
+        "src/app/capabilities.ts",
+        "src/features/shared/spatial-stage.ts",
+        "src/features/shared/canvas-stage.ts",
+        "src/styles/spatial.css",
+        "src/app/bootstrap.ts",
+        "package.json",
+        "package-lock.json",
+        "tests/unit/capabilities.test.ts",
+        "tests/unit/three-stage.test.ts",
+        "tests/e2e/three-stage.spec.ts",
+        "docs/contracts/three-v1.md",
+        "docs/contracts/canvas-v1.md",
+        "docs/contracts/navigation-v1.md",
+        "docs/plans/2026-10-18-t06-spatial-stage.md",
+        "docs/STATE.md",
+        "docs/tasks.json",
+        "docs/verification.md",
+        "docs/evidence/",
+        "START_HERE.md",
+        "README.md",
+        "docs/contracts/museum-v1.md",
+        "docs/contracts/result-v1.md"
       ],
       "acceptanceRefs": [
         "T06"
       ],
-      "checkpointCommit": null,
-      "nextAction": "先把Canvas双角色成影贴到幕面，再做工坊近景/幕前/幕后/展台四种明确机位；低性能可退二维。",
+      "checkpointCommit": "b41315b95c86b7e43bba02289dcdf7f31a8ad417",
+      "nextAction": "T06已验收，消费three-v1及Canvas/导航/展馆/成果合同；G2任务集齐备。下一项优先T10按叙事稿替换正式角色/三套场景、有限声音并审文化来源与许可；之后T11真实环境/完整SAVE、T13真实性能时长情绪。空间仍为几何示意，P1仍在T13/G3后。",
       "blocker": null,
-      "verification": [],
+      "verification": [
+        "2026-10-18: 323基线复现；新增16能力预算+4机位/几何/资源范围单元，最终28文件343/343通过，typecheck通过。",
+        "2026-10-18: 最终构建111模块/20.03秒，14份legacy JS为ES5、六HTML双入口；80 PNG、18节点/两路径+五区八件、19任务检查通过。Three0.186.1/类型0.186.0锁定，仅renderers/three导入。",
+        "2026-10-18: 4173首次EACCES后复查可用重试；定向首轮22/24，2项测试选择器同时命中canvas/按钮，限为button并补真实配色变化后24/24通过36.6秒。补模块失败中文刷新提示后最终构建，再做全量。",
+        "2026-10-18: 最终生产浏览器308/308通过9.5分钟；桌面1440x900/模拟手机390x844各154，新增24与原284回归；Chromium156.0.8078.4，最终构建后生产源码未再修改。",
+        "2026-10-18: 实际WebGL四视图/同帧双偶、刻纹配色灯位距离、512实际buffer纹理、无接口/初始化真重试/context lost新建、模块断网刷新/迟到收起、十次GPU与resize/RAF释放、演出唯一时钟、未知原稿保护与legacy不载入空间模块通过。",
+        "2026-10-18: 两轮独立只读生产/合同复核无剩余阻塞，四张T06宽窄屏证据已查看。10张历史截图已恢复，test-results核对绝对路径/无reparse后逐项无Force/无递归清理5文件4子目录，目录不存在；dist保留、5173 HTTP200。",
+        "2026-10-18: 已验证源码b41315b95c86b7e43bba02289dcdf7f31a8ad417；两独立树干净/依赖junction已移除，归档queued且实际目录仍在。G2任务集齐备；正式艺术声音文化许可/实体兼容/完整SAVE/真实性能时长情绪仍留T10/T11/T13。用户DOCX/PPTX未读未改不纳入提交。"
+      ],
       "phase": "G2"
     },
     {
@@ -495,7 +524,7 @@
         "SAVE-03"
       ],
       "checkpointCommit": "15150e10822965a5739a2770c58bfb3f62e4272c",
-      "nextAction": "T09已验收，消费result-v1；团圆PNG/真实节目单/JSON同场导入与14段只读编排齐备。下一项优先T06三维戏台盒，以现有Canvas帧/五区八件ID与PageView边界接四机位及二维回退；正式艺术声音/文化许可与实体兼容仍留T10/T11。",
+      "nextAction": "T06也已验收，G2任务集齐备；消费three-v1/result-v1/museum-v1/story-play-v1及既有合同。下一项优先T10正式角色/场景/声音与文化许可，随后T11实体兼容/完整SAVE和T13真实性能/时长/情绪。",
       "blocker": null,
       "verification": [
         "2026-10-18: 最终npm test为26文件323/323；新增纯团圆构图4项、纯只读重演10项，含两模式/两路14段多时刻与冻结/副本/几何边界。",
@@ -857,7 +886,7 @@
         "STORY-06",
         "STORY-07"
       ],
-      "nextAction": "T17 已验收，T09团圆成果/只读编排也已完成，消费story-play-v1/museum-v1/result-v1及既有合同。下一项优先T06三维戏台盒与四机位/二维回退，T10正式艺术声音文化许可与T11实体兼容/完整SAVE仍待验收。"
+      "nextAction": "T06也已验收，G2任务集齐备；消费three-v1/result-v1/museum-v1/story-play-v1及既有合同。下一项优先T10正式角色/场景/声音与文化许可，随后T11实体兼容/完整SAVE和T13真实性能/时长/情绪。"
     },
     {
       "priority": "P0",
@@ -915,7 +944,7 @@
         "STORY-05",
         "CULT-02"
       ],
-      "nextAction": "T18 已验收，T09团圆成果/只读编排也已完成，消费story-play-v1/museum-v1/result-v1及既有合同。下一项优先T06三维戏台盒与四机位/二维回退，T10正式艺术声音文化许可与T11实体兼容/完整SAVE仍待验收。"
+      "nextAction": "T06也已验收，G2任务集齐备；消费three-v1/result-v1/museum-v1/story-play-v1及既有合同。下一项优先T10正式角色/场景/声音与文化许可，随后T11实体兼容/完整SAVE和T13真实性能/时长/情绪。"
     }
   ],
   "originalWorkspace": "D:/.MyLearning/VSCodeProject/ZeroCup",

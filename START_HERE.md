@@ -18,7 +18,7 @@
 4. 工程查 [主设计与实施方案](docs/plans/2026-10-15-yingzuo-design-and-implementation.md)；剧情、美术与展品查 [叙事执行稿](docs/content/2026-10-15-yingzuo-story-bible.md)。
 5. 做一个可检查的小步骤，更新 nextAction、实际验证和必要交接，再停止。
 
-**T00、T03、T01、T15、T02、T04、T07、T05、T16、T17、T18及T09已完成。**[产品首页](http://127.0.0.1:5173/#/)已有八入口；[制偶](http://127.0.0.1:5173/#/craft)有刻纹/着色/同纹与冻结开演，[练习](http://127.0.0.1:5173/#/practice)有三杆与五动作，[剧场](http://127.0.0.1:5173/#/story)可走两模式、两分支的实际操偶/键盘/明确协助、寻光落斧、最后伸手、四秒静候及用户谢幕，并保存稳定节点接续。[展馆](http://127.0.0.1:5173/#/museum)已有五区八件两层说明/来源、局部试验与真实参与/署名；[节目单](http://127.0.0.1:5173/#/result)已接1600×1200双偶PNG、真实手动/协助记录、本场JSON和14段只读编排重演。消费者先读[成果合同](docs/contracts/result-v1.md)、[展馆合同](docs/contracts/museum-v1.md)、[图形整场合同](docs/contracts/story-play-v1.md)、[导演](docs/contracts/director-v1.md)及[Canvas](docs/contracts/canvas-v1.md)。323项单元、284项生产浏览器检查与构建通过，详见[验证记录](docs/verification.md)。下一项优先 **T06三维戏台盒与幕前幕后转换**；正式美术/声音与Three增强仍未完成，G2尚未齐备。
+**T00、T03、T01、T15、T02、T04、T07、T05、T16、T17、T18、T09及T06已完成，G2任务集齐备。** 两模式/两分支可操偶到伸手、静候与谢幕，五区八件随时可逛；团圆后有1600×1200 PNG、本场JSON与14段只读编排。各共享幕面下可点“展开戏台空间”，切换工坊/幕前/幕后/展台；同一Canvas成影与分件/刻纹/灯/三杆联动，无WebGL和legacy保留完整二维。消费者先读[空间合同](docs/contracts/three-v1.md)、[成果合同](docs/contracts/result-v1.md)、[展馆合同](docs/contracts/museum-v1.md)、[图形整场合同](docs/contracts/story-play-v1.md)及既有Canvas/导演合同。343项单元、308项生产浏览器检查与构建通过，详见[验证记录](docs/verification.md)。下一项优先 **T10正式角色、场景、有限声音与文化许可审定**；当前仍是静音几何排演，实体兼容/完整SAVE与真实性能/时长/情绪未验收。
 
 Canvas 2D 完整覆盖故事和展馆；Three.js 增强空间与材料。本地用户剧情恢复与开发者接手是两套机制，都必须完成。
 
@@ -26,4 +26,4 @@ Canvas 2D 完整覆盖故事和展馆；Three.js 增强空间与材料。本地�
 
 ## 新会话接续提示
 
-> 请继续本仓库《影作·一幕团圆》2.0。先读START_HERE.md、AGENTS.md、docs/STATE.md、docs/tasks.json，核对文件/Git/暂存与端口，保留已有成果和用户DOCX/PPTX，不从零覆盖。T17图形双路径、T18二维展馆与T09团圆成果已完成，消费result-v1/museum-v1/story-play-v1/director-v1/story-v1/canvas-v1及已有craft/practice合同；323单元/284生产浏览器通过，源码15150e10822965a5739a2770c58bfb3f62e4272c，仍为静音几何排演。优先领取T06，只在src/renderers/three/导入Three，以同一Canvas帧接幕面纹理与工坊/幕前/幕后/展台机位，低性能保持完整二维。三维展示不推进剧情，反复进入释放GPU/事件/时钟。结果页1600×1200 PNG/JSON/14段只读编排沿用冻结/选择/完成时间；展馆临时试验不污染作品，实际展签才记VISIT。唯一创作者为零组张宇翔（SpaceFly）。失败候选、明确内存继续、唯一时钟/NodeScope与清理边界保持。T10/T11随后按依赖，正式美术声音/文化许可与实体兼容未验收，G2仍缺T06；P1录制/分享仍在T13/G3后。完成一个可检查步骤，记录实际证据与SHA，清理临时文件并更新交接。
+> 请继续本仓库《影作·一幕团圆》2.0。先读START_HERE.md、AGENTS.md、docs/STATE.md、docs/tasks.json，核对文件/Git/暂存与端口，保留用户DOCX/PPTX，不从零覆盖。T06三维空间、T09团圆成果、T18展馆及T17整场已完成，G2任务集齐备；343单元/308生产浏览器通过，已验证源码b41315b95c86b7e43bba02289dcdf7f31a8ad417。消费three-v1/result-v1/museum-v1/story-play-v1/director-v1/story-v1/canvas-v1及craft/practice合同。下一项优先T10：按叙事稿设计正式三角色/三套场景、逐节点字幕和有限声音，静音完整，并审八展品来源、传统/原创/模型边界与许可，未人工审定不能标reviewed。当前仍是静音几何排演；空间主动加载，低档512、常规1024，不拥有输入/剧情时钟/存档，离页释放GPU。唯一创作者为零组张宇翔（SpaceFly）。失败候选、明确内存继续、唯一时钟/NodeScope、冻结/稳定节点与串行保存边界保持。T11实体兼容/完整SAVE、T13真实性能时长情绪随后；P1录制/分享仍在T13/G3后。完成一个可检查步骤，记录实际证据与SHA，清理临时文件并更新交接。
