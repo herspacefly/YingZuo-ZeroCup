@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-17",
+  "updatedAt": "2026-10-18",
   "projectName": "影作·一幕团圆",
   "projectRoot": ".",
   "competitionGroup": "零组",
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T18_complete",
+  "stage": "T09_complete",
   "activeTaskId": null,
-  "lastVerifiedCommit": "c6ccc7abc4f072bb5c1a0f0733caf3bc60486c0a",
+  "lastVerifiedCommit": "15150e10822965a5739a2770c58bfb3f62e4272c",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -463,27 +463,49 @@
       "id": "T09",
       "title": "团圆留影、节目单与编排重演",
       "priority": "P0",
-      "status": "todo",
+      "status": "done",
       "dependsOn": [
         "T05",
         "T17"
       ],
-      "owner": null,
-      "branch": null,
+      "owner": "codex-root",
+      "branch": "main",
       "touchFiles": [
         "src/features/result/",
         "src/story/replay.ts",
-        "src/persistence/project-file.ts",
-        "tests/e2e/story-and-resume.spec.ts"
+        "src/styles/result.css",
+        "src/app/bootstrap.ts",
+        "tests/unit/replay.test.ts",
+        "tests/unit/result-artifact.test.ts",
+        "tests/e2e/result.spec.ts",
+        "tests/e2e/navigation.spec.ts",
+        "docs/contracts/result-v1.md",
+        "docs/contracts/navigation-v1.md",
+        "docs/plans/2026-10-18-t09-result.md",
+        "docs/STATE.md",
+        "docs/tasks.json",
+        "docs/verification.md",
+        "docs/evidence/",
+        "README.md",
+        "START_HERE.md",
+        "docs/contracts/museum-v1.md"
       ],
       "acceptanceRefs": [
         "T09",
         "SAVE-03"
       ],
-      "checkpointCommit": null,
-      "nextAction": "先由runId派生成果ID和节目单，再按冻结外观/分支生成双角色留影；按编排重演只读，不假装完整动作录像。",
+      "checkpointCommit": "15150e10822965a5739a2770c58bfb3f62e4272c",
+      "nextAction": "T09已验收，消费result-v1；团圆PNG/真实节目单/JSON同场导入与14段只读编排齐备。下一项优先T06三维戏台盒，以现有Canvas帧/五区八件ID与PageView边界接四机位及二维回退；正式艺术声音/文化许可与实体兼容仍留T10/T11。",
       "blocker": null,
-      "verification": [],
+      "verification": [
+        "2026-10-18: 最终npm test为26文件323/323；新增纯团圆构图4项、纯只读重演10项，含两模式/两路14段多时刻与冻结/副本/几何边界。",
+        "2026-10-18: 最终build含typecheck通过（103模块，10.51秒），13份legacy JS为ES5，六HTML双入口；80资产/18节点+五区八件/19任务检查通过。",
+        "2026-10-18: 结果页初始24/24，PNG母亲/远山对比修正后扩展30/30；编码返回与导入锁修复及error/memory定向4/4通过。未改生产剧情门槛。",
+        "2026-10-18: 最终生产浏览器284/284通过（8.4分钟），桌面1440x900与模拟手机390x844各142；新增32项、原252项回归，Chromium156.0.8078.4。",
+        "2026-10-18: 真实PNG签名/1600x1200/重复文件一致、两路节目单、SAVE-03新浏览器同run/完成时间/冻结留影/只读重演、字幕/减少动态/长帧/失焦、十次清理/迟到图片与编码/导入锁、缺图重试/下载拒绝/msToBlob/URL释放、Canvas失败及error/memory不隐写通过。",
+        "2026-10-18: 生产/合同复核无剩余阻塞；四张t09-result/replay宽窄屏证据已查看，无横向溢出。test-results的5文件/4子目录逐项清理，Test-Path=false；历史T16/T17/T18截图恢复，两工作树归档queued且目录仍在。",
+        "2026-10-18: 已验证源码15150e10822965a5739a2770c58bfb3f62e4272c；正式艺术/声音文化许可、实体IE/手机/Safari、完整SAVE/真实性能时长情绪未验收，G2仍缺T06。用户赛事DOCX/PPTX未读未改不纳入提交。"
+      ],
       "phase": "G2"
     },
     {
@@ -835,7 +857,7 @@
         "STORY-06",
         "STORY-07"
       ],
-      "nextAction": "T17占位图形整场已验收，消费story-play-v1/director-v1/story-v1/canvas-v1；T18二维展馆另已验收。下一项优先T09成果PNG/节目单/只读编排重演，T06/T10/T11按依赖；正式艺术声音和完整SAVE/实体兼容仍未验收。"
+      "nextAction": "T17 已验收，T09团圆成果/只读编排也已完成，消费story-play-v1/museum-v1/result-v1及既有合同。下一项优先T06三维戏台盒与四机位/二维回退，T10正式艺术声音文化许可与T11实体兼容/完整SAVE仍待验收。"
     },
     {
       "priority": "P0",
@@ -893,7 +915,7 @@
         "STORY-05",
         "CULT-02"
       ],
-      "nextAction": "T18二维展馆已验收，消费museum-v1与导航/Canvas合同。下一项优先T09真实双角色团圆PNG/节目单/只读编排重演；T06后续以相同E01—E08接三维，T10正式艺术/声音文化许可与T11完整SAVE/实体兼容仍待验收。"
+      "nextAction": "T18 已验收，T09团圆成果/只读编排也已完成，消费story-play-v1/museum-v1/result-v1及既有合同。下一项优先T06三维戏台盒与四机位/二维回退，T10正式艺术声音文化许可与T11实体兼容/完整SAVE仍待验收。"
     }
   ],
   "originalWorkspace": "D:/.MyLearning/VSCodeProject/ZeroCup",
