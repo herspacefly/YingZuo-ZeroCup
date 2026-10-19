@@ -7,9 +7,9 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T10_refined_art_and_opera_review",
+  "stage": "T10_art_review_after_save_preflight",
   "activeTaskId": "T10",
-  "lastVerifiedCommit": "91d5dbf3ee370a8a2f16d7c10541cacd09f2bb76",
+  "lastVerifiedCommit": "0bc08376af046f78b9654f30162fdd48e58874a1",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -595,14 +595,15 @@
         "docs/plans/2026-10-18-t10-neck-props-music.md",
         "src/audio/music-scene.ts",
         "scripts/prepare-opera-music.mjs",
-        "docs/audio/"
+        "docs/audio/",
+        "docs/plans/2026-10-19-save-boundary-preflight.md"
       ],
       "acceptanceRefs": [
         "T10",
         "CULT-01"
       ],
-      "checkpointCommit": "91d5dbf3ee370a8a2f16d7c10541cacd09f2bb76",
-      "nextAction": "作者三项修改已完成并复验，当前审看册130项/84图/2音乐，收集针对当前版的设计/文化和本项目原创素材使用范围明确结论；外部音乐公开CC许可已独立登记。可先准备SAVE-02关闭标签/加载窗口、SAVE-07产品双标签/500ms边界，不提前验收T11/T13；无新问题不再重复全量。不读DOCX/PPTX。",
+      "checkpointCommit": "0bc08376af046f78b9654f30162fdd48e58874a1",
+      "nextAction": "SAVE-02真实关页/加载窗口及SAVE-07产品双标签/100ms边界已补36/36，生产实现未改，不重复无新疑点的检查。当前130项设计/文化和原创素材使用范围仍待明确审看；可继续正式设备/浏览器、冷启动/持续低FPS提示等准备。T11/T13不跳依赖或提前验收；不读DOCX/PPTX。",
       "blocker": null,
       "verification": [
         "2026-10-18: 343基线复现；新增18声音生命周期与4审看契约，最终30文件365/365通过，typecheck通过。",
@@ -638,7 +639,10 @@
         "2026-10-19修改反馈：生成器88文件重跑全字节一致；当前实际舞台/宽窄屏已目检，审看册130项/84图/2音频在HTTP桌面/file桌面/HTTP模拟手机验证搜索/筛选/全部图像/零业务存储/无溢出，原生控件播放96/40秒。概要图hash漏收和展开源图溢出修复，当前图字节变化触发STALE/1，恢复后通过。",
         "2026-10-19修改反馈：130项摘要匹配、review全pending，仅2music公开CC rights granted；release资产/内容243/50待核，实际退出2。静态入口gzip102,878bytes小于200KiB，仅JS预算。",
         "2026-10-19修改反馈：22历史PNG恢复；三临时文件与test-results的1文件0子目录按已核对路径/无reparse逐项清理。音乐贡献1dc06de723db564ad62700be6c0d197184f8dbc2集成，树干净无junction、归档queued/目录仍在。5173原服务不可达后重启会话11524，HTTP200；4173结束。",
-        "2026-10-19修改反馈：已验证源码91d5dbf3ee370a8a2f16d7c10541cacd09f2bb76；用户DOCX/PPTX未读未改未提交、暂存blob不变。T10仍in_progress，T11/T13仍todo。"
+        "2026-10-19修改反馈：已验证源码91d5dbf3ee370a8a2f16d7c10541cacd09f2bb76；用户DOCX/PPTX未读未改未提交、暂存blob不变。T10仍in_progress，T11/T13仍todo。",
+        "2026-10-19存档预检：save-boundaries首轮36/36通过，零重试/单进程，报告1.2分钟，Chromium156.0.8078.4桌面1440x900/模拟手机390x844各18。full/guided六阶段真实关页新Page；guardian已提交未加载窗口；产品两类双标签CAS与双方JSON；两路100ms改色选择、2500ms后刷新整份存档相等。",
+        "2026-10-19存档预检：typecheck/verify:state/审看册--check退出0，独立只读复核未发现测试实质缺陷或假阳性。未改生产实现；index及五个现代入口JS SHA匹配91d5dbf构建，不重跑无关单元/构建/整站。100ms为受控逻辑时间，关标签不代表崩溃/跨浏览器/实体设备。",
+        "2026-10-19存档预检：已验证检查点0bc08376af046f78b9654f30162fdd48e58874a1；test-results核对绝对路径/无reparse后逐项清理1文件0子目录，无新截图/临时脚本/工作树。用户DOCX/PPTX未读未改未提交、暂存blob不变。T10仍in_progress，T11/T13仍todo。"
       ],
       "phase": "G3"
     },
