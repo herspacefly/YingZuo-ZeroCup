@@ -1,20 +1,28 @@
 # T11 / T13 验收准备与缺口
 
-2026-10-18，T10审看材料阶段。下列是现有代码/历史证据的映射与待执行步骤，不是本轮重新完成整个矩阵。T10未正式审定，T11/T13仍todo，不变更原依赖。
+2026-10-19，T10审看材料阶段。下列是现有代码/历史证据的映射与待执行步骤。今日仅补存档边界预检36项，不是重新完成整个矩阵。T10未正式审定，T11/T13仍todo，不变更原依赖。
 
 ## 已有证据与待补场景
 
 | 编号 | 已有真实验证入口 | 尚缺的精确覆盖 |
 | --- | --- | --- |
-| SAVE-01 | craft-light保存三段刻纹/分区色后刷新；navigation冻结外观；project-storage自动保存 | 结合SAVE-07补产品内500ms边界，正式设备矩阵复核 |
-| SAVE-02 / STORY-03 | story-and-resume选择前后/操偶中刷新；director过场刷新，当前节点0ms暂停接续 | 关闭标签后在同context新标签重开；保存已完成而下幕图像尚未就绪时关闭 |
+| SAVE-01 | craft-light保存三段刻纹/分区色后刷新；navigation冻结外观；project-storage自动保存；save-boundaries两路100ms改色选择 | 正式设备矩阵复核 |
+| SAVE-02 / STORY-03 | story-and-resume/director刷新；save-boundaries两模式六阶段真实关标签、新Page恢复，以及已提交guardian但必要图片仍loading时关闭 | 正式设备与浏览器矩阵复核 |
 | SAVE-03 | 干净context导入冻结项目，result核对成果身份/节目单/PNG一致 | 跨真实浏览器与设备的文件选择、下载和导入 |
 | SAVE-04 | project-storage损坏隔离、backup提升后修改刷新、未知版本保护与原始导出；navigation产品保护入口 | IE/实体设备的IDB与文件分支 |
 | SAVE-05 | 禁止IDB后的可导出内存稿；配额注入失败、候选导出、明确内存/重试 | 实际受限环境；注入DOMException不证明真实磁盘满 |
 | SAVE-06 | 新项目多次保存后上一项目仍能恢复；craft归档及冻结保护 | 正式完整演出项目与实体设备复核 |
-| SAVE-07 | 工作台真实双标签冲突和双方导出；Store即时提交合并编辑；制偶同批次改色与冻结 | 产品双标签同时改色/推进；改色不足500ms立即选分支，等旧timer后刷新仍在新节点 |
+| SAVE-07 | 工作台双标签；save-boundaries产品制偶/剧情双标签CAS冲突与双方真实JSON导出、失败候选保留；两路改色100ms后选择、越过2500ms并刷新 | 正式设备与浏览器矩阵复核 |
 
 复用现有tests/e2e/project-storage.spec.ts、story-and-resume.spec.ts、director.spec.ts、craft-light.spec.ts、result.spec.ts、navigation.spec.ts；只补上述关闭标签/加载窗口/产品双标签风险，不重复已有损坏与导入镜像测试。使用真实Store，不增加可直接修改剧情完成位的生产后门。
+
+## 2026-10-19 存档边界预检结果
+
+`npm run test:e2e -- tests/e2e/save-boundaries.spec.ts --workers=1` 首轮36/36通过，零重试，报告1.2分钟；Chromium156.0.8078.4，桌面1440×900与模拟手机390×844各18项。typecheck、任务结构和审看册当前摘要检查通过。生产源码没有修改，复用91d5dbf版本构建，index与五个现代入口JS逐文件SHA匹配；详见[检查记录](../evidence/save-boundary-preflight.json)。
+
+实际涵盖full/guided开演、选择前后、操偶中、手动操作完成、谢幕关页；恢复后整个已保存Project与JSON下载一致，0ms暂停，原runId/完成时间/冻结造型不变。加载窗口同时证明事务已完成和下一幕仍loading。双标签分别保留胜方已保存稿、败方编辑稿/待提交分支，取消与明确重新读取不覆盖胜方。
+
+100ms是Playwright受控浏览器逻辑时间，2500ms覆盖原500ms防抖与2秒最长等待；不是实际用户操作耗时。关闭标签是同context的page.close/newPage，不证明浏览器崩溃/进程终止、跨浏览器或实体设备。独立只读复核未发现测试实质缺陷或假阳性；未因此修改生产代码或重复全站测试。T11/T13保留todo。
 
 ## 设备与模式矩阵
 

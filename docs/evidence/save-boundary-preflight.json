@@ -1,0 +1,106 @@
+{
+  "date": "2026-10-19",
+  "kind": "save-boundary-preflight",
+  "task": "T10",
+  "formalAcceptance": false,
+  "runtimeSourceCommit": "91d5dbf3ee370a8a2f16d7c10541cacd09f2bb76",
+  "baseCheckpoint": "5c856691f9e5bc0b1e32350674f279372ed6a33f",
+  "productionCodeChanged": false,
+  "buildReused": {
+    "reason": "Only test and documentation additions; index and all five static modern entry chunks match the previously verified build.",
+    "indexSha256": "dcb170539eb9e43f139e3624cca3ac8c99adc56a6ad9a06e4d8c12846436d0b1",
+    "files": [
+      {
+        "path": "assets/main-CdFvXxEy.js",
+        "sha256": "09b8fafb988b2bd71464fbcab70cad986a61228c9c35b12fce0d693ef6378b76"
+      },
+      {
+        "path": "assets/modulepreload-polyfill-YP0FEG5d.js",
+        "sha256": "31191979ee8bf30912f8bb8eae8348182f37e999c8deb54095682926b9435fe3"
+      },
+      {
+        "path": "assets/store-CmBRR5uH.js",
+        "sha256": "db86d80e955c9405fddd73a25c5c0019665d79b770ab7aa51ef290b4018393dc"
+      },
+      {
+        "path": "assets/story-commands-CfriWGNr.js",
+        "sha256": "d700c5370c434a4e60c0913dbf1038db36ca3d8ff3110566894c6f4e40496364"
+      },
+      {
+        "path": "assets/sources-BHoi9DF9.js",
+        "sha256": "0cc68b1d5e6a6c1dbcb5b4135f6b2946782f4a057a0b0bdda3dd50af6c1b9dea"
+      }
+    ]
+  },
+  "testFile": "tests/e2e/save-boundaries.spec.ts",
+  "testFileSha256": "2f746afd6af2d8b9097e17c2e382831d122e2114700753686890bd85752a3812",
+  "command": "npm run test:e2e -- tests/e2e/save-boundaries.spec.ts --workers=1",
+  "e2e": {
+    "exitCode": 0,
+    "passed": 36,
+    "failed": 0,
+    "retries": 0,
+    "workers": 1,
+    "reporterDuration": "1.2m",
+    "lastRun": {
+      "status": "passed",
+      "failedTests": []
+    },
+    "browser": "Chromium",
+    "browserVersion": "156.0.8078.4",
+    "projects": [
+      {
+        "name": "desktop-chromium",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "passed": 18
+      },
+      {
+        "name": "mobile-chromium",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "passed": 18
+      }
+    ],
+    "casesPerProject": {
+      "closeAndFreshPage": 12,
+      "committedButImagePending": 2,
+      "productConflict": 2,
+      "subDebounceBranch": 2
+    }
+  },
+  "checks": [
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run verify:state",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/build-review-packet.mjs --check",
+      "exitCode": 0,
+      "items": 130,
+      "snapshot": "8123e59ec836a86e796b473d46cf3a76447d5369bacc2079a89b6285c096a2ce"
+    }
+  ],
+  "coverage": [
+    "full/guided opening, before and after choice, partial operation, manually completed operation, curtain: close then same-context newPage, exact stored and downloaded project equality, paused 0ms",
+    "training to guardian: saved node/revision/saveRevision and runtime loading simultaneously, then page close and newPage",
+    "two dirty craft palettes before explicit saves: stale CAS rejected, both real JSON downloads, frozen cast unchanged, winner remains after 2500ms and loser closes",
+    "two story tabs choose different branches: loser exports pending candidate, current node remains choice, cancel and explicit reread adopt winner",
+    "both branch paths: real palette change, route and choice at controlled 100ms; wait 2500ms past debounce/maxwait then reload with exact project equality"
+  ],
+  "independentReadOnlyReview": "No substantive test defect or false-positive found; context-wide clock control confirmed.",
+  "limitations": [
+    "100ms is controlled browser logical time, not measured real-user wall time.",
+    "Same-context page.close/newPage is not browser crash, process termination, cross-browser or real-device coverage.",
+    "No production build, unit or full-site suite rerun: production source is unchanged.",
+    "Author art/cultural/original-material approval remains pending; T11/T13 remain todo."
+  ]
+}

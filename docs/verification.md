@@ -2,6 +2,16 @@
 
 本文件记录真实执行的检查。方案中的目标、预计结果与待执行验收不构成通过证据。
 
+## 2026-10-19 SAVE-02 / SAVE-07 / STORY-03 存档边界预检
+
+- 新增tests/e2e/save-boundaries.spec.ts；首轮36/36通过，零重试、单工作进程，报告1.2分钟。Chromium156.0.8078.4桌面1440×900/模拟手机390×844各18项。实际命令、测试SHA、构建指纹与范围见evidence/save-boundary-preflight.json。
+- full/guided分别覆盖开演、选择前后、操偶途中、手动操作完成和谢幕中page.close后同context新Page恢复；存储及真实下载JSON整份相等，0ms暂停，runId/completedAt/冻结造型与节点不重建。不是只做reload，也不伪造交互完成。
+- training完成、guardian节点事务已提交且必要head-mask图片仍loading时关页，重开直接guardian，剧情revision和项目saveRevision各只+1。
+- 产品制偶两页都改色后显式保存，旧版本被CAS拒绝；分别下载胜方/败方，冻结演出不变。产品剧情两页选择不同分支，败方画面仍在choice，真实下载保留未提交分支；取消及明确重新读取采用胜方，不暗中覆盖。
+- 两条路径都在制偶改色后受控100ms经真实路由选分支；推进2500ms越过旧防抖/最长等待再刷新，节点、编辑色与冻结演出仍正确，saveRevision没有旧timer额外写入。100ms属于逻辑时间，不是用户墙钟测量。
+- typecheck、verify:state、审看册--check均退出0；独立只读复核未发现测试实质缺陷/假阳性。无需修改生产代码，复用91d5dbf生产包；index与五个现代入口JS的SHA匹配前次构建证据，未重跑无关单元、构建或全站。
+- 本轮属于T10期间验收准备；T10审看仍pending，T11/T13仍todo。没有真实IE/Android/iOS/Safari、崩溃/进程终止、性能/时长/听感或真人体验结论。
+
 ## 2026-10-15：1.0 文档阶段（历史记录）
 
 - 应用源码、`package.json`、运行服务和测试尚未建立。
