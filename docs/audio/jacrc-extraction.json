@@ -1,0 +1,44 @@
+{
+  "source": "https://zenodo.org/records/6536490",
+  "version": "2.0",
+  "license": "CC-BY-4.0",
+  "archive": "https://zenodo.org/api/records/6536490/files/JaCRC-recordings.zip/content",
+  "archiveBytes": 7113098439,
+  "sources": [
+    {
+      "id": "jinghu",
+      "offset": 2233860211,
+      "compressed": 33314180,
+      "raw": 36164088,
+      "crc": "6003b0b4",
+      "entry": "JaCRC-recordings/JaCRC-accompaniment-recordings/daspd-Hai_dao_bing-Gui_fei_zui_jiu-nacta-T-jh.wav",
+      "sha256": "0dc5bfc1f6460aa011a96aab4c06059d52d0f1a29e4000f226d7c03c43f5de4b"
+    },
+    {
+      "id": "vocal",
+      "offset": 497439024,
+      "compressed": 25082719,
+      "raw": 36164088,
+      "crc": "3ee791de",
+      "entry": "JaCRC-recordings/daspd-Hai_dao_bing-Gui_fei_zui_jiu-nacta-T.wav",
+      "sha256": "8189ad6f33abbf4779d7010bbb1c96a177a6040d7a29cd6676efb7d038226619"
+    }
+  ],
+  "processing": {
+    "background": "0-96s jinghu only; -22 LUFS, fades 1s/3s",
+    "curtain": "0-40s vocal + synchronized jinghu at .48; -20 LUFS, fades .8s/3s",
+    "encoding": "mono 44100Hz MP3 96kbps; metadata removed"
+  },
+  "files": [
+    {
+      "path": "audio/jinghu-instrumental.mp3",
+      "bytes": 1152670,
+      "sha256": "779a04ddeae102c9c3ffe033d56d132dc6ee8aeb39fe2ee23376fe2c22034006"
+    },
+    {
+      "path": "audio/jingju-curtain.mp3",
+      "bytes": 480906,
+      "sha256": "599d92370e817124f9921101c49f3cbd3f3376da0984aaab7b32a636c508b63c"
+    }
+  ]
+}

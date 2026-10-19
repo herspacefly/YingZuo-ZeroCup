@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { validateAssetCatalog } from '../src/content/asset-contract.ts';
 import { releaseProblems } from './review-gate.mjs';
+import { referencePuppets,referenceGeometry } from './art/reference-puppets.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const json = file => JSON.parse(readFileSync(path.join(root,file),'utf8'));
@@ -101,6 +102,16 @@ for(const puppet of catalog.puppets) for(const part of puppet.parts) {
       }else if(part.partId==='torso')check(!counts.has('0,255,0'),`torso cannot use sleeve slot: ${puppet.id}`);
       else check(editable.every(code=>code==='0,0,255'),`leg costume must use hem slot: ${puppet.id}/${part.partId}`);
     }
+  }
+}
+if(catalog.manifest.provenance.kind==='original-ai-reference-cutout'){
+  const samples=[['chenxiang-v1',334,200,false],['mother-v1',778,197,false],['guardian-v1',1324,183,false],['mother-v1',776,210,true],['guardian-v1',1318,186,true]];
+  for(const [role,x,y,keep]of samples){
+    const head=catalog.puppets.find(p=>p.id===role).parts.find(p=>p.partId==='head'),image=decoded.get(head.maskAssetId),spec=referencePuppets[role].pieces.head,g=referenceGeometry(spec);
+    const factor=(head.bounds.maxX-head.bounds.minX)/(g.bounds.maxX-g.bounds.minX);
+    const lx=g.s*((x-spec.a[0])*g.uy-(y-spec.a[1])*g.ux)*factor,ly=-g.s*((x-spec.a[0])*g.ux+(y-spec.a[1])*g.uy)*factor;
+    const px=Math.floor((lx-head.bounds.minX)/(head.bounds.maxX-head.bounds.minX)*image.width),py=Math.floor((head.bounds.maxY-ly)/(head.bounds.maxY-head.bounds.minY)*image.height),alpha=image.pixels[(py*image.width+px)*4+3];
+    check(keep?alpha>100:alpha<10,`neck paper/collar preservation ${role} source(${x},${y}) alpha=${alpha}`);
   }
 }
 const walk=directory=>readdirSync(directory,{withFileTypes:true}).flatMap(entry=>entry.isDirectory()?walk(path.join(directory,entry.name)):[path.join(directory,entry.name)]);

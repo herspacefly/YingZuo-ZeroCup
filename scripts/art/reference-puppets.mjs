@@ -48,6 +48,12 @@ referencePuppets['chenxiang-v1'].pieces.torso.polygons.push(
 referencePuppets['chenxiang-v1'].pieces.head.protectPolygons=[[[313,124],[338,128],[350,143],[354,151],[363,158],[365,166],[359,173],[361,182],[354,190],[345,191],[337,204],[325,214],[313,208],[308,191],[299,185],[292,177],[291,163],[297,151]]];
 referencePuppets['mother-v1'].pieces.head.protectPolygons=[[[761,126],[785,128],[798,139],[807,150],[812,158],[810,170],[800,174],[789,181],[780,204],[777,221],[764,227],[755,214],[754,195],[747,181],[742,169],[746,150]]];
 referencePuppets['guardian-v1'].pieces.head.protectPolygons=[[[1286,121],[1307,124],[1322,137],[1329,151],[1329,157],[1333,180],[1327,190],[1310,187],[1304,180],[1297,175],[1287,179],[1282,164],[1277,154],[1274,139]]];
+// These small source-paper wedges were accidentally inside the face protection.
+// Only release ivory pixels from protection: collar, beard and real amber skin
+// still survive the normal paper test. Do not change the rig/image bounds.
+referencePuppets['chenxiang-v1'].pieces.head.neckPaper=[325,190,345,214];
+referencePuppets['mother-v1'].pieces.head.neckPaper=[770,180,789,221];
+referencePuppets['guardian-v1'].pieces.head.neckPaper=[1307,172,1333,190];
 
 export function referenceGeometry(spec){
   const [ax,ay]=spec.a,dx=spec.b?spec.b[0]-ax:0,dy=spec.b?spec.b[1]-ay:1;
@@ -104,7 +110,9 @@ export function drawReferencePart(ctx,spec,image){
     const r=pixels.data[i],g=pixels.data[i+1],b=pixels.data[i+2];
     // The ivory paper is removed inside the measured silhouette too, retaining
     // actual pierced flowers. Amber skin, ochre leather and dark ink survive.
-    const protectedSkin=(piece.protectPolygons&&c.isPointInPath(protect,(i/4)%w,Math.floor(i/4/w)))||(spec.partId.endsWith('Forearm')&&r>g*1.12&&g>b*1.20);
+    const sx=x+(i/4)%w,sy=y+Math.floor(i/4/w),neck=piece.neckPaper;
+    const neckPaper=neck&&sx>=neck[0]&&sx<=neck[2]&&sy>=neck[1]&&sy<=neck[3];
+    const protectedSkin=!neckPaper&&((piece.protectPolygons&&c.isPointInPath(protect,(i/4)%w,Math.floor(i/4/w)))||(spec.partId.endsWith('Forearm')&&r>g*1.12&&g>b*1.20));
     if(!protectedSkin&&r>208&&g>180&&b>142&&r-g<48&&g-b<66){const keep=1-Math.min(1,Math.max(0,Math.min((r-208)/22,(g-180)/25,(b-142)/30)));pixels.data[i+3]=Math.round(pixels.data[i+3]*keep);}
     if(mode==='regions'&&pixels.data[i+3]){
       let code=[255,255,0];

@@ -44,7 +44,7 @@ export function validateStoryDefinition(definition: StoryDefinition,refs: StoryR
         }
       }
       const attachmentKeys=node.entryAttachments.map(a=>`${a.actorId}/${a.attachmentId}`);
-      const expectedAttachments=id==='guardian'?['guardian/staff']:['training','call-split','split-axe'].includes(id)?['chenxiang/axe']:[];
+      const expectedAttachments=id==='guardian'?['guardian/staff']:['training','call-split','split-axe'].includes(id)?['chenxiang/axe']:['call-light','split-search'].includes(id)?['chenxiang/lantern']:[];
       check(same(attachmentKeys,expectedAttachments),`story attachments ${id}`);
       for(const attachment of node.entryAttachments) {
         const template=refs.puppets.find(t=>t.id===`${attachment.actorId}-v1`),prop=template?.attachments.find(p=>p.id===attachment.attachmentId);

@@ -1,0 +1,188 @@
+{
+  "scope": "Functional checks only. First run had loading/flow timeouts and worker shutdown stalls; reported duration is anomalously long, with no verified root cause. Rerun results must be recorded separately; not cold-start/FPS/device/speaker acceptance.",
+  "buildIndexSha256": "dcb170539eb9e43f139e3624cca3ac8c99adc56a6ad9a06e4d8c12846436d0b1",
+  "initialRun": {
+    "total": 336,
+    "passed": 315,
+    "failed": 21,
+    "reportedDuration": "3.2h",
+    "otherErrors": 2,
+    "otherErrorsDescription": "worker-18 did not exit within 300000ms after stop; force-killed (reported twice)",
+    "defaultExpectationTimeoutMs": 5000,
+    "defaultTestTimeoutMs": 30000,
+    "failedTests": [
+      {
+        "project": "desktop-chromium",
+        "name": "art-audio.spec.ts >> a late native resume cannot revive an exited page or grant the next page sound",
+        "error": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('#story-runtime')\nExpected: \"paused\"\nReceived: \"loading\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\n  - waiting for locator('#story-runtime')\n    10 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-state=\"loading\" class=\"story-runtime\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:0:intro:1\">正在准备当前片段…</p>\n       - unexpected value \"loading\"",
+        "recordedRequests": 67,
+        "longestRecordedRequestMs": 5345.1
+      },
+      {
+        "project": "desktop-chromium",
+        "name": "art-audio.spec.ts >> a real context resume refusal is reported and explicit retry creates a working device",
+        "error": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('#story-runtime')\nExpected: \"paused\"\nReceived: \"loading\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\n  - waiting for locator('#story-runtime')\n    10 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-state=\"loading\" class=\"story-runtime\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:0:intro:1\">正在准备当前片段…</p>\n       - unexpected value \"loading\"",
+        "recordedRequests": 67,
+        "longestRecordedRequestMs": 4878.6
+      },
+      {
+        "project": "mobile-chromium",
+        "name": "art-audio.spec.ts >> missing audio capability leaves every scene control and subtitle available",
+        "error": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('#story-runtime')\nExpected: \"paused\"\nReceived: \"loading\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\n  - waiting for locator('#story-runtime')\n    9 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-state=\"loading\" class=\"story-runtime\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:0:intro:1\">正在准备当前片段…</p>\n      - unexpected value \"loading\"",
+        "recordedRequests": 67,
+        "longestRecordedRequestMs": 3897.3
+      },
+      {
+        "project": "desktop-chromium",
+        "name": "craft-light.spec.ts >> body trial mouse, keyboard and touch are reversible and never replace the saved practice pose",
+        "error": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('.canvas-stage-status')\nExpected: \"ready\"\nReceived: \"loading\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('.canvas-stage-status') with timeout 5000ms\n  - waiting for locator('.canvas-stage-status')\n    8 × locator resolved to <p role=\"status\" data-state=\"loading\" class=\"canvas-stage-status\">正在准备影偶与幕面…</p>\n      - unexpected value \"loading\"",
+        "recordedRequests": 66,
+        "longestRecordedRequestMs": 5763.1
+      },
+      {
+        "project": "desktop-chromium",
+        "name": "director.spec.ts >> guided intro has four timed shots and saves exactly once before craft",
+        "error": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('.canvas-stage-status')\nExpected: \"ready\"\nReceived: \"loading\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('.canvas-stage-status') with timeout 5000ms\n  - waiting for locator('.canvas-stage-status')\n    8 × locator resolved to <p role=\"status\" data-state=\"loading\" class=\"canvas-stage-status\">正在准备影偶与幕面…</p>\n      - unexpected value \"loading\"",
+        "recordedRequests": 67,
+        "longestRecordedRequestMs": 4880
+      },
+      {
+        "project": "desktop-chromium",
+        "name": "director.spec.ts >> ten route exits, reset and late callbacks leave one clock and release all scene listeners",
+        "error": "Test timeout of 30000ms exceeded.",
+        "recordedRequests": 50,
+        "longestRecordedRequestMs": 179.7
+      },
+      {
+        "project": "mobile-chromium",
+        "name": "director.spec.ts >> ten route exits, reset and late callbacks leave one clock and release all scene listeners",
+        "error": "Test timeout of 30000ms exceeded.",
+        "recordedRequests": 50,
+        "longestRecordedRequestMs": 1663.5
+      },
+      {
+        "project": "desktop-chromium",
+        "name": "result.spec.ts >> call-first replay is paused, follows only the saved branch and cannot edit the performance",
+        "error": "Test timeout of 30000ms exceeded.",
+        "recordedRequests": 89,
+        "longestRecordedRequestMs": 2108.9
+      },
+      {
+        "project": "mobile-chromium",
+        "name": "result.spec.ts >> PNG encoding rejection and browser refusal report failure, while JSON remains available",
+        "error": "Error: expect(locator).toContainText(expected) failed\n\nLocator: locator('#result-operation')\nExpected substring: \"浏览器拒绝\"\nReceived string:    \"正在生成 PNG…\"\nTimeout: 5000ms\n\nCall log:\n  - Expect \"toContainText\" locator('#result-operation') with timeout 5000ms\n  - waiting for locator('#result-operation')\n    13 × locator resolved to <p role=\"status\" id=\"result-operation\" class=\"selection-summary\">正在生成 PNG…</p>\n       - unexpected value \"正在生成 PNG…\"",
+        "recordedRequests": 67,
+        "longestRecordedRequestMs": 342.7
+      },
+      {
+        "project": "desktop-chromium",
+        "name": "result.spec.ts >> reduced motion uses explicit still steps and clears every replay callback on ten route exits",
+        "error": "Test timeout of 30000ms exceeded.",
+        "recordedRequests": 174,
+        "longestRecordedRequestMs": 940.1
+      },
+      {
+        "project": "mobile-chromium",
+        "name": "result.spec.ts >> reduced motion uses explicit still steps and clears every replay callback on ten route exits",
+        "error": "Test timeout of 30000ms exceeded.",
+        "recordedRequests": 137,
+        "longestRecordedRequestMs": 1689
+      },
+      {
+        "project": "mobile-chromium",
+        "name": "result.spec.ts >> SAVE-03 JSON into a fresh browser preserves result identity, frozen PNG and replay decisions",
+        "error": "Test timeout of 30000ms exceeded.",
+        "recordedRequests": 131,
+        "longestRecordedRequestMs": 2346
+      },
+      {
+        "project": "desktop-chromium",
+        "name": "result.spec.ts >> split-first replay is paused, follows only the saved branch and cannot edit the performance",
+        "error": "Test timeout of 30000ms exceeded.",
+        "recordedRequests": 90,
+        "longestRecordedRequestMs": 2731
+      },
+      {
+        "project": "mobile-chromium",
+        "name": "result.spec.ts >> split-first replay is paused, follows only the saved branch and cannot edit the performance",
+        "error": "Error: expect(locator).toBeEnabled() failed\n\nLocator:  locator('#result-png')\nExpected: enabled\nReceived: disabled\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toBeEnabled\" locator('#result-png') with timeout 5000ms\n  - waiting for locator('#result-png')\n    7 × locator resolved to <button disabled type=\"button\" id=\"result-png\" class=\"button primary\">下载团圆留影 PNG</button>\n      - unexpected value \"disabled\"",
+        "recordedRequests": 67,
+        "longestRecordedRequestMs": 4300.2
+      },
+      {
+        "project": "desktop-chromium",
+        "name": "story-and-resume.spec.ts >> explicit reduced-motion assistance, memory continuation and ten playing exits keep one clock",
+        "error": "Test timeout of 30000ms exceeded.",
+        "recordedRequests": 99,
+        "longestRecordedRequestMs": 3603.3
+      },
+      {
+        "project": "mobile-chromium",
+        "name": "story-and-resume.spec.ts >> explicit reduced-motion assistance, memory continuation and ten playing exits keep one clock",
+        "error": "Test timeout of 30000ms exceeded.",
+        "recordedRequests": 99,
+        "longestRecordedRequestMs": 3523.1
+      },
+      {
+        "project": "mobile-chromium",
+        "name": "story-and-resume.spec.ts >> export and clean-browser import preserve a graphical checkpoint while dropping transient light and pose",
+        "error": "Test timeout of 30000ms exceeded.",
+        "recordedRequests": 131,
+        "longestRecordedRequestMs": 1391.8
+      },
+      {
+        "project": "mobile-chromium",
+        "name": "story-and-resume.spec.ts >> legacy product accepts real keyboard axe input and the same guarded graphical transition",
+        "error": "Test timeout of 60000ms exceeded.",
+        "recordedRequests": 56,
+        "longestRecordedRequestMs": 179.3
+      },
+      {
+        "project": "desktop-chromium",
+        "name": "story-and-resume.spec.ts >> real mouse grip and native keyboard input can perform wave and body movement without editing the project",
+        "error": "Test timeout of 30000ms exceeded.",
+        "recordedRequests": 116,
+        "longestRecordedRequestMs": 1726.5
+      },
+      {
+        "project": "mobile-chromium",
+        "name": "story-and-resume.spec.ts >> real mouse grip and native keyboard input can perform wave and body movement without editing the project",
+        "error": "Test timeout of 30000ms exceeded.",
+        "recordedRequests": 116,
+        "longestRecordedRequestMs": 2873
+      },
+      {
+        "project": "desktop-chromium",
+        "name": "story-state.spec.ts >> guided/call-first uses the real text controls, commits one reunion and completes curtain",
+        "error": "Test timeout of 60000ms exceeded.",
+        "recordedRequests": 6,
+        "longestRecordedRequestMs": 335.2
+      }
+    ]
+  },
+  "retry": {
+    "workers": 1,
+    "expectationTimeoutMs": 15000,
+    "defaultTestTimeoutMs": 90000,
+    "existingPerTestTimeoutOverrides": "unchanged",
+    "applicationClockAndAssertions": "unchanged",
+    "stats": {
+      "startTime": "2026-10-19T06:05:34.302Z",
+      "duration": 172478.75100000002,
+      "expected": 21,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "errors": [],
+    "selectedPreviousFailures": 21
+  },
+  "result": {
+    "uniqueCases": 336,
+    "initiallyPassed": 315,
+    "retestedPassed": 21,
+    "remainingFailed": 0,
+    "singleCleanFullRun": false,
+    "performanceAcceptance": false
+  }
+}

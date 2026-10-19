@@ -6,7 +6,7 @@
     "tool": "Canvas2D / Chromium 156.0.8078.4",
     "intent": "按作者要求拆分本项目内置image_gen方向图docs/art/t10-art-direction.png（SHA256 a518985ab1ee8951c9e1eba372c95c10a135114da77da315b913615899056df6）；保留服饰、手型、笔触与背景，测量关节后绑定；背景亮度84%/饱和度76%，角色保留参考原色或用户配色，不作传统实物或特定流派复原。",
     "externalMedia": false,
-    "manualEdits": "Measured polygons, paper removal, source-image fragments and rig bindings in scripts/art/reference-*.mjs; props and user motifs remain original paths",
+    "manualEdits": "Measured polygons, neck-paper correction, source-image fragments and rig bindings in scripts/art/reference-*.mjs; three props use new matching AI plates t10-prop-direction-v2.png and t10-staff-direction-v2.png; user motifs remain original paths",
     "licenseNote": "设计稿；文化、设计及使用许可仍待实际作者审看，不代作者授予许可。"
   },
   "colorMapEncoding": {
@@ -90,7 +90,7 @@
       "license": "unknown",
       "credit": "影作AI方向图分件贴图设计稿",
       "reviewStatus": "draft",
-      "sha256": "b9861d6180163d747e34fd38e2cc06d894cc86eb342f9fd997d0fb4edc02e4b0"
+      "sha256": "e040a199fa61c8b7653714b95ff17d0dac17e895bce94e368398d705a528f7c3"
     },
     {
       "id": "chenxiang-v1-head-mask",
@@ -104,7 +104,7 @@
       "license": "unknown",
       "credit": "影作AI方向图分件贴图设计稿",
       "reviewStatus": "draft",
-      "sha256": "44389e369fdecff61f7647f96fa3ba45e5051df8845601101807a40c6b8bb0f8"
+      "sha256": "6d2590279df8d23dd5317d8ab17dad1e06655865579fe6ce73b41ea9a047fe07"
     },
     {
       "id": "chenxiang-v1-head-regions",
@@ -118,7 +118,7 @@
       "license": "unknown",
       "credit": "影作AI方向图分件贴图设计稿",
       "reviewStatus": "draft",
-      "sha256": "3062119c12de082529d57543a63d56f4743822d5f592946205db6492923072b2"
+      "sha256": "cc175e97dfeb2b2084662cec47df2aa65f216c2c6e1531a09c153fcce1990b57"
     },
     {
       "id": "chenxiang-v1-left-upper-arm-color",
@@ -510,7 +510,7 @@
       "license": "unknown",
       "credit": "影作AI方向图分件贴图设计稿",
       "reviewStatus": "draft",
-      "sha256": "f542874ad3f72e8c4ee7d05bbbb9e401b03223e4a5de02c45903ce98ab1e527e"
+      "sha256": "0d2b312548eb46c2f4a2ad9b4d4a9bad22e741118863c73b833ec5ed6350cb0f"
     },
     {
       "id": "mother-v1-head-mask",
@@ -524,7 +524,7 @@
       "license": "unknown",
       "credit": "影作AI方向图分件贴图设计稿",
       "reviewStatus": "draft",
-      "sha256": "98515df5e9f74f9c8e54621ba0a0b69c450943b8b223e4c6ed8e1874ccf4d795"
+      "sha256": "a1a95b78434adc057766b7b453602d19bef8b53ef13be03c376523f43af89a9e"
     },
     {
       "id": "mother-v1-head-regions",
@@ -538,7 +538,7 @@
       "license": "unknown",
       "credit": "影作AI方向图分件贴图设计稿",
       "reviewStatus": "draft",
-      "sha256": "6b7b2545fd80805ff8163776a651db2e370ca8641d1b462dd5710c471568f646"
+      "sha256": "809fb12ee63a6395546f63878d724e3c896e22c35d71e3bccba23e3abbd80a85"
     },
     {
       "id": "mother-v1-left-upper-arm-color",
@@ -762,7 +762,7 @@
       "license": "unknown",
       "credit": "影作AI方向图分件贴图设计稿",
       "reviewStatus": "draft",
-      "sha256": "50b09fe648ececca6fecb1f10d05b34db9c9eb8de443b6868889d3d28828e501"
+      "sha256": "7b5d0c078bd81c41888507cef9a53e7cc5799b3e12c8422e46ee89eeafba7f34"
     },
     {
       "id": "guardian-v1-head-mask",
@@ -776,7 +776,7 @@
       "license": "unknown",
       "credit": "影作AI方向图分件贴图设计稿",
       "reviewStatus": "draft",
-      "sha256": "d20fa887969390ae1cb8ce5a877c8cd4b537c5d0280ae469acb4a5e76acab0a8"
+      "sha256": "f60790959c4445e62abfe72de762d66525dc481e82b543a9eb431ad33b3c1713"
     },
     {
       "id": "guardian-v1-head-regions",
@@ -790,7 +790,7 @@
       "license": "unknown",
       "credit": "影作AI方向图分件贴图设计稿",
       "reviewStatus": "draft",
-      "sha256": "26125d96a36edb7afcffbe2820aa5830658491bf7d513ce3e6c364e08042b337"
+      "sha256": "77958dce0641784b8207c269a4b16b5d6917b7f08fecdca18f2e454787f288a9"
     },
     {
       "id": "guardian-v1-right-upper-arm-color",
@@ -880,29 +880,29 @@
       "id": "chenxiang-axe",
       "type": "prop",
       "path": "assets/puppets/chenxiang-axe.png",
-      "width": 244,
-      "height": 436,
+      "width": 304,
+      "height": 544,
       "usage": "attachment:chenxiang-axe",
-      "creator": "Codex / original Canvas2D prop and motif paths",
+      "creator": "Codex / project-owned AI direction plate and measured segmentation",
       "sourceUrl": "",
       "license": "unknown",
-      "credit": "影作原创附件与可刻纹样设计稿",
+      "credit": "影作AI方向图分件贴图设计稿",
       "reviewStatus": "draft",
-      "sha256": "3e3fe0d7b4c980f1755210309c87cf82a7ad0afdddd6fec8c55122f8727bded3"
+      "sha256": "d0c98425a2d5a62f8063fe5c8b414224b922fc41ba0bf511ae93eb1babc5f959"
     },
     {
       "id": "guardian-staff",
       "type": "prop",
       "path": "assets/puppets/guardian-staff.png",
-      "width": 244,
-      "height": 436,
+      "width": 304,
+      "height": 544,
       "usage": "attachment:guardian-staff",
-      "creator": "Codex / original Canvas2D prop and motif paths",
+      "creator": "Codex / project-owned AI direction plate and measured segmentation",
       "sourceUrl": "",
       "license": "unknown",
-      "credit": "影作原创附件与可刻纹样设计稿",
+      "credit": "影作AI方向图分件贴图设计稿",
       "reviewStatus": "draft",
-      "sha256": "ce3d33989db1d4db0a87a79def7610747beef77a1dcaddc58b4ab92e16a5f001"
+      "sha256": "1c206dd678463cc9f5eb2b0e65154874bb056ac797615e03312c2664a5f24cfd"
     },
     {
       "id": "cloud-v1-cut-1",
@@ -911,10 +911,10 @@
       "width": 256,
       "height": 512,
       "usage": "pattern:cloud-v1/segment:1",
-      "creator": "Codex / original Canvas2D prop and motif paths",
+      "creator": "Codex / original Canvas2D motif paths",
       "sourceUrl": "",
       "license": "unknown",
-      "credit": "影作原创附件与可刻纹样设计稿",
+      "credit": "影作原创可刻纹样设计稿",
       "reviewStatus": "draft",
       "sha256": "3059f377b00413fbaa8c7ce1f4ac1cd137cce3a73039f8db06e9f8ed3b7c22ea"
     },
@@ -925,10 +925,10 @@
       "width": 256,
       "height": 512,
       "usage": "pattern:cloud-v1/segment:2",
-      "creator": "Codex / original Canvas2D prop and motif paths",
+      "creator": "Codex / original Canvas2D motif paths",
       "sourceUrl": "",
       "license": "unknown",
-      "credit": "影作原创附件与可刻纹样设计稿",
+      "credit": "影作原创可刻纹样设计稿",
       "reviewStatus": "draft",
       "sha256": "9fda00cd8b0a692c1403dde96bd73f5b1e89cf503b4c5efd76e1ae86c3306742"
     },
@@ -939,10 +939,10 @@
       "width": 256,
       "height": 512,
       "usage": "pattern:cloud-v1/segment:3",
-      "creator": "Codex / original Canvas2D prop and motif paths",
+      "creator": "Codex / original Canvas2D motif paths",
       "sourceUrl": "",
       "license": "unknown",
-      "credit": "影作原创附件与可刻纹样设计稿",
+      "credit": "影作原创可刻纹样设计稿",
       "reviewStatus": "draft",
       "sha256": "6acc1e7df8f2afd7bd36731dcdfe07176b6054db8e61b6e441701e501c6816aa"
     },
@@ -953,10 +953,10 @@
       "width": 256,
       "height": 512,
       "usage": "pattern:wave-v1/segment:1",
-      "creator": "Codex / original Canvas2D prop and motif paths",
+      "creator": "Codex / original Canvas2D motif paths",
       "sourceUrl": "",
       "license": "unknown",
-      "credit": "影作原创附件与可刻纹样设计稿",
+      "credit": "影作原创可刻纹样设计稿",
       "reviewStatus": "draft",
       "sha256": "7da5109a5353e4f329db57ac600b87cac3aa37d57f6f2622c300f46523096726"
     },
@@ -967,10 +967,10 @@
       "width": 256,
       "height": 512,
       "usage": "pattern:wave-v1/segment:2",
-      "creator": "Codex / original Canvas2D prop and motif paths",
+      "creator": "Codex / original Canvas2D motif paths",
       "sourceUrl": "",
       "license": "unknown",
-      "credit": "影作原创附件与可刻纹样设计稿",
+      "credit": "影作原创可刻纹样设计稿",
       "reviewStatus": "draft",
       "sha256": "e213947969fa2c4c93263a1e4f93487fa8072b43675ecd0bc63d425e5c924158"
     },
@@ -981,10 +981,10 @@
       "width": 256,
       "height": 512,
       "usage": "pattern:wave-v1/segment:3",
-      "creator": "Codex / original Canvas2D prop and motif paths",
+      "creator": "Codex / original Canvas2D motif paths",
       "sourceUrl": "",
       "license": "unknown",
-      "credit": "影作原创附件与可刻纹样设计稿",
+      "credit": "影作原创可刻纹样设计稿",
       "reviewStatus": "draft",
       "sha256": "7fc6143c462a6e7bf4898cc09188468d14011ec4a23c18e4fbc5f0bf71b9fc5f"
     },
@@ -995,10 +995,10 @@
       "width": 256,
       "height": 512,
       "usage": "pattern:flower-v1/segment:1",
-      "creator": "Codex / original Canvas2D prop and motif paths",
+      "creator": "Codex / original Canvas2D motif paths",
       "sourceUrl": "",
       "license": "unknown",
-      "credit": "影作原创附件与可刻纹样设计稿",
+      "credit": "影作原创可刻纹样设计稿",
       "reviewStatus": "draft",
       "sha256": "0e2fc54b9e57d38a5b654ccc0cd87813453760e593d26ac85e87a9c7e6a8465f"
     },
@@ -1009,10 +1009,10 @@
       "width": 256,
       "height": 512,
       "usage": "pattern:flower-v1/segment:2",
-      "creator": "Codex / original Canvas2D prop and motif paths",
+      "creator": "Codex / original Canvas2D motif paths",
       "sourceUrl": "",
       "license": "unknown",
-      "credit": "影作原创附件与可刻纹样设计稿",
+      "credit": "影作原创可刻纹样设计稿",
       "reviewStatus": "draft",
       "sha256": "65eed11b6da7179ee6972fb83630aeb8870881e3773b7d9e133c81f3447c2044"
     },
@@ -1023,10 +1023,10 @@
       "width": 256,
       "height": 512,
       "usage": "pattern:flower-v1/segment:3",
-      "creator": "Codex / original Canvas2D prop and motif paths",
+      "creator": "Codex / original Canvas2D motif paths",
       "sourceUrl": "",
       "license": "unknown",
-      "credit": "影作原创附件与可刻纹样设计稿",
+      "credit": "影作原创可刻纹样设计稿",
       "reviewStatus": "draft",
       "sha256": "5cafeed9ae856ca34c65e796ad3843f6f5e4d0123b569c0819be7a65844171a8"
     },
@@ -1155,6 +1155,20 @@
       "credit": "影作AI方向图分件贴图设计稿",
       "reviewStatus": "draft",
       "sha256": "e2e8d74f188eb31873b6f687b805af11808253ab537ec9ee5582686e4361b8a1"
+    },
+    {
+      "id": "chenxiang-lantern",
+      "type": "prop",
+      "path": "assets/puppets/chenxiang-lantern.png",
+      "usage": "attachment:chenxiang-lantern",
+      "width": 244,
+      "height": 610,
+      "creator": "Codex / project-owned AI direction plate and measured segmentation",
+      "sourceUrl": "",
+      "license": "unknown",
+      "credit": "影作AI方向图分件贴图设计稿",
+      "reviewStatus": "draft",
+      "sha256": "49a6c44490feb00f2e15be90da9eaefd19d484eaa9036bb5a28c1e2e82da0811"
     }
   ]
 }

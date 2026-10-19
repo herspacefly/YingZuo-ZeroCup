@@ -1,6 +1,7 @@
 import type { EditorCommand } from './commands';
 import type { ProjectStore, SaveResult, StoreState } from './store';
 import type { AppRoute } from './router';
+import type { StageSoundSample } from '../audio/stage-sound';
 
 export interface PageContext {
   store: ProjectStore; route: AppRoute;
@@ -11,6 +12,7 @@ export interface PageContext {
   start(mode: 'full' | 'guided'): void;
   skipIntro(): void;
   notify(text: string): void;
+  musicSample?(sample: StageSoundSample | null): void;
   durable(job: () => Promise<SaveResult>, next?: AppRoute): Promise<void>;
 }
 export interface PageView { update(state: StoreState): void; dispose(): void }

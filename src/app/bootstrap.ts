@@ -6,6 +6,12 @@ import '../styles/museum.css';
 import '../styles/result.css';
 import '../styles/spatial.css';
 import '../styles/legacy.css';
+import '../styles/music.css';
+import musicCatalog from '../content/music.json';
+import { createStageMusic } from '../audio/stage-music';
+import { musicForScene } from '../audio/music-scene';
+import type { StageSoundSample } from '../audio/stage-sound';
+import type { MusicStatus } from '../audio/stage-music';
 import { createHashRouter } from './router';
 import type { AppRoute } from './router';
 import { openProjectSession } from './session';
@@ -42,6 +48,19 @@ const life = scope(), downloads: (() => void)[] = [];
 let store: ProjectStore | null = null, page: PageView | null = null;
 let router: ReturnType<typeof createHashRouter> | null = null, unsubscribe = () => {};
 let disposed = false, locked = false, current: AppRoute | null = null;
+let musicScene:StageSoundSample|null=null,musicFocused=true,musicState:MusicStatus['state']='muted';
+const musicButton=get<HTMLButtonElement>('site-music-toggle'),musicStatus=get<HTMLElement>('site-music-status');
+const music=createStageMusic(status=>{
+  if(disposed)return;musicState=status.state;musicStatus.textContent=status.message;musicStatus.setAttribute('data-state',status.state);musicStatus.setAttribute('data-track',status.trackId??'');
+  musicButton.textContent=status.state==='enabled'?'关闭戏曲音乐':status.state==='enabling'?'正在开启音乐…':'开启戏曲音乐';
+  musicButton.setAttribute('aria-pressed',String(status.state==='enabled'));musicButton.disabled=['unavailable','disposed'].includes(status.state);
+  get<HTMLElement>('site-music-credit').textContent=musicCatalog.tracks.find(t=>t.id===status.trackId)?.credit??'京胡器乐作背景，谢幕选用京剧唱段；静候时保留安静。';
+},{tracks:musicCatalog.tracks});
+function syncMusic(){music.update(musicForScene(musicScene,current?.path==='/story',musicFocused&&!document.hidden&&!disposed));}
+life.on(musicButton,'click',()=>{if(['enabled','enabling'].includes(musicState))music.mute();else{musicFocused=true;syncMusic();void music.enable();}});
+life.on(window,'blur',()=>{musicFocused=false;syncMusic();});
+life.on(window,'focus',()=>{musicFocused=true;syncMusic();});
+life.on(document,'visibilitychange',syncMusic);
 
 function notify(message: string) {
   if (disposed) return;
@@ -105,6 +124,7 @@ async function mount() {
   store = opened;
   get<HTMLElement>('app-runtime').setAttribute('data-entry', import.meta.env.LEGACY ? 'legacy' : 'modern');
   tools.hidden = false; menu.hidden = false; get<HTMLElement>('open-project-tools').hidden = false;
+  musicButton.hidden=false;get<HTMLElement>('site-music-panel').hidden=false;
   document.body.classList.add('app-ready');
   router = createHashRouter({
     read: () => window.location.hash,
@@ -116,9 +136,10 @@ async function mount() {
       notify('先处理待保存动作，再离开这一页。可以重试、导出或取消。'); showTools(true); return false;
     }
     const changed = !!current;
-    page?.dispose(); clear(host); current = parsed.route;
+    page?.dispose();musicScene=null;clear(host); current = parsed.route;syncMusic();
     const context: PageContext = {
       store: opened, route: parsed.route, navigate: route => router?.navigate(route), isBusy:()=>locked, run, durable, notify,
+      musicSample(sample){musicScene=sample;syncMusic();},
       edit(command) { void run(() => opened.edit(command)); },
       start(mode) {
         const story = opened.getState().project?.story;
@@ -177,7 +198,7 @@ async function mount() {
 
 function dispose() {
   if (disposed) return;
-  disposed = true; life.dispose(); router?.dispose(); page?.dispose(); unsubscribe();
+  disposed = true; life.dispose(); router?.dispose(); page?.dispose();music.dispose();unsubscribe();
   downloads.forEach(cleanup => cleanup()); store?.dispose();
 }
 window.addEventListener('pagehide', dispose);

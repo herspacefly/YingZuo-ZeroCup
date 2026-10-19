@@ -18,6 +18,7 @@ export function reviewSubjects(kind){
     ...json('src/content/exhibits.json').exhibits.map(item=>exhibitReviewSubject(item,sources)),
     ...json('src/content/facts.json').facts.map(item=>({id:'fact:'+item.id,sha256:digest([item,item.sourceIds.map(id=>sources.find(s=>s.id===id))]),rightsRequired:false})),
     {id:'sound:stage-v1',sha256:digest(readFileSync(new URL('src/audio/stage-sound.ts',root),'utf8')+readFileSync(new URL('src/content/sound-cues.ts',root),'utf8')),rightsRequired:true,license:'project-authorized'},
+    ...json('src/content/music.json').tracks.map(track=>({id:'music:'+track.id,sha256:digest([track,readFileSync(new URL('src/audio/music-scene.ts',root),'utf8'),readFileSync(new URL('src/audio/stage-music.ts',root),'utf8')]),rightsRequired:true,license:track.license})),
   ];
 }
 export function releaseProblems(kind){

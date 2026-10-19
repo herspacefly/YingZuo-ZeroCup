@@ -11,7 +11,7 @@ const pixels=(page: Page,id: string)=>page.locator(id).evaluate((canvas: HTMLCan
 test('all local assets decode and distinct neutral roles, cutouts and scenes draw',async({page})=>{
   const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto('/assets.html');await ready(page);
-  await expect(page.locator('#asset-status')).toContainText('80');
+  await expect(page.locator('#asset-status')).toContainText('81');
   const chen=await pixels(page,'#puppet-canvas');expect(chen.visible).toBeGreaterThan(15000);
   await page.locator('#carve').uncheck();expect((await pixels(page,'#puppet-canvas')).hash).not.toBe(chen.hash);
   await page.locator('#carve').check();await page.locator('#pattern').selectOption('wave-v1');

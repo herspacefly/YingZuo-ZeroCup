@@ -15,8 +15,10 @@
       <button id="menu-toggle" class="menu-toggle" aria-controls="primary-nav" aria-expanded="false" hidden>菜单</button>
       <nav id="primary-nav" class="site-nav" aria-label="主要导航"><a href="#/">剧场</a><a href="#/craft">制偶</a><a href="#/museum">展馆</a><a href="#/result">节目单</a><a href="#/about">关于</a></nav>
       <button id="open-project-tools" class="project-toggle" aria-controls="project-tools" aria-expanded="false" hidden>我的作品 <span id="save-state" role="status" data-state="loading">读取中</span></button>
+      <button id="site-music-toggle" class="music-toggle" type="button" aria-pressed="false" aria-describedby="site-music-status" hidden>开启戏曲音乐</button>
       <span id="app-runtime" hidden></span>
     </header>
+    <aside id="site-music-panel" class="site-music" aria-label="戏曲音乐" hidden><p id="site-music-status" role="status" data-state="muted">默认静音，可选择开启戏曲音乐。</p><p id="site-music-credit" class="music-credit"></p><a href="#/about">音乐来源与署名 ↗</a></aside>
     <div id="app-notice" class="app-notice" role="status" hidden></div>
     <div class="project-tools-wrap">
       <details id="project-tools" class="project-tools" hidden><summary>我的作品与保存</summary>
