@@ -13,6 +13,7 @@
 - 静态现代入口+4个modulepreload gzip103,597bytes，小于200KiB，逐文件/indexSHA见evidence/t10-frame-rate-entry-budget.json；完整结果与源码工作字节见evidence/t10-frame-rate-functional-checks.json。三维仍懒加载；构建大动态块提示不代表首入口超预算。
 - 两张新宽窄屏提示截图已目检，真实断言无横向溢出；14张回归改写的历史PNG恢复。test-results核对绝对路径/无reparse后逐项清理1文件0子目录，无额外临时脚本/工作树。用户DOCX/PPTX未读/未改/未提交，暂存blob原值。
 - 只读盘点17项P0中13项done，T10审看中、T11/T13/T14待正式验收/交付；P1录制/分享未启用。尚不能称全部完成。主方案旧实施状态与旧团队假设已按实际产品和唯一作者张宇翔（SpaceFly）校正。
+- 已验证源码16ec25ab89bbe2d029ac0adf5cee3679b8213d68；必要证据/dist保留，5173 HTTP200，4173最终回归已结束。任务状态与交接按此检查点同步，未推送远程。
 
 ## 2026-10-19 SAVE-02 / SAVE-07 / STORY-03 存档边界预检
 
