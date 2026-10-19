@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-18",
+  "updatedAt": "2026-10-19",
   "projectName": "影作·一幕团圆",
   "projectRoot": ".",
   "competitionGroup": "零组",
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T10_review_packet_ready_awaiting_author",
+  "stage": "T10_refined_art_and_opera_review",
   "activeTaskId": "T10",
-  "lastVerifiedCommit": "4eaede044c80afe730ad7f8e42eb8270d8a8576b",
+  "lastVerifiedCommit": "91d5dbf3ee370a8a2f16d7c10541cacd09f2bb76",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -583,14 +583,26 @@
         "scripts/build-review-packet.mjs",
         "docs/plans/2026-10-18-t10-review-packet.md",
         "scripts/inspect-build-budget.mjs",
-        "docs/acceptance/"
+        "docs/acceptance/",
+        "src/app/bootstrap.ts",
+        "src/app/view.ts",
+        "index.html",
+        "public/audio/",
+        "src/content/music.json",
+        "src/audio/stage-music.ts",
+        "scripts/verify-music.mjs",
+        "docs/contracts/music-v1.md",
+        "docs/plans/2026-10-18-t10-neck-props-music.md",
+        "src/audio/music-scene.ts",
+        "scripts/prepare-opera-music.mjs",
+        "docs/audio/"
       ],
       "acceptanceRefs": [
         "T10",
         "CULT-01"
       ],
-      "checkpointCommit": "4eaede044c80afe730ad7f8e42eb8270d8a8576b",
-      "nextAction": "审看册与内容核对/验收准备已完成，检查已发出的内容设计与本项目原创素材使用范围两项作者确认；有明确真实结论后登记对应证据，不能把“继续”当批准。未确认项保留pending；可先补SAVE-02关页和SAVE-07产品双标签/500ms边界预检，不提前将T11/T13标done。",
+      "checkpointCommit": "91d5dbf3ee370a8a2f16d7c10541cacd09f2bb76",
+      "nextAction": "作者三项修改已完成并复验，当前审看册130项/84图/2音乐，收集针对当前版的设计/文化和本项目原创素材使用范围明确结论；外部音乐公开CC许可已独立登记。可先准备SAVE-02关闭标签/加载窗口、SAVE-07产品双标签/500ms边界，不提前验收T11/T13；无新问题不再重复全量。不读DOCX/PPTX。",
       "blocker": null,
       "verification": [
         "2026-10-18: 343基线复现；新增18声音生命周期与4审看契约，最终30文件365/365通过，typecheck通过。",
@@ -618,7 +630,15 @@
         "2026-10-18审看册：SAVE/设备/性能准备表已列现有证据和缺口：关闭标签后新页恢复、保存后资源加载前关闭、产品双标签改色/推进及不足500ms选分支仍须补验；持续10秒低于24fps提示尚未实现。T11/T13保留todo，不跳依赖。",
         "2026-10-18审看册：127项仍全pending、0 granted，当前摘要均匹配；release资产/内容仍分别240/48待核并真实退出2。已发送内容/设计与本项目原创素材比赛使用范围两项作者确认，尚未收到明确结论；“继续”不视为批准。",
         "2026-10-18审看册：本轮无新工作树/依赖/美术资源或临时脚本；test-results核对绝对路径/无reparse后逐项清理1文件0子目录，目录不存在。历史截图无本轮差异。用户DOCX/PPTX未读未改未提交，暂存blob原值；5173仍HTTP200，4173回归预览结束。",
-        "2026-10-18审看册：已验证源码4eaede044c80afe730ad7f8e42eb8270d8a8576b，原参考分件视觉与业务生产逻辑保留。"
+        "2026-10-18审看册：已验证源码4eaede044c80afe730ad7f8e42eb8270d8a8576b，原参考分件视觉与业务生产逻辑保留。",
+        "2026-10-19修改反馈：三角色颈前纸底局部透明且衣领/胡须保留；细密斧/真正提灯/守关兵器两张AI源接入，旧80ID+新lantern共81图，call-light/split-search实际手持，其他人物/已压暗背景保留。",
+        "2026-10-19修改反馈：JaCRC v2.0 NACTA公开CC-BY-4.0京胡96秒/谢幕宋若萱唱段+京胡40秒入站，署名/来源/处理可查。严格Range两成员约58.4MB，CRC/WAV与MP3 SHA、完整解码及峰值通过；原WAV/空缓存删除。",
+        "2026-10-19修改反馈：33文件388/388单元1.92秒；最终build含typecheck118模块2分10秒，14legacy ES5/六HTML双入口通过；81PNG/颈部像素、18节点/两路径+八展品、音乐完整性及19任务检查通过。",
+        "2026-10-19修改反馈：最终336项首轮315通过/21失败，另两条worker退出超时，工具报告3.2小时含异常停顿，根因未证实。同包单工作进程21/21复验通过172.48秒，期望15秒/默认用例90秒，保留原显式上限、业务断言和时钟；不称一次全绿或性能通过。Chromium156.0.8078.4两视口，新音乐10项首轮通过。",
+        "2026-10-19修改反馈：生成器88文件重跑全字节一致；当前实际舞台/宽窄屏已目检，审看册130项/84图/2音频在HTTP桌面/file桌面/HTTP模拟手机验证搜索/筛选/全部图像/零业务存储/无溢出，原生控件播放96/40秒。概要图hash漏收和展开源图溢出修复，当前图字节变化触发STALE/1，恢复后通过。",
+        "2026-10-19修改反馈：130项摘要匹配、review全pending，仅2music公开CC rights granted；release资产/内容243/50待核，实际退出2。静态入口gzip102,878bytes小于200KiB，仅JS预算。",
+        "2026-10-19修改反馈：22历史PNG恢复；三临时文件与test-results的1文件0子目录按已核对路径/无reparse逐项清理。音乐贡献1dc06de723db564ad62700be6c0d197184f8dbc2集成，树干净无junction、归档queued/目录仍在。5173原服务不可达后重启会话11524，HTTP200；4173结束。",
+        "2026-10-19修改反馈：已验证源码91d5dbf3ee370a8a2f16d7c10541cacd09f2bb76；用户DOCX/PPTX未读未改未提交、暂存blob不变。T10仍in_progress，T11/T13仍todo。"
       ],
       "phase": "G3"
     },

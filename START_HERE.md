@@ -18,7 +18,7 @@
 4. 工程查 [主设计与实施方案](docs/plans/2026-10-15-yingzuo-design-and-implementation.md)；剧情、美术与展品查 [叙事执行稿](docs/content/2026-10-15-yingzuo-story-bible.md)。
 5. 做一个可检查的小步骤，更新 nextAction、实际验证和必要交接，再停止。
 
-**G2任务集齐备；审看册与验收准备已就绪。** [当前审看册](http://127.0.0.1:5173/docs/reviews/t10-review.html)可浏览127项内容、实际图像和来源；文件版见docs/reviews/t10-review.html。当前参考图美术保持原样，本轮补文化访问记录并通过12项内容/审看单元、4项展馆定向及最终构建。127项仍pending，已发出作者内容/设计和本项目素材使用范围两项确认，未收到明确答复；T10仍in_progress，T11/T13仍todo。SAVE、设备与性能缺口和记录模板见docs/acceptance/t11-readiness.md，实际边界见[状态](docs/STATE.md)。
+**G2任务集齐备；当前按作者审看意见修订T10。** 三个人物颈前纸底已局部剔除，斧/真正提灯/守关兵器已换为精细设计，网站已接入可手动开启的京胡器乐背景和谢幕京剧唱段，公开CC许可与署名可查。[当前审看册](http://127.0.0.1:5173/docs/reviews/t10-review.html)含130项，艺术/文化review仍pending，只有两条外部音乐的公开CC许可已独立登记。388单元、最终构建/ES5和81图/内容检查通过，336项浏览器首轮315通过、21项超时/异常停顿后单进程复验全通过；这是功能覆盖，非一次全绿或性能验收。当前预览、清理和源码检查点见[状态](docs/STATE.md)。T10仍in_progress，T11/T13仍todo；不把修改意见或“继续”当作者定稿批准。
 
 Canvas 2D 完整覆盖故事和展馆；Three.js 增强空间与材料。本地用户剧情恢复与开发者接手是两套机制，都必须完成。
 
@@ -26,4 +26,4 @@ Canvas 2D 完整覆盖故事和展馆；Three.js 增强空间与材料。本地�
 
 ## 新会话接续提示
 
-> 请继续本仓库《影作·一幕团圆》2.0。先读START_HERE.md、AGENTS.md、docs/STATE.md、docs/tasks.json，核对Git/暂存/端口；用户DOCX/PPTX不读不改不提交。当前源码4eaede044c80afe730ad7f8e42eb8270d8a8576b，T10只读审看册、文化后续访问核对与T11/SAVE/性能准备已就绪；实际美术仍为参考图分件+背景84%亮度/76%饱和度。node scripts/build-review-packet.mjs --check核对127项快照，当前全部pending；已向作者询问内容/设计与本项目原创素材比赛使用范围，检查明确答复后据真实证据登记，不把“继续”当批准。12单元、4项现代/legacy展馆定向、114模块46.23秒构建/ES5、80图/内容检查通过；审看页HTTP桌面/file桌面/HTTP模拟手机均127项83图且零业务存储调用。静态入口gzip99,815bytes不是冷启动/fps验收。SAVE-02关页/加载窗口及SAVE-07产品双标签/500ms精确E2E仍缺，可先预检准备，但T11/T13保留todo直到原依赖与真实环境验收满足。唯一成员张宇翔（SpaceFly），保持冻结/稳定节点/串行保存/唯一时钟及清理；P1仍G3后。5173实测HTTP200，临时文件已清理。
+> 请继续本仓库《影作·一幕团圆》2.0。先读START_HERE.md、AGENTS.md、docs/STATE.md、docs/tasks.json，核对Git/暂存/端口；用户DOCX/PPTX不读不改不提交。当前T10按作者意见完成颈前残片、精细斧/提灯/守关兵器与JaCRC v2.0公开CC京胡背景/谢幕唱段接入，130项review仍pending。当前已验证源码91d5dbf3ee370a8a2f16d7c10541cacd09f2bb76，388单元/最终构建通过，336项首轮315通过+21复验通过；实际边界以STATE为准，不把临时加载超时记为通过；node scripts/build-review-packet.mjs --check核对材料。音乐与合成音效两个开关独立、默认关闭，只有谢幕用人声，伸手和相见各自前两秒安静；不改唯一时钟或ProjectV1。唯一成员张宇翔（SpaceFly）。截图/摘要/临时文件清理及源码提交已完成；继续依T10审看和T11/SAVE、实体设备、T13真实时长/fps/听感准备推进；不跳依赖，不把“继续”当艺术/文化/原创素材权利批准。
