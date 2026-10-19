@@ -186,7 +186,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
       const rt:Runtime={entry,scene,scope:nodeScope,stage,shade,sample:initialSample,elapsed:0,playing:false,ready:false,requested:false,mode:project.story!.mode,clock:null!,controls:null,
         interaction:createNodeInteraction(entry.node),pose:clone(entry.node.entryPoses.chenxiang!),light:{lampX:entry.node.entryStage.lampX,puppetDistance:entry.node.entryStage.puppetDistance},operated:false,handOperated:false,reading:null,assistance:null,resolution:null,completed:null};
       rt.clock=createAnimationClock({request:callback=>window.requestAnimationFrame(callback),cancel:id=>window.cancelAnimationFrame(id),now:()=>performance.now()},delta=>tick(rt,delta),
-        fault=>stop(rt,fault.reason==='gap'?'页面停顿较久，已暂停；继续时不补算这段时间。':`片段已停止：${errorText(fault.error)}`));
+        fault=>stop(rt,fault.reason==='gap'?'页面停顿较久，已暂停；继续时不补算这段时间。':`片段已停止：${errorText(fault.error)}`),stage.frameObserver);
       live=rt;message='已恢复，暂停接续。';nodeScope.own(()=>rt.clock.dispose());
       nodeScope.listen(window,'blur',()=>{if(rt.playing)stop(rt,'已切换窗口，片段暂停。');});
       nodeScope.listen(document,'visibilitychange',()=>{if(document.hidden&&rt.playing)stop(rt,'页面已隐藏，片段暂停。');});

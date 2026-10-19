@@ -11,7 +11,7 @@ export function mountCanvasRenderer(host: HTMLElement, catalog: AssetCatalog, on
   const canvas=document.createElement('canvas'); canvas.className='shadow-stage'; canvas.setAttribute('role','img');
   canvas.setAttribute('aria-label','皮影舞台，人物与场景为原创皮影风格设计稿'); host.appendChild(canvas);
   const assets=new TextureCache(catalog.manifest), compositor=new PartCompositor(assets,catalog);
-  let ctx: CanvasRenderingContext2D | null = null, frame: CanvasFrame | null=null, generation=0, disposed=false, ready=false, draws=0;
+  let ctx: CanvasRenderingContext2D | null = null, frame: CanvasFrame | null=null, generation=0, disposed=false, ready=false, draws=0,lightweight=false;
   try { ctx=canvas.getContext('2d'); } catch { ctx=null; }
   function status(state: CanvasStatus['state'], message: string) {
     if (!disposed) { canvas.setAttribute('data-state',state); onStatus({state,message}); }
@@ -72,7 +72,7 @@ export function mountCanvasRenderer(host: HTMLElement, catalog: AssetCatalog, on
   function resize() {
     if(disposed) return;
     const bounds=host.getBoundingClientRect(), width=Math.max(1,host.clientWidth||bounds.width||1024), height=Math.max(1,host.clientHeight||bounds.height||width*.75);
-    const dpr=Math.min(window.devicePixelRatio||1,2), limit=width<=600?512:1024, ratio=Math.min(dpr,limit/width);
+    const dpr=Math.min(window.devicePixelRatio||1,lightweight?1:2), limit=lightweight||width<=600?512:1024, ratio=Math.min(dpr,limit/width);
     canvas.width=Math.max(1,Math.round(width*ratio)); canvas.height=Math.max(1,Math.round(height*ratio)); draw();
   }
   async function update(input: CanvasFrame) {
@@ -91,6 +91,7 @@ export function mountCanvasRenderer(host: HTMLElement, catalog: AssetCatalog, on
   const onResize=()=>resize(); window.addEventListener('resize',onResize);
   return {
     canvas, update, resize,
+    setLightweight(enabled:boolean) {if(disposed)return;lightweight=enabled;canvas.setAttribute('data-quality',enabled?'lightweight':'original');resize();},
     reset() { generation++;ready=false;frame=null;assets.clear();compositor.dispose();clear(); },
     pause() { /* No renderer clock exists; the future director controls elapsed time. */ },
     dispose() { if(disposed)return; disposed=true;generation++;window.removeEventListener('resize',onResize);assets.dispose();compositor.dispose();frame=null;canvas.width=canvas.height=0;if(canvas.parentNode)canvas.parentNode.removeChild(canvas);ctx=null; },

@@ -1,0 +1,235 @@
+{
+  "date": "2026-10-19",
+  "kind": "sustained-frame-rate-functional-checks",
+  "task": "T10",
+  "formalAcceptance": false,
+  "baseCheckpoint": "951f34f122ecc4839230ee6fa775e8d1b560613c",
+  "sourceWorkingBytes": [
+    {
+      "path": "src/app/animation-clock.ts",
+      "sha256": "f345aea0b6c4d610d009f0854519145d77d4d3d16d9a3cd6a85393ad717c00f9"
+    },
+    {
+      "path": "src/app/frame-rate-monitor.ts",
+      "sha256": "17dd14d0030b581dff311e5ebb0dc9375fca71c670a2a8a5a06f7e0ed3c18436"
+    },
+    {
+      "path": "src/features/shared/stage-performance.ts",
+      "sha256": "6e9d9879550ecf3576db796c354e98f8aba32aa05de9aceefd5077a013fdd93b"
+    },
+    {
+      "path": "src/features/shared/canvas-stage.ts",
+      "sha256": "59b4aac3e4e32c7931084c9b28cf58eb2bbe3cb6d0711b4a4eedb2941a02e164"
+    },
+    {
+      "path": "src/features/shared/spatial-stage.ts",
+      "sha256": "6313212adbaf622b2bc5b6ead5d1a87dc39725a2af9245576d35c7c06c314117"
+    },
+    {
+      "path": "src/features/story/controller.ts",
+      "sha256": "860d9c331ea69bb576475369192afe5a2de2b6189be8b2d7b8d7c290b2632c21"
+    },
+    {
+      "path": "src/features/practice/controller.ts",
+      "sha256": "e2ca2bf1bcea930fa733d1576d86e0243d2c220b46152c017e1aa9163ffbb0a3"
+    },
+    {
+      "path": "src/features/result/replay-view.ts",
+      "sha256": "49a7ef35686e155f127bf802f51fa3e5816103e7593d8793b289a3d003fa80d0"
+    },
+    {
+      "path": "src/renderers/canvas/renderer.ts",
+      "sha256": "8264041b419ae04c792bc4f6e488f6d3fa13e35a5ae1bda7cac01b38dfec787b"
+    },
+    {
+      "path": "src/styles/spatial.css",
+      "sha256": "240f3bb8318574029c0dfdd50edb7f43fdf64c59b07baff34104d5d9a3203309"
+    },
+    {
+      "path": "tests/unit/animation-clock.test.ts",
+      "sha256": "444ddab20c8949270036aa75f23a28954662283f0bdb88d37239b438deaff0ba"
+    },
+    {
+      "path": "tests/unit/frame-rate-monitor.test.ts",
+      "sha256": "a4e53b1e45e93a001c68806264a0d34e099f74d9abe70d3898aa0db322481a6b"
+    },
+    {
+      "path": "tests/e2e/frame-rate.spec.ts",
+      "sha256": "81560366035ddc0e2b70db38445b35d52ac6a9df07d34902394cef998cea0765"
+    }
+  ],
+  "implementation": {
+    "windowMs": 1000,
+    "slowFpsBelow": 24,
+    "continuousSlowMs": 10000,
+    "extraRAF": 0,
+    "extraTimer": 0,
+    "storageSchemaChanged": false,
+    "displayPreference": "in-document across scenes/routes; refresh resets; no ProjectV1 write"
+  },
+  "unit": {
+    "command": "npm test",
+    "exitCode": 0,
+    "files": 34,
+    "passed": 402,
+    "failed": 0,
+    "reportedSeconds": 3.16
+  },
+  "build": {
+    "command": "npm run build",
+    "exitCode": 0,
+    "typecheck": true,
+    "modules": 120,
+    "reportedSeconds": 17.92,
+    "indexSha256": "9120de5ce67c2db8c6d8815466d36d1ef0c75cd7f41a689b353eb8f2314956e0"
+  },
+  "e2e": {
+    "command": "npm run test:e2e -- tests/e2e/frame-rate.spec.ts tests/e2e/director.spec.ts tests/e2e/practice.spec.ts tests/e2e/result.spec.ts tests/e2e/three-stage.spec.ts tests/e2e/site-music.spec.ts tests/e2e/story-and-resume.spec.ts tests/e2e/craft-light.spec.ts --workers=1 --timeout=90000",
+    "exitCode": 0,
+    "passed": 188,
+    "failed": 0,
+    "retries": 0,
+    "workers": 1,
+    "reporterDuration": "5.6m",
+    "lastRun": {
+      "status": "passed",
+      "failedTests": []
+    },
+    "browser": "Chromium",
+    "browserVersion": "156.0.8078.4",
+    "projects": [
+      {
+        "name": "desktop-chromium",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "passed": 94
+      },
+      {
+        "name": "mobile-chromium",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "passed": 94
+      }
+    ],
+    "newFrameRateCases": 14,
+    "existingRelevantRegressionCases": 174,
+    "defaultExpectationMs": 5000,
+    "defaultTestTimeoutMs": 90000,
+    "explicitExistingTestLimitsUnchanged": true
+  },
+  "earlierRuns": [
+    {
+      "scope": "initial frame-rate implementation",
+      "passed": 14,
+      "duration": "24.0s",
+      "note": "Before independent review found inherited-quality button-state P2."
+    },
+    {
+      "scope": "intermediate 174-case regression",
+      "completed": false,
+      "observedPassedBeforeInterrupt": 29,
+      "note": "Explicitly interrupted to fix review P2; not counted as a completed run."
+    }
+  ],
+  "checks": [
+    {
+      "command": "npm run verify:legacy",
+      "exitCode": 0,
+      "es5Chunks": 14,
+      "htmlPages": 6,
+      "realIE": false
+    },
+    {
+      "command": "npm run verify:assets",
+      "exitCode": 0,
+      "pngs": 81
+    },
+    {
+      "command": "npm run verify:content",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run verify:state",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/build-review-packet.mjs --check",
+      "exitCode": 0,
+      "snapshot": "8123e59ec836a86e796b473d46cf3a76447d5369bacc2079a89b6285c096a2ce"
+    }
+  ],
+  "staticEntryBudget": {
+    "kind": "static-modern-entry",
+    "indexSha256": "9120de5ce67c2db8c6d8815466d36d1ef0c75cd7f41a689b353eb8f2314956e0",
+    "files": [
+      {
+        "path": "assets/main-3TS738zX.js",
+        "bytes": 191892,
+        "gzipBytes": 68934,
+        "sha256": "170baf06561a2d8b7705f9be2e544dc65f3a17c17af4075bc09a4e742b566eed"
+      },
+      {
+        "path": "assets/modulepreload-polyfill-YP0FEG5d.js",
+        "bytes": 704,
+        "gzipBytes": 392,
+        "sha256": "31191979ee8bf30912f8bb8eae8348182f37e999c8deb54095682926b9435fe3"
+      },
+      {
+        "path": "assets/store-CmBRR5uH.js",
+        "bytes": 31540,
+        "gzipBytes": 10734,
+        "sha256": "db86d80e955c9405fddd73a25c5c0019665d79b770ab7aa51ef290b4018393dc"
+      },
+      {
+        "path": "assets/story-commands-CfriWGNr.js",
+        "bytes": 57477,
+        "gzipBytes": 6712,
+        "sha256": "d700c5370c434a4e60c0913dbf1038db36ca3d8ff3110566894c6f4e40496364"
+      },
+      {
+        "path": "assets/sources-BHoi9DF9.js",
+        "bytes": 70779,
+        "gzipBytes": 16825,
+        "sha256": "0cc68b1d5e6a6c1dbcb5b4135f6b2946782f4a057a0b0bdda3dd50af6c1b9dea"
+      }
+    ],
+    "gzipBytes": 103597,
+    "budgetBytes": 204800,
+    "withinBudget": true,
+    "scope": "Only modern entry and explicit modulepreload JS in dist/index.html. Lazy chunks, images, fonts and CSS are excluded. This is not a cold-start, network, FPS, memory, IE or device acceptance result."
+  },
+  "visualEvidence": [
+    {
+      "path": "docs/evidence/t10-frame-rate-desktop.png",
+      "sha256": "f56576ee94e8ee2962b41ea2eeaceaccbe8aa051a6c844ef8d7e6ada0f4606c3",
+      "visuallyInspected": true
+    },
+    {
+      "path": "docs/evidence/t10-frame-rate-mobile.png",
+      "sha256": "89bdfb6d5cdaf7ffba3436b3c799c3a7c6e0d7a9346aecd654fdee2aff596e41",
+      "visuallyInspected": true
+    }
+  ],
+  "independentReview": [
+    {
+      "priority": "P1",
+      "finding": "Shared disposal used Element.remove unavailable in IE11",
+      "resolution": "parentNode.removeChild; real route disposal with Element.prototype.remove deleted passes."
+    },
+    {
+      "priority": "P2",
+      "finding": "Inherited lightweight then restored could show a suggestion with stale hidden buttons",
+      "resolution": "Suggestion explicitly resets action visibility; expanded inherited/restore/slow/reselect flow passes both viewports."
+    }
+  ],
+  "limitations": [
+    "The 20/24fps and 10s thresholds are controlled functional inputs, not real device FPS or an improvement benchmark.",
+    "No real IE/Android/iOS/Safari, cold-start network or full-duration/loudspeaker/user-study acceptance.",
+    "188 relevant cases are not a rerun of every site test; prior SAVE preflight remains scoped evidence.",
+    "T10 author review remains pending; T11/T13/T14 not complete; P1 recording/sharing not enabled."
+  ]
+}

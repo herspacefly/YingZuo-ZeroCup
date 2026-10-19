@@ -9,6 +9,7 @@ import { mountCanvasRenderer } from '../../renderers/canvas/renderer';
 import type { CanvasFrame, CanvasStatus } from '../../renderers/canvas/types';
 import { append, element, scope } from './dom';
 import { mountSpatialStage } from './spatial-stage';
+import { mountStagePerformance } from './stage-performance';
 
 export function editorFrame(project: ProjectV1, duet = false, showRods = false): CanvasFrame {
   const stage={...project.stage}, pose={...project.pose,joints:{...project.pose.joints}};
@@ -51,9 +52,10 @@ export function canvasStage(caption: string) {
     currentStatus=update;spatial?.update(last,update.state);listeners.forEach(listener=>listener(update));
   });
   spatial=mountSpatialStage(figure,renderer.canvas);
+  const performance=mountStagePerformance(foot,enabled=>{spatial!.setLightweight(enabled);renderer.setLightweight(enabled);});
   life.on(retry,'click',()=>{if(last)void renderer.update(last);});
   return {
-    figure,canvas:renderer.canvas,screen,
+    figure,canvas:renderer.canvas,screen,frameObserver:performance.observer,
     resize:()=>renderer.resize(),
     retry(){if(!disposed&&last)void renderer.update(last);},
     getStatus:()=>({...currentStatus}),
@@ -67,6 +69,6 @@ export function canvasStage(caption: string) {
       figure.hidden=!frame;
       if(frame)void renderer.update(frame);else {renderer.reset();spatial.update(null,'loading');currentStatus={state:'loading',message:'幕面已清空。'};listeners.forEach(listener=>listener(currentStatus));}
     },
-    dispose() { disposed=true;last=null;signature='';listeners.clear();life.dispose();spatial.dispose();renderer.pause();renderer.dispose(); },
+    dispose() { disposed=true;last=null;signature='';listeners.clear();life.dispose();performance.dispose();spatial.dispose();renderer.pause();renderer.dispose(); },
   };
 }

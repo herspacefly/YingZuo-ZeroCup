@@ -10,6 +10,8 @@ app/capabilities的纯函数spatialCapability接收legacy/webgl2/width及可选d
 
 四机位workshop/front/backstage/exhibit分别为工坊近景/幕前/幕后/展台。原生按钮可聚焦，aria-pressed标记当前机位；直接切换，无补间、OrbitControls或额外RAF。展台附同一E01—E08展签链接，知识不依赖三维命中或漫游。操偶仍在原二维幕面进行，空间相机不改变投影、杆位置或剧情完成条件。
 
+2026-10-19补frame-rate-v1：用户明确选择轻量二维后，shared/spatial-stage.setLightweight(true)释放当前空间、使迟到加载失效并禁用展开；同一document内新短幕/路由继承该偏好。恢复原画质只恢复准入，用户另行展开空间，不自动建新上下文；偏好不进入ProjectV1。
+
 ## Renderer
 
 mountThreeStage(host,sourceCanvas,options,onStatus)返回canvas/update(frame):Promise<void>/setView(view)/resize/dispose。options为pixelRatio/maxWidth/textureSize；status为loading/ready/error/lost及真实message。调用方只在二维已ready后传当前纯CanvasFrame；sourceCanvas为该帧实际二维输出。Renderer复制并校验frame，不拥有Store、剧情命令、演出时钟或输入事件。

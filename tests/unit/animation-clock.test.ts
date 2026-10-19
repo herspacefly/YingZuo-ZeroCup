@@ -1,14 +1,31 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createAnimationClock } from '../../src/app/animation-clock';
+import type { FrameObserver } from '../../src/app/animation-clock';
 
-function setup(tick = (_delta:number)=>true) {
+function setup(tick = (_delta:number)=>true,observer?:FrameObserver) {
   let time=100,id=0;const callbacks=new Map<number,(time:number)=>void>(),cancelled:number[]=[];
   const fault=vi.fn(),spy=vi.fn(tick),clock=createAnimationClock({now:()=>time,
-    request(callback){callbacks.set(++id,callback);return id;},cancel(key){cancelled.push(key);callbacks.delete(key);}},spy,fault);
+    request(callback){callbacks.set(++id,callback);return id;},cancel(key){cancelled.push(key);callbacks.delete(key);}},spy,fault,observer);
   function frame(delta:number) {time+=delta;const [key,callback]=callbacks.entries().next().value!;callbacks.delete(key);callback(time);}
   return {clock,callbacks,cancelled,fault,spy,frame,setTime(value:number){time=value;}};
 }
 describe('unique disposable animation clock',()=>{
+  it('samples performance through the same live clock and resets across pauses, gaps and disposal',()=>{
+    const observer={frame:vi.fn(),reset:vi.fn()},s=setup(()=>true,observer);
+    s.clock.start();s.clock.start();expect(observer.reset).toHaveBeenCalledTimes(1);
+    const late=s.callbacks.values().next().value!;s.frame(50);expect(observer.frame).toHaveBeenLastCalledWith(50);
+    s.clock.stop();s.setTime(10_000);s.clock.start();late(20_000);
+    expect(observer.frame).toHaveBeenCalledTimes(1);expect(s.callbacks.size).toBe(1);
+    s.frame(100);s.frame(251);expect(observer.frame.mock.calls).toEqual([[50],[100]]);
+    expect(s.clock.running).toBe(false);expect(observer.reset).toHaveBeenCalledTimes(4);
+    s.clock.dispose();s.clock.start();expect(s.callbacks.size).toBe(0);
+  });
+  it('does not sample a frame whose consumer stopped, finished or threw',()=>{
+    const observer={frame:vi.fn(),reset:vi.fn()},ended=setup(()=>false,observer);ended.clock.start();ended.frame(50);
+    const stopped=setup(()=>{stopped.clock.stop();return true;},observer);stopped.clock.start();stopped.frame(50);
+    const failed=setup(()=>{throw new Error('render failure');},observer);failed.clock.start();failed.frame(50);
+    expect(observer.frame).not.toHaveBeenCalled();
+  });
   it('repeated starts keep one callback and accumulate actual 60/120 Hz time equally',()=>{
     for(const hz of [60,120]){let elapsed=0;const s=setup(delta=>{elapsed+=delta;return true;});s.clock.start();s.clock.start();
       for(let i=0;i<hz;i++){expect(s.callbacks.size).toBe(1);s.frame(1000/hz);}

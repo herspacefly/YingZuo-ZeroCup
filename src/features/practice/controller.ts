@@ -83,7 +83,7 @@ export function mountPracticeController(panel:HTMLElement,stage:ReturnType<typeo
     else if(keys.size){const vector={x:0,y:0};for(const key of keys){vector.x+=directions[key]!.x;vector.y+=directions[key]!.y;}
       const length=Math.hypot(vector.x,vector.y);if(length)applyFit(moveRodBy(template,pose,project!.stage,selected,{x:vector.x/length*.4*delta/1000,y:vector.y/length*.4*delta/1000},attachments()));}
     submit(false);return playing||keys.size>0;
-  },fault=>{stop(fault.reason==='gap'?'页面停顿较久，已暂停；继续时不补算这段时间。':`动作已停止：${fault.error instanceof Error?fault.error.message:String(fault.error)}`);});
+  },fault=>{stop(fault.reason==='gap'?'页面停顿较久，已暂停；继续时不补算这段时间。':`动作已停止：${fault.error instanceof Error?fault.error.message:String(fault.error)}`);},stage.frameObserver);
 
   function submit(flush:boolean,allowBusy=false,force=false,explicitSave=false) {
     if(disposed||!project||!state||state.hasPending||(!allowBusy&&ctx.isBusy())||ctx.store.getState().project?.projectId!==projectId)return;

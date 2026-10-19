@@ -22,7 +22,7 @@ export function mountReunionReplay(host:HTMLElement,project:ProjectV1){
   const media=window.matchMedia?.('(prefers-reduced-motion: reduce)');let reduced=media?.matches??false;
   const clock=createAnimationClock({request:cb=>requestAnimationFrame(cb),cancel:id=>cancelAnimationFrame(id),now:()=>performance.now()},delta=>{
     if(disposed||blocked||!ready||!playing)return false;advance(delta);return playing;
-  },fault=>{stop(fault.reason==='gap'?'页面停顿较久，已暂停重演。':`重演暂停：${fault.error instanceof Error?fault.error.message:String(fault.error)}`);});
+  },fault=>{stop(fault.reason==='gap'?'页面停顿较久，已暂停重演。':`重演暂停：${fault.error instanceof Error?fault.error.message:String(fault.error)}`);},stage.frameObserver);
   function controls(){
     if(disposed)return;const end=index===replay.segments.length-1&&elapsed>=replay.segments[index]!.durationMs;
     play.disabled=blocked||!ready||playing||end||reduced;pause.disabled=!playing;

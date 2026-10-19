@@ -22,13 +22,13 @@ export function mountSpatialStage(figure:HTMLElement,source:HTMLCanvasElement){
   const close=element('button','button secondary spatial-close','只看二维幕面');close.type='button';
   append(panel,mount,controls,exhibits,element('p','quiet-note','空间模型为本作示意，影偶、刻纹与灯位沿用上方这张幕。操作仍在二维幕面完成，切换观察机位不会改变演出。'),close);
   append(root,toggle,status,panel);figure.appendChild(root);
-  let disposed=false,expanded=false,loading=false,originReady=false,last:CanvasFrame|null=null,stage:SpatialStage|null=null,generation=0,view:StageView='front';
+  let disposed=false,expanded=false,loading=false,originReady=false,last:CanvasFrame|null=null,stage:SpatialStage|null=null,generation=0,view:StageView='front',lightweight=false;
   function capability(){
     const hints=navigator as Navigator&{deviceMemory?:number;connection?:{saveData?:boolean}};
     return spatialCapability({legacy:!!import.meta.env.LEGACY,webgl2:typeof window.WebGL2RenderingContext==='function',width:window.innerWidth,deviceMemory:hints.deviceMemory,hardwareConcurrency:navigator.hardwareConcurrency,saveData:hints.connection?.saveData,dpr:window.devicePixelRatio});
   }
   function sync(){
-    const eligible=capability().eligible;toggle.disabled=!eligible||!originReady;toggle.textContent=expanded?'收起空间观察':root.getAttribute('data-state')==='error'?'重试空间观察':'展开戏台空间';toggle.setAttribute('aria-expanded',String(expanded));
+    const eligible=capability().eligible;toggle.disabled=!eligible||!originReady||lightweight;toggle.textContent=expanded?'收起空间观察':root.getAttribute('data-state')==='error'?'重试空间观察':'展开戏台空间';toggle.setAttribute('aria-expanded',String(expanded));
     for(const [key,button]of viewButtons){button.disabled=!stage||!originReady;button.setAttribute('aria-pressed',String(key===view));}exhibits.hidden=view!=='exhibit';
   }
   function shutdown(){generation++;loading=false;stage?.dispose();stage=null;while(mount.firstChild)mount.removeChild(mount.firstChild);expanded=false;panel.hidden=true;}
@@ -38,7 +38,7 @@ export function mountSpatialStage(figure:HTMLElement,source:HTMLCanvasElement){
     void current.update(last).catch(error=>{if(!disposed&&token===generation)fail(error instanceof Error?error.message:String(error));});
   }
   async function open(){
-    if(disposed||loading||!originReady||!last||!capability().eligible)return;
+    if(disposed||lightweight||loading||!originReady||!last||!capability().eligible)return;
     const token=++generation;let moduleLoaded=false;expanded=true;loading=true;panel.hidden=false;root.setAttribute('data-state','loading');status.textContent='正在展开这张幕的背面…';sync();
     try{
       const module=await import('../../renderers/three/renderer');
@@ -58,6 +58,10 @@ export function mountSpatialStage(figure:HTMLElement,source:HTMLCanvasElement){
   for(const [key,button]of viewButtons)life.on(button,'click',()=>{if(!stage||!originReady)return;view=key;try{stage.setView(key);sync();}catch(error){fail(error instanceof Error?error.message:String(error));}});
   const eligibility=capability();status.textContent=eligibility.eligible?'从幕前走到背面，看灯、薄片与操偶杆。':eligibility.reason;sync();
   return {
+    setLightweight(enabled:boolean){
+      if(disposed)return;lightweight=enabled;shutdown();root.setAttribute('data-state','closed');
+      status.textContent=enabled?'轻量二维已启用，恢复原画质后可展开空间。':capability().reason;sync();
+    },
     update(frame:CanvasFrame|null,state:CanvasStatus['state']){
       if(disposed)return;originReady=state==='ready'&&!!frame&&source.width>0;last=frame?JSON.parse(JSON.stringify(frame)) as CanvasFrame:null;
       if(!frame){shutdown();root.setAttribute('data-state','closed');}
