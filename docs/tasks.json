@@ -9,7 +9,7 @@
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
   "stage": "T10_loading_target_and_backdrop_reuse",
   "activeTaskId": "T10",
-  "lastVerifiedCommit": "feed67a40caccbce0c7c97b275c0a3652199d561",
+  "lastVerifiedCommit": "6770fa0cf50a94abb95a7a4552e085429d19d0db",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -637,7 +637,7 @@
         "T10",
         "CULT-01"
       ],
-      "checkpointCommit": "feed67a40caccbce0c7c97b275c0a3652199d561",
+      "checkpointCommit": "6770fa0cf50a94abb95a7a4552e085429d19d0db",
       "nextAction": "15秒实际加载与原尺寸背景复用预检已完成，素材完整保留；核对本轮真实源码检查点，无新疑点不重复415/284/121及16次加载检查。继续当前艺术/文化/原创使用范围正式审看，再按依赖完成实体设备/性能时长听感/3位体验/交付；软件GPU工坊短窗口仍单列，图片2MiB不再阻塞，P1未启用。",
       "blocker": null,
       "verification": [
@@ -693,7 +693,8 @@
         "2026-10-20背景复用：8图片冷context实测现代最差4,090.9ms、PNG兼容5,675.8ms，8原生音乐起播最差546.1ms，均通过15秒目标。首页最差本机130ms/5Mbps+150ms614.5ms；PNG3,157,934bytes历史参考false但不再阻塞。音乐限网只buffered约8.3—8.9秒，不称整曲下载/听感；每条件1次，不称性能分布。",
         "2026-10-20背景复用：当前130review仍pending、2music rights独立granted；release资产/内容243/50待核，实际子进程退出2，未随体积政策取消审看。T10/T11/T13/T14未完成。",
         "2026-10-20背景复用：最终同一生产包276/276核心E2E首轮通过638.63秒，零重试/跳过/失败，桌面1440x900与模拟390x844各138；加新增缓存8项共284唯一用例。覆盖制偶/灯控、两模式两路手动/协助/键盘、恢复、展馆/成果、音乐和Three生命周期；受控时间不代表真实性能时长，legacy仅Chromium冒烟。",
-        "2026-10-20背景复用：实际旧/新包最终121组整幅Canvas RGBA一致（62桌面/59窄屏），含六类场面/动态山尘、四背景/灯距、三纹样两配色及奇数视口；工具早轮询/resize诊断保留。临时基线181文件9子目录/13,890,938bytes及test-results的1文件0子目录按已核对绝对路径/无reparse清理，18历史PNG恢复；5173重启会话26056，首页/审看页HTTP200，用户START_HERE及暂存文档blob保留。"
+        "2026-10-20背景复用：实际旧/新包最终121组整幅Canvas RGBA一致（62桌面/59窄屏），含六类场面/动态山尘、四背景/灯距、三纹样两配色及奇数视口；工具早轮询/resize诊断保留。临时基线181文件9子目录/13,890,938bytes及test-results的1文件0子目录按已核对绝对路径/无reparse清理，18历史PNG恢复；5173重启会话26056，首页/审看页HTTP200，用户START_HERE及暂存文档blob保留。",
+        "2026-10-20背景复用：已验证源码6770fa0cf50a94abb95a7a4552e085429d19d0db；明确40文件提交排除用户START_HERE和两份暂存文档。最终独立证据复核确认12源码摘要、构建、121像素/284唯一用例/16加载记录一致，无阻塞；清理已完成，P0状态不提升。"
       ],
       "phase": "G3"
     },

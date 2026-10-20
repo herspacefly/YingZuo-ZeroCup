@@ -1,57 +1,69 @@
 {
   "kind": "T10-loading-target-and-backdrop-checkpoint",
   "recordedAtMachineUTC": "2026-10-20T09:48:04.913Z",
-  "codeSourceCommit": null,
+  "codeSourceCommit": "6770fa0cf50a94abb95a7a4552e085429d19d0db",
   "baseCommit": "7f65a85bc9439d0365002777c5367b0522b049b7",
   "productionIndexSha256": "e56a16591eb33a2c1badeaafb9408e2f841e37834dffbef5219ae313bb53317b",
   "sourceFiles": [
     {
       "path": "src/features/shared/canvas-stage.ts",
-      "sha256": "bc3da20ed3d1b088fceac6e63a7f1c00db8f714c3bd9258aca0cacc8d506ca6d"
+      "sha256": "bc3da20ed3d1b088fceac6e63a7f1c00db8f714c3bd9258aca0cacc8d506ca6d",
+      "committedBlobSHA1": "d158272d3b24c6749bb987854cb9fcb29f0cdfae"
     },
     {
       "path": "src/features/story/controller.ts",
-      "sha256": "47ee971634b50bdcb72cc4452c5e64bc83b6ecbb1f373adaee166aa6eff2769a"
+      "sha256": "47ee971634b50bdcb72cc4452c5e64bc83b6ecbb1f373adaee166aa6eff2769a",
+      "committedBlobSHA1": "5e10ac4daa3f559f959e25a586a814654f6435a9"
     },
     {
       "path": "src/renderers/canvas/renderer.ts",
-      "sha256": "c0d2c0fe50c8b1e7e844c210eb22d17c2083e21a2539b26bce88a89b75f003c6"
+      "sha256": "c0d2c0fe50c8b1e7e844c210eb22d17c2083e21a2539b26bce88a89b75f003c6",
+      "committedBlobSHA1": "d5f560a2013a24e5b83a589e4d33456f7f7e59c4"
     },
     {
       "path": "src/renderers/canvas/backdrop-cache.ts",
-      "sha256": "e0b02f25f610ac13d32ed44be052619c3ce6c50971efa93e5b409dd321983698"
+      "sha256": "e0b02f25f610ac13d32ed44be052619c3ce6c50971efa93e5b409dd321983698",
+      "committedBlobSHA1": "eea89616c4bd2f4613fced4d9306b6f99c2dbbb1"
     },
     {
       "path": "tests/e2e/backdrop-cache.spec.ts",
-      "sha256": "47b822173e4c83f6fd1b4368d9354c3f115eb21629278325c01d3859ebc1e4a5"
+      "sha256": "47b822173e4c83f6fd1b4368d9354c3f115eb21629278325c01d3859ebc1e4a5",
+      "committedBlobSHA1": "cfb5b0c86d910a2d3ee14ad4c73b7523cbf97cc0"
     },
     {
       "path": "scripts/art/loading-policy.mjs",
-      "sha256": "5b4e5c2a301a0576a7cce8d34eb3c3878b9bebdb950726aec184b6e6e0347d87"
+      "sha256": "5b4e5c2a301a0576a7cce8d34eb3c3878b9bebdb950726aec184b6e6e0347d87",
+      "committedBlobSHA1": "3449db89aed6a4168b440d35de84f4252a999553"
     },
     {
       "path": "scripts/art/startup-budget.mjs",
-      "sha256": "e53be681d6107ce00dfcd04a812e648c15d85ad1376cd0b38518c0df512308a2"
+      "sha256": "e53be681d6107ce00dfcd04a812e648c15d85ad1376cd0b38518c0df512308a2",
+      "committedBlobSHA1": "0b8ebbe6fbd3a691c5acd16f9f81ea7dae9f2e5c"
     },
     {
       "path": "scripts/measure-startup.mjs",
-      "sha256": "68cd9f2a40e75d36cb91442b27102f67db2b35c24bbcc60d07931d68bda91818"
+      "sha256": "68cd9f2a40e75d36cb91442b27102f67db2b35c24bbcc60d07931d68bda91818",
+      "committedBlobSHA1": "c21998504fb1bca53b80e5290f46745827358834"
     },
     {
       "path": "scripts/measure-music-load.mjs",
-      "sha256": "6b1593d78d3295d629626ac50f14f48bea9aef0a312c1f8b2cc9b71c106887e9"
+      "sha256": "6b1593d78d3295d629626ac50f14f48bea9aef0a312c1f8b2cc9b71c106887e9",
+      "committedBlobSHA1": "ab93af67fb557879786432c7b81eff77eeb8edbb"
     },
     {
       "path": "scripts/measure-runtime.mjs",
-      "sha256": "9975abeb9e1a527dbb9b58b700062691438858b88c91eb54484976cf573ce3a4"
+      "sha256": "9975abeb9e1a527dbb9b58b700062691438858b88c91eb54484976cf573ce3a4",
+      "committedBlobSHA1": "d2e711a6367235ae3aecb41c0742d716ea2d1f01"
     },
     {
       "path": "scripts/verify-canvas-equivalence.mjs",
-      "sha256": "44e6fe29dd02765285e487189745e79750b5860d65ee8d5e1a66359dd161d91e"
+      "sha256": "44e6fe29dd02765285e487189745e79750b5860d65ee8d5e1a66359dd161d91e",
+      "committedBlobSHA1": "34529346b27e08069c6d514dde0a4d58ce6f07ea"
     },
     {
       "path": "scripts/verify-assets.mjs",
-      "sha256": "4a174d73e057bb083f60fd3387125c2aa65fbea96d739c6664998b639f68c681"
+      "sha256": "4a174d73e057bb083f60fd3387125c2aa65fbea96d739c6664998b639f68c681",
+      "committedBlobSHA1": "c966d3fb5ebd008322b4c21ee67691484dc63c35"
     }
   ],
   "unit": {
@@ -309,7 +321,8 @@
   },
   "independentReview": {
     "implementation": "No reproducible defect or required gap found in cache/status/control/Three lifecycle review; read-only, no parallel browser load.",
-    "timing": "No blocking false-readiness or obsolete byte gate found. Canvas readiness relies on renderer post-draw status with positive dimensions; no separate pixel-read assertion in the loading probe. Native music progression, not enabled preference or complete download."
+    "timing": "No blocking false-readiness or obsolete byte gate found. Canvas readiness relies on renderer post-draw status with positive dimensions; no separate pixel-read assertion in the loading probe. Native music progression, not enabled preference or complete download.",
+    "finalEvidence": "12 source/script hashes match; final build, 121 pixel pairs, 284 unique tests, 8 image and 8 media samples, runtime shortfall and cleanup independently cross-checked without a blocking inconsistency."
   },
   "dev": {
     "sessionId": 26056,
@@ -326,5 +339,6 @@
   "assets": {
     "sourceAndPublicWorkingTreeDiff": false,
     "notes": "Existing canonical/delivery images, music and manifests unchanged; no repeat of generator/pixel-decoder reproducibility without new concern."
-  }
+  },
+  "sourceFingerprintScope": "SHA256 values describe measured working bytes; committedBlobSHA1 binds Git-normalized source at the recorded checkpoint."
 }
