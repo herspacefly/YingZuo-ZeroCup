@@ -31,6 +31,26 @@ npm run verify:content
 
 `test:e2e` 会启动生产预览服务，占用 4173 端口；请先停止该端口上的其他预览服务。测试含 1440×900 与 390×844 Chromium 视口，手机视口属于模拟。测试截图和失败诊断写到忽略的 `test-results/`。T00 已保留两张[桌面](docs/evidence/t00-desktop.png)／[窄屏](docs/evidence/t00-mobile.png)检查截图。
 
+环境整场预检独立运行，不包含在默认 `test:e2e` 中：
+
+```powershell
+npx playwright test -c playwright.environment.config.ts
+```
+
+该配置覆盖1920×1080、1024×768，以及减少动态且禁用WebGL的1440×900/390×844；每种环境分别走完整/导览与先呼唤/先开山。实际阻断外部HTTP，保留本地服务，检查音乐、展馆、成果与恢复。剧情时间受控，窄屏拖动使用鼠标，不能据此声称真实时长、触屏或实体设备通过。可用 `--project=reduce-mobile` 等选定配置。
+
+生产包测量与无损素材复核使用独立脚本：
+
+```powershell
+node scripts/measure-startup.mjs --output docs/evidence/startup-optimized.json
+node scripts/measure-startup.mjs --samples 1 --force-png --output docs/evidence/startup-png-compatibility.json
+node scripts/measure-runtime.mjs
+node scripts/verify-delivery-assets.mjs --pixels
+node scripts/verify-art-reproducibility.mjs
+```
+
+测量脚本自行启动私有预览并关闭，不与其他浏览器测试并行运行。启动测量默认12次冷context，区分首页可操作与点击后序幕就绪；`--pattern wave-v1 --samples 1`另测预置草稿纹样。runtime使用原生时钟和实际绘制计数，软件GPU结果不代表物理显示帧率。PNG兼容路径资源超预算、当前软件GPU帧率低于目标时脚本真实退出1，详见[当前预检结果](docs/acceptance/startup-and-environment-preflight.md)。生成器复现额外需要FFmpeg 9（含libwebp）和Playwright Chromium；运行应用及普通静态素材校验无需FFmpeg。
+
 `verify:assets`检查实际PNG、引用、CSV与哈希；`verify:content`检查18节点图、两条路径、角色/附件/姿态/图层、字幕时间基准、五区八件字数与事实/来源映射。开发结构有效时通过。两项加`-- --release`还检查[逐项审看记录](docs/reviews/README.md)、内容和证据SHA及具体权利记录；当前未审定项目明确NOT_READY/退出码2，不能把结构通过当作正式发布批准。
 
 ```powershell

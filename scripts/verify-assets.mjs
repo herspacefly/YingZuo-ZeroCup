@@ -5,6 +5,8 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { validateAssetCatalog } from '../src/content/asset-contract.ts';
 import { releaseProblems } from './review-gate.mjs';
+import { startupAssetBudget } from './art/startup-budget.mjs';
+import { deliveryFiles } from './art/delivery-files.mjs';
 import { referencePuppets,referenceGeometry } from './art/reference-puppets.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
@@ -17,6 +19,8 @@ const catalog = {
   puppets: ['chenxiang-v1','mother-v1','guardian-v1'].map(id => json(`src/content/puppets/${id}.json`)),
 };
 const errors = validateAssetCatalog(catalog);
+errors.push(...deliveryFiles(root,json('src/content/delivery.json'),catalog.manifest).errors);
+for(const row of startupAssetBudget(root).rows)if(!row.modernWithinBudget)errors.push(`Modern intro image budget exceeded: ${row.pattern}, ${row.modernBytes}`);
 const check = (ok, message) => { if (!ok) errors.push(message); };
 const columns = ['id','type','path','creator','sourceUrl','license','credit','usage','reviewStatus','sha256'];
 const rows = readFileSync(path.join(root,'docs/assets.csv'),'utf8').trimEnd().split(/\r?\n/);

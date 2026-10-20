@@ -35,8 +35,18 @@ describe('unique disposable animation clock',()=>{
     const s=setup();s.clock.start();const late=s.callbacks.values().next().value!;s.frame(20);s.clock.stop();s.setTime(9000);s.clock.start();
     late(9500);expect(s.callbacks.size).toBe(1);expect(s.spy).toHaveBeenCalledTimes(1);s.frame(15);expect(s.spy).toHaveBeenLastCalledWith(15);
   });
-  it.each([251,NaN,-1])('pauses on invalid or excessive delta %s without ticking',delta=>{
+  it.each([251,NaN])('pauses on invalid or excessive delta %s without ticking',delta=>{
     const s=setup();s.clock.start();s.frame(delta);expect(s.spy).not.toHaveBeenCalled();expect(s.fault).toHaveBeenCalledWith({reason:'gap'});expect(s.clock.running).toBe(false);expect(s.callbacks.size).toBe(0);
+  });
+  it('ignores an initial native RAF timestamp before the play click without moving its baseline or sampling FPS',()=>{
+    const observer={frame:vi.fn(),reset:vi.fn()},s=setup(()=>true,observer);s.clock.start();s.frame(-3);
+    expect(s.clock.running).toBe(true);expect(s.callbacks.size).toBe(1);expect(s.spy).not.toHaveBeenCalled();expect(observer.frame).not.toHaveBeenCalled();expect(s.fault).not.toHaveBeenCalled();
+    s.frame(20);expect(s.spy).toHaveBeenLastCalledWith(17);expect(observer.frame).toHaveBeenLastCalledWith(17);
+    s.clock.stop();s.setTime(1000);s.clock.start();s.frame(-2);s.frame(10);expect(s.spy).toHaveBeenLastCalledWith(8);expect(s.fault).not.toHaveBeenCalled();
+  });
+  it('still rejects a backwards timestamp after the initial native-frame allowance',()=>{
+    for(const first of [5,-3]){const s=setup();s.clock.start();s.frame(first);s.spy.mockClear();s.frame(-1);
+      expect(s.spy).not.toHaveBeenCalled();expect(s.fault).toHaveBeenCalledExactlyOnceWith({reason:'gap'});expect(s.clock.running).toBe(false);expect(s.callbacks.size).toBe(0);}
   });
   it('allows exactly 250 ms and stopping inside tick cannot restart a second loop',()=>{
     const s=setup(()=>{s.clock.stop();return true;});s.clock.start();s.frame(250);expect(s.spy).toHaveBeenCalledWith(250);expect(s.callbacks.size).toBe(0);

@@ -119,7 +119,7 @@ test('a normal route autosave never interrupts the playing scene',async({page})=
 });
 
 test('incoming resource error retains the previous canvas and subtitles and retry swaps only when ready',async({page})=>{
-  let fail=true;await page.route('**/assets/puppets/guardian-v1/head-mask.png',route=>fail?route.abort():route.continue());
+  let fail=true;await page.route(/\/assets\/(?:puppets\/guardian-v1\/head-color\.png|delivery\/guardian-v1-head-color\.webp)(?:\?|$)/,route=>fail?route.abort():route.continue());
   await fakeClock(page);await seed(page,at('training'));await page.goto('/#/story');await ready(page);await page.locator('#story-play').click();await advance(page,12000);
   await expect(node(page)).toHaveAttribute('data-node','guardian');await expect(node(page)).toHaveAttribute('data-state','error');await expect(page.locator('.shadow-stage')).toBeVisible();await expect(page.locator('.shadow-stage')).toHaveAttribute('data-actors','chenxiang');
   await expect(page.locator('#story-shot')).toContainText('得斧');const before=await hash(page),cues=await page.locator('#story-subtitles').textContent();await advance(page,5000);expect(await hash(page)).toBe(before);expect(await page.locator('#story-subtitles').textContent()).toBe(cues);
@@ -139,7 +139,7 @@ test('ten route exits, reset and late callbacks leave one clock and release all 
 
 test('a late incoming texture after route exit cannot restore the old canvas or advance again',async({page})=>{
   let release!:()=>void;const held=new Promise<void>(resolve=>{release=resolve;});let entered!:()=>void;const requested=new Promise<void>(resolve=>{entered=resolve;});
-  await page.route('**/assets/puppets/guardian-v1/head-mask.png',async route=>{entered();await held;await route.continue().catch(()=>{});});
+  await page.route(/\/assets\/(?:puppets\/guardian-v1\/head-color\.png|delivery\/guardian-v1-head-color\.webp)(?:\?|$)/,async route=>{entered();await held;await route.continue().catch(()=>{});});
   await fakeClock(page);await seed(page,at('training'));await page.goto('/#/story');await ready(page);const old=await page.locator('.shadow-stage').elementHandle();
   await page.locator('#story-play').click();await advance(page,12000);await requested;await expect(node(page)).toHaveAttribute('data-state','loading');
   await go(page,'/museum');release();await page.evaluate(()=>Reflect.get(window,'__late')());await expect(page.locator('.shadow-stage')).toHaveCount(0);

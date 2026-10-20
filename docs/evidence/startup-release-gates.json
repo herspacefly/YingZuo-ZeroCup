@@ -1,0 +1,28 @@
+{
+  "kind": "read-only-release-readiness",
+  "recordedAtMachineUTC": "2026-10-20T00:47:21.998Z",
+  "expectedExitCode": 2,
+  "reason": "Formal author art/culture/original rights are pending; continue is not approval.",
+  "rows": [
+    {
+      "script": "scripts/verify-assets.mjs",
+      "args": [
+        "--release"
+      ],
+      "exitCode": 2,
+      "signal": null,
+      "stdout": "",
+      "stderr": "NOT_READY: 243 release review/rights items pending:\nasset:chenxiang-v1-torso-color: author review pending\nasset:chenxiang-v1-torso-color: rights evidence pending\nasset:chenxiang-v1-torso-mask: author review pending\nasset:chenxiang-v1-torso-mask: rights evidence pending\nasset:chenxiang-v1-torso-regions: author review pending\nasset:chenxiang-v1-torso-regions: rights evidence pending\nasset:chenxiang-v1-head-color: author review pending\nasset:chenxiang-v1-head-color: rights evidence pending\n"
+    },
+    {
+      "script": "scripts/verify-content.mjs",
+      "args": [
+        "--release"
+      ],
+      "exitCode": 2,
+      "signal": null,
+      "stdout": "",
+      "stderr": "NOT_READY: 50 author review/rights items pending:\nstory:intro: author review pending\nstory:craft: author review pending\nstory:memory-wave: author review pending\nstory:memory-separate: author review pending\nstory:road: author review pending\nstory:training: author review pending\nstory:guardian: author review pending\nstory:approach-choice: author review pending\n"
+    }
+  ]
+}

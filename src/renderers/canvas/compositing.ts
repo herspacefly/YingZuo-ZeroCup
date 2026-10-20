@@ -23,14 +23,13 @@ export class PartCompositor {
     const key = `${actor.actorId}/${part.partId}`, cached = this.parts.get(key);
     if (cached?.signature === signature) return cached.canvas;
     if (cached) { cached.canvas.width = cached.canvas.height = 0; this.parts.delete(key); }
-    const source = this.assets.get(part.colorAssetId), mask = this.assets.get(part.maskAssetId), map = this.assets.get(part.colorMapAssetId);
-    const { canvas, context } = canvas2D(source.naturalWidth, source.naturalHeight);
+    const source = this.assets.get(part.colorAssetId), map = this.assets.get(part.colorMapAssetId);
+    const width=source.naturalWidth,height=source.naturalHeight;
+    const { canvas, context } = canvas2D(width, height);
     try {
       context.drawImage(source,0,0); const color = context.getImageData(0,0,canvas.width,canvas.height);
       context.clearRect(0,0,canvas.width,canvas.height); context.drawImage(map,0,0);
       const regions = context.getImageData(0,0,canvas.width,canvas.height).data;
-      context.clearRect(0,0,canvas.width,canvas.height); context.drawImage(mask,0,0);
-      const alpha = context.getImageData(0,0,canvas.width,canvas.height).data;
       const palette = this.catalog.palettes.palettes.find(item => item.id === paletteId);
       if (!palette) throw new Error(`没有这套配色：${paletteId}`);
       const colors = palette.colors.map(rgb), codes = new Map([['255,0,0',slots.body],['0,255,0',slots.sleeve],['0,0,255',slots.hem]]);
@@ -38,8 +37,8 @@ export class PartCompositor {
       if (!baseline) throw new Error(`没有来源配色：${template.defaultPaletteId}`);
       const bases = baseline.colors.map(rgb), baseCodes = new Map([['255,0,0',0],['0,255,0',1],['0,0,255',2]]);
       for (let i=0;i<color.data.length;i+=4) {
-        color.data[i+3] = alpha[i+3]!;
-        if (!alpha[i+3]) continue;
+        // This embedded alpha is independently checked against the retained canonical mask.
+        if (!color.data[i+3]) continue;
         const code = `${regions[i]},${regions[i+1]},${regions[i+2]}`;
         if (code === '255,255,0') continue; // fixed source pixels, including outlines.
         const index = codes.get(code), replacement = index === undefined ? undefined : colors[index];

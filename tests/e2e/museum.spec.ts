@@ -129,7 +129,7 @@ test('importing a different frozen cast clears the old temporary experiment and 
 test('failed exhibit images retry for real and late images cannot restore an exited stage',async({page})=>{
   let mode:'missing'|'ready'|'held'='missing',release!:()=>void,entered!:()=>void;
   const held=new Promise<void>(resolve=>{release=resolve;}),requested=new Promise<void>(resolve=>{entered=resolve;});
-  await page.route('**/assets/puppets/chenxiang-v1/head-mask.png*',async route=>{if(mode==='missing'){await route.abort();return;}if(mode==='held'){entered();await held;}try{await route.continue();}catch(error){if(!page.isClosed())throw error;}});
+  await page.route(/\/assets\/(?:puppets\/chenxiang-v1\/head-color\.png|delivery\/chenxiang-v1-head-color\.webp)(?:\?|$)/,async route=>{if(mode==='missing'){await route.abort();return;}if(mode==='held'){entered();await held;}try{await route.continue();}catch(error){if(!page.isClosed())throw error;}});
   await seed(page,fixture);await page.goto('/#/museum/E02');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','error');await page.locator('#exhibit-reading-toggle').click();await expect(page.locator('#exhibit-reading')).toBeVisible();
   mode='ready';await page.getByRole('button',{name:'重试幕面',exact:true}).click();await ready(page);
   mode='held';await page.reload({waitUntil:'domcontentloaded'});await requested;const old=await page.locator('.shadow-stage').elementHandle();await go(page,'/museum/E06');release();await expect(page.locator('.shadow-stage')).toHaveCount(0);expect(await old!.evaluate((canvas:HTMLCanvasElement)=>[canvas.isConnected,canvas.width,canvas.height])).toEqual([false,0,0]);await saved(page);expect((await stored(page)).story).toEqual(fixture.story);

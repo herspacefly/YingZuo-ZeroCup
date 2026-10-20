@@ -41,9 +41,9 @@ test('paused story uses its node scene, props and frozen cast independently of e
   const draws=await page.locator('.shadow-stage').getAttribute('data-draws');await page.waitForTimeout(150);expect(await page.locator('.shadow-stage').getAttribute('data-draws')).toBe(draws);
   await expect(page.locator('#app-view')).toContainText('开头的静止画面');
 });
-test('missing mask fails visibly with a blank canvas and retry restores both actors',async({page})=>{
-  let blocked=true;await page.route('**/assets/puppets/mother-v1/head-mask.png',route=>blocked?route.abort():route.continue());
-  await page.goto('/#/craft');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','error');await expect(page.locator('.canvas-stage-status')).toContainText('mother-v1-head-mask');
+test('missing color image fails visibly with a blank canvas and retry restores both actors',async({page})=>{
+  let blocked=true;await page.route(/\/assets\/(?:puppets\/mother-v1\/head-color\.png|delivery\/mother-v1-head-color\.webp)(?:\?|$)/,route=>blocked?route.abort():route.continue());
+  await page.goto('/#/craft');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','error');await expect(page.locator('.canvas-stage-status')).toContainText('mother-v1-head-color');
   expect((await pixels(page)).opaque).toBe(0);await expect(page.locator('.shadow-stage')).toBeHidden();
   blocked=false;await page.getByRole('button',{name:'重试幕面',exact:true}).click();await ready(page);await expect(page.locator('.shadow-stage')).toBeVisible();
 });
@@ -62,10 +62,10 @@ test('Canvas failure leaves the editor and story text available without false re
   await expect(page.getByLabel('衣上的纹样')).toBeEnabled();await expect(page.locator('#app-view h1')).toBeVisible();await expect(page.locator('.shadow-stage')).toBeHidden();
 });
 test('a drawing failure clears cached images and retry reads fresh sources',async({page})=>{
-  let requests=0;await page.route('**/assets/puppets/chenxiang-v1/head-color.png*',route=>{requests++;return route.continue();});
+  let requests=0;await page.route(/\/assets\/(?:puppets\/chenxiang-v1\/head-color\.png|delivery\/chenxiang-v1-head-color\.webp)(?:\?|$)/,route=>{requests++;return route.continue();});
   await page.addInitScript(()=>{
     const read=CanvasRenderingContext2D.prototype.getImageData;let fail=true;
-    CanvasRenderingContext2D.prototype.getImageData=function(...args:Parameters<typeof read>) {if(fail){fail=false;throw new Error('Injected pixel read failure');}return read.apply(this,args);};
+    CanvasRenderingContext2D.prototype.getImageData=function(...args:Parameters<typeof read>) {if(fail && this.canvas.width>2){fail=false;throw new Error('Injected pixel read failure');}return read.apply(this,args);};
   });
   await page.goto('/#/craft');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','error');
   await expect(page.locator('.canvas-stage-status')).toContainText('Injected pixel read failure');const before=requests;
@@ -79,7 +79,7 @@ test('late images and ten remounts leave one canvas and no detached drawing or r
     Object.defineProperty(window,'__resizeCount',{get:()=>active.size});
   });
   let release!:()=>void;const held=new Promise<void>(resolve=>{release=resolve;});let entered!:()=>void;const requested=new Promise<void>(resolve=>{entered=resolve;});
-  await page.route('**/assets/puppets/chenxiang-v1/head-mask.png',async route=>{entered();await held;await route.continue().catch(()=>{});});
+  await page.route(/\/assets\/(?:puppets\/chenxiang-v1\/head-color\.png|delivery\/chenxiang-v1-head-color\.webp)(?:\?|$)/,async route=>{entered();await held;await route.continue().catch(()=>{});});
   await page.goto('/#/craft');await requested;const old=await page.locator('.shadow-stage').elementHandle();
   await page.evaluate(()=>{location.hash='#/museum';});await expect(page.locator('#app-view')).toHaveAttribute('data-route','/museum');release();
   expect(await old!.evaluate((canvas:HTMLCanvasElement)=>({connected:canvas.isConnected,width:canvas.width,height:canvas.height}))).toEqual({connected:false,width:0,height:0});

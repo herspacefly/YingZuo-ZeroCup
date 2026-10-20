@@ -174,7 +174,7 @@ for (const mode of ['full', 'guided'] as const) {
   test(`${mode}: close after the guardian checkpoint commits while its required image is still loading`, async ({ page, context }) => {
     let requested = false;
     // Leave this response pending until page.close aborts it; page routes are not inherited by the new page.
-    await page.route('**/assets/puppets/guardian-v1/head-mask.png', () => { requested = true; });
+    await page.route(/\/assets\/(?:puppets\/guardian-v1\/head-color\.png|delivery\/guardian-v1-head-color\.webp)(?:\?|$)/, () => { requested = true; });
     await directorClock(page);
     const project = at('training', mode); await seed(page, project); await page.goto('/#/story'); await ready(page, 'training');
     await page.locator('#story-play').click();

@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-19",
+  "updatedAt": "2026-10-20",
   "projectName": "影作·一幕团圆",
   "projectRoot": ".",
   "competitionGroup": "零组",
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T10_art_review_after_frame_rate",
+  "stage": "T10_startup_and_environment_preflight",
   "activeTaskId": "T10",
   "lastVerifiedCommit": "16ec25ab89bbe2d029ac0adf5cee3679b8213d68",
   "features": {
@@ -601,14 +601,37 @@
         "src/app/frame-rate-monitor.ts",
         "src/app/animation-clock.ts",
         "src/features/practice/controller.ts",
-        "src/features/result/replay-view.ts"
+        "src/features/result/replay-view.ts",
+        "scripts/measure-startup.mjs",
+        "docs/plans/2026-10-19-startup-and-environment-preflight.md",
+        "scripts/generate-delivery-assets.mjs",
+        "scripts/verify-delivery-assets.mjs",
+        "scripts/verify-lossless-reencode.mjs",
+        "src/content/asset-delivery.ts",
+        "src/content/delivery.json",
+        "public/assets/delivery/",
+        "src/renderers/three/renderer.ts",
+        "tests/unit/asset-delivery.test.ts",
+        "tests/unit/png-lossless.test.ts",
+        "tests/e2e/asset-delivery.spec.ts",
+        "tests/e2e/environment-preflight.spec.ts",
+        "tests/e2e/save-boundaries.spec.ts",
+        "playwright.environment.config.ts",
+        "playwright.config.ts",
+        "tsconfig.node.json",
+        "tests/unit/animation-clock.test.ts",
+        "tests/e2e/clock-native-start.spec.ts",
+        "scripts/probe-native-frame-start.mjs",
+        "scripts/measure-runtime.mjs",
+        "scripts/verify-art-reproducibility.mjs",
+        "docs/acceptance/startup-and-environment-preflight.md"
       ],
       "acceptanceRefs": [
         "T10",
         "CULT-01"
       ],
       "checkpointCommit": "16ec25ab89bbe2d029ac0adf5cee3679b8213d68",
-      "nextAction": "持续低FPS提示/主动轻量二维已完成，402单元/188相关E2E通过，画质跨当前document路由/短幕保留；不重复无新疑点的回归。当前130项正式审看仍pending。继续冷启动/网络与首段资源、额外尺寸/断外网、正式设备和真实时长/听感/体验准备；T11/T13/T14不跳依赖或提前完成，P1仍未启用，不读DOCX/PPTX。",
+      "nextAction": "本轮启动/资源/16流程/原生起播/282相关回归与151生成复现已记录。保持T10 in_progress：接收当前艺术文化与原创使用范围正式结论后才正式T11；PNG兼容首段3,157,934bytes与默认软件GPU帧率仍技术未达标，结合真实IE/硬件/手机选择兼容解码或分幕及热点优化。T13真实时长/听感/3位体验、T14交付接手未完，P1未启用。",
       "blocker": null,
       "verification": [
         "2026-10-18: 343基线复现；新增18声音生命周期与4审看契约，最终30文件365/365通过，typecheck通过。",
@@ -651,7 +674,11 @@
         "2026-10-19低帧率：唯一时钟有效帧的连续1秒窗口低于24fps累计10秒才提示，故事/练习/只读重演共享；主动轻量二维真实释放WebGL、缓冲宽≤512/DPR≤1，偏好跨当前document短幕/路由、刷新默认，不改ProjectV1/交互/音乐时序。",
         "2026-10-19低帧率：402/402单元34文件3.16秒；最终build含typecheck120模块17.92秒、14legacy ES5/六HTML通过。最终188/188相关E2E一次通过、零重试/单进程5.6分钟，Chromium156.0.8078.4两视口各94，含14新增；不是全站/真实设备FPS。中间174项29通过后为修P2主动中断不记完成。",
         "2026-10-19低帧率：独立复核Element.remove兼容及继承轻量/恢复后按钮遗漏均修复，两视口实际反例通过；入口gzip103,597bytes，仅静态JS。81PNG/内容/任务/130项审看册检查通过；两张新提示截图目检，14张历史PNG恢复，test-results安全清理1文件0子目录，无额外临时脚本/工作树。",
-        "2026-10-19低帧率：已验证源码16ec25ab89bbe2d029ac0adf5cee3679b8213d68；用户DOCX/PPTX未读未改未提交、暂存blob不变。17项P0中13 done，T10审看中/T11/T13/T14待正式验收交付，P1未启用；尚不能称全部完成。"
+        "2026-10-19低帧率：已验证源码16ec25ab89bbe2d029ac0adf5cee3679b8213d68；用户DOCX/PPTX未读未改未提交、暂存blob不变。17项P0中13 done，T10审看中/T11/T13/T14待正式验收交付，P1未启用；尚不能称全部完成。",
+        "2026-10-20启动/环境：415单元/36文件、最终build122模块53.59秒、14legacy ES5/六HTML、81PNG+61delivery/内容/19任务/130审看册通过；81PNG原始及浏览器RGBA相同，61实际解码像素相同，两生成器151文件重跑字节一致。详见evidence/startup-functional-checks.json。",
+        "2026-10-20启动/环境：最终282相关E2E首轮279通过/3待机窗口超时，系统事件与ERR_NETWORK_IO_SUSPENDED保留；同生产包3项定向复验全过26.4秒，无时限/断言放宽。1920x1080/1024x768正常8项与最终包减少动态禁WebGL宽窄8项共16通过，阶段构建分列；受控时间/窄屏鼠标不代真实性能时长/触屏。",
+        "2026-10-20启动/环境：最终12冷context首页最差本机364.2ms/限网687.7ms，现代首段2,094,040bytes；水纹专项2,096,640bytes仅余512。PNG兼容3,157,934bytes仍失败；软件GPU默认二维27.73Hz/三维16.58—17.80Hz未达标，主动轻量59.88Hz通过探针59Hz容差；静态最高调用67<=80，非显示FPS。",
+        "2026-10-20启动/环境：130review仍pending、2music rights独立granted，release资产/内容243/50待核退出2；8临时文件/3trace ZIP已提炼清理，18历史PNG恢复，test-results清理1文件0子目录；用户START_HERE与两暂存文档blob保留，5173重启会话21571/HTTP200。T10/T11/T13/T14未完成。"
       ],
       "phase": "G3"
     },

@@ -89,7 +89,7 @@ test('reduced motion uses explicit still steps and clears every replay callback 
 });
 
 test('a missing required mask fails the image truthfully and retry loads the actual asset',async({page})=>{
-  let fail=true;await page.route('**/assets/puppets/chenxiang-v1/head-mask.png',route=>fail?route.abort():route.continue());await seed(page,completed());await page.goto('/#/result');
+  let fail=true;await page.route(/\/assets\/(?:puppets\/chenxiang-v1\/head-color\.png|delivery\/chenxiang-v1-head-color\.webp)(?:\?|$)/,route=>fail?route.abort():route.continue());await seed(page,completed());await page.goto('/#/result');
   await expect(page.locator('#result-operation')).toContainText('留影暂未就绪');await expect(page.locator('#result-png')).toBeDisabled();fail=false;await page.locator('#result-retry').click();await ready(page);expect((await png(page)).readUInt32BE(16)).toBe(1600);
 });
 
@@ -127,7 +127,7 @@ test('failed autosaving still exports the actual reunited draft and replay never
 
 test('late required images after result exit cannot resurrect the capture or its download action',async({page})=>{
   let release!:()=>void;const hold=new Promise<void>(resolve=>{release=resolve;});let requested=false;
-  await page.route('**/assets/puppets/chenxiang-v1/head-mask.png',async route=>{requested=true;await hold;await route.continue();});await seed(page,completed());await page.goto('/#/result');await expect.poll(()=>requested).toBe(true);await expect(page.locator('#result-png')).toBeDisabled();await page.locator('#result-capture canvas.reunion-artifact').evaluate(canvas=>Reflect.set(window,'__oldImage',canvas));await go(page,'/museum');release();await page.waitForTimeout(200);await expect(page.locator('#result-capture')).toHaveCount(0);expect(await page.evaluate(()=>{const canvas=Reflect.get(window,'__oldImage') as HTMLCanvasElement;return[canvas.width,canvas.height];})).toEqual([0,0]);
+  await page.route(/\/assets\/(?:puppets\/chenxiang-v1\/head-color\.png|delivery\/chenxiang-v1-head-color\.webp)(?:\?|$)/,async route=>{requested=true;await hold;await route.continue();});await seed(page,completed());await page.goto('/#/result');await expect.poll(()=>requested).toBe(true);await expect(page.locator('#result-png')).toBeDisabled();await page.locator('#result-capture canvas.reunion-artifact').evaluate(canvas=>Reflect.set(window,'__oldImage',canvas));await go(page,'/museum');release();await page.waitForTimeout(200);await expect(page.locator('#result-capture')).toHaveCount(0);expect(await page.evaluate(()=>{const canvas=Reflect.get(window,'__oldImage') as HTMLCanvasElement;return[canvas.width,canvas.height];})).toEqual([0,0]);
 });
 
 test('a PNG finishing during a pending file import cannot download the previous project',async({page})=>{

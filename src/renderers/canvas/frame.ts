@@ -52,7 +52,8 @@ export function requiredAssets(frame: CanvasFrame, catalog: AssetCatalog): strin
   const ids = new Set<string>();
   for (const actor of frame.actors) {
     const template=catalog.puppets.find(item=>item.id===actor.templateId)!;
-    for (const part of template.parts) for (const id of [part.maskAssetId,part.colorAssetId,part.colorMapAssetId]) ids.add(id);
+    // Canonical verification proves color/mask/regions alpha identical. Do not transfer that same alpha a third time.
+    for (const part of template.parts) for (const id of [part.colorAssetId,part.colorMapAssetId]) ids.add(id);
     const patternId=actor.actorId==='chenxiang'?actor.appearance.patternId:actor.actorId==='mother'?actor.sharedMotif:null;
     if (patternId) for (const id of catalog.patterns.patterns.find(item=>item.id===patternId)!.segments) ids.add(id);
     for (const prop of template.attachments) if (frame.attachments?.some(item=>item.actorId===actor.actorId&&item.attachmentId===prop.id)) ids.add(prop.assetId);

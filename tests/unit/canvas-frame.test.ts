@@ -9,7 +9,7 @@ const frame=():CanvasFrame=>({actors:[{actorId:'chenxiang',templateId:'chenxiang
 describe('production drawing boundary',()=>{
   it('fades only current actors with finite alpha while keeping their geometry and resources loaded',()=>{
     const input=frame();input.actorOpacity={mother:.2};const ready=prepareFrame(input,assetCatalog);
-    expect(ready.actorOpacity).toEqual({mother:.2});expect(requiredAssets(ready,assetCatalog)).toContain('mother-v1-head-mask');
+    expect(ready.actorOpacity).toEqual({mother:.2});expect(requiredAssets(ready,assetCatalog)).toContain('mother-v1-head-color');expect(requiredAssets(ready,assetCatalog)).not.toContain('mother-v1-head-mask');
     input.actorOpacity.mother=1;expect(ready.actorOpacity!.mother).toBe(.2);
     for(const invalid of [{mother:NaN},{mother:1.1},{guardian:.5}])expect(()=>prepareFrame({...frame(),actorOpacity:invalid},assetCatalog)).toThrow('显影');
   });
@@ -33,7 +33,7 @@ describe('production drawing boundary',()=>{
   });
   it('loads only the current actors, motifs, visible props and scene; no arbitrary URL',()=>{
     const input=frame(),ids=requiredAssets(prepareFrame(input,assetCatalog),assetCatalog);
-    expect(ids).toContain('chenxiang-v1-head-mask');expect(ids).toContain('wave-v1-cut-1');
+    expect(ids).toContain('chenxiang-v1-head-color');expect(ids).toContain('chenxiang-v1-head-regions');expect(ids.some(id=>id.endsWith('-mask'))).toBe(false);expect(ids).toContain('wave-v1-cut-1');
     expect(ids).not.toContain('guardian-v1-head-mask');expect(ids).not.toContain('chenxiang-axe');
     input.attachments=[{actorId:'chenxiang',attachmentId:'axe'}];
     expect(requiredAssets(prepareFrame(input,assetCatalog),assetCatalog)).toContain('chenxiang-axe');

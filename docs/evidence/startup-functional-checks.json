@@ -1,0 +1,1324 @@
+{
+  "kind": "T10-startup-and-environment-preflight-checkpoint",
+  "recordedAtMachineUTC": "2026-10-20T01:04:14.314Z",
+  "codeSourceCommit": null,
+  "baseCommit": "65c0b800a9d074899152c9fdadc35db1b70768f5",
+  "productionIndexSha256": "fbe5dc6882bbbeac7f78b79b8fbceee8e82345e5a81f21635f0bffe3d55ccf6f",
+  "priorPhaseIndexSha256": "6ce1e53eb6419e8e7392c3d0550e41c228633a3489cd049a4ccc1d6d20e56875",
+  "unit": {
+    "command": "npm test",
+    "exitCode": 0,
+    "files": 36,
+    "passed": 415,
+    "durationSeconds": 5.08
+  },
+  "build": {
+    "command": "npm run build",
+    "exitCode": 0,
+    "typecheck": true,
+    "modules": 122,
+    "durationSeconds": 53.59,
+    "legacyChunksES5": 14,
+    "dualEntryHTMLs": 6
+  },
+  "staticChecks": {
+    "typecheck": 0,
+    "assets": 0,
+    "content": 0,
+    "legacy": 0,
+    "state": 0,
+    "reviewPacket": 0
+  },
+  "core": {
+    "firstStats": {
+      "startTime": "2026-10-19T13:55:12.312Z",
+      "duration": 39550981.842999995,
+      "expected": 279,
+      "skipped": 0,
+      "unexpected": 3,
+      "flaky": 0
+    },
+    "recheckStats": {
+      "startTime": "2026-10-20T00:55:04.867Z",
+      "duration": 26446.357,
+      "expected": 3,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "firstGlobalErrors": [],
+    "recheckGlobalErrors": [],
+    "failedCases": [
+      {
+        "file": "story-and-resume.spec.ts",
+        "title": "guided/split-first real graphical controls reach reunion and one curtain with explicit assistance",
+        "project": "desktop-chromium",
+        "status": "unexpected",
+        "results": [
+          {
+            "workerIndex": 0,
+            "parallelIndex": 0,
+            "status": "timedOut",
+            "duration": 611435,
+            "error": {
+              "message": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m",
+              "stack": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m"
+            },
+            "errors": [
+              {
+                "message": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m"
+              },
+              {
+                "location": {
+                  "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-and-resume.spec.ts",
+                  "column": 71,
+                  "line": 8
+                },
+                "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#story-runtime')\nExpected: \u001b[32m\"paused\"\u001b[39m\nReceived: \u001b[31m\"error\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#story-runtime')\u001b[22m\n\u001b[2m    6 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-state=\"error\" class=\"story-runtime\" data-node=\"split-search\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-566dca5b980f3638c5cfd21726d594d7:10:split-search:11\">当前片段准备失败：无法加载 chenxiang-v1-left-shin-regions，请重试。…</p>\u001b[22m\n\u001b[2m      - unexpected value \"error\"\u001b[22m\n\u001b[2m  - Test timeout of 90000ms exceeded.\u001b[22m\n\n\n   6 |\n   7 | const runtime=(page:Page)=>page.locator('#story-runtime');\n>  8 | const ready=async(page:Page,id?:string)=>{await expect(runtime(page)).toHaveAttribute('data-state','paused');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');if(id)await expect(runtime(page)).toHaveAttribute('data-node',id);};\n     |                                                                       ^\n   9 | const saved=async(page:Page)=>expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');\n  10 | function projectAt(id:NonNullable<ProjectV1['story']>['nodeId'],mode:'full'|'guided'='full',approach:'call-first'|'split-first'='call-first'):ProjectV1{\n  11 |   const project=structuredClone(fixture) as ProjectV1,story=project.story!;story.nodeId=id;story.mode=mode;story.assistedNodeIds=[];\n    at ready (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-and-resume.spec.ts:8:71)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-and-resume.spec.ts:76:77"
+              }
+            ],
+            "stdout": [],
+            "stderr": [],
+            "retry": 0,
+            "startTime": "2026-10-19T14:03:29.125Z",
+            "annotations": [],
+            "attachments": [
+              {
+                "name": "error-context",
+                "contentType": "text/markdown",
+                "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-and-resume-guided-sp-3d3ee-in-with-explicit-assistance-desktop-chromium\\error-context.md"
+              },
+              {
+                "name": "trace",
+                "contentType": "application/zip",
+                "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-and-resume-guided-sp-3d3ee-in-with-explicit-assistance-desktop-chromium\\trace.zip"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "file": "story-and-resume.spec.ts",
+        "title": "manual light uses the motif rather than the whole puppet and failed progress is retried once",
+        "project": "desktop-chromium",
+        "status": "unexpected",
+        "results": [
+          {
+            "workerIndex": 1,
+            "parallelIndex": 0,
+            "status": "timedOut",
+            "duration": 35109622,
+            "error": {
+              "message": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m",
+              "stack": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m"
+            },
+            "errors": [
+              {
+                "message": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m"
+              }
+            ],
+            "stdout": [],
+            "stderr": [],
+            "retry": 0,
+            "startTime": "2026-10-19T14:13:43.388Z",
+            "annotations": [],
+            "attachments": [
+              {
+                "name": "error-context",
+                "contentType": "text/markdown",
+                "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-and-resume-manual-li-d2162-ed-progress-is-retried-once-desktop-chromium\\error-context.md"
+              },
+              {
+                "name": "trace",
+                "contentType": "application/zip",
+                "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-and-resume-manual-li-d2162-ed-progress-is-retried-once-desktop-chromium\\trace.zip"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "file": "three-stage.spec.ts",
+        "title": "renderer initialization failure returns to 2D and an explicit retry really initializes WebGL",
+        "project": "desktop-chromium",
+        "status": "unexpected",
+        "results": [
+          {
+            "workerIndex": 2,
+            "parallelIndex": 0,
+            "status": "timedOut",
+            "duration": 2677544,
+            "error": {
+              "message": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m",
+              "stack": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m"
+            },
+            "errors": [
+              {
+                "message": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m"
+              },
+              {
+                "location": {
+                  "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\three-stage.spec.ts",
+                  "column": 437,
+                  "line": 56
+                },
+                "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.canvas-stage-status')\nExpected: \u001b[32m\"ready\"\u001b[39m\nReceived: \u001b[31m\"loading\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.canvas-stage-status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.canvas-stage-status')\u001b[22m\n\u001b[2m  - Test timeout of 90000ms exceeded.\u001b[22m\n\n\n  54 |\n  55 | test('renderer initialization failure returns to 2D and an explicit retry really initializes WebGL',async({page})=>{\n> 56 |   await page.addInitScript(()=>{const get=HTMLCanvasElement.prototype.getContext;Reflect.set(window,'__restoreGL',()=>{HTMLCanvasElement.prototype.getContext=get;});HTMLCanvasElement.prototype.getContext=function(this:HTMLCanvasElement,id,...args){if(id==='webgl2')return null;return Reflect.apply(get,this,[id,...args]);} as typeof get;});await seed(page);await page.goto('/#/craft');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');const before=await hash(page);await spatial(page).locator('.spatial-toggle').click();await expect(spatial(page)).toHaveAttribute('data-state','error');await expect(spatial(page).locator('.spatial-status')).toContainText('二维');expect(await hash(page)).toBe(before);await page.evaluate(()=>Reflect.get(window,'__restoreGL')());await open(page);await saved(page);invariant(await stored(page),fixture);\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                     ^\n  57 | });\n  58 |\n  59 | test('actual context loss releases the old canvas, preserves 2D and allows a fresh context',async({page})=>{\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\three-stage.spec.ts:56:437"
+              }
+            ],
+            "stdout": [],
+            "stderr": [],
+            "retry": 0,
+            "startTime": "2026-10-19T23:59:56.402Z",
+            "annotations": [],
+            "attachments": [
+              {
+                "name": "error-context",
+                "contentType": "text/markdown",
+                "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\three-stage-renderer-initi-2cbb6-ry-really-initializes-WebGL-desktop-chromium\\error-context.md"
+              },
+              {
+                "name": "trace",
+                "contentType": "application/zip",
+                "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\three-stage-renderer-initi-2cbb6-ry-really-initializes-WebGL-desktop-chromium\\trace.zip"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "uniqueCasesCovered": 282,
+    "unresolvedReproductions": 0,
+    "note": "279 first-pass plus same-source three-case recheck; not a first-attempt all-green or full default 396-case run. OS Kernel-Power sleep/standby events align with extreme wall-time gaps; one original request explicitly reported ERR_NETWORK_IO_SUSPENDED. No production/test assertion or timeout changes for recheck.",
+    "equivalentScopeCommand": [
+      "npx",
+      "playwright",
+      "test",
+      "tests/e2e/asset-delivery.spec.ts",
+      "tests/e2e/clock-native-start.spec.ts",
+      "tests/e2e/canvas-stage.spec.ts",
+      "tests/e2e/craft-light.spec.ts",
+      "tests/e2e/director.spec.ts",
+      "tests/e2e/frame-rate.spec.ts",
+      "tests/e2e/museum.spec.ts",
+      "tests/e2e/navigation.spec.ts",
+      "tests/e2e/result.spec.ts",
+      "tests/e2e/save-boundaries.spec.ts",
+      "tests/e2e/story-and-resume.spec.ts",
+      "tests/e2e/three-stage.spec.ts",
+      "--workers=1",
+      "--timeout=90000"
+    ]
+  },
+  "environment": {
+    "normal": {
+      "stats": {
+        "startTime": "2026-10-19T13:16:57.883Z",
+        "duration": 342618.38,
+        "expected": 8,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "indexSha256": "6ce1e53eb6419e8e7392c3d0550e41c228633a3489cd049a4ccc1d6d20e56875"
+    },
+    "reducedAndNoWebGL": {
+      "stats": {
+        "startTime": "2026-10-19T13:47:48.809Z",
+        "duration": 376146.98099999997,
+        "expected": 8,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "indexSha256": "fbe5dc6882bbbeac7f78b79b8fbceee8e82345e5a81f21635f0bffe3d55ccf6f"
+    },
+    "scope": "16 full/guided x both branch flows; actual external-HTTP blocking, native media, final manual hand, exhibits, PNG/JSON and restore. Controlled director time and mouse in reduced mobile; not physical touch, device or duration acceptance."
+  },
+  "pixels": {
+    "canonicalCount": 81,
+    "canonicalRgbaDifferences": 0,
+    "transportCount": 61,
+    "transportRenderedRgbaDifferences": 0,
+    "decode": "bitmap-none-native-png",
+    "generatedOutputsReproduced": 151
+  },
+  "nativeClock": {
+    "earlyBefore": 3,
+    "earlyFalsePauseBefore": 3,
+    "earlyAfter": 3,
+    "earlyFalsePauseAfter": 0,
+    "nativeProductClicksPerViewport": 12
+  },
+  "startup": {
+    "summary": [
+      {
+        "profile": "desktop",
+        "network": "local",
+        "samples": 3,
+        "errors": 0,
+        "homeTargetMs": 2000,
+        "homeMedianMs": 298.30000001192093,
+        "homeMaxMs": 364.19999998807907,
+        "introMedianFromClickMs": 1146.4000000357628,
+        "introMaxFromClickMs": 1165.8999999761581,
+        "imageFontMaxBytes": 2094040,
+        "allHomeWithinTarget": true,
+        "allImageFontWithinBudget": true
+      },
+      {
+        "profile": "desktop",
+        "network": "5Mbps-150ms",
+        "samples": 3,
+        "errors": 0,
+        "homeTargetMs": 5000,
+        "homeMedianMs": 686,
+        "homeMaxMs": 687.6999999880791,
+        "introMedianFromClickMs": 4434.700000047684,
+        "introMaxFromClickMs": 4444.899999976158,
+        "imageFontMaxBytes": 2094040,
+        "allHomeWithinTarget": true,
+        "allImageFontWithinBudget": true
+      },
+      {
+        "profile": "simulated-mobile",
+        "network": "local",
+        "samples": 3,
+        "errors": 0,
+        "homeTargetMs": 2000,
+        "homeMedianMs": 266.4000000357628,
+        "homeMaxMs": 268.69999998807907,
+        "introMedianFromClickMs": 1025.3999999761581,
+        "introMaxFromClickMs": 1028.8999999761581,
+        "imageFontMaxBytes": 2094040,
+        "allHomeWithinTarget": true,
+        "allImageFontWithinBudget": true
+      },
+      {
+        "profile": "simulated-mobile",
+        "network": "5Mbps-150ms",
+        "samples": 3,
+        "errors": 0,
+        "homeTargetMs": 5000,
+        "homeMedianMs": 679.1000000238419,
+        "homeMaxMs": 686.8000000119209,
+        "introMedianFromClickMs": 4477.900000035763,
+        "introMaxFromClickMs": 4480.199999988079,
+        "imageFontMaxBytes": 2094040,
+        "allHomeWithinTarget": true,
+        "allImageFontWithinBudget": true
+      }
+    ],
+    "staticEntryGzipBytes": 111755,
+    "pngCompatibilityBudgetPassed": false,
+    "note": "Final 12 samples bind final index; four wave and four forced-PNG specialty runs bind pre-clock index with unchanged image/decoder inputs."
+  },
+  "runtime": {
+    "probeValidityFailures": [],
+    "gpu": {
+      "vendor": "WebKit",
+      "renderer": "WebKit WebGL",
+      "unmaskedVendor": "Google Inc. (Google)",
+      "unmaskedRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "width": 914,
+      "height": 685
+    },
+    "windows": [
+      {
+        "name": "guardian/canvas-2d",
+        "expectedView": null,
+        "nodeId": "guardian",
+        "requestedMs": 10000,
+        "canvasDrawsPerSecond": 27.725418623967627,
+        "nativeAnimationCallbacks": 278,
+        "nativeCallbackRateHz": 27.725017689658323,
+        "frameIntervalMedianMs": 35.934,
+        "frameIntervalP95Ms": 40.875,
+        "maxFrameIntervalMs": 50.598,
+        "webglCallsPerRenderMax": null,
+        "observedWebglRenders": 0,
+        "reached60HzTarget": false,
+        "withinDrawCallBudget": null
+      },
+      {
+        "name": "guardian/webgl-front",
+        "expectedView": "front",
+        "nodeId": "guardian",
+        "requestedMs": 4000,
+        "canvasDrawsPerSecond": 17.796233130601575,
+        "nativeAnimationCallbacks": 72,
+        "nativeCallbackRateHz": 17.796228731961854,
+        "frameIntervalMedianMs": 59.13,
+        "frameIntervalP95Ms": 68.488,
+        "maxFrameIntervalMs": 76.692,
+        "webglCallsPerRenderMax": 10,
+        "observedWebglRenders": 72,
+        "reached60HzTarget": false,
+        "withinDrawCallBudget": true
+      },
+      {
+        "name": "guardian/webgl-workshop",
+        "expectedView": "workshop",
+        "nodeId": "guardian",
+        "requestedMs": 4000,
+        "canvasDrawsPerSecond": 17.39386070222561,
+        "nativeAnimationCallbacks": 71,
+        "nativeCallbackRateHz": 17.394116378887954,
+        "frameIntervalMedianMs": 57.74,
+        "frameIntervalP95Ms": 64.169,
+        "maxFrameIntervalMs": 76.614,
+        "webglCallsPerRenderMax": 60,
+        "observedWebglRenders": 71,
+        "reached60HzTarget": false,
+        "withinDrawCallBudget": true
+      },
+      {
+        "name": "guardian/webgl-backstage",
+        "expectedView": "backstage",
+        "nodeId": "guardian",
+        "requestedMs": 4000,
+        "canvasDrawsPerSecond": 17.061048883563686,
+        "nativeAnimationCallbacks": 69,
+        "nativeCallbackRateHz": 17.061466529482583,
+        "frameIntervalMedianMs": 59.171,
+        "frameIntervalP95Ms": 68.243,
+        "maxFrameIntervalMs": 79.975,
+        "webglCallsPerRenderMax": 60,
+        "observedWebglRenders": 69,
+        "reached60HzTarget": false,
+        "withinDrawCallBudget": true
+      },
+      {
+        "name": "guardian/webgl-exhibit",
+        "expectedView": "exhibit",
+        "nodeId": "guardian",
+        "requestedMs": 4000,
+        "canvasDrawsPerSecond": 16.575542415973086,
+        "nativeAnimationCallbacks": 67,
+        "nativeCallbackRateHz": 16.57553011390358,
+        "frameIntervalMedianMs": 60.099,
+        "frameIntervalP95Ms": 71.286,
+        "maxFrameIntervalMs": 84.476,
+        "webglCallsPerRenderMax": 60,
+        "observedWebglRenders": 67,
+        "reached60HzTarget": false,
+        "withinDrawCallBudget": true
+      },
+      {
+        "name": "guardian/webgl-sustained",
+        "expectedView": "workshop",
+        "nodeId": "guardian",
+        "requestedMs": 12000,
+        "canvasDrawsPerSecond": 16.935785147980575,
+        "nativeAnimationCallbacks": 204,
+        "nativeCallbackRateHz": 16.935892003469533,
+        "frameIntervalMedianMs": 59.348,
+        "frameIntervalP95Ms": 69.501,
+        "maxFrameIntervalMs": 86.475,
+        "webglCallsPerRenderMax": 60,
+        "observedWebglRenders": 204,
+        "reached60HzTarget": false,
+        "withinDrawCallBudget": true
+      },
+      {
+        "name": "guardian/lightweight-2d",
+        "expectedView": null,
+        "nodeId": "guardian",
+        "requestedMs": 8000,
+        "canvasDrawsPerSecond": 59.877251634328076,
+        "nativeAnimationCallbacks": 480,
+        "nativeCallbackRateHz": 59.876952861868865,
+        "frameIntervalMedianMs": 16.461,
+        "frameIntervalP95Ms": 22.084,
+        "maxFrameIntervalMs": 28.311,
+        "webglCallsPerRenderMax": null,
+        "observedWebglRenders": 0,
+        "reached60HzTarget": true,
+        "withinDrawCallBudget": null
+      }
+    ],
+    "staticViews": [
+      {
+        "nodeId": "call-light",
+        "view": "front",
+        "actualView": "front",
+        "observedRenders": 2,
+        "callsPerRenderMax": 10,
+        "fps": null,
+        "reason": "paused highest-object frame: measure actual draw calls, not inactive animation callbacks"
+      },
+      {
+        "nodeId": "call-light",
+        "view": "workshop",
+        "actualView": "workshop",
+        "observedRenders": 1,
+        "callsPerRenderMax": 67,
+        "fps": null,
+        "reason": "paused highest-object frame: measure actual draw calls, not inactive animation callbacks"
+      },
+      {
+        "nodeId": "call-light",
+        "view": "backstage",
+        "actualView": "backstage",
+        "observedRenders": 1,
+        "callsPerRenderMax": 67,
+        "fps": null,
+        "reason": "paused highest-object frame: measure actual draw calls, not inactive animation callbacks"
+      },
+      {
+        "nodeId": "call-light",
+        "view": "exhibit",
+        "actualView": "exhibit",
+        "observedRenders": 1,
+        "callsPerRenderMax": 67,
+        "fps": null,
+        "reason": "paused highest-object frame: measure actual draw calls, not inactive animation callbacks"
+      }
+    ],
+    "lightweightObservation": {
+      "measured": true,
+      "reason": "Native sustained low-rate suggestion appeared; user-facing button clicked."
+    },
+    "probeExitCode": 1,
+    "note": "Default Canvas/WebGL native callback target unmet on SwiftShader; lightweight measured 59.88Hz meets probe tolerance. Callback/draw rate is not panel presentation FPS."
+  },
+  "reviews": {
+    "packetSha256": "693a6f711daf7a2e702fb7ed6da105e996ce4e7921eb27748f5da688a2d1b53b",
+    "records": 130,
+    "releaseExitCodes": [
+      {
+        "script": "scripts/verify-assets.mjs",
+        "exitCode": 2
+      },
+      {
+        "script": "scripts/verify-content.mjs",
+        "exitCode": 2
+      }
+    ],
+    "note": "All 130 author reviews pending; only two external music rights individually granted."
+  },
+  "remaining": [
+    "PNG compatibility intro 3157934 bytes exceeds 2MiB by 1060782.",
+    "Default software-rendered Canvas/WebGL below desktop target; representative hardware/physical-phone runtime still unmeasured.",
+    "Formal art/culture/original rights, real IE/Android/iOS and orientation/storage/files, duration/hearing/three non-developer users, dependent T14 delivery/handoff remain. P1 disabled."
+  ],
+  "cleanup": {
+    "temporaryDiagnosticFilesRemoved": 8,
+    "consolidatedTraceZipsRemoved": 3,
+    "historicalEvidencePNGsRestored": 18,
+    "testResultsFilesRemoved": 1,
+    "testResultsSubdirectoriesRemoved": 0,
+    "userStartHerePreservedBlob": "46a63e80edfff86d9758e7a312523fc5956de06e",
+    "userStagedDocumentBlobs": [
+      "6e2b3c8a51d0e85b4e4c32f2294e9ab3bdf313cb",
+      "277174bc62ffdf18cde8656f89a9bfeec85dc165"
+    ]
+  },
+  "workingFileBytesSha256": [
+    {
+      "file": "playwright.config.ts",
+      "sha256": "bcbabf17e0ede7c613cb6ca7bce6721865ee4d1aa0429842e37d1304cef7c755"
+    },
+    {
+      "file": "playwright.environment.config.ts",
+      "sha256": "0e0c1fee8d2ead0c76f4a615fc270ef291e90ccbbdfd2a293d15c9c8f1a2c9ce"
+    },
+    {
+      "file": "public/assets/delivery/chenxiang-axe.webp",
+      "sha256": "610e114903c63e2679db7c088452a1dacbe7f46e7ebf32e2ac63a64e37ee405f"
+    },
+    {
+      "file": "public/assets/delivery/chenxiang-lantern.webp",
+      "sha256": "afac97c27d4ad403e8ba6c6389dff8a83edf60415cbc0bd704cc7adb79b4ab1e"
+    },
+    {
+      "file": "public/assets/delivery/chenxiang-v1-head-color.webp",
+      "sha256": "ba4a1c8085e4d03165c08e19c214aa84a260ff876c78f9ab9889737fce9c1a7a"
+    },
+    {
+      "file": "public/assets/delivery/chenxiang-v1-head-regions.webp",
+      "sha256": "2e641375a7a09ed11da33caa13e76e4938bb4de38e6383de5a585746d3ad6e5d"
+    },
+    {
+      "file": "public/assets/delivery/chenxiang-v1-left-forearm-color.webp",
+      "sha256": "85a78fb6751a48741d6356cc89f67eed387aaf4be6421f8dc1399f0cc55fd9fb"
+    },
+    {
+      "file": "public/assets/delivery/chenxiang-v1-left-forearm-regions.webp",
+      "sha256": "4ace8f6dafee55f983d66900842d8542a1bd229b74e29b522d4fe7d96fc0641d"
+    },
+    {
+      "file": "public/assets/delivery/chenxiang-v1-left-shin-color.webp",
+      "sha256": "d284d95cb64df6ce7f37f56800a96adb58e23ae431f1b4bbdc0dabdab7ede58d"
+    },
+    {
+      "file": "public/assets/delivery/chenxiang-v1-left-shin-regions.webp",
+      "sha256": "af12d1d579ff4d3c45be90a6ba7f9116be6a393a74923a2aef85eaee84ffc993"
+    },
+    {
+      "file": "public/assets/delivery/chenxiang-v1-left-thigh-color.webp",
+      "sha256": "86a8599af97e4f3bea69d3841f8a8c009041e1cfa01c82314aa3da572e5bb8ab"
+    },
+    {
+      "file": "public/assets/delivery/chenxiang-v1-left-thigh-regions.webp",
+      "sha256": "67ed6799737db43a3f8e03b38b74f2d201c2e5fbc20fb6ad407565a9c972f576"
+    },
+    {
+      "file": "public/assets/delivery/chenxiang-v1-left-upper-arm-color.webp",
+      "sha256": "6cf02681ff4de8e93aae77864868981b6f87d0f0ab4ddb60c964c414cdb6b930"
+    },
+    {
+      "file": "public/assets/delivery/chenxiang-v1-left-upper-arm-regions.webp",
+      "sha256": "5fa2740c8d842a4a6fde12c8c2994ae9b9bb73bd77993e3b4a084222b54ee245"
+    },
+    {
+      "file": "public/assets/delivery/chenxiang-v1-right-forearm-color.webp",
+      "sha256": "e5786f72e51ac74ad634f6213d8847d44b2c0562c6e3879f5522a6ba722555c2"
+    },
+    {
+      "file": "public/assets/delivery/chenxiang-v1-right-forearm-regions.webp",
+      "sha256": "17d3234470a3f6c7b37a272c80701fe3fa6cec3bd142324f70eb2b3e54b5e6ea"
+    },
+    {
+      "file": "public/assets/delivery/chenxiang-v1-right-shin-color.webp",
+      "sha256": "b98a7b85f1ade9a3088a01ec49af2b261022976da44d7c1dbf916da6ee9c33ea"
+    },
+    {
+      "file": "public/assets/delivery/chenxiang-v1-right-shin-regions.webp",
+      "sha256": "00a183296799d5f02cc9bf7542404909f21dd91b3cf1e3295c7e24847d6c3171"
+    },
+    {
+      "file": "public/assets/delivery/chenxiang-v1-right-thigh-color.webp",
+      "sha256": "67a86b6559c428d9dd5f491bd4c6aa9a2fc547df487c0074101c5950961c501b"
+    },
+    {
+      "file": "public/assets/delivery/chenxiang-v1-right-thigh-regions.webp",
+      "sha256": "f5714578a3e9941544bf069f68f4d747aa1184eec04f86adf10c17405cec186a"
+    },
+    {
+      "file": "public/assets/delivery/chenxiang-v1-right-upper-arm-color.webp",
+      "sha256": "6ed875d7125476021c70719a4b30565f31d08e16e25d262a028851b878850801"
+    },
+    {
+      "file": "public/assets/delivery/chenxiang-v1-right-upper-arm-regions.webp",
+      "sha256": "a418ce403a9a3fd8d6a3a9767476ca3a8a7cd9b753a17853c7230a38326e4ffb"
+    },
+    {
+      "file": "public/assets/delivery/chenxiang-v1-torso-color.webp",
+      "sha256": "02e4cbddc406edcb203b15bfed355415622488ee5042eb7a105a5a2db1179882"
+    },
+    {
+      "file": "public/assets/delivery/chenxiang-v1-torso-regions.webp",
+      "sha256": "8a4756f04a342d8efcb9dc758c33ecadd0a69cc82ce82b46db3b8c6ec30cf9f1"
+    },
+    {
+      "file": "public/assets/delivery/cloud-v1-cut-1.webp",
+      "sha256": "9e493ad8c833646d3ad4cd6870744eaae2016b8898d0b1a05fac2b5d340306ce"
+    },
+    {
+      "file": "public/assets/delivery/cloud-v1-cut-2.webp",
+      "sha256": "e47492dbf1d4c3acc72ea12be6fd3202b674c873c2a9132b3d0c35de7a2e7588"
+    },
+    {
+      "file": "public/assets/delivery/cloud-v1-cut-3.webp",
+      "sha256": "efa8f53c90495a92bcfa8939d2ba6908208349ee786dde77cf9d66ac6ef92bd3"
+    },
+    {
+      "file": "public/assets/delivery/flower-v1-cut-1.webp",
+      "sha256": "65a5d3a15cef0975270276e2548fd50e0797e2bd00b35cd30a5d5fd7e272e849"
+    },
+    {
+      "file": "public/assets/delivery/flower-v1-cut-2.webp",
+      "sha256": "ff8a6d5ebbe82a02ad92848683f1861e7e29632de2c882a0243201986a8b18aa"
+    },
+    {
+      "file": "public/assets/delivery/flower-v1-cut-3.webp",
+      "sha256": "93597c3bb3262bafde41d5a43236392de1596e5e5067fc840e24744b78e87cfd"
+    },
+    {
+      "file": "public/assets/delivery/guardian-staff.webp",
+      "sha256": "4a1786269c3a981b200ff89e4d7d7be3a4c60da51d8bc39a1537520e80f11439"
+    },
+    {
+      "file": "public/assets/delivery/guardian-v1-head-color.webp",
+      "sha256": "b952d13f25f04ba25cc13eca24e444a892c329fc27822d77be716fb4034e25d5"
+    },
+    {
+      "file": "public/assets/delivery/guardian-v1-head-regions.webp",
+      "sha256": "833ddf7ac93f125d4e692f9344da68df7887e889d35853320eee930ee856e093"
+    },
+    {
+      "file": "public/assets/delivery/guardian-v1-right-forearm-color.webp",
+      "sha256": "b283e6bee85a8b759d92625fddfd7fdcfdcfde26c458256cb06cd1e62cb4c6c4"
+    },
+    {
+      "file": "public/assets/delivery/guardian-v1-right-forearm-regions.webp",
+      "sha256": "2ad34f945c0f86768dd24d7b0330f0c9ff55398440196286336b3ef8e2154e05"
+    },
+    {
+      "file": "public/assets/delivery/guardian-v1-right-upper-arm-color.webp",
+      "sha256": "ebbcdf7d687a2dd0a637ee7dce3e42c4a0e2aa739b206086b42609ba3051e188"
+    },
+    {
+      "file": "public/assets/delivery/guardian-v1-right-upper-arm-regions.webp",
+      "sha256": "d922e53a45a6b8109db2fae6e139da9bb7a5da9859789fe204788b6dd0dd98d4"
+    },
+    {
+      "file": "public/assets/delivery/guardian-v1-torso-color.webp",
+      "sha256": "28cba86c66c83f3ae2d4d3a3211d2e38853aa04947acbd1b9846a1a702b4862c"
+    },
+    {
+      "file": "public/assets/delivery/guardian-v1-torso-regions.webp",
+      "sha256": "8053fc45245ed0651cf9dc10526f5d8f4d76be5c778e6c0d2b0c32e3af84a054"
+    },
+    {
+      "file": "public/assets/delivery/mother-v1-head-color.webp",
+      "sha256": "e47b9dbd361fcaaddc402d9a2273474a14a3cfbb3942cb59f5e17a16414cca9e"
+    },
+    {
+      "file": "public/assets/delivery/mother-v1-head-regions.webp",
+      "sha256": "5809806dc72f5415d4644c7aa3791f7a1386daae0457106b75138f59f7e56378"
+    },
+    {
+      "file": "public/assets/delivery/mother-v1-left-forearm-color.webp",
+      "sha256": "b74bb2387b616a6c5763048aee321811606792a69e44dabaacb4f6002454f42b"
+    },
+    {
+      "file": "public/assets/delivery/mother-v1-left-forearm-regions.webp",
+      "sha256": "8eec2323186faadcbb6914092b29457bbccb9fce1a149d2625b376ef95b98888"
+    },
+    {
+      "file": "public/assets/delivery/mother-v1-left-upper-arm-color.webp",
+      "sha256": "80f13d053389bccc2595780e151483082749111f5208dc3e2f74147233e739d1"
+    },
+    {
+      "file": "public/assets/delivery/mother-v1-left-upper-arm-regions.webp",
+      "sha256": "c3414b8d45cce8cf97fb1cf021fa1bd025e14d5bde2f0f6c23bd3b33268ead7f"
+    },
+    {
+      "file": "public/assets/delivery/mother-v1-right-forearm-color.webp",
+      "sha256": "161704b96c335b531363aa085ba3bc67792664c487c78e8354b534a96873cb69"
+    },
+    {
+      "file": "public/assets/delivery/mother-v1-right-forearm-regions.webp",
+      "sha256": "72b1a95a5b3dac4764a349c4f4f0eedab37a395c37470d58ba0c4a270626b32a"
+    },
+    {
+      "file": "public/assets/delivery/mother-v1-right-upper-arm-color.webp",
+      "sha256": "b02c1efb183b1a1b3c2ac18573b236d659137b1f4047ecaaab86da9d351778c8"
+    },
+    {
+      "file": "public/assets/delivery/mother-v1-right-upper-arm-regions.webp",
+      "sha256": "88a6bfcb0ba5e056b480cd879a3648aabb7804014e8e4bf9e51d1e8a8988e978"
+    },
+    {
+      "file": "public/assets/delivery/mother-v1-torso-color.webp",
+      "sha256": "3d306bf72e32e352aec895b05e7e0365facde446277cddd84bc2bf5974ee8f36"
+    },
+    {
+      "file": "public/assets/delivery/mother-v1-torso-regions.webp",
+      "sha256": "d30ae23d5a646f677f0f7cbfc47bb8880a4cf04fd85458db7e90b8acac9dc042"
+    },
+    {
+      "file": "public/assets/delivery/scene-home-floor.webp",
+      "sha256": "8e2f3804370695f2182ea93ce045135b9e59c499f2be8089ff2df29e444f4fa5"
+    },
+    {
+      "file": "public/assets/delivery/scene-home-window.webp",
+      "sha256": "6a7adf8d843f0c9fce07b8dc5d33d4b103d8c1079230ea3cd59964afe9a3775e"
+    },
+    {
+      "file": "public/assets/delivery/scene-mountain-dust.webp",
+      "sha256": "efc62d80657b7777787c241028a858940860507267fab90a76731a1f66206070"
+    },
+    {
+      "file": "public/assets/delivery/scene-mountain-far.webp",
+      "sha256": "c240c0824ce8a060325cb982bbab7d555b3d07374d26042da4533d55b015cbd8"
+    },
+    {
+      "file": "public/assets/delivery/scene-mountain-left.webp",
+      "sha256": "14533a2ef63207e2c89926c2a3b020c0dacc575ae5bd5d9c8194b3935727c28a"
+    },
+    {
+      "file": "public/assets/delivery/scene-mountain-right.webp",
+      "sha256": "9d6eb983abff1c9964721c944ec3deae112b029937b8cd3d218d623ef8359304"
+    },
+    {
+      "file": "public/assets/delivery/scene-road-ledge.webp",
+      "sha256": "e5a3ee016bae59fb262968a4ecbf5fefdcfbb09ee412bb7e6ccc407f49101d1c"
+    },
+    {
+      "file": "public/assets/delivery/scene-road-near.webp",
+      "sha256": "8f3cf10228b7118e576a972f5f96c1cdc46f29d6abf6b3fd959191d4ff1a6002"
+    },
+    {
+      "file": "public/assets/delivery/scene-road-path.webp",
+      "sha256": "f9f789768534c28af8c4eed9bbfad14843daf0c5fb2d2396171bf7eeea17fc5a"
+    },
+    {
+      "file": "public/assets/delivery/wave-v1-cut-1.webp",
+      "sha256": "c1964b5b755d39204412390886ed0d023c5ed993b56e27d65ec4c0a0e0d22c07"
+    },
+    {
+      "file": "public/assets/delivery/wave-v1-cut-2.webp",
+      "sha256": "7e89db4d92ad054c233cc8dfaba57077e3a893532cbc8a0121de09860b1da98e"
+    },
+    {
+      "file": "public/assets/delivery/wave-v1-cut-3.webp",
+      "sha256": "33134e12b4ff0b7758236329ed74a22d22871210801059320311b5146940fc10"
+    },
+    {
+      "file": "public/assets/masks/cloud-v1-cut-1.png",
+      "sha256": "850f75a9c1c0c2bcc86cc85a6c6bb61e26bffd0942c3dff29752704e94d53fd8"
+    },
+    {
+      "file": "public/assets/masks/cloud-v1-cut-2.png",
+      "sha256": "461dd2fc1e802b4c1d219918bfba4de7fed23aa860547404e8b034d973fea331"
+    },
+    {
+      "file": "public/assets/masks/cloud-v1-cut-3.png",
+      "sha256": "a855fcb0f77ef0837cb9d79e0bc2c5c875c11c3a02c009e5d72baa88f0937b91"
+    },
+    {
+      "file": "public/assets/masks/flower-v1-cut-1.png",
+      "sha256": "455e4850b170edb587f2a3d2ffc857c9c84713a797b600b8f99610009a47d690"
+    },
+    {
+      "file": "public/assets/masks/flower-v1-cut-2.png",
+      "sha256": "d1489092c533d8dfaa9a600e8550567accbcfc0c6c0132fafd4b64b86a5bafbc"
+    },
+    {
+      "file": "public/assets/masks/flower-v1-cut-3.png",
+      "sha256": "f8438c1d7186dfe7a64ab5a4a75920c24bb041ba66c85daf2c364501ad731ca4"
+    },
+    {
+      "file": "public/assets/masks/wave-v1-cut-1.png",
+      "sha256": "76bc7b279bd25c320303d2a039678d83c25d0eb5a1083d99194ff18da27cbc87"
+    },
+    {
+      "file": "public/assets/masks/wave-v1-cut-2.png",
+      "sha256": "cdb052f245da9e1e9eba5703b8e35fb4dbd7751bf3a43b760bf4e3edd9c05bbd"
+    },
+    {
+      "file": "public/assets/masks/wave-v1-cut-3.png",
+      "sha256": "f1d55d4cf626a0f52cc9b81a9b89ba1dc9ddfcb0ea66bc096b9cbf35c4329e97"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-axe.png",
+      "sha256": "8a63f54601df9ac51a8458f5732106da12e58c787b207ae00707227a6180d9e3"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-lantern.png",
+      "sha256": "ff7822c03bb116c8fd5fe9e610206d42e42d2d87611541e41f70bdf2a16f06cc"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/head-color.png",
+      "sha256": "48b1e53dd417a085d5c5b6e8c46aa41c63eaceb292290fa486e5256db29fc1e5"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/head-mask.png",
+      "sha256": "c2bcf9045247cd37c12158a1f6c6e07cd4ab201ae933f4906ea36896bfcc5eec"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/head-regions.png",
+      "sha256": "5009e669da5be9db4ccb882460ed5562f5a6239e0b3d700d667dea9d01c4a83c"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/leftForearm-color.png",
+      "sha256": "3590146f73fdfd822f2f4c1c9045d3d4e7014b67d314013310525ff44f6cf82b"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/leftForearm-mask.png",
+      "sha256": "e90f3116b6248342a6b2f74cc7939c7bf12b187867c05724ab487eff4ec3d2be"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/leftForearm-regions.png",
+      "sha256": "441151cc59830bbda9b4ea26b89917882ae4619846864dd7572e4a1ad32881e2"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/leftShin-color.png",
+      "sha256": "377cbe42c1cab06232714cb731137464cd5cd1d25b818d04ff957558fe5b8a0e"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/leftShin-mask.png",
+      "sha256": "9a8e46b6f1b81e3a8b427ba1c16fdf1710f3e5611afc87964daf7a94a40a8588"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/leftShin-regions.png",
+      "sha256": "5cd166798a6a1231b1bca9014409e2878b74104ce704fc27b6f13768a00a4090"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/leftThigh-color.png",
+      "sha256": "9f57290efcb981b2b6c4807146259d2875a46570800ad93059617c99284ba30a"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/leftThigh-mask.png",
+      "sha256": "ee218a18179ba94b42f9beb1030ad831f7180e5efd4f37deedd2e88873cc5a7d"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/leftThigh-regions.png",
+      "sha256": "74330fde841433a5b34b0b4a0dfadae5d98bbc79a77221ff709ff3c57f97e0f5"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/leftUpperArm-color.png",
+      "sha256": "763173e80cbe8b7a34ace3bb630fb89018a4ca4d669544c71bffa7387bd64556"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/leftUpperArm-mask.png",
+      "sha256": "148ee426579627ce5e1cfa6361011bb9247eb931395aa1221b97ac6c1269dc0e"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/leftUpperArm-regions.png",
+      "sha256": "d94252c16d83962d04c67a7ccff650f199651f506205504e2fe9a48661142be5"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/rightForearm-color.png",
+      "sha256": "b2674b35c05b7608a887a08a3b30e1a91186468fbb372734704e93ca64a34673"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/rightForearm-mask.png",
+      "sha256": "b7f88d344c78736f6fca36112855350e5d7a7132e6d62afedcb1cbb174c2a9e6"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/rightForearm-regions.png",
+      "sha256": "229f6462946549dc692118caf7fc042c63d86fc0596b11ccab63157fa9992a96"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/rightShin-color.png",
+      "sha256": "30412917e1aece367ad0c32c6bee4dc207acaafd61d651355c39bf5f4d49835d"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/rightShin-mask.png",
+      "sha256": "6603e7377c564b6aacda6ed42e119fe96de6375a70b17c7b05cc19ce26d57c5f"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/rightShin-regions.png",
+      "sha256": "540d1b9c430c0d7568e0bb7b9723ca5db0877ab0ed75bb7a677de6c6fbf76c51"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/rightThigh-color.png",
+      "sha256": "cd56bf05416581dedfce0829642663841d3e829dde58f18ac8420ec6cd3ddc72"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/rightThigh-mask.png",
+      "sha256": "a6a391b1bc053479b3837d007c0f353b9faf6d0ce65e260b34dbab83c19380b6"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/rightThigh-regions.png",
+      "sha256": "2dede69bd3381df81150ff1116942d4f7c45447b75f645466f915d96dde3f0dc"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/rightUpperArm-color.png",
+      "sha256": "8fac7780379fa6237a9faf3344c57533bf5c7ccfc52914de4de9e1dd9920b2ae"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/rightUpperArm-mask.png",
+      "sha256": "bd2e8849c7b4638b725a9dd492d93264f1fbce4e0359bf6bf9c394595c4e2612"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/rightUpperArm-regions.png",
+      "sha256": "ce5cd4c37a7795bbb412b7281ce8633d75382119ea623d9083c3a69caeb06079"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/torso-color.png",
+      "sha256": "6414a6f1e2552e49fac3ac6ce8bb7b7152c0f628c7d0bb5075dbd6fd6638f020"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/torso-mask.png",
+      "sha256": "1a8b183cf44d14c4d048727133f1caa96e2ddd5b22238e0d14c15f308ccd5c80"
+    },
+    {
+      "file": "public/assets/puppets/chenxiang-v1/torso-regions.png",
+      "sha256": "40dd54b25969188d9957e4e50c2e91f3c2fa4e0514fa94a0469c45fd96bf8c15"
+    },
+    {
+      "file": "public/assets/puppets/guardian-staff.png",
+      "sha256": "69bbf796801aee1d8e380197d0a7dff3adf5c261a3af275a71eb5bea0891998d"
+    },
+    {
+      "file": "public/assets/puppets/guardian-v1/head-color.png",
+      "sha256": "93059ecc3e5db4a04e351a0e26bdfc0d51863bb8514b8e3c925aa74f1888ce29"
+    },
+    {
+      "file": "public/assets/puppets/guardian-v1/head-mask.png",
+      "sha256": "b4c9120890c33675e6f069e1a79924fc85d5bcf91114adde46982eb91d58146c"
+    },
+    {
+      "file": "public/assets/puppets/guardian-v1/head-regions.png",
+      "sha256": "c7b680dcfe0664bc43e7019612b2cc4d36b906bb65ceb5a1a769abb7595772c5"
+    },
+    {
+      "file": "public/assets/puppets/guardian-v1/rightForearm-color.png",
+      "sha256": "ddc3541ea9aa2683ba3e02ba4e7b7bbcebf54c0182cf102cf5c99196c61809d9"
+    },
+    {
+      "file": "public/assets/puppets/guardian-v1/rightForearm-mask.png",
+      "sha256": "ca38c9768ff88802dae257535291318e987bda5d685ea622f91a1c2709284f80"
+    },
+    {
+      "file": "public/assets/puppets/guardian-v1/rightForearm-regions.png",
+      "sha256": "3c8ed97652d0bbdcc1665869080b62a48098f127ac36e17ecdfe58881d0eb7c1"
+    },
+    {
+      "file": "public/assets/puppets/guardian-v1/rightUpperArm-color.png",
+      "sha256": "03f8ae88aa71f2529943ad1000b31d75071fb1cf342aff4af4cad34f3c097be4"
+    },
+    {
+      "file": "public/assets/puppets/guardian-v1/rightUpperArm-mask.png",
+      "sha256": "8653adf4608c9d4022ef411e7b795202dcd5eba0af4985c52d038a918adecf21"
+    },
+    {
+      "file": "public/assets/puppets/guardian-v1/rightUpperArm-regions.png",
+      "sha256": "900d7749429a88e0a77c098c2a5eee4fa5e33297ba087c41ef8970e16b7f9b84"
+    },
+    {
+      "file": "public/assets/puppets/guardian-v1/torso-color.png",
+      "sha256": "89d735f460b7131ad89eda26862537edbefa2f3a99b18732bcca88b95e2a1090"
+    },
+    {
+      "file": "public/assets/puppets/guardian-v1/torso-mask.png",
+      "sha256": "b6ba914e2995998debab40348d19d198474c02ca8142c59d159f2c8230f703bf"
+    },
+    {
+      "file": "public/assets/puppets/guardian-v1/torso-regions.png",
+      "sha256": "64970c0f6613ef45a35d48681b92da0cfc2312ab42bbe0350cd3c35b36b5c00e"
+    },
+    {
+      "file": "public/assets/puppets/mother-v1/head-color.png",
+      "sha256": "c809d5be4abe8349e01613dd68b1135de90257de65892745d4259c5fcbb30692"
+    },
+    {
+      "file": "public/assets/puppets/mother-v1/head-mask.png",
+      "sha256": "12135cabec2cc6edbf04645aeeed283d83abecc774807df949df95a08591cd99"
+    },
+    {
+      "file": "public/assets/puppets/mother-v1/head-regions.png",
+      "sha256": "e3b7093f8f0ff44fa35074f470bd1bba5ffbd211c91e454add41ff65d473ef0c"
+    },
+    {
+      "file": "public/assets/puppets/mother-v1/leftForearm-color.png",
+      "sha256": "7a9d683fba4f18d41bbfe0055da1183afc526bff92f3a2d0a289b56918d25344"
+    },
+    {
+      "file": "public/assets/puppets/mother-v1/leftForearm-mask.png",
+      "sha256": "f99cd0f535411cc2d0ebc21e714090c4d025c54deb486910d7c1c1ff7cfd3d5f"
+    },
+    {
+      "file": "public/assets/puppets/mother-v1/leftForearm-regions.png",
+      "sha256": "8fba49ec4433ee88d90e8f0d46632d61fbc8efdf93469693730799d9a3a5dbd0"
+    },
+    {
+      "file": "public/assets/puppets/mother-v1/leftUpperArm-color.png",
+      "sha256": "d67f6e96873b6d509c9b0727ffc3951483653e0bb592166f58f3888fbaf847c9"
+    },
+    {
+      "file": "public/assets/puppets/mother-v1/leftUpperArm-mask.png",
+      "sha256": "401f3a5ec2d5187bce9b38c2f145b69d7b6d46dabc66c613f01e403023237a1e"
+    },
+    {
+      "file": "public/assets/puppets/mother-v1/leftUpperArm-regions.png",
+      "sha256": "821c33e2326d015795c4ec88cb2d92cd4adfd74ddf86ee075828fa8345b2de9f"
+    },
+    {
+      "file": "public/assets/puppets/mother-v1/rightForearm-color.png",
+      "sha256": "4c52d64be15d316a91484f9b3a30f428723600d4eaee97c564d628f7986da895"
+    },
+    {
+      "file": "public/assets/puppets/mother-v1/rightForearm-mask.png",
+      "sha256": "d9de7ff591e629bc5c699b8e7dac13f72fc38ccc7010d04d8606049d0f8d4ff6"
+    },
+    {
+      "file": "public/assets/puppets/mother-v1/rightForearm-regions.png",
+      "sha256": "0ed202597f242ec4cb9e3d8a68ee77e4245ca2a7d7e159be4f7723c186e08e4a"
+    },
+    {
+      "file": "public/assets/puppets/mother-v1/rightUpperArm-color.png",
+      "sha256": "955d547b53bf887efd670b5e914631693a384ab869902d21b476c1a7b166e6b0"
+    },
+    {
+      "file": "public/assets/puppets/mother-v1/rightUpperArm-mask.png",
+      "sha256": "97894d7cb5624bb02683bfab732f9743b6ccb64cda261a88c869b5da11b68220"
+    },
+    {
+      "file": "public/assets/puppets/mother-v1/rightUpperArm-regions.png",
+      "sha256": "b295566365bf07630c68f3ddf4676249a4c81aa8fe7ce6da6926d0eae551b6f8"
+    },
+    {
+      "file": "public/assets/puppets/mother-v1/torso-color.png",
+      "sha256": "81bc2137772c894814e022293870ed4a29382bb115b2497ee9388c5232ff6dff"
+    },
+    {
+      "file": "public/assets/puppets/mother-v1/torso-mask.png",
+      "sha256": "2529d45f31d9728ec95acc19798b22ba86e469636522116122cb9baf2f2fb3a8"
+    },
+    {
+      "file": "public/assets/puppets/mother-v1/torso-regions.png",
+      "sha256": "261b2a56f11be9a458ca6b1b3d778b723d5aa22f3b8b4651a1686987f315a2b2"
+    },
+    {
+      "file": "public/assets/scenes/home-floor.png",
+      "sha256": "3b17dc98f1bb551b94fe0b2dd040ac3e19d9466e7aaf0763d2dcf5e6a94b4920"
+    },
+    {
+      "file": "public/assets/scenes/home-window.png",
+      "sha256": "d494fab00f80ee86c23d041141c6a2a47875360989272d8bedd2271989e61d95"
+    },
+    {
+      "file": "public/assets/scenes/mountain-dust.png",
+      "sha256": "d268bc48556a7803ede4543ecebd2b75e7aefe6650ccde22062f4f01113953c9"
+    },
+    {
+      "file": "public/assets/scenes/mountain-far.png",
+      "sha256": "56fbac767ad71b4c26d2dcebb9f7be100413a4dfa2100090c81c54c0fc429c98"
+    },
+    {
+      "file": "public/assets/scenes/mountain-left.png",
+      "sha256": "e30a9a718e44dbf7539d3bfc892130b2a77f3352de03bf77567b5514aa34eea1"
+    },
+    {
+      "file": "public/assets/scenes/mountain-right.png",
+      "sha256": "16892d1f87bb4d9a3728e8aa1d3d8dd9e3c72ab550fa4fe4e35e38796abf861c"
+    },
+    {
+      "file": "public/assets/scenes/road-ledge.png",
+      "sha256": "448784ef70ef57e34a077639d538ac94110a04cf05e760637e4686e0e1e3d4e7"
+    },
+    {
+      "file": "public/assets/scenes/road-near.png",
+      "sha256": "1aa47b8da6ab15cac8b801a145edfb5f851bb80c5f5873d3c60c6f4545b6f3d0"
+    },
+    {
+      "file": "public/assets/scenes/road-path.png",
+      "sha256": "94e6e5527a26a47c33472fb6867e26da551ab7c57a82ce1aedf437099179be0a"
+    },
+    {
+      "file": "scripts/art/delivery-files.mjs",
+      "sha256": "db32788ba1754a19c4c78547616d4871532f8e9c3a0fd0981fde96f70079d1cd"
+    },
+    {
+      "file": "scripts/art/image-pixel-proof.mjs",
+      "sha256": "c641056d508437e40971c8ab15368bf2557c0cfd3e782374b6dca69a417a8062"
+    },
+    {
+      "file": "scripts/art/png-lossless.ts",
+      "sha256": "838a0a893eae35375490490e86b10a94db7a2ed43d41b1dfed22cb08df25f577"
+    },
+    {
+      "file": "scripts/art/startup-budget.mjs",
+      "sha256": "8d9bd51d8914ff76eca61632682d5d6535ce7beb36504aab3f322f6617e7aeec"
+    },
+    {
+      "file": "scripts/generate-delivery-assets.mjs",
+      "sha256": "51f83c922e64e50444fd17e1209666a64815befcc644a948d88a417f31d29d33"
+    },
+    {
+      "file": "scripts/generate-reference-assets.mjs",
+      "sha256": "a9b33e7b9b21878785f9cbaf57b33b20072d713e8378e1a32cdcbbd32f048217"
+    },
+    {
+      "file": "scripts/measure-runtime.mjs",
+      "sha256": "78c9c46093cd0067b228eb1209dfd798683f67bacf5b7e3f5dd8fc14af9414d8"
+    },
+    {
+      "file": "scripts/measure-startup.mjs",
+      "sha256": "840881c349b53c09688c1bcbd13890b70067c223a4769965eb9317e418a157af"
+    },
+    {
+      "file": "scripts/probe-native-frame-start.mjs",
+      "sha256": "6b1777c8fb6e037d51ecc0c817ec2c2d311837174f6cc23172dd1d4fa681eaf3"
+    },
+    {
+      "file": "scripts/verify-art-reproducibility.mjs",
+      "sha256": "05b34a0141270356d25ae234f51496201473a4f7b2e0ff9bdc0574b29c5ca1f0"
+    },
+    {
+      "file": "scripts/verify-assets.mjs",
+      "sha256": "f143c64d9387938353d2e7197e26be38cafe10e79c09b6ecca665442afb74075"
+    },
+    {
+      "file": "scripts/verify-delivery-assets.mjs",
+      "sha256": "7b808d88d00843661c8e9eeb2d132ae7e9fd0a6a9f76c836a1d54516b93a7148"
+    },
+    {
+      "file": "scripts/verify-lossless-reencode.mjs",
+      "sha256": "d4a81d934fd4d2d24e36745fc202f1ba68dfca988b006f29540f4499e3f09a5c"
+    },
+    {
+      "file": "src/app/animation-clock.ts",
+      "sha256": "a517b4a81f044d1084cf6d8151d15630e0936f6aab1d813075030640950c38a2"
+    },
+    {
+      "file": "src/content/asset-delivery.ts",
+      "sha256": "8efc0ed80d0c7be28cc1a58496e263e25941e4def7dbde28601ad0599ac096ed"
+    },
+    {
+      "file": "src/content/delivery.json",
+      "sha256": "98c20ac44ac83c3b6e94fe5c7f57fb33821fa06b9e0eaf13a6bf85239045580c"
+    },
+    {
+      "file": "src/content/manifest.json",
+      "sha256": "02544ee3b6e03ebe6579e3cfa530bb224fc7ba623f40dc58e0f8ed594003ac7b"
+    },
+    {
+      "file": "src/renderers/canvas/compositing.ts",
+      "sha256": "96874124c55e0992c297c3476ca0e0a157134f7a5ae24e73d199d32e09caaa3c"
+    },
+    {
+      "file": "src/renderers/canvas/frame.ts",
+      "sha256": "eb088299a30e594fa87a8c77936aa1bc9419b47e80fb82268350d47667706538"
+    },
+    {
+      "file": "src/renderers/canvas/texture-cache.ts",
+      "sha256": "0ed3200f7f6195434c299c3840226141d128da8232de240805316e430b5cbef7"
+    },
+    {
+      "file": "tests/e2e/asset-delivery.spec.ts",
+      "sha256": "765a0cb58f53dab897f3669f572abcc61a25ca04bbdb8f47e83d8106d895fa49"
+    },
+    {
+      "file": "tests/e2e/canvas-stage.spec.ts",
+      "sha256": "2b1766d8d051d6b5e7c07f177e488f4caff1bb32f11a149814e65cab4e6b76f1"
+    },
+    {
+      "file": "tests/e2e/clock-native-start.spec.ts",
+      "sha256": "54b2b2492dd1be7abaec5c04bf90f141d25a0f52dc051aa61ca2a563235a6320"
+    },
+    {
+      "file": "tests/e2e/director.spec.ts",
+      "sha256": "83bfd3a9e6c6ee23abb82724f84316c45595ece0adb78b65ec70ac7d0b4aa400"
+    },
+    {
+      "file": "tests/e2e/environment-preflight.spec.ts",
+      "sha256": "7f483191de3699a41894510f4674429af7608821db5a2f303fd953b568a3142c"
+    },
+    {
+      "file": "tests/e2e/museum.spec.ts",
+      "sha256": "d2ef327a16b1a5c5b90d1ae0fa6079864e493fc66eee408aa4e8dd5b15f9bba2"
+    },
+    {
+      "file": "tests/e2e/result.spec.ts",
+      "sha256": "4de2d9d40042f5d4b561f9f47ef2920890b9e81930662753eee043852249e9fd"
+    },
+    {
+      "file": "tests/e2e/save-boundaries.spec.ts",
+      "sha256": "41197de9a2a3d4ec8b0c03c5c43353697e1e4fa6b1f80c2f0c7a401e116cb15c"
+    },
+    {
+      "file": "tests/unit/animation-clock.test.ts",
+      "sha256": "a5216b44d5b518ff736d5b49a7ab51d31de801470450d07483d95a7c01afc099"
+    },
+    {
+      "file": "tests/unit/asset-delivery.test.ts",
+      "sha256": "3e00c917a08fb21c6339d705430e4fba5cc4b45fded75a66dcd6a04d1d4734d6"
+    },
+    {
+      "file": "tests/unit/canvas-frame.test.ts",
+      "sha256": "f1fe7c5cafebd10b026cacea7e353f38b265dc520f11c090f568f77ddb08e466"
+    },
+    {
+      "file": "tests/unit/png-lossless.test.ts",
+      "sha256": "1b1627f9aa18cb75d299f13c3f9d1991e256c6c5d78c5f537d99c74f388ae16f"
+    },
+    {
+      "file": "tsconfig.node.json",
+      "sha256": "6ed2bff24db0dd98ab451d4dd3c9e9998abd93e5bdb9ab0c5b685516b7c4c731"
+    }
+  ],
+  "evidenceSha256": [
+    {
+      "file": "docs/evidence/png-reencode-pixel-proof.json",
+      "sha256": "c0c1c2918a572d16f0d4fe7b741a397b95d98d4adee0eb1966afd84005265853"
+    },
+    {
+      "file": "docs/evidence/delivery-pixel-proof.json",
+      "sha256": "aeedba910768a8636e20d391fa272a779ca1ffc5b7838401df3b7af70a91b492"
+    },
+    {
+      "file": "docs/evidence/startup-art-reproducibility.json",
+      "sha256": "407dd4f30aad5c18de1c415d78b6e21487d1a6d86f0affc9d59e9bad83db1983"
+    },
+    {
+      "file": "docs/evidence/startup-baseline.json",
+      "sha256": "0853047ba8454b3d9d5db57b652abddffe4461ce60084a8f867611a7c6549f48"
+    },
+    {
+      "file": "docs/evidence/startup-optimized.json",
+      "sha256": "00a33d9d7932efb5fa863ba898d11586bc191d220ffbc225efc5e7f08457b4a9"
+    },
+    {
+      "file": "docs/evidence/startup-wave.json",
+      "sha256": "e6ff14226364e2e77a305c0fc534eed2b8cfca6d13be63df17a5207df12e0bac"
+    },
+    {
+      "file": "docs/evidence/startup-png-compatibility.json",
+      "sha256": "df23ff0eeb5431f375b4f7c403b1bb30dbe89af3ce8568738614d09d7a22f332"
+    },
+    {
+      "file": "docs/evidence/startup-static-budget.json",
+      "sha256": "e30df5debcc48e2dd92d688cdbe3418ae8155d136569b413023a23d7346c60e7"
+    },
+    {
+      "file": "docs/evidence/startup-entry-budget.json",
+      "sha256": "fe3a8a3ef88425100191c4378ce9819b50a185b33477912f3af018a0be3f8ae4"
+    },
+    {
+      "file": "docs/evidence/startup-production-build.json",
+      "sha256": "f4f32612aed0d10a44958f7d0f8a6d0ec272e1882544fe74cf38ae7a2e0d5eb2"
+    },
+    {
+      "file": "docs/evidence/startup-production-build-before-clock.json",
+      "sha256": "1bac07c20dd0455549f7c4d8254bee22463da3cfed7583c1df1e4fa56faf9702"
+    },
+    {
+      "file": "docs/evidence/runtime-desktop-preflight.json",
+      "sha256": "74f4b6112e4357219eced3a397c02a7765461e4b638f71df7505b88ede043893"
+    },
+    {
+      "file": "docs/evidence/native-frame-start-before.json",
+      "sha256": "49d68a316a5d68ac6377ad8e1e1a8e72beeea1c97dd08366570c1e2030d160d2"
+    },
+    {
+      "file": "docs/evidence/native-frame-start-after.json",
+      "sha256": "5b62f9c2245326a27cc3bb2369895d56414132f7ad3a8ec130547ccf10afb743"
+    },
+    {
+      "file": "docs/evidence/environment-preflight-run.json",
+      "sha256": "e8f66cfafc79c5aa5c9328d8a6960106ff3937eee81b8f970519bd26f651e67c"
+    },
+    {
+      "file": "docs/evidence/environment-reduced-motion-run.json",
+      "sha256": "ba026cd019657eda640d4a14c1426854e09c209d7c324a3d2f025d2001e1ff77"
+    },
+    {
+      "file": "docs/evidence/environment-reduced-motion-initial-failures.json",
+      "sha256": "53fa01b5826d1d8d9e3d5b9fd285f293a37fac1ee19f66c0b878344b195a8b06"
+    },
+    {
+      "file": "docs/evidence/startup-core-regression.json",
+      "sha256": "2ecd5cdac1e826480aa73d49642be0ad403acdddcea230957ae02db1352d0151"
+    },
+    {
+      "file": "docs/evidence/startup-core-recheck.json",
+      "sha256": "0769c3384723b1a83ed4c3e3eb598a5810b73001912b8bffedfc1526da519ea5"
+    },
+    {
+      "file": "docs/evidence/startup-core-system-standby.json",
+      "sha256": "f2a9944f9884859df3101ef1ab0f740a34ca6c57b85db6b8f51182a1938f6659"
+    },
+    {
+      "file": "docs/evidence/startup-core-timeout-diagnostics.json",
+      "sha256": "271df0f387e36d6a1200fdc044e41f06b75fbfcf555c829168db48c45bb91796"
+    },
+    {
+      "file": "docs/evidence/startup-instrumentation-failure.json",
+      "sha256": "01957cb3ef2fc4e090a09201d725cc2ad6408a4564a0eb81a77c65b341772cc1"
+    },
+    {
+      "file": "docs/evidence/startup-codec-decisions.json",
+      "sha256": "3e2cdb6deba75a05b16e2811260f19e77ca60ff123a61ceea3d1d7d72fa9eabf"
+    },
+    {
+      "file": "docs/evidence/startup-release-gates.json",
+      "sha256": "e43a306615be15b0b308f392c4a9d3e695b5dbb9f0ff80637e819b990c74a2b0"
+    }
+  ]
+}

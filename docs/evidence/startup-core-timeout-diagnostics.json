@@ -1,0 +1,495 @@
+{
+  "kind": "selected-events-from-original-failure-traces",
+  "rows": [
+    {
+      "file": "docs/evidence\\startup-timeout-story-and-resume-guided-sp-3d3ee-in-with-explicit-assistance-desktop-chromium.zip",
+      "events": [
+        {
+          "type": "context-options",
+          "wallTime": 1792418609125,
+          "monotonicTime": 497572.421,
+          "browserName": "",
+          "playwrightVersion": "1.64.1"
+        },
+        {
+          "type": "after",
+          "callId": "gaum@19940",
+          "endTime": 1109167.149,
+          "error": {
+            "name": "",
+            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#story-runtime')\nExpected: \u001b[32m\"paused\"\u001b[39m\nReceived: \u001b[31m\"error\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#story-runtime')\u001b[22m\n\u001b[2m    6 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-state=\"error\" class=\"story-runtime\" data-node=\"split-search\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-566dca5b980f3638c5cfd21726d594d7:10:split-search:11\">当前片段准备失败：无法加载 chenxiang-v1-left-shin-regions，请重试。…</p>\u001b[22m\n\u001b[2m      - unexpected value \"error\"\u001b[22m\n\u001b[2m  - Test timeout of 90000ms exceeded.\u001b[22m\n",
+            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#story-runtime')\nExpected: \u001b[32m\"paused\"\u001b[39m\nReceived: \u001b[31m\"error\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#story-runtime')\u001b[22m\n\u001b[2m    6 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-state=\"error\" class=\"story-runtime\" data-node=\"split-search\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-566dca5b980f3638c5cfd21726d594d7:10:split-search:11\">当前片段准备失败：无法加载 chenxiang-v1-left-shin-regions，请重试。…</p>\u001b[22m\n\u001b[2m      - unexpected value \"error\"\u001b[22m\n\u001b[2m  - Test timeout of 90000ms exceeded.\u001b[22m\n\n    at ready (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-and-resume.spec.ts:8:71)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-and-resume.spec.ts:76:77"
+          }
+        },
+        {
+          "type": "context-options",
+          "wallTime": 1792418609133,
+          "monotonicTime": 497579.49,
+          "browserName": "chromium",
+          "playwrightVersion": "1.64.1"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.801Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-torso-color.webp",
+          "elapsedMs": 24.775000000023283,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.801Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-torso-regions.webp",
+          "elapsedMs": 24.77800000004936,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.802Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-head-color.webp",
+          "elapsedMs": 24.78599999996368,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.802Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-head-regions.webp",
+          "elapsedMs": 24.79699999996228,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.802Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-left-upper-arm-color.webp",
+          "elapsedMs": 24.869999999995343,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.802Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-left-upper-arm-regions.webp",
+          "elapsedMs": 24.870999999984633,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.802Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-left-forearm-color.webp",
+          "elapsedMs": 24.864000000001397,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.802Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-left-forearm-regions.webp",
+          "elapsedMs": 24.385999999998603,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.802Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-left-thigh-color.webp",
+          "elapsedMs": 24.369000000006054,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.802Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-left-thigh-regions.webp",
+          "elapsedMs": 24.364999999990687,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.802Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-left-shin-color.webp",
+          "elapsedMs": 24.35999999998603,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.802Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-left-shin-regions.webp",
+          "elapsedMs": 24.35800000000745,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.802Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-right-upper-arm-color.webp",
+          "elapsedMs": 24.35800000000745,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.803Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-right-upper-arm-regions.webp",
+          "elapsedMs": 24.355999999970663,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.803Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-right-forearm-color.webp",
+          "elapsedMs": 24.35600000002887,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.803Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-right-forearm-regions.webp",
+          "elapsedMs": 24.353999999992084,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.803Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-right-thigh-color.webp",
+          "elapsedMs": 24.352000000013504,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.803Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-right-thigh-regions.webp",
+          "elapsedMs": 24.351000000024214,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.803Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-right-shin-color.webp",
+          "elapsedMs": 24.320999999996275,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.803Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-right-shin-regions.webp",
+          "elapsedMs": 24.320000000006985,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.803Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/wave-v1-cut-1.webp",
+          "elapsedMs": 24.318999999959487,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.803Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/wave-v1-cut-2.webp",
+          "elapsedMs": 24.318000000028405,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:03:30.803Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/wave-v1-cut-3.webp",
+          "elapsedMs": 24.320999999996275,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.603Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-left-shin-regions.webp",
+          "elapsedMs": 220.32400000002235,
+          "failure": "net::ERR_NETWORK_IO_SUSPENDED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.602Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-left-forearm-regions.webp",
+          "elapsedMs": 539.199,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.602Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-left-thigh-color.webp",
+          "elapsedMs": 538.414,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.603Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-left-shin-color.webp",
+          "elapsedMs": 437.931,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.603Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-right-upper-arm-color.webp",
+          "elapsedMs": 226.11700000008568,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.603Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-right-upper-arm-regions.webp",
+          "elapsedMs": 226.14299999992363,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.603Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-right-forearm-color.webp",
+          "elapsedMs": 226.1390000001993,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.603Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-right-forearm-regions.webp",
+          "elapsedMs": 226.07099999999627,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.603Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-right-thigh-color.webp",
+          "elapsedMs": 226.05200000014156,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.603Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-right-thigh-regions.webp",
+          "elapsedMs": 225.7039999999106,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.603Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-right-shin-color.webp",
+          "elapsedMs": 225.57300000009127,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.603Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-v1-right-shin-regions.webp",
+          "elapsedMs": 225.2600000000093,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.603Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/flower-v1-cut-1.webp",
+          "elapsedMs": 212.83700000005774,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.603Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/flower-v1-cut-2.webp",
+          "elapsedMs": 211.8269999998156,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.604Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/flower-v1-cut-3.webp",
+          "elapsedMs": 202.5439999999944,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.604Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/chenxiang-lantern.webp",
+          "elapsedMs": 201.8850000000093,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.604Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/mother-v1-torso-color.webp",
+          "elapsedMs": 201.63699999987148,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.604Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/mother-v1-torso-regions.webp",
+          "elapsedMs": 201.4450000000652,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.604Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/mother-v1-head-color.webp",
+          "elapsedMs": 201.17599999997765,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.604Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/mother-v1-head-regions.webp",
+          "elapsedMs": 200.99300000001676,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.604Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/mother-v1-left-upper-arm-color.webp",
+          "elapsedMs": 200.80600000009872,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.604Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/mother-v1-left-upper-arm-regions.webp",
+          "elapsedMs": 200.61999999987893,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.605Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/mother-v1-left-forearm-color.webp",
+          "elapsedMs": 200.43900000001304,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.606Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/mother-v1-left-forearm-regions.webp",
+          "elapsedMs": 200.25499999988824,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.607Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/mother-v1-right-upper-arm-color.webp",
+          "elapsedMs": 200.05500000016764,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.608Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/mother-v1-right-upper-arm-regions.webp",
+          "elapsedMs": 199.85100000002421,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.608Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/mother-v1-right-forearm-color.webp",
+          "elapsedMs": 199.67500000004657,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.609Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/mother-v1-right-forearm-regions.webp",
+          "elapsedMs": 172.92700000014156,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.612Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/scene-mountain-far.webp",
+          "elapsedMs": 172.31700000003912,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.614Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/scene-mountain-left.webp",
+          "elapsedMs": 171.875,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.615Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/scene-mountain-right.webp",
+          "elapsedMs": 171.83499999996275,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "kind": "network-failure",
+          "startedDateTime": "2026-10-19T14:13:37.616Z",
+          "url": "http://127.0.0.1:4173/assets/delivery/scene-mountain-dust.webp",
+          "elapsedMs": 171.81899999990128,
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "type": "context-options",
+          "wallTime": 1792418609135,
+          "monotonicTime": 497581.559,
+          "browserName": "",
+          "playwrightVersion": "1.64.1"
+        }
+      ],
+      "sourceTraceSha256": "aa7542c08e85bc195e7e6fdd6d5d5eb1732ac4ea3e75d32c25abf9a576ba4743",
+      "sourceTraceBytes": 2731815
+    },
+    {
+      "file": "docs/evidence\\startup-timeout-story-and-resume-manual-li-d2162-ed-progress-is-retried-once-desktop-chromium.zip",
+      "events": [
+        {
+          "type": "context-options",
+          "wallTime": 1792419223389,
+          "monotonicTime": 1111839.643,
+          "browserName": "",
+          "playwrightVersion": "1.64.1"
+        },
+        {
+          "type": "context-options",
+          "wallTime": 1792419223676,
+          "monotonicTime": 1112126.756,
+          "browserName": "chromium",
+          "playwrightVersion": "1.64.1"
+        },
+        {
+          "type": "context-options",
+          "wallTime": 1792419223685,
+          "monotonicTime": 1112135.777,
+          "browserName": "",
+          "playwrightVersion": "1.64.1"
+        }
+      ],
+      "sourceTraceSha256": "a04dda24439cfc1419919e2df4730258efab4a6cb18182d11b751a8cdbb93d86",
+      "sourceTraceBytes": 688406
+    },
+    {
+      "file": "docs/evidence\\startup-timeout-three-stage-renderer-initi-2cbb6-ry-really-initializes-WebGL-desktop-chromium.zip",
+      "events": [
+        {
+          "type": "context-options",
+          "wallTime": 1792454396402,
+          "monotonicTime": 36284854.713,
+          "browserName": "",
+          "playwrightVersion": "1.64.1"
+        },
+        {
+          "type": "after",
+          "callId": "jfqr@2811",
+          "endTime": 38962434.952,
+          "error": {
+            "name": "",
+            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.canvas-stage-status')\nExpected: \u001b[32m\"ready\"\u001b[39m\nReceived: \u001b[31m\"loading\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.canvas-stage-status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.canvas-stage-status')\u001b[22m\n\u001b[2m  - Test timeout of 90000ms exceeded.\u001b[22m\n",
+            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.canvas-stage-status')\nExpected: \u001b[32m\"ready\"\u001b[39m\nReceived: \u001b[31m\"loading\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.canvas-stage-status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.canvas-stage-status')\u001b[22m\n\u001b[2m  - Test timeout of 90000ms exceeded.\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\three-stage.spec.ts:56:437"
+          }
+        },
+        {
+          "type": "context-options",
+          "wallTime": 1792454396418,
+          "monotonicTime": 36284871.156,
+          "browserName": "chromium",
+          "playwrightVersion": "1.64.1"
+        },
+        {
+          "type": "context-options",
+          "wallTime": 1792454396424,
+          "monotonicTime": 36284876.539,
+          "browserName": "",
+          "playwrightVersion": "1.64.1"
+        }
+      ],
+      "sourceTraceSha256": "e10e8ff873926c6accf0a05f5986faef271af79c8a138e0e1505d902e9a5bef5",
+      "sourceTraceBytes": 18792
+    }
+  ],
+  "scope": "Selected failure/context timestamps and network failures retained; original duplicate trace ZIPs removed after successful same-source 3-test recheck. System standby correlation is separate, not a performance result."
+}

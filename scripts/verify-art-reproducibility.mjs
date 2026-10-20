@@ -1,0 +1,14 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
+import path from 'node:path';
+const root=fileURLToPath(new URL('../',import.meta.url)),json=file=>JSON.parse(readFileSync(path.join(root,file),'utf8')),sha=bytes=>createHash('sha256').update(bytes).digest('hex');
+const files=[...json('src/content/manifest.json').assets.map(a=>'public/'+a.path),'src/content/manifest.json','docs/assets.csv',...['chenxiang-v1','mother-v1','guardian-v1'].map(id=>'src/content/puppets/'+id+'.json'),'src/content/scenes.json','src/content/stories/reunion-v1.json',...json('src/content/delivery.json').records.map(a=>'public/'+a.path),'src/content/delivery.json','docs/evidence/delivery-pixel-proof.json'];
+const before=new Map(files.map(file=>[file,sha(readFileSync(path.join(root,file)))]));
+for(const script of ['scripts/generate-reference-assets.mjs','scripts/generate-delivery-assets.mjs'])execFileSync(process.execPath,[script],{cwd:root,stdio:'inherit'});
+const records=files.map(file=>({file,beforeSha256:before.get(file),afterSha256:sha(readFileSync(path.join(root,file)))}));
+const differences=records.filter(r=>r.beforeSha256!==r.afterSha256);
+writeFileSync(path.join(root,'docs/evidence/startup-art-reproducibility.json'),JSON.stringify({kind:'rerun-both-generators-byte-equality',node:process.version,generators:['scripts/generate-reference-assets.mjs','scripts/generate-delivery-assets.mjs'].map(file=>({file,sha256:sha(readFileSync(path.join(root,file)))})),fileCount:records.length,differences,records},null,2)+'\n');
+if(differences.length)throw new Error('Generator output changed: '+differences.map(r=>r.file).join(','));
+console.log(`PASS: ${records.length} generated outputs byte-identical after both generators rerun.`);

@@ -8,6 +8,7 @@ import {referencePuppets,referenceGeometry,bindReferencePuppets,drawReferencePar
 import {drawDesignedMotif} from './art/scenery.mjs';
 import {drawReferenceScenery} from './art/reference-scenery.mjs';
 import {referenceProps,drawReferenceProp} from './art/reference-props.mjs';
+import {optimizePNG} from './art/png-lossless.ts';
 
 const root=fileURLToPath(new URL('../',import.meta.url));
 const json=file=>JSON.parse(readFileSync(path.join(root,file),'utf8'));
@@ -65,13 +66,13 @@ try{
 if(outputs.length!==81||new Set(outputs.map(x=>x.id)).size!==81)throw new Error('Expected exactly 81 assets');
 for(const output of outputs){
   const entry=manifest.assets.find(a=>a.id===output.id);if(!entry)throw new Error('Unknown asset '+output.id);
-  const bytes=Buffer.from(output.png,'base64'),target=path.join(root,'public',entry.path);mkdirSync(path.dirname(target),{recursive:true});writeFileSync(target,bytes);
+  const bytes=optimizePNG(Buffer.from(output.png,'base64')),target=path.join(root,'public',entry.path);mkdirSync(path.dirname(target),{recursive:true});writeFileSync(target,bytes);
   Object.assign(entry,{width:output.width,height:output.height,creator:entry.type==='carving-mask'?'Codex / original Canvas2D motif paths':'Codex / project-owned AI direction plate and measured segmentation',sourceUrl:'',license:'unknown',
     credit:entry.type==='carving-mask'?'影作原创可刻纹样设计稿':'影作AI方向图分件贴图设计稿',reviewStatus:'draft',sha256:createHash('sha256').update(bytes).digest('hex')});
 }
 manifest.provenance={kind:'original-ai-reference-cutout',generator:'scripts/generate-reference-assets.mjs',tool:`Canvas2D / Chromium ${browser.version()}`,
   intent:`按作者要求拆分本项目内置image_gen方向图docs/art/t10-art-direction.png（SHA256 ${sourceSha}）；保留服饰、手型、笔触与背景，测量关节后绑定；背景亮度84%/饱和度76%，角色保留参考原色或用户配色，不作传统实物或特定流派复原。`,
-  externalMedia:false,manualEdits:'Measured polygons, neck-paper correction, source-image fragments and rig bindings in scripts/art/reference-*.mjs; three props use new matching AI plates t10-prop-direction-v2.png and t10-staff-direction-v2.png; user motifs remain original paths',licenseNote:'设计稿；文化、设计及使用许可仍待实际作者审看，不代作者授予许可。'};
+  externalMedia:false,manualEdits:'Measured polygons, neck-paper correction, source-image fragments and rig bindings in scripts/art/reference-*.mjs; three props use new matching AI plates t10-prop-direction-v2.png and t10-staff-direction-v2.png; user motifs remain original paths; deterministic lossless RGBA8 PNG re-encoding in scripts/art/png-lossless.ts',licenseNote:'设计稿；文化、设计及使用许可仍待实际作者审看，不代作者授予许可。'};
 manifest.colorMapEncoding.recolor='source-relative-rgb';
 save('src/content/manifest.json',manifest);
 for(const puppet of puppets)save(`src/content/puppets/${puppet.id}.json`,puppet);

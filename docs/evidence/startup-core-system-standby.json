@@ -1,0 +1,53 @@
+{
+  "kind": "read-only-system-standby-correlation",
+  "provider": "Microsoft-Windows-Kernel-Power",
+  "recordedAtUTC": "2026-10-20T00:45:42.7846399Z",
+  "scope": "System events during core regression; timestamps correlate host standby with abnormal wall-time gaps. Not a product FPS or full-story duration result.",
+  "events": [
+    {
+      "timeUTC": "2026-10-20T00:44:37.9698592Z",
+      "id": 507,
+      "message": "系统正在退出新型待机状态 \r\n\r\n原因: Input Keyboard。"
+    },
+    {
+      "timeUTC": "2026-10-20T00:00:00.7911529Z",
+      "id": 506,
+      "message": "系统正在进入新型待机状态 \r\n\r\n原因: Power Button。"
+    },
+    {
+      "timeUTC": "2026-10-19T23:58:47.0788650Z",
+      "id": 507,
+      "message": "系统正在退出新型待机状态 \r\n\r\n原因: Lid。"
+    },
+    {
+      "timeUTC": "2026-10-19T23:58:47.0467190Z",
+      "id": 506,
+      "message": "系统正在进入新型待机状态 \r\n\r\n原因: Sleep, Hibernate, or Shutdown。"
+    },
+    {
+      "timeUTC": "2026-10-19T14:13:44.6549005Z",
+      "id": 42,
+      "message": "系统正在进入睡眠状态。\r\n\r\n睡眠原因: Application API"
+    },
+    {
+      "timeUTC": "2026-10-19T14:13:37.7302548Z",
+      "id": 507,
+      "message": "系统正在退出新型待机状态 \r\n\r\n原因: Sleep, Hibernate, or Shutdown。"
+    },
+    {
+      "timeUTC": "2026-10-19T14:13:36.7155334Z",
+      "id": 506,
+      "message": "系统正在进入新型待机状态 \r\n\r\n原因: Austerity Battery Drain Budget Exceeded。"
+    },
+    {
+      "timeUTC": "2026-10-19T14:13:36.7121255Z",
+      "id": 507,
+      "message": "系统正在退出新型待机状态 \r\n\r\n原因: Austerity Battery Drain Budget Exceeded。"
+    },
+    {
+      "timeUTC": "2026-10-19T14:03:37.2873963Z",
+      "id": 506,
+      "message": "系统正在进入新型待机状态 \r\n\r\n原因: Lid。"
+    }
+  ]
+}

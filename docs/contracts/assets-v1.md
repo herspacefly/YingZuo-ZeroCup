@@ -28,7 +28,7 @@ T10当前尚未发布，比例修订保留九JointId拓扑、角度零位/方向
 
 ## 遮罩、颜色和共同纹样
 
-三图尺寸与 alpha 覆盖逐像素一致。alpha-mask 的白色 alpha 表示保留；PNG透明处为外部。color-map 的非透明 RGB 是精确标签：body=(255,0,0)，sleeve=(0,255,0)，hem=(0,0,255)，fixed=(255,255,0)。以 nearest 采样；fixed 保留彩色原图像素，其余按外观的 colorSlots 或固定角色配置选色。不要把标签本身当成影色。固定角色默认 body/sleeve/hem 分别取色板索引0/1/2。
+三图尺寸与 alpha 覆盖逐像素一致。81张canonical PNG全部保留；生产合成仅加载彩色与颜色区图，使用已校验的内嵌alpha，不重复请求alpha-mask。alpha-mask 的白色 alpha 表示保留；PNG透明处为外部。color-map 的非透明 RGB 是精确标签：body=(255,0,0)，sleeve=(0,255,0)，hem=(0,0,255)，fixed=(255,255,0)。以 nearest 采样；fixed 保留彩色原图像素，其余按外观的 colorSlots 或固定角色配置选色。不要把标签本身当成影色。固定角色默认 body/sleeve/hem 分别取色板索引0/1/2。
 
 colorMapEncoding.recolor省略/replace时为旧的精确RGB替换；当前source-relative-rgb按每通道`source * selected / baseline`夹至0—255并取整。baseline为template.defaultPaletteId的body/sleeve/hem索引0/1/2；与默认选色相同则原图像素不变，选其他色保留布面明暗差异。fixed像素始终原样。脸颈采用显式轮廓保护，颈前三处误保留纸底局部解除保护，仅剔纸色并保留衣领/胡须；手部肤色保留，不擦掉脸和手。
 
@@ -53,3 +53,9 @@ colorMapEncoding.recolor省略/replace时为旧的精确RGB替换；当前source
 `assets.html` 是单角色中性组装和场景检查页。没有 RAF、剧情推进、IK 或灯影投影；缺资源/Canvas时明确失败、清空组装画布并允许重试，离开清除加载回调和事件。T04 的生产渲染器不能直接以本页代替。
 
 附件更新：原斧和守关兵器保留原握持点/bounds；call-light与split-search新增rightForearm提灯，环顶实测点绑定手点，新增ID不写入ProjectV1。道具来自两张内置image_gen同风格源图，去除弱alpha辉光后确定性裁切，提示与源SHA见../art/t10-props-v2-prompts.md。审看册原“斧与灯”误标守关兵器已更正。
+
+## 无损传输派生资源
+
+`src/content/delivery.json`将61张更小的WebP绑定到当前canonical PNG的SHA、尺寸和派生SHA/字节。PNG先确定性无损重编码，81图原始及浏览器RGBA逐字节相同。`generate-delivery-assets.mjs`以libwebp lossless生成后，逐图用`premultiplyAlpha:none/colorSpaceConversion:none`解码并比较浏览器RGBA；普通Image WebP解码曾改变半透明边缘，已拒绝。运行时以2×2半透明像素能力探针核对，不支持/legacy走原PNG；网络或损坏文件实际报错并手动重试。ImageBitmap仅解码期间持有，完成、取消或失败均close；解码后按原尺寸归一Canvas，再以本地data PNG进入原生Image绘制，保持刻纹擦除、附件缩放与Three上传路径一致，不产生额外网络请求。临时Canvas清空、bitmap关闭；Image随页面释放。
+
+`verify:assets`同时静态验证派生文件绑定、SHA、尺寸、VP8L、体积和清单；`node scripts/verify-delivery-assets.mjs --pixels`重验全部像素，不要求普通静态校验环境具备FFmpeg或浏览器。源图像素/几何/ID/ProjectV1不变。现代与PNG兼容路径分别记录性能预算，不将一种浏览器测量推广为全部设备。

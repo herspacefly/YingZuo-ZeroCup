@@ -22,7 +22,7 @@ T17新增可选actorOpacity，键只允许当前帧演员，值必须为有限0�
 
 按清单加载当前演员、纹样、可见附件与场景层。TextureCache校验本地路径和真实解码尺寸；Image.onload/error都有清理，更新代号拒绝旧帧结果。T07增加hasAll快速路径：已加载齐全的姿态帧同步绘制，不逐帧清空/隐藏画布或标loading；资源变化仍走加载与代号检查。只保留当前帧资源；部件纹理按actor/part缓存，配色/色槽/相关纹样变化才重建，退出释放canvas像素。失败重试追加本页数字代次查询参数，避免同一文档的解码图片缓存继续提供已修复前的坏图。
 
-PartCompositor读取精确RGB标签，body/sleeve/hem按色槽取色，fixed保留原图RGB；alpha取原遮罩。镂空只在独立部件Canvas用destination-out，再绘入舞台，因此不会擦掉背景或另一位演员。禁止Canvas.filter/OffscreenCanvas/Image.decode等必需依赖；当前没有半影模糊，暖色幕面与几何投影属于交互近似。
+PartCompositor读取精确RGB标签，body/sleeve/hem按色槽取色，fixed保留原图RGB；alpha取彩色图内嵌透明度（verify:assets逐像素验证与原遮罩及颜色区图完全一致；生产不再重复传输遮罩）。镂空只在独立部件Canvas用destination-out，再绘入舞台，因此不会擦掉背景或另一位演员。禁止Canvas.filter/OffscreenCanvas/Image.decode等必需依赖；支持精确半透明解码的现代浏览器可选用无损WebP+ImageBitmap，能力探针不通过或legacy入口仍用PNG，不作为必需依赖；当前没有半影模糊，暖色幕面与几何投影属于交互近似。
 
 舞台先画背景与order<10层，再按actors数组顺序画角色，最后前景山片20/21与尘幕30。角色内部部件/附件按drawOrder排序。场景位移x右/y下按幕面宽高换算，不套模板y上坐标。PNG只在局部图像映射时翻转y一次。
 

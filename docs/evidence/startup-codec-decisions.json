@@ -1,0 +1,40 @@
+{
+  "kind": "implementation-decisions-not-pixel-acceptance",
+  "sizeExperiments": [
+    {
+      "originalDiagnostic": "startup-codec-experiment.json",
+      "scope": "Sizes only; no runtime changes or decoded equivalence proof yet",
+      "bytes": 2820056,
+      "within2MiB": false
+    },
+    {
+      "originalDiagnostic": "startup-codec-experiment-parts.json",
+      "scope": "Experimental sizes only; no decoded equality claim",
+      "bytes": 2346619,
+      "within2MiB": false
+    },
+    {
+      "originalDiagnostic": "startup-codec-experiment-all.json",
+      "scope": "Experimental sizes only; no decoded equality claim",
+      "bytes": 2191558,
+      "within2MiB": false
+    },
+    {
+      "originalDiagnostic": "startup-codec-experiment-max.json",
+      "scope": "Size experiment only; not yet rendered equivalence",
+      "bytes": 2173050,
+      "within2MiB": false
+    }
+  ],
+  "rejected": [
+    "Default HTMLImage WebP decoding changed semi-transparent RGBA; lossless encoding alone was insufficient.",
+    "Raw bitmap-none or bitmap-to-Canvas sources still changed scaled carving/prop sampling against native PNG; full rendered A/B rejected these paths."
+  ],
+  "selected": "61 lossless derivatives with source/dimension/hash bindings, alpha capability probe, bitmap-none to original-size Canvas to local PNG data URL to native Image. Canonical PNG remains fallback. Production removes only verified duplicate alpha requests.",
+  "acceptanceEvidence": [
+    "png-reencode-pixel-proof.json",
+    "delivery-pixel-proof.json",
+    "startup-core-regression.json"
+  ],
+  "cleanup": "Original size-only experiments and two temporary scale-comparison screenshots removed after consolidation. These experiments are not claimed as rendered equivalence."
+}
