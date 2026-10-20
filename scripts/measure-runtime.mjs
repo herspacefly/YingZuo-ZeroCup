@@ -1,5 +1,7 @@
 // Native-clock desktop runtime probe. No application RAF/performance replacement.
-import {preview} from 'vite';import {chromium} from 'playwright';import {readFileSync,writeFileSync} from 'node:fs';import {createHash} from 'node:crypto';import os from 'node:os';
+import {preview} from 'vite';import {chromium} from 'playwright';import {readFileSync,writeFileSync} from 'node:fs';import {createHash} from 'node:crypto';import os from 'node:os';import path from 'node:path';
+const outputArg=process.argv.indexOf('--output'),output=path.resolve(outputArg>=0?process.argv[outputArg+1]:'docs/evidence/runtime-desktop-current.json');
+if(!output.startsWith(path.resolve('docs/evidence')+path.sep))throw new Error('Runtime evidence must stay inside docs/evidence');
 const sha=x=>createHash('sha256').update(x).digest('hex'),windows=[],staticViews=[],failures=[];let server,browser,lightweightObservation;
 try {
  server=await preview({preview:{host:'127.0.0.1',port:0,strictPort:true}});const origin='http://127.0.0.1:'+server.httpServer.address().port;
@@ -79,6 +81,6 @@ try {
  }
  const result={kind:'native-clock-desktop-runtime-preflight',recordedAtMachineUTC:new Date().toISOString(),indexSha256:sha(readFileSync('dist/index.html')),probeSha256:sha(readFileSync(new URL(import.meta.url))),browserVersion:browser.version(),host:{cpu:os.cpus()[0]?.model,logicalCores:os.cpus().length,memoryBytes:os.totalmem(),platform:os.platform(),release:os.release()},viewport:{width:1440,height:900},gpu,frameId,observedTraceFrameKeys:frameKeys,windows,staticViews,lightweightObservation,failures,
   definitions:{frames:'Chrome native FireAnimationFrame callbacks belonging to the product main frame; no RAF or performance clock replacement. Counted over native performance marks. 59Hz threshold allows native 60Hz scheduling/window boundaries.',draws:'Actual WebGL2 drawArrays/drawElements including instanced methods, delimited by renderer auto-clear with start timestamp/view fixed before drawing; production uses one render pass. Probe wrappers count calls without altering clock.',limitations:'This host/headless Chromium/SwiftShader GPU only; Trace recording and API counters add overhead. Static call-light frames have draw-call records and FPS N/A.  not physical phones or representative user devices; native callback rate and Canvas draws are not display-panel presentation FPS. No full-story duration, long-term memory, hearing or external user acceptance.'}};
- writeFileSync('docs/evidence/runtime-desktop-preflight.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({gpu,summary:windows.map(({frames,...w})=>w),staticViews,failures},null,2));
+ writeFileSync(output,JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({output,gpu,summary:windows.map(({frames,...w})=>w),staticViews,failures},null,2));
  if(failures.length||windows.some(w=>!w.reached60HzTarget||w.withinDrawCallBudget===false))process.exitCode=1;
-}catch(error){writeFileSync('docs/evidence/runtime-desktop-probe-failure.json',JSON.stringify({validPerformanceAcceptance:false,windows,error:error.stack??String(error)},null,2)+'\n');throw error;}finally{await browser?.close();if(server)await new Promise(resolve=>server.httpServer.close(resolve));}
+}catch(error){writeFileSync(output+'.failure.json',JSON.stringify({validPerformanceAcceptance:false,windows,error:error.stack??String(error)},null,2)+'\n');throw error;}finally{await browser?.close();if(server)await new Promise(resolve=>server.httpServer.close(resolve));}

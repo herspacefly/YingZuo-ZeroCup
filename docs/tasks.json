@@ -7,7 +7,7 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T10_startup_and_environment_preflight",
+  "stage": "T10_loading_target_and_backdrop_reuse",
   "activeTaskId": "T10",
   "lastVerifiedCommit": "feed67a40caccbce0c7c97b275c0a3652199d561",
   "features": {
@@ -624,14 +624,21 @@
         "scripts/probe-native-frame-start.mjs",
         "scripts/measure-runtime.mjs",
         "scripts/verify-art-reproducibility.mjs",
-        "docs/acceptance/startup-and-environment-preflight.md"
+        "docs/acceptance/startup-and-environment-preflight.md",
+        "docs/plans/2026-10-20-loading-and-backdrop.md",
+        "src/renderers/canvas/backdrop-cache.ts",
+        "scripts/verify-canvas-equivalence.mjs",
+        "scripts/measure-music-load.mjs",
+        "scripts/art/loading-policy.mjs",
+        "tests/e2e/backdrop-cache.spec.ts",
+        ".gitignore"
       ],
       "acceptanceRefs": [
         "T10",
         "CULT-01"
       ],
       "checkpointCommit": "feed67a40caccbce0c7c97b275c0a3652199d561",
-      "nextAction": "本轮启动/资源/16流程/原生起播/282相关回归与151生成复现已记录。保持T10 in_progress：接收当前艺术文化与原创使用范围正式结论后才正式T11；PNG兼容首段3,157,934bytes与默认软件GPU帧率仍技术未达标，结合真实IE/硬件/手机选择兼容解码或分幕及热点优化。T13真实时长/听感/3位体验、T14交付接手未完，P1未启用。",
+      "nextAction": "15秒实际加载与原尺寸背景复用预检已完成，素材完整保留；核对本轮真实源码检查点，无新疑点不重复415/284/121及16次加载检查。继续当前艺术/文化/原创使用范围正式审看，再按依赖完成实体设备/性能时长听感/3位体验/交付；软件GPU工坊短窗口仍单列，图片2MiB不再阻塞，P1未启用。",
       "blocker": null,
       "verification": [
         "2026-10-18: 343基线复现；新增18声音生命周期与4审看契约，最终30文件365/365通过，typecheck通过。",
@@ -679,7 +686,14 @@
         "2026-10-20启动/环境：最终282相关E2E首轮279通过/3待机窗口超时，系统事件与ERR_NETWORK_IO_SUSPENDED保留；同生产包3项定向复验全过26.4秒，无时限/断言放宽。1920x1080/1024x768正常8项与最终包减少动态禁WebGL宽窄8项共16通过，阶段构建分列；受控时间/窄屏鼠标不代真实性能时长/触屏。",
         "2026-10-20启动/环境：最终12冷context首页最差本机364.2ms/限网687.7ms，现代首段2,094,040bytes；水纹专项2,096,640bytes仅余512。PNG兼容3,157,934bytes仍失败；软件GPU默认二维27.73Hz/三维16.58—17.80Hz未达标，主动轻量59.88Hz通过探针59Hz容差；静态最高调用67<=80，非显示FPS。",
         "2026-10-20启动/环境：130review仍pending、2music rights独立granted，release资产/内容243/50待核退出2；8临时文件/3trace ZIP已提炼清理，18历史PNG恢复，test-results清理1文件0子目录；用户START_HERE与两暂存文档blob保留，5173重启会话21571/HTTP200。T10/T11/T13/T14未完成。",
-        "2026-10-20启动/环境：已验证源码feed67a40caccbce0c7c97b275c0a3652199d561；明确216文件提交排除用户START_HERE和两份已暂存DOCX/PPTX，Git暂存文档保留。"
+        "2026-10-20启动/环境：已验证源码feed67a40caccbce0c7c97b275c0a3652199d561；明确216文件提交排除用户START_HERE和两份已暂存DOCX/PPTX，Git暂存文档保留。",
+        "2026-10-20背景复用：作者明确素材大概15秒内可用即可，旧图片2MiB取消硬门槛；verify:assets仍校验完整性和审定，启动与原生音乐分别判实际就绪。素材/存档/唯一时钟未改，背景原尺寸复用，动态背景直绘，人物及前景仍逐帧；状态通知去重但Three每帧更新。",
+        "2026-10-20背景复用：415/415单元36文件3.00秒、typecheck、最终123模块构建15.83秒、14legacy ES5/六HTML通过；8新增宽窄屏缓存/失败重试/释放/控制层和Three同步首轮通过11.9秒。81PNG/内容/130项审看册结构通过，入口gzip112,211bytes；独立只读审查无可复现缺陷。",
+        "2026-10-20背景复用：同探针原生基线二维47.86Hz/三维30.10—33.14Hz，UI小步二维59.81Hz，最终二维60.02Hz/三维56.71—59.91Hz、持续工坊59.28Hz；一个4秒工坊窗口仍未过59Hz容差，实际退出1。最高对象调用67<=80、有效性错误0；不是屏幕FPS或实体设备验收。",
+        "2026-10-20背景复用：8图片冷context实测现代最差4,090.9ms、PNG兼容5,675.8ms，8原生音乐起播最差546.1ms，均通过15秒目标。首页最差本机130ms/5Mbps+150ms614.5ms；PNG3,157,934bytes历史参考false但不再阻塞。音乐限网只buffered约8.3—8.9秒，不称整曲下载/听感；每条件1次，不称性能分布。",
+        "2026-10-20背景复用：当前130review仍pending、2music rights独立granted；release资产/内容243/50待核，实际子进程退出2，未随体积政策取消审看。T10/T11/T13/T14未完成。",
+        "2026-10-20背景复用：最终同一生产包276/276核心E2E首轮通过638.63秒，零重试/跳过/失败，桌面1440x900与模拟390x844各138；加新增缓存8项共284唯一用例。覆盖制偶/灯控、两模式两路手动/协助/键盘、恢复、展馆/成果、音乐和Three生命周期；受控时间不代表真实性能时长，legacy仅Chromium冒烟。",
+        "2026-10-20背景复用：实际旧/新包最终121组整幅Canvas RGBA一致（62桌面/59窄屏），含六类场面/动态山尘、四背景/灯距、三纹样两配色及奇数视口；工具早轮询/resize诊断保留。临时基线181文件9子目录/13,890,938bytes及test-results的1文件0子目录按已核对绝对路径/无reparse清理，18历史PNG恢复；5173重启会话26056，首页/审看页HTTP200，用户START_HERE及暂存文档blob保留。"
       ],
       "phase": "G3"
     },

@@ -1,0 +1,330 @@
+{
+  "kind": "T10-loading-target-and-backdrop-checkpoint",
+  "recordedAtMachineUTC": "2026-10-20T09:48:04.913Z",
+  "codeSourceCommit": null,
+  "baseCommit": "7f65a85bc9439d0365002777c5367b0522b049b7",
+  "productionIndexSha256": "e56a16591eb33a2c1badeaafb9408e2f841e37834dffbef5219ae313bb53317b",
+  "sourceFiles": [
+    {
+      "path": "src/features/shared/canvas-stage.ts",
+      "sha256": "bc3da20ed3d1b088fceac6e63a7f1c00db8f714c3bd9258aca0cacc8d506ca6d"
+    },
+    {
+      "path": "src/features/story/controller.ts",
+      "sha256": "47ee971634b50bdcb72cc4452c5e64bc83b6ecbb1f373adaee166aa6eff2769a"
+    },
+    {
+      "path": "src/renderers/canvas/renderer.ts",
+      "sha256": "c0d2c0fe50c8b1e7e844c210eb22d17c2083e21a2539b26bce88a89b75f003c6"
+    },
+    {
+      "path": "src/renderers/canvas/backdrop-cache.ts",
+      "sha256": "e0b02f25f610ac13d32ed44be052619c3ce6c50971efa93e5b409dd321983698"
+    },
+    {
+      "path": "tests/e2e/backdrop-cache.spec.ts",
+      "sha256": "47b822173e4c83f6fd1b4368d9354c3f115eb21629278325c01d3859ebc1e4a5"
+    },
+    {
+      "path": "scripts/art/loading-policy.mjs",
+      "sha256": "5b4e5c2a301a0576a7cce8d34eb3c3878b9bebdb950726aec184b6e6e0347d87"
+    },
+    {
+      "path": "scripts/art/startup-budget.mjs",
+      "sha256": "e53be681d6107ce00dfcd04a812e648c15d85ad1376cd0b38518c0df512308a2"
+    },
+    {
+      "path": "scripts/measure-startup.mjs",
+      "sha256": "68cd9f2a40e75d36cb91442b27102f67db2b35c24bbcc60d07931d68bda91818"
+    },
+    {
+      "path": "scripts/measure-music-load.mjs",
+      "sha256": "6b1593d78d3295d629626ac50f14f48bea9aef0a312c1f8b2cc9b71c106887e9"
+    },
+    {
+      "path": "scripts/measure-runtime.mjs",
+      "sha256": "9975abeb9e1a527dbb9b58b700062691438858b88c91eb54484976cf573ce3a4"
+    },
+    {
+      "path": "scripts/verify-canvas-equivalence.mjs",
+      "sha256": "44e6fe29dd02765285e487189745e79750b5860d65ee8d5e1a66359dd161d91e"
+    },
+    {
+      "path": "scripts/verify-assets.mjs",
+      "sha256": "4a174d73e057bb083f60fd3387125c2aa65fbea96d739c6664998b639f68c681"
+    }
+  ],
+  "unit": {
+    "command": "npm test",
+    "exitCode": 0,
+    "files": 36,
+    "passed": 415,
+    "durationSeconds": 3
+  },
+  "build": {
+    "command": "npm run build",
+    "exitCode": 0,
+    "typecheck": true,
+    "modules": 123,
+    "durationSeconds": 15.83,
+    "legacyChunksES5": 14,
+    "dualEntryHTMLs": 6
+  },
+  "staticChecks": {
+    "typecheck": 0,
+    "assets": 0,
+    "content": 0,
+    "legacy": 0,
+    "state": 0,
+    "reviewPacket": 0
+  },
+  "core": {
+    "command": "npx playwright test tests/e2e/canvas-stage.spec.ts tests/e2e/craft-light.spec.ts tests/e2e/director.spec.ts tests/e2e/story-and-resume.spec.ts tests/e2e/story-keyboard.spec.ts tests/e2e/practice.spec.ts tests/e2e/result.spec.ts tests/e2e/museum.spec.ts tests/e2e/three-stage.spec.ts tests/e2e/frame-rate.spec.ts tests/e2e/navigation.spec.ts tests/e2e/site-music.spec.ts --workers=1 --timeout=90000",
+    "stats": {
+      "startTime": "2026-10-20T09:33:10.859Z",
+      "duration": 638630.8910000001,
+      "expected": 276,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "cacheStats": {
+      "startTime": "2026-10-20T09:26:35.081Z",
+      "duration": 11891.189999999999,
+      "expected": 8,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "uniqueTests": 284,
+    "retries": 0,
+    "projects": [
+      "desktop-chromium",
+      "mobile-chromium"
+    ],
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 900
+      },
+      {
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "limits": "Controlled story time; Chromium legacy smoke only, not IE or physical phones/full performance duration. Storage-only and extra-environment suites were not repeated without new concern.",
+    "specs": [
+      "tests/e2e/canvas-stage.spec.ts",
+      "tests/e2e/craft-light.spec.ts",
+      "tests/e2e/director.spec.ts",
+      "tests/e2e/story-and-resume.spec.ts",
+      "tests/e2e/story-keyboard.spec.ts",
+      "tests/e2e/practice.spec.ts",
+      "tests/e2e/result.spec.ts",
+      "tests/e2e/museum.spec.ts",
+      "tests/e2e/three-stage.spec.ts",
+      "tests/e2e/frame-rate.spec.ts",
+      "tests/e2e/navigation.spec.ts",
+      "tests/e2e/site-music.spec.ts"
+    ]
+  },
+  "pixels": {
+    "records": 121,
+    "allEqual": true,
+    "baselineIndexSha256": "fbe5dc6882bbbeac7f78b79b8fbceee8e82345e5a81f21635f0bffe3d55ccf6f",
+    "candidateIndexSha256": "e56a16591eb33a2c1badeaafb9408e2f841e37834dffbef5219ae313bb53317b",
+    "probeSha256": "44e6fe29dd02765285e487189745e79750b5860d65ee8d5e1a66359dd161d91e",
+    "limits": "controlled story time, not a runtime/FPS/duration measurement",
+    "diagnostics": "t10-backdrop-pixel-initial-failure.json"
+  },
+  "loading": {
+    "imageTargetMs": 15000,
+    "imageBytesBlocking": false,
+    "modern": {
+      "samples": 4,
+      "maxMs": 4090.900000035763,
+      "exitCode": 0
+    },
+    "png": {
+      "samples": 4,
+      "maxMs": 5675.800000011921,
+      "imageFontBytes": 3157934,
+      "historicalReferenceMet": false,
+      "exitCode": 0
+    },
+    "music": {
+      "samples": 8,
+      "maxMs": 546.1000000238419,
+      "exitCode": 0,
+      "limits": {
+        "start": "Capture-phase timestamp of actual music-toggle click on home, or actual story-play click at an already prepared paused curtain after music preference enabled.",
+        "ready": "Native expected media !paused, readyState>=2, currentTime>0.05. No Audio/clock replacement; constructor subclass only observes real media. Buffered ranges and duration recorded. Not whole-file download completion or speaker hearing.",
+        "network": "Fresh context, Service Workers blocked, CDP cache disabled, no CPU throttle; 5Mbps/150ms CDP conditions.",
+        "limits": "This host/Chromium emulation, not physical phones/IE/Safari. Visual stage readiness before curtain play is reported separately; these samples are not full story duration."
+      }
+    },
+    "limits": "Fresh contexts, disabled HTTP cache, local and CDP 5Mbps/150ms. One sample per condition; image timing is intro only; not all exhibits/scene cold loads or a device/population guarantee."
+  },
+  "runtime": {
+    "exitCode": 1,
+    "validityFailures": [],
+    "probeSha256": "9975abeb9e1a527dbb9b58b700062691438858b88c91eb54484976cf573ce3a4",
+    "windows": [
+      {
+        "name": "guardian/canvas-2d",
+        "nativeCallbackRateHz": 60.02436329980591,
+        "reached60HzTarget": true
+      },
+      {
+        "name": "guardian/webgl-front",
+        "nativeCallbackRateHz": 59.913257536018804,
+        "reached60HzTarget": true
+      },
+      {
+        "name": "guardian/webgl-workshop",
+        "nativeCallbackRateHz": 56.70908439560856,
+        "reached60HzTarget": false
+      },
+      {
+        "name": "guardian/webgl-backstage",
+        "nativeCallbackRateHz": 59.87524991679835,
+        "reached60HzTarget": true
+      },
+      {
+        "name": "guardian/webgl-exhibit",
+        "nativeCallbackRateHz": 59.69905705339384,
+        "reached60HzTarget": true
+      },
+      {
+        "name": "guardian/webgl-sustained",
+        "nativeCallbackRateHz": 59.28244429510967,
+        "reached60HzTarget": true
+      }
+    ],
+    "maxStaticDrawCalls": 67,
+    "limits": "This host/headless Chromium/SwiftShader GPU only; Trace recording and API counters add overhead. Static call-light frames have draw-call records and FPS N/A.  not physical phones or representative user devices; native callback rate and Canvas draws are not display-panel presentation FPS. No full-story duration, long-term memory, hearing or external user acceptance."
+  },
+  "entryBudget": {
+    "kind": "static-modern-entry",
+    "indexSha256": "e56a16591eb33a2c1badeaafb9408e2f841e37834dffbef5219ae313bb53317b",
+    "files": [
+      {
+        "path": "assets/main-BLp2QoND.js",
+        "bytes": 213340,
+        "gzipBytes": 77508,
+        "sha256": "6d5de2cd918e235e5265407eca6de35934c76c942c96339e071cdd077d16ff25"
+      },
+      {
+        "path": "assets/modulepreload-polyfill-YP0FEG5d.js",
+        "bytes": 704,
+        "gzipBytes": 392,
+        "sha256": "31191979ee8bf30912f8bb8eae8348182f37e999c8deb54095682926b9435fe3"
+      },
+      {
+        "path": "assets/store-CmBRR5uH.js",
+        "bytes": 31540,
+        "gzipBytes": 10734,
+        "sha256": "db86d80e955c9405fddd73a25c5c0019665d79b770ab7aa51ef290b4018393dc"
+      },
+      {
+        "path": "assets/story-commands-CfriWGNr.js",
+        "bytes": 57477,
+        "gzipBytes": 6712,
+        "sha256": "d700c5370c434a4e60c0913dbf1038db36ca3d8ff3110566894c6f4e40496364"
+      },
+      {
+        "path": "assets/sources-CjJyWLvW.js",
+        "bytes": 70856,
+        "gzipBytes": 16865,
+        "sha256": "85f9e993381bd8a13cfd203cde0fb4434798767444def323e8c086a80a6c6f63"
+      }
+    ],
+    "gzipBytes": 112211,
+    "budgetBytes": 204800,
+    "withinBudget": true,
+    "scope": "Only modern entry and explicit modulepreload JS in dist/index.html. Lazy chunks, images, fonts and CSS are excluded. This is not a cold-start, network, FPS, memory, IE or device acceptance result."
+  },
+  "review": {
+    "kind": "unchanged-formal-review-gate",
+    "records": 130,
+    "reviews": {
+      "pending": 130
+    },
+    "grantedRights": [
+      "music:instrumental",
+      "music:curtain"
+    ],
+    "results": [
+      {
+        "kind": "assets",
+        "exitCode": 2,
+        "output": "NOT_READY: 243 release review/rights items pending:\nasset:chenxiang-v1-torso-color: author review pending\nasset:chenxiang-v1-torso-color: rights evidence pending\nasset:chenxiang-v1-torso-mask: author review pending\nasset:chenxiang-v1-torso-mask: rights evidence pending\nasset:chenxiang-v1-torso-regions: author review pending\nasset:chenxiang-v1-torso-regions: rights evidence pending\nasset:chenxiang-v1-head-color: author review pending\nasset:chenxiang-v1-head-color: rights evidence pending\n"
+      },
+      {
+        "kind": "content",
+        "exitCode": 2,
+        "output": "NOT_READY: 50 author review/rights items pending:\nstory:intro: author review pending\nstory:craft: author review pending\nstory:memory-wave: author review pending\nstory:memory-separate: author review pending\nstory:road: author review pending\nstory:training: author review pending\nstory:guardian: author review pending\nstory:approach-choice: author review pending\n"
+      }
+    ]
+  },
+  "cleanup": {
+    "kind": "own-current-turn-cleanup",
+    "baseline": {
+      "absoluteTarget": "D:/.MyLearning/VSCodeProject/ZeroCup/.preflight/backdrop-baseline",
+      "files": 181,
+      "directories": 9,
+      "bytes": 13890938,
+      "reparsePoints": 0,
+      "removed": true,
+      "parentEmptyRemoved": true
+    },
+    "testResults": {
+      "absoluteTarget": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+      "files": 1,
+      "directories": 0,
+      "reparsePoints": 0,
+      "removed": true
+    },
+    "restoredHistoricalScreenshots": [
+      "docs/evidence/2026-10-17-t16-director-desktop.png",
+      "docs/evidence/2026-10-17-t16-director-mobile.png",
+      "docs/evidence/t06-backstage-desktop.png",
+      "docs/evidence/t06-backstage-mobile.png",
+      "docs/evidence/t06-front-desktop.png",
+      "docs/evidence/t06-front-mobile.png",
+      "docs/evidence/t09-replay-desktop.png",
+      "docs/evidence/t09-replay-mobile.png",
+      "docs/evidence/t09-result-desktop.png",
+      "docs/evidence/t09-result-mobile.png",
+      "docs/evidence/t17-light-desktop.png",
+      "docs/evidence/t17-light-mobile.png",
+      "docs/evidence/t17-reunion-desktop.png",
+      "docs/evidence/t17-reunion-mobile.png",
+      "docs/evidence/t18-light-desktop.png",
+      "docs/evidence/t18-light-mobile.png",
+      "docs/evidence/t18-museum-desktop.png",
+      "docs/evidence/t18-museum-mobile.png"
+    ],
+    "notes": "All listed screenshots were clean at turn start. Restored only current-turn rewrites. Necessary raw evidence and dist retained. User START_HERE and staged DOCX/PPTX excluded. The initial generic guarded cleanup command was rejected without execution; explicit absolute targets were separately inspected before narrow native PowerShell cleanup succeeded."
+  },
+  "independentReview": {
+    "implementation": "No reproducible defect or required gap found in cache/status/control/Three lifecycle review; read-only, no parallel browser load.",
+    "timing": "No blocking false-readiness or obsolete byte gate found. Canvas readiness relies on renderer post-draw status with positive dimensions; no separate pixel-read assertion in the loading probe. Native music progression, not enabled preference or complete download."
+  },
+  "dev": {
+    "sessionId": 26056,
+    "homeHTTP": 200,
+    "reviewHTTP": 200
+  },
+  "remaining": [
+    "T10 art/culture/original-use formal review",
+    "T11 actual IE/IE mode, Android/iOS Safari, orientation/storage/files",
+    "T13 representative hardware FPS, full actual duration/hearing and 3 external participants; workshop short software-GPU window below target",
+    "T14 clean install/final package/handoff after dependencies",
+    "P1 remains disabled"
+  ],
+  "assets": {
+    "sourceAndPublicWorkingTreeDiff": false,
+    "notes": "Existing canonical/delivery images, music and manifests unchanged; no repeat of generator/pixel-decoder reproducibility without new concern."
+  }
+}

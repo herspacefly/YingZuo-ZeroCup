@@ -7,6 +7,7 @@ import path from 'node:path';
 import os from 'node:os';
 import { preview } from 'vite';
 import { chromium, devices } from 'playwright';
+import { loadingPolicy } from './art/loading-policy.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const args = process.argv.slice(2);
@@ -43,8 +44,8 @@ const report = {
     network: 'CDP Network.emulateNetworkConditions; 5Mbps is 625000 bytes/s aggregated download and upload, latency 150ms request-to-response-header minimum. No CPU throttle.',
     imageFontBudget: 'Image/font HTTP response encoded body sizes, verified against matching ResourceTiming, HTTP Content-Length and the built artifact; Playwright response.body may be empty for consumed fetches and is never treated as zero transfer. Unique URLs requested from navigation through first intro ready. Includes resources loaded ahead for later shots within that intro. Inline SVG is part of HTML/JS, not a separate image transfer.',
   },
-  imageFontBudgetBytes: 2 * 1024 * 1024,
-  limitations: ['This host and Chromium emulation are not physical phones/IE/Safari or a remote deployment.', 'Startup is measured without autoplay/music/WebGL; real FPS and full performance duration are outside this probe.', 'PNG compatibility may exceed the image/font budget; any such failure is retained, not reclassified as a pass.', 'The 2s/5s targets refer to home interaction; intro click-to-ready is reported separately without silently adopting that as a specified target.'],
+  loadingPolicy,
+  limitations: ['This host and Chromium emulation are not physical phones/IE/Safari or a remote deployment.', 'Startup is measured without autoplay/music/WebGL; real FPS and full performance duration are outside this probe.', 'Image/font bytes are historical diagnostics only; current author target is complete intro readiness within about 15 seconds, with original pixels retained.', 'The 2s/5s targets refer to home interaction and remain separate from the new explicit-opening resource target. Music readiness is measured independently.'],
 };
 
 try {
@@ -143,7 +144,8 @@ try {
       if(observedPattern !== expectedPattern || (forcePNG && deliveryRequests)) throw new Error('Requested appearance/compatibility path not actually observed');
       Object.assign(item, observed, { introReadyFromClickMs: observed.introReadyMs - observed.startClickedAtMs,
         imageFonts, imageFontBytes, observedPattern, deliveryRequests, homeWithinTarget: observed.homeReadyMs <= network.targetHomeMs,
-        homeTargetMs: network.targetHomeMs, imageFontWithinBudget: imageFontBytes <= report.imageFontBudgetBytes,
+        homeTargetMs: network.targetHomeMs, introWithinTarget: observed.introReadyMs-observed.startClickedAtMs<=loadingPolicy.assetReadyTargetMs,
+        imageFontWithinHistoricalReference: imageFontBytes <= loadingPolicy.historicalImageFontReferenceBytes,
         errors, externalRequests, failedRequests });
       if (errors.length || externalRequests.length || failedRequests.length) item.error = 'Page errors, external dependencies or failed requests observed';
       console.log(`${profile.id}/${network.id}/${sample}: home ${item.homeReadyMs.toFixed(1)}ms; intro after click ${item.introReadyFromClickMs.toFixed(1)}ms; images/fonts ${imageFontBytes} bytes`);
@@ -165,9 +167,11 @@ for (const profile of profiles) for (const network of networks) {
     introMedianFromClickMs: intro.length ? intro[Math.floor(intro.length / 2)] : null, introMaxFromClickMs: intro.length ? Math.max(...intro) : null,
     imageFontMaxBytes: Math.max(0, ...runs.map(item => item.imageFontBytes ?? 0)),
     allHomeWithinTarget: runs.length === samples && runs.every(item => item.homeWithinTarget && !item.error),
-    allImageFontWithinBudget: runs.length === samples && runs.every(item => item.imageFontWithinBudget && !item.error) });
+    assetReadyTargetMs: loadingPolicy.assetReadyTargetMs,
+    allIntroWithinTarget: runs.length === samples && runs.every(item => item.introWithinTarget && !item.error),
+    allImageFontWithinHistoricalReference: runs.length === samples && runs.every(item => item.imageFontWithinHistoricalReference && !item.error) });
 }
 Object.assign(report, { samplesPerCondition: samples, summary, results });
 mkdirSync(path.dirname(output), { recursive: true }); writeFileSync(output, JSON.stringify(report, null, 2) + '\n');
 console.log(JSON.stringify({ output: path.relative(root, output), summary }, null, 2));
-if (summary.some(item => !item.allHomeWithinTarget || !item.allImageFontWithinBudget)) process.exitCode = 1;
+if (summary.some(item => !item.allHomeWithinTarget || !item.allIntroWithinTarget)) process.exitCode = 1;

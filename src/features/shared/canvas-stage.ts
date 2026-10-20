@@ -45,11 +45,20 @@ export function canvasStage(caption: string) {
   const foot=element('figcaption','stage-caption'); append(foot,element('p','',caption),status,retry); append(figure,screen,foot);
   const life=scope(); let last:CanvasFrame|null=null,signature='',disposed=false;
   let currentStatus:CanvasStatus={state:'loading',message:'正在准备影偶与幕面…'};
+  status.textContent=currentStatus.message;status.setAttribute('data-state',currentStatus.state);
   let spatial:ReturnType<typeof mountSpatialStage>|null=null;
   const listeners=new Set<(status:CanvasStatus)=>void>();
   const renderer=mountCanvasRenderer(screen,assetCatalog,update=>{
-    if(status.textContent!==update.message)status.textContent=update.message; status.setAttribute('data-state',update.state); retry.hidden=update.state!=='error'; renderer.canvas.hidden=update.state!=='ready';
-    currentStatus=update;spatial?.update(last,update.state);listeners.forEach(listener=>listener(update));
+    const changed=currentStatus.state!==update.state||currentStatus.message!==update.message;
+    if(changed){
+      if(status.textContent!==update.message)status.textContent=update.message;
+      status.setAttribute('data-state',update.state);retry.hidden=update.state!=='error';
+    }
+    const hidden=update.state!=='ready';if(renderer.canvas.hidden!==hidden)renderer.canvas.hidden=hidden;
+    currentStatus=update;
+    // Spatial content follows every drawn pose; status subscribers follow transitions.
+    spatial?.update(last,update.state);
+    if(changed)listeners.forEach(listener=>listener(update));
   });
   spatial=mountSpatialStage(figure,renderer.canvas);
   const performance=mountStagePerformance(foot,enabled=>{spatial!.setLightweight(enabled);renderer.setLightweight(enabled);});

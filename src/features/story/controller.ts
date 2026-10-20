@@ -120,7 +120,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     rt.sample.frame=stagePlayFrame(rt.entry.node,rt.sample.frame,{opening:kind==='axe'?t:0,reveal:rt.resolution?1:(rt.reading?.coverage??0)/.35,
       reaction:rt.entry.node.id==='memory-wave'?t:0,guardianExit:rt.entry.node.id==='guardian'?t:0,holding});
     if(interactive(rt))rt.sample.frame.showRods=true;
-    rt.stage.update(rt.sample.frame);if(display===rt)renderDisplayed();rt.controls?.render();
+    rt.stage.update(rt.sample.frame);if(display===rt)renderDisplayed();
     updateSound({nodeId:rt.entry.node.id,mode:rt.mode,elapsedMs:rt.elapsed,playing:rt.playing&&rt.ready});
   }
   function safeSample(rt:Runtime){try{sample(rt);}catch(error){stop(rt,`场面已暂停：${errorText(error)}`);ctx.notify(message);}}

@@ -1,0 +1,56 @@
+{
+  "kind": "pixel-probe-instrumentation-failure",
+  "runs": 2,
+  "reason": "waitForFunction default RAF polling waited on the deliberately controlled main-world RAF. Actual baseline runtime was paused and Canvas status ready. Changed only probe polling to native 20ms interval, not the 15s timeout or product readiness assertion.",
+  "executing": {
+    "profile": "desktop",
+    "origin": "baseline",
+    "nodeId": "intro"
+  },
+  "observedRuntime": "<p class=\"story-runtime\" id=\"story-runtime\" role=\"status\" data-state=\"paused\" data-elapsed=\"0\" data-node=\"intro\" data-token=\"fixture-run-1:0:intro:1\" data-reduced-motion=\"false\" data-coverage=\"0\" data-held=\"0\" data-interaction=\"waiting\" data-distance=\"1\">已恢复，暂停接续。</p>",
+  "observedStatus": "<p class=\"canvas-stage-status\" role=\"status\" data-state=\"ready\">幕上2位角色 · 皮影设计稿</p>",
+  "error": "page.waitForFunction: Timeout 15000ms exceeded.\n    at ready (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\scripts\\verify-canvas-equivalence.mjs:29:24)\n    at seed (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\scripts\\verify-canvas-equivalence.mjs:36:45)\n    at async file:///D:/.MyLearning/VSCodeProject/ZeroCup/scripts/verify-canvas-equivalence.mjs:48:11",
+  "firstCompletedMatrix": {
+    "samples": 109,
+    "mismatches": 2,
+    "reason": "Resize capture raced native resize delivery: mismatches had swapped previous/current buffer dimensions, not equal-size pixel differences. Probe now waits for the actual resize event before capture.",
+    "records": [
+      {
+        "profile": "desktop",
+        "before": {
+          "label": "resize/1025x769",
+          "width": 512,
+          "height": 398,
+          "scene": "mountain-v1",
+          "rgbaSha256": "48e6ec230c5d9869863d3a476251ce8b39b306871db3437dcbc393bcdb1dca5f"
+        },
+        "after": {
+          "label": "resize/1025x769",
+          "width": 920,
+          "height": 705,
+          "scene": "mountain-v1",
+          "rgbaSha256": "78a69930464b7b620e835ba6f6888861f489f5c71b3530a094be10634d0ab6b5"
+        },
+        "equal": false
+      },
+      {
+        "profile": "desktop",
+        "before": {
+          "label": "resize/1441x901",
+          "width": 920,
+          "height": 705,
+          "scene": "mountain-v1",
+          "rgbaSha256": "78a69930464b7b620e835ba6f6888861f489f5c71b3530a094be10634d0ab6b5"
+        },
+        "after": {
+          "label": "resize/1441x901",
+          "width": 512,
+          "height": 398,
+          "scene": "mountain-v1",
+          "rgbaSha256": "48e6ec230c5d9869863d3a476251ce8b39b306871db3437dcbc393bcdb1dca5f"
+        },
+        "equal": false
+      }
+    ]
+  }
+}
