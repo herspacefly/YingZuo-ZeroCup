@@ -2,9 +2,9 @@
 .museum-path>* { margin:4px 16px 4px 0; }
 .museum-section-tab { background:transparent; color:#d7a253; border:0; border-bottom:1px solid #66503b; }
 .museum-personal { max-width:850px; color:#c1b297; font-size:14px; border-left:2px solid #8b6a45; padding-left:16px; }
-.museum-reading { max-width:900px; padding:25px 30px; margin:20px 0 32px; border:1px solid #66503b; background:#211b14; }
+.museum-reading { max-width:900px; padding:25px 30px; margin:20px 0 32px; border:1px solid #715638; border-radius:20px; background:#282117; background:linear-gradient(135deg,#2c241a,#211b14); box-shadow:inset 0 1px 0 rgba(255,236,194,.06),0 12px 32px rgba(0,0,0,.18); }
 .museum-reading h2 { margin-top:0; }.museum-facts { list-style:none; padding:0; }.museum-facts li { border-top:1px solid #463726; padding:18px 0 0; }
-.museum-fact-kind { display:inline-block; padding:2px 10px; border:1px solid #8b6a45; color:#d7a253; font-size:12px; margin:0 0 10px; }
+.museum-fact-kind { display:inline-block; padding:2px 10px; border:1px solid #8b6a45; border-radius:8px; color:#d7a253; font-size:12px; margin:0 0 10px; }
 .museum-fact-kind.original { color:#f2e5c9; border-color:#b83b30; }.museum-fact-kind.model { color:#c1b297; }
 .museum-display { margin:35px 0 55px; }.museum-display .workspace { align-items:flex-start; }.museum-display .control-panel { min-width:0; }
 .museum-panel-list { display:flex; flex-wrap:wrap; border-top:1px solid #8b6a45; }.museum-panel { flex:1 1 42%; min-width:0; padding:24px 28px 24px 0; border-bottom:1px solid #463726; }
@@ -15,10 +15,11 @@
 .museum-catalogue .exhibit-copy { flex:1; min-width:0; }.museum-catalogue .exhibit-title { display:block; }.museum-catalogue .exhibit-question { display:block; color:#c1b297; font-size:14px; margin-top:6px; }
 .museum-seen { font-size:12px; color:#d7a253; padding:0 12px; }.museum-catalogue .exhibit-link[aria-current] .exhibit-question,.museum-catalogue .exhibit-link[aria-current] .museum-seen { color:#17130f; }
 .museum-programme { padding:0; border:0; }.museum-programme h2 { margin-top:0; }.museum-programme .programme-list { display:block; }.museum-programme dt { color:#c1b297; margin-top:16px; width:100%; padding:8px 0 0; }.museum-programme dd { margin:3px 0 12px; width:100%; padding:0; border:0; }
-.museum-demo-layers { display:block; list-style:none; padding:0; margin:18px 0; }.museum-demo-layer { border:1px solid #8b6a45; padding:12px; margin-top:-1px; background:#282117; }
+.museum-demo-layers { display:block; list-style:none; padding:0; margin:18px 0; }.museum-demo-layer { border:1px solid #8b6a45; border-radius:12px; padding:12px; margin-top:6px; background:#30271c; box-shadow:inset 0 1px 0 rgba(255,236,194,.05),0 3px 9px rgba(0,0,0,.12); }
 .museum-demo-layer strong { color:#d7a253; display:block; }.museum-demo-layer span { display:block; color:#c1b297; font-size:13px; }
 .museum-demo-layers[data-expanded=true] .museum-demo-layer { margin-top:14px; border-left:3px solid #d7a253; }
 .museum-demo-layers[data-expanded=false] .museum-demo-layer span { display:none; }
 .museum-demo-connections { font-size:14px; }.museum-demo-connections dt { color:#d7a253; }.museum-demo-connections dd { margin:4px 0 18px; color:#c1b297; }
 .museum-demo-parts { display:flex; flex-wrap:wrap; padding:0; list-style:none; border-top:1px solid #66503b; }.museum-demo-parts li { flex:1 1 45%; padding:8px 6px; font-size:13px; color:#c1b297; border-bottom:1px solid #463726; }.museum-demo-parts img { display:block; width:72px; height:72px; object-fit:contain; background:#f2e5c9; margin-bottom:8px; }.museum-demo-parts span { display:block; }
+.museum-demo-parts img { border-radius:10px; border:1px solid #8b6a45; box-shadow:0 3px 10px rgba(0,0,0,.2); }
 @media(max-width:760px) { .museum-reading { padding:20px 16px; }.museum-panel,.museum-diagram-regions .museum-panel,.museum-diagram-ensemble .museum-panel { flex-basis:100%; padding-right:0; }.museum-path>* { margin-right:10px; }.museum-catalogue .museum-seen { padding:0 5px; }.museum-catalogue .exhibit-arrow { padding-right:0; } }

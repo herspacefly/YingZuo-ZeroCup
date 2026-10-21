@@ -4,10 +4,38 @@ import { validateAssetCatalog } from '../../src/content/asset-contract';
 import { defaultPose } from '../../src/domain/defaults';
 import { sampleAction } from '../../src/domain/actions';
 import { attachmentTransform, constrainPoseToStage, partTransform, rodPoint, transformPoint } from '../../src/domain/pose';
+import { projectLocalPoint } from '../../src/domain/projection';
+// @ts-expect-error The asset-authoring generator is JavaScript without a declaration module.
+import { bindReferencePropGrips } from '../../scripts/art/reference-puppets.mjs';
 
 const chenxiang=assetCatalog.puppets.find(p=>p.id==='chenxiang-v1')!;
 const stage={backgroundId:'plain-v1' as const,lampX:0,puppetDistance:.2};
 describe('held props',()=>{
+  it('holds the measured lower axe shaft at the palm through raised, lowered and mirrored poses',()=>{
+    const axe=chenxiang.attachments.find(a=>a.id==='axe')!;
+    const image=assetCatalog.manifest.assets.find(a=>a.id===axe.assetId)!;
+    const host=chenxiang.parts.find(p=>p.partId===axe.partId)!;
+    // Image pixels run down; the template's local y axis runs up.
+    const shaft={x:axe.bounds.minX+80/image.width*(axe.bounds.maxX-axe.bounds.minX),
+      y:axe.bounds.maxY-330/image.height*(axe.bounds.maxY-axe.bounds.minY)};
+    expect(axe.pivot[0]).toBeCloseTo(shaft.x,12);expect(axe.pivot[1]).toBeCloseTo(shaft.y,12);
+    for(const facing of [1,-1] as const)for(const [shoulder,elbow]of [[0,0],[1.4,1.35],[-.8,.2],[.8,2.4]]){
+      const pose={...defaultPose(),facing};pose.joints.rightShoulder=shoulder!;pose.joints.rightElbow=elbow!;
+      const held=attachmentTransform(chenxiang,pose,axe);
+      const grip=projectLocalPoint(transformPoint(shaft,held),pose,stage);
+      const palm=projectLocalPoint(transformPoint({x:axe.anchor[0],y:axe.anchor[1]},partTransform(chenxiang,pose,host)),pose,stage);
+      expect(grip.x).toBeCloseTo(palm.x,12);expect(grip.y).toBeCloseTo(palm.y,12);
+      expect(held.angle-partTransform(chenxiang,pose,host).angle).toBeCloseTo(-1.2,12);
+    }
+  });
+  it('keeps the same lower-handle grip when reference templates are regenerated',()=>{
+    const generated=structuredClone(chenxiang);
+    const axe=generated.attachments.find(a=>a.id==='axe')!;
+    axe.pivot=[0,0];
+    bindReferencePropGrips(generated);
+    expect(axe.pivot).toEqual(chenxiang.attachments.find(a=>a.id==='axe')!.pivot);
+    expect(axe.anchor).toEqual(chenxiang.attachments.find(a=>a.id==='axe')!.anchor);
+  });
   it('keeps the hanging ring at its moving palm while gravity stays down, including nonzero image pivots',()=>{
     const lantern=structuredClone(chenxiang.attachments.find(a=>a.id==='lantern')!);
     lantern.pivot=[.01,-.03];

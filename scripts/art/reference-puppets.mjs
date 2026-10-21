@@ -67,7 +67,8 @@ export function referenceGeometry(spec){
 // endpoints used by rods and IK. Props sit behind the hand, not over the sleeve.
 export const referencePropGrips={
   'chenxiang-v1':{
-    axe:{sourcePoint:[522,284],bindAngleRad:-1.2,orientation:'follow-host'},
+    // Pixel (80,330) on the 304x544 axe is the lower shaft, not the image center.
+    axe:{sourcePoint:[522,284],pivot:[0,-.08625],bindAngleRad:-1.2,orientation:'follow-host'},
     // The finger hooks the ring's left rim; its body hangs just outside the sleeve.
     lantern:{sourcePoint:[522,284],pivot:[-.01,0],bindAngleRad:0,orientation:'upright'},
   },
