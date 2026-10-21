@@ -1,5 +1,5 @@
 import { assetCatalog } from '../../content/catalog';
-import { reunionDefinition } from '../../content/reunion';
+import { definitionFor } from '../../content/reunion';
 import { reunionSummary } from '../../domain/story';
 import type { ProjectV1 } from '../../domain/types';
 import { prepareFrame } from '../../renderers/canvas/frame';
@@ -17,8 +17,10 @@ const copy = <T>(value: T): T => JSON.parse(JSON.stringify(value)) as T;
 export function createReunionArtifact(project: ProjectV1): ReunionArtifact {
   // reunionSummary validates and copies the project before accepting a genuine curtain/completed node.
   const summary = reunionSummary(project);
-  if (!summary) throw new Error('这一场尚未团圆，完成最后伸手并谢幕后才能留影。');
-  const node = reunionDefinition.nodes.find(item => item.id === 'reunion-hold')!;
+  if (!summary) throw new Error(project.story?.definitionVersion===2?'这一场尚未到终章，完成本场演出后才能留影。':'这一场尚未团圆，完成最后伸手并谢幕后才能留影。');
+  const definition=definitionFor(project.story);
+  const hold=summary.definitionVersion===2?definition.endings!.find(e=>e.id===summary.ending)!.epilogueNodeId:'reunion-hold';
+  const node = definition.nodes.find(item => item.id === hold)!;
   const cast = summary.castSnapshot;
   const frame = stagePlayFrame(node, prepareFrame({
     actors: [
@@ -31,5 +33,7 @@ export function createReunionArtifact(project: ProjectV1): ReunionArtifact {
     showRods: false,
   }, assetCatalog), { opening: 1, reveal: 1, reaction: 1, guardianExit: 1 });
   // The returned frame and summary are independent even of one another's mutable appearance arrays.
+  if(summary.ending==='sacrifice')frame.actorOpacity={chenxiang:.16,mother:1};
+  if(summary.ending==='waiting')frame.actorOpacity={chenxiang:1,mother:.6};
   return { summary: copy(summary), frame };
 }

@@ -36,17 +36,18 @@ try {
  for(const nodeId of ['guardian']) {
  if(nodeId!=='guardian')await openNode(nodeId);
  await page.bringToFront();await page.locator('#story-play').click();await sample(nodeId+'/canvas-2d',10000);if(await page.locator('#story-runtime').getAttribute('data-state')==='playing')await page.locator('#story-pause').click();
- await page.locator('.spatial-toggle').first().click();await page.waitForFunction(()=>document.querySelector('.spatial-stage')?.getAttribute('data-state')==='ready');
+ if(await page.locator('.spatial-toggle').first().getAttribute('aria-expanded')!=='true')await page.locator('.spatial-toggle').first().click();await page.waitForFunction(()=>document.querySelector('.spatial-stage')?.getAttribute('data-state')==='ready');
  gpu=await page.locator('canvas.three-stage').evaluate(c=>{const gl=c.getContext('webgl2'),ext=gl.getExtension('WEBGL_debug_renderer_info');return {vendor:gl.getParameter(gl.VENDOR),renderer:gl.getParameter(gl.RENDERER),unmaskedVendor:ext?gl.getParameter(ext.UNMASKED_VENDOR_WEBGL):null,unmaskedRenderer:ext?gl.getParameter(ext.UNMASKED_RENDERER_WEBGL):null,width:c.width,height:c.height};});
- for(const view of ['front','workshop','backstage','exhibit']){
+ for(const view of ['front','workshop','backstage','exhibit','story','character']){
+  if(Number(await page.locator('#story-runtime').getAttribute('data-elapsed'))>25000){await page.locator('#story-reset').click();await page.waitForFunction(()=>document.querySelector('.spatial-stage')?.getAttribute('data-state')==='ready');}
   await page.locator(`.spatial-stage button[data-view="${view}"]`).click();
   if(await page.locator('#story-runtime').getAttribute('data-state')==='paused')await page.locator('#story-play').click();
   await sample(nodeId+'/webgl-'+view,4000,view);
   if(await page.locator('#story-runtime').getAttribute('data-state')==='playing')await page.locator('#story-pause').click();
  }
  await page.locator('#story-reset').click();await page.waitForFunction(()=>document.querySelector('.canvas-stage-status')?.getAttribute('data-state')==='ready');
- await page.locator('.spatial-toggle').first().click();await page.waitForFunction(()=>document.querySelector('.spatial-stage')?.getAttribute('data-state')==='ready');
- await page.locator('.spatial-stage button[data-view="workshop"]').click();await page.locator('#story-play').click();await sample('guardian/webgl-sustained',12000,'workshop');
+ if(await page.locator('.spatial-toggle').first().getAttribute('aria-expanded')!=='true')await page.locator('.spatial-toggle').first().click();await page.waitForFunction(()=>document.querySelector('.spatial-stage')?.getAttribute('data-state')==='ready');
+ await page.locator('.spatial-stage button[data-view="story"]').click();await page.locator('#story-play').click();await sample('guardian/webgl-sustained',12000,'story');
  if(await page.locator('.performance-lightweight').isVisible()) {
   lightweightObservation={measured:true,reason:'Native sustained low-rate suggestion appeared; user-facing button clicked.'};
   await page.locator('.performance-lightweight').click();await page.waitForFunction(()=>document.querySelector('.shadow-stage')?.getAttribute('data-quality')==='lightweight');
@@ -56,7 +57,7 @@ try {
  allGlFrames.push(...(await page.evaluate(()=>Reflect.get(window,'__nativeGLFrames')())).map(frame=>({...frame,nodeId})));
  }
  await openNode('call-light');
- await page.locator('.spatial-toggle').first().click();await page.waitForFunction(()=>document.querySelector('.spatial-stage')?.getAttribute('data-state')==='ready');
+ if(await page.locator('.spatial-toggle').first().getAttribute('aria-expanded')!=='true')await page.locator('.spatial-toggle').first().click();await page.waitForFunction(()=>document.querySelector('.spatial-stage')?.getAttribute('data-state')==='ready');
  for(const view of ['front','workshop','backstage','exhibit']) {
   await page.locator(`.spatial-stage button[data-view="${view}"]`).click();
   const calls=(await page.evaluate(()=>Reflect.get(window,'__nativeGLFrames')())).filter(frame=>frame.view===view).map(frame=>frame.calls);

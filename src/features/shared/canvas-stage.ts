@@ -3,7 +3,7 @@ import type { RenderActor } from '../../content/asset-types';
 import { defaultPose } from '../../domain/defaults';
 import { constrainPoseToStage } from '../../domain/pose';
 import { currentStoryNode } from '../../domain/story';
-import { reunionDefinition } from '../../content/reunion';
+import { definitionFor } from '../../content/reunion';
 import type { ProjectV1 } from '../../domain/types';
 import { mountCanvasRenderer } from '../../renderers/canvas/renderer';
 import type { CanvasFrame, CanvasStatus } from '../../renderers/canvas/types';
@@ -29,7 +29,7 @@ export function editorFrame(project: ProjectV1, duet = false, showRods = false):
 /** A paused entry still, not a director or an interaction-completion signal. */
 export function storyFrame(project: ProjectV1): CanvasFrame | null {
   if(!project.story)return null;
-  const story=project.story,node=currentStoryNode(reunionDefinition,story),cast=story.castSnapshot;
+  const story=project.story,node=currentStoryNode(definitionFor(story),story),cast=story.castSnapshot;
   const actors=node.actors.map((id):RenderActor=>{
     const pose=node.entryPoses[id]!;
     if(id==='chenxiang')return {actorId:id,templateId:'chenxiang-v1',appearance:cast?.appearance??project.appearance,pose};
@@ -65,6 +65,8 @@ export function canvasStage(caption: string) {
   life.on(retry,'click',()=>{if(last)void renderer.update(last);});
   return {
     figure,canvas:renderer.canvas,screen,frameObserver:performance.observer,
+    spatialPreference:()=>spatial!.preference(),
+    restoreSpatial:(preference:import('./spatial-stage').SpatialPreference|undefined)=>spatial!.restorePreference(preference),
     resize:()=>renderer.resize(),
     retry(){if(!disposed&&last)void renderer.update(last);},
     getStatus:()=>({...currentStatus}),

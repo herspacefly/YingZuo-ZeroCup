@@ -26,21 +26,30 @@ export function stagePlayFrame(node:StoryNode,input:CanvasFrame,effects:PlayEffe
     const pose=copy(node.entryPoses.mother!);pose.joints.rightShoulder+=1.05*clamp(effects.reaction);pose.joints.rightElbow+=.5*clamp(effects.reaction);mother.pose=pose;
   }
   if(frame.stage.backgroundId==='mountain-v1'){
-    frame.showRods=node.kind==='interaction';
+    frame.showRods=node.kind==='interaction'||!!frame.showRods;
     for(const layer of frame.sceneLayers??[]){
       // The placeholder robe and distant mountain share a palette; separate their silhouettes.
       if(layer.id==='mountain-far')layer.opacity=.55;
       if(['mountain-left','mountain-right'].includes(layer.id)){
         // The closed sheets remain closed; their translucency keeps the user-operated silhouette visible.
         layer.opacity=.3;
-        if(['call-split','split-axe'].includes(node.id))layer.x=(layer.id==='mountain-left'?-.55:.55)*clamp(effects.opening);
+        if(['call-split','split-axe','ending-sacrifice-axe'].includes(node.id))layer.x=(layer.id==='mountain-left'?-.55:.55)*clamp(effects.opening);
       }
       if(layer.id==='mountain-dust'&&node.id==='split-search')layer.opacity=.8*(1-clamp(effects.reveal));
     }
     if(['call-light','split-search'].includes(node.id))frame.actorOpacity={mother:.05+.95*clamp(effects.reveal)};
   }
   if(node.id==='guardian')frame.actorOpacity={guardian:1-clamp(effects.guardianExit)};
-  if(['reunion-hold','curtain','completed'].includes(node.id)){
+  if(node.prerequisites.ending==='waiting'){
+    frame.actorOpacity={...frame.actorOpacity,mother:.6};
+    for(const layer of frame.sceneLayers??[]){
+      if(layer.id==='mountain-left'||layer.id==='mountain-right'){layer.x=layer.id==='mountain-left'?-.35:.35;layer.opacity=.45;}
+      // The existing dust bitmap is a rectangular floor fragment. Use the parted sheets for the final seal.
+      if(layer.id==='mountain-dust')layer.opacity=0;
+    }
+  }
+  if(node.prerequisites.ending==='sacrifice'){const dust=frame.sceneLayers?.find(l=>l.id==='mountain-dust');if(dust)dust.opacity=0;}
+  if(['reunion-hold','ending-home-epilogue','curtain','completed'].includes(node.id)&&(!node.prerequisites.ending||node.prerequisites.ending==='home')){
     const holding=effects.holding??holdingFrame({...frame,actors:frame.actors.map(actor=>({...actor,pose:copy(node.entryPoses[actor.actorId]!)}))});
     for(const actor of frame.actors){
       const base=holding.actors.find(item=>item.actorId===actor.actorId)?.pose;

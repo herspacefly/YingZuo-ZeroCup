@@ -1,3 +1,4 @@
+import '../styles/help.css';
 import '../styles/tokens.css';
 import '../styles/base.css';
 import '../styles/layout.css';
@@ -45,6 +46,8 @@ const host = get<HTMLDivElement>('app-view'), main = get<HTMLElement>('main');
 const tools = get<HTMLDetailsElement>('project-tools'), operation = get<HTMLElement>('project-operation');
 const menu = get<HTMLButtonElement>('menu-toggle'), nav = get<HTMLElement>('primary-nav');
 const life = scope(), downloads: (() => void)[] = [];
+const help=document.getElementById('operation-help');
+if(help&&!('open' in document.createElement('details'))){const summary=help.querySelector('summary');if(summary){summary.setAttribute('tabindex','0');const toggle=()=>{if(help.hasAttribute('open'))help.removeAttribute('open');else help.setAttribute('open','');};life.on(summary,'click',toggle);life.on(summary,'keydown',event=>{const e=event as KeyboardEvent;if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});}}
 let store: ProjectStore | null = null, page: PageView | null = null;
 let router: ReturnType<typeof createHashRouter> | null = null, unsubscribe = () => {};
 let disposed = false, locked = false, current: AppRoute | null = null;

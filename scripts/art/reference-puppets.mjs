@@ -63,6 +63,31 @@ export function referenceGeometry(spec){
   return {s,ux,uy,bounds:{minX:Math.min(...all.map(p=>p[0]))-pad,minY:Math.min(...all.map(p=>p[1]))-pad,maxX:Math.max(...all.map(p=>p[0]))+pad,maxY:Math.max(...all.map(p=>p[1]))+pad}};
 }
 
+// Measured palm/finger grips in the direction plate, distinct from the wrist
+// endpoints used by rods and IK. Props sit behind the hand, not over the sleeve.
+export const referencePropGrips={
+  'chenxiang-v1':{
+    axe:{sourcePoint:[522,284],bindAngleRad:-1.2,orientation:'follow-host'},
+    // The finger hooks the ring's left rim; its body hangs just outside the sleeve.
+    lantern:{sourcePoint:[522,284],pivot:[-.01,0],bindAngleRad:0,orientation:'upright'},
+  },
+  'guardian-v1':{staff:{sourcePoint:[1481,201],bindAngleRad:-1.05,orientation:'follow-host'}},
+};
+export function bindReferencePropGrips(template){
+  for(const attachment of template.attachments){
+    const grip=referencePropGrips[template.id]?.[attachment.id];if(!grip)continue;
+    const piece=referencePuppets[template.id].pieces[attachment.partId],g=referenceGeometry(piece);
+    const arm=template.arms.find(a=>attachment.partId===`${a.side}Forearm`);
+    if(!arm||!piece.b)throw new Error('A prop grip requires its measured forearm');
+    const factor=arm.lowerLength/piece.length,dx=grip.sourcePoint[0]-piece.a[0],dy=grip.sourcePoint[1]-piece.a[1];
+    attachment.anchor=[g.s*(dx*g.uy-dy*g.ux)*factor,-g.s*(dx*g.ux+dy*g.uy)*factor];
+    attachment.pivot=[...(grip.pivot??[0,0])];
+    attachment.bindAngleRad=grip.bindAngleRad;attachment.orientation=grip.orientation;attachment.drawOrder=30.5;
+  }
+  if(template.id==='mother-v1')for(const prop of template.attachments){const arm=template.arms.find(a=>a.side==='right'),part=template.parts.find(p=>p.partId==='rightForearm');if(prop.id==='lantern'&&arm&&part){prop.anchor=[arm.handLocal[0]+.015,arm.handLocal[1]-.012];prop.orientation='upright';prop.bindAngleRad=0;prop.drawOrder=part.drawOrder-.5;}}
+  return template;
+}
+
 export function bindReferencePuppets(templates){
   for(const t of templates){
     const config=referencePuppets[t.id];
@@ -92,7 +117,7 @@ export function bindReferencePuppets(templates){
     t.motionEnvelope={minX:-.85,minY:-.8,maxX:.85,maxY:.85};
     if(t.motifPlacement)t.motifPlacement.bounds=t.id==='chenxiang-v1'?{minX:-.1*factor,minY:-.035*factor,maxX:.03*factor,maxY:.23*factor}:{minX:-.09*factor,minY:-.15*factor,maxX:-.035*factor,maxY:-.055*factor};
     t.note='由本项目AI方向图按作者要求裁切的皮影设计稿；原图关节点测量绑定，头身比例/袖形/手型/衣饰直接取图，Pose仍为既有世界坐标与关节弧度偏移。';
-    config.factor=factor;
+    config.factor=factor;bindReferencePropGrips(t);
   }
   return templates;
 }

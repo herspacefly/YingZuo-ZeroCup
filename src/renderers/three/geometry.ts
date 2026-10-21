@@ -3,12 +3,14 @@ import { partTransform, transformPoint } from '../../domain/pose';
 import { localToWorld } from '../../domain/projection';
 import type { CanvasFrame } from '../canvas/types';
 
-export type StageView = 'workshop' | 'front' | 'backstage' | 'exhibit';
+export type StageView = 'workshop' | 'front' | 'backstage' | 'exhibit' | 'story' | 'character';
 export interface CameraPreset { position: [number, number, number]; target: [number, number, number]; height: number }
 
 /** Fixed observation points: they never alter lamp, pose or the director's time. */
 export function stageCamera(view: StageView): CameraPreset {
   switch (view) {
+    case 'story': return {position:[1.25,.45,3.3],target:[0,-.05,-.35],height:2.2};
+    case 'character': return {position:[.35,.2,2.8],target:[0,-.05,-.2],height:1.35};
     case 'front': return { position: [0, 0, 3.6], target: [0, 0, 0], height: 2.05 };
     case 'backstage': return { position: [.25, .35, -3.6], target: [0, -.05, -.35], height: 2.35 };
     case 'exhibit': return { position: [3.4, 1.8, 3.4], target: [0, -.1, -.4], height: 2.65 };

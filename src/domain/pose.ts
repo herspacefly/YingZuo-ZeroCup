@@ -62,7 +62,9 @@ export function attachmentTransform(template: PuppetTemplate, pose: Pose, attach
   if (!part) throw new Error(`Missing attachment host: ${attachment.partId}`);
   const host = partTransform(template, pose, part);
   const anchor = transformPoint({ x: attachment.anchor[0], y: attachment.anchor[1] }, host);
-  const angle = host.angle + attachment.bindAngleRad;
+  // Suspended props keep their image-up direction while the grip follows the hand.
+  // Pose.facing is applied at the actor root; it does not reverse gravity.
+  const angle = (attachment.orientation === 'upright' ? 0 : host.angle) + attachment.bindAngleRad;
   const pivot = transformPoint({ x: -attachment.pivot[0], y: -attachment.pivot[1] }, { ...anchor, angle });
   return { ...pivot, angle };
 }

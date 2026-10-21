@@ -58,7 +58,7 @@ async function manual(page:Page,id:string){
 for(const mode of ['full','guided'] as const)for(const approach of ['call-first','split-first'] as const)for(const assisted of [false,true]){
   test(`${mode}/${approach} real graphical controls reach reunion and one curtain with ${assisted?'explicit assistance':'manual input'}`,async({page})=>{
     test.setTimeout(90000);const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));await fakeClock(page);
-    const empty=projectAt('intro');empty.story=null;await seed(page,empty);await page.goto('/#/story');await page.locator('#story-start').click();await ready(page,'intro');
+    const empty=projectAt('intro');await seed(page,empty);await page.goto('/#/story');await ready(page,'intro');
     if(mode==='guided'){await page.locator('#story-mode').selectOption('guided');await ready(page,'intro');}
     await page.locator('#story-play').click();await advance(page,mode==='full'?18000:10000);await expect(page.locator('#app-view')).toHaveAttribute('data-route','/craft');
     await page.locator('#craft-pattern').selectOption('flower-v1');await page.locator('#craft-confirm').click();await ready(page,'memory-wave');

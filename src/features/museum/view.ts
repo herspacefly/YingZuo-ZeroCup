@@ -4,7 +4,7 @@ import { canvasStage } from '../shared/canvas-stage';
 import { museumExhibits, museumFacts, museumSections } from '../../content/museum';
 import type { MuseumExhibit } from '../../content/museum';
 import sources from '../../content/sources.json';
-import { reunionDefinition } from '../../content/reunion';
+import { definitionFor,endingFor } from '../../content/reunion';
 import { reunionSummary } from '../../domain/story';
 import type { PageFactory } from '../../app/view';
 import type { ProjectV1 } from '../../domain/types';
@@ -97,12 +97,13 @@ export const mountMuseum:PageFactory=(host,ctx)=>{
   let disposed=false,visitRequested='';
   function programmeUpdate(project:ProjectV1|null){
     const result=project?reunionSummary(project):null,story=project?.story;clear(programmeRows);
-    programmeTitle.textContent=result?'这一场，已经相见。':'这一场的参与记录';programmeLink.hidden=!result;const rows:[string,string][]=[];
+    const ending=endingFor(story);programmeTitle.textContent=result?(ending?'本场终章 · '+ending.title:'这一场，已经相见。'):'这一场的参与记录';programmeLink.hidden=!result;const rows:[string,string][]=[];
     if(story?.castSnapshot)rows.push(['本场纹样',patternLabel(story.castSnapshot.appearance.patternId)],['本场配色',paletteLabel(story.castSnapshot.appearance.paletteId)],['造型来源',story.presetAppearanceUsed?'采用默认影偶':'采用你确认的造型']);
-    rows.push(['演出进度',story?reunionDefinition.nodes.find(node=>node.id===story.nodeId)!.title:'尚未开演，示例不代表个人成果']);
+    rows.push(['演出进度',story?definitionFor(story).nodes.find(node=>node.id===story.nodeId)!.title:'尚未开演，示例不代表个人成果']);
     if(story?.approach)rows.push(['你的选择',story.approach==='call-first'?'先举灯呼唤':'先挥斧开山']);
-    if(story)rows.push(['已记录的协助',story.assistedNodeIds.length?story.assistedNodeIds.map(id=>reunionDefinition.nodes.find(node=>node.id===id)!.title).join('、'):'未记录协助']);
-    if(result)rows.push(['团圆时间',new Date(result.completedAt).toLocaleString()],['谢幕',story!.nodeId==='completed'?'已经看完':'团圆已保存，谢幕尚未结束']);
+    if(ending)rows.push(['你的终章',ending.title],['终章去向',ending.summary]);
+    if(story)rows.push(['已记录的协助',story.assistedNodeIds.length?story.assistedNodeIds.map(id=>definitionFor(story).nodes.find(node=>node.id===id)!.title).join('、'):'未记录协助']);
+    if(result)rows.push(['终章完成时间',new Date(result.completedAt).toLocaleString()],['谢幕',story!.nodeId==='completed'?'已经看完':'终章已保存，谢幕尚未结束']);
     for(const [label,value]of rows)append(programmeRows,element('dt','',label),element('dd','',value));
   }
   return {

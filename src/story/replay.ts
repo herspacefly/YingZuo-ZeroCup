@@ -1,5 +1,5 @@
 import { assetCatalog } from '../content/catalog';
-import { reunionDefinition } from '../content/reunion';
+import { definitionFor } from '../content/reunion';
 import { subtitlesForMode } from '../content/story-contract';
 import { actionDefinitions, sampleAction } from '../domain/actions';
 import type { ActionId } from '../domain/actions';
@@ -58,18 +58,19 @@ function actionPose(id: ActionId, node: StoryNode, progress: number): Pose {
 export function createReunionReplay(project: ProjectV1) {
   const captured = validateProject(project), summary = reunionSummary(captured);
   if (!summary) throw new RangeError('请先完成本场团圆，再按本场编排重演。');
-  const definition = copy(reunionDefinition), story = captured.story!;
+  const definition = copy(definitionFor(captured.story)), story = captured.story!;
   const nodes: StoryNode[] = [], seen = new Set<StoryNodeId>();
   let id: StoryNodeId = definition.startNodeId;
   while (id !== 'completed') {
     if (seen.has(id)) throw new RangeError('重演剧本的节点路径发生循环。');
     seen.add(id);
-    const node = definition.nodes.find(item => item.id === id);
+    let node = definition.nodes.find(item => item.id === id);
+    if(node && id==='curtain' && story.definitionVersion===2){const end=definition.endings!.find(e=>e.id===story.ending)!;const pose=definition.nodes.find(n=>n.id===end.epilogueNodeId)!;node={...node,entryPoses:copy(pose.entryPoses),entryStage:copy(pose.entryStage),entrySceneLayers:copy(pose.entrySceneLayers),entryAttachments:copy(pose.entryAttachments),assetIds:[...new Set([...node.assetIds,...pose.assetIds])],prerequisites:{...node.prerequisites,ending:story.ending}};}
     if (!node) throw new RangeError('重演剧本缺少当前片段。');
     nodes.push(node);
     if (id === 'curtain') break;
     if (!node.next) throw new RangeError('重演剧本尚未到达谢幕。');
-    id = 'default' in node.next ? node.next.default : node.next[summary.approach];
+    id = 'default' in node.next ? node.next.default : (node.next as Record<string,StoryNodeId>)[node.id==='ending-choice'?summary.ending!:summary.approach]!;
   }
   if (nodes[nodes.length - 1]?.id !== 'curtain') throw new RangeError('重演剧本缺少本场谢幕。');
 
@@ -141,11 +142,13 @@ export function createReunionReplay(project: ProjectV1) {
           shotLabel = node.id === 'call-light' ? '灯影寻母 · 共纹渐显' : '尘幕后寻光 · 母亲渐显';
           break;
         }
-        case 'call-split': case 'split-axe':
+        case 'call-split': case 'split-axe': case 'ending-sacrifice-axe':
           chenxiangPose = actionPose('raise-axe-v1', node, beat / .8);
           effects.opening = between(beat, .5, .9);
           shotLabel = beat < .5 ? '稳身举斧' : '落手开山 · 山片分开';
           break;
+        case 'ending-light-place': case 'ending-waiting-light': {const goal=scene.goal!;chenxiangPose=blendPose(node.entryPoses.chenxiang!,goal.pose,between(beat,.1,.8));stage=goal.stage;break;}
+        case 'ending-road-walk': {const goal=scene.goal!;chenxiangPose=blendPose(node.entryPoses.chenxiang!,goal.pose,between(beat,.1,.85));break;}
         case 'reunion-reach':
           chenxiangPose = actionPose('reach-v1', node, beat / .6);
           shotLabel = '最后伸手 · 母子相见';

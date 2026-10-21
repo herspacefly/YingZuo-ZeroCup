@@ -401,8 +401,8 @@
       "assetId": "chenxiang-axe",
       "partId": "rightForearm",
       "anchor": [
-        0,
-        -0.1507463249244578
+        0.015505336277944226,
+        -0.19295529590330596
       ],
       "pivot": [
         0,
@@ -414,20 +414,21 @@
         "maxX": 0.14,
         "maxY": 0.12
       },
-      "bindAngleRad": 0,
-      "drawOrder": 35,
-      "defaultVisible": false
+      "bindAngleRad": -1.2,
+      "drawOrder": 30.5,
+      "defaultVisible": false,
+      "orientation": "follow-host"
     },
     {
       "id": "lantern",
       "assetId": "chenxiang-lantern",
       "partId": "rightForearm",
       "anchor": [
-        0,
-        -0.1507463249244578
+        0.015505336277944226,
+        -0.19295529590330596
       ],
       "pivot": [
-        0,
+        -0.01,
         0
       ],
       "bounds": {
@@ -437,8 +438,9 @@
         "maxY": 0.02
       },
       "bindAngleRad": 0,
-      "drawOrder": 35,
-      "defaultVisible": false
+      "drawOrder": 30.5,
+      "defaultVisible": false,
+      "orientation": "upright"
     }
   ],
   "note": "由本项目AI方向图按作者要求裁切的皮影设计稿；原图关节点测量绑定，头身比例/袖形/手型/衣饰直接取图，Pose仍为既有世界坐标与关节弧度偏移。"

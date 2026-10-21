@@ -1,6 +1,6 @@
 import { beginStory, reduceStory, storyGuard } from '../domain/story';
 import type { StoryGuard } from '../domain/story-types';
-import { reunionDefinition } from '../content/reunion';
+import { definitionFor } from '../content/reunion';
 import type { ProjectStore, SaveResult } from './store';
 
 export interface CraftConfirmation {
@@ -12,12 +12,13 @@ export function confirmCraft(store:ProjectStore,options:CraftConfirmation) {
   return store.commit(project=>{
     const current=project.story;
     if(request.guard ? !current||current.runId!==request.guard.runId||current.revision!==request.guard.expectedRevision||current.nodeId!==request.guard.expectedNodeId : !!current)return null;
-    let candidate=current?project:beginStory(project,request.runId,request.mode)!;
+    let candidate=current?project:beginStory(project,request.runId,request.mode,2)!;
+    const definition=definitionFor(candidate.story);
     const context={paused:true,elapsedMs:0,now:request.now};
-    if(candidate.story!.nodeId==='intro')candidate=reduceStory(candidate,{...storyGuard(candidate.story!),action:'COMPLETE_SCENE',source:'user',skipped:true},context,reunionDefinition)!;
+    if(candidate.story!.nodeId==='intro')candidate=reduceStory(candidate,{...storyGuard(candidate.story!),action:'COMPLETE_SCENE',source:'user',skipped:true},context,definition)!;
     if(candidate.story!.nodeId!=='craft')return null;
     return reduceStory(candidate,{...storyGuard(candidate.story!),action:'COMPLETE_INTERACTION',source:'user',
-      evidence:{kind:'craft',presetAppearanceUsed:request.presetAppearanceUsed}},context,reunionDefinition);
+      evidence:{kind:'craft',presetAppearanceUsed:request.presetAppearanceUsed}},context,definition);
   });
 }
 /** Archive the whole old performance, keeping the latest editor as a new, unstarted project. */

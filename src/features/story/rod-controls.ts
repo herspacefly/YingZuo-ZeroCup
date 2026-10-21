@@ -1,3 +1,4 @@
+import { mountLimbControls } from '../shared/limb-controls';
 import { assetCatalog } from '../../content/catalog';
 import type { Bounds } from '../../content/asset-types';
 import { constrainPoseToStage } from '../../domain/pose';
@@ -6,13 +7,14 @@ import type { Point, Viewport } from '../../domain/projection';
 import { moveRodBy, moveRodTo, ROD_IDS, rodScreenPoint } from '../../domain/rod-input';
 import type { RodId } from '../../domain/rod-input';
 import type { Pose } from '../../domain/types';
+import type { LimbId } from '../../domain/limb-input';
 import type { CanvasFrame } from '../../renderers/canvas/types';
 import type { canvasStage } from '../shared/canvas-stage';
 import { append, element, scope } from '../shared/dom';
 
 export interface StoryRodPort {
   read(): { frame:CanvasFrame; enabled:boolean; rods:readonly RodId[]; lights:boolean; target:Bounds|null; region:Bounds|null } | null;
-  change(pose:Pose):void;
+  change(pose:Pose,source?:LimbId|'body'):void;
   light(lampX:number,puppetDistance:number):void;
   wake():void;
   report(message:string):void;
@@ -28,8 +30,9 @@ const clone = (pose:Pose):Pose => ({...pose,joints:{...pose.joints}});
 
 /** DOM input only. The story controller owns the frame, constraints and single clock. */
 export function mountStoryRodControls(panel:HTMLElement,stage:ReturnType<typeof canvasStage>,port:StoryRodPort) {
+  const direct=mountLimbControls(stage,port);
   const life=scope(),extraCleanups:(()=>void)[]=[],root=element('div','story-rod-controls');
-  const help=element('p','quiet-note','拖动沉香的握柄，也可选杆后用方向按钮、握柄上的方向键或滑块操作。');
+  const help=element('p','quiet-note','拖动沉香的手脚或握柄；舞台上的方向键移动身躯，方向按钮移动所选杆，滑块可精调关节。');
   help.id='story-rod-help';
   const field=element('fieldset'),legend=element('legend','','牵动沉香');field.appendChild(legend);
   const select=element('select');select.id='story-rod-select';
@@ -52,9 +55,9 @@ export function mountStoryRodControls(panel:HTMLElement,stage:ReturnType<typeof 
   }
   range('身杆左右','story-rod-x',0,1,.005,'body',value=>manual(pose=>({...pose,x:value}),'body'));
   range('身杆高低','story-rod-y',0,1,.005,'body',value=>manual(pose=>({...pose,y:value}),'body'));
-  for(const side of ['left','right'] as const)for(const joint of ['Shoulder','Elbow'] as const){
+  for(const side of ['left','right'] as const)for(const joint of ['Shoulder','Elbow','Hip','Knee'] as const){
     const id=`${side}${joint}` as const,limit=template.joints.find(item=>item.jointId===id)!;
-    range(`${side==='left'?'左':'右'}${joint==='Shoulder'?'肩':'肘'}角度`,`story-rod-${id}`,limit.minRad,limit.maxRad,.01,`${side}Hand`,value=>manual(pose=>({...pose,joints:{...pose.joints,[id]:value}}),`${side}Hand`));
+    range(`${side==='left'?'左':'右'}${({Shoulder:'肩',Elbow:'肘',Hip:'髋',Knee:'膝'})[joint]}角度`,`story-rod-${id}`,limit.minRad,limit.maxRad,.01,joint==='Hip'||joint==='Knee'?'body':`${side}Hand`,value=>manual(pose=>({...pose,joints:{...pose.joints,[id]:value}}),joint==='Hip'||joint==='Knee'?'body':`${side}Hand`,joint==='Hip'||joint==='Knee'?`${side}Foot`:`${side}Hand`));
   }
   range('影偶大小','story-rod-scale',.6,1,.01,'body',value=>manual(pose=>({...pose,scale:value}),'body'));
   range('灯位左右','story-lamp',-.8,.8,.01,'lights',value=>light(value,null));
@@ -87,15 +90,15 @@ export function mountStoryRodControls(panel:HTMLElement,stage:ReturnType<typeof 
   function selectAllowed(data:Readout) {
     if(!allowed(data,selected))selected=allowed(data,'rightHand')?'rightHand':allowed(data,'body')?'body':data.rods[0]??'rightHand';
   }
-  function apply(fit:ReturnType<typeof constrainPoseToStage>) {
+  function apply(fit:ReturnType<typeof constrainPoseToStage>,source?:LimbId|'body') {
     if(!fit.fits){port.report('当前姿态无法完整放进幕面，请减小影偶或调整关节。');return;}
     const current=active();if(!current)return;
-    if(JSON.stringify(current.actor.pose)!==JSON.stringify(fit.pose)){port.change(clone(fit.pose));port.wake();}
+    if(JSON.stringify(current.actor.pose)!==JSON.stringify(fit.pose)){port.change(clone(fit.pose),source);port.wake();}
     render();
   }
-  function manual(change:(pose:Pose)=>Pose,id:RodId) {
+  function manual(change:(pose:Pose)=>Pose,id:RodId,source:LimbId|'body'=id) {
     const current=active();if(!current||!allowed(current.data,id))return;
-    apply(constrainPoseToStage(change(clone(current.actor.pose)),template,current.data.frame.stage,attachments(current.data)));
+    apply(constrainPoseToStage(change(clone(current.actor.pose)),template,current.data.frame.stage,attachments(current.data)),source);
   }
   function light(lampX:number|null,distance:number|null) {
     const current=active();if(!current||!current.data.lights)return;
@@ -106,9 +109,10 @@ export function mountStoryRodControls(panel:HTMLElement,stage:ReturnType<typeof 
   }
   function nudge(delta:Point) {
     const current=active();if(!current)return;selectAllowed(current.data);if(!allowed(current.data,selected))return;
-    apply(moveRodBy(template,current.actor.pose,current.data.frame.stage,selected,delta,attachments(current.data)));
+    apply(moveRodBy(template,current.actor.pose,current.data.frame.stage,selected,delta,attachments(current.data)),selected);
   }
   function release() {
+    direct.release();
     keys.clear();const previous=drag;drag=null;
     if(previous?.kind==='pointer')try {if(previous.handle.hasPointerCapture?.(previous.id))previous.handle.releasePointerCapture(previous.id);}
     catch(error){if(!disposed)port.report(`拖动已结束：${error instanceof Error?error.message:String(error)}`);}
@@ -122,16 +126,16 @@ export function mountStoryRodControls(panel:HTMLElement,stage:ReturnType<typeof 
   function render() {
     if(disposed)return;
     const current=read();
-    if(!current){release();root.hidden=true;overlay.hidden=true;return;}
+    if(!current){direct.render();release();root.hidden=true;overlay.hidden=true;return;}
     const {data,actor}=current,canInput=enabled(data);selectAllowed(data);
     if(!canInput||!allowed(data,selected)||drag&&!allowed(data,drag.rod))release();
     root.hidden=!data.rods.length&&!data.lights;field.disabled=!canInput;selectLabel.hidden=!data.rods.length;pad.hidden=!data.rods.length;select.value=selected;
     for(const [id,option] of options){option.hidden=!allowed(data,id);option.disabled=!allowed(data,id);}
     const values:Record<string,number>={'story-rod-x':actor.pose.x,'story-rod-y':actor.pose.y,'story-rod-scale':actor.pose.scale,'story-lamp':data.frame.stage.lampX,'story-distance':data.frame.stage.puppetDistance};
-    for(const side of ['left','right'] as const)for(const joint of ['Shoulder','Elbow'] as const)values[`story-rod-${side}${joint}`]=actor.pose.joints[`${side}${joint}`];
+    for(const side of ['left','right'] as const)for(const joint of ['Shoulder','Elbow','Hip','Knee'] as const)values[`story-rod-${side}${joint}`]=actor.pose.joints[`${side}${joint}`];
     for(const [id,item] of ranges){
       const visible=item.rod==='lights'?data.lights:allowed(data,item.rod);item.group.hidden=!visible;item.input.disabled=!canInput||!visible;item.input.value=String(values[id]);
-      item.output.textContent=id.includes('Shoulder')||id.includes('Elbow')?`${Math.round(values[id]!*180/Math.PI)}°`:`${Math.round(values[id]!*100)}%`;
+      item.output.textContent=/Shoulder|Elbow|Hip|Knee/.test(id)?`${Math.round(values[id]!*180/Math.PI)}°`:`${Math.round(values[id]!*100)}%`;
     }
     const rect=stage.canvas.getBoundingClientRect(),viewport=fitViewport(rect.width,rect.height);svg.setAttribute('viewBox',`0 0 ${rect.width||1} ${rect.height||1}`);
     rectangle(target,data.target,viewport);rectangle(region,data.region,viewport);
@@ -144,7 +148,7 @@ export function mountStoryRodControls(panel:HTMLElement,stage:ReturnType<typeof 
       const x=Math.max(24,Math.min(rect.width-24,point.x+dx)),y=Math.max(24,Math.min(rect.height-24,point.y+dy));
       handle.style.left=`${x}px`;handle.style.top=`${y}px`;line.setAttribute('x1',String(point.x));line.setAttribute('y1',String(point.y));line.setAttribute('x2',String(x));line.setAttribute('y2',String(y));
     }
-    overlay.hidden=stage.getStatus().state!=='ready'||(!data.rods.length&&!data.target&&!data.region);
+    overlay.hidden=stage.getStatus().state!=='ready'||(!data.rods.length&&!data.target&&!data.region);direct.render(rect);
   }
   function screenPoint(clientX:number,clientY:number) {
     const rect=stage.canvas.getBoundingClientRect();return viewportToWorld({x:clientX-rect.left,y:clientY-rect.top},fitViewport(rect.width,rect.height));
@@ -158,7 +162,7 @@ export function mountStoryRodControls(panel:HTMLElement,stage:ReturnType<typeof 
   function moveDrag(clientX:number,clientY:number) {
     const current=active();if(!drag||!current||!allowed(current.data,drag.rod)){release();return;}
     const point=screenPoint(clientX,clientY);if(!point)return;
-    apply(moveRodTo(template,current.actor.pose,current.data.frame.stage,drag.rod,{x:point.x-drag.offset.x,y:point.y-drag.offset.y},attachments(current.data)));
+    apply(moveRodTo(template,current.actor.pose,current.data.frame.stage,drag.rod,{x:point.x-drag.offset.x,y:point.y-drag.offset.y},attachments(current.data)),drag.rod);
   }
   function endDrag() {release();render();}
   if('PointerEvent' in window&&window.PointerEvent){
@@ -200,6 +204,7 @@ export function mountStoryRodControls(panel:HTMLElement,stage:ReturnType<typeof 
     render,
     release,
     tick(deltaMs:number) {
+      direct.tick(deltaMs);
       if(disposed)return;
       const current=active();if(!current){release();return;}
       if(!keys.size||!Number.isFinite(deltaMs)||deltaMs<=0)return;
@@ -209,7 +214,7 @@ export function mountStoryRodControls(panel:HTMLElement,stage:ReturnType<typeof 
       const length=Math.hypot(delta.x,delta.y);if(length)nudge({x:delta.x/length*.4*deltaMs/1000,y:delta.y/length*.4*deltaMs/1000});
     },
     dispose() {
-      if(disposed)return;disposed=true;release();life.dispose();extraCleanups.splice(0).forEach(cleanup=>cleanup());
+      if(disposed)return;disposed=true;release();direct.dispose();life.dispose();extraCleanups.splice(0).forEach(cleanup=>cleanup());
       if(overlay.parentNode)overlay.parentNode.removeChild(overlay);if(root.parentNode)root.parentNode.removeChild(root);
     },
   };

@@ -17,18 +17,24 @@ export interface StageConfig {
 }
 export type StoryNodeId = 'intro' | 'craft' | 'memory-wave' | 'memory-separate' | 'road' |
   'training' | 'guardian' | 'approach-choice' | 'call-light' | 'call-response' | 'call-split' |
-  'split-axe' | 'split-search' | 'split-response' | 'reunion-reach' | 'reunion-hold' | 'curtain' | 'completed';
+  'split-axe' | 'split-search' | 'split-response' | 'reunion-reach' | 'reunion-hold' | 'curtain' | 'completed' |
+  'memory-words' | 'road-rest' | 'guardian-parley' | 'mountain-listen' | 'ending-choice' |
+  'ending-home-epilogue' | 'ending-light-place' | 'ending-light-hold' | 'ending-light-epilogue' |
+  'ending-road-walk' | 'ending-road-hold' | 'ending-road-epilogue' | 'ending-waiting-light' | 'ending-waiting-hold' | 'ending-waiting-epilogue' | 'ending-sacrifice-axe' | 'ending-sacrifice-hold' | 'ending-sacrifice-epilogue';
 export type Approach = 'call-first' | 'split-first';
+export type EndingId = 'home' | 'light' | 'road' | 'waiting' | 'sacrifice';
 export interface CastSnapshot {
   appearance: Appearance; sharedMotif: PatternId;
   motherPaletteId: 'mother-v1'; guardianPaletteId: 'guardian-v1'; assetVersion: 1;
 }
 export interface StoryProgress {
-  storyId: 'reunion'; definitionVersion: 1; runId: string; revision: number;
+  storyId: 'reunion'; definitionVersion: 1 | 2; runId: string; revision: number;
   mode: 'full' | 'guided'; nodeId: StoryNodeId;
   approach: Approach | null; approachSource: 'user' | null;
   castSnapshot: CastSnapshot | null; assistedNodeIds: StoryNodeId[];
   presetAppearanceUsed: boolean; completedAt: string | null;
+  /** Present and required in definitionVersion 2; forbidden in legacy version 1 JSON. */
+  ending?: EndingId | null; endingSource?: 'user' | null;
 }
 export type ExhibitId = 'E01' | 'E02' | 'E03' | 'E04' | 'E05' | 'E06' | 'E07' | 'E08';
 export interface RecordingSnapshot {

@@ -1,3 +1,4 @@
+import { spatialPresentation } from './spatial-presentation';
 import { assetCatalog } from '../content/catalog';
 import type { PuppetTemplate, RenderActor } from '../content/asset-types';
 import { subtitlesForMode } from '../content/story-contract';
@@ -107,6 +108,14 @@ export function createSceneDirector(project: ProjectV1, entry: ReturnType<typeof
             : fullTime < 13000 ? '幕后示意 · 看见操偶杆' : '制偶引入 · 备好行装';
           break;
         }
+        case 'memory-words':
+          respond(.45*progress);if(chenxiang)chenxiang.joints.head=.1*Math.sin(Math.PI*progress);break;
+        case 'road-rest':
+          if(chenxiang){chenxiang.joints.head=-.12*Math.sin(Math.PI*progress);chenxiang.joints.rightElbow=.25*progress;}break;
+        case 'guardian-parley':
+          if(guardian){guardian.joints.head=-.1*progress;guardian.joints.rightShoulder=.3*(1-progress);}break;
+        case 'mountain-listen':
+          respond(.35*progress);stage.lampX=.12*progress;break;
         case 'memory-separate': {
           const separation = smooth(progress);
           if (chenxiang) chenxiang.x -= .035 * separation;
@@ -170,6 +179,13 @@ export function createSceneDirector(project: ProjectV1, entry: ReturnType<typeof
           break;
       }
 
+      const ending=node.prerequisites.ending;
+      if(node.id==='ending-road-hold'||node.id==='ending-road-epilogue'){
+        if(poses.chenxiang)poses.chenxiang.x+=.08*progress;
+        if(poses.mother)poses.mother.x+=.08*progress;
+      }
+      if(ending==='waiting'){stage.lampX=.12;respond(.25+.15*progress);}
+
       // Manual input owns only Chenxiang and the two legal light controls. It never scripts a fixed role.
       if (input.stage) {
         if (!Number.isFinite(input.stage.lampX) || !Number.isFinite(input.stage.puppetDistance)) {
@@ -189,8 +205,11 @@ export function createSceneDirector(project: ProjectV1, entry: ReturnType<typeof
         if (id === 'mother') return { actorId: id, templateId: 'mother-v1', paletteId: 'mother-v1', sharedMotif, pose: fit.pose };
         return { actorId: id, templateId: 'guardian-v1', paletteId: 'guardian-v1', pose: fit.pose };
       });
+      let actorOpacity:CanvasFrame['actorOpacity'];
+      if(ending==='sacrifice'&&node.id!=='ending-sacrifice-axe'){actorOpacity={chenxiang:node.id==='ending-sacrifice-hold'?1-.84*progress:.16,mother:1};lightLevel=.8+.2*progress;}
       const frame = prepareFrame({ actors, stage, sceneLayers: layers,
-        attachments: clone(node.entryAttachments), showRods }, assetCatalog);
+        attachments: clone(node.entryAttachments), showRods,actorOpacity }, assetCatalog);
+      frame.spatial=spatialPresentation(node,progress,lightLevel,reducedMotion);
       return { frame, elapsedMs: elapsed, durationMs, ended: elapsed >= durationMs, automatic,
         cues: clone(cues), lightLevel, shotLabel };
     },

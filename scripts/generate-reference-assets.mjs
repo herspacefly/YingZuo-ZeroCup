@@ -17,9 +17,10 @@ const source=readFileSync(path.join(root,'docs/art/t10-art-direction.png'));
 const sourceSha=createHash('sha256').update(source).digest('hex');
 const manifest=json('src/content/manifest.json');
 if(!manifest.assets.some(a=>a.id==='chenxiang-lantern'))manifest.assets.push({id:'chenxiang-lantern',type:'prop',path:'assets/puppets/chenxiang-lantern.png',usage:'attachment:chenxiang-lantern'});
-const puppets=bindReferencePuppets(['chenxiang-v1','mother-v1','guardian-v1'].map(role=>json(`src/content/puppets/${role}.json`)));
+const puppets=['chenxiang-v1','mother-v1','guardian-v1'].map(role=>json(`src/content/puppets/${role}.json`));
 const chenxiang=puppets.find(p=>p.id==='chenxiang-v1');
 if(!chenxiang.attachments.some(a=>a.id==='lantern'))chenxiang.attachments.push({id:'lantern',assetId:'chenxiang-lantern',partId:'rightForearm',anchor:[...chenxiang.arms.find(a=>a.side==='right').handLocal],pivot:[0,0],bounds:{...referenceProps['chenxiang-lantern'].bounds},bindAngleRad:0,drawOrder:35,defaultVisible:false});
+bindReferencePuppets(puppets);
 const tasks=[];
 for(const puppet of puppets)for(const part of puppet.parts){
   // The source figure is about 650px high. Avoid 2-3x upscales that add no

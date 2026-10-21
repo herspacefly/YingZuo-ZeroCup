@@ -5,15 +5,19 @@ export const JOINT_IDS = ['head', 'leftShoulder', 'leftElbow', 'rightShoulder', 
 export const PATTERN_IDS = ['cloud-v1', 'wave-v1', 'flower-v1'] as const;
 export const PALETTE_IDS = ['vermilion-v1', 'indigo-v1', 'woodland-v1'] as const;
 export const BACKGROUND_IDS = ['plain-v1', 'home-v1', 'road-v1', 'mountain-v1'] as const;
-export const STORY_NODE_IDS = ['intro', 'craft', 'memory-wave', 'memory-separate', 'road', 'training',
+export const LEGACY_STORY_NODE_IDS = ['intro', 'craft', 'memory-wave', 'memory-separate', 'road', 'training',
   'guardian', 'approach-choice', 'call-light', 'call-response', 'call-split', 'split-axe', 'split-search',
   'split-response', 'reunion-reach', 'reunion-hold', 'curtain', 'completed'] as const;
+export const STORY_NODE_IDS = LEGACY_STORY_NODE_IDS;
+export const EXPANDED_STORY_NODE_IDS = [...LEGACY_STORY_NODE_IDS,'memory-words','road-rest','guardian-parley','mountain-listen','ending-choice',
+  'ending-home-epilogue','ending-light-place','ending-light-hold','ending-light-epilogue',
+  'ending-road-walk','ending-road-hold','ending-road-epilogue','ending-waiting-light','ending-waiting-hold','ending-waiting-epilogue','ending-sacrifice-axe','ending-sacrifice-hold','ending-sacrifice-epilogue'] as const;
 export const EXHIBIT_IDS = ['E01', 'E02', 'E03', 'E04', 'E05', 'E06', 'E07', 'E08'] as const;
 export const PROJECT_ROUTES = ['/', '/craft', '/light', '/story', '/museum', '/result', '/practice', '/about'] as const;
 // Reserved stable IDs. T07 must keep their meaning or version/migrate persisted data.
 export const PRESET_IDS = ['wave-v1', 'walk-v1', 'bow-v1', 'raise-axe-v1', 'reach-v1'] as const;
 export const ASSISTABLE_NODES = ['memory-wave', 'road', 'guardian', 'call-light', 'call-split',
-  'split-axe', 'split-search', 'reunion-reach', 'curtain'] as const;
+  'split-axe', 'split-search', 'reunion-reach', 'curtain','ending-light-place','ending-road-walk','ending-waiting-light','ending-sacrifice-axe'] as const;
 export const MAX_JOINT_ANGLE = 3.141593; // pi rounded to the persisted six decimal places; T01 adds tighter template limits.
 export const AUTOSAVE_DELAY_MS = 500;
 export const AUTOSAVE_MAX_WAIT_MS = 2000;

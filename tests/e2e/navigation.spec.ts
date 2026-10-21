@@ -56,7 +56,7 @@ test('URLs cannot start a story or manufacture a completed result', async ({ pag
 
 test('explicit guided opening and intro skip persist once, and ten remounts cannot repeat the command', async ({ page }) => {
   await page.goto('/'); await saved(page); const id = (await stored(page)).projectId;
-  await page.getByRole('button', { name: '三分钟导览', exact: true }).click(); await expect(page).toHaveURL(/#\/story$/); await saved(page);
+  await page.getByRole('button', { name: '节选导览', exact: true }).click(); await expect(page).toHaveURL(/#\/story$/); await saved(page);
   const intro = (await stored(page)).story!; expect(intro).toMatchObject({ nodeId: 'intro', mode: 'guided', revision: 0 });
   for (let i = 0; i < 10; i++) { await hash(page, '/museum/E04'); await hash(page, '/story'); }
   await page.getByRole('button', { name: '先为他备好行装', exact: true }).click(); await expect(page).toHaveURL(/#\/craft$/); await saved(page);

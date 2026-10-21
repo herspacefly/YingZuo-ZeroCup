@@ -1,3 +1,4 @@
+import { expandedDefinition } from '../../content/reunion';
 import { assetCatalog } from '../../content/catalog';
 import { mountCanvasRenderer } from '../../renderers/canvas/renderer';
 import type { ReunionArtifact } from './artifact';
@@ -19,7 +20,8 @@ export function mountReunionExporter(host: HTMLElement, artifact: ReunionArtifac
   const canvas = document.createElement('canvas');
   canvas.width = 1600; canvas.height = 1200; canvas.className = 'reunion-artifact';
   canvas.setAttribute('role', 'img');
-  canvas.setAttribute('aria-label', '一幕团圆留影：沉香与母亲伸手相见，使用本场冻结造型；原创皮影风格设计稿。');
+  const ending=snapshot.summary.ending?expandedDefinition.endings!.find(e=>e.id===snapshot.summary.ending):null;
+  canvas.setAttribute('aria-label',ending?ending.title+'：'+ending.summary:'一幕团圆留影：沉香与母亲伸手相见，使用本场冻结造型；原创皮影风格设计稿。');
   canvas.setAttribute('data-state', 'loading');
   host.appendChild(canvas);
   // Hidden source dimensions fall back to the renderer's normal 1024×768 backing canvas.
@@ -52,13 +54,13 @@ export function mountReunionExporter(host: HTMLElement, artifact: ReunionArtifac
     ctx.fillStyle = '#f2e5c9'; ctx.fillRect(0, 0, 1600, 1200);
     ctx.strokeStyle = '#a26a42'; ctx.lineWidth = 2; ctx.strokeRect(28, 28, 1544, 1144);
     ctx.fillStyle = '#3b281b'; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
-    ctx.font = '52px SimSun, "Songti SC", serif'; ctx.fillText('影作 · 一幕团圆', 800, 88);
+    ctx.font = '52px SimSun, "Songti SC", serif'; ctx.fillText(ending?'影作 · '+ending.title:'影作 · 一幕团圆', 800, 88);
     ctx.font = '26px SimSun, "Songti SC", serif';
     ctx.fillText(`${route}　·　${pattern} / ${palette}　·　${summary.presetAppearanceUsed ? '默认造型' : '本场制偶造型'}`, 800, 136);
     ctx.drawImage(image, 200, 180, 1200, 900);
     ctx.font = '22px SimSun, "Songti SC", serif';
     const marker = summary.runId.length > 20 ? `…${summary.runId.slice(-20)}` : summary.runId;
-    ctx.fillText(`成果 ${marker}:reunion　·　完成（UTC）${summary.completedAt}`, 800, 1120);
+    ctx.fillText(`成果 ${marker}:${summary.ending??'reunion'}　·　完成（UTC）${summary.completedAt}`, 800, 1120);
     ctx.font = '21px SimSun, "Songti SC", serif';
     ctx.fillText('零组 · 张宇翔（SpaceFly）　｜　原创改编 · 皮影风格设计稿', 800, 1158);
   }

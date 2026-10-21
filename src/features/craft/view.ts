@@ -1,3 +1,5 @@
+import { mountLimbControls } from '../shared/limb-controls';
+import { createAnimationClock } from '../../app/animation-clock';
 import { append, element, link, scope } from '../shared/dom';
 import { editable, heading, pageLinks, paletteLabel, patternLabel } from '../shared/pieces';
 import { canvasStage, editorFrame } from '../shared/canvas-stage';
@@ -40,7 +42,7 @@ export const mountCraft:PageFactory=(host,ctx)=>{
   const summary=element('p','selection-summary'),save=element('button','button secondary','保存这身行装');summary.id='craft-summary';
   append(field,patternLabelNode,cuts,nextCut,cutStatus,paletteLabelNode,swatches,apply,colorToggle,colors);append(panel,field,summary,save);
   const confirmation=element('section','craft-confirmation'),confirmationText=element('p','quiet-note'),mode=element('select');mode.id='craft-mode';
-  for(const [value,label]of [['full','完整演出'],['guided','三分钟导览']]){const option=element('option','',label);option.value=value!;mode.appendChild(option);}
+  for(const [value,label]of [['full','完整演出'],['guided','节选导览']]){const option=element('option','',label);option.value=value!;mode.appendChild(option);}
   const modeLabel=element('label','','新场的节奏');modeLabel.appendChild(mode);
   const play=element('button','button primary','用这身行装开演'),preset=element('button','button secondary','采用默认影偶开演');play.id='craft-confirm';preset.id='craft-preset';
   const restart=element('button','button secondary','归档旧场，用新造型重新开演');restart.id='craft-restart';
@@ -61,7 +63,9 @@ export const mountCraft:PageFactory=(host,ctx)=>{
     play.disabled=preset.disabled=restart.disabled=mode.disabled=acknowledge.disabled=!advance;
     trialPad.querySelectorAll('button').forEach(button=>{button.disabled=!canTry();});resetTrial.disabled=!canTry();
   }
-  const offStatus=stage.subscribe(syncControls);
+  const direct=mountLimbControls(stage,{read(){const draft=ctx.store.getExportProject()??state?.project;if(!draft||!bodyModel)return null;return {frame:{actors:[{actorId:'chenxiang',templateId:'chenxiang-v1',appearance:draft.appearance,pose:bodyModel.pose}],stage:bodyModel.stage},enabled:canTry()};},change(pose){trialPose=pose;render();},wake(){clock.start();},end(){clock.stop();},report(text){trialHelp.textContent=text;}});
+  const clock=createAnimationClock({request:cb=>requestAnimationFrame(cb),cancel:id=>cancelAnimationFrame(id),now:()=>performance.now()},delta=>{direct.tick(delta);return canTry()&&direct.isActive();},()=>direct.release(),stage.frameObserver);
+  const offStatus=stage.subscribe(()=>{syncControls();direct.render();});
   function render(){
     if(disposed||!state)return;const draft=ctx.store.getExportProject()??state.project,story=state.project?.story;
     field.disabled=!allowed();save.disabled=!allowed()||state.hasPending||state.status==='saving';
@@ -83,7 +87,7 @@ export const mountCraft:PageFactory=(host,ctx)=>{
     back.hidden=!story;restart.hidden=acknowledgeLabel.hidden=!frozen;
     back.textContent=frozen?'继续本场已冻结的演出 →':'回到当前剧情 →';
     confirmationText.textContent=frozen?'本场已冻结。继续会使用原造型；归档重开会保留现在的编辑稿并建立新项目，随后由你确认新场。':'开演会保存并冻结本场造型，直接进入第一幕；本页制作可跳过，默认影偶会标为预设造型。';
-    syncControls();
+    syncControls();direct.render();
   }
   life.on(pattern,'change',()=>{if(allowed())ctx.edit({type:'PATTERN',patternId:pattern.value as PatternId});});
   life.on(palette,'change',()=>{if(allowed())ctx.edit({type:'PALETTE',paletteId:palette.value as PaletteId});});
@@ -97,5 +101,5 @@ export const mountCraft:PageFactory=(host,ctx)=>{
   }
   life.on(play,'click',()=>open(false));life.on(preset,'click',()=>open(true));
   life.on(restart,'click',()=>{if(allowed()&&!state!.hasPending)void ctx.durable(()=>archiveForRehearsal(ctx.store,acknowledge.checked),{path:'/craft',exhibitId:null});});
-  return {update(next){state=next;render();},dispose(){disposed=true;offStatus();body.dispose();life.dispose();stage.dispose();}};
+  return {update(next){state=next;render();},dispose(){disposed=true;offStatus();clock.dispose();direct.dispose();body.dispose();life.dispose();stage.dispose();}};
 };

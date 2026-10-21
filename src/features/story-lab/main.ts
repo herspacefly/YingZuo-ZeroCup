@@ -3,7 +3,7 @@ import { ProjectStore } from '../../app/store';
 import type { StoreState,SaveResult } from '../../app/store';
 import { newIdentifier } from '../../app/identity';
 import { startStory,submitStoryCommand } from '../../app/story-commands';
-import { reunionDefinition } from '../../content/reunion';
+import { definitionFor } from '../../content/reunion';
 import { reunionSummary,storyEntry,storyGuard } from '../../domain/story';
 import type { StoryCommand,StoryNode,StoryPayload } from '../../domain/story-types';
 import { ProjectStorage } from '../../persistence/storage';
@@ -15,6 +15,7 @@ const status=el('story-status'),operation=el('story-operation'),mode=el<HTMLSele
 status.dataset.entry=import.meta.env.LEGACY?'legacy':'modern';
 let store:ProjectStore|null=null,disposed=false,paused=true,elapsed=0,lastTime=0,generation=0,key='',node:StoryNode|null=null;
 let clock:ReturnType<typeof setTimeout>|undefined,downloadCleanup=()=>undefined as void;
+const endingButtons=definitionFor(null).endings!.map(end=>{const b=document.createElement('button');b.textContent=end.choiceLabel;b.id='text-ending-'+end.id;b.hidden=true;el('story-choose-split').parentElement!.appendChild(b);return {b,end};});
 const cleanups:(()=>void)[]=[];
 function on(target:EventTarget,event:string,listener:EventListener){target.addEventListener(event,listener);cleanups.push(()=>target.removeEventListener(event,listener));}
 function stopClock(){clearTimeout(clock);clock=undefined;paused=true;}
@@ -25,12 +26,12 @@ function render(state:StoreState) {
   const nextKey=project?`${project.projectId}/${story?.runId??'none'}/${story?.revision??0}/${story?.nodeId??'none'}`:'';
   if(nextKey!==key){
     stopClock();elapsed=0;generation++;key=nextKey;
-    node=project&&story?storyEntry(project,reunionDefinition,generation).node:null;
+    node=project&&story?storyEntry(project,definitionFor(project.story),generation).node:null;
   }
   status.dataset.state=state.status;status.textContent=state.message;
   const protectedState=!project || ['conflict','unsupported','recovery','loading','closed'].includes(state.status);
   const blocked=protectedState||state.hasPending||state.status==='saving';
-  mode.disabled=blocked||!paused;if(story)mode.value=story.mode;
+  mode.disabled=blocked||!paused||!!node&&!node.allowedActions.includes('SET_MODE');if(story)mode.value=story.mode;
   button('story-start',blocked||!!story);button('story-play',blocked||!node||!paused||['choice','terminal'].includes(node.kind)||node.id==='craft');button('story-pause',paused||blocked);
   button('story-skip',blocked||node?.id!=='intro');
   el('story-node').dataset.node=node?.id??'none';el('node-act').textContent=node?`${node.act?`第${node.act}幕`:'序与制偶'} · ${node.id}`:'尚未开演';
@@ -40,19 +41,20 @@ function render(state:StoreState) {
   for(const cue of node?.subtitles??[]){const p=document.createElement('p');p.textContent=`${{narrator:'旁白',chenxiang:'沉香',mother:'母亲',guardian:'二郎神'}[cue.speaker]}：${cue.text}`;subtitles.appendChild(p);}
   el('cast-summary').textContent=story?.castSnapshot?`本场冻结：${story.castSnapshot.appearance.patternId} / ${story.castSnapshot.appearance.paletteId}；已记录协助 ${story.assistedNodeIds.length} 段。`:'开演确认前，尚未冻结本场造型。';
   for(const id of ['story-craft','story-preset','story-assist','story-choose-call','story-choose-split','story-complete']){el(id).hidden=true;button(id,true);}
+  for(const {b} of endingButtons){b.hidden=node?.id!=='ending-choice';b.disabled=blocked;}
   if(node){
     if(node.id==='craft')for(const id of ['story-craft','story-preset']){el(id).hidden=false;button(id,blocked);}
     else if(node.kind==='interaction'){el('story-assist').hidden=false;button('story-assist',blocked||paused);}
-    else if(node.kind==='choice')for(const id of ['story-choose-call','story-choose-split']){el(id).hidden=false;button(id,blocked);}
+    else if(node.id==='approach-choice')for(const id of ['story-choose-call','story-choose-split']){el(id).hidden=false;button(id,blocked);}
     else if(node.kind==='cinematic'||node.kind==='curtain'){
       el('story-complete').hidden=false;
       const timing=story?.mode==='guided'?node.guidedTiming:node.fullTiming;
       button('story-complete',blocked||paused||elapsed<timing.minDurationMs);
-      el('story-complete').textContent=node.id==='reunion-hold'?'谢幕':node.id==='curtain'?'文字协助完成谢幕':'确认片段结束';
+      el('story-complete').textContent=node.id==='reunion-hold'&&story?.definitionVersion===1?'谢幕':node.id.endsWith('-hold')?'读终章后记':node.id==='curtain'?'文字协助完成谢幕':'确认片段结束';
     }
   }
   const result=project?reunionSummary(project):null;
-  el('result-summary').textContent=result?`同一份团圆成果：${result.id}；完成时间 ${result.completedAt}；路线 ${result.approach==='call-first'?'先举灯呼唤':'先挥斧开山'}。${story?.nodeId==='curtain'?'团圆已保存，谢幕尚未结束。':'本场已谢幕。'}`:'';
+  el('result-summary').textContent=result?`同一份演出成果：${result.id}；完成时间 ${result.completedAt}；路线 ${result.approach==='call-first'?'先举灯呼唤':'先挥斧开山'}。${story?.nodeId==='curtain'?'终章已保存，谢幕尚未结束。':'本场已谢幕。'}`:'';
   button('story-export',!store?.getExportProject());button('story-retry',state.status==='saving'||(!state.hasPending&&!['error','memory','unsaved'].includes(state.status)));
   button('story-cancel',state.status==='saving'||!state.hasPending);button('story-memory',state.status==='saving'||state.pendingKind!=='save');button('story-new',blocked);
 }
@@ -90,7 +92,8 @@ async function mount(){
     on(el('story-assist'),'click',()=>send({action:'COMPLETE_INTERACTION',source:'assistance'}));
     on(el('story-choose-call'),'click',()=>send({action:'CHOOSE',approach:'call-first'}));
     on(el('story-choose-split'),'click',()=>send({action:'CHOOSE',approach:'split-first'}));
-    on(el('story-complete'),'click',()=>send({action:'COMPLETE_SCENE',source:node?.id==='reunion-hold'?'user':node?.id==='curtain'?'assistance':'script'}));
+    for(const {b,end} of endingButtons)on(b,'click',()=>send({action:'CHOOSE_ENDING',ending:end.id}));
+    on(el('story-complete'),'click',()=>send({action:'COMPLETE_SCENE',source:node?.completion.kind==='scene'&&node.completion.activation==='user'?'user':node?.id==='curtain'?'assistance':'script'}));
     on(mode,'change',()=>{if(store?.getState().project?.story)send({action:'SET_MODE',mode:mode.value as 'full'|'guided'});});
     on(el('story-retry'),'click',()=>{void run(()=>store!.retryPending());});
     on(el('story-cancel'),'click',()=>{void run(()=>store!.cancelPending());});

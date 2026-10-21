@@ -44,8 +44,10 @@ export function prepareFrame(input: CanvasFrame, catalog: AssetCatalog): CanvasF
       actorOpacity[id as RenderActor['actorId']]=opacity;
     }
   }
+  if(input.spatial && (![input.spatial.progress,input.spatial.light].every(v=>number(v,0,1))||typeof input.spatial.reducedMotion!=='boolean'||typeof input.spatial.backstage!=='boolean'||typeof input.spatial.nodeId!=='string'))throw new Error('空间分镜数据无效。');
   const sceneLayers=(input.sceneLayers??[]).map(layer=>({id:layer.id,x:layer.x,y:layer.y,opacity:layer.opacity}));
   return JSON.parse(JSON.stringify({ actors, stage:input.stage, sceneLayers, attachments:input.attachments ?? [], showRods:!!input.showRods,
+    ...(input.spatial?{spatial:input.spatial}:{}),
     ...(input.actorOpacity===undefined?{}:{actorOpacity}) })) as CanvasFrame;
 }
 export function requiredAssets(frame: CanvasFrame, catalog: AssetCatalog): string[] {

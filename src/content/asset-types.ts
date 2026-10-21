@@ -31,7 +31,7 @@ export interface PuppetTemplate {
   rods: { id: string; partId: string; point: [number, number] }[];
   bounds: Bounds; motionEnvelope: Bounds; boundsMeaning: string;
   motifPlacement: { partId: string; bounds: Bounds; source: string; segments: string } | null;
-  attachments: { id: string; assetId: string; partId: string; anchor: [number, number]; pivot: [number, number]; bounds: Bounds; bindAngleRad: number; drawOrder: number; defaultVisible: boolean }[];
+  attachments: { id: string; assetId: string; partId: string; anchor: [number, number]; pivot: [number, number]; bounds: Bounds; bindAngleRad: number; orientation?: 'follow-host' | 'upright'; drawOrder: number; defaultVisible: boolean }[];
   note: string;
 }
 // Consumer contract for T04/T16: fixed actors never acquire editable Appearance.

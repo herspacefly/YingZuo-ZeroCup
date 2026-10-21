@@ -85,8 +85,8 @@ test('late images and ten remounts leave one canvas and no detached drawing or r
   expect(await old!.evaluate((canvas:HTMLCanvasElement)=>({connected:canvas.isConnected,width:canvas.width,height:canvas.height}))).toEqual({connected:false,width:0,height:0});
   for(let i=0;i<10;i++) {await page.evaluate(()=>{location.hash='#/practice';});await ready(page);await page.evaluate(()=>{location.hash='#/museum';});await expect(page.locator('.shadow-stage')).toHaveCount(0);}
   expect(await page.evaluate(()=>Reflect.get(window,'__resizeCount'))).toBe(0);
-  // The renderer and T05 temporary body-rod overlay each own one resize listener.
-  await page.evaluate(()=>{location.hash='#/craft';});await ready(page);await expect(page.locator('.shadow-stage')).toHaveCount(1);expect(await page.evaluate(()=>Reflect.get(window,'__resizeCount'))).toBe(2);
+  // Renderer, temporary body rod and direct limb overlay each own a cleaned resize listener.
+  await page.evaluate(()=>{location.hash='#/craft';});await ready(page);await expect(page.locator('.shadow-stage')).toHaveCount(1);expect(await page.evaluate(()=>Reflect.get(window,'__resizeCount'))).toBe(3);
   expect(await old!.evaluate((canvas:HTMLCanvasElement)=>canvas.width)).toBe(0);
 });
 test('legacy product draws the same two-role frame in Chromium smoke check',async({page})=>{

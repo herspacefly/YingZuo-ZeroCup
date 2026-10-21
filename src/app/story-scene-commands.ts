@@ -1,11 +1,13 @@
 import { currentStoryNode, reduceStory, StoryCommandError } from '../domain/story';
 import type { InteractionEvidence,StoryGuard } from '../domain/story-types';
-import { reunionDefinition } from '../content/reunion';
+import { definitionFor } from '../content/reunion';
+import type { EndingId } from '../domain/types';
 import type { ProjectStore } from './store';
 
 export type SceneCommand=StoryGuard&({action:'COMPLETE_SCENE';source:'script'}|
   {action:'COMPLETE_SCENE';source:'user';skipped?:true}|{action:'SET_MODE';mode:'full'|'guided'}|
   {action:'CHOOSE';approach:'call-first'|'split-first'}|
+  {action:'CHOOSE_ENDING';ending:EndingId}|
   {action:'COMPLETE_INTERACTION';source:'user';evidence:InteractionEvidence}|
   {action:'COMPLETE_INTERACTION';source:'assistance'});
 export interface SceneObservation {token:string;paused:boolean;elapsedMs:number;now:string;assistanceElapsedMs?:number}
@@ -15,7 +17,7 @@ export function submitScopedSceneCommand(store:ProjectStore,scope:{isCurrent(tok
   return store.commit(project=>{
     if(!scope.isCurrent(context.token))return null;
     const story=project.story;if(!story||story.runId!==action.runId||story.revision!==action.expectedRevision||story.nodeId!==action.expectedNodeId)return null;
-    const node=currentStoryNode(reunionDefinition,story);
+    const definition=definitionFor(story),node=currentStoryNode(definition,story);
     if(action.action==='COMPLETE_SCENE'&&action.source==='script'){
       if(!['cinematic','curtain'].includes(node.kind)||node.completion.kind!=='scene'||node.completion.activation!=='automatic')throw new StoryCommandError('当前节点不能由脚本自动完成。');
       const duration=story.mode==='full'?node.fullTiming.targetMs:node.guidedTiming.targetMs;
@@ -23,6 +25,6 @@ export function submitScopedSceneCommand(store:ProjectStore,scope:{isCurrent(tok
     }
     if(action.action==='COMPLETE_INTERACTION'&&action.source==='assistance'&&
       (!Number.isFinite(context.assistanceElapsedMs)||(context.assistanceElapsedMs??0)<3000))throw new StoryCommandError('请先播放本段协助动作。');
-    return reduceStory(project,action,context,reunionDefinition);
+    return reduceStory(project,action,context,definition);
   });
 }

@@ -1,6 +1,7 @@
-import { ASSISTABLE_NODES, BACKGROUND_IDS, EXHIBIT_IDS, JOINT_IDS, MAX_JOINT_ANGLE, MAX_PROJECT_BYTES,
+import { ASSISTABLE_NODES, BACKGROUND_IDS, EXHIBIT_IDS, EXPANDED_STORY_NODE_IDS, JOINT_IDS, MAX_JOINT_ANGLE, MAX_PROJECT_BYTES,
   MAX_TITLE_CODEPOINTS, PALETTE_IDS, PATTERN_IDS, PRESET_IDS, PROJECT_ROUTES, STORY_NODE_IDS, utf8Bytes } from './limits';
-import type { ProjectV1, StoryNodeId } from './types';
+import type { EndingId, ProjectV1 } from './types';
+import { ENDING_IDS, storyPath, storyPrefix } from './story-path';
 
 export class ProjectValidationError extends Error {
   constructor(readonly code: 'invalid' | 'unsupported-version' | 'too-large', message: string) {
@@ -68,12 +69,13 @@ function pose(value: unknown, path: string) {
   JOINT_IDS.forEach(key => number(joints[key], -MAX_JOINT_ANGLE, MAX_JOINT_ANGLE, `${path}.joints.${key}`));
 }
 function story(value: unknown) {
+  const expanded=ownValue(value,'definitionVersion')===2;
   const s = record(value, ['storyId', 'definitionVersion', 'runId', 'revision', 'mode', 'nodeId', 'approach',
-    'approachSource', 'castSnapshot', 'assistedNodeIds', 'presetAppearanceUsed', 'completedAt'], 'story');
-  version(s.definitionVersion, 1, 'story.definitionVersion');
+    'approachSource', 'castSnapshot', 'assistedNodeIds', 'presetAppearanceUsed', 'completedAt',...(expanded?['ending','endingSource']:[])], 'story');
+  if(!expanded)version(s.definitionVersion, 1, 'story.definitionVersion');
   choice(s.storyId, ['reunion'], 'story.storyId'); id(s.runId, 'story.runId');
   number(s.revision, 0, Number.MAX_SAFE_INTEGER, 'story.revision', true);
-  choice(s.mode, ['full', 'guided'], 'story.mode'); choice(s.nodeId, STORY_NODE_IDS, 'story.nodeId');
+  choice(s.mode, ['full', 'guided'], 'story.mode'); choice(s.nodeId, expanded?EXPANDED_STORY_NODE_IDS:STORY_NODE_IDS, 'story.nodeId');
   choice(s.approach, [null, 'call-first', 'split-first'], 'story.approach');
   choice(s.approachSource, [null, 'user'], 'story.approachSource'); bool(s.presetAppearanceUsed, 'story.presetAppearanceUsed');
   if (s.castSnapshot !== null) {
@@ -83,18 +85,22 @@ function story(value: unknown) {
     choice(cast.guardianPaletteId, ['guardian-v1'], 'castSnapshot.guardianPaletteId');
     if (cast.sharedMotif !== (cast.appearance as Record<string, unknown>).patternId) invalid('castSnapshot.sharedMotif', '必须与冻结纹样一致');
   } else if (s.nodeId !== 'intro' && s.nodeId !== 'craft') invalid('story.castSnapshot', '开演后必须有冻结角色');
-  const prefix: StoryNodeId[] = ['intro', 'craft', 'memory-wave', 'memory-separate', 'road', 'training', 'guardian', 'approach-choice'];
-  const branch: StoryNodeId[] = s.approach === 'call-first' ? ['call-light', 'call-response', 'call-split'] : ['split-axe', 'split-search', 'split-response'];
-  const path = [...prefix, ...branch, 'reunion-reach', 'reunion-hold', 'curtain', 'completed'];
-  const index = path.indexOf(s.nodeId as string);
+  if(expanded){choice(s.ending,[null,...ENDING_IDS],'story.ending');choice(s.endingSource,[null,'user'],'story.endingSource');}
+  const prefix=storyPrefix(expanded?2:1),path=storyPath(expanded?2:1,s.approach as 'call-first'|'split-first'|null,expanded?s.ending as EndingId|null:null);
+  const index = path.indexOf(s.nodeId as typeof path[number]);
   if (index < 0) invalid('story.nodeId', '节点与所选路径不一致');
   if (index < prefix.length) {
     if (s.approach !== null || s.approachSource !== null) invalid('story.approach', '选择前不能已有路线');
   } else if (s.approach === null || s.approachSource !== 'user') invalid('story.approach', '分支及团圆必须保留用户确认');
-  const assisted = list(s.assistedNodeIds, STORY_NODE_IDS.length, 'story.assistedNodeIds');
+  if(expanded){
+    const choiceIndex=path.indexOf('ending-choice');
+    if(index<=choiceIndex){if(s.ending!==null||s.endingSource!==null)invalid('story.ending','终章抉择前不能已有结局');}
+    else if(s.ending===null||s.endingSource!=='user')invalid('story.ending','终章必须保留明确用户选择');
+  }
+  const assisted = list(s.assistedNodeIds, expanded?EXPANDED_STORY_NODE_IDS.length:STORY_NODE_IDS.length, 'story.assistedNodeIds');
   for (const node of assisted) {
     choice(node, ASSISTABLE_NODES, 'story.assistedNodeIds');
-    const assistedIndex = path.indexOf(node as string);
+    const assistedIndex = path.indexOf(node as typeof path[number]);
     if (assistedIndex < 0 || assistedIndex >= index) invalid('story.assistedNodeIds', '只能包含本路径已完成且可协助的节点');
   }
   if (s.nodeId === 'curtain' || s.nodeId === 'completed') date(s.completedAt, 'story.completedAt');
@@ -147,7 +153,8 @@ export function validateProject(input: unknown): ProjectV1 {
   if (input && typeof input === 'object') {
     for (const key of ['schemaVersion', 'assetVersion']) detectFutureVersion(ownValue(input, key), key);
     const s = ownValue(input, 'story');
-    detectFutureVersion(ownValue(s, 'definitionVersion'), 'story.definitionVersion');
+    const storyVersion=ownValue(s,'definitionVersion');
+    if(storyVersion!==2)detectFutureVersion(storyVersion, 'story.definitionVersion');
     detectFutureVersion(ownValue(ownValue(s, 'castSnapshot'), 'assetVersion'), 'castSnapshot.assetVersion');
   }
   assertPlainData(input);

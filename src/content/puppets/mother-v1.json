@@ -319,6 +319,30 @@
     "source": "castSnapshot.sharedMotif",
     "segments": "all"
   },
-  "attachments": [],
+  "attachments": [
+    {
+      "id": "lantern",
+      "assetId": "chenxiang-lantern",
+      "partId": "rightForearm",
+      "anchor": [
+        0.015,
+        -0.13977992321846394
+      ],
+      "pivot": [
+        -0.01,
+        0
+      ],
+      "bounds": {
+        "minX": -0.06,
+        "minY": -0.28,
+        "maxX": 0.06,
+        "maxY": 0.02
+      },
+      "bindAngleRad": 0,
+      "drawOrder": 30.5,
+      "defaultVisible": false,
+      "orientation": "upright"
+    }
+  ],
   "note": "由本项目AI方向图按作者要求裁切的皮影设计稿；原图关节点测量绑定，头身比例/袖形/手型/衣饰直接取图，Pose仍为既有世界坐标与关节弧度偏移。"
 }

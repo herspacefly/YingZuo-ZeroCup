@@ -14,6 +14,7 @@ export function reviewSubjects(kind){
   }
   const sources=json('src/content/sources.json').sources;
   return [
+    ...json('src/content/stories/reunion-v2.json').nodes.map(node=>({id:'story-v2:'+node.id,sha256:digest([node,json('src/content/stories/reunion-v2.json').endings]),rightsRequired:false})),
     ...json('src/content/stories/reunion-v1.json').nodes.map(node=>({id:'story:'+node.id,sha256:digest(node),rightsRequired:false})),
     ...json('src/content/exhibits.json').exhibits.map(item=>exhibitReviewSubject(item,sources)),
     ...json('src/content/facts.json').facts.map(item=>({id:'fact:'+item.id,sha256:digest([item,item.sourceIds.map(id=>sources.find(s=>s.id===id))]),rightsRequired:false})),
@@ -32,6 +33,6 @@ export function releaseProblems(kind){
 if(process.argv.includes('--prepare')){
   const subjects=[...reviewSubjects('assets'),...reviewSubjects('content')],existing=existsSync(ledgerFile)?json('docs/reviews/t10-review.json'):{schemaVersion:1,records:[]};
   const prior=new Map(existing.records.map(item=>[item.id,item]));
-  existing.records=subjects.map(subject=>{const old=prior.get(subject.id);if(old?.review?.status==='approved')return old;return {id:subject.id,sha256:subject.sha256,review:{status:'pending',reviewer:null,reviewedAt:null,evidenceFile:null,evidenceSha256:null},...(subject.rightsRequired?{rights:{status:'pending',holder:null,terms:null,evidenceFile:null,evidenceSha256:null}}:{})};});
+  existing.records=subjects.map(subject=>{const old=prior.get(subject.id);if(old?.review?.status==='approved')return old;return {id:subject.id,sha256:subject.sha256,review:{status:'pending',reviewer:null,reviewedAt:null,evidenceFile:null,evidenceSha256:null},...(subject.rightsRequired?{rights:old?.rights?.status==='granted'?old.rights:{status:'pending',holder:null,terms:null,evidenceFile:null,evidenceSha256:null}}:{})};});
   mkdirSync(new URL('docs/reviews/',root),{recursive:true});writeFileSync(ledgerFile,JSON.stringify(existing,null,2)+'\n');console.log(`Prepared ${subjects.length} review subjects; no approval or rights have been inferred.`);
 }

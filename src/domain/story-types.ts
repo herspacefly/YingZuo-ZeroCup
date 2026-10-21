@@ -1,7 +1,7 @@
-import type { Approach, Pose, StoryNodeId, StageConfig } from './types';
+import type { Approach, EndingId, Pose, StoryNodeId, StageConfig } from './types';
 
 export type ActorId = 'chenxiang' | 'mother' | 'guardian';
-export type StoryAction = 'CHOOSE' | 'COMPLETE_INTERACTION' | 'COMPLETE_SCENE' | 'SET_MODE';
+export type StoryAction = 'CHOOSE' | 'CHOOSE_ENDING' | 'COMPLETE_INTERACTION' | 'COMPLETE_SCENE' | 'SET_MODE';
 export type Completion =
   | { kind: 'scene'; activation: 'automatic' | 'user'; skippable: boolean }
   | { kind: 'craft' }
@@ -18,15 +18,18 @@ export interface StoryNode {
   entryStage: StageConfig; entrySceneLayers: { id: string; x: number; y: number; opacity: number }[];
   entryAttachments: { actorId: ActorId; attachmentId: string }[];
   subtitles: { startMs: number; endMs: number; speaker: ActorId | 'narrator'; text: string; contentKind: 'original-adaptation' }[];
+  /** An authored abridgment on the same full-target-ms timebase, mapped only for guided playback. */
+  guidedSubtitles?: StoryNode['subtitles'];
   fullTiming: StoryTiming; guidedTiming: StoryTiming; allowedActions: StoryAction[];
-  completion: Completion; next: { default: StoryNodeId } | { 'call-first': StoryNodeId; 'split-first': StoryNodeId } | null;
-  prerequisites: { approach: Approach | null; frozenCast: boolean };
+  completion: Completion; next: { default: StoryNodeId } | { 'call-first': StoryNodeId; 'split-first': StoryNodeId } | Record<EndingId,StoryNodeId> | null;
+  prerequisites: { approach: Approach | null; frozenCast: boolean; ending?: EndingId | null };
   assetIds: string[]; sourceIds: string[]; contentKind: 'original-adaptation';
 }
 export interface StoryDefinition {
-  storyId: 'reunion'; definitionVersion: 1; assetVersion: 1; startNodeId: 'intro';
+  storyId: 'reunion'; definitionVersion: 1 | 2; assetVersion: 1; startNodeId: 'intro';
   title: string; adaptationCredit: string; nodes: StoryNode[];
   subtitleTimebase: 'full-target-ms';
+  endings?: {id:EndingId;title:string;choiceLabel:string;summary:string;holdNodeId:StoryNodeId;epilogueNodeId:StoryNodeId}[];
 }
 export interface StoryGuard { runId: string; expectedRevision: number; expectedNodeId: StoryNodeId }
 export type InteractionEvidence =
@@ -36,6 +39,7 @@ export type InteractionEvidence =
   | { kind: 'reach'; handDistanceRatio: number };
 export type StoryPayload =
   | { action: 'CHOOSE'; approach: Approach }
+  | { action: 'CHOOSE_ENDING'; ending: EndingId }
   | { action: 'SET_MODE'; mode: 'full' | 'guided' }
   | { action: 'COMPLETE_INTERACTION'; source: 'user'; evidence: InteractionEvidence }
   | { action: 'COMPLETE_INTERACTION'; source: 'assistance' }

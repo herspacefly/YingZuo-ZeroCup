@@ -54,7 +54,7 @@ for(const mode of ['full','guided'] as const)for(const approach of ['call-first'
   expect(await page.evaluate(()=>fetch('https://example.invalid/preflight-network-proof').then(()=>false,()=>true))).toBe(true);expect(probeBlocked).toBe(true);
   expect(await page.evaluate(()=>(Reflect.get(window,'__environmentAudio') as HTMLAudioElement[]).length)).toBe(0);
   await page.locator('#site-music-toggle').click();await playing(page,'jinghu-instrumental.mp3');
-  await page.getByRole('button',{name:mode==='full'?'开始演一出戏':'三分钟导览',exact:true}).click();await ready(page,'intro');const runId=(await stored(page)).story!.runId;
+  await page.getByRole('button',{name:mode==='full'?'开始演一出戏':'节选导览',exact:true}).click();await ready(page,'intro');const runId=(await stored(page)).story!.runId;
   await page.locator('#story-play').click();await advance(page,mode==='full'?18000:10000);await expect(page.locator('#app-view')).toHaveAttribute('data-route','/craft');await layout(page);
   await page.locator('#craft-pattern').selectOption('wave-v1');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');
   if(forced2D){await expect(page.locator('.spatial-toggle').first()).toBeDisabled();await expect(page.locator('canvas.three-stage')).toHaveCount(0);}

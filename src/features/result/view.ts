@@ -1,7 +1,7 @@
 import { append,clear,element,link,scope } from '../shared/dom';
 import { continueHash,heading,paletteLabel,patternLabel } from '../shared/pieces';
 import { reunionSummary } from '../../domain/story';
-import { reunionDefinition } from '../../content/reunion';
+import { definitionFor, endingFor } from '../../content/reunion';
 import type { PageFactory } from '../../app/view';
 import type { ProjectV1 } from '../../domain/types';
 import { downloadJSON,exportProjectJSON } from '../../persistence/project-file';
@@ -11,8 +11,8 @@ import { downloadResultBlob } from './download';
 import { mountReunionReplay } from './replay-view';
 
 export const mountResult:PageFactory=(host,ctx)=>{
-  const life=scope(),head=heading('一幕团圆 / 本场节目单','这一场，还在路上。','团圆之后，属于这一场的造型、选择与协作会在这里留下。');host.appendChild(head);
-  const layout=element('section','result-layout'),figure=element('figure','result-portrait'),capture=element('div','result-capture'),caption=element('figcaption','stage-caption','1600 × 1200 · 依本场冻结构图生成的团圆留影，当前为原创皮影风格设计稿。');
+  const life=scope(),head=heading('一幕团圆 / 本场节目单','这一场，还在路上。','终章之后，属于这一场的造型、选择与协作会在这里留下。');host.appendChild(head);
+  const layout=element('section','result-layout'),figure=element('figure','result-portrait'),capture=element('div','result-capture'),caption=element('figcaption','stage-caption','1600 × 1200 · 依本场冻结构图生成的终章留影，当前为原创皮影风格设计稿。');
   capture.id='result-capture';append(figure,capture,caption);
   const programme=element('section','programme result-programme'),title=element('h2'),details=element('dl','programme-list'),resume=link('回到这一场 →','#/story','button secondary');
   const id=element('p','result-identity'),saveState=element('p','quiet-note'),operation=element('p','selection-summary');id.id='result-id';saveState.id='result-save-note';operation.id='result-operation';operation.setAttribute('role','status');
@@ -40,7 +40,7 @@ export const mountResult:PageFactory=(host,ctx)=>{
     void source.toBlob().then(blob=>{
       if(disposed||token!==generation)return;
       if(blocked)throw new Error('作品正在导入或处理，请完成后重新下载留影。');
-      downloads.add(downloadResultBlob(blob,'yingzuo-'+summary.runId.replace(/[^a-zA-Z0-9_-]/g,'-').slice(0,70)+'-reunion.png'));operation.textContent='已向浏览器请求下载 PNG，请核对下载列表。';
+      downloads.add(downloadResultBlob(blob,'yingzuo-'+summary.runId.replace(/[^a-zA-Z0-9_-]/g,'-').slice(0,70)+'-'+(summary.ending??'reunion')+'.png'));operation.textContent='已向浏览器请求下载 PNG，请核对下载列表。';
     }).catch(error=>{if(!disposed&&token===generation)operation.textContent='PNG 下载未完成：'+message(error);}).finally(()=>{if(!disposed&&token===generation){encoding=false;controls();}});
   });
   life.on(json,'click',()=>{
@@ -64,18 +64,20 @@ export const mountResult:PageFactory=(host,ctx)=>{
       head.querySelector('h1')!.textContent=result?'这一回，终于相见。':'这一场，还在路上。';title.textContent=result?'一幕团圆 · 本场已团圆':'先把这一场，慢慢演完。';
       head.querySelector('.page-lead')!.textContent=result?'把母子相见的这一刻，留在同一张幕上。':'团圆之后，属于这一场的造型、选择与协作会在这里留下。';
       resume.href=continueHash(state.project);clear(details);
-      const path=result?reunionDefinition.nodes.filter(node=>node.actors.includes('chenxiang')&&node.kind==='interaction'&&node.id!=='craft'&&(node.prerequisites.approach===null||node.prerequisites.approach===result.approach)):[];
+      const ending=endingFor(state.project?.story);
+      if(ending){head.querySelector('h1')!.textContent=ending.title;title.textContent='本场终章 · '+ending.title;head.querySelector('.page-lead')!.textContent=ending.summary;caption.textContent='1600 × 1200 · 本场终章留影';png.textContent='下载终章留影 PNG';}
+      const path=result?definitionFor(state.project?.story).nodes.filter(node=>node.actors.includes('chenxiang')&&node.kind==='interaction'&&node.id!=='craft'&&(node.prerequisites.approach===null||node.prerequisites.approach===result.approach)&&(!node.prerequisites.ending||node.prerequisites.ending===result.ending)):[];
       const rows:[string,string][]=result?[
         ['角色','沉香、母亲（三圣母）；沉香由你操作或明确选择协助，母亲由程序编排'],
         ['纹样',patternLabel(result.castSnapshot.appearance.patternId)],['配色',paletteLabel(result.castSnapshot.appearance.paletteId)],
-        ['这一次的选择',result.approach==='call-first'?'先举灯呼唤':'先挥斧开山'],['造型来源',result.presetAppearanceUsed?'采用默认影偶':'使用已编辑的造型'],
+        ['本场终章',ending?.title??'一幕团圆'],['这一次的选择',result.approach==='call-first'?'先举灯呼唤':'先挥斧开山'],['造型来源',result.presetAppearanceUsed?'采用默认影偶':'使用已编辑的造型'],
         ['亲手完成的片段',path.filter(node=>!result.assistedNodeIds.includes(node.id)).map(node=>node.title).join('、')||'本场操作片段均采用明确协助'],
-        ['使用协助的片段',result.assistedNodeIds.length?result.assistedNodeIds.map(nodeId=>reunionDefinition.nodes.find(node=>node.id===nodeId)!.title).join('、'):'未记录协助'],
-        ['团圆时间',new Date(result.completedAt).toLocaleString()],['谢幕',state.project?.story?.nodeId==='completed'?'已经看完':'团圆已保存，谢幕尚未结束'],['创作署名','零组 · 张宇翔（SpaceFly）'],
-      ]:[['当前进度',state.project?.story?reunionDefinition.nodes.find(node=>node.id===state.project!.story!.nodeId)!.title:'尚未开演']];
+        ['使用协助的片段',result.assistedNodeIds.length?result.assistedNodeIds.map(nodeId=>definitionFor(state.project?.story).nodes.find(node=>node.id===nodeId)!.title).join('、'):'未记录协助'],
+        ['终章完成时间',new Date(result.completedAt).toLocaleString()],['谢幕',state.project?.story?.nodeId==='completed'?'已经看完':'团圆已保存，谢幕尚未结束'],['创作署名','零组 · 张宇翔（SpaceFly）'],
+      ]:[['当前进度',state.project?.story?definitionFor(state.project?.story).nodes.find(node=>node.id===state.project!.story!.nodeId)!.title:'尚未开演']];
       for(const [label,value]of rows)append(details,element('dt','',label),element('dd','',value));
       id.textContent=result?'本场成果 · '+result.id:'';
-      saveState.textContent=['error','memory','unsaved','saving'].includes(state.status)?'当前作品仍有未保存更改；PNG 与本场 JSON 可带走当前已应用的团圆记录。':'本场团圆记录已保存，留影与重演沿用冻结造型。';
+      saveState.textContent=['error','memory','unsaved','saving'].includes(state.status)?'当前作品仍有未保存更改；PNG 与本场 JSON 可带走当前已应用的演出记录。':'本场演出记录已保存，留影与只读重演沿用冻结造型。';
       replay?.setBlocked(blocked);controls();
     },
     dispose(){if(disposed)return;disposed=true;life.dispose();disposeArtifact();project=null;},
