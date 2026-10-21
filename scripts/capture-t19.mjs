@@ -8,7 +8,7 @@ const fixture=JSON.parse(readFileSync('tests/fixtures/project-v1.json','utf8'));
 const sha=x=>createHash('sha256').update(x).digest('hex');
 const report={recordedAt:new Date().toISOString(),indexSha256:sha(readFileSync('dist/index.html')),kind:'isolated-current-production-visual-check',clock:'Held RAF for deterministic paused compositions; not native timing or FPS evidence.',screens:[],spatial:[]};
 mkdirSync('docs/evidence',{recursive:true});let server,browser;
-async function seed(page,nodeId,ending=null){const p=structuredClone(fixture),s=p.story;s.definitionVersion=2;s.nodeId=nodeId;s.ending=ending;s.endingSource=ending?'user':null;s.assistedNodeIds=[];s.completedAt=nodeId==='completed'?'2026-10-21T08:00:00.000Z':null;
+async function seed(page,nodeId,ending=null){const p=structuredClone(fixture),s=p.story;s.definitionVersion=2;s.nodeId=nodeId;s.ending=ending;s.endingSource=ending?'user':null;s.assistedNodeIds=[];s.completedAt=nodeId==='completed'?'2026-10-21T08:00:00.000Z':null;if(nodeId==='guardian'){s.approach=null;s.approachSource=null;}
  await page.goto('/study.html');await page.evaluate(async value=>{const db=await new Promise((resolve,reject)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});await new Promise((resolve,reject)=>{const t=db.transaction('snapshots','readwrite');t.objectStore('snapshots').put(JSON.stringify(value),'draft');t.oncomplete=resolve;t.onabort=()=>reject(t.error);});db.close();},p);
 }
 try{
