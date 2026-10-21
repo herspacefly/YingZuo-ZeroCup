@@ -1,0 +1,276 @@
+{
+  "directLimbDirectory": "Only .codex-worktree-name remains, no checkout source recovered",
+  "propGripContribution": "ab61800d95c042b2dd957972c9e51489baa54d0c",
+  "worktrees": [
+    {
+      "status": [
+        "A  \"2026\\345\\271\\264\\342\\200\\235\\351\\233\\266\\346\\235\\257\\342\\200\\234\\347\\275\\221\\351\\241\\265\\350\\256\\276\\350\\256\\241\\345\\244\\247\\350\\265\\233\\351\\200\\211\\346\\211\\213\\346\\211\\213\\345\\206\\214.docx\"",
+        "A  \"2026\\345\\271\\264\\351\\233\\266\\346\\235\\257\\345\\274\\200\\345\\271\\225\\345\\274\\217PPT\\357\\274\\210\\345\\220\\253\\345\\210\\235\\350\\265\\233\\350\\257\\204\\345\\210\\206\\347\\273\\206\\345\\210\\231\\357\\274\\211.pptx\"",
+        " M AGENTS.md",
+        " M README.md",
+        " M START_HERE.md",
+        " M docs/STATE.md",
+        " M docs/content/2026-10-15-yingzuo-story-bible.md",
+        " M docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
+        " M docs/reviews/README.md",
+        " M docs/reviews/t10-review.html",
+        " M docs/reviews/t10-review.json",
+        " M docs/tasks.json",
+        " M index.html",
+        " M scripts/art/reference-puppets.mjs",
+        " M scripts/build-review-packet.mjs",
+        " M scripts/generate-reference-assets.mjs",
+        " M scripts/review-gate.mjs",
+        " M scripts/verify-content.mjs",
+        " M src/app/bootstrap.ts",
+        " M src/app/craft-commands.ts",
+        " M src/app/story-commands.ts",
+        " M src/app/story-scene-commands.ts",
+        " M src/audio/music-scene.ts",
+        " M src/content/asset-contract.ts",
+        " M src/content/asset-types.ts",
+        " M src/content/exhibits.json",
+        " M src/content/puppets/chenxiang-v1.json",
+        " M src/content/puppets/guardian-v1.json",
+        " M src/content/reunion.ts",
+        " M src/content/story-contract.ts",
+        " M src/domain/limits.ts",
+        " M src/domain/pose.ts",
+        " M src/domain/story-types.ts",
+        " M src/domain/story.ts",
+        " M src/domain/types.ts",
+        " M src/domain/validation.ts",
+        " M src/features/craft/view.ts",
+        " M src/features/intro/view.ts",
+        " M src/features/museum/view.ts",
+        " M src/features/practice/controller.ts",
+        " M src/features/result/artifact.ts",
+        " M src/features/result/exporter.ts",
+        " M src/features/result/replay-view.ts",
+        " M src/features/result/view.ts",
+        " M src/features/shared/canvas-stage.ts",
+        " M src/features/shared/spatial-stage.ts",
+        " M src/features/story-lab/main.ts",
+        " M src/features/story/controller.ts",
+        " M src/features/story/rod-controls.ts",
+        " M src/renderers/canvas/frame.ts",
+        " M src/renderers/canvas/types.ts",
+        " M src/renderers/three/geometry.ts",
+        " M src/renderers/three/renderer.ts",
+        " M src/story/director.ts",
+        " M src/story/play-staging.ts",
+        " M src/story/replay.ts",
+        " M tests/e2e/environment-preflight.spec.ts",
+        " M tests/e2e/navigation.spec.ts",
+        " M tests/e2e/story-and-resume.spec.ts",
+        " M tests/e2e/story-state.spec.ts",
+        " M tests/unit/project.test.ts",
+        "?? docs/contracts/story-v2.md",
+        "?? docs/evidence/t19-desktop-axe.png",
+        "?? docs/evidence/t19-desktop-ending-home.png",
+        "?? docs/evidence/t19-desktop-ending-light.png",
+        "?? docs/evidence/t19-desktop-ending-road.png",
+        "?? docs/evidence/t19-desktop-ending-sacrifice.png",
+        "?? docs/evidence/t19-desktop-ending-waiting.png",
+        "?? docs/evidence/t19-music-readiness.json",
+        "?? docs/evidence/t19-narrow-axe.png",
+        "?? docs/evidence/t19-narrow-ending-home.png",
+        "?? docs/evidence/t19-narrow-ending-light.png",
+        "?? docs/evidence/t19-narrow-ending-road.png",
+        "?? docs/evidence/t19-narrow-ending-sacrifice.png",
+        "?? docs/evidence/t19-narrow-ending-waiting.png",
+        "?? docs/evidence/t19-startup-png.json",
+        "?? docs/evidence/t19-startup.json",
+        "?? docs/evidence/t19-visual-check.json",
+        "?? docs/evidence/t20-desktop-backstage.png",
+        "?? docs/evidence/t20-desktop-character.png",
+        "?? docs/evidence/t20-desktop-story.png",
+        "?? docs/evidence/t20-narrow-backstage.png",
+        "?? docs/evidence/t20-narrow-character.png",
+        "?? docs/evidence/t20-narrow-story.png",
+        "?? docs/plans/2026-10-20-expanded-story-and-direct-control.md",
+        "?? docs/plans/2026-10-21-five-endings-and-spatial-story.md",
+        "?? scripts/capture-t19.mjs",
+        "?? scripts/document-t19.mjs",
+        "?? scripts/finish-t19.mjs",
+        "?? scripts/help-t19.mjs",
+        "?? scripts/implement-t19.mjs",
+        "?? scripts/integrate-t19.mjs",
+        "?? scripts/refine-t19.mjs",
+        "?? scripts/review-t19.mjs",
+        "?? scripts/spatial-t19.mjs",
+        "?? scripts/update-t19-tests.mjs",
+        "?? src/content/stories/reunion-v2.json",
+        "?? src/domain/limb-input.ts",
+        "?? src/domain/story-path.ts",
+        "?? src/features/shared/limb-controls.ts",
+        "?? src/story/spatial-presentation.ts",
+        "?? src/styles/help.css",
+        "?? tests/e2e/expanded-story.spec.ts",
+        "?? tests/helpers/expanded-story.ts",
+        "?? tests/unit/expanded-story.test.ts",
+        "?? tests/unit/limb-input.test.ts",
+        "?? tests/unit/prop-grip.test.ts"
+      ],
+      "unmergedCommits": [],
+      "path": "D:/.MyLearning/VSCodeProject/ZeroCup",
+      "head": "41993687a47350c4a29669edec6b85d381ada98a"
+    },
+    {
+      "status": [],
+      "unmergedCommits": [
+        "7ff5c01 feat: add posed puppet geometry and curtain projection"
+      ],
+      "path": "C:/Users/zhang/.codex/worktrees/t04-pose-projection/ZeroCup",
+      "head": "7ff5c01cae75868e29aa8e50dbd2dde91fc7040d"
+    },
+    {
+      "status": [],
+      "unmergedCommits": [
+        "2c95d78 feat: add isolated craft body rod input"
+      ],
+      "path": "C:/Users/zhang/.codex/worktrees/t05-body-rod/ZeroCup",
+      "head": "2c95d780d27a023ff2b075a9b1a5975d8d432282"
+    },
+    {
+      "status": [],
+      "unmergedCommits": [
+        "f48a29e feat: add T05 field-level craft and lighting commands"
+      ],
+      "path": "C:/Users/zhang/.codex/worktrees/t05-editor-fields/ZeroCup",
+      "head": "f48a29ebb853b676103901e496cdfe87ef6abf2d"
+    },
+    {
+      "status": [],
+      "unmergedCommits": [
+        "e7a166b feat: gate spatial stage with conservative rendering budgets"
+      ],
+      "path": "C:/Users/zhang/.codex/worktrees/t06-capabilities/ZeroCup",
+      "head": "e7a166b5bf5e6c71e31c9c0a05a34632dfb97153"
+    },
+    {
+      "status": [],
+      "unmergedCommits": [
+        "38fcebc feat: render shared shadow frame in optional spatial stage"
+      ],
+      "path": "C:/Users/zhang/.codex/worktrees/t06-three/ZeroCup",
+      "head": "38fcebcf5de477dfec38b85623b626dfa5c529bc"
+    },
+    {
+      "status": [],
+      "unmergedCommits": [
+        "4e8670d feat: add deterministic T07 action tracks and geometry observations"
+      ],
+      "path": "C:/Users/zhang/.codex/worktrees/t07-actions/ZeroCup",
+      "head": "4e8670d5e2a79f5216019a923f50dfa0c52253a5"
+    },
+    {
+      "status": [],
+      "unmergedCommits": [
+        "7c69543 feat: create deterministic reunion still and PNG exporter"
+      ],
+      "path": "C:/Users/zhang/.codex/worktrees/t09-artifact/ZeroCup",
+      "head": "7c695434c659daf5fc0a2e7f2125e083e89e0823"
+    },
+    {
+      "status": [],
+      "unmergedCommits": [
+        "1ed3733 feat: add frozen read-only reunion replay arrangement"
+      ],
+      "path": "C:/Users/zhang/.codex/worktrees/t09-replay/ZeroCup",
+      "head": "1ed37337a50ff89671a7f8447653383811476d01"
+    },
+    {
+      "status": [
+        "?? scripts/art/"
+      ],
+      "unmergedCommits": [],
+      "path": "C:/Users/zhang/.codex/worktrees/t10-character-art/ZeroCup",
+      "head": "16e1aa18540f0fa7b0a353938dc7caecdd802779"
+    },
+    {
+      "status": [],
+      "unmergedCommits": [
+        "1dc06de feat: add opt-in lifecycle-safe local stage music player"
+      ],
+      "path": "C:/Users/zhang/.codex/worktrees/t10-music-playback/ZeroCup",
+      "head": "1dc06de723db564ad62700be6c0d197184f8dbc2"
+    },
+    {
+      "status": [],
+      "unmergedCommits": [
+        "2ce39b6 feat: segment reference scenery into nine stage layers"
+      ],
+      "path": "C:/Users/zhang/.codex/worktrees/t10-reference-scenes/ZeroCup",
+      "head": "2ce39b6d4bb211f3809c9f2b799a6cf6284d1b87"
+    },
+    {
+      "status": [
+        "?? docs/contracts/audio-v1.md",
+        "?? src/audio/",
+        "?? src/content/sound-cues.ts",
+        "?? tests/unit/stage-sound.test.ts"
+      ],
+      "unmergedCommits": [],
+      "path": "C:/Users/zhang/.codex/worktrees/t10-sound/ZeroCup",
+      "head": "16e1aa18540f0fa7b0a353938dc7caecdd802779"
+    },
+    {
+      "status": [],
+      "unmergedCommits": [
+        "ec4dc99 feat: add pure absolute-time story scene director"
+      ],
+      "path": "C:/Users/zhang/.codex/worktrees/t16-director/ZeroCup",
+      "head": "ec4dc9925298462421f3d93c3a94b59feea543a4"
+    },
+    {
+      "status": [
+        "?? src/app/story-scene-commands.ts",
+        "?? src/features/intro/events.ts"
+      ],
+      "unmergedCommits": [
+        "22a9648 test: verify scoped scene commands through storage",
+        "ec27b0c feat: add disposable story node scope"
+      ],
+      "path": "C:/Users/zhang/.codex/worktrees/t16-node-scope/ZeroCup",
+      "head": "22a96489e821f257fa1df5620b6b82f7400b473d"
+    },
+    {
+      "status": [],
+      "unmergedCommits": [
+        "1353a83 fix: keep first wave demonstration on the hand rod",
+        "6db27d5 feat: observe real story interaction geometry and held evidence"
+      ],
+      "path": "C:/Users/zhang/.codex/worktrees/t17-interactions/ZeroCup",
+      "head": "1353a8307dd16fa990306d7a4bd826329ccb7fdf"
+    },
+    {
+      "status": [],
+      "unmergedCommits": [
+        "2e7d227 feat: add transient story rod controls adapter"
+      ],
+      "path": "C:/Users/zhang/.codex/worktrees/t17-rod-controls/ZeroCup",
+      "head": "2e7d227247c0d32a341ca4081682d03af7191945"
+    },
+    {
+      "status": [],
+      "unmergedCommits": [
+        "217330a feat: add sourced five-section museum content and contracts"
+      ],
+      "path": "C:/Users/zhang/.codex/worktrees/t18-content/ZeroCup",
+      "head": "217330a60cd58bdc713f5ca9d46fe3acdd79d628"
+    },
+    {
+      "status": [],
+      "unmergedCommits": [
+        "d26543b feat: diagram shared light projection in museum",
+        "d895d2c feat: add isolated museum canvas experiments"
+      ],
+      "path": "C:/Users/zhang/.codex/worktrees/t18-demos/ZeroCup",
+      "head": "d26543b31fb4ffa047d1f3549d5d61175a13a6bb"
+    }
+  ],
+  "recordedAt": "2026-10-21T00:56:29.6950437Z",
+  "mainHead": "41993687a47350c4a29669edec6b85d381ada98a",
+  "integration": "Selected eight source/test files integrated, no blanket merge; historical worktrees and untracked remnants retained"
+}

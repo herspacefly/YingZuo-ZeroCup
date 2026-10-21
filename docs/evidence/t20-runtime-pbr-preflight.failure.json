@@ -1,0 +1,159 @@
+{
+  "validPerformanceAcceptance": false,
+  "windows": [
+    {
+      "name": "guardian/canvas-2d",
+      "expectedView": null,
+      "nodeId": "guardian",
+      "requestedMs": 10000,
+      "before": {
+        "at": 500,
+        "draws": 1,
+        "state": "playing",
+        "node": "guardian",
+        "elapsed": 0,
+        "spatial": "closed",
+        "message": "这一段在等你的手。",
+        "focused": true,
+        "visibility": "visible"
+      },
+      "after": {
+        "at": 10514.800000011921,
+        "draws": 602,
+        "state": "playing",
+        "node": "guardian",
+        "elapsed": 10004,
+        "spatial": "closed",
+        "message": "这一段在等你的手。",
+        "focused": true,
+        "visibility": "visible"
+      },
+      "canvasDrawsPerSecond": 60.011183448424795
+    },
+    {
+      "name": "guardian/webgl-front",
+      "expectedView": "front",
+      "nodeId": "guardian",
+      "requestedMs": 4000,
+      "before": {
+        "at": 12183.699999988079,
+        "draws": 611,
+        "state": "playing",
+        "node": "guardian",
+        "elapsed": 10241,
+        "spatial": "ready",
+        "view": "front",
+        "message": "这一段在等你的手。",
+        "focused": true,
+        "visibility": "visible"
+      },
+      "after": {
+        "at": 16205.400000035763,
+        "draws": 688,
+        "state": "playing",
+        "node": "guardian",
+        "elapsed": 14258,
+        "spatial": "ready",
+        "view": "front",
+        "message": "这一段在等你的手。",
+        "focused": true,
+        "visibility": "visible"
+      },
+      "canvasDrawsPerSecond": 19.14613223241093
+    },
+    {
+      "name": "guardian/webgl-workshop",
+      "expectedView": "workshop",
+      "nodeId": "guardian",
+      "requestedMs": 4000,
+      "before": {
+        "at": 16910.19999998808,
+        "draws": 698,
+        "state": "playing",
+        "node": "guardian",
+        "elapsed": 14758,
+        "spatial": "ready",
+        "view": "workshop",
+        "message": "这一段在等你的手。",
+        "focused": true,
+        "visibility": "visible"
+      },
+      "after": {
+        "at": 20956.600000023842,
+        "draws": 784,
+        "state": "playing",
+        "node": "guardian",
+        "elapsed": 18750,
+        "spatial": "ready",
+        "view": "workshop",
+        "message": "这一段在等你的手。",
+        "focused": true,
+        "visibility": "visible"
+      },
+      "canvasDrawsPerSecond": 21.253459865371667
+    },
+    {
+      "name": "guardian/webgl-backstage",
+      "expectedView": "backstage",
+      "nodeId": "guardian",
+      "requestedMs": 4000,
+      "before": {
+        "at": 21610.100000023842,
+        "draws": 794,
+        "state": "playing",
+        "node": "guardian",
+        "elapsed": 19217,
+        "spatial": "ready",
+        "view": "backstage",
+        "message": "这一段在等你的手。",
+        "focused": true,
+        "visibility": "visible"
+      },
+      "after": {
+        "at": 25660.400000035763,
+        "draws": 847,
+        "state": "playing",
+        "node": "guardian",
+        "elapsed": 23191,
+        "spatial": "ready",
+        "view": "backstage",
+        "message": "这一段在等你的手。",
+        "focused": true,
+        "visibility": "visible"
+      },
+      "canvasDrawsPerSecond": 13.085450460421205
+    },
+    {
+      "name": "guardian/webgl-exhibit",
+      "expectedView": "exhibit",
+      "nodeId": "guardian",
+      "requestedMs": 4000,
+      "before": {
+        "at": 26380.100000023842,
+        "draws": 857,
+        "state": "playing",
+        "node": "guardian",
+        "elapsed": 23758,
+        "spatial": "ready",
+        "view": "exhibit",
+        "message": "这一段在等你的手。",
+        "focused": true,
+        "visibility": "visible"
+      },
+      "after": {
+        "at": 30383.5,
+        "draws": 929,
+        "state": "playing",
+        "node": "guardian",
+        "elapsed": 27715,
+        "spatial": "ready",
+        "view": "exhibit",
+        "message": "这一段在等你的手。",
+        "focused": true,
+        "visibility": "visible"
+      },
+      "canvasDrawsPerSecond": 17.984712994062246
+    }
+  ],
+  "error": "page.waitForFunction: Timeout 30000ms exceeded.\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\scripts\\measure-runtime.mjs:48:67"
+}

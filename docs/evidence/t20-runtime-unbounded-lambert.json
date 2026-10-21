@@ -1,0 +1,5358 @@
+{
+  "kind": "native-clock-desktop-runtime-preflight",
+  "recordedAtMachineUTC": "2026-10-21T01:01:20.390Z",
+  "indexSha256": "42628e96ca3099a08efa432bd82c7daacf888cdc93921b5e7e6107da65c4c1ac",
+  "probeSha256": "ae86213594e6c7ee4613c6dc9f797bc785570556e97c7582fcdffa723d128fc9",
+  "browserVersion": "156.0.8078.4",
+  "host": {
+    "cpu": "12th Gen Intel(R) Core(TM) i7-1260U",
+    "logicalCores": 12,
+    "memoryBytes": 16890388480,
+    "platform": "win32",
+    "release": "10.0.26200"
+  },
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "gpu": {
+    "vendor": "WebKit",
+    "renderer": "WebKit WebGL",
+    "unmaskedVendor": "Google Inc. (Google)",
+    "unmaskedRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 914,
+    "height": 685
+  },
+  "frameId": "FB07B05BA0C12D19C9C9FD9F4C617C3C",
+  "observedTraceFrameKeys": [
+    "FB07B05BA0C12D19C9C9FD9F4C617C3C"
+  ],
+  "windows": [
+    {
+      "name": "guardian/canvas-2d",
+      "expectedView": null,
+      "nodeId": "guardian",
+      "requestedMs": 10000,
+      "before": {
+        "at": 514.8000000119209,
+        "draws": 1,
+        "state": "playing",
+        "node": "guardian",
+        "elapsed": 0,
+        "spatial": "closed",
+        "message": "这一段在等你的手。",
+        "focused": true,
+        "visibility": "visible"
+      },
+      "after": {
+        "at": 10532.900000035763,
+        "draws": 602,
+        "state": "playing",
+        "node": "guardian",
+        "elapsed": 10006,
+        "spatial": "closed",
+        "message": "这一段在等你的手。",
+        "focused": true,
+        "visibility": "visible"
+      },
+      "canvasDrawsPerSecond": 59.991415537733666,
+      "nativeAnimationCallbacks": 601,
+      "nativeCallbackRateHz": 59.99064305677181,
+      "frameIntervalMedianMs": 16.685,
+      "frameIntervalP95Ms": 17.683,
+      "maxFrameIntervalMs": 20.635,
+      "frames": [
+        {
+          "atTraceUs": 429949868786,
+          "durationUs": 12975
+        },
+        {
+          "atTraceUs": 429949886360,
+          "durationUs": 2538
+        },
+        {
+          "atTraceUs": 429949902144,
+          "durationUs": 2565
+        },
+        {
+          "atTraceUs": 429949919382,
+          "durationUs": 2216
+        },
+        {
+          "atTraceUs": 429949935964,
+          "durationUs": 2142
+        },
+        {
+          "atTraceUs": 429949952014,
+          "durationUs": 3386
+        },
+        {
+          "atTraceUs": 429949969540,
+          "durationUs": 3911
+        },
+        {
+          "atTraceUs": 429949985956,
+          "durationUs": 3319
+        },
+        {
+          "atTraceUs": 429950002855,
+          "durationUs": 2721
+        },
+        {
+          "atTraceUs": 429950019397,
+          "durationUs": 2554
+        },
+        {
+          "atTraceUs": 429950035541,
+          "durationUs": 1863
+        },
+        {
+          "atTraceUs": 429950052115,
+          "durationUs": 2047
+        },
+        {
+          "atTraceUs": 429950069112,
+          "durationUs": 2434
+        },
+        {
+          "atTraceUs": 429950085509,
+          "durationUs": 1970
+        },
+        {
+          "atTraceUs": 429950102563,
+          "durationUs": 1776
+        },
+        {
+          "atTraceUs": 429950118972,
+          "durationUs": 1845
+        },
+        {
+          "atTraceUs": 429950136147,
+          "durationUs": 4214
+        },
+        {
+          "atTraceUs": 429950152239,
+          "durationUs": 2188
+        },
+        {
+          "atTraceUs": 429950168973,
+          "durationUs": 2131
+        },
+        {
+          "atTraceUs": 429950186283,
+          "durationUs": 2272
+        },
+        {
+          "atTraceUs": 429950201877,
+          "durationUs": 4692
+        },
+        {
+          "atTraceUs": 429950219452,
+          "durationUs": 3194
+        },
+        {
+          "atTraceUs": 429950235526,
+          "durationUs": 2399
+        },
+        {
+          "atTraceUs": 429950252509,
+          "durationUs": 2374
+        },
+        {
+          "atTraceUs": 429950269587,
+          "durationUs": 3335
+        },
+        {
+          "atTraceUs": 429950285814,
+          "durationUs": 2741
+        },
+        {
+          "atTraceUs": 429950303144,
+          "durationUs": 3637
+        },
+        {
+          "atTraceUs": 429950319324,
+          "durationUs": 2596
+        },
+        {
+          "atTraceUs": 429950336260,
+          "durationUs": 2416
+        },
+        {
+          "atTraceUs": 429950352428,
+          "durationUs": 1549
+        },
+        {
+          "atTraceUs": 429950368840,
+          "durationUs": 2151
+        },
+        {
+          "atTraceUs": 429950386026,
+          "durationUs": 1871
+        },
+        {
+          "atTraceUs": 429950402803,
+          "durationUs": 1992
+        },
+        {
+          "atTraceUs": 429950418642,
+          "durationUs": 3083
+        },
+        {
+          "atTraceUs": 429950435952,
+          "durationUs": 3541
+        },
+        {
+          "atTraceUs": 429950452730,
+          "durationUs": 1929
+        },
+        {
+          "atTraceUs": 429950468800,
+          "durationUs": 1847
+        },
+        {
+          "atTraceUs": 429950486365,
+          "durationUs": 1729
+        },
+        {
+          "atTraceUs": 429950502559,
+          "durationUs": 2148
+        },
+        {
+          "atTraceUs": 429950519266,
+          "durationUs": 1655
+        },
+        {
+          "atTraceUs": 429950535805,
+          "durationUs": 1539
+        },
+        {
+          "atTraceUs": 429950552510,
+          "durationUs": 1645
+        },
+        {
+          "atTraceUs": 429950569564,
+          "durationUs": 1804
+        },
+        {
+          "atTraceUs": 429950587089,
+          "durationUs": 1597
+        },
+        {
+          "atTraceUs": 429950602307,
+          "durationUs": 1646
+        },
+        {
+          "atTraceUs": 429950619979,
+          "durationUs": 1561
+        },
+        {
+          "atTraceUs": 429950636213,
+          "durationUs": 2109
+        },
+        {
+          "atTraceUs": 429950652778,
+          "durationUs": 1607
+        },
+        {
+          "atTraceUs": 429950670046,
+          "durationUs": 1590
+        },
+        {
+          "atTraceUs": 429950686466,
+          "durationUs": 1678
+        },
+        {
+          "atTraceUs": 429950702810,
+          "durationUs": 1803
+        },
+        {
+          "atTraceUs": 429950719838,
+          "durationUs": 1607
+        },
+        {
+          "atTraceUs": 429950736731,
+          "durationUs": 1979
+        },
+        {
+          "atTraceUs": 429950752028,
+          "durationUs": 1665
+        },
+        {
+          "atTraceUs": 429950769219,
+          "durationUs": 1685
+        },
+        {
+          "atTraceUs": 429950785604,
+          "durationUs": 2699
+        },
+        {
+          "atTraceUs": 429950802235,
+          "durationUs": 1543
+        },
+        {
+          "atTraceUs": 429950818651,
+          "durationUs": 1786
+        },
+        {
+          "atTraceUs": 429950835612,
+          "durationUs": 1731
+        },
+        {
+          "atTraceUs": 429950852554,
+          "durationUs": 1713
+        },
+        {
+          "atTraceUs": 429950870029,
+          "durationUs": 1900
+        },
+        {
+          "atTraceUs": 429950885884,
+          "durationUs": 1779
+        },
+        {
+          "atTraceUs": 429950903656,
+          "durationUs": 2096
+        },
+        {
+          "atTraceUs": 429950920045,
+          "durationUs": 1838
+        },
+        {
+          "atTraceUs": 429950935487,
+          "durationUs": 1755
+        },
+        {
+          "atTraceUs": 429950952001,
+          "durationUs": 1555
+        },
+        {
+          "atTraceUs": 429950969080,
+          "durationUs": 1601
+        },
+        {
+          "atTraceUs": 429950986292,
+          "durationUs": 1570
+        },
+        {
+          "atTraceUs": 429951002853,
+          "durationUs": 1917
+        },
+        {
+          "atTraceUs": 429951019600,
+          "durationUs": 1624
+        },
+        {
+          "atTraceUs": 429951035705,
+          "durationUs": 1824
+        },
+        {
+          "atTraceUs": 429951052786,
+          "durationUs": 1655
+        },
+        {
+          "atTraceUs": 429951069876,
+          "durationUs": 1866
+        },
+        {
+          "atTraceUs": 429951086671,
+          "durationUs": 2337
+        },
+        {
+          "atTraceUs": 429951102273,
+          "durationUs": 2742
+        },
+        {
+          "atTraceUs": 429951118700,
+          "durationUs": 1648
+        },
+        {
+          "atTraceUs": 429951136319,
+          "durationUs": 1650
+        },
+        {
+          "atTraceUs": 429951153298,
+          "durationUs": 1913
+        },
+        {
+          "atTraceUs": 429951169354,
+          "durationUs": 1563
+        },
+        {
+          "atTraceUs": 429951185429,
+          "durationUs": 1570
+        },
+        {
+          "atTraceUs": 429951203010,
+          "durationUs": 1512
+        },
+        {
+          "atTraceUs": 429951219206,
+          "durationUs": 1633
+        },
+        {
+          "atTraceUs": 429951236428,
+          "durationUs": 1553
+        },
+        {
+          "atTraceUs": 429951252462,
+          "durationUs": 1680
+        },
+        {
+          "atTraceUs": 429951269636,
+          "durationUs": 1565
+        },
+        {
+          "atTraceUs": 429951286039,
+          "durationUs": 1566
+        },
+        {
+          "atTraceUs": 429951302290,
+          "durationUs": 2472
+        },
+        {
+          "atTraceUs": 429951318803,
+          "durationUs": 1696
+        },
+        {
+          "atTraceUs": 429951336741,
+          "durationUs": 1869
+        },
+        {
+          "atTraceUs": 429951352502,
+          "durationUs": 1649
+        },
+        {
+          "atTraceUs": 429951369552,
+          "durationUs": 1563
+        },
+        {
+          "atTraceUs": 429951386454,
+          "durationUs": 2020
+        },
+        {
+          "atTraceUs": 429951402736,
+          "durationUs": 1575
+        },
+        {
+          "atTraceUs": 429951419273,
+          "durationUs": 1568
+        },
+        {
+          "atTraceUs": 429951435745,
+          "durationUs": 1534
+        },
+        {
+          "atTraceUs": 429951452172,
+          "durationUs": 1561
+        },
+        {
+          "atTraceUs": 429951469585,
+          "durationUs": 1769
+        },
+        {
+          "atTraceUs": 429951486556,
+          "durationUs": 1621
+        },
+        {
+          "atTraceUs": 429951503472,
+          "durationUs": 1694
+        },
+        {
+          "atTraceUs": 429951520608,
+          "durationUs": 1665
+        },
+        {
+          "atTraceUs": 429951536814,
+          "durationUs": 2183
+        },
+        {
+          "atTraceUs": 429951552307,
+          "durationUs": 1690
+        },
+        {
+          "atTraceUs": 429951569353,
+          "durationUs": 1566
+        },
+        {
+          "atTraceUs": 429951585810,
+          "durationUs": 1660
+        },
+        {
+          "atTraceUs": 429951602550,
+          "durationUs": 1601
+        },
+        {
+          "atTraceUs": 429951619508,
+          "durationUs": 2596
+        },
+        {
+          "atTraceUs": 429951636382,
+          "durationUs": 1571
+        },
+        {
+          "atTraceUs": 429951652978,
+          "durationUs": 1558
+        },
+        {
+          "atTraceUs": 429951669345,
+          "durationUs": 1516
+        },
+        {
+          "atTraceUs": 429951685715,
+          "durationUs": 1576
+        },
+        {
+          "atTraceUs": 429951702263,
+          "durationUs": 1544
+        },
+        {
+          "atTraceUs": 429951720119,
+          "durationUs": 1819
+        },
+        {
+          "atTraceUs": 429951735033,
+          "durationUs": 2000
+        },
+        {
+          "atTraceUs": 429951752146,
+          "durationUs": 1512
+        },
+        {
+          "atTraceUs": 429951769812,
+          "durationUs": 4044
+        },
+        {
+          "atTraceUs": 429951785899,
+          "durationUs": 1611
+        },
+        {
+          "atTraceUs": 429951802250,
+          "durationUs": 1497
+        },
+        {
+          "atTraceUs": 429951819569,
+          "durationUs": 1553
+        },
+        {
+          "atTraceUs": 429951836402,
+          "durationUs": 1607
+        },
+        {
+          "atTraceUs": 429951851963,
+          "durationUs": 1574
+        },
+        {
+          "atTraceUs": 429951869429,
+          "durationUs": 1539
+        },
+        {
+          "atTraceUs": 429951886228,
+          "durationUs": 1538
+        },
+        {
+          "atTraceUs": 429951903441,
+          "durationUs": 2589
+        },
+        {
+          "atTraceUs": 429951918755,
+          "durationUs": 1691
+        },
+        {
+          "atTraceUs": 429951936077,
+          "durationUs": 1612
+        },
+        {
+          "atTraceUs": 429951951820,
+          "durationUs": 1668
+        },
+        {
+          "atTraceUs": 429951969264,
+          "durationUs": 1766
+        },
+        {
+          "atTraceUs": 429951985471,
+          "durationUs": 1603
+        },
+        {
+          "atTraceUs": 429952002078,
+          "durationUs": 2058
+        },
+        {
+          "atTraceUs": 429952019092,
+          "durationUs": 1644
+        },
+        {
+          "atTraceUs": 429952035623,
+          "durationUs": 1614
+        },
+        {
+          "atTraceUs": 429952052164,
+          "durationUs": 1835
+        },
+        {
+          "atTraceUs": 429952068993,
+          "durationUs": 2019
+        },
+        {
+          "atTraceUs": 429952085725,
+          "durationUs": 1866
+        },
+        {
+          "atTraceUs": 429952102533,
+          "durationUs": 2318
+        },
+        {
+          "atTraceUs": 429952119441,
+          "durationUs": 1641
+        },
+        {
+          "atTraceUs": 429952135651,
+          "durationUs": 2360
+        },
+        {
+          "atTraceUs": 429952152384,
+          "durationUs": 2290
+        },
+        {
+          "atTraceUs": 429952168872,
+          "durationUs": 2489
+        },
+        {
+          "atTraceUs": 429952185437,
+          "durationUs": 1847
+        },
+        {
+          "atTraceUs": 429952202397,
+          "durationUs": 2774
+        },
+        {
+          "atTraceUs": 429952219499,
+          "durationUs": 3059
+        },
+        {
+          "atTraceUs": 429952235971,
+          "durationUs": 3186
+        },
+        {
+          "atTraceUs": 429952252573,
+          "durationUs": 2934
+        },
+        {
+          "atTraceUs": 429952268512,
+          "durationUs": 3255
+        },
+        {
+          "atTraceUs": 429952286352,
+          "durationUs": 3382
+        },
+        {
+          "atTraceUs": 429952303703,
+          "durationUs": 3053
+        },
+        {
+          "atTraceUs": 429952319862,
+          "durationUs": 3320
+        },
+        {
+          "atTraceUs": 429952336528,
+          "durationUs": 3069
+        },
+        {
+          "atTraceUs": 429952352259,
+          "durationUs": 3671
+        },
+        {
+          "atTraceUs": 429952369087,
+          "durationUs": 4133
+        },
+        {
+          "atTraceUs": 429952386071,
+          "durationUs": 3111
+        },
+        {
+          "atTraceUs": 429952401857,
+          "durationUs": 2563
+        },
+        {
+          "atTraceUs": 429952419418,
+          "durationUs": 2886
+        },
+        {
+          "atTraceUs": 429952435608,
+          "durationUs": 3910
+        },
+        {
+          "atTraceUs": 429952452089,
+          "durationUs": 3617
+        },
+        {
+          "atTraceUs": 429952469296,
+          "durationUs": 4226
+        },
+        {
+          "atTraceUs": 429952485759,
+          "durationUs": 5974
+        },
+        {
+          "atTraceUs": 429952502559,
+          "durationUs": 4394
+        },
+        {
+          "atTraceUs": 429952519154,
+          "durationUs": 3101
+        },
+        {
+          "atTraceUs": 429952535599,
+          "durationUs": 2942
+        },
+        {
+          "atTraceUs": 429952551917,
+          "durationUs": 2953
+        },
+        {
+          "atTraceUs": 429952569678,
+          "durationUs": 4314
+        },
+        {
+          "atTraceUs": 429952585942,
+          "durationUs": 4974
+        },
+        {
+          "atTraceUs": 429952602661,
+          "durationUs": 4363
+        },
+        {
+          "atTraceUs": 429952619095,
+          "durationUs": 2803
+        },
+        {
+          "atTraceUs": 429952635764,
+          "durationUs": 3559
+        },
+        {
+          "atTraceUs": 429952653268,
+          "durationUs": 3336
+        },
+        {
+          "atTraceUs": 429952668743,
+          "durationUs": 3486
+        },
+        {
+          "atTraceUs": 429952685508,
+          "durationUs": 4476
+        },
+        {
+          "atTraceUs": 429952703159,
+          "durationUs": 5226
+        },
+        {
+          "atTraceUs": 429952720543,
+          "durationUs": 7044
+        },
+        {
+          "atTraceUs": 429952741178,
+          "durationUs": 4379
+        },
+        {
+          "atTraceUs": 429952752994,
+          "durationUs": 2645
+        },
+        {
+          "atTraceUs": 429952769248,
+          "durationUs": 3112
+        },
+        {
+          "atTraceUs": 429952786246,
+          "durationUs": 2699
+        },
+        {
+          "atTraceUs": 429952802915,
+          "durationUs": 3848
+        },
+        {
+          "atTraceUs": 429952819562,
+          "durationUs": 4211
+        },
+        {
+          "atTraceUs": 429952835601,
+          "durationUs": 2898
+        },
+        {
+          "atTraceUs": 429952852450,
+          "durationUs": 2622
+        },
+        {
+          "atTraceUs": 429952869456,
+          "durationUs": 2380
+        },
+        {
+          "atTraceUs": 429952885497,
+          "durationUs": 2328
+        },
+        {
+          "atTraceUs": 429952902244,
+          "durationUs": 3472
+        },
+        {
+          "atTraceUs": 429952919437,
+          "durationUs": 4853
+        },
+        {
+          "atTraceUs": 429952935653,
+          "durationUs": 2509
+        },
+        {
+          "atTraceUs": 429952952282,
+          "durationUs": 3119
+        },
+        {
+          "atTraceUs": 429952969524,
+          "durationUs": 3086
+        },
+        {
+          "atTraceUs": 429952985419,
+          "durationUs": 3018
+        },
+        {
+          "atTraceUs": 429953003200,
+          "durationUs": 2649
+        },
+        {
+          "atTraceUs": 429953019683,
+          "durationUs": 2547
+        },
+        {
+          "atTraceUs": 429953035940,
+          "durationUs": 2655
+        },
+        {
+          "atTraceUs": 429953052788,
+          "durationUs": 2770
+        },
+        {
+          "atTraceUs": 429953069297,
+          "durationUs": 2856
+        },
+        {
+          "atTraceUs": 429953085935,
+          "durationUs": 2584
+        },
+        {
+          "atTraceUs": 429953102826,
+          "durationUs": 2458
+        },
+        {
+          "atTraceUs": 429953119779,
+          "durationUs": 2572
+        },
+        {
+          "atTraceUs": 429953136234,
+          "durationUs": 2476
+        },
+        {
+          "atTraceUs": 429953152729,
+          "durationUs": 2536
+        },
+        {
+          "atTraceUs": 429953169253,
+          "durationUs": 2463
+        },
+        {
+          "atTraceUs": 429953186459,
+          "durationUs": 2607
+        },
+        {
+          "atTraceUs": 429953202701,
+          "durationUs": 2628
+        },
+        {
+          "atTraceUs": 429953218732,
+          "durationUs": 2682
+        },
+        {
+          "atTraceUs": 429953235488,
+          "durationUs": 2455
+        },
+        {
+          "atTraceUs": 429953252324,
+          "durationUs": 2536
+        },
+        {
+          "atTraceUs": 429953268928,
+          "durationUs": 2724
+        },
+        {
+          "atTraceUs": 429953286178,
+          "durationUs": 2976
+        },
+        {
+          "atTraceUs": 429953302738,
+          "durationUs": 2681
+        },
+        {
+          "atTraceUs": 429953319095,
+          "durationUs": 2620
+        },
+        {
+          "atTraceUs": 429953335470,
+          "durationUs": 2690
+        },
+        {
+          "atTraceUs": 429953352786,
+          "durationUs": 2795
+        },
+        {
+          "atTraceUs": 429953368672,
+          "durationUs": 2630
+        },
+        {
+          "atTraceUs": 429953386003,
+          "durationUs": 2446
+        },
+        {
+          "atTraceUs": 429953402912,
+          "durationUs": 2491
+        },
+        {
+          "atTraceUs": 429953419819,
+          "durationUs": 2774
+        },
+        {
+          "atTraceUs": 429953435779,
+          "durationUs": 2762
+        },
+        {
+          "atTraceUs": 429953452396,
+          "durationUs": 2755
+        },
+        {
+          "atTraceUs": 429953469569,
+          "durationUs": 2555
+        },
+        {
+          "atTraceUs": 429953486573,
+          "durationUs": 2761
+        },
+        {
+          "atTraceUs": 429953502605,
+          "durationUs": 4005
+        },
+        {
+          "atTraceUs": 429953519055,
+          "durationUs": 3428
+        },
+        {
+          "atTraceUs": 429953536003,
+          "durationUs": 2397
+        },
+        {
+          "atTraceUs": 429953552144,
+          "durationUs": 2531
+        },
+        {
+          "atTraceUs": 429953569459,
+          "durationUs": 2589
+        },
+        {
+          "atTraceUs": 429953586104,
+          "durationUs": 2451
+        },
+        {
+          "atTraceUs": 429953602459,
+          "durationUs": 3964
+        },
+        {
+          "atTraceUs": 429953619194,
+          "durationUs": 5998
+        },
+        {
+          "atTraceUs": 429953636433,
+          "durationUs": 2692
+        },
+        {
+          "atTraceUs": 429953653237,
+          "durationUs": 4199
+        },
+        {
+          "atTraceUs": 429953668961,
+          "durationUs": 4905
+        },
+        {
+          "atTraceUs": 429953685886,
+          "durationUs": 5868
+        },
+        {
+          "atTraceUs": 429953702724,
+          "durationUs": 4947
+        },
+        {
+          "atTraceUs": 429953719386,
+          "durationUs": 3897
+        },
+        {
+          "atTraceUs": 429953735165,
+          "durationUs": 2888
+        },
+        {
+          "atTraceUs": 429953752305,
+          "durationUs": 6768
+        },
+        {
+          "atTraceUs": 429953769178,
+          "durationUs": 3871
+        },
+        {
+          "atTraceUs": 429953785638,
+          "durationUs": 4952
+        },
+        {
+          "atTraceUs": 429953801932,
+          "durationUs": 4906
+        },
+        {
+          "atTraceUs": 429953818617,
+          "durationUs": 3391
+        },
+        {
+          "atTraceUs": 429953835779,
+          "durationUs": 5401
+        },
+        {
+          "atTraceUs": 429953852834,
+          "durationUs": 4420
+        },
+        {
+          "atTraceUs": 429953869314,
+          "durationUs": 4398
+        },
+        {
+          "atTraceUs": 429953885150,
+          "durationUs": 3115
+        },
+        {
+          "atTraceUs": 429953902309,
+          "durationUs": 3098
+        },
+        {
+          "atTraceUs": 429953918997,
+          "durationUs": 2753
+        },
+        {
+          "atTraceUs": 429953935046,
+          "durationUs": 2954
+        },
+        {
+          "atTraceUs": 429953952267,
+          "durationUs": 2772
+        },
+        {
+          "atTraceUs": 429953968786,
+          "durationUs": 2437
+        },
+        {
+          "atTraceUs": 429953985238,
+          "durationUs": 2916
+        },
+        {
+          "atTraceUs": 429954003168,
+          "durationUs": 2476
+        },
+        {
+          "atTraceUs": 429954019205,
+          "durationUs": 2373
+        },
+        {
+          "atTraceUs": 429954035467,
+          "durationUs": 3130
+        },
+        {
+          "atTraceUs": 429954052414,
+          "durationUs": 2532
+        },
+        {
+          "atTraceUs": 429954068695,
+          "durationUs": 4079
+        },
+        {
+          "atTraceUs": 429954086118,
+          "durationUs": 5451
+        },
+        {
+          "atTraceUs": 429954102112,
+          "durationUs": 3710
+        },
+        {
+          "atTraceUs": 429954118425,
+          "durationUs": 4498
+        },
+        {
+          "atTraceUs": 429954135777,
+          "durationUs": 3504
+        },
+        {
+          "atTraceUs": 429954151664,
+          "durationUs": 3233
+        },
+        {
+          "atTraceUs": 429954168939,
+          "durationUs": 3830
+        },
+        {
+          "atTraceUs": 429954186166,
+          "durationUs": 3627
+        },
+        {
+          "atTraceUs": 429954202481,
+          "durationUs": 3086
+        },
+        {
+          "atTraceUs": 429954218389,
+          "durationUs": 4393
+        },
+        {
+          "atTraceUs": 429954235060,
+          "durationUs": 4477
+        },
+        {
+          "atTraceUs": 429954252186,
+          "durationUs": 3992
+        },
+        {
+          "atTraceUs": 429954268971,
+          "durationUs": 4832
+        },
+        {
+          "atTraceUs": 429954286234,
+          "durationUs": 4331
+        },
+        {
+          "atTraceUs": 429954302326,
+          "durationUs": 5556
+        },
+        {
+          "atTraceUs": 429954318765,
+          "durationUs": 4210
+        },
+        {
+          "atTraceUs": 429954335959,
+          "durationUs": 3238
+        },
+        {
+          "atTraceUs": 429954351698,
+          "durationUs": 3267
+        },
+        {
+          "atTraceUs": 429954369812,
+          "durationUs": 3571
+        },
+        {
+          "atTraceUs": 429954385044,
+          "durationUs": 3904
+        },
+        {
+          "atTraceUs": 429954402364,
+          "durationUs": 3089
+        },
+        {
+          "atTraceUs": 429954419458,
+          "durationUs": 3320
+        },
+        {
+          "atTraceUs": 429954435326,
+          "durationUs": 2799
+        },
+        {
+          "atTraceUs": 429954451518,
+          "durationUs": 2922
+        },
+        {
+          "atTraceUs": 429954469559,
+          "durationUs": 3729
+        },
+        {
+          "atTraceUs": 429954485668,
+          "durationUs": 3061
+        },
+        {
+          "atTraceUs": 429954502487,
+          "durationUs": 4581
+        },
+        {
+          "atTraceUs": 429954518705,
+          "durationUs": 3410
+        },
+        {
+          "atTraceUs": 429954535726,
+          "durationUs": 2731
+        },
+        {
+          "atTraceUs": 429954553320,
+          "durationUs": 3864
+        },
+        {
+          "atTraceUs": 429954569216,
+          "durationUs": 3043
+        },
+        {
+          "atTraceUs": 429954585904,
+          "durationUs": 4518
+        },
+        {
+          "atTraceUs": 429954602394,
+          "durationUs": 3721
+        },
+        {
+          "atTraceUs": 429954618836,
+          "durationUs": 5347
+        },
+        {
+          "atTraceUs": 429954636639,
+          "durationUs": 5462
+        },
+        {
+          "atTraceUs": 429954652686,
+          "durationUs": 3572
+        },
+        {
+          "atTraceUs": 429954669348,
+          "durationUs": 2609
+        },
+        {
+          "atTraceUs": 429954686311,
+          "durationUs": 3394
+        },
+        {
+          "atTraceUs": 429954702390,
+          "durationUs": 2958
+        },
+        {
+          "atTraceUs": 429954718981,
+          "durationUs": 2566
+        },
+        {
+          "atTraceUs": 429954735360,
+          "durationUs": 2357
+        },
+        {
+          "atTraceUs": 429954752270,
+          "durationUs": 2503
+        },
+        {
+          "atTraceUs": 429954769693,
+          "durationUs": 4087
+        },
+        {
+          "atTraceUs": 429954785351,
+          "durationUs": 4057
+        },
+        {
+          "atTraceUs": 429954802124,
+          "durationUs": 3254
+        },
+        {
+          "atTraceUs": 429954819154,
+          "durationUs": 3927
+        },
+        {
+          "atTraceUs": 429954835127,
+          "durationUs": 4183
+        },
+        {
+          "atTraceUs": 429954852630,
+          "durationUs": 4198
+        },
+        {
+          "atTraceUs": 429954869765,
+          "durationUs": 3150
+        },
+        {
+          "atTraceUs": 429954885751,
+          "durationUs": 4327
+        },
+        {
+          "atTraceUs": 429954902621,
+          "durationUs": 4181
+        },
+        {
+          "atTraceUs": 429954919122,
+          "durationUs": 4206
+        },
+        {
+          "atTraceUs": 429954935946,
+          "durationUs": 3796
+        },
+        {
+          "atTraceUs": 429954952227,
+          "durationUs": 4049
+        },
+        {
+          "atTraceUs": 429954968870,
+          "durationUs": 2564
+        },
+        {
+          "atTraceUs": 429954986125,
+          "durationUs": 2367
+        },
+        {
+          "atTraceUs": 429955002368,
+          "durationUs": 2805
+        },
+        {
+          "atTraceUs": 429955018564,
+          "durationUs": 2807
+        },
+        {
+          "atTraceUs": 429955036172,
+          "durationUs": 2290
+        },
+        {
+          "atTraceUs": 429955052067,
+          "durationUs": 2746
+        },
+        {
+          "atTraceUs": 429955068622,
+          "durationUs": 3668
+        },
+        {
+          "atTraceUs": 429955085469,
+          "durationUs": 2697
+        },
+        {
+          "atTraceUs": 429955102204,
+          "durationUs": 2414
+        },
+        {
+          "atTraceUs": 429955119199,
+          "durationUs": 3023
+        },
+        {
+          "atTraceUs": 429955135045,
+          "durationUs": 3261
+        },
+        {
+          "atTraceUs": 429955152184,
+          "durationUs": 4044
+        },
+        {
+          "atTraceUs": 429955169280,
+          "durationUs": 2776
+        },
+        {
+          "atTraceUs": 429955185562,
+          "durationUs": 2871
+        },
+        {
+          "atTraceUs": 429955202359,
+          "durationUs": 3660
+        },
+        {
+          "atTraceUs": 429955218409,
+          "durationUs": 4097
+        },
+        {
+          "atTraceUs": 429955235429,
+          "durationUs": 2764
+        },
+        {
+          "atTraceUs": 429955252467,
+          "durationUs": 4089
+        },
+        {
+          "atTraceUs": 429955269219,
+          "durationUs": 4973
+        },
+        {
+          "atTraceUs": 429955285329,
+          "durationUs": 3840
+        },
+        {
+          "atTraceUs": 429955302355,
+          "durationUs": 4064
+        },
+        {
+          "atTraceUs": 429955319659,
+          "durationUs": 4715
+        },
+        {
+          "atTraceUs": 429955335240,
+          "durationUs": 4505
+        },
+        {
+          "atTraceUs": 429955352432,
+          "durationUs": 3035
+        },
+        {
+          "atTraceUs": 429955369872,
+          "durationUs": 3713
+        },
+        {
+          "atTraceUs": 429955385696,
+          "durationUs": 3138
+        },
+        {
+          "atTraceUs": 429955402666,
+          "durationUs": 3760
+        },
+        {
+          "atTraceUs": 429955419432,
+          "durationUs": 5526
+        },
+        {
+          "atTraceUs": 429955435764,
+          "durationUs": 3250
+        },
+        {
+          "atTraceUs": 429955453096,
+          "durationUs": 2292
+        },
+        {
+          "atTraceUs": 429955469372,
+          "durationUs": 2367
+        },
+        {
+          "atTraceUs": 429955485340,
+          "durationUs": 4629
+        },
+        {
+          "atTraceUs": 429955503439,
+          "durationUs": 4016
+        },
+        {
+          "atTraceUs": 429955518962,
+          "durationUs": 2731
+        },
+        {
+          "atTraceUs": 429955535929,
+          "durationUs": 2378
+        },
+        {
+          "atTraceUs": 429955552305,
+          "durationUs": 2268
+        },
+        {
+          "atTraceUs": 429955568434,
+          "durationUs": 2398
+        },
+        {
+          "atTraceUs": 429955585270,
+          "durationUs": 2596
+        },
+        {
+          "atTraceUs": 429955602044,
+          "durationUs": 2748
+        },
+        {
+          "atTraceUs": 429955618403,
+          "durationUs": 2488
+        },
+        {
+          "atTraceUs": 429955635011,
+          "durationUs": 2275
+        },
+        {
+          "atTraceUs": 429955651614,
+          "durationUs": 2421
+        },
+        {
+          "atTraceUs": 429955668443,
+          "durationUs": 2481
+        },
+        {
+          "atTraceUs": 429955685139,
+          "durationUs": 2533
+        },
+        {
+          "atTraceUs": 429955701887,
+          "durationUs": 5330
+        },
+        {
+          "atTraceUs": 429955718542,
+          "durationUs": 3082
+        },
+        {
+          "atTraceUs": 429955735544,
+          "durationUs": 3217
+        },
+        {
+          "atTraceUs": 429955751992,
+          "durationUs": 2866
+        },
+        {
+          "atTraceUs": 429955769041,
+          "durationUs": 4108
+        },
+        {
+          "atTraceUs": 429955784936,
+          "durationUs": 3063
+        },
+        {
+          "atTraceUs": 429955802192,
+          "durationUs": 2959
+        },
+        {
+          "atTraceUs": 429955818895,
+          "durationUs": 3383
+        },
+        {
+          "atTraceUs": 429955836029,
+          "durationUs": 2564
+        },
+        {
+          "atTraceUs": 429955852067,
+          "durationUs": 2627
+        },
+        {
+          "atTraceUs": 429955868403,
+          "durationUs": 3149
+        },
+        {
+          "atTraceUs": 429955885641,
+          "durationUs": 3090
+        },
+        {
+          "atTraceUs": 429955902116,
+          "durationUs": 3027
+        },
+        {
+          "atTraceUs": 429955918566,
+          "durationUs": 2799
+        },
+        {
+          "atTraceUs": 429955935743,
+          "durationUs": 3490
+        },
+        {
+          "atTraceUs": 429955952176,
+          "durationUs": 3473
+        },
+        {
+          "atTraceUs": 429955969404,
+          "durationUs": 3461
+        },
+        {
+          "atTraceUs": 429955985243,
+          "durationUs": 3041
+        },
+        {
+          "atTraceUs": 429956002073,
+          "durationUs": 2560
+        },
+        {
+          "atTraceUs": 429956019144,
+          "durationUs": 2851
+        },
+        {
+          "atTraceUs": 429956035960,
+          "durationUs": 3054
+        },
+        {
+          "atTraceUs": 429956052499,
+          "durationUs": 2938
+        },
+        {
+          "atTraceUs": 429956069066,
+          "durationUs": 2739
+        },
+        {
+          "atTraceUs": 429956086027,
+          "durationUs": 2986
+        },
+        {
+          "atTraceUs": 429956102954,
+          "durationUs": 3108
+        },
+        {
+          "atTraceUs": 429956119592,
+          "durationUs": 2615
+        },
+        {
+          "atTraceUs": 429956135554,
+          "durationUs": 3373
+        },
+        {
+          "atTraceUs": 429956153248,
+          "durationUs": 2979
+        },
+        {
+          "atTraceUs": 429956169041,
+          "durationUs": 4406
+        },
+        {
+          "atTraceUs": 429956185618,
+          "durationUs": 3722
+        },
+        {
+          "atTraceUs": 429956201917,
+          "durationUs": 3766
+        },
+        {
+          "atTraceUs": 429956219298,
+          "durationUs": 3515
+        },
+        {
+          "atTraceUs": 429956235252,
+          "durationUs": 2700
+        },
+        {
+          "atTraceUs": 429956252935,
+          "durationUs": 4525
+        },
+        {
+          "atTraceUs": 429956269467,
+          "durationUs": 2994
+        },
+        {
+          "atTraceUs": 429956286036,
+          "durationUs": 3317
+        },
+        {
+          "atTraceUs": 429956303000,
+          "durationUs": 2657
+        },
+        {
+          "atTraceUs": 429956319495,
+          "durationUs": 4737
+        },
+        {
+          "atTraceUs": 429956335361,
+          "durationUs": 3777
+        },
+        {
+          "atTraceUs": 429956351910,
+          "durationUs": 3848
+        },
+        {
+          "atTraceUs": 429956368502,
+          "durationUs": 2434
+        },
+        {
+          "atTraceUs": 429956386527,
+          "durationUs": 2415
+        },
+        {
+          "atTraceUs": 429956402720,
+          "durationUs": 5419
+        },
+        {
+          "atTraceUs": 429956419405,
+          "durationUs": 3464
+        },
+        {
+          "atTraceUs": 429956435487,
+          "durationUs": 2516
+        },
+        {
+          "atTraceUs": 429956452572,
+          "durationUs": 4730
+        },
+        {
+          "atTraceUs": 429956468991,
+          "durationUs": 2393
+        },
+        {
+          "atTraceUs": 429956485769,
+          "durationUs": 2319
+        },
+        {
+          "atTraceUs": 429956502598,
+          "durationUs": 2244
+        },
+        {
+          "atTraceUs": 429956518978,
+          "durationUs": 2232
+        },
+        {
+          "atTraceUs": 429956535213,
+          "durationUs": 3286
+        },
+        {
+          "atTraceUs": 429956552722,
+          "durationUs": 3701
+        },
+        {
+          "atTraceUs": 429956569200,
+          "durationUs": 2293
+        },
+        {
+          "atTraceUs": 429956585589,
+          "durationUs": 3793
+        },
+        {
+          "atTraceUs": 429956602430,
+          "durationUs": 3615
+        },
+        {
+          "atTraceUs": 429956618292,
+          "durationUs": 3295
+        },
+        {
+          "atTraceUs": 429956636213,
+          "durationUs": 3879
+        },
+        {
+          "atTraceUs": 429956652849,
+          "durationUs": 3944
+        },
+        {
+          "atTraceUs": 429956669030,
+          "durationUs": 3164
+        },
+        {
+          "atTraceUs": 429956685461,
+          "durationUs": 3319
+        },
+        {
+          "atTraceUs": 429956701626,
+          "durationUs": 3440
+        },
+        {
+          "atTraceUs": 429956718741,
+          "durationUs": 4109
+        },
+        {
+          "atTraceUs": 429956735402,
+          "durationUs": 4098
+        },
+        {
+          "atTraceUs": 429956752244,
+          "durationUs": 3859
+        },
+        {
+          "atTraceUs": 429956768759,
+          "durationUs": 4327
+        },
+        {
+          "atTraceUs": 429956785247,
+          "durationUs": 3448
+        },
+        {
+          "atTraceUs": 429956801991,
+          "durationUs": 3981
+        },
+        {
+          "atTraceUs": 429956819794,
+          "durationUs": 4280
+        },
+        {
+          "atTraceUs": 429956835490,
+          "durationUs": 4786
+        },
+        {
+          "atTraceUs": 429956852543,
+          "durationUs": 4216
+        },
+        {
+          "atTraceUs": 429956869070,
+          "durationUs": 3696
+        },
+        {
+          "atTraceUs": 429956885048,
+          "durationUs": 2272
+        },
+        {
+          "atTraceUs": 429956902342,
+          "durationUs": 2990
+        },
+        {
+          "atTraceUs": 429956918532,
+          "durationUs": 2222
+        },
+        {
+          "atTraceUs": 429956935215,
+          "durationUs": 4394
+        },
+        {
+          "atTraceUs": 429956952659,
+          "durationUs": 4353
+        },
+        {
+          "atTraceUs": 429956969568,
+          "durationUs": 4851
+        },
+        {
+          "atTraceUs": 429956986119,
+          "durationUs": 3366
+        },
+        {
+          "atTraceUs": 429957002179,
+          "durationUs": 4481
+        },
+        {
+          "atTraceUs": 429957018983,
+          "durationUs": 3957
+        },
+        {
+          "atTraceUs": 429957035253,
+          "durationUs": 3559
+        },
+        {
+          "atTraceUs": 429957052750,
+          "durationUs": 4875
+        },
+        {
+          "atTraceUs": 429957068096,
+          "durationUs": 3570
+        },
+        {
+          "atTraceUs": 429957085451,
+          "durationUs": 4198
+        },
+        {
+          "atTraceUs": 429957102800,
+          "durationUs": 5330
+        },
+        {
+          "atTraceUs": 429957119715,
+          "durationUs": 5157
+        },
+        {
+          "atTraceUs": 429957136896,
+          "durationUs": 7162
+        },
+        {
+          "atTraceUs": 429957156015,
+          "durationUs": 3247
+        },
+        {
+          "atTraceUs": 429957169294,
+          "durationUs": 3621
+        },
+        {
+          "atTraceUs": 429957185832,
+          "durationUs": 4134
+        },
+        {
+          "atTraceUs": 429957201933,
+          "durationUs": 4182
+        },
+        {
+          "atTraceUs": 429957218805,
+          "durationUs": 2738
+        },
+        {
+          "atTraceUs": 429957235400,
+          "durationUs": 2440
+        },
+        {
+          "atTraceUs": 429957252207,
+          "durationUs": 2394
+        },
+        {
+          "atTraceUs": 429957268085,
+          "durationUs": 3146
+        },
+        {
+          "atTraceUs": 429957285789,
+          "durationUs": 3222
+        },
+        {
+          "atTraceUs": 429957301947,
+          "durationUs": 2855
+        },
+        {
+          "atTraceUs": 429957319191,
+          "durationUs": 2278
+        },
+        {
+          "atTraceUs": 429957334870,
+          "durationUs": 2652
+        },
+        {
+          "atTraceUs": 429957352004,
+          "durationUs": 2338
+        },
+        {
+          "atTraceUs": 429957369163,
+          "durationUs": 2558
+        },
+        {
+          "atTraceUs": 429957385625,
+          "durationUs": 3414
+        },
+        {
+          "atTraceUs": 429957401805,
+          "durationUs": 2198
+        },
+        {
+          "atTraceUs": 429957418876,
+          "durationUs": 2183
+        },
+        {
+          "atTraceUs": 429957435982,
+          "durationUs": 2814
+        },
+        {
+          "atTraceUs": 429957452784,
+          "durationUs": 3130
+        },
+        {
+          "atTraceUs": 429957468286,
+          "durationUs": 4069
+        },
+        {
+          "atTraceUs": 429957486034,
+          "durationUs": 4453
+        },
+        {
+          "atTraceUs": 429957502355,
+          "durationUs": 3157
+        },
+        {
+          "atTraceUs": 429957519340,
+          "durationUs": 2997
+        },
+        {
+          "atTraceUs": 429957535312,
+          "durationUs": 3585
+        },
+        {
+          "atTraceUs": 429957552405,
+          "durationUs": 4189
+        },
+        {
+          "atTraceUs": 429957569477,
+          "durationUs": 4005
+        },
+        {
+          "atTraceUs": 429957585336,
+          "durationUs": 2415
+        },
+        {
+          "atTraceUs": 429957603547,
+          "durationUs": 2339
+        },
+        {
+          "atTraceUs": 429957618401,
+          "durationUs": 2396
+        },
+        {
+          "atTraceUs": 429957635734,
+          "durationUs": 2367
+        },
+        {
+          "atTraceUs": 429957651984,
+          "durationUs": 4878
+        },
+        {
+          "atTraceUs": 429957669327,
+          "durationUs": 2693
+        },
+        {
+          "atTraceUs": 429957685816,
+          "durationUs": 3090
+        },
+        {
+          "atTraceUs": 429957702598,
+          "durationUs": 2875
+        },
+        {
+          "atTraceUs": 429957718814,
+          "durationUs": 3039
+        },
+        {
+          "atTraceUs": 429957735341,
+          "durationUs": 3017
+        },
+        {
+          "atTraceUs": 429957752196,
+          "durationUs": 3502
+        },
+        {
+          "atTraceUs": 429957769119,
+          "durationUs": 3097
+        },
+        {
+          "atTraceUs": 429957785545,
+          "durationUs": 3287
+        },
+        {
+          "atTraceUs": 429957802389,
+          "durationUs": 2973
+        },
+        {
+          "atTraceUs": 429957819368,
+          "durationUs": 3078
+        },
+        {
+          "atTraceUs": 429957836091,
+          "durationUs": 2593
+        },
+        {
+          "atTraceUs": 429957852572,
+          "durationUs": 3270
+        },
+        {
+          "atTraceUs": 429957868623,
+          "durationUs": 2466
+        },
+        {
+          "atTraceUs": 429957886085,
+          "durationUs": 3127
+        },
+        {
+          "atTraceUs": 429957901865,
+          "durationUs": 2948
+        },
+        {
+          "atTraceUs": 429957918555,
+          "durationUs": 2506
+        },
+        {
+          "atTraceUs": 429957935992,
+          "durationUs": 2623
+        },
+        {
+          "atTraceUs": 429957952512,
+          "durationUs": 2785
+        },
+        {
+          "atTraceUs": 429957968296,
+          "durationUs": 2484
+        },
+        {
+          "atTraceUs": 429957984847,
+          "durationUs": 3128
+        },
+        {
+          "atTraceUs": 429958002304,
+          "durationUs": 3422
+        },
+        {
+          "atTraceUs": 429958019627,
+          "durationUs": 3437
+        },
+        {
+          "atTraceUs": 429958036099,
+          "durationUs": 3237
+        },
+        {
+          "atTraceUs": 429958051688,
+          "durationUs": 2678
+        },
+        {
+          "atTraceUs": 429958068500,
+          "durationUs": 2725
+        },
+        {
+          "atTraceUs": 429958084891,
+          "durationUs": 2629
+        },
+        {
+          "atTraceUs": 429958102592,
+          "durationUs": 3576
+        },
+        {
+          "atTraceUs": 429958118400,
+          "durationUs": 3243
+        },
+        {
+          "atTraceUs": 429958135603,
+          "durationUs": 2747
+        },
+        {
+          "atTraceUs": 429958153028,
+          "durationUs": 2896
+        },
+        {
+          "atTraceUs": 429958169236,
+          "durationUs": 2453
+        },
+        {
+          "atTraceUs": 429958184843,
+          "durationUs": 2708
+        },
+        {
+          "atTraceUs": 429958202173,
+          "durationUs": 3226
+        },
+        {
+          "atTraceUs": 429958219236,
+          "durationUs": 3103
+        },
+        {
+          "atTraceUs": 429958235297,
+          "durationUs": 3754
+        },
+        {
+          "atTraceUs": 429958251756,
+          "durationUs": 3751
+        },
+        {
+          "atTraceUs": 429958268923,
+          "durationUs": 3881
+        },
+        {
+          "atTraceUs": 429958285635,
+          "durationUs": 2874
+        },
+        {
+          "atTraceUs": 429958302529,
+          "durationUs": 3341
+        },
+        {
+          "atTraceUs": 429958318949,
+          "durationUs": 3266
+        },
+        {
+          "atTraceUs": 429958335239,
+          "durationUs": 3242
+        },
+        {
+          "atTraceUs": 429958351981,
+          "durationUs": 5222
+        },
+        {
+          "atTraceUs": 429958368897,
+          "durationUs": 5124
+        },
+        {
+          "atTraceUs": 429958386090,
+          "durationUs": 3113
+        },
+        {
+          "atTraceUs": 429958401667,
+          "durationUs": 2578
+        },
+        {
+          "atTraceUs": 429958419161,
+          "durationUs": 4619
+        },
+        {
+          "atTraceUs": 429958436333,
+          "durationUs": 4392
+        },
+        {
+          "atTraceUs": 429958453530,
+          "durationUs": 5512
+        },
+        {
+          "atTraceUs": 429958472470,
+          "durationUs": 7131
+        },
+        {
+          "atTraceUs": 429958492650,
+          "durationUs": 5060
+        },
+        {
+          "atTraceUs": 429958508445,
+          "durationUs": 4693
+        },
+        {
+          "atTraceUs": 429958524270,
+          "durationUs": 2903
+        },
+        {
+          "atTraceUs": 429958535225,
+          "durationUs": 3314
+        },
+        {
+          "atTraceUs": 429958552838,
+          "durationUs": 2526
+        },
+        {
+          "atTraceUs": 429958569539,
+          "durationUs": 4784
+        },
+        {
+          "atTraceUs": 429958586626,
+          "durationUs": 4893
+        },
+        {
+          "atTraceUs": 429958602544,
+          "durationUs": 4770
+        },
+        {
+          "atTraceUs": 429958618531,
+          "durationUs": 2618
+        },
+        {
+          "atTraceUs": 429958635551,
+          "durationUs": 4587
+        },
+        {
+          "atTraceUs": 429958652504,
+          "durationUs": 3592
+        },
+        {
+          "atTraceUs": 429958668685,
+          "durationUs": 2902
+        },
+        {
+          "atTraceUs": 429958685885,
+          "durationUs": 3957
+        },
+        {
+          "atTraceUs": 429958702086,
+          "durationUs": 4433
+        },
+        {
+          "atTraceUs": 429958718767,
+          "durationUs": 4937
+        },
+        {
+          "atTraceUs": 429958735603,
+          "durationUs": 4975
+        },
+        {
+          "atTraceUs": 429958752552,
+          "durationUs": 4444
+        },
+        {
+          "atTraceUs": 429958768896,
+          "durationUs": 4585
+        },
+        {
+          "atTraceUs": 429958785241,
+          "durationUs": 3595
+        },
+        {
+          "atTraceUs": 429958801961,
+          "durationUs": 4320
+        },
+        {
+          "atTraceUs": 429958819036,
+          "durationUs": 5064
+        },
+        {
+          "atTraceUs": 429958835757,
+          "durationUs": 4678
+        },
+        {
+          "atTraceUs": 429958852487,
+          "durationUs": 5328
+        },
+        {
+          "atTraceUs": 429958870477,
+          "durationUs": 5471
+        },
+        {
+          "atTraceUs": 429958887178,
+          "durationUs": 4212
+        },
+        {
+          "atTraceUs": 429958902588,
+          "durationUs": 5972
+        },
+        {
+          "atTraceUs": 429958919254,
+          "durationUs": 4709
+        },
+        {
+          "atTraceUs": 429958935117,
+          "durationUs": 6006
+        },
+        {
+          "atTraceUs": 429958953609,
+          "durationUs": 6060
+        },
+        {
+          "atTraceUs": 429958973563,
+          "durationUs": 5360
+        },
+        {
+          "atTraceUs": 429958991453,
+          "durationUs": 3901
+        },
+        {
+          "atTraceUs": 429959005623,
+          "durationUs": 3656
+        },
+        {
+          "atTraceUs": 429959018778,
+          "durationUs": 2503
+        },
+        {
+          "atTraceUs": 429959035976,
+          "durationUs": 4057
+        },
+        {
+          "atTraceUs": 429959051461,
+          "durationUs": 4333
+        },
+        {
+          "atTraceUs": 429959068593,
+          "durationUs": 3571
+        },
+        {
+          "atTraceUs": 429959085244,
+          "durationUs": 2548
+        },
+        {
+          "atTraceUs": 429959102366,
+          "durationUs": 4206
+        },
+        {
+          "atTraceUs": 429959119723,
+          "durationUs": 4586
+        },
+        {
+          "atTraceUs": 429959136336,
+          "durationUs": 3764
+        },
+        {
+          "atTraceUs": 429959152244,
+          "durationUs": 5107
+        },
+        {
+          "atTraceUs": 429959169466,
+          "durationUs": 5397
+        },
+        {
+          "atTraceUs": 429959186028,
+          "durationUs": 5454
+        },
+        {
+          "atTraceUs": 429959203259,
+          "durationUs": 4485
+        },
+        {
+          "atTraceUs": 429959219253,
+          "durationUs": 3328
+        },
+        {
+          "atTraceUs": 429959236560,
+          "durationUs": 5258
+        },
+        {
+          "atTraceUs": 429959253564,
+          "durationUs": 4228
+        },
+        {
+          "atTraceUs": 429959268440,
+          "durationUs": 4358
+        },
+        {
+          "atTraceUs": 429959286646,
+          "durationUs": 4587
+        },
+        {
+          "atTraceUs": 429959302687,
+          "durationUs": 5367
+        },
+        {
+          "atTraceUs": 429959319500,
+          "durationUs": 4915
+        },
+        {
+          "atTraceUs": 429959335926,
+          "durationUs": 3755
+        },
+        {
+          "atTraceUs": 429959352066,
+          "durationUs": 3844
+        },
+        {
+          "atTraceUs": 429959369082,
+          "durationUs": 2512
+        },
+        {
+          "atTraceUs": 429959385889,
+          "durationUs": 2452
+        },
+        {
+          "atTraceUs": 429959401837,
+          "durationUs": 3717
+        },
+        {
+          "atTraceUs": 429959418559,
+          "durationUs": 4733
+        },
+        {
+          "atTraceUs": 429959435063,
+          "durationUs": 2999
+        },
+        {
+          "atTraceUs": 429959452599,
+          "durationUs": 4591
+        },
+        {
+          "atTraceUs": 429959468250,
+          "durationUs": 3682
+        },
+        {
+          "atTraceUs": 429959485650,
+          "durationUs": 3318
+        },
+        {
+          "atTraceUs": 429959502731,
+          "durationUs": 4003
+        },
+        {
+          "atTraceUs": 429959518609,
+          "durationUs": 2520
+        },
+        {
+          "atTraceUs": 429959534787,
+          "durationUs": 4568
+        },
+        {
+          "atTraceUs": 429959552742,
+          "durationUs": 3885
+        },
+        {
+          "atTraceUs": 429959568892,
+          "durationUs": 4085
+        },
+        {
+          "atTraceUs": 429959586127,
+          "durationUs": 2485
+        },
+        {
+          "atTraceUs": 429959602561,
+          "durationUs": 3747
+        },
+        {
+          "atTraceUs": 429959620101,
+          "durationUs": 4279
+        },
+        {
+          "atTraceUs": 429959636040,
+          "durationUs": 3857
+        },
+        {
+          "atTraceUs": 429959653623,
+          "durationUs": 3333
+        },
+        {
+          "atTraceUs": 429959668939,
+          "durationUs": 5073
+        },
+        {
+          "atTraceUs": 429959685635,
+          "durationUs": 2376
+        },
+        {
+          "atTraceUs": 429959702025,
+          "durationUs": 2164
+        },
+        {
+          "atTraceUs": 429959719181,
+          "durationUs": 2587
+        },
+        {
+          "atTraceUs": 429959735634,
+          "durationUs": 2860
+        },
+        {
+          "atTraceUs": 429959751702,
+          "durationUs": 2448
+        },
+        {
+          "atTraceUs": 429959769015,
+          "durationUs": 2382
+        },
+        {
+          "atTraceUs": 429959785934,
+          "durationUs": 3088
+        },
+        {
+          "atTraceUs": 429959802315,
+          "durationUs": 3248
+        },
+        {
+          "atTraceUs": 429959818715,
+          "durationUs": 2266
+        },
+        {
+          "atTraceUs": 429959835001,
+          "durationUs": 3084
+        },
+        {
+          "atTraceUs": 429959852427,
+          "durationUs": 3248
+        },
+        {
+          "atTraceUs": 429959869627,
+          "durationUs": 3505
+        }
+      ],
+      "webglCallsPerRenderMax": null,
+      "observedWebglRenders": 0,
+      "reached60HzTarget": true,
+      "withinDrawCallBudget": null
+    },
+    {
+      "name": "guardian/webgl-front",
+      "expectedView": "front",
+      "nodeId": "guardian",
+      "requestedMs": 4000,
+      "before": {
+        "at": 12040.699999988079,
+        "draws": 610,
+        "state": "playing",
+        "node": "guardian",
+        "elapsed": 10240,
+        "spatial": "ready",
+        "view": "front",
+        "message": "这一段在等你的手。",
+        "focused": true,
+        "visibility": "visible"
+      },
+      "after": {
+        "at": 16093.900000035763,
+        "draws": 697,
+        "state": "playing",
+        "node": "guardian",
+        "elapsed": 14290,
+        "spatial": "ready",
+        "view": "front",
+        "message": "这一段在等你的手。",
+        "focused": true,
+        "visibility": "visible"
+      },
+      "canvasDrawsPerSecond": 21.464521859019168,
+      "nativeAnimationCallbacks": 87,
+      "nativeCallbackRateHz": 21.46485019755064,
+      "frameIntervalMedianMs": 47.866,
+      "frameIntervalP95Ms": 57.57,
+      "maxFrameIntervalMs": 61.402,
+      "frames": [
+        {
+          "atTraceUs": 429961390917,
+          "durationUs": 17977
+        },
+        {
+          "atTraceUs": 429961437596,
+          "durationUs": 15071
+        },
+        {
+          "atTraceUs": 429961483910,
+          "durationUs": 12338
+        },
+        {
+          "atTraceUs": 429961524034,
+          "durationUs": 14572
+        },
+        {
+          "atTraceUs": 429961564954,
+          "durationUs": 12308
+        },
+        {
+          "atTraceUs": 429961604138,
+          "durationUs": 10172
+        },
+        {
+          "atTraceUs": 429961634028,
+          "durationUs": 13357
+        },
+        {
+          "atTraceUs": 429961676333,
+          "durationUs": 10882
+        },
+        {
+          "atTraceUs": 429961707066,
+          "durationUs": 13441
+        },
+        {
+          "atTraceUs": 429961751696,
+          "durationUs": 10869
+        },
+        {
+          "atTraceUs": 429961785906,
+          "durationUs": 11281
+        },
+        {
+          "atTraceUs": 429961827681,
+          "durationUs": 13973
+        },
+        {
+          "atTraceUs": 429961867618,
+          "durationUs": 12690
+        },
+        {
+          "atTraceUs": 429961908652,
+          "durationUs": 11004
+        },
+        {
+          "atTraceUs": 429961941104,
+          "durationUs": 10966
+        },
+        {
+          "atTraceUs": 429961971125,
+          "durationUs": 15145
+        },
+        {
+          "atTraceUs": 429962020350,
+          "durationUs": 13284
+        },
+        {
+          "atTraceUs": 429962064456,
+          "durationUs": 18738
+        },
+        {
+          "atTraceUs": 429962122026,
+          "durationUs": 20274
+        },
+        {
+          "atTraceUs": 429962177471,
+          "durationUs": 17704
+        },
+        {
+          "atTraceUs": 429962229781,
+          "durationUs": 14139
+        },
+        {
+          "atTraceUs": 429962274567,
+          "durationUs": 18101
+        },
+        {
+          "atTraceUs": 429962328370,
+          "durationUs": 20117
+        },
+        {
+          "atTraceUs": 429962379186,
+          "durationUs": 21989
+        },
+        {
+          "atTraceUs": 429962432169,
+          "durationUs": 15949
+        },
+        {
+          "atTraceUs": 429962477494,
+          "durationUs": 12115
+        },
+        {
+          "atTraceUs": 429962511676,
+          "durationUs": 11339
+        },
+        {
+          "atTraceUs": 429962550506,
+          "durationUs": 15536
+        },
+        {
+          "atTraceUs": 429962595350,
+          "durationUs": 20498
+        },
+        {
+          "atTraceUs": 429962649201,
+          "durationUs": 17274
+        },
+        {
+          "atTraceUs": 429962696576,
+          "durationUs": 20100
+        },
+        {
+          "atTraceUs": 429962747443,
+          "durationUs": 19120
+        },
+        {
+          "atTraceUs": 429962808845,
+          "durationUs": 21544
+        },
+        {
+          "atTraceUs": 429962864527,
+          "durationUs": 21760
+        },
+        {
+          "atTraceUs": 429962923992,
+          "durationUs": 19962
+        },
+        {
+          "atTraceUs": 429962975489,
+          "durationUs": 18722
+        },
+        {
+          "atTraceUs": 429963028924,
+          "durationUs": 21302
+        },
+        {
+          "atTraceUs": 429963078041,
+          "durationUs": 21593
+        },
+        {
+          "atTraceUs": 429963132356,
+          "durationUs": 20924
+        },
+        {
+          "atTraceUs": 429963180222,
+          "durationUs": 13316
+        },
+        {
+          "atTraceUs": 429963222600,
+          "durationUs": 21187
+        },
+        {
+          "atTraceUs": 429963280666,
+          "durationUs": 19424
+        },
+        {
+          "atTraceUs": 429963333988,
+          "durationUs": 11663
+        },
+        {
+          "atTraceUs": 429963369284,
+          "durationUs": 15894
+        },
+        {
+          "atTraceUs": 429963417192,
+          "durationUs": 13238
+        },
+        {
+          "atTraceUs": 429963461813,
+          "durationUs": 11392
+        },
+        {
+          "atTraceUs": 429963495220,
+          "durationUs": 12255
+        },
+        {
+          "atTraceUs": 429963535882,
+          "durationUs": 13041
+        },
+        {
+          "atTraceUs": 429963578762,
+          "durationUs": 20208
+        },
+        {
+          "atTraceUs": 429963629999,
+          "durationUs": 18784
+        },
+        {
+          "atTraceUs": 429963682593,
+          "durationUs": 22211
+        },
+        {
+          "atTraceUs": 429963738065,
+          "durationUs": 23058
+        },
+        {
+          "atTraceUs": 429963793886,
+          "durationUs": 20691
+        },
+        {
+          "atTraceUs": 429963849908,
+          "durationUs": 16631
+        },
+        {
+          "atTraceUs": 429963898400,
+          "durationUs": 11584
+        },
+        {
+          "atTraceUs": 429963931895,
+          "durationUs": 11901
+        },
+        {
+          "atTraceUs": 429963974895,
+          "durationUs": 17357
+        },
+        {
+          "atTraceUs": 429964025456,
+          "durationUs": 11026
+        },
+        {
+          "atTraceUs": 429964062548,
+          "durationUs": 19071
+        },
+        {
+          "atTraceUs": 429964113710,
+          "durationUs": 19993
+        },
+        {
+          "atTraceUs": 429964162532,
+          "durationUs": 14350
+        },
+        {
+          "atTraceUs": 429964209500,
+          "durationUs": 22226
+        },
+        {
+          "atTraceUs": 429964263842,
+          "durationUs": 11085
+        },
+        {
+          "atTraceUs": 429964293305,
+          "durationUs": 13165
+        },
+        {
+          "atTraceUs": 429964339221,
+          "durationUs": 14974
+        },
+        {
+          "atTraceUs": 429964385255,
+          "durationUs": 18683
+        },
+        {
+          "atTraceUs": 429964438307,
+          "durationUs": 12409
+        },
+        {
+          "atTraceUs": 429964475937,
+          "durationUs": 17913
+        },
+        {
+          "atTraceUs": 429964527957,
+          "durationUs": 13061
+        },
+        {
+          "atTraceUs": 429964571734,
+          "durationUs": 11640
+        },
+        {
+          "atTraceUs": 429964607310,
+          "durationUs": 12067
+        },
+        {
+          "atTraceUs": 429964651336,
+          "durationUs": 19817
+        },
+        {
+          "atTraceUs": 429964701945,
+          "durationUs": 12054
+        },
+        {
+          "atTraceUs": 429964737386,
+          "durationUs": 19846
+        },
+        {
+          "atTraceUs": 429964787589,
+          "durationUs": 15375
+        },
+        {
+          "atTraceUs": 429964838486,
+          "durationUs": 17856
+        },
+        {
+          "atTraceUs": 429964891969,
+          "durationUs": 20140
+        },
+        {
+          "atTraceUs": 429964945404,
+          "durationUs": 20262
+        },
+        {
+          "atTraceUs": 429965000464,
+          "durationUs": 22686
+        },
+        {
+          "atTraceUs": 429965060502,
+          "durationUs": 21712
+        },
+        {
+          "atTraceUs": 429965117437,
+          "durationUs": 17456
+        },
+        {
+          "atTraceUs": 429965165287,
+          "durationUs": 13973
+        },
+        {
+          "atTraceUs": 429965208748,
+          "durationUs": 11987
+        },
+        {
+          "atTraceUs": 429965245815,
+          "durationUs": 13749
+        },
+        {
+          "atTraceUs": 429965294420,
+          "durationUs": 19471
+        },
+        {
+          "atTraceUs": 429965344373,
+          "durationUs": 14964
+        },
+        {
+          "atTraceUs": 429965395136,
+          "durationUs": 16299
+        }
+      ],
+      "webglCallsPerRenderMax": 15,
+      "observedWebglRenders": 87,
+      "reached60HzTarget": false,
+      "withinDrawCallBudget": true
+    },
+    {
+      "name": "guardian/webgl-workshop",
+      "expectedView": "workshop",
+      "nodeId": "guardian",
+      "requestedMs": 4000,
+      "before": {
+        "at": 16970.80000001192,
+        "draws": 710,
+        "state": "playing",
+        "node": "guardian",
+        "elapsed": 14924,
+        "spatial": "ready",
+        "view": "workshop",
+        "message": "这一段在等你的手。",
+        "focused": true,
+        "visibility": "visible"
+      },
+      "after": {
+        "at": 21014.100000023842,
+        "draws": 809,
+        "state": "playing",
+        "node": "guardian",
+        "elapsed": 18991,
+        "spatial": "ready",
+        "view": "workshop",
+        "message": "这一段在等你的手。",
+        "focused": true,
+        "visibility": "visible"
+      },
+      "canvasDrawsPerSecond": 24.48495041172016,
+      "nativeAnimationCallbacks": 99,
+      "nativeCallbackRateHz": 24.48488985509397,
+      "frameIntervalMedianMs": 41.851,
+      "frameIntervalP95Ms": 52.458,
+      "maxFrameIntervalMs": 53.649,
+      "frames": [
+        {
+          "atTraceUs": 429966321117,
+          "durationUs": 19017
+        },
+        {
+          "atTraceUs": 429966367889,
+          "durationUs": 21418
+        },
+        {
+          "atTraceUs": 429966421456,
+          "durationUs": 16226
+        },
+        {
+          "atTraceUs": 429966462258,
+          "durationUs": 13213
+        },
+        {
+          "atTraceUs": 429966496894,
+          "durationUs": 13571
+        },
+        {
+          "atTraceUs": 429966528270,
+          "durationUs": 14400
+        },
+        {
+          "atTraceUs": 429966565583,
+          "durationUs": 16177
+        },
+        {
+          "atTraceUs": 429966610538,
+          "durationUs": 11034
+        },
+        {
+          "atTraceUs": 429966639892,
+          "durationUs": 14136
+        },
+        {
+          "atTraceUs": 429966678645,
+          "durationUs": 16930
+        },
+        {
+          "atTraceUs": 429966721930,
+          "durationUs": 16908
+        },
+        {
+          "atTraceUs": 429966763677,
+          "durationUs": 11505
+        },
+        {
+          "atTraceUs": 429966794178,
+          "durationUs": 16518
+        },
+        {
+          "atTraceUs": 429966836504,
+          "durationUs": 18981
+        },
+        {
+          "atTraceUs": 429966881953,
+          "durationUs": 21488
+        },
+        {
+          "atTraceUs": 429966934411,
+          "durationUs": 14454
+        },
+        {
+          "atTraceUs": 429966976261,
+          "durationUs": 19356
+        },
+        {
+          "atTraceUs": 429967020616,
+          "durationUs": 20179
+        },
+        {
+          "atTraceUs": 429967067045,
+          "durationUs": 12441
+        },
+        {
+          "atTraceUs": 429967098838,
+          "durationUs": 16731
+        },
+        {
+          "atTraceUs": 429967146393,
+          "durationUs": 12498
+        },
+        {
+          "atTraceUs": 429967185288,
+          "durationUs": 20120
+        },
+        {
+          "atTraceUs": 429967234283,
+          "durationUs": 20906
+        },
+        {
+          "atTraceUs": 429967280237,
+          "durationUs": 19138
+        },
+        {
+          "atTraceUs": 429967331251,
+          "durationUs": 13601
+        },
+        {
+          "atTraceUs": 429967369433,
+          "durationUs": 12315
+        },
+        {
+          "atTraceUs": 429967396685,
+          "durationUs": 12829
+        },
+        {
+          "atTraceUs": 429967434301,
+          "durationUs": 11071
+        },
+        {
+          "atTraceUs": 429967468142,
+          "durationUs": 14718
+        },
+        {
+          "atTraceUs": 429967508949,
+          "durationUs": 17032
+        },
+        {
+          "atTraceUs": 429967552689,
+          "durationUs": 14013
+        },
+        {
+          "atTraceUs": 429967593547,
+          "durationUs": 14394
+        },
+        {
+          "atTraceUs": 429967634328,
+          "durationUs": 15768
+        },
+        {
+          "atTraceUs": 429967676967,
+          "durationUs": 16305
+        },
+        {
+          "atTraceUs": 429967719639,
+          "durationUs": 17103
+        },
+        {
+          "atTraceUs": 429967763422,
+          "durationUs": 18800
+        },
+        {
+          "atTraceUs": 429967809799,
+          "durationUs": 22274
+        },
+        {
+          "atTraceUs": 429967860107,
+          "durationUs": 21125
+        },
+        {
+          "atTraceUs": 429967908904,
+          "durationUs": 21772
+        },
+        {
+          "atTraceUs": 429967957911,
+          "durationUs": 21381
+        },
+        {
+          "atTraceUs": 429968008849,
+          "durationUs": 21518
+        },
+        {
+          "atTraceUs": 429968058544,
+          "durationUs": 12211
+        },
+        {
+          "atTraceUs": 429968093396,
+          "durationUs": 11456
+        },
+        {
+          "atTraceUs": 429968120724,
+          "durationUs": 11424
+        },
+        {
+          "atTraceUs": 429968146657,
+          "durationUs": 11777
+        },
+        {
+          "atTraceUs": 429968173208,
+          "durationUs": 12096
+        },
+        {
+          "atTraceUs": 429968211123,
+          "durationUs": 19272
+        },
+        {
+          "atTraceUs": 429968259953,
+          "durationUs": 19198
+        },
+        {
+          "atTraceUs": 429968308741,
+          "durationUs": 19050
+        },
+        {
+          "atTraceUs": 429968355399,
+          "durationUs": 20427
+        },
+        {
+          "atTraceUs": 429968405716,
+          "durationUs": 21446
+        },
+        {
+          "atTraceUs": 429968459365,
+          "durationUs": 21786
+        },
+        {
+          "atTraceUs": 429968511775,
+          "durationUs": 21339
+        },
+        {
+          "atTraceUs": 429968564999,
+          "durationUs": 16248
+        },
+        {
+          "atTraceUs": 429968613828,
+          "durationUs": 13054
+        },
+        {
+          "atTraceUs": 429968645042,
+          "durationUs": 13226
+        },
+        {
+          "atTraceUs": 429968678005,
+          "durationUs": 12489
+        },
+        {
+          "atTraceUs": 429968720266,
+          "durationUs": 18913
+        },
+        {
+          "atTraceUs": 429968759664,
+          "durationUs": 12001
+        },
+        {
+          "atTraceUs": 429968787062,
+          "durationUs": 11452
+        },
+        {
+          "atTraceUs": 429968825820,
+          "durationUs": 11604
+        },
+        {
+          "atTraceUs": 429968861833,
+          "durationUs": 14811
+        },
+        {
+          "atTraceUs": 429968903684,
+          "durationUs": 15841
+        },
+        {
+          "atTraceUs": 429968945216,
+          "durationUs": 13927
+        },
+        {
+          "atTraceUs": 429968986562,
+          "durationUs": 17766
+        },
+        {
+          "atTraceUs": 429969032176,
+          "durationUs": 23253
+        },
+        {
+          "atTraceUs": 429969082353,
+          "durationUs": 18175
+        },
+        {
+          "atTraceUs": 429969129546,
+          "durationUs": 22336
+        },
+        {
+          "atTraceUs": 429969183106,
+          "durationUs": 14643
+        },
+        {
+          "atTraceUs": 429969233224,
+          "durationUs": 16956
+        },
+        {
+          "atTraceUs": 429969277008,
+          "durationUs": 16081
+        },
+        {
+          "atTraceUs": 429969319404,
+          "durationUs": 12324
+        },
+        {
+          "atTraceUs": 429969350270,
+          "durationUs": 14918
+        },
+        {
+          "atTraceUs": 429969391337,
+          "durationUs": 12036
+        },
+        {
+          "atTraceUs": 429969425192,
+          "durationUs": 11691
+        },
+        {
+          "atTraceUs": 429969451453,
+          "durationUs": 12701
+        },
+        {
+          "atTraceUs": 429969491516,
+          "durationUs": 17640
+        },
+        {
+          "atTraceUs": 429969540102,
+          "durationUs": 12858
+        },
+        {
+          "atTraceUs": 429969576369,
+          "durationUs": 11390
+        },
+        {
+          "atTraceUs": 429969604659,
+          "durationUs": 12982
+        },
+        {
+          "atTraceUs": 429969647363,
+          "durationUs": 16526
+        },
+        {
+          "atTraceUs": 429969690165,
+          "durationUs": 16206
+        },
+        {
+          "atTraceUs": 429969732716,
+          "durationUs": 16893
+        },
+        {
+          "atTraceUs": 429969777776,
+          "durationUs": 19919
+        },
+        {
+          "atTraceUs": 429969826271,
+          "durationUs": 21150
+        },
+        {
+          "atTraceUs": 429969874561,
+          "durationUs": 11637
+        },
+        {
+          "atTraceUs": 429969906366,
+          "durationUs": 12224
+        },
+        {
+          "atTraceUs": 429969933841,
+          "durationUs": 11534
+        },
+        {
+          "atTraceUs": 429969959136,
+          "durationUs": 11803
+        },
+        {
+          "atTraceUs": 429969985845,
+          "durationUs": 13520
+        },
+        {
+          "atTraceUs": 429970017266,
+          "durationUs": 14397
+        },
+        {
+          "atTraceUs": 429970063593,
+          "durationUs": 13516
+        },
+        {
+          "atTraceUs": 429970102865,
+          "durationUs": 12922
+        },
+        {
+          "atTraceUs": 429970142085,
+          "durationUs": 11351
+        },
+        {
+          "atTraceUs": 429970173689,
+          "durationUs": 12048
+        },
+        {
+          "atTraceUs": 429970211817,
+          "durationUs": 11233
+        },
+        {
+          "atTraceUs": 429970243164,
+          "durationUs": 13234
+        },
+        {
+          "atTraceUs": 429970282768,
+          "durationUs": 17596
+        },
+        {
+          "atTraceUs": 429970326893,
+          "durationUs": 12377
+        }
+      ],
+      "webglCallsPerRenderMax": 65,
+      "observedWebglRenders": 99,
+      "reached60HzTarget": false,
+      "withinDrawCallBudget": true
+    },
+    {
+      "name": "guardian/webgl-backstage",
+      "expectedView": "backstage",
+      "nodeId": "guardian",
+      "requestedMs": 4000,
+      "before": {
+        "at": 21565.5,
+        "draws": 819,
+        "state": "playing",
+        "node": "guardian",
+        "elapsed": 19391,
+        "spatial": "ready",
+        "view": "backstage",
+        "message": "这一段在等你的手。",
+        "focused": true,
+        "visibility": "visible"
+      },
+      "after": {
+        "at": 25598.600000023842,
+        "draws": 908,
+        "state": "playing",
+        "node": "guardian",
+        "elapsed": 23364,
+        "spatial": "ready",
+        "view": "backstage",
+        "message": "这一段在等你的手。",
+        "focused": true,
+        "visibility": "visible"
+      },
+      "canvasDrawsPerSecond": 22.067392328351364,
+      "nativeAnimationCallbacks": 89,
+      "nativeCallbackRateHz": 22.067654967007616,
+      "frameIntervalMedianMs": 46.424,
+      "frameIntervalP95Ms": 54.859,
+      "maxFrameIntervalMs": 62.61,
+      "frames": [
+        {
+          "atTraceUs": 429970918465,
+          "durationUs": 18814
+        },
+        {
+          "atTraceUs": 429970969725,
+          "durationUs": 25223
+        },
+        {
+          "atTraceUs": 429971032335,
+          "durationUs": 18397
+        },
+        {
+          "atTraceUs": 429971081709,
+          "durationUs": 15669
+        },
+        {
+          "atTraceUs": 429971130951,
+          "durationUs": 19167
+        },
+        {
+          "atTraceUs": 429971181452,
+          "durationUs": 11853
+        },
+        {
+          "atTraceUs": 429971215834,
+          "durationUs": 11348
+        },
+        {
+          "atTraceUs": 429971243779,
+          "durationUs": 11898
+        },
+        {
+          "atTraceUs": 429971287102,
+          "durationUs": 13485
+        },
+        {
+          "atTraceUs": 429971331033,
+          "durationUs": 12077
+        },
+        {
+          "atTraceUs": 429971372393,
+          "durationUs": 13998
+        },
+        {
+          "atTraceUs": 429971416842,
+          "durationUs": 20924
+        },
+        {
+          "atTraceUs": 429971469087,
+          "durationUs": 13898
+        },
+        {
+          "atTraceUs": 429971513157,
+          "durationUs": 17469
+        },
+        {
+          "atTraceUs": 429971563272,
+          "durationUs": 19285
+        },
+        {
+          "atTraceUs": 429971613680,
+          "durationUs": 19960
+        },
+        {
+          "atTraceUs": 429971665418,
+          "durationUs": 12977
+        },
+        {
+          "atTraceUs": 429971708995,
+          "durationUs": 16625
+        },
+        {
+          "atTraceUs": 429971760414,
+          "durationUs": 12436
+        },
+        {
+          "atTraceUs": 429971795671,
+          "durationUs": 11405
+        },
+        {
+          "atTraceUs": 429971822723,
+          "durationUs": 11074
+        },
+        {
+          "atTraceUs": 429971863267,
+          "durationUs": 15632
+        },
+        {
+          "atTraceUs": 429971914086,
+          "durationUs": 13513
+        },
+        {
+          "atTraceUs": 429971956145,
+          "durationUs": 10867
+        },
+        {
+          "atTraceUs": 429971986635,
+          "durationUs": 14466
+        },
+        {
+          "atTraceUs": 429972032731,
+          "durationUs": 15670
+        },
+        {
+          "atTraceUs": 429972079175,
+          "durationUs": 12449
+        },
+        {
+          "atTraceUs": 429972116750,
+          "durationUs": 13280
+        },
+        {
+          "atTraceUs": 429972159946,
+          "durationUs": 12179
+        },
+        {
+          "atTraceUs": 429972202442,
+          "durationUs": 13794
+        },
+        {
+          "atTraceUs": 429972246107,
+          "durationUs": 14331
+        },
+        {
+          "atTraceUs": 429972291862,
+          "durationUs": 18559
+        },
+        {
+          "atTraceUs": 429972343287,
+          "durationUs": 12558
+        },
+        {
+          "atTraceUs": 429972382184,
+          "durationUs": 16693
+        },
+        {
+          "atTraceUs": 429972430646,
+          "durationUs": 11640
+        },
+        {
+          "atTraceUs": 429972466148,
+          "durationUs": 15006
+        },
+        {
+          "atTraceUs": 429972513712,
+          "durationUs": 17828
+        },
+        {
+          "atTraceUs": 429972563190,
+          "durationUs": 21795
+        },
+        {
+          "atTraceUs": 429972618049,
+          "durationUs": 19985
+        },
+        {
+          "atTraceUs": 429972668983,
+          "durationUs": 18725
+        },
+        {
+          "atTraceUs": 429972720984,
+          "durationUs": 19405
+        },
+        {
+          "atTraceUs": 429972773321,
+          "durationUs": 17649
+        },
+        {
+          "atTraceUs": 429972823894,
+          "durationUs": 20904
+        },
+        {
+          "atTraceUs": 429972875676,
+          "durationUs": 18687
+        },
+        {
+          "atTraceUs": 429972925551,
+          "durationUs": 19093
+        },
+        {
+          "atTraceUs": 429972974792,
+          "durationUs": 18404
+        },
+        {
+          "atTraceUs": 429973023949,
+          "durationUs": 20398
+        },
+        {
+          "atTraceUs": 429973079625,
+          "durationUs": 14801
+        },
+        {
+          "atTraceUs": 429973121621,
+          "durationUs": 12264
+        },
+        {
+          "atTraceUs": 429973152048,
+          "durationUs": 11884
+        },
+        {
+          "atTraceUs": 429973194385,
+          "durationUs": 10861
+        },
+        {
+          "atTraceUs": 429973227568,
+          "durationUs": 11813
+        },
+        {
+          "atTraceUs": 429973254486,
+          "durationUs": 11065
+        },
+        {
+          "atTraceUs": 429973279344,
+          "durationUs": 16734
+        },
+        {
+          "atTraceUs": 429973327481,
+          "durationUs": 16881
+        },
+        {
+          "atTraceUs": 429973374775,
+          "durationUs": 17851
+        },
+        {
+          "atTraceUs": 429973421199,
+          "durationUs": 20983
+        },
+        {
+          "atTraceUs": 429973474976,
+          "durationUs": 17705
+        },
+        {
+          "atTraceUs": 429973522145,
+          "durationUs": 17756
+        },
+        {
+          "atTraceUs": 429973573456,
+          "durationUs": 20823
+        },
+        {
+          "atTraceUs": 429973624762,
+          "durationUs": 17424
+        },
+        {
+          "atTraceUs": 429973673464,
+          "durationUs": 13938
+        },
+        {
+          "atTraceUs": 429973720472,
+          "durationUs": 18989
+        },
+        {
+          "atTraceUs": 429973771288,
+          "durationUs": 22060
+        },
+        {
+          "atTraceUs": 429973828280,
+          "durationUs": 11438
+        },
+        {
+          "atTraceUs": 429973872459,
+          "durationUs": 14499
+        },
+        {
+          "atTraceUs": 429973916875,
+          "durationUs": 13150
+        },
+        {
+          "atTraceUs": 429973961086,
+          "durationUs": 12436
+        },
+        {
+          "atTraceUs": 429974004553,
+          "durationUs": 22096
+        },
+        {
+          "atTraceUs": 429974057258,
+          "durationUs": 15305
+        },
+        {
+          "atTraceUs": 429974101752,
+          "durationUs": 13606
+        },
+        {
+          "atTraceUs": 429974145379,
+          "durationUs": 12986
+        },
+        {
+          "atTraceUs": 429974180956,
+          "durationUs": 12033
+        },
+        {
+          "atTraceUs": 429974221895,
+          "durationUs": 10951
+        },
+        {
+          "atTraceUs": 429974251536,
+          "durationUs": 14665
+        },
+        {
+          "atTraceUs": 429974296305,
+          "durationUs": 13854
+        },
+        {
+          "atTraceUs": 429974340277,
+          "durationUs": 16210
+        },
+        {
+          "atTraceUs": 429974389433,
+          "durationUs": 15410
+        },
+        {
+          "atTraceUs": 429974434652,
+          "durationUs": 15990
+        },
+        {
+          "atTraceUs": 429974483939,
+          "durationUs": 19374
+        },
+        {
+          "atTraceUs": 429974536064,
+          "durationUs": 19956
+        },
+        {
+          "atTraceUs": 429974586973,
+          "durationUs": 12852
+        },
+        {
+          "atTraceUs": 429974628301,
+          "durationUs": 11024
+        },
+        {
+          "atTraceUs": 429974659166,
+          "durationUs": 12053
+        },
+        {
+          "atTraceUs": 429974701502,
+          "durationUs": 12803
+        },
+        {
+          "atTraceUs": 429974742298,
+          "durationUs": 15480
+        },
+        {
+          "atTraceUs": 429974788618,
+          "durationUs": 20356
+        },
+        {
+          "atTraceUs": 429974840284,
+          "durationUs": 21652
+        },
+        {
+          "atTraceUs": 429974895205,
+          "durationUs": 22200
+        }
+      ],
+      "webglCallsPerRenderMax": 65,
+      "observedWebglRenders": 89,
+      "reached60HzTarget": false,
+      "withinDrawCallBudget": true
+    },
+    {
+      "name": "guardian/webgl-exhibit",
+      "expectedView": "exhibit",
+      "nodeId": "guardian",
+      "requestedMs": 4000,
+      "before": {
+        "at": 26431.5,
+        "draws": 921,
+        "state": "playing",
+        "node": "guardian",
+        "elapsed": 23966,
+        "spatial": "ready",
+        "view": "exhibit",
+        "message": "这一段在等你的手。",
+        "focused": true,
+        "visibility": "visible"
+      },
+      "after": {
+        "at": 30450.69999998808,
+        "draws": 1015,
+        "state": "playing",
+        "node": "guardian",
+        "elapsed": 28016,
+        "spatial": "ready",
+        "view": "exhibit",
+        "message": "这一段在等你的手。",
+        "focused": true,
+        "visibility": "visible"
+      },
+      "canvasDrawsPerSecond": 23.38773885357255,
+      "nativeAnimationCallbacks": 94,
+      "nativeCallbackRateHz": 23.38811709484752,
+      "frameIntervalMedianMs": 43.569,
+      "frameIntervalP95Ms": 55.671,
+      "maxFrameIntervalMs": 65.401,
+      "frames": [
+        {
+          "atTraceUs": 429975782388,
+          "durationUs": 19079
+        },
+        {
+          "atTraceUs": 429975829884,
+          "durationUs": 26264
+        },
+        {
+          "atTraceUs": 429975885555,
+          "durationUs": 25091
+        },
+        {
+          "atTraceUs": 429975936731,
+          "durationUs": 22036
+        },
+        {
+          "atTraceUs": 429975987964,
+          "durationUs": 21179
+        },
+        {
+          "atTraceUs": 429976035217,
+          "durationUs": 20539
+        },
+        {
+          "atTraceUs": 429976084689,
+          "durationUs": 24183
+        },
+        {
+          "atTraceUs": 429976140105,
+          "durationUs": 20455
+        },
+        {
+          "atTraceUs": 429976186756,
+          "durationUs": 22071
+        },
+        {
+          "atTraceUs": 429976240849,
+          "durationUs": 25291
+        },
+        {
+          "atTraceUs": 429976292023,
+          "durationUs": 16495
+        },
+        {
+          "atTraceUs": 429976334034,
+          "durationUs": 12772
+        },
+        {
+          "atTraceUs": 429976365836,
+          "durationUs": 11010
+        },
+        {
+          "atTraceUs": 429976396444,
+          "durationUs": 13107
+        },
+        {
+          "atTraceUs": 429976431726,
+          "durationUs": 13172
+        },
+        {
+          "atTraceUs": 429976469862,
+          "durationUs": 12211
+        },
+        {
+          "atTraceUs": 429976502121,
+          "durationUs": 12196
+        },
+        {
+          "atTraceUs": 429976532458,
+          "durationUs": 19945
+        },
+        {
+          "atTraceUs": 429976578997,
+          "durationUs": 18764
+        },
+        {
+          "atTraceUs": 429976624188,
+          "durationUs": 18861
+        },
+        {
+          "atTraceUs": 429976673484,
+          "durationUs": 18440
+        },
+        {
+          "atTraceUs": 429976724174,
+          "durationUs": 16285
+        },
+        {
+          "atTraceUs": 429976764117,
+          "durationUs": 17396
+        },
+        {
+          "atTraceUs": 429976813561,
+          "durationUs": 18237
+        },
+        {
+          "atTraceUs": 429976856378,
+          "durationUs": 15387
+        },
+        {
+          "atTraceUs": 429976898223,
+          "durationUs": 21748
+        },
+        {
+          "atTraceUs": 429976952648,
+          "durationUs": 20795
+        },
+        {
+          "atTraceUs": 429977004103,
+          "durationUs": 15162
+        },
+        {
+          "atTraceUs": 429977043140,
+          "durationUs": 21806
+        },
+        {
+          "atTraceUs": 429977090468,
+          "durationUs": 22799
+        },
+        {
+          "atTraceUs": 429977144086,
+          "durationUs": 14840
+        },
+        {
+          "atTraceUs": 429977184458,
+          "durationUs": 19031
+        },
+        {
+          "atTraceUs": 429977231081,
+          "durationUs": 23234
+        },
+        {
+          "atTraceUs": 429977285280,
+          "durationUs": 14976
+        },
+        {
+          "atTraceUs": 429977328849,
+          "durationUs": 20310
+        },
+        {
+          "atTraceUs": 429977373872,
+          "durationUs": 16316
+        },
+        {
+          "atTraceUs": 429977417529,
+          "durationUs": 17576
+        },
+        {
+          "atTraceUs": 429977460201,
+          "durationUs": 16510
+        },
+        {
+          "atTraceUs": 429977503498,
+          "durationUs": 12006
+        },
+        {
+          "atTraceUs": 429977535580,
+          "durationUs": 16686
+        },
+        {
+          "atTraceUs": 429977581107,
+          "durationUs": 21511
+        },
+        {
+          "atTraceUs": 429977629617,
+          "durationUs": 19685
+        },
+        {
+          "atTraceUs": 429977678503,
+          "durationUs": 14229
+        },
+        {
+          "atTraceUs": 429977715952,
+          "durationUs": 11883
+        },
+        {
+          "atTraceUs": 429977753027,
+          "durationUs": 12307
+        },
+        {
+          "atTraceUs": 429977790573,
+          "durationUs": 13445
+        },
+        {
+          "atTraceUs": 429977829642,
+          "durationUs": 13159
+        },
+        {
+          "atTraceUs": 429977865020,
+          "durationUs": 15631
+        },
+        {
+          "atTraceUs": 429977905650,
+          "durationUs": 29901
+        },
+        {
+          "atTraceUs": 429977966621,
+          "durationUs": 14942
+        },
+        {
+          "atTraceUs": 429978002288,
+          "durationUs": 11520
+        },
+        {
+          "atTraceUs": 429978039838,
+          "durationUs": 17821
+        },
+        {
+          "atTraceUs": 429978084865,
+          "durationUs": 19724
+        },
+        {
+          "atTraceUs": 429978134094,
+          "durationUs": 19704
+        },
+        {
+          "atTraceUs": 429978181282,
+          "durationUs": 17606
+        },
+        {
+          "atTraceUs": 429978228207,
+          "durationUs": 34997
+        },
+        {
+          "atTraceUs": 429978293608,
+          "durationUs": 21145
+        },
+        {
+          "atTraceUs": 429978341260,
+          "durationUs": 16019
+        },
+        {
+          "atTraceUs": 429978383496,
+          "durationUs": 14360
+        },
+        {
+          "atTraceUs": 429978428013,
+          "durationUs": 12709
+        },
+        {
+          "atTraceUs": 429978454069,
+          "durationUs": 12917
+        },
+        {
+          "atTraceUs": 429978483848,
+          "durationUs": 16059
+        },
+        {
+          "atTraceUs": 429978527431,
+          "durationUs": 13000
+        },
+        {
+          "atTraceUs": 429978561330,
+          "durationUs": 12594
+        },
+        {
+          "atTraceUs": 429978599801,
+          "durationUs": 11324
+        },
+        {
+          "atTraceUs": 429978627695,
+          "durationUs": 11766
+        },
+        {
+          "atTraceUs": 429978654084,
+          "durationUs": 24124
+        },
+        {
+          "atTraceUs": 429978707759,
+          "durationUs": 21830
+        },
+        {
+          "atTraceUs": 429978759547,
+          "durationUs": 13978
+        },
+        {
+          "atTraceUs": 429978796757,
+          "durationUs": 14455
+        },
+        {
+          "atTraceUs": 429978838693,
+          "durationUs": 19173
+        },
+        {
+          "atTraceUs": 429978888121,
+          "durationUs": 25080
+        },
+        {
+          "atTraceUs": 429978943866,
+          "durationUs": 25005
+        },
+        {
+          "atTraceUs": 429979001697,
+          "durationUs": 22834
+        },
+        {
+          "atTraceUs": 429979056299,
+          "durationUs": 18207
+        },
+        {
+          "atTraceUs": 429979102709,
+          "durationUs": 15627
+        },
+        {
+          "atTraceUs": 429979143938,
+          "durationUs": 11303
+        },
+        {
+          "atTraceUs": 429979172633,
+          "durationUs": 10633
+        },
+        {
+          "atTraceUs": 429979195675,
+          "durationUs": 10754
+        },
+        {
+          "atTraceUs": 429979231923,
+          "durationUs": 10838
+        },
+        {
+          "atTraceUs": 429979262772,
+          "durationUs": 12000
+        },
+        {
+          "atTraceUs": 429979291058,
+          "durationUs": 12669
+        },
+        {
+          "atTraceUs": 429979317077,
+          "durationUs": 12743
+        },
+        {
+          "atTraceUs": 429979358063,
+          "durationUs": 13667
+        },
+        {
+          "atTraceUs": 429979399663,
+          "durationUs": 15800
+        },
+        {
+          "atTraceUs": 429979442199,
+          "durationUs": 17140
+        },
+        {
+          "atTraceUs": 429979485189,
+          "durationUs": 18768
+        },
+        {
+          "atTraceUs": 429979532536,
+          "durationUs": 18989
+        },
+        {
+          "atTraceUs": 429979582149,
+          "durationUs": 18123
+        },
+        {
+          "atTraceUs": 429979626299,
+          "durationUs": 21453
+        },
+        {
+          "atTraceUs": 429979679058,
+          "durationUs": 17339
+        },
+        {
+          "atTraceUs": 429979722088,
+          "durationUs": 10756
+        },
+        {
+          "atTraceUs": 429979751495,
+          "durationUs": 10634
+        },
+        {
+          "atTraceUs": 429979776725,
+          "durationUs": 10659
+        }
+      ],
+      "webglCallsPerRenderMax": 65,
+      "observedWebglRenders": 94,
+      "reached60HzTarget": false,
+      "withinDrawCallBudget": true
+    },
+    {
+      "name": "guardian/webgl-sustained",
+      "expectedView": "workshop",
+      "nodeId": "guardian",
+      "requestedMs": 12000,
+      "before": {
+        "at": 32346.80000001192,
+        "draws": 6,
+        "state": "playing",
+        "node": "guardian",
+        "elapsed": 134,
+        "spatial": "ready",
+        "view": "workshop",
+        "message": "这一段在等你的手。",
+        "focused": true,
+        "visibility": "visible"
+      },
+      "after": {
+        "at": 44397.19999998808,
+        "draws": 293,
+        "state": "playing",
+        "node": "guardian",
+        "elapsed": 12166,
+        "spatial": "ready",
+        "view": "workshop",
+        "message": "这一段在等你的手。",
+        "focused": true,
+        "visibility": "visible"
+      },
+      "canvasDrawsPerSecond": 23.816636792186802,
+      "nativeAnimationCallbacks": 287,
+      "nativeCallbackRateHz": 23.816763283613007,
+      "frameIntervalMedianMs": 42.628,
+      "frameIntervalP95Ms": 54.679,
+      "maxFrameIntervalMs": 60.312,
+      "frames": [
+        {
+          "atTraceUs": 429981697156,
+          "durationUs": 23576
+        },
+        {
+          "atTraceUs": 429981751835,
+          "durationUs": 21860
+        },
+        {
+          "atTraceUs": 429981802256,
+          "durationUs": 23784
+        },
+        {
+          "atTraceUs": 429981851806,
+          "durationUs": 12016
+        },
+        {
+          "atTraceUs": 429981883740,
+          "durationUs": 13286
+        },
+        {
+          "atTraceUs": 429981923516,
+          "durationUs": 13743
+        },
+        {
+          "atTraceUs": 429981959187,
+          "durationUs": 12649
+        },
+        {
+          "atTraceUs": 429981987550,
+          "durationUs": 12209
+        },
+        {
+          "atTraceUs": 429982012766,
+          "durationUs": 12754
+        },
+        {
+          "atTraceUs": 429982052584,
+          "durationUs": 21450
+        },
+        {
+          "atTraceUs": 429982103593,
+          "durationUs": 16342
+        },
+        {
+          "atTraceUs": 429982143325,
+          "durationUs": 12355
+        },
+        {
+          "atTraceUs": 429982169679,
+          "durationUs": 22749
+        },
+        {
+          "atTraceUs": 429982222715,
+          "durationUs": 11593
+        },
+        {
+          "atTraceUs": 429982257810,
+          "durationUs": 11050
+        },
+        {
+          "atTraceUs": 429982283251,
+          "durationUs": 12525
+        },
+        {
+          "atTraceUs": 429982322958,
+          "durationUs": 12303
+        },
+        {
+          "atTraceUs": 429982355330,
+          "durationUs": 13934
+        },
+        {
+          "atTraceUs": 429982397869,
+          "durationUs": 18767
+        },
+        {
+          "atTraceUs": 429982445562,
+          "durationUs": 19446
+        },
+        {
+          "atTraceUs": 429982492882,
+          "durationUs": 13720
+        },
+        {
+          "atTraceUs": 429982535781,
+          "durationUs": 12961
+        },
+        {
+          "atTraceUs": 429982574009,
+          "durationUs": 11161
+        },
+        {
+          "atTraceUs": 429982602691,
+          "durationUs": 21012
+        },
+        {
+          "atTraceUs": 429982650204,
+          "durationUs": 16971
+        },
+        {
+          "atTraceUs": 429982693800,
+          "durationUs": 16501
+        },
+        {
+          "atTraceUs": 429982738002,
+          "durationUs": 18928
+        },
+        {
+          "atTraceUs": 429982785634,
+          "durationUs": 23172
+        },
+        {
+          "atTraceUs": 429982836526,
+          "durationUs": 21895
+        },
+        {
+          "atTraceUs": 429982885333,
+          "durationUs": 11481
+        },
+        {
+          "atTraceUs": 429982916765,
+          "durationUs": 15542
+        },
+        {
+          "atTraceUs": 429982963365,
+          "durationUs": 22938
+        },
+        {
+          "atTraceUs": 429983014217,
+          "durationUs": 19634
+        },
+        {
+          "atTraceUs": 429983062202,
+          "durationUs": 14130
+        },
+        {
+          "atTraceUs": 429983109293,
+          "durationUs": 13512
+        },
+        {
+          "atTraceUs": 429983147237,
+          "durationUs": 17236
+        },
+        {
+          "atTraceUs": 429983193601,
+          "durationUs": 14662
+        },
+        {
+          "atTraceUs": 429983233574,
+          "durationUs": 12211
+        },
+        {
+          "atTraceUs": 429983271515,
+          "durationUs": 19242
+        },
+        {
+          "atTraceUs": 429983321822,
+          "durationUs": 25578
+        },
+        {
+          "atTraceUs": 429983377778,
+          "durationUs": 15575
+        },
+        {
+          "atTraceUs": 429983423310,
+          "durationUs": 22805
+        },
+        {
+          "atTraceUs": 429983476441,
+          "durationUs": 27131
+        },
+        {
+          "atTraceUs": 429983532146,
+          "durationUs": 16085
+        },
+        {
+          "atTraceUs": 429983574232,
+          "durationUs": 14382
+        },
+        {
+          "atTraceUs": 429983612854,
+          "durationUs": 18388
+        },
+        {
+          "atTraceUs": 429983657775,
+          "durationUs": 12213
+        },
+        {
+          "atTraceUs": 429983693665,
+          "durationUs": 11389
+        },
+        {
+          "atTraceUs": 429983718757,
+          "durationUs": 11506
+        },
+        {
+          "atTraceUs": 429983756726,
+          "durationUs": 12238
+        },
+        {
+          "atTraceUs": 429983793246,
+          "durationUs": 11444
+        },
+        {
+          "atTraceUs": 429983820629,
+          "durationUs": 15159
+        },
+        {
+          "atTraceUs": 429983863336,
+          "durationUs": 19286
+        },
+        {
+          "atTraceUs": 429983912770,
+          "durationUs": 22267
+        },
+        {
+          "atTraceUs": 429983961987,
+          "durationUs": 23090
+        },
+        {
+          "atTraceUs": 429984015700,
+          "durationUs": 22578
+        },
+        {
+          "atTraceUs": 429984064239,
+          "durationUs": 12231
+        },
+        {
+          "atTraceUs": 429984093908,
+          "durationUs": 16220
+        },
+        {
+          "atTraceUs": 429984137406,
+          "durationUs": 13003
+        },
+        {
+          "atTraceUs": 429984175656,
+          "durationUs": 14914
+        },
+        {
+          "atTraceUs": 429984217322,
+          "durationUs": 23218
+        },
+        {
+          "atTraceUs": 429984274032,
+          "durationUs": 18182
+        },
+        {
+          "atTraceUs": 429984318232,
+          "durationUs": 23948
+        },
+        {
+          "atTraceUs": 429984373587,
+          "durationUs": 19902
+        },
+        {
+          "atTraceUs": 429984422041,
+          "durationUs": 21455
+        },
+        {
+          "atTraceUs": 429984474482,
+          "durationUs": 24109
+        },
+        {
+          "atTraceUs": 429984527369,
+          "durationUs": 12883
+        },
+        {
+          "atTraceUs": 429984568188,
+          "durationUs": 15490
+        },
+        {
+          "atTraceUs": 429984610704,
+          "durationUs": 11238
+        },
+        {
+          "atTraceUs": 429984641907,
+          "durationUs": 11571
+        },
+        {
+          "atTraceUs": 429984666906,
+          "durationUs": 10897
+        },
+        {
+          "atTraceUs": 429984703394,
+          "durationUs": 16775
+        },
+        {
+          "atTraceUs": 429984747772,
+          "durationUs": 17938
+        },
+        {
+          "atTraceUs": 429984791576,
+          "durationUs": 16546
+        },
+        {
+          "atTraceUs": 429984836164,
+          "durationUs": 15291
+        },
+        {
+          "atTraceUs": 429984877435,
+          "durationUs": 17150
+        },
+        {
+          "atTraceUs": 429984925562,
+          "durationUs": 17737
+        },
+        {
+          "atTraceUs": 429984970765,
+          "durationUs": 16839
+        },
+        {
+          "atTraceUs": 429985017666,
+          "durationUs": 19471
+        },
+        {
+          "atTraceUs": 429985064063,
+          "durationUs": 22796
+        },
+        {
+          "atTraceUs": 429985118745,
+          "durationUs": 24140
+        },
+        {
+          "atTraceUs": 429985171107,
+          "durationUs": 22343
+        },
+        {
+          "atTraceUs": 429985222764,
+          "durationUs": 25434
+        },
+        {
+          "atTraceUs": 429985276211,
+          "durationUs": 13118
+        },
+        {
+          "atTraceUs": 429985317601,
+          "durationUs": 12587
+        },
+        {
+          "atTraceUs": 429985353171,
+          "durationUs": 13757
+        },
+        {
+          "atTraceUs": 429985394996,
+          "durationUs": 16504
+        },
+        {
+          "atTraceUs": 429985441263,
+          "durationUs": 15587
+        },
+        {
+          "atTraceUs": 429985479170,
+          "durationUs": 12834
+        },
+        {
+          "atTraceUs": 429985509106,
+          "durationUs": 22758
+        },
+        {
+          "atTraceUs": 429985563083,
+          "durationUs": 12031
+        },
+        {
+          "atTraceUs": 429985595746,
+          "durationUs": 17029
+        },
+        {
+          "atTraceUs": 429985644400,
+          "durationUs": 19600
+        },
+        {
+          "atTraceUs": 429985692321,
+          "durationUs": 20759
+        },
+        {
+          "atTraceUs": 429985741753,
+          "durationUs": 12726
+        },
+        {
+          "atTraceUs": 429985775735,
+          "durationUs": 13716
+        },
+        {
+          "atTraceUs": 429985815533,
+          "durationUs": 12173
+        },
+        {
+          "atTraceUs": 429985852175,
+          "durationUs": 11500
+        },
+        {
+          "atTraceUs": 429985891485,
+          "durationUs": 11728
+        },
+        {
+          "atTraceUs": 429985926687,
+          "durationUs": 16015
+        },
+        {
+          "atTraceUs": 429985970633,
+          "durationUs": 17965
+        },
+        {
+          "atTraceUs": 429986016064,
+          "durationUs": 18613
+        },
+        {
+          "atTraceUs": 429986064941,
+          "durationUs": 17445
+        },
+        {
+          "atTraceUs": 429986112409,
+          "durationUs": 11864
+        },
+        {
+          "atTraceUs": 429986144269,
+          "durationUs": 11200
+        },
+        {
+          "atTraceUs": 429986171069,
+          "durationUs": 11356
+        },
+        {
+          "atTraceUs": 429986195732,
+          "durationUs": 11444
+        },
+        {
+          "atTraceUs": 429986233578,
+          "durationUs": 11266
+        },
+        {
+          "atTraceUs": 429986265360,
+          "durationUs": 12419
+        },
+        {
+          "atTraceUs": 429986303050,
+          "durationUs": 11212
+        },
+        {
+          "atTraceUs": 429986339308,
+          "durationUs": 12528
+        },
+        {
+          "atTraceUs": 429986378418,
+          "durationUs": 12007
+        },
+        {
+          "atTraceUs": 429986417462,
+          "durationUs": 11278
+        },
+        {
+          "atTraceUs": 429986446845,
+          "durationUs": 11374
+        },
+        {
+          "atTraceUs": 429986471801,
+          "durationUs": 27777
+        },
+        {
+          "atTraceUs": 429986509021,
+          "durationUs": 11360
+        },
+        {
+          "atTraceUs": 429986545008,
+          "durationUs": 13560
+        },
+        {
+          "atTraceUs": 429986582647,
+          "durationUs": 27716
+        },
+        {
+          "atTraceUs": 429986631365,
+          "durationUs": 20691
+        },
+        {
+          "atTraceUs": 429986680043,
+          "durationUs": 19583
+        },
+        {
+          "atTraceUs": 429986727163,
+          "durationUs": 22340
+        },
+        {
+          "atTraceUs": 429986777714,
+          "durationUs": 22139
+        },
+        {
+          "atTraceUs": 429986830088,
+          "durationUs": 23887
+        },
+        {
+          "atTraceUs": 429986883354,
+          "durationUs": 21073
+        },
+        {
+          "atTraceUs": 429986934387,
+          "durationUs": 18133
+        },
+        {
+          "atTraceUs": 429986977950,
+          "durationUs": 23188
+        },
+        {
+          "atTraceUs": 429987031094,
+          "durationUs": 14141
+        },
+        {
+          "atTraceUs": 429987074070,
+          "durationUs": 17103
+        },
+        {
+          "atTraceUs": 429987118619,
+          "durationUs": 15553
+        },
+        {
+          "atTraceUs": 429987157765,
+          "durationUs": 21394
+        },
+        {
+          "atTraceUs": 429987208962,
+          "durationUs": 11977
+        },
+        {
+          "atTraceUs": 429987242057,
+          "durationUs": 12053
+        },
+        {
+          "atTraceUs": 429987267660,
+          "durationUs": 11510
+        },
+        {
+          "atTraceUs": 429987293530,
+          "durationUs": 21398
+        },
+        {
+          "atTraceUs": 429987345800,
+          "durationUs": 18658
+        },
+        {
+          "atTraceUs": 429987393353,
+          "durationUs": 12776
+        },
+        {
+          "atTraceUs": 429987425946,
+          "durationUs": 16498
+        },
+        {
+          "atTraceUs": 429987468574,
+          "durationUs": 18388
+        },
+        {
+          "atTraceUs": 429987510104,
+          "durationUs": 12108
+        },
+        {
+          "atTraceUs": 429987547825,
+          "durationUs": 14065
+        },
+        {
+          "atTraceUs": 429987585098,
+          "durationUs": 13964
+        },
+        {
+          "atTraceUs": 429987619514,
+          "durationUs": 17742
+        },
+        {
+          "atTraceUs": 429987662076,
+          "durationUs": 14816
+        },
+        {
+          "atTraceUs": 429987701091,
+          "durationUs": 18161
+        },
+        {
+          "atTraceUs": 429987747929,
+          "durationUs": 19625
+        },
+        {
+          "atTraceUs": 429987792604,
+          "durationUs": 17713
+        },
+        {
+          "atTraceUs": 429987834220,
+          "durationUs": 18198
+        },
+        {
+          "atTraceUs": 429987881031,
+          "durationUs": 22951
+        },
+        {
+          "atTraceUs": 429987937024,
+          "durationUs": 21575
+        },
+        {
+          "atTraceUs": 429987988067,
+          "durationUs": 19385
+        },
+        {
+          "atTraceUs": 429988034137,
+          "durationUs": 17682
+        },
+        {
+          "atTraceUs": 429988080807,
+          "durationUs": 16179
+        },
+        {
+          "atTraceUs": 429988119517,
+          "durationUs": 12536
+        },
+        {
+          "atTraceUs": 429988155269,
+          "durationUs": 22436
+        },
+        {
+          "atTraceUs": 429988209386,
+          "durationUs": 23944
+        },
+        {
+          "atTraceUs": 429988265423,
+          "durationUs": 20032
+        },
+        {
+          "atTraceUs": 429988314371,
+          "durationUs": 26688
+        },
+        {
+          "atTraceUs": 429988371647,
+          "durationUs": 19785
+        },
+        {
+          "atTraceUs": 429988419679,
+          "durationUs": 18799
+        },
+        {
+          "atTraceUs": 429988469106,
+          "durationUs": 18173
+        },
+        {
+          "atTraceUs": 429988517431,
+          "durationUs": 16783
+        },
+        {
+          "atTraceUs": 429988561755,
+          "durationUs": 16605
+        },
+        {
+          "atTraceUs": 429988599385,
+          "durationUs": 13441
+        },
+        {
+          "atTraceUs": 429988635535,
+          "durationUs": 21152
+        },
+        {
+          "atTraceUs": 429988685723,
+          "durationUs": 26523
+        },
+        {
+          "atTraceUs": 429988745643,
+          "durationUs": 20777
+        },
+        {
+          "atTraceUs": 429988798575,
+          "durationUs": 21662
+        },
+        {
+          "atTraceUs": 429988849759,
+          "durationUs": 21311
+        },
+        {
+          "atTraceUs": 429988898547,
+          "durationUs": 20279
+        },
+        {
+          "atTraceUs": 429988950062,
+          "durationUs": 16696
+        },
+        {
+          "atTraceUs": 429988993544,
+          "durationUs": 12934
+        },
+        {
+          "atTraceUs": 429989032830,
+          "durationUs": 14536
+        },
+        {
+          "atTraceUs": 429989069980,
+          "durationUs": 16221
+        },
+        {
+          "atTraceUs": 429989117546,
+          "durationUs": 12412
+        },
+        {
+          "atTraceUs": 429989150889,
+          "durationUs": 12823
+        },
+        {
+          "atTraceUs": 429989190363,
+          "durationUs": 14999
+        },
+        {
+          "atTraceUs": 429989231048,
+          "durationUs": 11243
+        },
+        {
+          "atTraceUs": 429989259098,
+          "durationUs": 11472
+        },
+        {
+          "atTraceUs": 429989283171,
+          "durationUs": 11243
+        },
+        {
+          "atTraceUs": 429989307521,
+          "durationUs": 11822
+        },
+        {
+          "atTraceUs": 429989346808,
+          "durationUs": 12146
+        },
+        {
+          "atTraceUs": 429989380858,
+          "durationUs": 14684
+        },
+        {
+          "atTraceUs": 429989422698,
+          "durationUs": 21440
+        },
+        {
+          "atTraceUs": 429989475759,
+          "durationUs": 15708
+        },
+        {
+          "atTraceUs": 429989521291,
+          "durationUs": 25194
+        },
+        {
+          "atTraceUs": 429989577164,
+          "durationUs": 14909
+        },
+        {
+          "atTraceUs": 429989615089,
+          "durationUs": 14685
+        },
+        {
+          "atTraceUs": 429989657954,
+          "durationUs": 12580
+        },
+        {
+          "atTraceUs": 429989694794,
+          "durationUs": 11131
+        },
+        {
+          "atTraceUs": 429989734026,
+          "durationUs": 11931
+        },
+        {
+          "atTraceUs": 429989770924,
+          "durationUs": 11622
+        },
+        {
+          "atTraceUs": 429989809529,
+          "durationUs": 15590
+        },
+        {
+          "atTraceUs": 429989851169,
+          "durationUs": 11138
+        },
+        {
+          "atTraceUs": 429989886261,
+          "durationUs": 11275
+        },
+        {
+          "atTraceUs": 429989916733,
+          "durationUs": 10672
+        },
+        {
+          "atTraceUs": 429989941479,
+          "durationUs": 14787
+        },
+        {
+          "atTraceUs": 429989984608,
+          "durationUs": 16259
+        },
+        {
+          "atTraceUs": 429990024843,
+          "durationUs": 12078
+        },
+        {
+          "atTraceUs": 429990055970,
+          "durationUs": 10827
+        },
+        {
+          "atTraceUs": 429990080034,
+          "durationUs": 12296
+        },
+        {
+          "atTraceUs": 429990121563,
+          "durationUs": 17483
+        },
+        {
+          "atTraceUs": 429990169299,
+          "durationUs": 20399
+        },
+        {
+          "atTraceUs": 429990216181,
+          "durationUs": 12588
+        },
+        {
+          "atTraceUs": 429990246829,
+          "durationUs": 14056
+        },
+        {
+          "atTraceUs": 429990289747,
+          "durationUs": 14667
+        },
+        {
+          "atTraceUs": 429990327936,
+          "durationUs": 11375
+        },
+        {
+          "atTraceUs": 429990355392,
+          "durationUs": 12536
+        },
+        {
+          "atTraceUs": 429990396039,
+          "durationUs": 20149
+        },
+        {
+          "atTraceUs": 429990443874,
+          "durationUs": 11716
+        },
+        {
+          "atTraceUs": 429990475684,
+          "durationUs": 17822
+        },
+        {
+          "atTraceUs": 429990522974,
+          "durationUs": 14690
+        },
+        {
+          "atTraceUs": 429990565032,
+          "durationUs": 16481
+        },
+        {
+          "atTraceUs": 429990608735,
+          "durationUs": 17475
+        },
+        {
+          "atTraceUs": 429990654976,
+          "durationUs": 11808
+        },
+        {
+          "atTraceUs": 429990689795,
+          "durationUs": 14839
+        },
+        {
+          "atTraceUs": 429990733444,
+          "durationUs": 19127
+        },
+        {
+          "atTraceUs": 429990782761,
+          "durationUs": 17379
+        },
+        {
+          "atTraceUs": 429990824692,
+          "durationUs": 20413
+        },
+        {
+          "atTraceUs": 429990873062,
+          "durationUs": 20814
+        },
+        {
+          "atTraceUs": 429990923996,
+          "durationUs": 26043
+        },
+        {
+          "atTraceUs": 429990984308,
+          "durationUs": 21372
+        },
+        {
+          "atTraceUs": 429991034155,
+          "durationUs": 19760
+        },
+        {
+          "atTraceUs": 429991082637,
+          "durationUs": 19985
+        },
+        {
+          "atTraceUs": 429991129884,
+          "durationUs": 18383
+        },
+        {
+          "atTraceUs": 429991174504,
+          "durationUs": 12239
+        },
+        {
+          "atTraceUs": 429991212003,
+          "durationUs": 11659
+        },
+        {
+          "atTraceUs": 429991240171,
+          "durationUs": 13418
+        },
+        {
+          "atTraceUs": 429991278354,
+          "durationUs": 12239
+        },
+        {
+          "atTraceUs": 429991308362,
+          "durationUs": 13015
+        },
+        {
+          "atTraceUs": 429991336594,
+          "durationUs": 21740
+        },
+        {
+          "atTraceUs": 429991389662,
+          "durationUs": 26325
+        },
+        {
+          "atTraceUs": 429991445051,
+          "durationUs": 12540
+        },
+        {
+          "atTraceUs": 429991476689,
+          "durationUs": 11687
+        },
+        {
+          "atTraceUs": 429991503830,
+          "durationUs": 12269
+        },
+        {
+          "atTraceUs": 429991544673,
+          "durationUs": 21569
+        },
+        {
+          "atTraceUs": 429991596619,
+          "durationUs": 14067
+        },
+        {
+          "atTraceUs": 429991640922,
+          "durationUs": 13625
+        },
+        {
+          "atTraceUs": 429991681947,
+          "durationUs": 15918
+        },
+        {
+          "atTraceUs": 429991720672,
+          "durationUs": 12466
+        },
+        {
+          "atTraceUs": 429991756866,
+          "durationUs": 11636
+        },
+        {
+          "atTraceUs": 429991792316,
+          "durationUs": 21008
+        },
+        {
+          "atTraceUs": 429991841187,
+          "durationUs": 13677
+        },
+        {
+          "atTraceUs": 429991877986,
+          "durationUs": 12926
+        },
+        {
+          "atTraceUs": 429991918788,
+          "durationUs": 18158
+        },
+        {
+          "atTraceUs": 429991966643,
+          "durationUs": 13936
+        },
+        {
+          "atTraceUs": 429992007708,
+          "durationUs": 20560
+        },
+        {
+          "atTraceUs": 429992056884,
+          "durationUs": 13115
+        },
+        {
+          "atTraceUs": 429992090005,
+          "durationUs": 11658
+        },
+        {
+          "atTraceUs": 429992114957,
+          "durationUs": 12173
+        },
+        {
+          "atTraceUs": 429992146890,
+          "durationUs": 14488
+        },
+        {
+          "atTraceUs": 429992193473,
+          "durationUs": 11435
+        },
+        {
+          "atTraceUs": 429992229441,
+          "durationUs": 15333
+        },
+        {
+          "atTraceUs": 429992269962,
+          "durationUs": 15525
+        },
+        {
+          "atTraceUs": 429992314450,
+          "durationUs": 22478
+        },
+        {
+          "atTraceUs": 429992365220,
+          "durationUs": 23144
+        },
+        {
+          "atTraceUs": 429992418537,
+          "durationUs": 21666
+        },
+        {
+          "atTraceUs": 429992466815,
+          "durationUs": 15086
+        },
+        {
+          "atTraceUs": 429992503436,
+          "durationUs": 17517
+        },
+        {
+          "atTraceUs": 429992551992,
+          "durationUs": 20909
+        },
+        {
+          "atTraceUs": 429992603381,
+          "durationUs": 21417
+        },
+        {
+          "atTraceUs": 429992659147,
+          "durationUs": 17168
+        },
+        {
+          "atTraceUs": 429992700568,
+          "durationUs": 18461
+        },
+        {
+          "atTraceUs": 429992744739,
+          "durationUs": 20905
+        },
+        {
+          "atTraceUs": 429992793263,
+          "durationUs": 21307
+        },
+        {
+          "atTraceUs": 429992845090,
+          "durationUs": 23228
+        },
+        {
+          "atTraceUs": 429992895656,
+          "durationUs": 10859
+        },
+        {
+          "atTraceUs": 429992924221,
+          "durationUs": 11154
+        },
+        {
+          "atTraceUs": 429992948510,
+          "durationUs": 16315
+        },
+        {
+          "atTraceUs": 429992992441,
+          "durationUs": 22768
+        },
+        {
+          "atTraceUs": 429993047234,
+          "durationUs": 14197
+        },
+        {
+          "atTraceUs": 429993093523,
+          "durationUs": 26569
+        },
+        {
+          "atTraceUs": 429993143095,
+          "durationUs": 14004
+        },
+        {
+          "atTraceUs": 429993171693,
+          "durationUs": 13409
+        },
+        {
+          "atTraceUs": 429993199778,
+          "durationUs": 12498
+        },
+        {
+          "atTraceUs": 429993226286,
+          "durationUs": 13938
+        },
+        {
+          "atTraceUs": 429993265650,
+          "durationUs": 14067
+        },
+        {
+          "atTraceUs": 429993297652,
+          "durationUs": 12145
+        },
+        {
+          "atTraceUs": 429993326876,
+          "durationUs": 15006
+        },
+        {
+          "atTraceUs": 429993369494,
+          "durationUs": 12696
+        },
+        {
+          "atTraceUs": 429993406583,
+          "durationUs": 15228
+        },
+        {
+          "atTraceUs": 429993452156,
+          "durationUs": 12273
+        },
+        {
+          "atTraceUs": 429993493692,
+          "durationUs": 17355
+        },
+        {
+          "atTraceUs": 429993536927,
+          "durationUs": 13342
+        },
+        {
+          "atTraceUs": 429993577602,
+          "durationUs": 15619
+        },
+        {
+          "atTraceUs": 429993620871,
+          "durationUs": 11503
+        },
+        {
+          "atTraceUs": 429993652127,
+          "durationUs": 13422
+        },
+        {
+          "atTraceUs": 429993697653,
+          "durationUs": 18063
+        }
+      ],
+      "webglCallsPerRenderMax": 65,
+      "observedWebglRenders": 287,
+      "reached60HzTarget": false,
+      "withinDrawCallBudget": true
+    }
+  ],
+  "staticViews": [
+    {
+      "nodeId": "call-light",
+      "view": "front",
+      "actualView": "front",
+      "observedRenders": 2,
+      "callsPerRenderMax": 15,
+      "fps": null,
+      "reason": "paused highest-object frame: measure actual draw calls, not inactive animation callbacks"
+    },
+    {
+      "nodeId": "call-light",
+      "view": "workshop",
+      "actualView": "workshop",
+      "observedRenders": 2,
+      "callsPerRenderMax": 72,
+      "fps": null,
+      "reason": "paused highest-object frame: measure actual draw calls, not inactive animation callbacks"
+    },
+    {
+      "nodeId": "call-light",
+      "view": "backstage",
+      "actualView": "backstage",
+      "observedRenders": 2,
+      "callsPerRenderMax": 72,
+      "fps": null,
+      "reason": "paused highest-object frame: measure actual draw calls, not inactive animation callbacks"
+    },
+    {
+      "nodeId": "call-light",
+      "view": "exhibit",
+      "actualView": "exhibit",
+      "observedRenders": 2,
+      "callsPerRenderMax": 72,
+      "fps": null,
+      "reason": "paused highest-object frame: measure actual draw calls, not inactive animation callbacks"
+    }
+  ],
+  "lightweightObservation": {
+    "measured": false,
+    "reason": "No native sustained low-rate suggestion; lightweight sample is N/A, no clocks or private quality state forced."
+  },
+  "failures": [],
+  "definitions": {
+    "frames": "Chrome native FireAnimationFrame callbacks belonging to the product main frame; no RAF or performance clock replacement. Counted over native performance marks. 59Hz threshold allows native 60Hz scheduling/window boundaries.",
+    "draws": "Actual WebGL2 drawArrays/drawElements including instanced methods, delimited by renderer auto-clear with start timestamp/view fixed before drawing; production uses one render pass. Probe wrappers count calls without altering clock.",
+    "limitations": "This host/headless Chromium/SwiftShader GPU only; Trace recording and API counters add overhead. Static call-light frames have draw-call records and FPS N/A.  not physical phones or representative user devices; native callback rate and Canvas draws are not display-panel presentation FPS. No full-story duration, long-term memory, hearing or external user acceptance."
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-21",
+  "kind": "cross-stage-functional-evidence",
+  "indexSha256": "b95295a998ba0095ebb6c2dccabf74aa7d0b7f55e8b15def559007e90210be13",
+  "unit": {
+    "files": 39,
+    "passed": 452,
+    "failed": 0,
+    "afterFinalSceneryAdjustment": {
+      "files": 2,
+      "passed": 26,
+      "failed": 0
+    }
+  },
+  "reports": [
+    {
+      "file": "t19-t20-e2e-before-fixes.json",
+      "sha256": "78667a96069ccb1c736a7f03766368bfcbc3b22564934aeecec397cf8537978a",
+      "startTime": "2026-10-21T01:10:50.871Z",
+      "duration": 1509786.506,
+      "expected": 389,
+      "skipped": 0,
+      "unexpected": 45,
+      "flaky": 0
+    },
+    {
+      "file": "t19-t20-e2e-recheck.json",
+      "sha256": "44f72439c1d7fa46462e169e5bb6e542114f15165fc6f0c66a9acdee2d8f512b",
+      "startTime": "2026-10-21T01:43:23.612Z",
+      "duration": 944585.127,
+      "expected": 228,
+      "skipped": 0,
+      "unexpected": 2,
+      "flaky": 0
+    },
+    {
+      "file": "t19-t20-e2e-input-recheck.json",
+      "sha256": "83aa8f1c51ac9401f3fe59adb895939e23fd0ba767036e1332c84af74496dc88",
+      "startTime": "2026-10-21T11:46:51.995Z",
+      "duration": 385080.08300000004,
+      "expected": 37,
+      "skipped": 0,
+      "unexpected": 1,
+      "flaky": 0
+    },
+    {
+      "file": "t19-t20-e2e-controls-final.json",
+      "sha256": "672923911b139e305613a773ff05072d8b96a4d9e7fd723ef773bed2f130c0de",
+      "startTime": "2026-10-21T11:55:53.529Z",
+      "duration": 109726.287,
+      "expected": 20,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    {
+      "file": "t19-t20-e2e-final.json",
+      "sha256": "6164a489139dac41d5e53a46ce017ddb16609326817b0e345542cc29aebbda77",
+      "startTime": "2026-10-21T12:06:03.638Z",
+      "duration": 104639.367,
+      "expected": 8,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  ],
+  "uniqueCases": 436,
+  "latestPassed": 436,
+  "unresolved": [],
+  "measurementBuild": {
+    "indexSha256": "870fcad7e4e8a1d2ae3b1e8bf5fb8f136f132d1e19cb5b766ac1a4fb5b1f1fa0",
+    "deltaSinceMeasurement": "Final application delta only changes waiting/sacrifice ending scenery in stagePlayFrame; source images, initialization paths, music and Three renderer unchanged. Native measurements remain attributed to their own build."
+  },
+  "limits": "Multiple sequential builds and scoped reruns; not a single full-suite run of the final build. Native runtime, loading, visual evidence and external acceptance are separate.",
+  "sourceCommit": "e3debe92e1f173c45720b86631f824fcd18a95c7"
+}

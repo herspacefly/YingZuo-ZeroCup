@@ -1,0 +1,319 @@
+{
+  "kind": "native-product-music-readiness",
+  "recordedAtMachineUTC": "2026-10-21T12:00:15.383Z",
+  "loadingPolicy": {
+    "revision": "2026-10-20-author-15s",
+    "assetReadyTargetMs": 15000,
+    "historicalImageFontReferenceBytes": 2097152,
+    "imageSizeIsBlocking": false,
+    "scope": "Images: explicit opening to complete drawable intro. Music: explicit request to native media-playback readiness, not speaker hearing or whole-file download. Preserve full art/audio. Home interaction, JS and runtime frame targets are separate."
+  },
+  "forcePNG": false,
+  "samplesPerCondition": 1,
+  "indexSha256": "870fcad7e4e8a1d2ae3b1e8bf5fb8f136f132d1e19cb5b766ac1a4fb5b1f1fa0",
+  "probeSha256": "6b1593d78d3295d629626ac50f14f48bea9aef0a312c1f8b2cc9b71c106887e9",
+  "musicManifestSha256": "7e54a412e2c79e44fa3c9992304f8fed8821ccb802f28cbfc7f07373d73123a0",
+  "host": {
+    "platform": "win32",
+    "release": "10.0.26200",
+    "cpu": "12th Gen Intel(R) Core(TM) i7-1260U",
+    "node": "v24.18.1"
+  },
+  "definitions": {
+    "start": "Capture-phase timestamp of actual music-toggle click on home, or actual story-play click at an already prepared paused curtain after music preference enabled.",
+    "ready": "Native expected media !paused, readyState>=2, currentTime>0.05. No Audio/clock replacement; constructor subclass only observes real media. Buffered ranges and duration recorded. Not whole-file download completion or speaker hearing.",
+    "network": "Fresh context, Service Workers blocked, CDP cache disabled, no CPU throttle; 5Mbps/150ms CDP conditions.",
+    "limits": "This host/Chromium emulation, not physical phones/IE/Safari. Visual stage readiness before curtain play is reported separately; these samples are not full story duration."
+  },
+  "results": [
+    {
+      "profile": "desktop",
+      "network": "local",
+      "track": "instrumental",
+      "sample": 1,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "pageReadyMs": 142.90000000223517,
+      "clickedAt": 200.70000000298023,
+      "readyAt": 534.5,
+      "currentTime": 0.054475,
+      "readyState": 4,
+      "duration": 96,
+      "buffered": [
+        [
+          0,
+          96
+        ]
+      ],
+      "mediaError": null,
+      "readyFromClickMs": 333.79999999701977,
+      "withinTarget": true,
+      "errors": [],
+      "failedRequests": [],
+      "externalRequests": [],
+      "mediaResponses": [
+        {
+          "path": "/audio/jinghu-instrumental.mp3",
+          "status": 206,
+          "contentLength": "1152670",
+          "contentRange": "bytes 0-1152669/1152670"
+        }
+      ]
+    },
+    {
+      "profile": "desktop",
+      "network": "local",
+      "track": "curtain",
+      "sample": 1,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "pageReadyMs": 288.69999999925494,
+      "clickedAt": 350.19999999925494,
+      "readyAt": 503.69999999925494,
+      "currentTime": 0.070616,
+      "readyState": 4,
+      "duration": 40,
+      "buffered": [
+        [
+          0,
+          40
+        ]
+      ],
+      "mediaError": null,
+      "readyFromClickMs": 153.5,
+      "withinTarget": true,
+      "errors": [],
+      "failedRequests": [],
+      "externalRequests": [],
+      "mediaResponses": [
+        {
+          "path": "/audio/jingju-curtain.mp3",
+          "status": 206,
+          "contentLength": "480906",
+          "contentRange": "bytes 0-480905/480906"
+        }
+      ]
+    },
+    {
+      "profile": "desktop",
+      "network": "5Mbps-150ms",
+      "track": "instrumental",
+      "sample": 1,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "pageReadyMs": 635,
+      "clickedAt": 678.1999999992549,
+      "readyAt": 1015.7999999970198,
+      "currentTime": 0.056052,
+      "readyState": 4,
+      "duration": 96,
+      "buffered": [
+        [
+          0,
+          7.807
+        ]
+      ],
+      "mediaError": null,
+      "readyFromClickMs": 337.5999999977648,
+      "withinTarget": true,
+      "errors": [],
+      "failedRequests": [],
+      "externalRequests": [],
+      "mediaResponses": [
+        {
+          "path": "/audio/jinghu-instrumental.mp3",
+          "status": 206,
+          "contentLength": "1152670",
+          "contentRange": "bytes 0-1152669/1152670"
+        }
+      ]
+    },
+    {
+      "profile": "desktop",
+      "network": "5Mbps-150ms",
+      "track": "curtain",
+      "sample": 1,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "pageReadyMs": 2248.10000000149,
+      "clickedAt": 2361.60000000149,
+      "readyAt": 2728.7000000029802,
+      "currentTime": 0.076318,
+      "readyState": 4,
+      "duration": 40,
+      "buffered": [
+        [
+          0,
+          9.17
+        ]
+      ],
+      "mediaError": null,
+      "readyFromClickMs": 367.1000000014901,
+      "withinTarget": true,
+      "errors": [],
+      "failedRequests": [],
+      "externalRequests": [],
+      "mediaResponses": [
+        {
+          "path": "/audio/jingju-curtain.mp3",
+          "status": 206,
+          "contentLength": "480906",
+          "contentRange": "bytes 0-480905/480906"
+        }
+      ]
+    },
+    {
+      "profile": "simulated-mobile",
+      "network": "local",
+      "track": "instrumental",
+      "sample": 1,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "pageReadyMs": 146.09999999776483,
+      "clickedAt": 205.5,
+      "readyAt": 321.19999999925494,
+      "currentTime": 0.070807,
+      "readyState": 4,
+      "duration": 96,
+      "buffered": [
+        [
+          0,
+          96
+        ]
+      ],
+      "mediaError": null,
+      "readyFromClickMs": 115.69999999925494,
+      "withinTarget": true,
+      "errors": [],
+      "failedRequests": [],
+      "externalRequests": [],
+      "mediaResponses": [
+        {
+          "path": "/audio/jinghu-instrumental.mp3",
+          "status": 206,
+          "contentLength": "1152670",
+          "contentRange": "bytes 0-1152669/1152670"
+        }
+      ]
+    },
+    {
+      "profile": "simulated-mobile",
+      "network": "local",
+      "track": "curtain",
+      "sample": 1,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "pageReadyMs": 276.80000000074506,
+      "clickedAt": 364.69999999925494,
+      "readyAt": 497,
+      "currentTime": 0.069219,
+      "readyState": 4,
+      "duration": 40,
+      "buffered": [
+        [
+          0,
+          40
+        ]
+      ],
+      "mediaError": null,
+      "readyFromClickMs": 132.30000000074506,
+      "withinTarget": true,
+      "errors": [],
+      "failedRequests": [],
+      "externalRequests": [],
+      "mediaResponses": [
+        {
+          "path": "/audio/jingju-curtain.mp3",
+          "status": 206,
+          "contentLength": "480906",
+          "contentRange": "bytes 0-480905/480906"
+        }
+      ]
+    },
+    {
+      "profile": "simulated-mobile",
+      "network": "5Mbps-150ms",
+      "track": "instrumental",
+      "sample": 1,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "pageReadyMs": 647.2000000029802,
+      "clickedAt": 693.8000000007451,
+      "readyAt": 1049.6000000014901,
+      "currentTime": 0.075268,
+      "readyState": 4,
+      "duration": 96,
+      "buffered": [
+        [
+          0,
+          8.432
+        ]
+      ],
+      "mediaError": null,
+      "readyFromClickMs": 355.80000000074506,
+      "withinTarget": true,
+      "errors": [],
+      "failedRequests": [],
+      "externalRequests": [],
+      "mediaResponses": [
+        {
+          "path": "/audio/jinghu-instrumental.mp3",
+          "status": 206,
+          "contentLength": "1152670",
+          "contentRange": "bytes 0-1152669/1152670"
+        }
+      ]
+    },
+    {
+      "profile": "simulated-mobile",
+      "network": "5Mbps-150ms",
+      "track": "curtain",
+      "sample": 1,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "pageReadyMs": 2243.199999999255,
+      "clickedAt": 2315.60000000149,
+      "readyAt": 2675,
+      "currentTime": 0.063357,
+      "readyState": 4,
+      "duration": 40,
+      "buffered": [
+        [
+          0,
+          8.671
+        ]
+      ],
+      "mediaError": null,
+      "readyFromClickMs": 359.3999999985099,
+      "withinTarget": true,
+      "errors": [],
+      "failedRequests": [],
+      "externalRequests": [],
+      "mediaResponses": [
+        {
+          "path": "/audio/jingju-curtain.mp3",
+          "status": 206,
+          "contentLength": "480906",
+          "contentRange": "bytes 0-480905/480906"
+        }
+      ]
+    }
+  ],
+  "browserVersion": "156.0.8078.4"
+}
