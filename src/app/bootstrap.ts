@@ -157,7 +157,7 @@ async function mount() {
           { paused: true, elapsedMs: 0, now: new Date().toISOString() }), { path: story.definitionVersion===3?'/story':'/craft', exhibitId: null });
       },
     };
-    const journey=mountJourney(host,parsed.route),view=factories[parsed.route.path](host, context);
+    const view=factories[parsed.route.path](host, context),journey=mountJourney(host,parsed.route);
     page={update(state){journey.update(state);view.update(state);},dispose(){view.dispose();journey.dispose();}}; host.setAttribute('data-route', parsed.route.path);
     update(opened.getState());
     for (const anchor of Array.from(nav.querySelectorAll('a'))) {

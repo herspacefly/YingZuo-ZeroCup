@@ -7,7 +7,7 @@ export const mountIntro: PageFactory = (host, ctx) => {
   const life = scope(), hero = element('section', 'opening page-enter'), copy = element('div', 'opening-copy');
   const title = element('h1', 'hero-title', '隔着一张幕，\n让思念有了形。'); title.id = 'title';
   const primary = element('button', 'button primary journey-recommended', '从故事缘起开始'), guided = element('button', 'button secondary', '节选导览');
-  const resume = link('继续这一场 ↗', '#/story', 'button primary'), progress = element('p', 'quiet-note');
+  const resume = link('继续这一场 ↗', '#/story', 'button primary journey-recommended'), progress = element('p', 'quiet-note');
   const actions = element('div', 'opening-actions'); append(actions, primary, resume, guided);
   append(copy, element('p', 'eyebrow', '匠心传成，非遗焕新 / 影作'), title, element('p', 'hero-lead', '沉香要越过山，找到母亲。\n这一次，你将成为幕后的操偶者。'), actions, link('不急着开演，先逛展馆 →', '#/museum'), progress);
   const art = stageFrame('一幕\n团圆', '一盏灯 · 一张幕 · 等一个人归来'); art.className += ' hero-stage';

@@ -29,7 +29,7 @@ import type { StageSoundSample, StageSoundStatus } from '../../audio/stage-sound
 
 type Director=ReturnType<typeof createSceneDirector>;
 type ReadyCommand={command:SceneCommand;facts:SceneObservation};
-type Resolution={elapsed:number;duration:number;ready:ReadyCommand};
+type Resolution={elapsed:number;duration:number;ready:ReadyCommand;departure:CanvasFrame};
 type Assistance={elapsed:number;base:Pose;stage:Pick<StageConfig,'lampX'|'puppetDistance'>;goal:NonNullable<ReturnType<typeof interactionGoal>>};
 type Runtime={entry:ReturnType<typeof storyEntry>;scene:Director;scope:ReturnType<typeof createNodeScope>;
   stage:ReturnType<typeof canvasStage>;clock:ReturnType<typeof createAnimationClock>;shade:HTMLDivElement;
@@ -119,7 +119,11 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     renderUI();
   }
   function sample(rt:Runtime){
-    if(rt.clip&&(rt.resolution||rt.completed)){rt.sample=rt.clip.showcase(rt.resolution?.elapsed??Infinity,reduced);}
+    if(rt.clip&&(rt.resolution||rt.completed)){
+      rt.sample=rt.clip.showcase(rt.resolution?.elapsed??Infinity,reduced);
+      // Dim the frozen user composition first; only reset behind the curtain at 300ms.
+      if(rt.resolution&&rt.resolution.elapsed<300&&!reduced){rt.sample.frame=clone(rt.resolution.departure);rt.sample.frame.showRods=false;if(rt.sample.frame.spatial)rt.sample.frame.spatial.light=rt.sample.lightLevel;}
+    }
     else {
     rt.sample=rt.scene.sample(rt.elapsed,interactive(rt)?{chenxiangPose:rt.pose,stage:rt.light}:undefined,reduced);
     const progress=rt.resolution?rt.resolution.elapsed/rt.resolution.duration:0;
@@ -156,7 +160,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
         if(fit.fits&&Math.hypot(moved.x-hands.chenxiang.x,moved.y-hands.chenxiang.y)<=.04+1e-8){rt.pose=fit.pose;sample(rt);}}
       holding=clone(rt.sample.frame);
     }
-    rt.resolution={elapsed:0,duration:rt.clip?.durationMs??(kind==='axe'?4000:kind==='wave'?2000:kind==='reach'?700:1500),ready:{command,facts:observed}};
+    rt.resolution={elapsed:0,duration:rt.clip?.durationMs??(kind==='axe'?4000:kind==='wave'?2000:kind==='reach'?700:1500),ready:{command,facts:observed},departure:clone(rt.sample.frame)};
     if(kind==='axe'||kind==='light'||kind==='reach')updateSound({nodeId:rt.entry.node.id,mode:rt.mode,elapsedMs:rt.elapsed,playing:rt.playing&&rt.ready,event:kind==='axe'?'mountain-open':kind==='light'?'light-found':'hands-meet'});
     rt.controls?.release();if(rt.clip){message='达标已确认。收杆定场后，为你放映这一段的编排动作。';safeSample(rt);renderUI();return;}message=kind==='wave'?'她看见了你的手。袖口也留着同一纹样。':kind==='axe'?'斧已落下，山片正在打开。':kind==='light'?'纹样的光穿过遮挡，她在回应你。':kind==='reach'?'这一回，握住。':'让这一瞬的动作留在幕上。';renderUI();
   }
@@ -166,6 +170,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     if(rt.resolution){rt.resolution.elapsed+=delta;sample(rt);if(rt.resolution.elapsed>=rt.resolution.duration){finishResolution(rt);return false;}renderUI();return true;}
     if(interactive(rt)){
       if(rt.version===3&&rt.elapsed<rt.scene.durationMs){sample(rt);message='先听这一段故事；对白结束后，握柄会出现，再由你接过影偶。';renderUI();return true;}
+      if(rt.version===3&&rt.elapsed-delta<rt.scene.durationMs)message='对白说完了。现在接过影偶，完成下面的动作。';
       if(rt.assistance)assistanceFrame(rt,delta);else rt.controls?.tick(delta);
       sample(rt);rt.reading=rt.interaction.observe(rt.sample.frame,rt.elapsed,false,rt.operated&&(rt.entry.node.completion.kind!=='reach'||rt.handOperated||!!rt.assistance));
       if(rt.reading.evidence&&(!rt.assistance||rt.assistance.elapsed>=3200))beginResolution(rt,rt.reading);
@@ -247,7 +252,8 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     runtime.setAttribute('data-held',String(rt?.reading?.heldMs??0));runtime.setAttribute('data-interaction',rt?.reading?.phase??'waiting');runtime.setAttribute('data-distance',String(rt?.reading?.distanceRatio??1));
     runtime.textContent=state?.hasPending?'检查点尚未保存；画面保留在当前段。请在作品工具中重试、取消或选择仅在本页继续。':message;
     note.textContent=!rt?'确认开演后，才会为本场留下独立的演出身份；直接打开页面不会替你开始。':node?.id==='craft'?'确认已经准备好的造型，便为本场冻结行装；也可回到制偶页调整。':
-      node?.kind==='choice'?'请亲自选择这一场的去向。操作失误和使用协助不会替你决定结局。':
+      node?.kind==='choice'?(rt.version===3&&rt.elapsed<rt.scene.durationMs?'先听这段对白；说完以后，再亲自选择这一场的去向。':'请亲自选择这一场的去向。操作失误和使用协助不会替你决定结局。'):
+      rt.version===3&&interactive(rt)&&rt.elapsed<rt.scene.durationMs?'先听这一段故事，随后会展开握柄与操偶控件。也可展开本段完整台词阅读。':
       rt.resolution&&rt.clip?'这一段已达标，握柄已收起。可暂停、跳过放映或从头再看；放映结束后只保存一次。':interactive(rt)?`${tips[node!.id]??(node!.completion.kind==='axe'?'抬起右手，稳住半秒，再亲手落斧。':node!.completion.kind==='light'?'移动身躯与灯位，让纹样照进金色区域。':'用方向键移身，走进金色区域后停留。')} 金色是目标区域，白线是当前观察范围。暂停不累计动作时间；刷新会从本段开头的静止画面重新开始。`:
       `尚未播放时是本段开头的静止画面；继续片段后，字幕与场面一起走。${reduced?'已启用减少动态。':''}声音可选，静音也保留全部字幕与操作。`;
     if(!hasStory){title.textContent='还没有开始这一场';lead.textContent=note.textContent;shot.textContent='';subtitles.update([],[],'empty');}rt?.controls?.render();

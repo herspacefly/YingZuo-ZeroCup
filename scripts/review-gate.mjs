@@ -12,10 +12,12 @@ export function reviewSubjects(kind){
     const bindings={puppets:['chenxiang-v1','mother-v1','guardian-v1'].map(id=>json(`src/content/puppets/${id}.json`)),scenes:json('src/content/scenes.json'),patterns:json('src/content/patterns.json'),palettes:json('src/content/palettes.json'),colorMapEncoding:manifest.colorMapEncoding};
     return manifest.assets.map(asset=>assetReviewSubject(asset,manifest.provenance,bindings));
   }
-  const sources=json('src/content/sources.json').sources;
+  const sources=json('src/content/sources.json').sources,media=json('src/content/museum-media.json');
   return [
     ...json('src/content/stories/reunion-v3.json').nodes.map(node=>({id:'story-v3:'+node.id,sha256:digest([node,json('src/content/stories/reunion-v3.json').endings]),rightsRequired:false})),
     {id:'story-background:v3',sha256:digest(json('src/content/story-background.json')),rightsRequired:false},
+    ...media.exhibits.map(row=>({id:'museum-reading:'+row.exhibitId,sha256:digest([row,media.sources]),rightsRequired:false})),
+    ...media.media.map(row=>({id:'museum-media:'+row.id,sha256:digest([row,media.sources.find(source=>source.id===row.sourceId)]),rightsRequired:row.kind==='external',...(row.kind==='external'?{license:'unknown'}:{})})),
     ...json('src/content/stories/reunion-v2.json').nodes.map(node=>({id:'story-v2:'+node.id,sha256:digest([node,json('src/content/stories/reunion-v2.json').endings]),rightsRequired:false})),
     ...json('src/content/stories/reunion-v1.json').nodes.map(node=>({id:'story:'+node.id,sha256:digest(node),rightsRequired:false})),
     ...json('src/content/exhibits.json').exhibits.map(item=>exhibitReviewSubject(item,sources)),
