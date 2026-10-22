@@ -10,6 +10,8 @@ import type { PageFactory } from '../../app/view';
 import type { ProjectV1 } from '../../domain/types';
 import { mountMuseumDemo, museumPreviewFrame } from './demos';
 import { mountMuseumEnsemble } from './ensemble';
+import { mountMuseumGallery, museumCover } from './gallery';
+import '../../styles/museum-gallery.css';
 
 const factLabels={culture:'工艺与剧目资料',model:'交互示意',original:'本作原创'};
 function sourceLink(id:string){
@@ -36,7 +38,7 @@ export const mountMuseum:PageFactory=(host,ctx)=>{
     }
     append(path,returnLink);append(host,path,context);
   }
-  let demo:ReturnType<typeof mountMuseumDemo>|null=null,portrait:ReturnType<typeof canvasStage>|null=null,ensemble:ReturnType<typeof mountMuseumEnsemble>|null=null;
+  let demo:ReturnType<typeof mountMuseumDemo>|null=null,portrait:ReturnType<typeof canvasStage>|null=null,ensemble:ReturnType<typeof mountMuseumEnsemble>|null=null,gallery:ReturnType<typeof mountMuseumGallery>|null=null;
   const programme=element('section','programme museum-programme'),programmeTitle=element('h2'),programmeRows=element('dl','programme-list'),programmeLink=link('查看本场节目单 →','#/result');
   function mountReading(exhibit:MuseumExhibit){
     const toggle=element('button','button secondary','展开说明与资料来源'),reading=element('section','museum-reading');
@@ -78,6 +80,7 @@ export const mountMuseum:PageFactory=(host,ctx)=>{
       }
       append(diagram,panels,element('figcaption','stage-caption',selected.alt));display.appendChild(diagram);
     }
+    gallery=mountMuseumGallery(host,selected.id);
   }
   const catalogue=element('section',selected?'museum-catalogue compact':'museum-catalogue');
   if(selected)catalogue.appendChild(element('h2','','沿展签，再看一件。'));
@@ -88,6 +91,8 @@ export const mountMuseum:PageFactory=(host,ctx)=>{
     for(const exhibit of museumExhibits.filter(item=>item.section===label)){
       const a=link('',`#/museum/${exhibit.id}`,'exhibit-link'),copy=element('span','exhibit-copy'),seen=element('span','museum-seen');
       a.setAttribute('data-exhibit',exhibit.id);if(selected?.id===exhibit.id)a.setAttribute('aria-current','page');
+      const cover=museumCover(exhibit.id);
+      if(cover){const image=element('img','exhibit-thumbnail');image.alt='';image.loading='lazy';image.decoding='async';image.width=66;image.height=82;image.src=cover.localPath;life.on(image,'error',()=>{image.hidden=true;});a.appendChild(image);}
       append(copy,element('span','exhibit-title',exhibit.title),element('span','exhibit-question',exhibit.question));seenLabels.set(exhibit.id,seen);
       append(a,element('span','exhibit-id',exhibit.id),copy,seen,element('span','exhibit-arrow','↗'));list.appendChild(a);
     }
@@ -122,6 +127,6 @@ export const mountMuseum:PageFactory=(host,ctx)=>{
       }
       demo?.update(project);ensemble?.update(project);portrait?.update(()=>museumPreviewFrame(project));if(selected?.demo==='credits')programmeUpdate(project);
     },
-    dispose(){if(disposed)return;disposed=true;life.dispose();demo?.dispose();ensemble?.dispose();portrait?.dispose();},
+    dispose(){if(disposed)return;disposed=true;life.dispose();demo?.dispose();ensemble?.dispose();portrait?.dispose();gallery?.dispose();},
   };
 };
