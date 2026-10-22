@@ -19,7 +19,7 @@ export const mountResult:PageFactory=(host,ctx)=>{
   const actions=element('div','result-actions'),png=element('button','button primary','下载团圆留影 PNG'),json=element('button','button secondary','导出本场 JSON'),retry=element('button','button secondary','重新准备留影'),replayButton=element('button','button secondary','按本场编排再演');
   for(const [button,name]of [[png,'png'],[json,'json'],[retry,'retry'],[replayButton,'replay']] as const){button.type='button';button.id='result-'+name;actions.appendChild(button);}
   replayButton.setAttribute('aria-expanded','false');replayButton.setAttribute('aria-controls','result-replay-slot');
-  append(programme,title,id,details,saveState,actions,operation,resume,link('看看刚才这场戏的幕后 →','#/museum','text-link'));append(layout,figure,programme);host.appendChild(layout);
+  append(programme,title,id,details,saveState,actions,operation,resume,link('下一步，去展馆看这场戏的幕后 →','#/museum','button secondary journey-recommended'));append(layout,figure,programme);host.appendChild(layout);
   const replaySlot=element('div');replaySlot.id='result-replay-slot';host.appendChild(replaySlot);
   let disposed=false,identity='',project:ProjectV1|null=null,exporter:ReturnType<typeof mountReunionExporter>|null=null,replay:ReturnType<typeof mountReunionReplay>|null=null;
   let generation=0,ready=false,encoding=false,blocked=true,failed=false;const downloads=new Set<()=>void>();

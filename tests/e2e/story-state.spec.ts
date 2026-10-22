@@ -1,7 +1,7 @@
 import { expect,test } from '@playwright/test';
 import type { Page,Download } from '@playwright/test';
 import type { ProjectV1 } from '../../src/domain/types';
-import content from '../../src/content/stories/reunion-v2.json' with {type:'json'};
+import content from '../../src/content/stories/reunion-v3.json' with {type:'json'};
 
 const node=(page:Page)=>page.locator('#story-node');
 async function saved(page:Page){await expect(page.locator('#story-status')).toHaveAttribute('data-state','saved');}
@@ -20,12 +20,13 @@ async function start(page:Page,mode:'full'|'guided'){
 }
 const interactions=['memory-wave','road','guardian','call-light','call-split','split-axe','split-search','reunion-reach'];
 async function advance(page:Page,approach:'call-first'|'split-first'){
-  const before=await current(page);
+  const before=await current(page),definition=content.nodes.find(n=>n.id===before)!,mode=await page.locator('#story-mode').inputValue(),minimum=(mode==='full'?definition.fullTiming:definition.guidedTiming).minDurationMs;
+  if(definition.kind==='choice'||(definition.kind==='interaction'&&before!=='craft')){await page.locator('#story-play').click();await page.clock.runFor(minimum+100);}
   if(before==='intro')await page.locator('#story-skip').click();
   else if(before==='craft')await page.locator('#story-preset').click();
   else if(before==='ending-choice')await page.locator('#text-ending-home').click();
   else if(before==='approach-choice')await page.locator(approach==='call-first'?'#story-choose-call':'#story-choose-split').click();
-  else if(interactions.includes(before)){await page.locator('#story-play').click();await page.locator('#story-assist').click();}
+  else if(interactions.includes(before)){await page.locator('#story-assist').click();}
   else {const definition=content.nodes.find(n=>n.id===before)!;const mode=await page.locator('#story-mode').inputValue();const minimum=(mode==='full'?definition.fullTiming:definition.guidedTiming).minDurationMs;await page.locator('#story-play').click();await page.clock.runFor(minimum+100);await page.locator('#story-complete').click();}
   await expect(node(page)).not.toHaveAttribute('data-node',before);await saved(page);await expect(page.locator('#node-clock')).toContainText('暂停 · 0.0');
 }

@@ -38,8 +38,8 @@ const report = {
   deliveryManifestSha256: sha(readFileSync(path.join(root,'src/content/delivery.json'))), indexSha256: sha(indexBytes), probeSha256: sha(readFileSync(fileURLToPath(import.meta.url))),
   host: { platform: os.platform(), release: os.release(), architecture: os.arch(), cpu: os.cpus()[0]?.model, logicalCores: os.cpus().length, totalMemoryBytes: os.totalmem(), node: process.version },
   definitions: {
-    homeReady: 'First enabled visible full-story button, formal save state saved, then two native animation frames; measured from navigation time origin.',
-    introReady: 'Actual full-story button click to paused intro with ready Canvas, nonempty pixel buffer and enabled play control, then two native animation frames.',
+    homeReady: 'First enabled visible background-entry button, formal save state saved, then two native animation frames; measured from navigation time origin.',
+    introReady: 'Explicit full-story confirmation button click on the unstarted story page to paused intro with ready Canvas, nonempty pixel buffer and enabled play control, then two native animation frames.',
     cold: 'Fresh browser context per sample; pattern=fresh has no project; explicit --pattern preloads only a fixture draft with story=null in IndexedDB via study.html before recording requests. HTTP cache disabled through CDP, Service Workers blocked, no pre-existing project for pattern=fresh. OS/server filesystem caches are not cleared.',
     network: 'CDP Network.emulateNetworkConditions; 5Mbps is 625000 bytes/s aggregated download and upload, latency 150ms request-to-response-header minimum. No CPU throttle.',
     imageFontBudget: 'Image/font HTTP response encoded body sizes, verified against matching ResourceTiming, HTTP Content-Length and the built artifact; Playwright response.body may be empty for consumed fetches and is never treated as zero transfer. Unique URLs requested from navigation through first intro ready. Includes resources loaded ahead for later shots within that intro. Inline SVG is part of HTML/JS, not a separate image transfer.',
@@ -105,12 +105,13 @@ try {
           }
         }
         new MutationObserver(inspect).observe(document, { childList: true, subtree: true, attributes: true });
-        document.addEventListener('click', event => { if (event.target?.closest?.('.opening-actions button')) measurement.startClickedAtMs = performance.now(); }, true);
+        document.addEventListener('click', event => { if (event.target?.closest?.('#story-start')) measurement.startClickedAtMs = performance.now(); }, true);
         document.addEventListener('DOMContentLoaded', inspect);
       });
       await page.goto(base + '/#/', { waitUntil: 'domcontentloaded' });
       await page.waitForFunction(() => Reflect.get(window, '__startupMeasurement').homeReadyMs !== null, null, { timeout: 45_000 });
-      await page.getByRole('button', { name: '开始演一出戏', exact: true }).click();
+      await page.evaluate(()=>{window.location.hash='#/story';});
+      await page.getByRole('button', { name: '确认开始这一场', exact: true }).click();
       await page.waitForFunction(() => Reflect.get(window, '__startupMeasurement').introReadyMs !== null, null, { timeout: 45_000 });
       const observed = await page.evaluate(() => ({
         ...Reflect.get(window, '__startupMeasurement'),

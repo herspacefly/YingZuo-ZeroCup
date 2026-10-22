@@ -14,6 +14,8 @@ export function reviewSubjects(kind){
   }
   const sources=json('src/content/sources.json').sources;
   return [
+    ...json('src/content/stories/reunion-v3.json').nodes.map(node=>({id:'story-v3:'+node.id,sha256:digest([node,json('src/content/stories/reunion-v3.json').endings]),rightsRequired:false})),
+    {id:'story-background:v3',sha256:digest(json('src/content/story-background.json')),rightsRequired:false},
     ...json('src/content/stories/reunion-v2.json').nodes.map(node=>({id:'story-v2:'+node.id,sha256:digest([node,json('src/content/stories/reunion-v2.json').endings]),rightsRequired:false})),
     ...json('src/content/stories/reunion-v1.json').nodes.map(node=>({id:'story:'+node.id,sha256:digest(node),rightsRequired:false})),
     ...json('src/content/exhibits.json').exhibits.map(item=>exhibitReviewSubject(item,sources)),

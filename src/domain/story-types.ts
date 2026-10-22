@@ -26,7 +26,7 @@ export interface StoryNode {
   assetIds: string[]; sourceIds: string[]; contentKind: 'original-adaptation';
 }
 export interface StoryDefinition {
-  storyId: 'reunion'; definitionVersion: 1 | 2; assetVersion: 1; startNodeId: 'intro';
+  storyId: 'reunion'; definitionVersion: 1 | 2 | 3; assetVersion: 1; startNodeId: 'intro';
   title: string; adaptationCredit: string; nodes: StoryNode[];
   subtitleTimebase: 'full-target-ms';
   endings?: {id:EndingId;title:string;choiceLabel:string;summary:string;holdNodeId:StoryNodeId;epilogueNodeId:StoryNodeId}[];

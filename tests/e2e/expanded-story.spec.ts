@@ -32,8 +32,8 @@ for(const approach of ['call-first','split-first'] as const)for(const ending of 
  const downloading=page.waitForEvent('download');await page.locator('#result-png').click();const download=await downloading;expect(await download.failure()).toBeNull();const stream=await download.createReadStream(),parts:Buffer[]=[];for await(const part of stream)parts.push(Buffer.from(part));const png=Buffer.concat(parts);expect(png.readUInt32BE(16)).toBe(1600);expect(png.readUInt32BE(20)).toBe(1200);await expect(page.locator('#result-operation')).toContainText('请求下载');expect(errors).toEqual([]);
 });
 
-test('new runs use v2; help is reachable and guide has no unmeasured duration promise',async({page})=>{
- await page.goto('/');await page.locator('#operation-help summary').click();await expect(page.locator('#operation-help')).toHaveAttribute('open','');await expect(page.locator('#operation-help')).toContainText('方向键');await page.locator('#operation-help summary').click();await page.getByRole('button',{name:'开始演一出戏',exact:true}).click();await ready(page,'intro');await expect(page.locator('#story-mode option[value="guided"]')).toHaveText('节选导览');
+test('new runs use v3; help is reachable and guide has no unmeasured duration promise',async({page})=>{
+ await page.goto('/');await page.locator('#operation-help summary').click();await expect(page.locator('#operation-help')).toHaveAttribute('open','');await expect(page.locator('#operation-help')).toContainText('方向键');await page.locator('#operation-help summary').click();await page.getByRole('button',{name:'节选导览',exact:true}).click();await ready(page,'intro');await expect(page.locator('#story-mode option[value="guided"]')).toHaveText('节选导览');
 });
 
 test('actual hand and foot dragging, body arrows, pause and focus keep separate ownership',async({page})=>{

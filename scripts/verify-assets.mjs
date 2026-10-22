@@ -121,7 +121,9 @@ if(catalog.manifest.provenance.kind==='original-ai-reference-cutout'){
   }
 }
 const walk=directory=>readdirSync(directory,{withFileTypes:true}).flatMap(entry=>entry.isDirectory()?walk(path.join(directory,entry.name)):[path.join(directory,entry.name)]);
-const files=walk(path.join(root,'public/assets')).filter(file=>file.endsWith('.png'));
+// Exhibit reference photographs have their own media manifest and verifier.
+const museumRoot=path.join(root,'public/assets/museum')+path.sep;
+const files=walk(path.join(root,'public/assets')).filter(file=>file.endsWith('.png')&&!file.startsWith(museumRoot));
 check(files.length === actualPaths.size && files.every(file=>actualPaths.has(path.relative(path.join(root,'public'),file).split(path.sep).join('/'))), 'unlisted PNG files under public/assets');
 const sources=json('src/content/sources.json');
 check(sources.schemaVersion === 1 && sources.sources.map(s=>s.id).sort().join(',') === 'C1,C2,C3,C4,C5,C6,C7', 'source registry IDs/version');

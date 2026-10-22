@@ -1,3 +1,4 @@
+import { mountJourney } from '../features/shared/journey';
 import '../styles/help.css';
 import '../styles/tokens.css';
 import '../styles/base.css';
@@ -146,17 +147,18 @@ async function mount() {
       edit(command) { void run(() => opened.edit(command)); },
       start(mode) {
         const story = opened.getState().project?.story;
-        if (story) { router?.navigate({ path: story.nodeId === 'craft' ? '/craft' : '/story', exhibitId: null }); return; }
+        if (story) { router?.navigate({ path: story.nodeId === 'craft' && story.definitionVersion!==3 ? '/craft' : '/story', exhibitId: null }); return; }
         void durable(() => startStory(opened, newIdentifier('run'), mode), { path: '/story', exhibitId: null });
       },
       skipIntro() {
         const story = opened.getState().project?.story;
         if (story?.nodeId !== 'intro') return;
         void durable(() => submitStoryCommand(opened, { ...storyGuard(story), action: 'COMPLETE_SCENE', source: 'user', skipped: true },
-          { paused: true, elapsedMs: 0, now: new Date().toISOString() }), { path: '/craft', exhibitId: null });
+          { paused: true, elapsedMs: 0, now: new Date().toISOString() }), { path: story.definitionVersion===3?'/story':'/craft', exhibitId: null });
       },
     };
-    page = factories[parsed.route.path](host, context); host.setAttribute('data-route', parsed.route.path);
+    const journey=mountJourney(host,parsed.route),view=factories[parsed.route.path](host, context);
+    page={update(state){journey.update(state);view.update(state);},dispose(){view.dispose();journey.dispose();}}; host.setAttribute('data-route', parsed.route.path);
     update(opened.getState());
     for (const anchor of Array.from(nav.querySelectorAll('a'))) {
       if (anchor.getAttribute('href') === `#${parsed.route.path}`) anchor.setAttribute('aria-current', 'page');

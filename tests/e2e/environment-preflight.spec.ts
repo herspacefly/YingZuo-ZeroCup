@@ -1,7 +1,7 @@
 import {expect,test} from '@playwright/test';
 import type {Page,Download} from '@playwright/test';
 import type {ProjectV1} from '../../src/domain/types';
-import story from '../../src/content/stories/reunion-v1.json' with {type:'json'};
+import story from '../../src/content/stories/reunion-v3.json' with {type:'json'};
 import museum from '../../src/content/exhibits.json' with {type:'json'};
 const runtime=(page:Page)=>page.locator('#story-runtime');
 const saved=async(page:Page)=>expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');
@@ -21,7 +21,7 @@ async function clockAndMedia(page:Page){await page.addInitScript(()=>{
 async function advance(page:Page,ms:number){await page.evaluate(async ms=>{while(ms>0){const delta=Math.min(ms,100);Reflect.get(window,'__environmentFrame')(delta);ms-=delta;await Promise.resolve();}},ms);}
 async function range(page:Page,id:string,value:number){await page.locator(id).evaluate((input:HTMLInputElement,value)=>{input.value=String(value);input.dispatchEvent(new Event('input',{bubbles:true}));input.dispatchEvent(new Event('change',{bubbles:true}));},value);}
 async function hand(page:Page,reduced=false){
- await page.locator('#story-play').click();await advance(page,2000);
+ await page.locator('#story-play').click();const mode=await page.locator('#story-mode').inputValue(),reach=story.nodes.find(n=>n.id==='reunion-reach')!;await advance(page,(mode==='full'?reach.fullTiming:reach.guidedTiming).targetMs+2000);
  if(!reduced){await range(page,'#story-rod-x',.47);await range(page,'#story-rod-y',.555);await range(page,'#story-rod-rightShoulder',.01);}
  else{
   // Match the visible hand target; a still storyboard has a different mother pose.
@@ -37,7 +37,7 @@ async function hand(page:Page,reduced=false){
    const x=box.x+box.width/2,y=box.y+box.height/2;await page.mouse.move(x,y);await page.mouse.down();await page.mouse.move(x+(Math.abs(delta.x)+Math.abs(delta.y)<1?2:delta.x),y+delta.y,{steps:5});await page.mouse.up();
   }
  }
- await advance(page,1000);
+ await advance(page,7800);
 }
 async function playing(page:Page,filename:string){await expect.poll(()=>page.evaluate(filename=>(Reflect.get(window,'__environmentAudio') as HTMLAudioElement[]).some(a=>a.src.endsWith(filename)&&!a.paused&&a.readyState>=2&&a.currentTime>.05),filename)).toBe(true);}
 async function bytes(file:Download){expect(await file.failure()).toBeNull();const chunks:Buffer[]=[];for await(const c of await file.createReadStream())chunks.push(Buffer.from(c));return Buffer.concat(chunks);}
@@ -54,27 +54,27 @@ for(const mode of ['full','guided'] as const)for(const approach of ['call-first'
   expect(await page.evaluate(()=>fetch('https://example.invalid/preflight-network-proof').then(()=>false,()=>true))).toBe(true);expect(probeBlocked).toBe(true);
   expect(await page.evaluate(()=>(Reflect.get(window,'__environmentAudio') as HTMLAudioElement[]).length)).toBe(0);
   await page.locator('#site-music-toggle').click();await playing(page,'jinghu-instrumental.mp3');
-  await page.getByRole('button',{name:mode==='full'?'开始演一出戏':'节选导览',exact:true}).click();await ready(page,'intro');const runId=(await stored(page)).story!.runId;
-  await page.locator('#story-play').click();await advance(page,mode==='full'?18000:10000);await expect(page.locator('#app-view')).toHaveAttribute('data-route','/craft');await layout(page);
+  await page.evaluate(()=>{location.hash='#/story';});await page.locator('#story-start').click();if(mode==='guided')await page.locator('#story-mode').selectOption('guided');await ready(page,'intro');const runId=(await stored(page)).story!.runId;
+  await page.locator('#story-play').click();await advance(page,(mode==='full'?story.nodes[0]!.fullTiming:story.nodes[0]!.guidedTiming).targetMs);await ready(page,'craft');await page.evaluate(()=>{location.hash='#/craft';});await expect(page.locator('#app-view')).toHaveAttribute('data-route','/craft');await layout(page);
   await page.locator('#craft-pattern').selectOption('wave-v1');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');
   if(forced2D){await expect(page.locator('.spatial-toggle').first()).toBeDisabled();await expect(page.locator('canvas.three-stage')).toHaveCount(0);}
   else{await page.locator('.spatial-toggle').first().click();await expect(page.locator('.spatial-stage').first()).toHaveAttribute('data-state','ready');await expect(page.locator('canvas.three-stage')).toBeVisible();}
   await page.locator('#craft-confirm').click();await ready(page,'memory-wave');const cast=(await stored(page)).story!.castSnapshot;const seen=['intro','craft'];
-  for(let index=0;index<18;index++){
+  for(let index=0;index<25;index++){
     const id=(await runtime(page).getAttribute('data-node'))!;seen.push(id);if(id==='completed')break;
     const definition=story.nodes.find(n=>n.id===id)!;if(forced2D)await expect(runtime(page)).toHaveAttribute('data-reduced-motion','true');
     if(id==='reunion-reach')await hand(page,forced2D);
-    else if(definition.kind==='interaction'){await page.locator('#story-assist').click();await advance(page,8500);}
-    else if(definition.kind==='choice')await page.locator(approach==='call-first'?'#story-call-first':'#story-split-first').click();
+    else if(definition.kind==='interaction'){await page.locator('#story-play').click();await advance(page,(mode==='full'?definition.fullTiming:definition.guidedTiming).targetMs);await page.locator('#story-assist').click();await advance(page,11500);}
+    else if(definition.kind==='choice'){await page.locator('#story-play').click();await advance(page,(mode==='full'?definition.fullTiming:definition.guidedTiming).targetMs);await page.locator(id==='ending-choice'?'#story-ending-home':approach==='call-first'?'#story-call-first':'#story-split-first').click();}
     else{
       await page.locator('#story-play').click();if(id==='curtain')await playing(page,'jingju-curtain.mp3');
       await advance(page,mode==='full'?definition.fullTiming.targetMs:definition.guidedTiming.targetMs);
-      if(id==='reunion-hold'){expect((await stored(page)).story!.completedAt).toBeNull();await expect(page.locator('#story-finish')).toHaveText('谢幕');await page.locator('#story-finish').click();}
+      if(definition.completion.kind==='scene'&&definition.completion.activation==='user'){expect((await stored(page)).story!.completedAt).toBeNull();await page.locator('#story-finish').click();}
     }
     await expect(runtime(page)).not.toHaveAttribute('data-node',id);await ready(page);expect((await stored(page)).story!.castSnapshot).toEqual(cast);
   }
   await ready(page,'completed');const completed=await stored(page);expect(completed.story).toMatchObject({runId,approach,mode,nodeId:'completed',castSnapshot:cast});expect(completed.story!.completedAt).not.toBeNull();
-  expect(seen).toEqual(['intro','craft','memory-wave','memory-separate','road','training','guardian','approach-choice',...(approach==='call-first'?['call-light','call-response','call-split']:['split-axe','split-search','split-response']),'reunion-reach','reunion-hold','curtain','completed']);
+  expect(seen).toEqual(['intro','craft','memory-wave','memory-words','memory-separate','road','road-rest','training','guardian','guardian-parley','approach-choice',...(approach==='call-first'?['call-light','call-response','call-split']:['split-axe','split-search','split-response']),'mountain-listen','ending-choice','reunion-reach','reunion-hold','ending-home-epilogue','curtain','completed']);
   await page.reload();await ready(page,'completed');expect((await stored(page)).story).toEqual(completed.story);
   await page.evaluate(()=>{location.hash='#/museum';});await expect(page.locator('.museum-section')).toHaveCount(5);await expect(page.locator('[data-exhibit]')).toHaveCount(8);await layout(page);
   for(const item of museum.exhibits){

@@ -113,7 +113,7 @@ test('save failure keeps the final pose exportable and automatic input never ret
 
 test('memory-only progress stays memory after practice until an explicit save',async({page})=>{
   await page.goto('/');await saved(page);await page.evaluate(()=>{const put=IDBObjectStore.prototype.put;let fail=true;IDBObjectStore.prototype.put=function(value:unknown,key?:IDBValidKey){if(fail&&key==='draft'){fail=false;throw new DOMException('Injected quota','QuotaExceededError');}return put.call(this,value,key);};});
-  await page.getByRole('button',{name:'开始演一出戏',exact:true}).click();await expect(page.locator('#save-state')).toHaveAttribute('data-state','error');await page.locator('#continue-memory').click();await expect(page.locator('#save-state')).toHaveAttribute('data-state','memory');
+  await page.getByRole('button',{name:'节选导览',exact:true}).click();await expect(page.locator('#save-state')).toHaveAttribute('data-state','error');await page.locator('#continue-memory').click();await expect(page.locator('#save-state')).toHaveAttribute('data-state','memory');
   await go(page,'/practice');await ready(page);await range(page,'#practice-x','.57');await page.getByRole('button',{name:'向右',exact:true}).click();await go(page,'/museum');await page.waitForTimeout(650);await expect(page.locator('#save-state')).toHaveAttribute('data-state','memory');
   await go(page,'/practice');await ready(page);await page.locator('#practice-save').click();await saved(page);expect((await stored(page)).story?.nodeId).toBe('intro');
 });

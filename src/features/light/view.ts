@@ -29,10 +29,12 @@ export const mountLight:PageFactory=(host,ctx)=>{
   field.insertBefore(lampPad,distance.parentElement);field.appendChild(distancePad);
   const reset=element('button','button secondary','重置灯位与距离'),save=element('button','button secondary','保存灯影设置'),summary=element('p','selection-summary');summary.id='light-summary';
   append(field,reset);append(panel,field,summary,save,element('p','quiet-note','这些设置只编辑灯影实验，不改本场节点的灯位。边缘处预览会临时适配幕面，不回写练习姿态。'),link('去看“一盏灯，两种尺度” →','#/museum/E04'));
+  const next=element('button','button primary journey-recommended','保存灯影，下一步练习 →');next.id='journey-to-practice';const nextBox=element('section','journey-next');append(nextBox,element('p','','第3步 / 调灯：试过灯位与距离后，接下来亲手牵动影偶。'),next);panel.appendChild(nextBox);
+  life.on(next,'click',()=>{if(allowed()&&!state!.hasPending)void ctx.durable(()=>ctx.store.flush(),{path:'/practice',exhibitId:null});});
   const stage=canvasStage('沉香 · 同一影偶、遮罩与投影。倍率按灯、影偶和幕的相对距离计算。');append(layout,stage.figure,panel);host.appendChild(layout);
   life.on(reset,'click',()=>{if(allowed())void ctx.run(async()=>{await ctx.store.edit({type:'LAMP_X',lampX:0});await ctx.store.edit({type:'PUPPET_DISTANCE',puppetDistance:.2});});});
   life.on(save,'click',()=>{if(allowed()&&!state!.hasPending)void ctx.run(()=>ctx.store.flush());});
-  return {update(next){state=next;field.disabled=!allowed();save.disabled=!allowed()||next.hasPending||next.status==='saving';
+  return {update(next){state=next;field.disabled=!allowed();save.disabled=!allowed()||next.hasPending||next.status==='saving';(host.querySelector('#journey-to-practice') as HTMLButtonElement).disabled=save.disabled;
     const project=ctx.store.getExportProject()??next.project;stage.update(()=>project?editorFrame(project):null);if(!project){summary.textContent='先处理作品存档，再继续灯影实验。';return;}
     lamp.value=String(project.stage.lampX);distance.value=String(project.stage.puppetDistance);
     lampOutput.textContent=project.stage.lampX===0?'居中':`${project.stage.lampX<0?'左':'右'} ${Math.round(Math.abs(project.stage.lampX)/.8*100)}%`;

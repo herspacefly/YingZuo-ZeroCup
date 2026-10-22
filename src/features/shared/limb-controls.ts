@@ -35,17 +35,17 @@ export function mountLimbControls(stage:ReturnType<typeof canvasStage>,port:Limb
     for(const h of stage.screen.querySelectorAll<HTMLButtonElement>('.rod-handle')){const x=parseFloat(h.style.left),y=parseFloat(h.style.top);if(!h.hidden&&!h.disabled&&Number.isFinite(x)&&Number.isFinite(y))placed.push({x,y,radius:28});}
     for(const [id,h] of handles){
       const anchor=worldToViewport(limbScreenPoint(template,r.actor.pose,r.frame.stage,id),v);
-      const bound=(p:Point)=>({x:Math.max(20,Math.min(rect.width-20,p.x)),y:Math.max(20,Math.min(rect.height-20,p.y))});
+      const bound=(p:Point)=>({x:Math.max(24,Math.min(rect.width-24,p.x)),y:Math.max(24,Math.min(rect.height-24,p.y))});
       let position=bound(anchor),found=false;
       // A bent knee can put a foot over either hand. Separate every pair, not only left/right peers.
-      for(const radius of [0,40,56,72,88,104]){
+      for(const radius of [0,48,64,80,96,112,128]){
         for(let angle=0;angle<16;angle++){
           const candidate=bound({x:anchor.x+radius*Math.cos(angle*Math.PI/8),y:anchor.y+radius*Math.sin(angle*Math.PI/8)});
-          if(placed.every(p=>Math.hypot(p.x-candidate.x,p.y-candidate.y)>=p.radius+20)){position=candidate;found=true;break;}
+          if(placed.every(p=>Math.hypot(p.x-candidate.x,p.y-candidate.y)>=p.radius+24)){position=candidate;found=true;break;}
         }
         if(found)break;
       }
-      placed.push({...position,radius:20});h.style.left=position.x+'px';h.style.top=position.y+'px';h.disabled=!enabled;
+      placed.push({...position,radius:24});h.style.left=position.x+'px';h.style.top=position.y+'px';h.disabled=!enabled;
       const line=lines.get(id)!;line.setAttribute('x1',String(anchor.x));line.setAttribute('y1',String(anchor.y));line.setAttribute('x2',String(position.x));line.setAttribute('y2',String(position.y));
     }
   }

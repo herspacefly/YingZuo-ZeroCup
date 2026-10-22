@@ -12,16 +12,16 @@ const finiteRange=(v: number,min=0,max=Number.MAX_SAFE_INTEGER)=>typeof v==='num
 export function storyGuard(story: StoryProgress): StoryGuard {
   return {runId:story.runId,expectedRevision:story.revision,expectedNodeId:story.nodeId};
 }
-export function beginStory(project: ProjectV1,runId: string,mode: StoryProgress['mode'],definitionVersion:1|2=1): ProjectV1 | null {
+export function beginStory(project: ProjectV1,runId: string,mode: StoryProgress['mode'],definitionVersion:1|2|3=1): ProjectV1 | null {
   const next=validateProject(project);if(next.story)return null;
   next.story={storyId:'reunion',definitionVersion,runId,revision:0,mode,nodeId:'intro',approach:null,approachSource:null,castSnapshot:null,assistedNodeIds:[],presetAppearanceUsed:false,completedAt:null,
-    ...(definitionVersion===2?{ending:null,endingSource:null}:{})};
+    ...(definitionVersion!==1?{ending:null,endingSource:null}:{})};
   next.lastRoute='/story';return validateProject(next);
 }
 export function currentStoryNode(definition: StoryDefinition,story: StoryProgress): StoryNode {
   requireFact(definition.storyId===story.storyId && definition.definitionVersion===story.definitionVersion,'剧本版本不匹配，未替换当前检查点。');
   const node=definition.nodes.find(n=>n.id===story.nodeId);requireFact(node,'剧本缺少当前节点。');
-  if(story.definitionVersion===2&&story.ending&&['curtain','completed'].includes(story.nodeId)){
+  if(story.definitionVersion!==1&&story.ending&&['curtain','completed'].includes(story.nodeId)){
     const ending=definition.endings?.find(item=>item.id===story.ending),presentation=definition.nodes.find(n=>n.id===ending?.epilogueNodeId);
     requireFact(presentation,'剧本缺少本场终章构图。');
     return {...node!,prerequisites:{...node!.prerequisites,ending:story.ending},actors:presentation!.actors,entryPoses:presentation!.entryPoses,entryStage:presentation!.entryStage,
@@ -58,6 +58,7 @@ export function reduceStory(project: ProjectV1,command: StoryCommand,context: St
     if(command.mode===story.mode)return null;
     story.mode=command.mode;story.revision++;return validateProject(next);
   }
+  if(story.definitionVersion===3&&command.action!=='COMPLETE_SCENE'&&node.id!=='craft'){const timing=story.mode==='full'?node.fullTiming:node.guidedTiming;requireFact(context.elapsedMs>=timing.minDurationMs,'请先听完这一段对白，再决定或操偶。');}
   let destination: string | undefined;
   if(command.action==='CHOOSE') {
     requireFact(node.id==='approach-choice' && node.kind==='choice' && node.completion.kind==='choice' && node.next && !('default' in node.next),'当前没有可选路线。');
@@ -66,7 +67,7 @@ export function reduceStory(project: ProjectV1,command: StoryCommand,context: St
     story.approach=command.approach;story.approachSource='user';
     destination=(node.next as {'call-first':string;'split-first':string})[command.approach];
   } else if(command.action==='CHOOSE_ENDING'){
-    requireFact(story.definitionVersion===2&&node.id==='ending-choice'&&node.kind==='choice'&&node.completion.kind==='choice'&&node.next&&!('default' in node.next),'当前没有可选终章。');
+    requireFact(story.definitionVersion!==1&&node.id==='ending-choice'&&node.kind==='choice'&&node.completion.kind==='choice'&&node.next&&!('default' in node.next),'当前没有可选终章。');
     requireFact(ENDING_IDS.includes(command.ending),'请明确选择终章。');
     requireFact(story.ending===null&&story.endingSource===null,'终章已确认，未重新选择。');
     story.ending=command.ending;story.endingSource='user';
@@ -116,7 +117,7 @@ export function reunionSummary(project: ProjectV1) {
   const p=validateProject(project),s=p.story;
   if(!s || !['curtain','completed'].includes(s.nodeId) || !s.completedAt || !s.castSnapshot || !s.approach)return null;
   return {id:s.definitionVersion===1?`${s.runId}:reunion`:`${s.runId}:ending:${s.ending}`,runId:s.runId,definitionVersion:s.definitionVersion,
-    ending:s.definitionVersion===2?s.ending!:null,completedAt:s.completedAt,approach:s.approach,castSnapshot:s.castSnapshot,assistedNodeIds:s.assistedNodeIds,presetAppearanceUsed:s.presetAppearanceUsed};
+    ending:s.definitionVersion!==1?s.ending!:null,completedAt:s.completedAt,approach:s.approach,castSnapshot:s.castSnapshot,assistedNodeIds:s.assistedNodeIds,presetAppearanceUsed:s.presetAppearanceUsed};
 }
 /** Rebuild only the current short node; caller owns a fresh transient mount generation. */
 export function storyEntry(project: ProjectV1,definition: StoryDefinition,generation: number) {

@@ -48,6 +48,7 @@ export const mountCraft:PageFactory=(host,ctx)=>{
   const restart=element('button','button secondary','归档旧场，用新造型重新开演');restart.id='craft-restart';
   const acknowledgeLabel=element('label','acknowledge'),acknowledge=element('input');acknowledge.type='checkbox';acknowledge.id='craft-archive-ack';append(acknowledgeLabel,acknowledge,element('span','','允许替换已有的上一项目（可先导出）'));
   const back=link('继续本场已冻结的演出 →','#/story');back.id='craft-return';
+  const next=element('button','button primary journey-recommended','保存行装，下一步调灯 →');next.id='journey-to-light';const nextBox=element('section','journey-next');append(nextBox,element('p','','第2步 / 制偶：挑好喜欢的纹样与颜色，就可以继续调灯。现在只保存编辑稿，正式开演时再确认本场造型。'),next);panel.appendChild(nextBox);
   append(confirmation,confirmationText,modeLabel,play,preset,back,restart,acknowledgeLabel);panel.appendChild(confirmation);
   append(layout,stage.figure,panel);host.appendChild(layout);
   const trial=element('div','craft-trial'),trialHelp=element('p','quiet-note','试提身杆：拖动幕下握柄，或聚焦后用方向键。这里的试提可重置，不改练习台存下的姿态。');
@@ -60,7 +61,7 @@ export const mountCraft:PageFactory=(host,ctx)=>{
   const canTry=()=>allowed()&&!state!.hasPending&&stage.getStatus().state==='ready';
   function syncControls(){
     body.update(bodyModel,canTry());const advance=allowed()&&!state!.hasPending&&state!.status!=='saving'&&stage.getStatus().state==='ready';
-    play.disabled=preset.disabled=restart.disabled=mode.disabled=acknowledge.disabled=!advance;
+    play.disabled=preset.disabled=restart.disabled=mode.disabled=acknowledge.disabled=next.disabled=!advance;
     trialPad.querySelectorAll('button').forEach(button=>{button.disabled=!canTry();});resetTrial.disabled=!canTry();
   }
   const direct=mountLimbControls(stage,{read(){const draft=ctx.store.getExportProject()??state?.project;if(!draft||!bodyModel)return null;return {frame:{actors:[{actorId:'chenxiang',templateId:'chenxiang-v1',appearance:draft.appearance,pose:bodyModel.pose}],stage:bodyModel.stage},enabled:canTry()};},change(pose){trialPose=pose;render();},wake(){clock.start();},end(){clock.stop();},report(text){trialHelp.textContent=text;}});
@@ -82,11 +83,11 @@ export const mountCraft:PageFactory=(host,ctx)=>{
     for(const [slot,select]of slots){for(let i=0;i<5;i++)select.options[i]!.textContent=colorNames[selected.colors[i]!]!;select.value=String(draft.appearance.colorSlots[slot]);}
     while(swatches.firstChild)swatches.removeChild(swatches.firstChild);for(const color of selected.colors){const span=element('span','swatch');span.style.backgroundColor=color;swatches.appendChild(span);}
     summary.textContent=`${patternLabel(pattern.value)} · ${paletteLabel(palette.value)}。${state.hasPending&&draft.story?.castSnapshot?'待保存的本场造型已冻结；后续修改排队到编辑稿，不改候选演出。':story?.castSnapshot?'这是编辑稿；本场已冻结的造型和母亲袖纹保持不变。':'母亲袖口预览同一道纹。确认开演前还可以修改。'}`;
-    const frozen=!!story?.castSnapshot;
+    const frozen=!!story?.castSnapshot;nextBox.hidden=!!story;play.className=story?'button primary':'button secondary';
     modeLabel.hidden=!!story;play.hidden=preset.hidden=frozen;
     back.hidden=!story;restart.hidden=acknowledgeLabel.hidden=!frozen;
     back.textContent=frozen?'继续本场已冻结的演出 →':'回到当前剧情 →';
-    confirmationText.textContent=frozen?'本场已冻结。继续会使用原造型；归档重开会保留现在的编辑稿并建立新项目，随后由你确认新场。':'开演会保存并冻结本场造型，直接进入第一幕；本页制作可跳过，默认影偶会标为预设造型。';
+    confirmationText.textContent=frozen?'本场已冻结。继续会使用原造型；归档重开会保留现在的编辑稿并建立新项目，随后由你确认新场。':'推荐先调灯、练习，再正式开演。也可以在此直接确认造型并进入第一幕；采用默认影偶会标为预设造型。';
     syncControls();direct.render();
   }
   life.on(pattern,'change',()=>{if(allowed())ctx.edit({type:'PATTERN',patternId:pattern.value as PatternId});});
@@ -99,6 +100,7 @@ export const mountCraft:PageFactory=(host,ctx)=>{
     if(!allowed()||state!.hasPending)return;const story=ctx.store.getState().project?.story;if(story?.castSnapshot)return;
     void ctx.durable(()=>confirmCraft(ctx.store,{runId:story?.runId??newIdentifier('run'),mode:mode.value as 'full'|'guided',presetAppearanceUsed,guard:story?storyGuard(story):null,now:new Date().toISOString()}),{path:'/story',exhibitId:null});
   }
+  life.on(next,'click',()=>{if(allowed()&&!state!.hasPending)void ctx.durable(()=>ctx.store.flush(),{path:'/light',exhibitId:null});});
   life.on(play,'click',()=>open(false));life.on(preset,'click',()=>open(true));
   life.on(restart,'click',()=>{if(allowed()&&!state!.hasPending)void ctx.durable(()=>archiveForRehearsal(ctx.store,acknowledge.checked),{path:'/craft',exhibitId:null});});
   return {update(next){state=next;render();},dispose(){disposed=true;offStatus();clock.dispose();direct.dispose();body.dispose();life.dispose();stage.dispose();}};

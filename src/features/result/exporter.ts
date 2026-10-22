@@ -1,4 +1,4 @@
-import { expandedDefinition } from '../../content/reunion';
+import { definitionFor } from '../../content/reunion';
 import { assetCatalog } from '../../content/catalog';
 import { mountCanvasRenderer } from '../../renderers/canvas/renderer';
 import type { ReunionArtifact } from './artifact';
@@ -20,7 +20,7 @@ export function mountReunionExporter(host: HTMLElement, artifact: ReunionArtifac
   const canvas = document.createElement('canvas');
   canvas.width = 1600; canvas.height = 1200; canvas.className = 'reunion-artifact';
   canvas.setAttribute('role', 'img');
-  const ending=snapshot.summary.ending?expandedDefinition.endings!.find(e=>e.id===snapshot.summary.ending):null;
+  const ending=snapshot.summary.ending?definitionFor(snapshot.summary).endings!.find(e=>e.id===snapshot.summary.ending):null;
   canvas.setAttribute('aria-label',ending?ending.title+'：'+ending.summary:'一幕团圆留影：沉香与母亲伸手相见，使用本场冻结造型；原创皮影风格设计稿。');
   canvas.setAttribute('data-state', 'loading');
   host.appendChild(canvas);
