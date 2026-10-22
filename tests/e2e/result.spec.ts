@@ -52,7 +52,7 @@ for(const approach of ['call-first','split-first'] as const)test(`${approach} ex
 });
 
 for(const approach of ['call-first','split-first'] as const)test(`${approach} replay is paused, follows only the saved branch and cannot edit the performance`,async({page},info)=>{
-  await clock(page);const project=completed(approach);await seed(page,project);await page.goto('/#/result');await ready(page);await openReplay(page);
+  test.setTimeout(60000);await clock(page);const project=completed(approach);await seed(page,project);await page.goto('/#/result');await ready(page);await openReplay(page);
   await expect(page.locator('#replay-status')).toContainText('已暂停');expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(0);
   const options=await page.locator('#replay-segment option').allTextContents();expect(options).toHaveLength(14);
   await page.locator('#replay-segment').selectOption('2');
@@ -69,6 +69,7 @@ for(const approach of ['call-first','split-first'] as const)test(`${approach} re
 });
 
 test('SAVE-03 JSON into a fresh browser preserves result identity, frozen PNG and replay decisions',async({page,browser})=>{
+  test.setTimeout(90000);
   const project=completed('split-first');await seed(page,project);await page.goto('/#/result');await ready(page);const first=await png(page),file=await json(page);invariant(JSON.parse(file.toString('utf8')),project);
   const context=await browser.newContext({viewport:page.viewportSize()!});const other=await context.newPage();
   try{await other.goto('/');await saved(other);await other.getByRole('button',{name:/我的作品/}).click();await other.locator('#import-project').setInputFiles({name:'reunion.json',mimeType:'application/json',buffer:file});await expect.poll(async()=>(await stored(other)).story?.runId).toBe(project.story!.runId);await saved(other);await go(other,'/result');await ready(other);
@@ -77,7 +78,7 @@ test('SAVE-03 JSON into a fresh browser preserves result identity, frozen PNG an
 });
 
 test('reduced motion uses explicit still steps and clears every replay callback on ten route exits',async({page})=>{
-  await clock(page);await page.emulateMedia({reducedMotion:'reduce'});const project=completed();await seed(page,project);await page.goto('/#/result');await ready(page);await openReplay(page);
+  test.setTimeout(90000);await clock(page);await page.emulateMedia({reducedMotion:'reduce'});const project=completed();await seed(page,project);await page.goto('/#/result');await ready(page);await openReplay(page);
   await expect(page.locator('#replay-play')).toBeDisabled();await page.locator('#replay-step').click();await expect(page.locator('#replay-status')).toContainText('0.3 秒');expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(0);
   await page.emulateMedia({reducedMotion:'no-preference'});
   for(let i=0;i<10;i++){

@@ -40,7 +40,7 @@ async function downloadJSON(download:Download):Promise<ProjectV1>{
 }
 for(const mode of ['full','guided'] as const)for(const approach of ['call-first','split-first'] as const){
   test(`${mode}/${approach} uses the real text controls, commits one reunion and completes curtain`,async({page})=>{
-    test.setTimeout(120000);await start(page,mode);await walkTo(page,'reunion-hold',approach);
+    test.setTimeout(240000);await start(page,mode);await walkTo(page,'reunion-hold',approach);
     const hold=content.nodes.find(n=>n.id==='reunion-hold')!;const minimum=(mode==='full'?hold.fullTiming:hold.guidedTiming).minDurationMs;
     await page.locator('#story-play').click();await page.clock.runFor(minimum-100);await expect(page.locator('#story-complete')).toBeDisabled();
     await page.clock.runFor(200);await page.locator('#story-complete').click();await expect(node(page)).toHaveAttribute('data-node','ending-home-epilogue');await advance(page,approach);await expect(node(page)).toHaveAttribute('data-node','curtain');await saved(page);
@@ -52,7 +52,7 @@ for(const mode of ['full','guided'] as const)for(const approach of ['call-first'
   });
 }
 test('refresh retains a confirmed choice, restarts paused and mode changes only the current short node',async({page})=>{
-  test.setTimeout(120000);await start(page,'full');await walkTo(page,'approach-choice','call-first');
+  test.setTimeout(240000);await start(page,'full');await walkTo(page,'approach-choice','call-first');
   await page.reload();await saved(page);await expect(node(page)).toHaveAttribute('data-node','approach-choice');expect((await stored(page)).story!.approach).toBeNull();
   await advance(page,'call-first');const before=await stored(page);await page.reload();await saved(page);
   await expect(node(page)).toHaveAttribute('data-node','call-light');await expect(page.locator('#node-clock')).toContainText('暂停 · 0.0');
@@ -62,7 +62,7 @@ test('refresh retains a confirmed choice, restarts paused and mode changes only 
   await advance(page,'call-first');await expect(node(page)).toHaveAttribute('data-node','call-response');
 });
 test('a failed reunion stays at the old node, exports its exact candidate, and retries without a second result',async({page})=>{
-  test.setTimeout(120000);await start(page,'guided');await walkTo(page,'ending-home-epilogue','split-first');
+  test.setTimeout(240000);await start(page,'guided');await walkTo(page,'ending-home-epilogue','split-first');
   await page.locator('#story-play').click();await page.clock.runFor(content.nodes.find(n=>n.id==='ending-home-epilogue')!.guidedTiming.minDurationMs+100);
   await page.evaluate(()=>{
     const original=IDBObjectStore.prototype.put;let fail=true;

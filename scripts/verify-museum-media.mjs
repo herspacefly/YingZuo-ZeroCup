@@ -1,4 +1,5 @@
-import { readFileSync, realpathSync } from 'node:fs';
+import path from 'node:path';
+import { readFileSync, realpathSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
@@ -33,6 +34,12 @@ for (const media of document.media ?? []) {
     files.push(file);
   } catch (error) { errors.push(`museum image ${media.id}: ${error.message}`); }
 }
+try {
+  const folder=fileURLToPath(new URL('public/assets/museum/',root));
+  const walk=directory=>readdirSync(directory,{withFileTypes:true}).flatMap(entry=>entry.isDirectory()?walk(path.join(directory,entry.name)):[path.join(directory,entry.name)]);
+  const listed=new Set(files),actual=walk(folder);
+  if(actual.some(file=>!listed.has(realpathSync(file)))||actual.length!==document.media.filter(row=>row.kind==='external').length)errors.push('museum directory contains an unlisted file or is missing an original');
+} catch(error){errors.push('museum directory inventory failed: '+error.message);}
 if (process.argv.includes('--decode') && !errors.length) {
   const decode = spawnSync('python', ['-c', 'import json,sys; from PIL import Image; files=json.load(sys.stdin); [(lambda im: im.load())(Image.open(p)) for p in files]; print("Pillow decoded",len(files),"images")'], { input: JSON.stringify(files), encoding: 'utf8' });
   if (decode.error || decode.status !== 0) errors.push(`museum image decoding failed: ${decode.error?.message ?? decode.stderr}`);

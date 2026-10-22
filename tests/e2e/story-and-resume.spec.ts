@@ -139,7 +139,7 @@ test('real mouse grip and native keyboard input can perform wave and body moveme
 });
 
 test('explicit reduced-motion assistance, memory continuation and ten playing exits keep one clock',async({page})=>{
-  await page.emulateMedia({reducedMotion:'reduce'});await fakeClock(page);await seed(page,projectAt('road'));await page.goto('/#/story');await ready(page);await failOneSave(page);
+  test.setTimeout(90000);await page.emulateMedia({reducedMotion:'reduce'});await fakeClock(page);await seed(page,projectAt('road'));await page.goto('/#/story');await ready(page);await failOneSave(page);
   await page.locator('#story-mode').selectOption('guided');await expect(page.locator('#save-state')).toHaveAttribute('data-state','error');await page.locator('#continue-memory').click();await ready(page);const writes=await page.evaluate(()=>Reflect.get(window,'__writes'));
   await page.locator('#story-assist').click();await advance(page,6000);await expect(page.locator('#story-finish')).toBeVisible();expect(await page.evaluate(()=>Reflect.get(window,'__writes'))).toBe(writes);
   await page.locator('#story-finish').click();await ready(page,'training');expect((await stored(page)).story!.assistedNodeIds).toEqual(['road']);

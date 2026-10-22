@@ -10,11 +10,12 @@ const root=fileURLToPath(new URL('../',import.meta.url)),args=process.argv.slice
 const option=(key,fallback)=>args.includes(key)?args[args.indexOf(key)+1]:fallback;
 const selected=option('--mode','both');if(!['both','full','guided'].includes(selected))throw new Error('Expected --mode full/guided/both');
 const out=path.resolve(root,option('--output','docs/evidence/t21-native-runtime.json'));
-if(!out.startsWith(root+path.sep))throw new Error('Output must remain in workspace');
+if(path.relative(root,out).startsWith('..')||path.isAbsolute(path.relative(root,out)))throw new Error('Output must remain in workspace');
 const json=file=>JSON.parse(readFileSync(path.join(root,file),'utf8'));
 const definition=json('src/content/stories/reunion-v3.json'),sha=bytes=>createHash('sha256').update(bytes).digest('hex');
-const report={kind:'native-production-v3-duration',clientReviewDate:'2026-10-22',machineUTC:new Date().toISOString(),baseCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),indexSha256:sha(readFileSync(path.join(root,'dist/index.html'))),scriptSha256:sha(readFileSync(fileURLToPath(import.meta.url))),storySha256:sha(readFileSync(path.join(root,'src/content/stories/reunion-v3.json'))),definition:'Wall time from first intro play to completed, 21-node call-first/home route. Craft confirmation is immediate. Every other node plays native authored duration; interaction uses explicit assistance, then complete 5–8 second showcase. No skip, fake clock, stored trajectory, or director sampling shortcut.',limitations:['Chromium on this host, automated choices/assistance and immediate page handling; human reading/action/choice dwell varies.','Preparation, startup and result reading are outside performance duration.','Any native clock pauses are recorded and explicitly resumed; pause time remains in wall duration.'],runs:[]};
+const report={kind:'native-production-v3-duration',clientReviewDate:'2026-10-22',machineUTC:new Date().toISOString(),baseCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),indexSha256:sha(readFileSync(path.join(root,'dist/index.html'))),scriptSha256:sha(readFileSync(fileURLToPath(import.meta.url))),storySha256:sha(readFileSync(path.join(root,'src/content/stories/reunion-v3.json'))),concurrentLoad:option('--concurrent-load','none declared'),definition:'Wall time from first intro play to completed, 21-node call-first/home route. Craft confirmation is immediate. Every other node plays native authored duration; interaction uses explicit assistance, then complete 5–8 second showcase. No skip, fake clock, stored trajectory, or director sampling shortcut.',limitations:['Chromium on this host, automated choices/assistance and immediate page handling; human reading/action/choice dwell varies.','Preparation, startup and result reading are outside performance duration.','Any native clock pauses are recorded and explicitly resumed; pause time remains in wall duration.'],runs:[]};
 let server;
+function persist(){mkdirSync(path.dirname(out),{recursive:true});writeFileSync(out,JSON.stringify(report,null,2)+'\n');}
 async function run(mode){
   const browser=await chromium.launch(),context=await browser.newContext({viewport:mode==='full'?{width:1440,height:900}:{width:390,height:844}}),page=await context.newPage();
   const result={mode,viewport:page.viewportSize(),browser:browser.version(),nodes:[],pauses:[],pageErrors:[],passed:false};report.runs.push(result);
@@ -29,7 +30,7 @@ async function run(mode){
     for(let i=0;i<22;i++){
       const runtime=page.locator('#story-runtime'),id=await runtime.getAttribute('data-node');if(id==='completed')break;
       const node=definition.nodes.find(n=>n.id===id),entry={id,startedWallMs:performance.now()-started,authoredTargetMs:(mode==='full'?node.fullTiming:node.guidedTiming).targetMs,showcaseObserved:false};result.nodes.push(entry);
-      console.log(`${mode}: ${id} at ${(entry.startedWallMs/1000).toFixed(1)}s`);
+      console.log(`${mode}: ${id} at ${(entry.startedWallMs/1000).toFixed(1)}s`);persist();
       if(id==='craft')await page.locator('#story-confirm-craft').click();else await page.locator('#story-play').click();
       let assisted=false,decided=false,finished=false;
       const deadline=performance.now()+entry.authoredTargetMs+90000;
@@ -46,7 +47,7 @@ async function run(mode){
         }
         await page.waitForTimeout(400);
       }
-      entry.finishedWallMs=performance.now()-started;
+      entry.finishedWallMs=performance.now()-started;persist();
       await page.locator('#story-runtime[data-state="paused"]').waitFor({timeout:20000});
     }
     result.wallMs=performance.now()-started;result.finalNode=await page.locator('#story-runtime').getAttribute('data-node');
@@ -57,5 +58,5 @@ async function run(mode){
 try{
   server=await preview({root,preview:{host:'127.0.0.1',port:0,strictPort:true,open:false}});
   await Promise.all((selected==='both'?['full','guided']:[selected]).map(run));
-}finally{server?.httpServer.close();mkdirSync(path.dirname(out),{recursive:true});writeFileSync(out,JSON.stringify(report,null,2)+'\n');}
+}finally{await server?.close();persist();}
 if(!report.runs.length||report.runs.some(r=>!r.passed))process.exitCode=1;

@@ -74,7 +74,8 @@ test('all five actions step visibly, keep the axe within the curtain and do not 
   await saved(page);expect((await stored(page)).story).toBeNull();expect((await stored(page)).performance).toBeNull();
   await page.locator('#practice-action').selectOption('wave-v1');await range(page,'#practice-x','1');await page.locator('#practice-action').selectOption('raise-axe-v1');await ready(page);await saved(page);
   const selected=await stored(page),bounds=projectedPoseBounds(chenxiang as PuppetTemplate,selected.pose,selected.stage,['axe']);
-  expect(bounds.minX).toBeGreaterThanOrEqual(-.960001);expect(bounds.maxX).toBeLessThanOrEqual(.960001);expect(bounds.minY).toBeGreaterThanOrEqual(-.710001);expect(bounds.maxY).toBeLessThanOrEqual(.710001);
+  // Saved Pose uses six decimal places; projected bitmap edges accumulate a few micro-units of rounding.
+  expect(bounds.minX).toBeGreaterThanOrEqual(-.960005);expect(bounds.maxX).toBeLessThanOrEqual(.960005);expect(bounds.minY).toBeGreaterThanOrEqual(-.710005);expect(bounds.maxY).toBeLessThanOrEqual(.710005);
   await page.locator('#practice-play').click();for(let i=0;i<30;i++)await frame(page,100);await expect(page.locator('#practice-runtime')).toHaveAttribute('data-state','paused');await saved(page);expect((await stored(page)).pose.scale).toBeGreaterThanOrEqual(.6);
 });
 

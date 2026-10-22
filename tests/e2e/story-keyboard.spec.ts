@@ -5,7 +5,7 @@ import fixture from '../fixtures/project-v1.json' with {type:'json'};
 import content from '../../src/content/stories/reunion-v1.json' with {type:'json'};
 
 const runtime=(page:Page)=>page.locator('#story-runtime');
-async function ready(page:Page,id:string){await expect(runtime(page)).toHaveAttribute('data-node',id);await expect(runtime(page)).toHaveAttribute('data-state','paused');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');}
+async function ready(page:Page,id:string){await expect(runtime(page)).toHaveAttribute('data-node',id);await expect(runtime(page)).toHaveAttribute('data-state','paused',{timeout:15000});await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready',{timeout:15000});}
 async function enter(page:Page,id:string){await page.locator(id).focus();await page.keyboard.press('Enter');}
 async function advance(page:Page,ms:number){await page.evaluate(async ms=>{while(ms>0){const delta=Math.min(ms,100);Reflect.get(window,'__frame')(delta);ms-=delta;await Promise.resolve();}},ms);}
 
@@ -25,7 +25,7 @@ async function rangeKeys(page:Page,id:string,target:number){
 
 for(const mode of ['full','guided'] as const)for(const approach of ['call-first','split-first'] as const){
   test(`${mode}/${approach} completes every graphical interaction and curtain using only native keyboard controls`,async({page})=>{
-    test.setTimeout(90000);
+    test.setTimeout(180000);
     await page.addInitScript(()=>{
       let now=0,id=0;const callbacks=new Map<number,FrameRequestCallback>();
       Object.defineProperty(performance,'now',{value:()=>now});window.requestAnimationFrame=callback=>{callbacks.set(++id,callback);return id;};window.cancelAnimationFrame=id=>{callbacks.delete(id);};

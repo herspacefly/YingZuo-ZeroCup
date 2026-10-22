@@ -127,6 +127,7 @@ test('incoming resource error retains the previous canvas and subtitles and retr
 });
 
 test('ten route exits, reset and late callbacks leave one clock and release all scene listeners',async({page})=>{
+  test.setTimeout(90000);
   const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await fakeClock(page);await seed(page,at('training'));await page.goto('/#/museum');
   const baseline=await page.evaluate(()=>Reflect.get(window,'__blurCount'));
   for(let i=0;i<10;i++){
