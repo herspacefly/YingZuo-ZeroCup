@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 import { preview } from 'vite';
 import { chromium } from 'playwright';
 const sha = value => createHash('sha256').update(value).digest('hex');
-const report = { kind:'native-production-museum-loading', clientReviewDate:'2026-10-22', machineUTC:new Date().toISOString(), indexSha256:sha(readFileSync('dist/index.html')), definition:'Fresh context, HTTP cache disabled, native timers. Home must request no external museum photos. Open E07, scroll its gallery into view, decode all photos in that exhibit. Times include navigation and image decode. Local server and Chromium emulation, not physical devices.', runs:[] };
+const report = { kind:'native-production-museum-loading', clientReviewDate:'2026-10-23', machineUTC:new Date().toISOString(), indexSha256:sha(readFileSync('dist/index.html')), definition:'Fresh context, HTTP cache disabled, native timers. Home must request no external museum photos. Open E07, scroll its gallery into view, decode all photos in that exhibit. Times include navigation and image decode. Local server and Chromium emulation, not physical devices.', runs:[] };
 let server, browser;
 try {
   server=await preview({preview:{host:'127.0.0.1',port:0,strictPort:true,open:false}});browser=await chromium.launch();

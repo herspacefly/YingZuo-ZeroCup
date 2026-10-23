@@ -14,7 +14,12 @@ async function stored(page:Page):Promise<ProjectV1>{
 }
 async function start(page:Page,mode:'full'|'guided'){
   // Freeze between explicit ticks: the 3.9s boundary must not include test-runner wall time.
-  await page.clock.install({time:new Date('2026-10-17T00:00:00.000Z')});await page.goto('/story.html');await saved(page);
+  await page.clock.install({time:new Date('2026-10-17T00:00:00.000Z')});
+  // This text-state test needs elapsed-time gates, not 60,000 visual frames per route.
+  // Deliver every controlled tick at 100ms, below the unchanged 250ms gap guard.
+  // Native scheduling and graphical sampling are covered by separate browser cases.
+  await page.addInitScript(()=>{window.requestAnimationFrame=callback=>window.setTimeout(()=>callback(performance.now()),100);window.cancelAnimationFrame=id=>window.clearTimeout(id);});
+  await page.goto('/story.html');await saved(page);
   await page.clock.pauseAt('2026-10-17T00:10:00.000Z');await page.locator('#story-mode').selectOption(mode);
   await page.locator('#story-start').click();await expect(node(page)).toHaveAttribute('data-node','intro');await saved(page);
 }

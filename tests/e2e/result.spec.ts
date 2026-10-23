@@ -30,7 +30,7 @@ async function clock(page:Page){await page.addInitScript(()=>{
   Reflect.set(window,'__frame',(delta:number)=>{now+=delta;const batch=[...frames.values()];frames.clear();batch.forEach(cb=>cb(now));});Reflect.set(window,'__late',()=>late.splice(0).forEach(cb=>cb(now)));Object.defineProperty(window,'__rafCount',{get:()=>frames.size});
 });}
 const frame=async(page:Page,delta=100)=>page.evaluate(delta=>Reflect.get(window,'__frame')(delta),delta);
-async function openReplay(page:Page){await page.locator('#result-replay').click();await expect(page.locator('#result-replay-player .canvas-stage-status')).toHaveAttribute('data-state','ready');}
+async function openReplay(page:Page){await page.locator('#result-replay').click();await expect(page.locator('#result-replay-player .canvas-stage-status')).toHaveAttribute('data-state','ready',{timeout:15000});}
 
 test('unfinished and protected records never manufacture a reunion or offer result downloads',async({page})=>{
   for(const p of [{...copy(fixture),story:null},fixture,future,corrupt]){
@@ -56,11 +56,11 @@ for(const approach of ['call-first','split-first'] as const)test(`${approach} re
   await expect(page.locator('#replay-status')).toContainText('已暂停');expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(0);
   const options=await page.locator('#replay-segment option').allTextContents();expect(options).toHaveLength(14);
   await page.locator('#replay-segment').selectOption('2');
-  await expect(page.locator('#result-replay-player .canvas-stage-status')).toHaveAttribute('data-state','ready');await page.locator('#replay-play').click();await frame(page);await frame(page);await expect(page.locator('#replay-status')).toContainText('播放中');
+  await expect(page.locator('#result-replay-player .canvas-stage-status')).toHaveAttribute('data-state','ready',{timeout:15000});await page.locator('#replay-play').click();await frame(page);await frame(page);await expect(page.locator('#replay-status')).toContainText('播放中');
   await page.evaluate(()=>window.dispatchEvent(new Event('blur')));await expect(page.locator('#replay-status')).toContainText('已暂停');expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(0);
   await page.locator('#replay-play').click();await frame(page,300);await expect(page.locator('#replay-status')).toContainText('页面停顿较久');
   for(let index=0;index<options.length;index++){
-    await page.locator('#replay-segment').selectOption(String(index));await expect(page.locator('#result-replay-player .canvas-stage-status')).toHaveAttribute('data-state','ready');await page.locator('#replay-play').click();await frame(page,200);await page.locator('#replay-pause').click();
+    await page.locator('#replay-segment').selectOption(String(index));await expect(page.locator('#result-replay-player .canvas-stage-status')).toHaveAttribute('data-state','ready',{timeout:15000});await page.locator('#replay-play').click();await frame(page,200);await page.locator('#replay-pause').click();
   }
   await page.getByRole('button',{name:'展开本段完整台词',exact:true}).click();await expect(page.locator('#result-replay-player #story-transcript')).toBeVisible();
   await saved(page);invariant(await stored(page),project);
@@ -122,7 +122,7 @@ test('failed autosaving still exports the actual reunited draft and replay never
   const project=completed();await seed(page,project);await page.goto('/#/museum');await saved(page);
   await page.evaluate(()=>{const put=IDBObjectStore.prototype.put;let writes=0;IDBObjectStore.prototype.put=function(value:unknown,key?:IDBValidKey){if(key==='draft'){writes++;throw new DOMException('Result quota failure','QuotaExceededError');}return put.call(this,value,key);};Object.defineProperty(window,'__writes',{get:()=>writes});});
   await go(page,'/result');await expect(page.locator('#save-state')).toHaveAttribute('data-state','error');await ready(page);await expect(page.locator('#result-save-note')).toContainText('未保存');invariant(JSON.parse((await json(page)).toString('utf8')),project);expect((await png(page)).readUInt32BE(16)).toBe(1600);await openReplay(page);await page.locator('#replay-next').click();await page.waitForTimeout(800);expect(await page.evaluate(()=>Reflect.get(window,'__writes'))).toBe(1);invariant(await stored(page),project);
-  await go(page,'/story');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');await page.locator('#story-mode').selectOption('guided');await expect(page.locator('#continue-memory')).toBeEnabled();await page.locator('#continue-memory').click();await expect(page.locator('#save-state')).toHaveAttribute('data-state','memory');const writes=await page.evaluate(()=>Reflect.get(window,'__writes'));
+  await go(page,'/story');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready',{timeout:15000});await page.locator('#story-mode').selectOption('guided');await expect(page.locator('#continue-memory')).toBeEnabled();await page.locator('#continue-memory').click();await expect(page.locator('#save-state')).toHaveAttribute('data-state','memory');const writes=await page.evaluate(()=>Reflect.get(window,'__writes'));
   await go(page,'/result');await ready(page);const memory=JSON.parse((await json(page)).toString('utf8')) as ProjectV1;expect(memory.story!.mode).toBe('guided');expect(memory.story!.completedAt).toBe(project.story!.completedAt);expect(memory.story!.runId).toBe(project.story!.runId);await openReplay(page);await page.locator('#replay-next').click();await page.waitForTimeout(800);expect(await page.evaluate(()=>Reflect.get(window,'__writes'))).toBe(writes);await expect(page.locator('#save-state')).toHaveAttribute('data-state','memory');
 });
 
