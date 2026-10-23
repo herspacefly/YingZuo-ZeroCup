@@ -1,0 +1,3878 @@
+{
+  "clientReviewDate": "2026-10-23",
+  "machineUTC": "2026-10-23T04:00:34.917Z",
+  "baseCommit": "5364126aec8cd15f58088353ca538f2cb0c53198",
+  "indexSha256": "b729aa1f10af4d502c9a52e8f326de54ab7a3399642a2d94e898a2c8cb81ab32",
+  "statement": "Latest observation of each unique browser case across explicitly ordered reports. This is not a single all-green final full run. Native duration, visual review and loading are separate evidence.",
+  "runs": [
+    {
+      "file": "docs/evidence/t21-t24-final-browser-run.json",
+      "sha256": "07462e74cbf244da5db826c3325742202516894d0dbbc432bb2ee416ba09e9f8",
+      "stats": {
+        "startTime": "2026-10-22T10:43:10.980Z",
+        "duration": 2119258.6240000003,
+        "expected": 447,
+        "skipped": 0,
+        "unexpected": 21,
+        "flaky": 0
+      },
+      "globalErrors": []
+    },
+    {
+      "file": "docs/evidence/t21-v2-restore-recheck.json",
+      "sha256": "95d521a119f9c3840072aac9ef8a863119c03d02c202990e9e4ad66eb539ecce",
+      "stats": {
+        "startTime": "2026-10-22T11:21:45.414Z",
+        "duration": 57992.438,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "globalErrors": []
+    },
+    {
+      "file": "docs/evidence/t21-native-clock-idle.json",
+      "sha256": "2e3bda6bbe0aeff6a285ed5bdcfcf403cab1903dbfdf6ec088c820e59eeed507",
+      "stats": {
+        "startTime": "2026-10-22T11:23:02.222Z",
+        "duration": 38971.751000000004,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "globalErrors": []
+    },
+    {
+      "file": "docs/evidence/t21-focused-desktop-recheck.json",
+      "sha256": "6eddd9b6d19f14e8d24e2fedbdff91f9092aafb6b217da020e2799f153aeef42",
+      "stats": {
+        "startTime": "2026-10-22T11:25:13.748Z",
+        "duration": 484729.142,
+        "expected": 9,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "globalErrors": []
+    },
+    {
+      "file": "docs/evidence/t21-native-clock-diagnostic.json",
+      "sha256": "7a0ae108f61a8a16a0c916e74b67c0fac3fc082c2aa3d6a7e6b2a0acc2e07932",
+      "stats": {
+        "startTime": "2026-10-22T11:37:20.699Z",
+        "duration": 18779.919,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "globalErrors": []
+    },
+    {
+      "file": "docs/evidence/t21-focused-mobile-recheck.json",
+      "sha256": "bc5ad8807a1285a5f78763080e874d35f7511ce42a13515a27044b638e88ae58",
+      "stats": {
+        "startTime": "2026-10-22T11:38:03.686Z",
+        "duration": 473458.772,
+        "expected": 8,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "globalErrors": []
+    },
+    {
+      "file": "docs/evidence/t21-replay-ready-recheck.json",
+      "sha256": "40ce9fb03b326ca4c9b95ef6b77008f8395b063a072291d8c9e9cf3c748b872d",
+      "stats": {
+        "startTime": "2026-10-23T03:22:25.291Z",
+        "duration": 26719.869,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "globalErrors": []
+    },
+    {
+      "file": "docs/evidence/t21-version-label-check.json",
+      "sha256": "3becba985e56ee241b9e32e81b4a127321b01bd059f8e27b266f0d3737f8179e",
+      "stats": {
+        "startTime": "2026-10-23T03:57:16.297Z",
+        "duration": 24022.076999999997,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "globalErrors": []
+    }
+  ],
+  "uniqueCases": 470,
+  "latestPassing": 470,
+  "unresolved": [],
+  "checks": [
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": "default mute creates no context, real enable plays once, pause/reset/mute/exit release native audio",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": "call-split emits the actual mountain sound only when the axe resolves",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": "split-axe emits the actual mountain sound only when the axe resolves",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": "reunion keeps the first two seconds silent and uses the new layered design",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": "missing audio capability leaves every scene control and subtitle available",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": "a real context resume refusal is reported and explicit retry creates a working device",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": "a late native resume cannot revive an exited page or grant the next page sound",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": "an old native close rejection cannot hide the fresh device mute control",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": "ten enabled story exits close all native contexts and leave no sound clock",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": "default mute creates no context, real enable plays once, pause/reset/mute/exit release native audio",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": "call-split emits the actual mountain sound only when the axe resolves",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": "split-axe emits the actual mountain sound only when the axe resolves",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": "reunion keeps the first two seconds silent and uses the new layered design",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": "missing audio capability leaves every scene control and subtitle available",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": "a real context resume refusal is reported and explicit retry creates a working device",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": "a late native resume cannot revive an exited page or grant the next page sound",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": "an old native close rejection cannot hide the fresh device mute control",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": "ten enabled story exits close all native contexts and leave no sound clock",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "asset-delivery.spec.ts",
+      "title": "lossless delivery and canonical PNG draw identical carving, palettes, frozen duet, WebGL and result PNG",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "asset-delivery.spec.ts",
+      "title": "unsupported non-premultiplied decoding uses PNG without requesting delivery files",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "asset-delivery.spec.ts",
+      "title": "damaged delivery fails visibly and explicit retry refetches a repaired image",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "asset-delivery.spec.ts",
+      "title": "a decoded bitmap arriving after route exit is closed and cannot revive its old canvas",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "asset-delivery.spec.ts",
+      "title": "lossless delivery and canonical PNG draw identical carving, palettes, frozen duet, WebGL and result PNG",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "asset-delivery.spec.ts",
+      "title": "unsupported non-premultiplied decoding uses PNG without requesting delivery files",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "asset-delivery.spec.ts",
+      "title": "damaged delivery fails visibly and explicit retry refetches a repaired image",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "asset-delivery.spec.ts",
+      "title": "a decoded bitmap arriving after route exit is closed and cannot revive its old canvas",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "assets.spec.ts",
+      "title": "all local assets decode and distinct neutral roles, cutouts and scenes draw",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "assets.spec.ts",
+      "title": "a missing required mask clears the preview and retry loads a complete actor",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "assets.spec.ts",
+      "title": "legacy asset page consumes the same PNGs in Chromium smoke check",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "assets.spec.ts",
+      "title": "Canvas failure remains readable and does not report successful assembly",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "assets.spec.ts",
+      "title": "all local assets decode and distinct neutral roles, cutouts and scenes draw",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "assets.spec.ts",
+      "title": "a missing required mask clears the preview and retry loads a complete actor",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "assets.spec.ts",
+      "title": "legacy asset page consumes the same PNGs in Chromium smoke check",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "assets.spec.ts",
+      "title": "Canvas failure remains readable and does not report successful assembly",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "backdrop-cache.spec.ts",
+      "title": "opaque background is reused, moving light stays direct, resize and exit release old pixels",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "backdrop-cache.spec.ts",
+      "title": "optional backdrop allocation failure retains full original-quality drawing",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "backdrop-cache.spec.ts",
+      "title": "cached drawing failure clears buffers and actual retry loads a fresh background",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "backdrop-cache.spec.ts",
+      "title": "stable drawing refreshes control geometry once and Three follows each new Canvas frame",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "backdrop-cache.spec.ts",
+      "title": "opaque background is reused, moving light stays direct, resize and exit release old pixels",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "backdrop-cache.spec.ts",
+      "title": "optional backdrop allocation failure retains full original-quality drawing",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "backdrop-cache.spec.ts",
+      "title": "cached drawing failure clears buffers and actual retry loads a fresh background",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "backdrop-cache.spec.ts",
+      "title": "stable drawing refreshes control geometry once and Three follows each new Canvas frame",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": "duet recolors the editor but preserves the frozen mother and saved story",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": "paused story uses its node scene, props and frozen cast independently of editor previews",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": "missing color image fails visibly with a blank canvas and retry restores both actors",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": "carving changes the puppet while keeping the already drawn curtain opaque",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": "Canvas failure leaves the editor and story text available without false ready status",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": "a drawing failure clears cached images and retry reads fresh sources",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": "late images and ten remounts leave one canvas and no detached drawing or resize listeners",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": "legacy product draws the same two-role frame in Chromium smoke check",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": "duet recolors the editor but preserves the frozen mother and saved story",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": "paused story uses its node scene, props and frozen cast independently of editor previews",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": "missing color image fails visibly with a blank canvas and retry restores both actors",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": "carving changes the puppet while keeping the already drawn curtain opaque",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": "Canvas failure leaves the editor and story text available without false ready status",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": "a drawing failure clears cached images and retry reads fresh sources",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": "late images and ten remounts leave one canvas and no detached drawing or resize listeners",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": "legacy product draws the same two-role frame in Chromium smoke check",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "clock-native-start.spec.ts",
+      "title": "twelve native-clock play clicks advance without falsely pausing at the first frame",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-native-clock-diagnostic.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "clock-native-start.spec.ts",
+      "title": "twelve native-clock play clicks advance without falsely pausing at the first frame",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-native-clock-idle.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": "three cut segments, per-part colors and candidate mother motif render and survive SAVE-01",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": "immediate direct-craft opening freezes queued unsaved edits once and keeps guided intent",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": "default opening uses the existing craft run, marks preset and preserves editor work",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": "failed confirmation exports the frozen candidate while later edits queue separately and retry preserves it",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": "editing and explicit archive-rehearsal preserve the old frozen run and the new editor",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": "existing archive protection preserves both projects until explicit retry acknowledgement",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": "lamp ranges, native keyboard, step buttons and reset save without changing story or practice pose",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": "memory-only craft and lamp edits never retry writes until explicit save",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": "body trial mouse, keyboard and touch are reversible and never replace the saved practice pose",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": "legacy product freezes carved colors and saves lamp controls through the same Store in Chromium",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": "ten craft/light remounts release input listeners and unavailable Canvas blocks freeze while editing stays available",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "craft-light.spec.ts",
+      "title": "three cut segments, per-part colors and candidate mother motif render and survive SAVE-01",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "craft-light.spec.ts",
+      "title": "immediate direct-craft opening freezes queued unsaved edits once and keeps guided intent",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "craft-light.spec.ts",
+      "title": "default opening uses the existing craft run, marks preset and preserves editor work",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "craft-light.spec.ts",
+      "title": "failed confirmation exports the frozen candidate while later edits queue separately and retry preserves it",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "craft-light.spec.ts",
+      "title": "editing and explicit archive-rehearsal preserve the old frozen run and the new editor",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "craft-light.spec.ts",
+      "title": "existing archive protection preserves both projects until explicit retry acknowledgement",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "craft-light.spec.ts",
+      "title": "lamp ranges, native keyboard, step buttons and reset save without changing story or practice pose",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "craft-light.spec.ts",
+      "title": "memory-only craft and lamp edits never retry writes until explicit save",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "craft-light.spec.ts",
+      "title": "body trial mouse, keyboard and touch are reversible and never replace the saved practice pose",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "craft-light.spec.ts",
+      "title": "legacy product freezes carved colors and saves lamp controls through the same Store in Chromium",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "craft-light.spec.ts",
+      "title": "ten craft/light remounts release input listeners and unavailable Canvas blocks freeze while editing stays available",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": "full intro has four timed shots and saves exactly once before craft",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": "guided intro has four timed shots and saves exactly once before craft",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": "pause, resume, long gap, blur, mode switch and reload never count stopped time",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": "skip is explicit only in intro and interaction, choice and quiet hold cannot auto finish",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": "reduced motion changes still shots with synchronized text and no automatic start",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": "failed automatic checkpoint retains the applied frame and exact candidate until explicit retry",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": "memory playback never retries storage without confirming the next scene",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": "canceling a failed scene allows confirmation from the held final frame without replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": "a normal route autosave never interrupts the playing scene",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": "incoming resource error retains the previous canvas and subtitles and retry swaps only when ready",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": "ten route exits, reset and late callbacks leave one clock and release all scene listeners",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": "a late incoming texture after route exit cannot restore the old canvas or advance again",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": "legacy entry plays the director in Chromium smoke coverage",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": "Canvas failure still exposes the current story and its complete transcript",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": "full intro has four timed shots and saves exactly once before craft",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": "guided intro has four timed shots and saves exactly once before craft",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": "pause, resume, long gap, blur, mode switch and reload never count stopped time",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": "skip is explicit only in intro and interaction, choice and quiet hold cannot auto finish",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": "reduced motion changes still shots with synchronized text and no automatic start",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": "failed automatic checkpoint retains the applied frame and exact candidate until explicit retry",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": "memory playback never retries storage without confirming the next scene",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": "canceling a failed scene allows confirmation from the held final frame without replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": "a normal route autosave never interrupts the playing scene",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": "incoming resource error retains the previous canvas and subtitles and retry swaps only when ready",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": "ten route exits, reset and late callbacks leave one clock and release all scene listeners",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-focused-mobile-recheck.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": "a late incoming texture after route exit cannot restore the old canvas or advance again",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": "legacy entry plays the director in Chromium smoke coverage",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": "Canvas failure still exposes the current story and its complete transcript",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "v2 call-first/home: entire graphical route, restore, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "v2 call-first/light: entire graphical route, restore, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "v2 call-first/road: entire graphical route, restore, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "v2 call-first/waiting: entire graphical route, restore, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "v2 call-first/sacrifice: entire graphical route, restore, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "v2 split-first/home: entire graphical route, restore, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "v2 split-first/light: entire graphical route, restore, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "v2 split-first/road: entire graphical route, restore, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "v2 split-first/waiting: entire graphical route, restore, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "v2 split-first/sacrifice: entire graphical route, restore, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "new runs use v3; help is reachable and guide has no unmeasured duration promise",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "actual hand and foot dragging, body arrows, pause and focus keep separate ownership",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "spatial story layers follow the shared clock and observation never changes the checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "a v2 terminal save failure exports the same ending candidate and retries once",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "reduced motion without WebGL retains the full open ending and no Three download",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "all four direct grips remain independently draggable in the practice viewport",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "v2 call-first/home: entire graphical route, restore, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "v2 call-first/light: entire graphical route, restore, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "v2 call-first/road: entire graphical route, restore, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "v2 call-first/waiting: entire graphical route, restore, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "v2 call-first/sacrifice: entire graphical route, restore, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "v2 split-first/home: entire graphical route, restore, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "v2 split-first/light: entire graphical route, restore, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "v2 split-first/road: entire graphical route, restore, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-v2-restore-recheck.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "v2 split-first/waiting: entire graphical route, restore, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "v2 split-first/sacrifice: entire graphical route, restore, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "new runs use v3; help is reachable and guide has no unmeasured duration promise",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "actual hand and foot dragging, body arrows, pause and focus keep separate ownership",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "spatial story layers follow the shared clock and observation never changes the checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "a v2 terminal save failure exports the same ending candidate and retries once",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "reduced motion without WebGL retains the full open ending and no Three download",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "expanded-story.spec.ts",
+      "title": "all four direct grips remain independently draggable in the practice viewport",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": "ten slow seconds offer real lightweight 2D without advancing or saving, and quality can be restored",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": "24fps playback and a few isolated slow seconds do not show the suggestion",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": "pause, blur, long gaps and route disposal reset the slow streak and reject late callbacks",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": "continuing the current picture dismisses the suggestion without switching quality or adding clocks",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": "lightweight choice survives short-stage route changes and refresh returns to the default display",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": "practice keyboard motion shares the monitor and display quality cannot change the frozen performance",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": "read-only reunion replay offers the same suggestion and leaves the complete saved result untouched",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": "ten slow seconds offer real lightweight 2D without advancing or saving, and quality can be restored",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": "24fps playback and a few isolated slow seconds do not show the suggestion",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": "pause, blur, long gaps and route disposal reset the slow streak and reject late callbacks",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": "continuing the current picture dismisses the suggestion without switching quality or adding clocks",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": "lightweight choice survives short-stage route changes and refresh returns to the default display",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": "practice keyboard motion shares the monitor and display quality cannot change the frozen performance",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": "read-only reunion replay offers the same suggestion and leaves the complete saved result untouched",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "v3 call-first/home: complete route, canonical showcase, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "v3 call-first/light: complete route, canonical showcase, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "v3 call-first/road: complete route, canonical showcase, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "v3 call-first/waiting: complete route, canonical showcase, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "v3 call-first/sacrifice: complete route, canonical showcase, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "v3 split-first/home: complete route, canonical showcase, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "v3 split-first/light: complete route, canonical showcase, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "v3 split-first/road: complete route, canonical showcase, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "v3 split-first/waiting: complete route, canonical showcase, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "v3 split-first/sacrifice: complete route, canonical showcase, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "first visit follows background, draft craft, light, practice and explicit story confirmation",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "canonical showcase pauses, restarts, refreshes safely and a skipped failed save retries once",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "real foot dragging and body movement produce the same canonical film as an untouched stage",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "v3 call-first/home: complete route, canonical showcase, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "v3 call-first/light: complete route, canonical showcase, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "v3 call-first/road: complete route, canonical showcase, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "v3 call-first/waiting: complete route, canonical showcase, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "v3 call-first/sacrifice: complete route, canonical showcase, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "v3 split-first/home: complete route, canonical showcase, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "v3 split-first/light: complete route, canonical showcase, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "v3 split-first/road: complete route, canonical showcase, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "v3 split-first/waiting: complete route, canonical showcase, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "v3 split-first/sacrifice: complete route, canonical showcase, result and replay",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "first visit follows background, draft craft, light, practice and explicit story confirmation",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "canonical showcase pauses, restarts, refreshes safely and a skipped failed save retries once",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "real foot dragging and body movement produce the same canonical film as an untouched stage",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum-media.spec.ts",
+      "title": "museum photo gallery keeps local lazy images, actual captions and keyboard modal focus",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum-media.spec.ts",
+      "title": "gallery load failure reports and really retries; exiting an open modal releases it",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum-media.spec.ts",
+      "title": "all eight photo readings retain their declared counts and original files",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum-media.spec.ts",
+      "title": "museum photo gallery keeps local lazy images, actual captions and keyboard modal focus",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum-media.spec.ts",
+      "title": "gallery load failure reports and really retries; exiting an open modal releases it",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum-media.spec.ts",
+      "title": "all eight photo readings retain their declared counts and original files",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": "direct museum opens five sections and all eight sourced exhibits without starting a performance",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": "layers and real carving are reversible previews of the frozen cast without editing it",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": "native keyboard joints and lamp controls change real geometry and the shared light diagram only",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": "collaboration uses the same wave in two explicit stills and never offers an unavailable audio track",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": "E08 distinguishes actual in-progress, curtain and completed programmes while keeping the sole creator",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": "full/call-first returns from exhibits to the same paused graphical checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": "full/split-first returns from exhibits to the same paused graphical checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": "guided/call-first returns from exhibits to the same paused graphical checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": "guided/split-first returns from exhibits to the same paused graphical checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": "future storage is untouched while full knowledge and sample experiments remain available",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": "corrupt storage is untouched while full knowledge and sample experiments remain available",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": "failed visit saving stays honest and later previews or visits never retry writes implicitly",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": "memory continuation can visit and export without retrying unavailable storage",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": "ten exhibit exits release canvases, inputs and every scene clock",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": "importing a different frozen cast clears the old temporary experiment and detached inputs",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": "failed exhibit images retry for real and late images cannot restore an exited stage",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": "Canvas failure keeps all exhibit text, sources and navigation usable",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": "legacy product reads full exhibits and uses the same carving and lamp geometry in Chromium",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": "direct museum opens five sections and all eight sourced exhibits without starting a performance",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": "layers and real carving are reversible previews of the frozen cast without editing it",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": "native keyboard joints and lamp controls change real geometry and the shared light diagram only",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": "collaboration uses the same wave in two explicit stills and never offers an unavailable audio track",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": "E08 distinguishes actual in-progress, curtain and completed programmes while keeping the sole creator",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": "full/call-first returns from exhibits to the same paused graphical checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": "full/split-first returns from exhibits to the same paused graphical checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": "guided/call-first returns from exhibits to the same paused graphical checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": "guided/split-first returns from exhibits to the same paused graphical checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": "future storage is untouched while full knowledge and sample experiments remain available",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": "corrupt storage is untouched while full knowledge and sample experiments remain available",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": "failed visit saving stays honest and later previews or visits never retry writes implicitly",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": "memory continuation can visit and export without retrying unavailable storage",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": "ten exhibit exits release canvases, inputs and every scene clock",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": "importing a different frozen cast clears the old temporary experiment and detached inputs",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": "failed exhibit images retry for real and late images cannot restore an exited stage",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": "Canvas failure keeps all exhibit text, sources and navigation usable",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": "legacy product reads full exhibits and uses the same carving and lamp geometry in Chromium",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": "direct routes, museum children, back and refresh preserve the confirmed performance",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": "URLs cannot start a story or manufacture a completed result",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": "explicit guided opening and intro skip persist once, and ten remounts cannot repeat the command",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": "craft saves the current editor while leaving frozen cast and decision intact",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": "a failed opening stays on the old page, exports its candidate and retries the identical run",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": "denied storage keeps an editable export and an explicit memory-only opening",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": "archive/import use the shared serial entry, and cancel preserves the existing project",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": "workbench recovery can be explicitly reread without leaving the product stuck",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": "a real curtain checkpoint produces the actual programme and prepared reunion image",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": "future records remain protected while the museum is readable",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": "corrupt records remain protected while the museum is readable",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": "alias redirects once, keyboard skip does not change route and mobile menu has real focus targets",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": "legacy product entry uses the same project and can save an editor change in Chromium",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": "static product introduction remains readable without JavaScript",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": "direct routes, museum children, back and refresh preserve the confirmed performance",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": "URLs cannot start a story or manufacture a completed result",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": "explicit guided opening and intro skip persist once, and ten remounts cannot repeat the command",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": "craft saves the current editor while leaving frozen cast and decision intact",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": "a failed opening stays on the old page, exports its candidate and retries the identical run",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": "denied storage keeps an editable export and an explicit memory-only opening",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": "archive/import use the shared serial entry, and cancel preserves the existing project",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": "workbench recovery can be explicitly reread without leaving the product stuck",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": "a real curtain checkpoint produces the actual programme and prepared reunion image",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": "future records remain protected while the museum is readable",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": "corrupt records remain protected while the museum is readable",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": "alias redirects once, keyboard skip does not change route and mobile menu has real focus targets",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": "legacy product entry uses the same project and can save an editor change in Chromium",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": "static product introduction remains readable without JavaScript",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": "all three real mouse grips change pose and reload saves the final editor without touching story",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": "quick input-only trailing save and native change keep the final range and facing on reload",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": "grip arrow keys use one clock, key release/blur stop motion and native range arrows still work",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": "action selection, pause/resume, hidden page and long gaps retain time without catch-up",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": "all five actions step visibly, keep the axe within the curtain and do not start a story",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-focused-desktop-recheck.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": "reduced motion uses explicit 250ms steps and never launches a loop",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": "actual touch drag cancels cleanly and fallback touch handles unrelated identifiers and multiple ends",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": "import during an action archives the latest old pose and never overwrites the new project",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": "save failure keeps the final pose exportable and automatic input never retries disk writes",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": "memory-only progress stays memory after practice until an explicit save",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": "Canvas failure disables input and ten playing remounts clear every practice callback",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "practice.spec.ts",
+      "title": "all three real mouse grips change pose and reload saves the final editor without touching story",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "practice.spec.ts",
+      "title": "quick input-only trailing save and native change keep the final range and facing on reload",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "practice.spec.ts",
+      "title": "grip arrow keys use one clock, key release/blur stop motion and native range arrows still work",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "practice.spec.ts",
+      "title": "action selection, pause/resume, hidden page and long gaps retain time without catch-up",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "practice.spec.ts",
+      "title": "all five actions step visibly, keep the axe within the curtain and do not start a story",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-focused-mobile-recheck.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "practice.spec.ts",
+      "title": "reduced motion uses explicit 250ms steps and never launches a loop",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "practice.spec.ts",
+      "title": "actual touch drag cancels cleanly and fallback touch handles unrelated identifiers and multiple ends",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "practice.spec.ts",
+      "title": "import during an action archives the latest old pose and never overwrites the new project",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "practice.spec.ts",
+      "title": "save failure keeps the final pose exportable and automatic input never retries disk writes",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "practice.spec.ts",
+      "title": "memory-only progress stays memory after practice until an explicit save",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "practice.spec.ts",
+      "title": "Canvas failure disables input and ten playing remounts clear every practice callback",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "probe.spec.ts",
+      "title": "production canvas responds to keyboard and has no horizontal overflow",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "probe.spec.ts",
+      "title": "commits, reloads and rolls back in actual browser IndexedDB",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "probe.spec.ts",
+      "title": "stale second tab keeps its unsaved sample and reports a conflict",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "probe.spec.ts",
+      "title": "denied storage preserves an editable sample and offers a real download",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "probe.spec.ts",
+      "title": "legacy production chunks operate in Chromium smoke check, not an IE test",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "probe.spec.ts",
+      "title": "readable story and museum introduction survives disabled JavaScript",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "probe.spec.ts",
+      "title": "Canvas initialization failure leaves honest readable fallback",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "probe.spec.ts",
+      "title": "production canvas responds to keyboard and has no horizontal overflow",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "probe.spec.ts",
+      "title": "commits, reloads and rolls back in actual browser IndexedDB",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "probe.spec.ts",
+      "title": "stale second tab keeps its unsaved sample and reports a conflict",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "probe.spec.ts",
+      "title": "denied storage preserves an editable sample and offers a real download",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "probe.spec.ts",
+      "title": "legacy production chunks operate in Chromium smoke check, not an IE test",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "probe.spec.ts",
+      "title": "readable story and museum introduction survives disabled JavaScript",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "probe.spec.ts",
+      "title": "Canvas initialization failure leaves honest readable fallback",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": "formal project autosaves and resumes identity and editing choices after real reload",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": "imports a real project file as a new project without altering frozen cast or checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": "malformed and future-version file imports leave the existing current project intact",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": "pending replacement preserves continuous typing and can be canceled without losing queued edits",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": "new project autosaves keep the previous project recoverable",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": "damaged draft is quarantined and backup can be edited, saved and reloaded",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": "unknown stored versions remain exportable and cannot be overwritten through recovery",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": "two tabs retain both versions on conflict and takeover requires an explicit action",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": "storage denial keeps an honest in-memory draft with a working project file download",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": "formal store and file export operate through legacy production chunks in Chromium smoke check",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "project-storage.spec.ts",
+      "title": "formal project autosaves and resumes identity and editing choices after real reload",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "project-storage.spec.ts",
+      "title": "imports a real project file as a new project without altering frozen cast or checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "project-storage.spec.ts",
+      "title": "malformed and future-version file imports leave the existing current project intact",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "project-storage.spec.ts",
+      "title": "pending replacement preserves continuous typing and can be canceled without losing queued edits",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "project-storage.spec.ts",
+      "title": "new project autosaves keep the previous project recoverable",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "project-storage.spec.ts",
+      "title": "damaged draft is quarantined and backup can be edited, saved and reloaded",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "project-storage.spec.ts",
+      "title": "unknown stored versions remain exportable and cannot be overwritten through recovery",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "project-storage.spec.ts",
+      "title": "two tabs retain both versions on conflict and takeover requires an explicit action",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "project-storage.spec.ts",
+      "title": "storage denial keeps an honest in-memory draft with a working project file download",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "project-storage.spec.ts",
+      "title": "formal store and file export operate through legacy production chunks in Chromium smoke check",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": "unfinished and protected records never manufacture a reunion or offer result downloads",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": "call-first exports a real frozen 1600x1200 PNG twice and an unchanged programme",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": "split-first exports a real frozen 1600x1200 PNG twice and an unchanged programme",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": "call-first replay is paused, follows only the saved branch and cannot edit the performance",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-focused-desktop-recheck.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": "split-first replay is paused, follows only the saved branch and cannot edit the performance",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-focused-desktop-recheck.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": "SAVE-03 JSON into a fresh browser preserves result identity, frozen PNG and replay decisions",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": "reduced motion uses explicit still steps and clears every replay callback on ten route exits",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-focused-desktop-recheck.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": "a missing required mask fails the image truthfully and retry loads the actual asset",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": "PNG encoding rejection and browser refusal report failure, while JSON remains available",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": "late PNG encoding after exit cannot download or replace the new page",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": "Canvas failure keeps programme, JSON and replay transcript without reporting a successful image",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": "legacy PNG encoding fallback produces a real file and all download URLs are released",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": "failed autosaving still exports the actual reunited draft and replay never retries disk implicitly",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": "late required images after result exit cannot resurrect the capture or its download action",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": "a PNG finishing during a pending file import cannot download the previous project",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": "legacy product exports PNG and plays a read-only frozen scene through the same modules",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": "unfinished and protected records never manufacture a reunion or offer result downloads",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": "call-first exports a real frozen 1600x1200 PNG twice and an unchanged programme",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": "split-first exports a real frozen 1600x1200 PNG twice and an unchanged programme",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": "call-first replay is paused, follows only the saved branch and cannot edit the performance",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-replay-ready-recheck.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": "split-first replay is paused, follows only the saved branch and cannot edit the performance",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-focused-mobile-recheck.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": "SAVE-03 JSON into a fresh browser preserves result identity, frozen PNG and replay decisions",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-focused-mobile-recheck.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": "reduced motion uses explicit still steps and clears every replay callback on ten route exits",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-focused-mobile-recheck.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": "a missing required mask fails the image truthfully and retry loads the actual asset",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": "PNG encoding rejection and browser refusal report failure, while JSON remains available",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": "late PNG encoding after exit cannot download or replace the new page",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": "Canvas failure keeps programme, JSON and replay transcript without reporting a successful image",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": "legacy PNG encoding fallback produces a real file and all download URLs are released",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": "failed autosaving still exports the actual reunited draft and replay never retries disk implicitly",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": "late required images after result exit cannot resurrect the capture or its download action",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": "a PNG finishing during a pending file import cannot download the previous project",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": "legacy product exports PNG and plays a read-only frozen scene through the same modules",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "full opening: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "full before-choice: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "full after-choice: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "full operating: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "full operation-saved: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "full curtain: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "guided opening: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "guided before-choice: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "guided after-choice: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "guided operating: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "guided operation-saved: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "guided curtain: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "full: close after the guardian checkpoint commits while its required image is still loading",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "guided: close after the guardian checkpoint commits while its required image is still loading",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "product craft tabs keep both edited palettes when one transaction loses the version check",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "product story tabs export both branch decisions while the stale candidate cannot replace the winner",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "palette edit then call-first within 500ms commits the latest whole project and invalidates old timers",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "palette edit then split-first within 500ms commits the latest whole project and invalidates old timers",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "full opening: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "full before-choice: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "full after-choice: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "full operating: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "full operation-saved: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "full curtain: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "guided opening: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "guided before-choice: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "guided after-choice: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "guided operating: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "guided operation-saved: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "guided curtain: close the tab and restore a fresh page at the saved checkpoint",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "full: close after the guardian checkpoint commits while its required image is still loading",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "guided: close after the guardian checkpoint commits while its required image is still loading",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "product craft tabs keep both edited palettes when one transaction loses the version check",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "product story tabs export both branch decisions while the stale candidate cannot replace the winner",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "palette edit then call-first within 500ms commits the latest whole project and invalidates old timers",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": "palette edit then split-first within 500ms commits the latest whole project and invalidates old timers",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": "site music defaults to no media or audio request, then plays the attributed local instrumental",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": "reunion first two seconds stay quiet and paused story stops the actual music media",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": "only actual curtain playback selects vocals, pause and mute release the media",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": "failed audio file reports a real error and explicit retry succeeds",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": "ten route exits keep one global player and actual pagehide releases its source",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": "site music defaults to no media or audio request, then plays the attributed local instrumental",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": "reunion first two seconds stay quiet and paused story stops the actual music media",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": "only actual curtain playback selects vocals, pause and mute release the media",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": "failed audio file reports a real error and explicit retry succeeds",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": "ten route exits keep one global player and actual pagehide releases its source",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "full/call-first real graphical controls reach reunion and one curtain with manual input",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "full/call-first real graphical controls reach reunion and one curtain with explicit assistance",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "full/split-first real graphical controls reach reunion and one curtain with manual input",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "full/split-first real graphical controls reach reunion and one curtain with explicit assistance",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "guided/call-first real graphical controls reach reunion and one curtain with manual input",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "guided/call-first real graphical controls reach reunion and one curtain with explicit assistance",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "guided/split-first real graphical controls reach reunion and one curtain with manual input",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "guided/split-first real graphical controls reach reunion and one curtain with explicit assistance",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "manual light uses the motif rather than the whole puppet and failed progress is retried once",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "holding a raised axe never auto-lowers and pause invalidates its continuous observation",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "choice and operated node reload preserve the branch and reset only transient pose and time",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "pausing the assisted axe restarts a valid short gesture instead of losing its raised stage forever",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "reunion requires a final hand operation, four quiet seconds and explicit curtain; retry keeps the same result",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "real mouse grip and native keyboard input can perform wave and body movement without editing the project",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "explicit reduced-motion assistance, memory continuation and ten playing exits keep one clock",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-focused-desktop-recheck.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "actual touch, cancellation and legacy Touch identifiers move only the active story body",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "legacy product accepts real keyboard axe input and the same guarded graphical transition",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "export and clean-browser import preserve a graphical checkpoint while dropping transient light and pose",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "full/call-first real graphical controls reach reunion and one curtain with manual input",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "full/call-first real graphical controls reach reunion and one curtain with explicit assistance",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "full/split-first real graphical controls reach reunion and one curtain with manual input",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "full/split-first real graphical controls reach reunion and one curtain with explicit assistance",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "guided/call-first real graphical controls reach reunion and one curtain with manual input",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "guided/call-first real graphical controls reach reunion and one curtain with explicit assistance",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "guided/split-first real graphical controls reach reunion and one curtain with manual input",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "guided/split-first real graphical controls reach reunion and one curtain with explicit assistance",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "manual light uses the motif rather than the whole puppet and failed progress is retried once",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "holding a raised axe never auto-lowers and pause invalidates its continuous observation",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "choice and operated node reload preserve the branch and reset only transient pose and time",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "pausing the assisted axe restarts a valid short gesture instead of losing its raised stage forever",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "reunion requires a final hand operation, four quiet seconds and explicit curtain; retry keeps the same result",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "real mouse grip and native keyboard input can perform wave and body movement without editing the project",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "explicit reduced-motion assistance, memory continuation and ten playing exits keep one clock",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-focused-mobile-recheck.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "actual touch, cancellation and legacy Touch identifiers move only the active story body",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "legacy product accepts real keyboard axe input and the same guarded graphical transition",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": "export and clean-browser import preserve a graphical checkpoint while dropping transient light and pose",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-keyboard.spec.ts",
+      "title": "full/call-first completes every graphical interaction and curtain using only native keyboard controls",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-keyboard.spec.ts",
+      "title": "full/split-first completes every graphical interaction and curtain using only native keyboard controls",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-keyboard.spec.ts",
+      "title": "guided/call-first completes every graphical interaction and curtain using only native keyboard controls",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-focused-desktop-recheck.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-keyboard.spec.ts",
+      "title": "guided/split-first completes every graphical interaction and curtain using only native keyboard controls",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-focused-desktop-recheck.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-keyboard.spec.ts",
+      "title": "full/call-first completes every graphical interaction and curtain using only native keyboard controls",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-keyboard.spec.ts",
+      "title": "full/split-first completes every graphical interaction and curtain using only native keyboard controls",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-keyboard.spec.ts",
+      "title": "guided/call-first completes every graphical interaction and curtain using only native keyboard controls",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-keyboard.spec.ts",
+      "title": "guided/split-first completes every graphical interaction and curtain using only native keyboard controls",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-state.spec.ts",
+      "title": "full/call-first uses the real text controls, commits one reunion and completes curtain",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-focused-desktop-recheck.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-state.spec.ts",
+      "title": "full/split-first uses the real text controls, commits one reunion and completes curtain",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-focused-desktop-recheck.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-state.spec.ts",
+      "title": "guided/call-first uses the real text controls, commits one reunion and completes curtain",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-state.spec.ts",
+      "title": "guided/split-first uses the real text controls, commits one reunion and completes curtain",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-state.spec.ts",
+      "title": "refresh retains a confirmed choice, restarts paused and mode changes only the current short node",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-state.spec.ts",
+      "title": "a failed reunion stays at the old node, exports its exact candidate, and retries without a second result",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-state.spec.ts",
+      "title": "legacy text entry uses the same guarded store in Chromium smoke check",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-state.spec.ts",
+      "title": "full/call-first uses the real text controls, commits one reunion and completes curtain",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-focused-mobile-recheck.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-state.spec.ts",
+      "title": "full/split-first uses the real text controls, commits one reunion and completes curtain",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-focused-mobile-recheck.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-state.spec.ts",
+      "title": "guided/call-first uses the real text controls, commits one reunion and completes curtain",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-state.spec.ts",
+      "title": "guided/split-first uses the real text controls, commits one reunion and completes curtain",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-state.spec.ts",
+      "title": "refresh retains a confirmed choice, restarts paused and mode changes only the current short node",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-state.spec.ts",
+      "title": "a failed reunion stays at the old node, exports its exact candidate, and retries without a second result",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-state.spec.ts",
+      "title": "legacy text entry uses the same guarded store in Chromium smoke check",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "four actual WebGL views share the same two-role Canvas and leave the performance untouched",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "carving, colors and lamp changes update the real spatial resources from the same frame",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "weak-device hints enforce the actual buffer and texture budget without removing controls",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "no WebGL interface keeps the complete 2D editor and never imports Three",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "renderer initialization failure returns to 2D and an explicit retry really initializes WebGL",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "actual context loss releases the old canvas, preserves 2D and allows a fresh context",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "a failed dynamic chunk leaves 2D usable and a fresh request can retry the observation",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "closing during a delayed module load prevents a late context and still permits reopening",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "ten spatial exits release contexts and listeners without creating animation clocks",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "a playing story retains one clock while all camera changes stay outside story progress",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "protected future records still allow spatial examples without writing the unknown draft",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "legacy product keeps every 2D control and never executes the Three chunk",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "four actual WebGL views share the same two-role Canvas and leave the performance untouched",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "carving, colors and lamp changes update the real spatial resources from the same frame",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "weak-device hints enforce the actual buffer and texture budget without removing controls",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "no WebGL interface keeps the complete 2D editor and never imports Three",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "renderer initialization failure returns to 2D and an explicit retry really initializes WebGL",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "actual context loss releases the old canvas, preserves 2D and allows a fresh context",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "a failed dynamic chunk leaves 2D usable and a fresh request can retry the observation",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "closing during a delayed module load prevents a late context and still permits reopening",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "ten spatial exits release contexts and listeners without creating animation clocks",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "a playing story retains one clock while all camera changes stay outside story progress",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "protected future records still allow spatial examples without writing the unknown draft",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": "legacy product keeps every 2D control and never executes the Three chunk",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-t24-final-browser-run.json"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "restored v2 and v3 retain their own ending choice labels in graphical and text entries",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-version-label-check.json"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "literary-journey.spec.ts",
+      "title": "restored v2 and v3 retain their own ending choice labels in graphical and text entries",
+      "expected": "passed",
+      "status": "passed",
+      "report": "docs/evidence/t21-version-label-check.json"
+    }
+  ]
+}

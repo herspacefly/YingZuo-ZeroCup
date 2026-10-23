@@ -1,0 +1,140 @@
+{
+  "clientReviewDate": "2026-10-23",
+  "machineUTC": "2026-10-23T04:04:53.765529+00:00",
+  "verifiedSourceCommit": "5364126aec8cd15f58088353ca538f2cb0c53198",
+  "finalIndexSha256": "b729aa1f10af4d502c9a52e8f326de54ab7a3399642a2d94e898a2c8cb81ab32",
+  "unit": {
+    "files": 41,
+    "passed": 468,
+    "exitCode": 0
+  },
+  "build": {
+    "modules": 139,
+    "exitCode": 0,
+    "legacyES5Chunks": 14,
+    "threeChunkWarningRetained": true
+  },
+  "browser": {
+    "uniqueLatestPassing": 470,
+    "singleAllGreenFullRun": false,
+    "report": "docs/evidence/t21-t24-functional-checks.json"
+  },
+  "native": {
+    "measuredIndexSha256": "dd70dcd10de067dc813b2b2fca870662bfc9c0dce1c03f84799845c3e026c6ec",
+    "full": {
+      "wallMs": 1045070.4123,
+      "pauses": 4,
+      "showcases": 6,
+      "passed": true
+    },
+    "guided": {
+      "wallMs": 439944.1812,
+      "pauses": 2,
+      "showcases": 6,
+      "passed": true
+    },
+    "scope": "Native automated call-first/home route, authored dialogue, explicit assistance, entire showcases and immediate decisions; includes pauses, excludes preparation and result reading. Guided began alongside unsuccessful full probe; full passing run was alone. Not human timing or smooth-FPS proof.",
+    "finalDifference": "Only version-specific ending-choice button text in two UI consumers, plus regression test; v3 timing, poses, samples and assets unchanged. Native/visual evidence retains its measured fingerprint.",
+    "unchangedProducers": [
+      {
+        "path": "src/content/stories/reunion-v3.json",
+        "measuredGitBlob": "560ba91af2be232e86914027d64b522fbdb83055",
+        "finalGitBlob": "560ba91af2be232e86914027d64b522fbdb83055"
+      },
+      {
+        "path": "src/story/director.ts",
+        "measuredGitBlob": "b9cc90f92587cef781b50c5c4a2a1aeaa0728366",
+        "finalGitBlob": "b9cc90f92587cef781b50c5c4a2a1aeaa0728366"
+      },
+      {
+        "path": "src/story/interaction-clip.ts",
+        "measuredGitBlob": "165c1be7419a5d41c74a3b20e7c24a342e772f17",
+        "finalGitBlob": "165c1be7419a5d41c74a3b20e7c24a342e772f17"
+      },
+      {
+        "path": "src/story/replay.ts",
+        "measuredGitBlob": "4d691c5f7c1448144351b70a19a6bb4519f343c5",
+        "finalGitBlob": "4d691c5f7c1448144351b70a19a6bb4519f343c5"
+      },
+      {
+        "path": "src/story/interactions.ts",
+        "measuredGitBlob": "2a0a03517ece8615b6758964d6b7aaebda6805d8",
+        "finalGitBlob": "2a0a03517ece8615b6758964d6b7aaebda6805d8"
+      },
+      {
+        "path": "src/story/node-interaction.ts",
+        "measuredGitBlob": "9beeddbf3c1aa3133bf955f56cd847cf25f315e1",
+        "finalGitBlob": "9beeddbf3c1aa3133bf955f56cd847cf25f315e1"
+      },
+      {
+        "path": "src/story/play-staging.ts",
+        "measuredGitBlob": "3ff60589d1fb50311fc464e9c1efd27bc13af7e8",
+        "finalGitBlob": "3ff60589d1fb50311fc464e9c1efd27bc13af7e8"
+      },
+      {
+        "path": "src/story/spatial-presentation.ts",
+        "measuredGitBlob": "104ea6e087f48a56713c1fead3f4b545e00af103",
+        "finalGitBlob": "104ea6e087f48a56713c1fead3f4b545e00af103"
+      },
+      {
+        "path": "src/app/animation-clock.ts",
+        "measuredGitBlob": "e10dca48054a52fc12b5035446b4018158281edd",
+        "finalGitBlob": "e10dca48054a52fc12b5035446b4018158281edd"
+      },
+      {
+        "path": "src/renderers/canvas/renderer.ts",
+        "measuredGitBlob": "d5f560a2013a24e5b83a589e4d33456f7f7e59c4",
+        "finalGitBlob": "d5f560a2013a24e5b83a589e4d33456f7f7e59c4"
+      },
+      {
+        "path": "src/features/shared/canvas-stage.ts",
+        "measuredGitBlob": "6216b2810305b69d857b7f8f4aeead7d7e6019db",
+        "finalGitBlob": "6216b2810305b69d857b7f8f4aeead7d7e6019db"
+      },
+      {
+        "path": "src/content/manifest.json",
+        "measuredGitBlob": "2e547b0c28bd26e63867413499cf332d37c2fd5c",
+        "finalGitBlob": "2e547b0c28bd26e63867413499cf332d37c2fd5c"
+      }
+    ],
+    "productionDiffFiles": [
+      "src/features/story-lab/main.ts",
+      "src/features/story/controller.ts"
+    ],
+    "productionPatchSha256": "15dbff22e4e4ece16ff7cc7e7ff20e300826cb9cddd5a55b9b1553130254aa40"
+  },
+  "loading": {
+    "modernMaxMs": 5214,
+    "pngMaxMs": 6128.0999999940395,
+    "museumMaxMs": 3334.2135000000003,
+    "homeMaxMs": 1099.9000000059605,
+    "samplePolicy": "One fresh HTTP-cache-disabled context per viewport/network condition; local and 5Mbps/150ms, no CPU throttle.",
+    "allFinalBundle": true
+  },
+  "preservation": {
+    "startHereGitBlob": "46a63e80edfff86d9758e7a312523fc5956de06e",
+    "documents": [
+      {
+        "path": "2026年零杯开幕式PPT（含初赛评分细则）.pptx",
+        "gitBlob": "277174bc62ffdf18cde8656f89a9bfeec85dc165",
+        "staged": false
+      },
+      {
+        "path": "2026年零杯网页设计大赛选手手册.docx",
+        "gitBlob": "6e2b3c8a51d0e85b4e4c32f2294e9ab3bdf313cb",
+        "staged": false
+      }
+    ],
+    "gitignoreUserDifferenceExcluded": true,
+    "originalGameMediaAndV1V2Unchanged": true,
+    "historicalTestPNGsRestored": 24,
+    "worktreeRecords": 22,
+    "newManagedTreesIntegrated": 3,
+    "archiveStatus": "Requested through app, still registered; not claimed archived."
+  },
+  "limits": [
+    "Formal literary/art/cultural/rights review T10 remains pending, including unknown external photo rights.",
+    "Physical IE/mobile/Safari, external users/listening and existing software-GPU performance gap remain T11/T13.",
+    "No P1 recorder/share or T14 packaging acceptance inferred."
+  ]
+}

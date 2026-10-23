@@ -1,0 +1,108 @@
+{
+  "kind": "native-production-v3-duration",
+  "clientReviewDate": "2026-10-22",
+  "machineUTC": "2026-10-22T10:54:58.873Z",
+  "baseCommit": "2b5e3b1141424312ade36adf41566674d0b98180",
+  "indexSha256": "8e37ed18c872f4e5ba63b9df3e74da7fe56aae01067e09b416c0d1d25ddea482",
+  "scriptSha256": "57a4c39613caeb2c9a620e77d2565413461be4906b190578276e59f535bfa33d",
+  "storySha256": "d7bc49099a46d70f007960a47b6cc5d6acf7f5f066cfc01993ddedb7a6b7e606",
+  "concurrentLoad": "Controlled four-worker browser regression suite active at launch; all pauses are recorded",
+  "definition": "Wall time from first intro play to completed, 21-node call-first/home route. Craft confirmation is immediate. Every other node plays native authored duration; interaction uses explicit assistance, then complete 5–8 second showcase. No skip, fake clock, stored trajectory, or director sampling shortcut.",
+  "limitations": [
+    "Chromium on this host, automated choices/assistance and immediate page handling; human reading/action/choice dwell varies.",
+    "Preparation, startup and result reading are outside performance duration.",
+    "Any native clock pauses are recorded and explicitly resumed; pause time remains in wall duration."
+  ],
+  "runs": [
+    {
+      "mode": "full",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "browser": "156.0.8078.4",
+      "nodes": [
+        {
+          "id": "intro",
+          "startedWallMs": 66.67100000000028,
+          "authoredTargetMs": 55000,
+          "showcaseObserved": false,
+          "finishedWallMs": 69447.7338
+        },
+        {
+          "id": "craft",
+          "startedWallMs": 70924.50630000001,
+          "authoredTargetMs": 40000,
+          "showcaseObserved": false,
+          "finishedWallMs": 71902.8747
+        },
+        {
+          "id": "memory-wave",
+          "startedWallMs": 73119.6587,
+          "authoredTargetMs": 50000,
+          "showcaseObserved": false
+        }
+      ],
+      "pauses": [
+        {
+          "id": "intro",
+          "elapsedMs": 42704,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "intro",
+          "elapsedMs": 46297,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "intro",
+          "elapsedMs": 46625,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "intro",
+          "elapsedMs": 47793,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "intro",
+          "elapsedMs": 52714,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "intro",
+          "elapsedMs": 53383,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "intro",
+          "elapsedMs": 54303,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "memory-wave",
+          "elapsedMs": 2695,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "memory-wave",
+          "elapsedMs": 3497,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "memory-wave",
+          "elapsedMs": 3556,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "memory-wave",
+          "elapsedMs": 3614,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        }
+      ],
+      "pageErrors": [],
+      "passed": false,
+      "error": "Error: Too many native clock pauses"
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "kind": "native-production-v3-duration",
+  "clientReviewDate": "2026-10-23",
+  "machineUTC": "2026-10-23T03:37:30.645Z",
+  "baseCommit": "02eed3e18217e6d1da45cba935a43e5c3fc1dfaa",
+  "indexSha256": "dd70dcd10de067dc813b2b2fca870662bfc9c0dce1c03f84799845c3e026c6ec",
+  "scriptSha256": "ca35b0c2f413cbea43b907d241a87443d7dbbfcc1ea9716a32d9ce26ce62828a",
+  "storySha256": "d7bc49099a46d70f007960a47b6cc5d6acf7f5f066cfc01993ddedb7a6b7e606",
+  "concurrentLoad": "Single native performance only; read-only documentation and evidence review, no other browser automation or build",
+  "definition": "Wall time from first intro play to completed, 21-node call-first/home route. Craft confirmation is immediate. Every other node plays native authored duration; interaction uses explicit assistance, then complete 5–8 second showcase. No skip, fake clock, stored trajectory, or director sampling shortcut.",
+  "limitations": [
+    "Chromium on this host, automated choices/assistance and immediate page handling; human reading/action/choice dwell varies.",
+    "Preparation, startup and result reading are outside performance duration.",
+    "Any native clock pauses are recorded and explicitly resumed; pause time remains in wall duration."
+  ],
+  "runs": [
+    {
+      "mode": "full",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "browser": "156.0.8078.4",
+      "nodes": [
+        {
+          "id": "intro",
+          "startedWallMs": 5.3434000000002015,
+          "authoredTargetMs": 55000,
+          "showcaseObserved": false,
+          "finishedWallMs": 55223.253800000006
+        },
+        {
+          "id": "craft",
+          "startedWallMs": 55243.1137,
+          "authoredTargetMs": 40000,
+          "showcaseObserved": false,
+          "finishedWallMs": 55789.8827
+        },
+        {
+          "id": "memory-wave",
+          "startedWallMs": 55816.28660000001,
+          "authoredTargetMs": 50000,
+          "showcaseObserved": true,
+          "finishedWallMs": 114909.53839999999
+        },
+        {
+          "id": "memory-words",
+          "startedWallMs": 115223.1747,
+          "authoredTargetMs": 55000,
+          "showcaseObserved": false,
+          "finishedWallMs": 170696.9377
+        },
+        {
+          "id": "memory-separate",
+          "startedWallMs": 170704.1386,
+          "authoredTargetMs": 50000,
+          "showcaseObserved": false,
+          "finishedWallMs": 221519.5881
+        },
+        {
+          "id": "road",
+          "startedWallMs": 221598.8413,
+          "authoredTargetMs": 55000,
+          "showcaseObserved": true,
+          "finishedWallMs": 287947.2649
+        },
+        {
+          "id": "road-rest",
+          "startedWallMs": 288507.6588,
+          "authoredTargetMs": 55000,
+          "showcaseObserved": false,
+          "finishedWallMs": 344712.1172
+        },
+        {
+          "id": "training",
+          "startedWallMs": 344956.5394,
+          "authoredTargetMs": 55000,
+          "showcaseObserved": false,
+          "finishedWallMs": 401063.3654
+        },
+        {
+          "id": "guardian",
+          "startedWallMs": 401373.9634,
+          "authoredTargetMs": 50000,
+          "showcaseObserved": true,
+          "finishedWallMs": 462007.2684
+        },
+        {
+          "id": "guardian-parley",
+          "startedWallMs": 462885.0928,
+          "authoredTargetMs": 55000,
+          "showcaseObserved": false,
+          "finishedWallMs": 518274.5396
+        },
+        {
+          "id": "approach-choice",
+          "startedWallMs": 518868.025,
+          "authoredTargetMs": 40000,
+          "showcaseObserved": false,
+          "finishedWallMs": 559640.0671
+        },
+        {
+          "id": "call-light",
+          "startedWallMs": 560828.0447,
+          "authoredTargetMs": 50000,
+          "showcaseObserved": true,
+          "finishedWallMs": 621775.4496
+        },
+        {
+          "id": "call-response",
+          "startedWallMs": 622172.0072999999,
+          "authoredTargetMs": 50000,
+          "showcaseObserved": false,
+          "finishedWallMs": 673096.4353
+        },
+        {
+          "id": "call-split",
+          "startedWallMs": 673219.2548,
+          "authoredTargetMs": 50000,
+          "showcaseObserved": true,
+          "finishedWallMs": 735677.1677
+        },
+        {
+          "id": "mountain-listen",
+          "startedWallMs": 735972.5829,
+          "authoredTargetMs": 55000,
+          "showcaseObserved": false,
+          "finishedWallMs": 792843.883
+        },
+        {
+          "id": "ending-choice",
+          "startedWallMs": 793767.3185,
+          "authoredTargetMs": 55000,
+          "showcaseObserved": false,
+          "finishedWallMs": 849614.9214999999
+        },
+        {
+          "id": "reunion-reach",
+          "startedWallMs": 849937.642,
+          "authoredTargetMs": 50000,
+          "showcaseObserved": true,
+          "finishedWallMs": 911353.4615
+        },
+        {
+          "id": "reunion-hold",
+          "startedWallMs": 912134.0711,
+          "authoredTargetMs": 50000,
+          "showcaseObserved": false,
+          "finishedWallMs": 962966.3051
+        },
+        {
+          "id": "ending-home-epilogue",
+          "startedWallMs": 963125.2387,
+          "authoredTargetMs": 50000,
+          "showcaseObserved": false,
+          "finishedWallMs": 1013848.5657
+        },
+        {
+          "id": "curtain",
+          "startedWallMs": 1014021.8893,
+          "authoredTargetMs": 30000,
+          "showcaseObserved": false,
+          "finishedWallMs": 1044840.9195
+        }
+      ],
+      "pauses": [
+        {
+          "id": "road-rest",
+          "elapsedMs": 22967,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "training",
+          "elapsedMs": 28019,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "mountain-listen",
+          "elapsedMs": 31361,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "mountain-listen",
+          "elapsedMs": 48545,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        }
+      ],
+      "pageErrors": [],
+      "passed": true,
+      "wallMs": 1045070.4123,
+      "finalNode": "completed"
+    }
+  ]
+}

@@ -1,0 +1,288 @@
+{
+  "kind": "native-production-v3-duration",
+  "clientReviewDate": "2026-10-23",
+  "machineUTC": "2026-10-23T03:29:48.712Z",
+  "baseCommit": "fe5dd418b83a2708afa963f16c9db4dfc4bcccaa",
+  "indexSha256": "dd70dcd10de067dc813b2b2fca870662bfc9c0dce1c03f84799845c3e026c6ec",
+  "scriptSha256": "782145616b1a3b724fb32bc4a45110b9bac2e594bd9166899d79ed1f14f3d520",
+  "storySha256": "d7bc49099a46d70f007960a47b6cc5d6acf7f5f066cfc01993ddedb7a6b7e606",
+  "concurrentLoad": "Two native probe browsers and read-only evidence review; no build or synthetic-clock suite",
+  "definition": "Wall time from first intro play to completed, 21-node call-first/home route. Craft confirmation is immediate. Every other node plays native authored duration; interaction uses explicit assistance, then complete 5–8 second showcase. No skip, fake clock, stored trajectory, or director sampling shortcut.",
+  "limitations": [
+    "Chromium on this host, automated choices/assistance and immediate page handling; human reading/action/choice dwell varies.",
+    "Preparation, startup and result reading are outside performance duration.",
+    "Any native clock pauses are recorded and explicitly resumed; pause time remains in wall duration."
+  ],
+  "runs": [
+    {
+      "mode": "guided",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "browser": "156.0.8078.4",
+      "nodes": [
+        {
+          "id": "intro",
+          "startedWallMs": 7.903099999999995,
+          "authoredTargetMs": 20000,
+          "showcaseObserved": false,
+          "finishedWallMs": 20407.9293
+        },
+        {
+          "id": "craft",
+          "startedWallMs": 20671.1359,
+          "authoredTargetMs": 18000,
+          "showcaseObserved": false,
+          "finishedWallMs": 21206.373499999998
+        },
+        {
+          "id": "memory-wave",
+          "startedWallMs": 21980.5048,
+          "authoredTargetMs": 18000,
+          "showcaseObserved": true,
+          "finishedWallMs": 51721.4348
+        },
+        {
+          "id": "memory-words",
+          "startedWallMs": 53799.705700000006,
+          "authoredTargetMs": 20000,
+          "showcaseObserved": false,
+          "finishedWallMs": 76053.1002
+        },
+        {
+          "id": "memory-separate",
+          "startedWallMs": 76930.766,
+          "authoredTargetMs": 18000,
+          "showcaseObserved": false,
+          "finishedWallMs": 95933.0956
+        },
+        {
+          "id": "road",
+          "startedWallMs": 97186.56420000001,
+          "authoredTargetMs": 18000,
+          "showcaseObserved": true,
+          "finishedWallMs": 126716.5318
+        },
+        {
+          "id": "road-rest",
+          "startedWallMs": 127622.2912,
+          "authoredTargetMs": 20000,
+          "showcaseObserved": false,
+          "finishedWallMs": 148631.3883
+        },
+        {
+          "id": "training",
+          "startedWallMs": 149586.3694,
+          "authoredTargetMs": 20000,
+          "showcaseObserved": false,
+          "finishedWallMs": 169983.1607
+        },
+        {
+          "id": "guardian",
+          "startedWallMs": 171933.9681,
+          "authoredTargetMs": 18000,
+          "showcaseObserved": true,
+          "finishedWallMs": 202399.01380000002
+        },
+        {
+          "id": "guardian-parley",
+          "startedWallMs": 203124.5161,
+          "authoredTargetMs": 20000,
+          "showcaseObserved": false,
+          "finishedWallMs": 223222.5537
+        },
+        {
+          "id": "approach-choice",
+          "startedWallMs": 225239.83610000001,
+          "authoredTargetMs": 14000,
+          "showcaseObserved": false,
+          "finishedWallMs": 240307.8544
+        },
+        {
+          "id": "call-light",
+          "startedWallMs": 240320.5005,
+          "authoredTargetMs": 18000,
+          "showcaseObserved": true,
+          "finishedWallMs": 269194.0587
+        },
+        {
+          "id": "call-response",
+          "startedWallMs": 269646.5229,
+          "authoredTargetMs": 18000,
+          "showcaseObserved": false,
+          "finishedWallMs": 288288.2672
+        },
+        {
+          "id": "call-split",
+          "startedWallMs": 288947.97000000003,
+          "authoredTargetMs": 18000,
+          "showcaseObserved": true,
+          "finishedWallMs": 318664.4534
+        },
+        {
+          "id": "mountain-listen",
+          "startedWallMs": 319195.1083,
+          "authoredTargetMs": 20000,
+          "showcaseObserved": false,
+          "finishedWallMs": 339632.8471
+        },
+        {
+          "id": "ending-choice",
+          "startedWallMs": 340115.9534,
+          "authoredTargetMs": 18000,
+          "showcaseObserved": false,
+          "finishedWallMs": 359329.8681
+        },
+        {
+          "id": "reunion-reach",
+          "startedWallMs": 359453.5804,
+          "authoredTargetMs": 18000,
+          "showcaseObserved": true,
+          "finishedWallMs": 387925.829
+        },
+        {
+          "id": "reunion-hold",
+          "startedWallMs": 388621.7509,
+          "authoredTargetMs": 18000,
+          "showcaseObserved": false,
+          "finishedWallMs": 407690.6737
+        },
+        {
+          "id": "ending-home-epilogue",
+          "startedWallMs": 407723.6726,
+          "authoredTargetMs": 18000,
+          "showcaseObserved": false,
+          "finishedWallMs": 425823.7457
+        },
+        {
+          "id": "curtain",
+          "startedWallMs": 426894.8385,
+          "authoredTargetMs": 12000,
+          "showcaseObserved": false,
+          "finishedWallMs": 439216.81070000003
+        }
+      ],
+      "pauses": [
+        {
+          "id": "memory-wave",
+          "elapsedMs": 21835,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "memory-words",
+          "elapsedMs": 0,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        }
+      ],
+      "pageErrors": [],
+      "passed": true,
+      "wallMs": 439944.1812,
+      "finalNode": "completed"
+    },
+    {
+      "mode": "full",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "browser": "156.0.8078.4",
+      "nodes": [
+        {
+          "id": "intro",
+          "startedWallMs": 4.7895000000003165,
+          "authoredTargetMs": 55000,
+          "showcaseObserved": false,
+          "finishedWallMs": 60082.6586
+        },
+        {
+          "id": "craft",
+          "startedWallMs": 60094.137,
+          "authoredTargetMs": 40000,
+          "showcaseObserved": false,
+          "finishedWallMs": 60851.83
+        },
+        {
+          "id": "memory-wave",
+          "startedWallMs": 62956.8968,
+          "authoredTargetMs": 50000,
+          "showcaseObserved": true,
+          "finishedWallMs": 122747.4516
+        },
+        {
+          "id": "memory-words",
+          "startedWallMs": 123348.8518,
+          "authoredTargetMs": 55000,
+          "showcaseObserved": false,
+          "finishedWallMs": 179150.26929999999
+        },
+        {
+          "id": "memory-separate",
+          "startedWallMs": 179883.0964,
+          "authoredTargetMs": 50000,
+          "showcaseObserved": false
+        }
+      ],
+      "pauses": [
+        {
+          "id": "intro",
+          "elapsedMs": 9236,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "intro",
+          "elapsedMs": 9879,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "intro",
+          "elapsedMs": 9879,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "intro",
+          "elapsedMs": 11214,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "intro",
+          "elapsedMs": 49827,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "memory-separate",
+          "elapsedMs": 2878,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "memory-separate",
+          "elapsedMs": 4172,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "memory-separate",
+          "elapsedMs": 5354,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "memory-separate",
+          "elapsedMs": 33637,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "memory-separate",
+          "elapsedMs": 41211,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        },
+        {
+          "id": "memory-separate",
+          "elapsedMs": 45848,
+          "message": "页面停顿较久，已暂停；继续时不补算这段时间。"
+        }
+      ],
+      "pageErrors": [],
+      "passed": false,
+      "error": "Error: Too many native clock pauses"
+    }
+  ]
+}
