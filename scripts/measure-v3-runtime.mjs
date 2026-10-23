@@ -57,6 +57,7 @@ async function run(mode){
 }
 try{
   server=await preview({root,preview:{host:'127.0.0.1',port:0,strictPort:true,open:false}});
-  await Promise.all((selected==='both'?['full','guided']:[selected]).map(run));
+  // Native scheduling must not compete with another active performance on this host.
+  for(const mode of selected==='both'?['full','guided']:[selected])await run(mode);
 }finally{await server?.close();persist();}
 if(!report.runs.length||report.runs.some(r=>!r.passed))process.exitCode=1;
