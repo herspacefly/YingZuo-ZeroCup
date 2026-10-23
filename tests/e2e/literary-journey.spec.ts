@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import type { Page } from '@playwright/test';
 import content from '../../src/content/stories/reunion-v3.json' with { type: 'json' };
+import previous from '../../src/content/stories/reunion-v2.json' with { type: 'json' };
 import fixture from '../fixtures/project-v1.json' with { type: 'json' };
 import type { ProjectV1, StoryNodeId, EndingId, Approach } from '../../src/domain/types';
 import type { StoryDefinition } from '../../src/domain/story-types';
@@ -35,6 +36,20 @@ async function ready(page: Page, id?: string) {
   await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state', 'ready', { timeout: 15000 });
   if (id) await expect(runtime(page)).toHaveAttribute('data-node', id);
 }
+test('restored v2 and v3 retain their own ending choice labels in graphical and text entries',async({page})=>{
+  test.setTimeout(60000);await clock(page);
+  for(const version of [2,3] as const){
+    const project=projectAt('ending-choice');project.story!.definitionVersion=version;
+    await seed(page,project);await page.goto('/#/story');await ready(page,'ending-choice');
+    const endings=(version===2?previous:content).endings;
+    for(const ending of endings)await expect(page.locator('#story-ending-'+ending.id)).toHaveText(ending.choiceLabel);
+    await page.goto('/story.html');await expect(page.locator('#story-status')).toHaveAttribute('data-state','saved');
+    for(const ending of endings)await expect(page.locator('#text-ending-'+ending.id)).toHaveText(ending.choiceLabel);
+    await page.goto('/#/story');await ready(page,'ending-choice');
+    if(version===3){await page.locator('#story-play').click();await advance(page,definition.nodes.find(node=>node.id==='ending-choice')!.guidedTiming.targetMs);}
+    await page.locator('#story-ending-light').click();await expect.poll(async()=>(await stored(page)).story!.ending).toBe('light');
+  }
+});
 for (const approach of ['call-first', 'split-first'] as const) for (const ending of ['home', 'light', 'road', 'waiting', 'sacrifice'] as const) {
   test(`v3 ${approach}/${ending}: complete route, canonical showcase, result and replay`, async ({ page }) => {
     test.setTimeout(180000); const errors: string[] = []; page.on('pageerror', error => errors.push(error.message));

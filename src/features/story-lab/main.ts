@@ -42,7 +42,8 @@ function render(state:StoreState) {
   el('cast-summary').textContent=story?.castSnapshot?`本场冻结：${story.castSnapshot.appearance.patternId} / ${story.castSnapshot.appearance.paletteId}；已记录协助 ${story.assistedNodeIds.length} 段。`:'开演确认前，尚未冻结本场造型。';
   for(const id of ['story-craft','story-preset','story-assist','story-choose-call','story-choose-split','story-complete']){el(id).hidden=true;button(id,true);}
   const timing=story?.mode==='guided'?node?.guidedTiming:node?.fullTiming,waiting=story?.definitionVersion===3&&elapsed<(timing?.minDurationMs??0);
-  for(const {b} of endingButtons){b.hidden=node?.id!=='ending-choice';b.disabled=blocked||!!waiting;}
+  const endings=definitionFor(story).endings;
+  for(const {b,end} of endingButtons){const label=endings?.find(item=>item.id===end.id)?.choiceLabel;if(label&&b.textContent!==label)b.textContent=label;b.hidden=node?.id!=='ending-choice';b.disabled=blocked||!!waiting;}
   if(node){
     if(node.id==='craft')for(const id of ['story-craft','story-preset']){el(id).hidden=false;button(id,blocked||!!waiting);}
     else if(node.kind==='interaction'){el('story-assist').hidden=false;button('story-assist',blocked||paused||!!waiting);}
