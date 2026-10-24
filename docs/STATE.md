@@ -1,3 +1,11 @@
+# 当前实施（2026-10-24）
+
+作者已批准最新计划，T25—T28 in_progress，root负责集成与真实浏览器验收；独立受管树v4-reset-audio、v4-story-seek、v4-lamp-motion执行隔离工作。新v4基础eabb122和科普优先展馆/定制动效4453ee1已提交；类型与内容/媒体结构通过，部分实现仍在推进，不代表新方案全部完成。当前npm run dev服务5173，原生浏览器已确认存在旧参观记录，尚未执行清理；全部集成后由站内按钮清理并核查新用户状态。新任务主方案章节已补，继续实测及必要回归。
+
+本轮核对全部登记工作树：历史树的旧独立提交此前为择取/重写集成，不能凭ahead直接重复合并；t10-character-art、t10-sound和t16-node-scope的遗留未跟踪文件继续保留。用户暂存START_HERE/.gitignore、未跟踪DOCX/PPTX不改、不纳入源码提交。
+
+以下2026-10-23为上轮已完成证据，不覆盖T25—T28。
+
 # 当前状态与交接（2026-10-23）
 
 T21—T24实现及本轮功能验收完成。最终源码 **5364126aec8cd15f58088353ca538f2cb0c53198**，main；最终包入口 **b729aa1f10af4d502c9a52e8f326de54ab7a3399642a2d94e898a2c8cb81ab32**。Node24.18.1 / npm12.0.2。可用npm run dev启动5173，生产dist保留。验收见acceptance/t21-t24.md及evidence/t21-t24-acceptance.json。
