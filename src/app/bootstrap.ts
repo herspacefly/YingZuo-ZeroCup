@@ -62,8 +62,7 @@ const audio=createStageAudioSession({tracks:musicCatalog.tracks,onMusic(status,e
 }});
 function syncMusic(){
   const state=store?.getState();
-  audio.setActive(musicFocused&&!document.hidden&&!disposed&&!locked&&!state?.hasPending&&!['saving','closed','conflict','recovery','unsupported'].includes(state?.status??''));
-  audio.setScene(musicScene,current?.path==='/story');
+  audio.setScene(musicScene,current?.path==='/story',musicFocused&&!document.hidden&&!disposed&&!locked&&!state?.hasPending&&!['saving','closed','conflict','recovery','unsupported'].includes(state?.status??''));
 }
 life.on(musicButton,'click',()=>audio.toggleMusic());
 life.on(window,'blur',()=>{musicFocused=false;syncMusic();});
@@ -71,8 +70,17 @@ life.on(window,'focus',()=>{musicFocused=true;syncMusic();});
 life.on(document,'visibilitychange',syncMusic);
 // Capture before page handlers: user activation is lost if play/resume is
 // deferred behind an async store command. Never persist a mute preference.
-const unlockAudio=(event:Event)=>{if(!event.isTrusted)return;if(event instanceof KeyboardEvent&&(event.ctrlKey||event.metaKey||event.altKey||['Shift','Control','Alt','Meta','Escape','Tab'].includes(event.key)))return;audio.unlock();};
-document.addEventListener('pointerdown',unlockAudio,true);document.addEventListener('touchstart',unlockAudio,true);document.addEventListener('click',unlockAudio,true);document.addEventListener('keydown',unlockAudio,true);
+let lastPointerActivation=-Infinity;
+const pointerActivation=typeof window.PointerEvent==='function'?'pointerup':'touchend';
+const unlockAudio=(event:Event)=>{
+  if(!event.isTrusted)return;
+  if(event instanceof KeyboardEvent&&(event.ctrlKey||event.metaKey||event.altKey||['Shift','Control','Alt','Meta','Escape','Tab'].includes(event.key)))return;
+  const now=performance.now();
+  if(event.type==='click'&&now-lastPointerActivation<500)return;
+  if(event.type===pointerActivation)lastPointerActivation=now;
+  audio.unlock();
+};
+document.addEventListener(pointerActivation,unlockAudio,true);document.addEventListener('click',unlockAudio,true);document.addEventListener('keydown',unlockAudio,true);
 
 function notify(message: string) {
   if (disposed) return;
@@ -238,7 +246,7 @@ async function mount() {
 function dispose() {
   if (disposed) return;
   disposed = true; siteMotion.dispose();life.dispose(); router?.dispose(); page?.dispose();audio.dispose();unsubscribe();
-  document.removeEventListener('pointerdown',unlockAudio,true);document.removeEventListener('touchstart',unlockAudio,true);document.removeEventListener('click',unlockAudio,true);document.removeEventListener('keydown',unlockAudio,true);
+  document.removeEventListener(pointerActivation,unlockAudio,true);document.removeEventListener('click',unlockAudio,true);document.removeEventListener('keydown',unlockAudio,true);
   downloads.forEach(cleanup => cleanup()); store?.dispose();
 }
 window.addEventListener('pagehide', dispose);

@@ -62,4 +62,13 @@ describe('per-document default-on audio session',()=>{
     expect(session.effectsEnabled()).toBe(true);expect(session.musicEnabled()).toBe(true);
     session.dispose();session.dispose();expect(fixture.closed).toBe(1);
   });
+  it('atomically replaces a reset sample without consuming the new opening cue through the old elapsed time',async()=>{
+    const fixture=setup(),{session}=fixture;session.setScene(null,false);session.unlock();await flush();
+    session.effects.update({nodeId:'intro',mode:'full',elapsedMs:0,playing:true});
+    expect(fixture.voices).toBe(1);
+    session.setScene({nodeId:'intro',mode:'full',elapsedMs:200,playing:false},true);
+    session.effects.reset('intro');session.setScene({nodeId:'intro',mode:'full',elapsedMs:0,playing:false},true,true);
+    session.effects.update({nodeId:'intro',mode:'full',elapsedMs:0,playing:true});
+    expect(fixture.voices).toBe(2);session.dispose();
+  });
 });

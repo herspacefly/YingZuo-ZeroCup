@@ -37,10 +37,10 @@ export function createStageAudioSession(options: StageAudioSessionOptions) {
     music.update(musicForScene(scene, storyPage, active));
     if (scene) engine.update({ ...scene, playing: scene.playing && active && storyPage });
   }
-  function setScene(sample: StageSoundSample | null, isStoryPage: boolean) {
+  function setScene(sample: StageSoundSample | null, isStoryPage: boolean, isActive = active) {
     if (disposed) return;
     if (!sample && scene) engine.update({ ...scene, playing: false });
-    scene = sample ? { ...sample } : null; storyPage = isStoryPage; sync();
+    active = isActive; scene = sample ? { ...sample } : null; storyPage = isStoryPage; sync();
   }
   function unlock() {
     if (disposed || !active) return;
@@ -49,7 +49,7 @@ export function createStageAudioSession(options: StageAudioSessionOptions) {
     if (musicIntent && !['enabled', 'unavailable', 'disposed'].includes(musicState)) void music.enable();
     if (effectsIntent && !['enabled', 'unavailable', 'disposed'].includes(engine.getStatus().state)) void engine.enable(true);
   }
-  function setActive(value: boolean) { active = value; sync(); }
+  function setActive(value: boolean) { if (active === value) return; active = value; sync(); }
   function toggleMusic() {
     if (disposed) return;
     musicIntent = !musicIntent;
