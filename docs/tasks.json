@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-23",
+  "updatedAt": "2026-10-24",
   "projectName": "影作·一幕团圆",
   "projectRoot": ".",
   "competitionGroup": "零组",
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T21_T24_functional_acceptance_complete",
+  "stage": "T25_T28_functional_acceptance_complete",
   "activeTaskId": "T10",
-  "lastVerifiedCommit": "5364126aec8cd15f58088353ca538f2cb0c53198",
+  "lastVerifiedCommit": "933efc04bbf78ffe2d863b69a6ef5aa1f3b30dca",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -694,7 +694,8 @@
         "2026-10-20背景复用：当前130review仍pending、2music rights独立granted；release资产/内容243/50待核，实际子进程退出2，未随体积政策取消审看。T10/T11/T13/T14未完成。",
         "2026-10-20背景复用：最终同一生产包276/276核心E2E首轮通过638.63秒，零重试/跳过/失败，桌面1440x900与模拟390x844各138；加新增缓存8项共284唯一用例。覆盖制偶/灯控、两模式两路手动/协助/键盘、恢复、展馆/成果、音乐和Three生命周期；受控时间不代表真实性能时长，legacy仅Chromium冒烟。",
         "2026-10-20背景复用：实际旧/新包最终121组整幅Canvas RGBA一致（62桌面/59窄屏），含六类场面/动态山尘、四背景/灯距、三纹样两配色及奇数视口；工具早轮询/resize诊断保留。临时基线181文件9子目录/13,890,938bytes及test-results的1文件0子目录按已核对绝对路径/无reparse清理，18历史PNG恢复；5173重启会话26056，首页/审看页HTTP200，用户START_HERE及暂存文档blob保留。",
-        "2026-10-20背景复用：已验证源码6770fa0cf50a94abb95a7a4552e085429d19d0db；明确40文件提交排除用户START_HERE和两份暂存文档。最终独立证据复核确认12源码摘要、构建、121像素/284唯一用例/16加载记录一致，无阻塞；清理已完成，P0状态不提升。"
+        "2026-10-20背景复用：已验证源码6770fa0cf50a94abb95a7a4552e085429d19d0db；明确40文件提交排除用户START_HERE和两份暂存文档。最终独立证据复核确认12源码摘要、构建、121像素/284唯一用例/16加载记录一致，无阻塞；清理已完成，P0状态不提升。",
+        "2026-10-24: v4 updated author packet has263unique review subjects, all review pending; only2music rights independently granted. Snapshot ecbb334035734390b0025e360b632bd0956fd574135037f5c68fd4b8f293783a; no approval inferred from implementation."
       ],
       "phase": "G3"
     },
@@ -1315,12 +1316,12 @@
       "id": "T25",
       "title": "本机数据清理与默认声音会话",
       "priority": "P0",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "T21"
       ],
       "owner": "codex-root",
-      "branch": "codex/v4-reset-audio",
+      "branch": "main",
       "touchFiles": [
         "src/app/",
         "src/audio/",
@@ -1331,23 +1332,27 @@
       "acceptanceRefs": [
         "T25"
       ],
-      "checkpointCommit": null,
-      "nextAction": "按docs/plans/2026-10-24-v4-light-and-museum.md实施与验证；完成前不得标done。",
+      "checkpointCommit": "933efc04bbf78ffe2d863b69a6ef5aa1f3b30dca",
+      "nextAction": "本轮功能验收完成；见docs/acceptance/t25-t28.md。正式审看T10、实体设备/软件GPU/真人体验T11/T13与最终交付T14保留原缺口。",
       "blocker": null,
-      "verification": [],
+      "verification": [
+        "2026-10-24: Atomic reset, rollback/export/cancel, queued writes and stale-tab fencing passed; actual user IAB127.0.0.1:5173 cleared through site UI, both open tabs refreshed to fresh background-start CTA. Screenshot docs/evidence/t25-t28/fresh-user-start.png.",
+        "2026-10-24: Document default-on music/effects, trusted gesture unlock, mute/routes/refresh and atomic visibility/scene/seek/hold cue checks passed.",
+        "2026-10-24: 45files/509units, typecheck/build147modules/ES5, original81PNG, v1-v4 content passed; staged browser52/52 +54/66 +12/12,118unique latest observations pass. Native modern4.3344s/PNG5.7685s within15s. See docs/evidence/t25-t28/acceptance.json."
+      ],
       "phase": "G3"
     },
     {
       "id": "T26",
       "title": "v4灯火剧本、去附加衣纹与台词定位",
       "priority": "P0",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "T21",
         "T24"
       ],
       "owner": "codex-root",
-      "branch": "codex/v4-story-seek",
+      "branch": "main",
       "touchFiles": [
         "src/content/",
         "src/domain/",
@@ -1359,23 +1364,27 @@
       "acceptanceRefs": [
         "T26"
       ],
-      "checkpointCommit": null,
-      "nextAction": "按docs/plans/2026-10-24-v4-light-and-museum.md实施与验证；完成前不得标done。",
+      "checkpointCommit": "933efc04bbf78ffe2d863b69a6ef5aa1f3b30dca",
+      "nextAction": "本轮功能验收完成；见docs/acceptance/t25-t28.md。正式审看T10、实体设备/软件GPU/真人体验T11/T13与最终交付T14保留原缺口。",
       "blocker": null,
-      "verification": [],
+      "verification": [
+        "2026-10-24: v4 36-node ten-route content validation and all20 wide/narrow complete-route cases passed; v1-v3 original reading retained. New craft/practice/light/v4/result/replay use original texture without extra motif.",
+        "2026-10-24: Current-node full/guided cue seeking, paused replay availability, no task evidence, showcase/save failure locks and retry checks passed.",
+        "2026-10-24: 45files/509units, typecheck/build147modules/ES5, original81PNG, v1-v4 content passed; staged browser52/52 +54/66 +12/12,118unique latest observations pass. Native modern4.3344s/PNG5.7685s within15s. See docs/evidence/t25-t28/acceptance.json."
+      ],
       "phase": "G3"
     },
     {
       "id": "T27",
       "title": "动态持斧、柔线与三维灯影工坊",
       "priority": "P0",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "T20",
         "T23"
       ],
       "owner": "codex-root",
-      "branch": "codex/v4-lamp-motion",
+      "branch": "main",
       "touchFiles": [
         "src/renderers/",
         "src/domain/",
@@ -1387,17 +1396,21 @@
       "acceptanceRefs": [
         "T27"
       ],
-      "checkpointCommit": null,
-      "nextAction": "按docs/plans/2026-10-24-v4-light-and-museum.md实施与验证；完成前不得标done。",
+      "checkpointCommit": "933efc04bbf78ffe2d863b69a6ef5aa1f3b30dca",
+      "nextAction": "本轮功能验收完成；见docs/acceptance/t25-t28.md。正式审看T10、实体设备/软件GPU/真人体验T11/T13与最终交付T14保留原缺口。",
       "blocker": null,
-      "verification": [],
+      "verification": [
+        "2026-10-24: Shared dynamic axe grip, flexible line settlement/cancellation, analytic shadow and lamp lifecycle units passed. Native wide/narrow mouse dragging changes only lamp geometry; noWebGL/module/context-loss fallback/retry checks passed.",
+        "2026-10-24: Four axe stills and default lamp/art inspected; current package native3D ready<=3382.8ms under local/5Mbps150ms and 58draw calls. SoftwareGPU512px budget is not realGPU FPS acceptance.",
+        "2026-10-24: 45files/509units, typecheck/build147modules/ES5, original81PNG, v1-v4 content passed; staged browser52/52 +54/66 +12/12,118unique latest observations pass. Native modern4.3344s/PNG5.7685s within15s. See docs/evidence/t25-t28/acceptance.json."
+      ],
       "phase": "G3"
     },
     {
       "id": "T28",
       "title": "科普优先数字展馆与全站动效",
       "priority": "P0",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "T22",
         "T23"
@@ -1414,10 +1427,14 @@
       "acceptanceRefs": [
         "T28"
       ],
-      "checkpointCommit": null,
-      "nextAction": "按docs/plans/2026-10-24-v4-light-and-museum.md实施与验证；完成前不得标done。",
+      "checkpointCommit": "933efc04bbf78ffe2d863b69a6ef5aa1f3b30dca",
+      "nextAction": "本轮功能验收完成；见docs/acceptance/t25-t28.md。正式审看T10、实体设备/软件GPU/真人体验T11/T13与最终交付T14保留原缺口。",
       "blocker": null,
-      "verification": [],
+      "verification": [
+        "2026-10-24: Public photos/prose precede stage models, smaller lower catalogue, enlargement and reduced-motion/global motion switch checked wide/narrow. Native decoded overview/readings captured and inspected.",
+        "2026-10-24: Museum E07<=1109.4ms with zero museum-photo requests on home. Sources/unknown rights retained; author review not inferred.",
+        "2026-10-24: 45files/509units, typecheck/build147modules/ES5, original81PNG, v1-v4 content passed; staged browser52/52 +54/66 +12/12,118unique latest observations pass. Native modern4.3344s/PNG5.7685s within15s. See docs/evidence/t25-t28/acceptance.json."
+      ],
       "phase": "G3"
     }
   ],
