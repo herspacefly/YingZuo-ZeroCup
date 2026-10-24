@@ -14,5 +14,5 @@ export function museumPreviewFrame(project: ProjectV1 | null): CanvasFrame {
   const template = assetCatalog.puppets.find(item => item.id === 'chenxiang-v1')!;
   const fit = constrainPoseToStage(defaultPose(), template, stage);
   if (!fit.fits) throw new Error('示例影偶暂时无法放入幕面，请重试。');
-  return { actors: [{ actorId: 'chenxiang', templateId: 'chenxiang-v1', appearance, pose: fit.pose }], stage, attachments: [] };
+  return { actors: [{ actorId: 'chenxiang', templateId: 'chenxiang-v1', costumeTreatment:'original-texture', appearance, pose: fit.pose }], stage, attachments: [] };
 }

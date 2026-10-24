@@ -1,15 +1,16 @@
 import { expect, test } from '@playwright/test';
 import type { Page } from '@playwright/test';
 import content from '../../src/content/stories/reunion-v3.json' with { type: 'json' };
+import current from '../../src/content/stories/reunion-v4.json' with { type: 'json' };
 import previous from '../../src/content/stories/reunion-v2.json' with { type: 'json' };
 import fixture from '../fixtures/project-v1.json' with { type: 'json' };
 import type { ProjectV1, StoryNodeId, EndingId, Approach } from '../../src/domain/types';
 import type { StoryDefinition } from '../../src/domain/story-types';
 const definition = content as unknown as StoryDefinition;
 const runtime = (page: Page) => page.locator('#story-runtime');
-function projectAt(id: StoryNodeId, approach: Approach = 'call-first', ending: EndingId = 'home', mode: 'full' | 'guided' = 'guided') {
+function projectAt(id: StoryNodeId, approach: Approach = 'call-first', ending: EndingId = 'home', mode: 'full' | 'guided' = 'guided', version: 3 | 4 = 3) {
   const project = structuredClone(fixture) as ProjectV1, story = project.story!;
-  story.definitionVersion = 3; story.nodeId = id; story.mode = mode; story.assistedNodeIds = [];
+  story.definitionVersion = version; story.nodeId = id; story.mode = mode; story.assistedNodeIds = [];
   const prefix = ['intro', 'craft', 'memory-wave', 'memory-words', 'memory-separate', 'road', 'road-rest', 'training', 'guardian', 'guardian-parley', 'approach-choice'];
   story.approach = prefix.includes(id) ? null : approach; story.approachSource = story.approach ? 'user' : null;
   story.ending = id.startsWith('ending-') && id !== 'ending-choice' || ['curtain', 'completed', 'reunion-reach', 'reunion-hold'].includes(id) ? ending : null;
@@ -50,10 +51,11 @@ test('restored v2 and v3 retain their own ending choice labels in graphical and 
     await page.locator('#story-ending-light').click();await expect.poll(async()=>(await stored(page)).story!.ending).toBe('light');
   }
 });
-for (const approach of ['call-first', 'split-first'] as const) for (const ending of ['home', 'light', 'road', 'waiting', 'sacrifice'] as const) {
-  test(`v3 ${approach}/${ending}: complete route, canonical showcase, result and replay`, async ({ page }) => {
+for (const version of [3,4] as const) for (const approach of ['call-first', 'split-first'] as const) for (const ending of ['home', 'light', 'road', 'waiting', 'sacrifice'] as const) {
+  test(`v${version} ${approach}/${ending}: complete route, canonical showcase, result and replay`, async ({ page }) => {
     test.setTimeout(180000); const errors: string[] = []; page.on('pageerror', error => errors.push(error.message));
-    await clock(page); await seed(page, projectAt('intro', approach, ending)); await page.goto('/#/story'); await ready(page, 'intro');
+    const definition=(version===4?current:content) as unknown as StoryDefinition;
+    await clock(page); await seed(page, projectAt('intro', approach, ending, 'guided', version)); await page.goto('/#/story'); await ready(page, 'intro');
     const visited: string[] = [];
     for (let i = 0; i < 25; i++) {
       const id = (await runtime(page).getAttribute('data-node'))!, node = definition.nodes.find(node => node.id === id)!; visited.push(id); if (id === 'completed') break;
@@ -68,7 +70,7 @@ for (const approach of ['call-first', 'split-first'] as const) for (const ending
       }
       await expect(runtime(page)).not.toHaveAttribute('data-node', id); await ready(page);
     }
-    expect(visited).toHaveLength(21); const saved = await stored(page); expect(saved.story).toMatchObject({ definitionVersion: 3, nodeId: 'completed', ending, approach });
+    expect(visited).toHaveLength(21); const saved = await stored(page); expect(saved.story).toMatchObject({ definitionVersion: version, nodeId: 'completed', ending, approach });
     await page.reload(); await ready(page, 'completed'); await page.goto('/#/result'); await expect(page.locator('#result-capture canvas.reunion-artifact')).toHaveAttribute('data-state', 'ready'); await expect(page.locator('#result-id')).toContainText(':ending:' + ending);
     await page.locator('#result-replay').click(); await expect(page.locator('#replay-segment option')).toHaveCount(20); await page.locator('#replay-segment').selectOption('19'); await expect(page.locator('#result-replay-player .canvas-stage-status')).toHaveAttribute('data-state', 'ready'); expect(errors).toEqual([]);
   });
@@ -78,12 +80,12 @@ test('first visit follows background, draft craft, light, practice and explicit 
   await page.goto('/'); await expect(page.getByRole('button', { name: '从故事缘起开始', exact: true })).toBeVisible();
   await page.getByRole('button', { name: '从故事缘起开始', exact: true }).click(); await expect(page.locator('#story-background')).toBeInViewport();
   await expect(page.locator('#story-background')).toContainText('刘彦昌'); await page.locator('#journey-to-craft').click();
-  await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state', 'ready'); await page.locator('#craft-pattern').selectOption('flower-v1'); await page.locator('#journey-to-light').click();
+  await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state', 'ready'); await expect(page.locator('#craft-pattern')).toHaveCount(0); await page.locator('#craft-palette').selectOption('indigo-v1'); await page.locator('#journey-to-light').click();
   await expect(page).toHaveURL(/#\/light$/); expect((await stored(page)).story).toBeNull(); await page.locator('#journey-to-practice').click();
   await expect(page).toHaveURL(/#\/practice$/); await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state', 'ready');
-  await page.locator('#journey-to-story').click(); await ready(page, 'intro'); expect((await stored(page)).story).toMatchObject({ definitionVersion: 3, castSnapshot: null });
+  await page.locator('#journey-to-story').click(); await ready(page, 'intro'); expect((await stored(page)).story).toMatchObject({ definitionVersion: 4, castSnapshot: null });
   await page.locator('#story-skip').click(); await ready(page, 'craft'); await expect(page).toHaveURL(/#\/story$/);
-  await page.locator('#story-confirm-craft').click(); await ready(page, 'memory-wave'); expect((await stored(page)).story!.castSnapshot!.appearance.patternId).toBe('flower-v1');
+  await page.locator('#story-confirm-craft').click(); await ready(page, 'memory-wave'); expect((await stored(page)).story!.castSnapshot!.appearance.paletteId).toBe('indigo-v1');
   await page.goto('/'); await expect(page.getByRole('link', { name: '继续这一场 ↗', exact: true })).toBeVisible();
 });
 test('canonical showcase pauses, restarts, refreshes safely and a skipped failed save retries once', async ({ page }) => {

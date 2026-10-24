@@ -89,7 +89,7 @@ export function mountMuseumDemo(host: HTMLElement, kind: MuseumCanvasDemo) {
       if (actor.actorId !== 'chenxiang') throw new Error('展品示例角色不匹配，请重置演示。');
       const appearance = cloneAppearance(actor.appearance);
       if (kind === 'carving') appearance.carvedSegments = [carved, carved, carved];
-      return { actors: [{ ...actor, appearance, pose: fit.pose }], stage: { ...local.stage }, attachments: [], showRods: kind === 'joints' };
+      return { actors: [{ ...actor, costumeTreatment:kind==='carving'?'legacy-motif':'original-texture', appearance, pose: fit.pose }], stage: { ...local.stage }, attachments: [], showRods: kind === 'joints' };
     });
     if (layerDiagram && layerToggle) {
       layerDiagram.setAttribute('data-expanded', String(layersOpen)); layerToggle.setAttribute('aria-expanded', String(layersOpen)); layerToggle.textContent = layersOpen ? '合上横截面' : '展开横截面';

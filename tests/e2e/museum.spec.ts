@@ -45,7 +45,7 @@ test('direct museum opens five sections and all eight sourced exhibits without s
     await go(page,`/museum/${exhibit.id}`);await expect(page.locator('#app-view h1')).toHaveText(exhibit.title);await expect(page.locator('.page-lead')).toHaveText(exhibit.summary);
     await expect(page.locator('#exhibit-reading')).toBeHidden();await page.locator('#exhibit-reading-toggle').focus();await page.keyboard.press('Enter');await expect(page.locator('#exhibit-reading')).toBeVisible();await expect(page.locator('.exhibit-detail-copy')).toHaveText(exhibit.detail);
     for(const sourceId of exhibit.sourceIds)await expect(page.locator('#exhibit-reading .source-list')).toContainText(sourceId);
-    if(exhibit.id==='E06'){await expect(page.locator('.museum-diagram')).toContainText('共纹');await expect(page.locator('.museum-diagram')).toContainText('不将京剧梗概称为皮影剧本');}
+    if(exhibit.id==='E06'){await expect(page.locator('.museum-diagram')).toContainText('灯火');await expect(page.locator('.museum-diagram')).toContainText('不将京剧梗概称为皮影剧本');}
     if(exhibit.id==='E07')await expect(page.locator('.museum-diagram .museum-panel')).toHaveCount(3);
     if(exhibit.id==='E08'){await expect(page.locator('.museum-diagram')).toContainText('张宇翔（SpaceFly）');await expect(page.locator('.museum-programme')).toContainText('尚未开演');await expect(page.getByRole('link',{name:'查看本场节目单 →',exact:true})).toBeHidden();}
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);

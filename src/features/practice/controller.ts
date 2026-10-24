@@ -79,7 +79,7 @@ export function mountPracticeController(panel:HTMLElement,stage:ReturnType<typeo
   const attachments=()=>actionDefinitions.find(item=>item.id===selectedAction)!.attachmentIds;
   const blocked=()=>!project||!state||state.hasPending||ctx.isBusy()||['loading','closed','conflict','unsupported','recovery'].includes(state.status);
   const canInput=()=>!disposed&&!blocked()&&ready;
-  const direct=mountLimbControls(stage,{read(){return project?{frame:{actors:[{actorId:'chenxiang',templateId:'chenxiang-v1',appearance:project.appearance,pose}],stage:project.stage,attachments:attachments().map(attachmentId=>({actorId:'chenxiang',attachmentId}))},enabled:canInput()}:null;},change(next){playing=false;phase=null;applyFit(constrainPoseToStage(next,template,project!.stage,attachments()));submit(false);},wake(){clock.start();renderUI();},end(){if(!playing&&!keys.size&&!stage.cables.active)clock.stop();if(dirty)submit(true);renderUI();},report(text){message=text;renderUI();}});
+  const direct=mountLimbControls(stage,{read(){return project?{frame:{actors:[{actorId:'chenxiang',templateId:'chenxiang-v1',costumeTreatment:'original-texture',appearance:project.appearance,pose}],stage:project.stage,attachments:attachments().map(attachmentId=>({actorId:'chenxiang',attachmentId}))},enabled:canInput()}:null;},change(next){playing=false;phase=null;applyFit(constrainPoseToStage(next,template,project!.stage,attachments()));submit(false);},wake(){clock.start();renderUI();},end(){if(!playing&&!keys.size&&!stage.cables.active)clock.stop();if(dirty)submit(true);renderUI();},report(text){message=text;renderUI();}});
   const clock=createAnimationClock({request:callback=>window.requestAnimationFrame(callback),cancel:id=>window.cancelAnimationFrame(id),now:()=>performance.now()},delta=>{
     direct.tick(delta);renderHandles();
     if(!canInput()){stop('当前操作已暂停。',false);return false;}
@@ -128,7 +128,7 @@ export function mountPracticeController(panel:HTMLElement,stage:ReturnType<typeo
   }
   function renderFrame() {
     if(!project){overlay.hidden=true;stage.update(null);return;}
-    stage.update({actors:[{actorId:'chenxiang',templateId:'chenxiang-v1',appearance:project.appearance,pose}],stage:project.stage,attachments:attachments().map(attachmentId=>({actorId:'chenxiang' as const,attachmentId}))});
+    stage.update({actors:[{actorId:'chenxiang',templateId:'chenxiang-v1',costumeTreatment:'original-texture',appearance:project.appearance,pose}],stage:project.stage,attachments:attachments().map(attachmentId=>({actorId:'chenxiang' as const,attachmentId}))});
   }
   function renderHandles() {
     if(!project){direct.render();return;}

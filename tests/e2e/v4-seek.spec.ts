@@ -46,3 +46,11 @@ test('craft keeps original image details and palette, with no added pattern or c
 test('fresh guide starts v4 without freezing an unconfirmed costume',async({page})=>{
   const p=project();p.story=null;await seed(page,p);await page.goto('/');await page.getByRole('button',{name:'节选导览',exact:true}).click();await ready(page);expect((await stored(page)).story).toMatchObject({definitionVersion:4,nodeId:'intro',mode:'guided',castSnapshot:null});
 });
+
+test('paused result replay unlocks its cue directory when the first frame becomes ready',async({page})=>{
+  test.setTimeout(60000);const p=project();Object.assign(p.story!,{nodeId:'completed',approach:'call-first',approachSource:'user',ending:'home',endingSource:'user',completedAt:'2026-10-24T02:00:00.000Z'});
+  await seed(page,p);await page.goto('/#/result');await expect(page.locator('#result-capture canvas.reunion-artifact')).toHaveAttribute('data-state','ready',{timeout:15000});
+  const before=(await stored(page)).story;await page.locator('#result-replay').click();const player=page.locator('#result-replay-player');
+  await expect(player.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready',{timeout:15000});const cue=player.locator('.subtitle-cue').nth(1);await expect(cue).toBeEnabled();await cue.click();
+  await expect(page.locator('#replay-status')).toContainText('已定位本段台词');await expect(page.locator('#replay-status')).toContainText('已暂停');expect((await stored(page)).story).toEqual(before);
+});

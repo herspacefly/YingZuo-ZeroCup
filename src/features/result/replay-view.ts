@@ -20,6 +20,7 @@ export function mountReunionReplay(host:HTMLElement,project:ProjectV1){
   for(const [button,id]of [[play,'play'],[pause,'pause'],[reset,'reset'],[previous,'previous'],[next,'next'],[step,'step']] as const){button.type='button';button.id=`replay-${id}`;transport.appendChild(button);}
   const motionNote=element('p','quiet-note');append(panel,chooseLabel,status,shot,cueHost,transport,motionNote);append(layout,stage.figure,panel);append(root,title,intro,layout);host.appendChild(root);
   let disposed=false,index=0,elapsed=0,playing=false,blocked=false,ready=false,message='已就绪后可播放；默认暂停。';
+  let captionSample:ReturnType<typeof replay.sample>|null=null;
   const media=window.matchMedia?.('(prefers-reduced-motion: reduce)');let reduced=media?.matches??false;
   const clock=createAnimationClock({request:cb=>requestAnimationFrame(cb),cancel:id=>cancelAnimationFrame(id),now:()=>performance.now()},delta=>{
     if(disposed||blocked||!ready||!playing)return false;advance(delta);return playing;
@@ -31,11 +32,12 @@ export function mountReunionReplay(host:HTMLElement,project:ProjectV1){
     reset.disabled=blocked;step.hidden=!reduced;step.disabled=blocked||!ready||end;
     motionNote.textContent=reduced?'已启用减少动态：使用“前进 250 毫秒”逐步看静止分镜，也可切换片段。':'可随时暂停或切换片段；离开本页会停止重演。';
     status.textContent=`片段 ${index+1}/${replay.segments.length} · ${(elapsed/1000).toFixed(1)} 秒 · ${playing?'播放中':'已暂停'}。${message}`;
+    if(captionSample)subtitles.update(captionSample.cues,captionSample.allCues,String(index),{mode:project.story!.mode,cues:captionSample.seekCues,elapsedMs:elapsed,enabled:!blocked&&ready});
   }
   function stop(text?:string){playing=false;clock.stop();if(text)message=text;controls();}
   function draw(){
     if(disposed)return;
-    try{const sample=replay.sample(index,elapsed,reduced);stage.update(sample.frame);shot.textContent=sample.shotLabel;stage.screen.style.opacity=String(sample.lightLevel);subtitles.update(sample.cues,sample.allCues,String(index),{mode:project.story!.mode,cues:sample.seekCues,elapsedMs:elapsed,enabled:!blocked&&ready});controls();}
+    try{const sample=replay.sample(index,elapsed,reduced);captionSample=sample;stage.update(sample.frame);shot.textContent=sample.shotLabel;stage.screen.style.opacity=String(sample.lightLevel);controls();}
     catch(error){stop(`无法显示这段编排：${error instanceof Error?error.message:String(error)}`);}
   }
   function seek(request:CueSeek){
