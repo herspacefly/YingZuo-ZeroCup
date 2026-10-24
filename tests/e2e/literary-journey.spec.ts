@@ -72,6 +72,7 @@ for (const version of [3,4] as const) for (const approach of ['call-first', 'spl
     }
     expect(visited).toHaveLength(21); const saved = await stored(page); expect(saved.story).toMatchObject({ definitionVersion: version, nodeId: 'completed', ending, approach });
     await page.reload(); await ready(page, 'completed'); await page.goto('/#/result'); await expect(page.locator('#result-capture canvas.reunion-artifact')).toHaveAttribute('data-state', 'ready'); await expect(page.locator('#result-id')).toContainText(':ending:' + ending);
+    if(version===4&&approach==='call-first')await page.locator('#result-capture').screenshot({path:`docs/evidence/t25-t28/ending-${ending}-${test.info().project.name}.png`});
     await page.locator('#result-replay').click(); await expect(page.locator('#replay-segment option')).toHaveCount(20); await page.locator('#replay-segment').selectOption('19'); await expect(page.locator('#result-replay-player .canvas-stage-status')).toHaveAttribute('data-state', 'ready'); expect(errors).toEqual([]);
   });
 }

@@ -40,7 +40,7 @@ test('direct museum opens five sections and all eight sourced exhibits without s
   test.setTimeout(60000);await page.goto('/');await saved(page);await page.getByRole('link',{name:'不急着开演，先逛展馆 →',exact:true}).click();await saved(page);
   await expect(page.locator('.museum-section')).toHaveCount(5);await expect(page.locator('[data-exhibit]')).toHaveCount(8);expect((await stored(page)).museum.visitedExhibitIds).toEqual([]);
   await page.getByRole('button',{name:'一束光',exact:true}).focus();await page.keyboard.press('Enter');await expect(page.locator('#museum-section-2')).toBeFocused();await expect(page).toHaveURL(/#\/museum$/);
-  await page.screenshot({path:`docs/evidence/t18-museum-${test.info().project.name.startsWith('desktop')?'desktop':'mobile'}.png`,fullPage:true});
+  await page.screenshot({path:`docs/evidence/t25-t28/museum-${test.info().project.name.startsWith('desktop')?'desktop':'mobile'}.png`,fullPage:true});
   for(const exhibit of content.exhibits){
     await go(page,`/museum/${exhibit.id}`);await expect(page.locator('#app-view h1')).toHaveText(exhibit.title);await expect(page.locator('.page-lead')).toHaveText(exhibit.summary);
     await expect(page.locator('#exhibit-reading')).toBeHidden();await page.locator('#exhibit-reading-toggle').focus();await page.keyboard.press('Enter');await expect(page.locator('#exhibit-reading')).toBeVisible();await expect(page.locator('.exhibit-detail-copy')).toHaveText(exhibit.detail);
@@ -54,7 +54,7 @@ test('direct museum opens five sections and all eight sourced exhibits without s
 });
 
 test('layers and real carving are reversible previews of the frozen cast without editing it',async({page})=>{
-  await seed(page,fixture);await page.goto('/#/museum/E01');await ready(page);await saved(page);await expect(page.locator('#museum-personal')).toContainText('云纹 / 朱砂');
+  await seed(page,fixture);await page.goto('/#/museum/E01');await ready(page);await saved(page);await expect(page.locator('#museum-personal')).toContainText('本场影偶 · 朱砂');
   await expect(page.locator('#museum-layer-diagram')).toHaveAttribute('data-expanded','false');await page.locator('#museum-layer-toggle').click();await expect(page.locator('#museum-layer-diagram')).toHaveAttribute('data-expanded','true');await expect(page.locator('.museum-demo-layer span').first()).toBeVisible();
   await page.locator('#museum-demo-reset').click();await expect(page.locator('#museum-layer-diagram')).toHaveAttribute('data-expanded','false');
   await go(page,'/museum/E02');await ready(page);const before=await pixels(page);await page.locator('#museum-carve-toggle').click();await expect(page.locator('#museum-carve-toggle')).toHaveAttribute('aria-pressed','true');expect(await pixels(page)).not.toBe(before);
@@ -66,7 +66,7 @@ test('native keyboard joints and lamp controls change real geometry and the shar
   await page.locator('#museum-shoulder').focus();await page.keyboard.press('End');expect(await pixels(page)).not.toBe(neutral);await page.locator('#museum-demo-reset').click();expect(await pixels(page)).toBe(neutral);
   await go(page,'/museum/E04');await ready(page);const centered=await pixels(page);await page.locator('#museum-distance').focus();await page.keyboard.press('End');await expect(page.locator('#museum-demo-reading')).toContainText('1.50');await expect(page.locator('#museum-reference-shadow-width')).toContainText('0.60');
   const ray=await page.locator('[data-light-ray]').first().getAttribute('y2');await page.locator('#museum-lamp').focus();await page.keyboard.press('Home');expect(await page.locator('[data-light-ray]').first().getAttribute('y2')).not.toBe(ray);expect(await pixels(page)).not.toBe(centered);
-  await saved(page);await expect(page.locator('#museum-lamp')).toHaveValue('-0.8');await expect(page.locator('#museum-distance')).toHaveValue('0.4');await page.screenshot({path:`docs/evidence/t18-light-${test.info().project.name.startsWith('desktop')?'desktop':'mobile'}.png`,fullPage:true});
+  await saved(page);await expect(page.locator('#museum-lamp')).toHaveValue('-0.8');await expect(page.locator('#museum-distance')).toHaveValue('0.4');await page.screenshot({path:`docs/evidence/t25-t28/museum-light-${test.info().project.name.startsWith('desktop')?'desktop':'mobile'}.png`,fullPage:true});
   await page.locator('#museum-demo-reset').click();await expect(page.locator('#museum-lamp')).toHaveValue('0');await expect(page.locator('#museum-distance')).toHaveValue('0.2');expect(await pixels(page)).toBe(centered);await saved(page);invariant(await stored(page),fixture);
 });
 
@@ -86,7 +86,7 @@ test('E08 distinguishes actual in-progress, curtain and completed programmes whi
 for(const mode of ['full','guided'] as const)for(const approach of ['call-first','split-first'] as const)test(`${mode}/${approach} returns from exhibits to the same paused graphical checkpoint`,async({page})=>{
   const project=structuredClone(fixture) as ProjectV1;Object.assign(project.story!,{mode,approach,nodeId:approach==='call-first'?'call-light':'split-search'});
   await clock(page);await seed(page,project);await page.goto('/#/story');await ready(page);await page.locator('#story-play').click();await range(page,'#story-lamp',-.5);await page.locator('#story-pause').click();
-  await go(page,'/museum/E04');await ready(page);await range(page,'#museum-lamp',.7);await range(page,'#museum-distance',.4);await go(page,'/museum/E06');await page.locator('.museum-path').getByRole('link',{name:'回到这一场 →',exact:true}).click();
+  await go(page,'/museum/E04');await ready(page);await range(page,'#museum-lamp',.7);await range(page,'#museum-distance',.4);await go(page,'/museum/E06');await page.locator('.museum-theatre-return').getByRole('link',{name:'回到这一场 →',exact:true}).click();
   await ready(page);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');await expect(page.locator('#story-runtime')).toHaveAttribute('data-elapsed','0');await expect(page.locator('#story-runtime')).toHaveAttribute('data-node',project.story!.nodeId);await expect(page.locator('#story-lamp')).toHaveValue('0');await saved(page);invariant(await stored(page),project);
 });
 
@@ -120,9 +120,9 @@ test('ten exhibit exits release canvases, inputs and every scene clock',async({p
 test('importing a different frozen cast clears the old temporary experiment and detached inputs',async({page})=>{
   await seed(page,fixture);await page.goto('/#/museum/E04');await ready(page);await saved(page);await range(page,'#museum-lamp',.7);await range(page,'#museum-distance',.4);
   const oldCanvas=await page.locator('.shadow-stage').elementHandle(),oldInput=await page.locator('#museum-lamp').elementHandle();
-  const imported=structuredClone(fixture);imported.story!.runId='fixture-run-2';imported.story!.castSnapshot!.appearance.patternId='flower-v1';imported.story!.castSnapshot!.sharedMotif='flower-v1';
+  const imported=structuredClone(fixture);imported.story!.runId='fixture-run-2';imported.story!.castSnapshot!.appearance.patternId='flower-v1';imported.story!.castSnapshot!.sharedMotif='flower-v1';imported.story!.castSnapshot!.appearance.paletteId='woodland-v1';
   await page.getByRole('button',{name:/我的作品/}).click();await page.locator('#import-project').setInputFiles({name:'another-cast.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(imported))});await saved(page);await expect(page.locator('#app-view')).toHaveAttribute('data-route','/');
-  await go(page,'/museum/E04');await ready(page);await expect(page.locator('#museum-personal')).toContainText('花纹');await expect(page.locator('#museum-lamp')).toHaveValue('0');await expect(page.locator('#museum-distance')).toHaveValue('0.2');
+  await go(page,'/museum/E04');await ready(page);await expect(page.locator('#museum-personal')).toContainText('山林');await expect(page.locator('#museum-lamp')).toHaveValue('0');await expect(page.locator('#museum-distance')).toHaveValue('0.2');
   expect(await oldCanvas!.evaluate((canvas:HTMLCanvasElement)=>[canvas.isConnected,canvas.width,canvas.height])).toEqual([false,0,0]);await oldInput!.evaluate((input:HTMLInputElement)=>{input.value='-.6';input.dispatchEvent(new Event('input',{bubbles:true}));});await expect(page.locator('#museum-lamp')).toHaveValue('0');await saved(page);const current=await stored(page);expect(current.story).toEqual(imported.story);expect(current.projectId).not.toBe(fixture.projectId);expect(current.stage).toEqual(fixture.stage);
 });
 

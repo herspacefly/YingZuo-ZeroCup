@@ -1,0 +1,32 @@
+{
+  "source": "86a7c64202f389032b52583a4f77ef00d109c2d6",
+  "checks": [
+    {
+      "name": "synthetic-context-lost-cleanup",
+      "message": "三维灯影暂不可用：空间画面连接已中断，二维幕面仍可继续；可重新展开重试。 二维灯影可完整继续。",
+      "remainingThreeCanvases": 0
+    },
+    {
+      "name": "context-retry",
+      "canvases": 1
+    },
+    {
+      "name": "three-module-load-failure-fallback",
+      "message": "三维灯影暂不可用：Failed to fetch dynamically imported module: http://127.0.0.1:5177/src/renderers/three/renderer.ts?t=1792807788818 二维灯影可完整继续。"
+    },
+    {
+      "name": "no-webgl-buttons",
+      "lampValue": "0.05"
+    },
+    {
+      "name": "three-repeated-entry-exit",
+      "cycles": 3,
+      "eachEntryCanvas": 1,
+      "eachExitCanvas": 0
+    },
+    {
+      "name": "final-retry-ui",
+      "message": "三维灯影暂不可用：空间画面连接已中断，二维幕面仍可继续；可重新展开重试。 二维灯影可完整继续。"
+    }
+  ]
+}

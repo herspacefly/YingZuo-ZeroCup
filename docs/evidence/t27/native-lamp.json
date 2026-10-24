@@ -1,0 +1,47 @@
+{
+  "source": "86a7c64202f389032b52583a4f77ef00d109c2d6",
+  "checks": [
+    {
+      "name": "desktop",
+      "before": {
+        "x": 0.5890372211912902,
+        "y": 0.51204313398372,
+        "lamp": 0,
+        "depth": 1.2
+      },
+      "after": {
+        "lamp": 0.16714901305754104,
+        "depth": 1.18435446021158,
+        "drawCalls": 58
+      }
+    },
+    {
+      "name": "desktop-fallback",
+      "summary": "影偶固定 · 灯距 1.13 · 几何倍率 1.21×。调整会保存到编辑稿。"
+    },
+    {
+      "name": "narrow",
+      "before": {
+        "x": 0.5890372211912902,
+        "y": 0.51204313398372,
+        "lamp": 0,
+        "depth": 1.2
+      },
+      "after": {
+        "lamp": 0.45053383404590086,
+        "depth": 1.1578289760875358,
+        "drawCalls": 58
+      }
+    },
+    {
+      "name": "narrow-fallback",
+      "summary": "影偶固定 · 灯距 1.11 · 几何倍率 1.22×。调整会保存到编辑稿。"
+    },
+    {
+      "name": "no-webgl",
+      "summary": "影偶固定 · 灯距 1.20 · 几何倍率 1.20×。调整会保存到编辑稿。",
+      "message": "三维灯影暂不可用：当前浏览器没有可用的 WebGL 2。 二维灯影可完整继续。"
+    }
+  ],
+  "note": "Native Chromium input and clock; screenshots do not prove physical GPU FPS. Original-texture integration belongs to root story changes."
+}

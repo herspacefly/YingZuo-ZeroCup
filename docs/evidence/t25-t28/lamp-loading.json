@@ -1,0 +1,61 @@
+{
+  "kind": "native-production-lamp-workshop-loading",
+  "clientReviewDate": "2026-10-24",
+  "machineUTC": "2026-10-24T09:47:38.918Z",
+  "indexSha256": "283837594ee06439db2fc023e4e66e0790b7860803c3464eafce04e62bfea7de",
+  "definition": "Fresh contexts, cache disabled, native timers. Navigation to ready default 3D lamp workshop plus two native frames. Local and CDP 5Mbps/150ms; no CPU throttle. Chromium viewports are not physical devices.",
+  "runs": [
+    {
+      "profile": "desktop",
+      "network": "local",
+      "errors": [],
+      "passed": true,
+      "readyMs": 1186.1589999999999,
+      "render": {
+        "width": 512,
+        "height": 384,
+        "drawCalls": 58,
+        "softwareBudget": "true"
+      }
+    },
+    {
+      "profile": "desktop",
+      "network": "5Mbps-150ms",
+      "errors": [],
+      "passed": true,
+      "readyMs": 3329.2897,
+      "render": {
+        "width": 512,
+        "height": 384,
+        "drawCalls": 58,
+        "softwareBudget": "true"
+      }
+    },
+    {
+      "profile": "narrow",
+      "network": "local",
+      "errors": [],
+      "passed": true,
+      "readyMs": 813.6368999999995,
+      "render": {
+        "width": 348,
+        "height": 261,
+        "drawCalls": 58,
+        "softwareBudget": "true"
+      }
+    },
+    {
+      "profile": "narrow",
+      "network": "5Mbps-150ms",
+      "errors": [],
+      "passed": true,
+      "readyMs": 3382.799100000001,
+      "render": {
+        "width": 348,
+        "height": 261,
+        "drawCalls": 58,
+        "softwareBudget": "true"
+      }
+    }
+  ]
+}

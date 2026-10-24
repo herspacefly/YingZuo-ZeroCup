@@ -21,6 +21,7 @@ const output = path.resolve(root, option('--output', 'docs/evidence/startup-meas
 if (!output.startsWith(root)) throw new Error('Output must stay within the project');
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 const indexBytes = readFileSync(path.join(root, 'dist/index.html'));
+const originalTorsoPath = '/'+JSON.parse(readFileSync(path.join(root,'src/content/manifest.json'),'utf8')).assets.find(asset=>asset.id==='chenxiang-v1-torso-color').path;
 const networks = [
   { id: 'local', targetHomeMs: 2000, cdp: { offline: false, latency: 0, downloadThroughput: -1, uploadThroughput: -1 } },
   { id: '5Mbps-150ms', targetHomeMs: 5000, cdp: { offline: false, latency: 150, downloadThroughput: 625000, uploadThroughput: 625000 } },
@@ -45,7 +46,7 @@ const report = {
     imageFontBudget: 'Image/font HTTP response encoded body sizes, verified against matching ResourceTiming, HTTP Content-Length and the built artifact; Playwright response.body may be empty for consumed fetches and is never treated as zero transfer. Unique URLs requested from navigation through first intro ready. Includes resources loaded ahead for later shots within that intro. Inline SVG is part of HTML/JS, not a separate image transfer.',
   },
   loadingPolicy,
-  limitations: ['This host and Chromium emulation are not physical phones/IE/Safari or a remote deployment.', 'Startup is measured without autoplay/music/WebGL; real FPS and full performance duration are outside this probe.', 'Image/font bytes are historical diagnostics only; current author target is complete intro readiness within about 15 seconds, with original pixels retained.', 'The 2s/5s targets refer to home interaction and remain separate from the new explicit-opening resource target. Music readiness is measured independently.'],
+  limitations: ['This host and Chromium emulation are not physical phones/IE/Safari or a remote deployment.', 'Music/effects use product default-on behavior; this probe measures Canvas readiness, not audible readiness, WebGL, FPS or full performance duration.', 'Image/font bytes are historical diagnostics only; current author target is complete intro readiness within about 15 seconds, with original pixels retained.', 'The 2s/5s targets refer to home interaction and remain separate from the new explicit-opening resource target. Music readiness is measured independently.'],
 };
 
 try {
@@ -139,12 +140,13 @@ try {
       }
       const imageFonts = [...unique.values()], imageFontBytes = imageFonts.reduce((sum, asset) => sum + asset.bytes, 0);
       if(!imageFontBytes) throw new Error('No real image/font transfer bytes recorded');
-      const expectedPattern=pattern==='fresh'?'cloud-v1':pattern;
-      const observedPattern=imageFonts.filter(asset=>[1,2,3].some(n=>asset.path.endsWith(`/${expectedPattern}-cut-${n}.webp`)||asset.path.endsWith(`/${expectedPattern}-cut-${n}.png`))).length===3?expectedPattern:null;
+      // New v4 intentionally ignores legacy pattern fields and keeps the authored costume.
+      const observedPattern=imageFonts.some(asset=>/\/(cloud|wave|flower)-v1-cut-\d\.(webp|png)$/.test(asset.path))?'legacy-overlay':null;
+      const observedOriginalCostume=imageFonts.some(asset=>asset.path===originalTorsoPath||asset.path==='/assets/delivery/chenxiang-v1-torso-color.webp');
       const deliveryRequests=imageFonts.filter(asset=>asset.path.startsWith('/assets/delivery/')).length;
-      if(observedPattern !== expectedPattern || (forcePNG && deliveryRequests)) throw new Error('Requested appearance/compatibility path not actually observed');
+      if(observedPattern !== null || !observedOriginalCostume || (forcePNG && deliveryRequests)) throw new Error('Original costume/compatibility path not actually observed');
       Object.assign(item, observed, { introReadyFromClickMs: observed.introReadyMs - observed.startClickedAtMs,
-        imageFonts, imageFontBytes, observedPattern, deliveryRequests, homeWithinTarget: observed.homeReadyMs <= network.targetHomeMs,
+        imageFonts, imageFontBytes, observedPattern, observedOriginalCostume, deliveryRequests, homeWithinTarget: observed.homeReadyMs <= network.targetHomeMs,
         homeTargetMs: network.targetHomeMs, introWithinTarget: observed.introReadyMs-observed.startClickedAtMs<=loadingPolicy.assetReadyTargetMs,
         imageFontWithinHistoricalReference: imageFontBytes <= loadingPolicy.historicalImageFontReferenceBytes,
         errors, externalRequests, failedRequests });

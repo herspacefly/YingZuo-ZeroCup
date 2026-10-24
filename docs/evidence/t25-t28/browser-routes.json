@@ -1,0 +1,2805 @@
+{
+  "config": {
+    "argv": [
+      "E:\\Software_after2026\\nodejs\\node.exe",
+      "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/literary-journey.spec.ts",
+      "tests/e2e/museum.spec.ts",
+      "tests/e2e/expanded-story.spec.ts",
+      "--grep",
+      "v4 (call-first|split-first)/|restored v2 and v3|first visit|canonical showcase pauses|museum|actual hand|spatial story",
+      "--workers=3"
+    ],
+    "configFile": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\playwright.config.ts",
+    "rootDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop-chromium",
+        "name": "desktop-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "desktop-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop-chromium"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "mobile-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile-chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/t25-t28/browser-routes.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 3,
+    "webServer": {
+      "command": "npm run preview -- --port 4173 --strictPort",
+      "url": "http://127.0.0.1:4173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "expanded-story.spec.ts",
+      "file": "expanded-story.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "actual hand and foot dragging, body arrows, pause and focus keep separate ownership",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16967,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:17:11.070Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4e18a7e01fc457ce00d8-a1eff5e270c1ac567e87",
+          "file": "expanded-story.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "spatial story layers follow the shared clock and observation never changes the checkpoint",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 52049,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:17:11.088Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4e18a7e01fc457ce00d8-a4095a33dbfbb5247363",
+          "file": "expanded-story.spec.ts",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "actual hand and foot dragging, body arrows, pause and focus keep separate ownership",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 22857,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:27:54.114Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4e18a7e01fc457ce00d8-91ff52a44a862e78dc13",
+          "file": "expanded-story.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "spatial story layers follow the shared clock and observation never changes the checkpoint",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 29387,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:27:55.228Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4e18a7e01fc457ce00d8-39ffee99bd942814aa46",
+          "file": "expanded-story.spec.ts",
+          "line": 47,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "literary-journey.spec.ts",
+      "file": "literary-journey.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "restored v2 and v3 retain their own ending choice labels in graphical and text entries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 25145,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:17:11.056Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-0f888df5546d5dc8afd3",
+          "file": "literary-journey.spec.ts",
+          "line": 40,
+          "column": 1
+        },
+        {
+          "title": "v4 call-first/home: complete route, canonical showcase, result and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 110378,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:17:28.564Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-0d8fa43040cd527842e5",
+          "file": "literary-journey.spec.ts",
+          "line": 55,
+          "column": 3
+        },
+        {
+          "title": "v4 call-first/light: complete route, canonical showcase, result and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 108272,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:17:36.419Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-5b6d0075cfc78a1f5031",
+          "file": "literary-journey.spec.ts",
+          "line": 55,
+          "column": 3
+        },
+        {
+          "title": "v4 call-first/road: complete route, canonical showcase, result and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 108056,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:18:03.679Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-6bb9f8e2cae66ce12411",
+          "file": "literary-journey.spec.ts",
+          "line": 55,
+          "column": 3
+        },
+        {
+          "title": "v4 call-first/waiting: complete route, canonical showcase, result and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 168214,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:19:20.209Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-651c57bb243982754173",
+          "file": "literary-journey.spec.ts",
+          "line": 55,
+          "column": 3
+        },
+        {
+          "title": "v4 call-first/sacrifice: complete route, canonical showcase, result and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 156133,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:19:24.958Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-f06975ec45924b9d93ed",
+          "file": "literary-journey.spec.ts",
+          "line": 55,
+          "column": 3
+        },
+        {
+          "title": "v4 split-first/home: complete route, canonical showcase, result and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 146457,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:19:51.988Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-b27e186b108186c40c8f",
+          "file": "literary-journey.spec.ts",
+          "line": 55,
+          "column": 3
+        },
+        {
+          "title": "v4 split-first/light: complete route, canonical showcase, result and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 161463,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:22:01.280Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-fca6b8b30fcc6c5dea78",
+          "file": "literary-journey.spec.ts",
+          "line": 55,
+          "column": 3
+        },
+        {
+          "title": "v4 split-first/road: complete route, canonical showcase, result and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 162595,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:22:08.634Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-9a612d25be581145dd6a",
+          "file": "literary-journey.spec.ts",
+          "line": 55,
+          "column": 3
+        },
+        {
+          "title": "v4 split-first/waiting: complete route, canonical showcase, result and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 144906,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:22:18.887Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-aeba9d4632d67314613c",
+          "file": "literary-journey.spec.ts",
+          "line": 55,
+          "column": 3
+        },
+        {
+          "title": "v4 split-first/sacrifice: complete route, canonical showcase, result and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 90312,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:24:43.003Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-0411f33d338124eb47b5",
+          "file": "literary-journey.spec.ts",
+          "line": 55,
+          "column": 3
+        },
+        {
+          "title": "first visit follows background, draft craft, light, practice and explicit story confirmation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 42018,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:24:44.209Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-0f537c003f183ee8e94d",
+          "file": "literary-journey.spec.ts",
+          "line": 79,
+          "column": 1
+        },
+        {
+          "title": "canonical showcase pauses, restarts, refreshes safely and a skipped failed save retries once",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 33275,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:24:51.570Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-aed518f039160e40547b",
+          "file": "literary-journey.spec.ts",
+          "line": 92,
+          "column": 1
+        },
+        {
+          "title": "restored v2 and v3 retain their own ending choice labels in graphical and text entries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 61205,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:28:42.150Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-d8e8d961a6e70a29c3ed",
+          "file": "literary-journey.spec.ts",
+          "line": 40,
+          "column": 1
+        },
+        {
+          "title": "v4 call-first/home: complete route, canonical showcase, result and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 157093,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:28:17.369Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-6dea64033fc426322a5d",
+          "file": "literary-journey.spec.ts",
+          "line": 55,
+          "column": 3
+        },
+        {
+          "title": "v4 call-first/light: complete route, canonical showcase, result and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 161013,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:28:25.238Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-6bc1764b071eefe154b1",
+          "file": "literary-journey.spec.ts",
+          "line": 55,
+          "column": 3
+        },
+        {
+          "title": "v4 call-first/road: complete route, canonical showcase, result and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 183252,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:29:44.176Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-83149156291a0350c072",
+          "file": "literary-journey.spec.ts",
+          "line": 55,
+          "column": 3
+        },
+        {
+          "title": "v4 call-first/waiting: complete route, canonical showcase, result and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 157474,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:30:54.554Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-0564f764d90a851d0a58",
+          "file": "literary-journey.spec.ts",
+          "line": 55,
+          "column": 3
+        },
+        {
+          "title": "v4 call-first/sacrifice: complete route, canonical showcase, result and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 152494,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:31:06.543Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-3e08fcd2142718598a9c",
+          "file": "literary-journey.spec.ts",
+          "line": 55,
+          "column": 3
+        },
+        {
+          "title": "v4 split-first/home: complete route, canonical showcase, result and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 127238,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:32:47.731Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-d23eb4e94cc759a7fbde",
+          "file": "literary-journey.spec.ts",
+          "line": 55,
+          "column": 3
+        },
+        {
+          "title": "v4 split-first/light: complete route, canonical showcase, result and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 162322,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:33:32.128Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-13ab717519d215b2108a",
+          "file": "literary-journey.spec.ts",
+          "line": 55,
+          "column": 3
+        },
+        {
+          "title": "v4 split-first/road: complete route, canonical showcase, result and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 156784,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:33:39.344Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-c9a59dc46b969b053ad0",
+          "file": "literary-journey.spec.ts",
+          "line": 55,
+          "column": 3
+        },
+        {
+          "title": "v4 split-first/waiting: complete route, canonical showcase, result and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 135198,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:34:55.166Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-d0ba0ef7bc9aa96e5782",
+          "file": "literary-journey.spec.ts",
+          "line": 55,
+          "column": 3
+        },
+        {
+          "title": "v4 split-first/sacrifice: complete route, canonical showcase, result and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 104721,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:36:14.646Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-d9986c64d726b0086da0",
+          "file": "literary-journey.spec.ts",
+          "line": 55,
+          "column": 3
+        },
+        {
+          "title": "first visit follows background, draft craft, light, practice and explicit story confirmation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 43150,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:36:16.427Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-43610d321531d9d2d4a0",
+          "file": "literary-journey.spec.ts",
+          "line": 79,
+          "column": 1
+        },
+        {
+          "title": "canonical showcase pauses, restarts, refreshes safely and a skipped failed save retries once",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 35752,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:36:59.789Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a621b379abe8ce9c48da-9736ec470500ef93199e",
+          "file": "literary-journey.spec.ts",
+          "line": 92,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "museum.spec.ts",
+      "file": "museum.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "direct museum opens five sections and all eight sourced exhibits without starting a performance",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 44682,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:25:25.579Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-10060d0209b768158fbe",
+          "file": "museum.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "layers and real carving are reversible previews of the frozen cast without editing it",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 18384,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#museum-personal')\nExpected substring: \u001b[32m\"云纹 / 朱砂\"\u001b[39m\nReceived string:    \u001b[31m\"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#museum-personal') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#museum-personal')\u001b[22m\n\u001b[2m    12 × locator resolved to <p id=\"museum-personal\" class=\"museum-personal\">本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。</p>\u001b[22m\n\u001b[2m       - unexpected value \"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#museum-personal')\nExpected substring: \u001b[32m\"云纹 / 朱砂\"\u001b[39m\nReceived string:    \u001b[31m\"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#museum-personal') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#museum-personal')\u001b[22m\n\u001b[2m    12 × locator resolved to <p id=\"museum-personal\" class=\"museum-personal\">本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。</p>\u001b[22m\n\u001b[2m       - unexpected value \"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts:57:144",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts",
+                      "column": 144,
+                      "line": 57
+                    },
+                    "snippet": "  55 |\n  56 | test('layers and real carving are reversible previews of the frozen cast without editing it',async({page})=>{\n> 57 |   await seed(page,fixture);await page.goto('/#/museum/E01');await ready(page);await saved(page);await expect(page.locator('#museum-personal')).toContainText('云纹 / 朱砂');\n     |                                                                                                                                                ^\n  58 |   await expect(page.locator('#museum-layer-diagram')).toHaveAttribute('data-expanded','false');await page.locator('#museum-layer-toggle').click();await expect(page.locator('#museum-layer-diagram')).toHaveAttribute('data-expanded','true');await expect(page.locator('.museum-demo-layer span').first()).toBeVisible();\n  59 |   await page.locator('#museum-demo-reset').click();await expect(page.locator('#museum-layer-diagram')).toHaveAttribute('data-expanded','false');\n  60 |   await go(page,'/museum/E02');await ready(page);const before=await pixels(page);await page.locator('#museum-carve-toggle').click();await expect(page.locator('#museum-carve-toggle')).toHaveAttribute('aria-pressed','true');expect(await pixels(page)).not.toBe(before);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts",
+                        "column": 144,
+                        "line": 57
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#museum-personal')\nExpected substring: \u001b[32m\"云纹 / 朱砂\"\u001b[39m\nReceived string:    \u001b[31m\"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#museum-personal') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#museum-personal')\u001b[22m\n\u001b[2m    12 × locator resolved to <p id=\"museum-personal\" class=\"museum-personal\">本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。</p>\u001b[22m\n\u001b[2m       - unexpected value \"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[22m\n\n\n  55 |\n  56 | test('layers and real carving are reversible previews of the frozen cast without editing it',async({page})=>{\n> 57 |   await seed(page,fixture);await page.goto('/#/museum/E01');await ready(page);await saved(page);await expect(page.locator('#museum-personal')).toContainText('云纹 / 朱砂');\n     |                                                                                                                                                ^\n  58 |   await expect(page.locator('#museum-layer-diagram')).toHaveAttribute('data-expanded','false');await page.locator('#museum-layer-toggle').click();await expect(page.locator('#museum-layer-diagram')).toHaveAttribute('data-expanded','true');await expect(page.locator('.museum-demo-layer span').first()).toBeVisible();\n  59 |   await page.locator('#museum-demo-reset').click();await expect(page.locator('#museum-layer-diagram')).toHaveAttribute('data-expanded','false');\n  60 |   await go(page,'/museum/E02');await ready(page);const before=await pixels(page);await page.locator('#museum-carve-toggle').click();await expect(page.locator('#museum-carve-toggle')).toHaveAttribute('aria-pressed','true');expect(await pixels(page)).not.toBe(before);\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts:57:144"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:25:26.500Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-layers-and-real-car-5f3e5-zen-cast-without-editing-it-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-layers-and-real-car-5f3e5-zen-cast-without-editing-it-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts",
+                    "column": 144,
+                    "line": 57
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-59541def2759a05dd801",
+          "file": "museum.spec.ts",
+          "line": 56,
+          "column": 1
+        },
+        {
+          "title": "native keyboard joints and lamp controls change real geometry and the shared light diagram only",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 12210,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:26:10.391Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-ad78c26f3e5022f88e1d",
+          "file": "museum.spec.ts",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "collaboration uses the same wave in two explicit stills and never offers an unavailable audio track",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 4580,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:26:13.475Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-48bca352218f61d08b72",
+          "file": "museum.spec.ts",
+          "line": 73,
+          "column": 1
+        },
+        {
+          "title": "E08 distinguishes actual in-progress, curtain and completed programmes while keeping the sole creator",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 3852,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:26:18.084Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-cf767327903d3d08d4f6",
+          "file": "museum.spec.ts",
+          "line": 78,
+          "column": 1
+        },
+        {
+          "title": "full/call-first returns from exhibits to the same paused graphical checkpoint",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "timedOut",
+                  "duration": 33674,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts",
+                        "column": 236,
+                        "line": 89
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.museum-path').getByRole('link', { name: '回到这一场 →', exact: true })\u001b[22m\n\n\n  87 |   const project=structuredClone(fixture) as ProjectV1;Object.assign(project.story!,{mode,approach,nodeId:approach==='call-first'?'call-light':'split-search'});\n  88 |   await clock(page);await seed(page,project);await page.goto('/#/story');await ready(page);await page.locator('#story-play').click();await range(page,'#story-lamp',-.5);await page.locator('#story-pause').click();\n> 89 |   await go(page,'/museum/E04');await ready(page);await range(page,'#museum-lamp',.7);await range(page,'#museum-distance',.4);await go(page,'/museum/E06');await page.locator('.museum-path').getByRole('link',{name:'回到这一场 →',exact:true}).click();\n     |                                                                                                                                                                                                                                            ^\n  90 |   await ready(page);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');await expect(page.locator('#story-runtime')).toHaveAttribute('data-elapsed','0');await expect(page.locator('#story-runtime')).toHaveAttribute('data-node',project.story!.nodeId);await expect(page.locator('#story-lamp')).toHaveValue('0');await saved(page);invariant(await stored(page),project);\n  91 | });\n  92 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts:89:236"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:26:21.982Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-full-call-first-ret-fad8c-paused-graphical-checkpoint-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-full-call-first-ret-fad8c-paused-graphical-checkpoint-desktop-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-0f9d220c9ab836176e4d",
+          "file": "museum.spec.ts",
+          "line": 86,
+          "column": 106
+        },
+        {
+          "title": "full/split-first returns from exhibits to the same paused graphical checkpoint",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 33178,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts",
+                        "column": 236,
+                        "line": 89
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.museum-path').getByRole('link', { name: '回到这一场 →', exact: true })\u001b[22m\n\n\n  87 |   const project=structuredClone(fixture) as ProjectV1;Object.assign(project.story!,{mode,approach,nodeId:approach==='call-first'?'call-light':'split-search'});\n  88 |   await clock(page);await seed(page,project);await page.goto('/#/story');await ready(page);await page.locator('#story-play').click();await range(page,'#story-lamp',-.5);await page.locator('#story-pause').click();\n> 89 |   await go(page,'/museum/E04');await ready(page);await range(page,'#museum-lamp',.7);await range(page,'#museum-distance',.4);await go(page,'/museum/E06');await page.locator('.museum-path').getByRole('link',{name:'回到这一场 →',exact:true}).click();\n     |                                                                                                                                                                                                                                            ^\n  90 |   await ready(page);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');await expect(page.locator('#story-runtime')).toHaveAttribute('data-elapsed','0');await expect(page.locator('#story-runtime')).toHaveAttribute('data-node',project.story!.nodeId);await expect(page.locator('#story-lamp')).toHaveValue('0');await saved(page);invariant(await stored(page),project);\n  91 | });\n  92 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts:89:236"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:26:22.638Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-full-split-first-re-dc5a8-paused-graphical-checkpoint-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-full-split-first-re-dc5a8-paused-graphical-checkpoint-desktop-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-c715f99050776f8237df",
+          "file": "museum.spec.ts",
+          "line": 86,
+          "column": 106
+        },
+        {
+          "title": "guided/call-first returns from exhibits to the same paused graphical checkpoint",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "timedOut",
+                  "duration": 40541,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts",
+                        "column": 236,
+                        "line": 89
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.museum-path').getByRole('link', { name: '回到这一场 →', exact: true })\u001b[22m\n\n\n  87 |   const project=structuredClone(fixture) as ProjectV1;Object.assign(project.story!,{mode,approach,nodeId:approach==='call-first'?'call-light':'split-search'});\n  88 |   await clock(page);await seed(page,project);await page.goto('/#/story');await ready(page);await page.locator('#story-play').click();await range(page,'#story-lamp',-.5);await page.locator('#story-pause').click();\n> 89 |   await go(page,'/museum/E04');await ready(page);await range(page,'#museum-lamp',.7);await range(page,'#museum-distance',.4);await go(page,'/museum/E06');await page.locator('.museum-path').getByRole('link',{name:'回到这一场 →',exact:true}).click();\n     |                                                                                                                                                                                                                                            ^\n  90 |   await ready(page);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');await expect(page.locator('#story-runtime')).toHaveAttribute('data-elapsed','0');await expect(page.locator('#story-runtime')).toHaveAttribute('data-node',project.story!.nodeId);await expect(page.locator('#story-lamp')).toHaveValue('0');await saved(page);invariant(await stored(page),project);\n  91 | });\n  92 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts:89:236"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:26:38.347Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-guided-call-first-r-f2470-paused-graphical-checkpoint-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-guided-call-first-r-f2470-paused-graphical-checkpoint-desktop-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-038b6005fea50fd9eae1",
+          "file": "museum.spec.ts",
+          "line": 86,
+          "column": 106
+        },
+        {
+          "title": "guided/split-first returns from exhibits to the same paused graphical checkpoint",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 42493,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts",
+                        "column": 236,
+                        "line": 89
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.museum-path').getByRole('link', { name: '回到这一场 →', exact: true })\u001b[22m\n\n\n  87 |   const project=structuredClone(fixture) as ProjectV1;Object.assign(project.story!,{mode,approach,nodeId:approach==='call-first'?'call-light':'split-search'});\n  88 |   await clock(page);await seed(page,project);await page.goto('/#/story');await ready(page);await page.locator('#story-play').click();await range(page,'#story-lamp',-.5);await page.locator('#story-pause').click();\n> 89 |   await go(page,'/museum/E04');await ready(page);await range(page,'#museum-lamp',.7);await range(page,'#museum-distance',.4);await go(page,'/museum/E06');await page.locator('.museum-path').getByRole('link',{name:'回到这一场 →',exact:true}).click();\n     |                                                                                                                                                                                                                                            ^\n  90 |   await ready(page);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');await expect(page.locator('#story-runtime')).toHaveAttribute('data-elapsed','0');await expect(page.locator('#story-runtime')).toHaveAttribute('data-node',project.story!.nodeId);await expect(page.locator('#story-lamp')).toHaveValue('0');await saved(page);invariant(await stored(page),project);\n  91 | });\n  92 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts:89:236"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:27:00.968Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-guided-split-first--a217e-paused-graphical-checkpoint-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-guided-split-first--a217e-paused-graphical-checkpoint-desktop-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-0f22e150558720a29777",
+          "file": "museum.spec.ts",
+          "line": 86,
+          "column": 106
+        },
+        {
+          "title": "future storage is untouched while full knowledge and sample experiments remain available",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 9846,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:27:04.168Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-abfb731b9f41d39745ac",
+          "file": "museum.spec.ts",
+          "line": 93,
+          "column": 109
+        },
+        {
+          "title": "corrupt storage is untouched while full knowledge and sample experiments remain available",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 4386,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:27:14.372Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-5eea8113f13751b817bb",
+          "file": "museum.spec.ts",
+          "line": 93,
+          "column": 109
+        },
+        {
+          "title": "failed visit saving stays honest and later previews or visits never retry writes implicitly",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 7228,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:27:18.808Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-b5d841186f4f7a6fcea9",
+          "file": "museum.spec.ts",
+          "line": 98,
+          "column": 1
+        },
+        {
+          "title": "memory continuation can visit and export without retrying unavailable storage",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 4741,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:27:26.088Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-16ddb7550d367dd18ae6",
+          "file": "museum.spec.ts",
+          "line": 106,
+          "column": 1
+        },
+        {
+          "title": "ten exhibit exits release canvases, inputs and every scene clock",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 18053,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:27:30.501Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-afcee8170be9d6531577",
+          "file": "museum.spec.ts",
+          "line": 112,
+          "column": 1
+        },
+        {
+          "title": "importing a different frozen cast clears the old temporary experiment and detached inputs",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 14370,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#museum-personal')\nExpected substring: \u001b[32m\"花纹\"\u001b[39m\nReceived string:    \u001b[31m\"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#museum-personal') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#museum-personal')\u001b[22m\n\u001b[2m    13 × locator resolved to <p id=\"museum-personal\" class=\"museum-personal\">本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。</p>\u001b[22m\n\u001b[2m       - unexpected value \"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#museum-personal')\nExpected substring: \u001b[32m\"花纹\"\u001b[39m\nReceived string:    \u001b[31m\"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#museum-personal') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#museum-personal')\u001b[22m\n\u001b[2m    13 × locator resolved to <p id=\"museum-personal\" class=\"museum-personal\">本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。</p>\u001b[22m\n\u001b[2m       - unexpected value \"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts:125:97",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts",
+                      "column": 97,
+                      "line": 125
+                    },
+                    "snippet": "  123 |   const imported=structuredClone(fixture);imported.story!.runId='fixture-run-2';imported.story!.castSnapshot!.appearance.patternId='flower-v1';imported.story!.castSnapshot!.sharedMotif='flower-v1';\n  124 |   await page.getByRole('button',{name:/我的作品/}).click();await page.locator('#import-project').setInputFiles({name:'another-cast.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(imported))});await saved(page);await expect(page.locator('#app-view')).toHaveAttribute('data-route','/');\n> 125 |   await go(page,'/museum/E04');await ready(page);await expect(page.locator('#museum-personal')).toContainText('花纹');await expect(page.locator('#museum-lamp')).toHaveValue('0');await expect(page.locator('#museum-distance')).toHaveValue('0.2');\n      |                                                                                                 ^\n  126 |   expect(await oldCanvas!.evaluate((canvas:HTMLCanvasElement)=>[canvas.isConnected,canvas.width,canvas.height])).toEqual([false,0,0]);await oldInput!.evaluate((input:HTMLInputElement)=>{input.value='-.6';input.dispatchEvent(new Event('input',{bubbles:true}));});await expect(page.locator('#museum-lamp')).toHaveValue('0');await saved(page);const current=await stored(page);expect(current.story).toEqual(imported.story);expect(current.projectId).not.toBe(fixture.projectId);expect(current.stage).toEqual(fixture.stage);\n  127 | });\n  128 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts",
+                        "column": 97,
+                        "line": 125
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#museum-personal')\nExpected substring: \u001b[32m\"花纹\"\u001b[39m\nReceived string:    \u001b[31m\"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#museum-personal') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#museum-personal')\u001b[22m\n\u001b[2m    13 × locator resolved to <p id=\"museum-personal\" class=\"museum-personal\">本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。</p>\u001b[22m\n\u001b[2m       - unexpected value \"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[22m\n\n\n  123 |   const imported=structuredClone(fixture);imported.story!.runId='fixture-run-2';imported.story!.castSnapshot!.appearance.patternId='flower-v1';imported.story!.castSnapshot!.sharedMotif='flower-v1';\n  124 |   await page.getByRole('button',{name:/我的作品/}).click();await page.locator('#import-project').setInputFiles({name:'another-cast.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(imported))});await saved(page);await expect(page.locator('#app-view')).toHaveAttribute('data-route','/');\n> 125 |   await go(page,'/museum/E04');await ready(page);await expect(page.locator('#museum-personal')).toContainText('花纹');await expect(page.locator('#museum-lamp')).toHaveValue('0');await expect(page.locator('#museum-distance')).toHaveValue('0.2');\n      |                                                                                                 ^\n  126 |   expect(await oldCanvas!.evaluate((canvas:HTMLCanvasElement)=>[canvas.isConnected,canvas.width,canvas.height])).toEqual([false,0,0]);await oldInput!.evaluate((input:HTMLInputElement)=>{input.value='-.6';input.dispatchEvent(new Event('input',{bubbles:true}));});await expect(page.locator('#museum-lamp')).toHaveValue('0');await saved(page);const current=await stored(page);expect(current.story).toEqual(imported.story);expect(current.projectId).not.toBe(fixture.projectId);expect(current.stage).toEqual(fixture.stage);\n  127 | });\n  128 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts:125:97"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:27:30.875Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-importing-a-differe-2a7ed-eriment-and-detached-inputs-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-importing-a-differe-2a7ed-eriment-and-detached-inputs-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts",
+                    "column": 97,
+                    "line": 125
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-86c7a2618908cdd55bc0",
+          "file": "museum.spec.ts",
+          "line": 120,
+          "column": 1
+        },
+        {
+          "title": "failed exhibit images retry for real and late images cannot restore an exited stage",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3385,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:27:48.868Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-c6fb920ba66edbd784d5",
+          "file": "museum.spec.ts",
+          "line": 129,
+          "column": 1
+        },
+        {
+          "title": "Canvas failure keeps all exhibit text, sources and navigation usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 2734,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:27:50.596Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-9de65559ed51b0f7fe8f",
+          "file": "museum.spec.ts",
+          "line": 138,
+          "column": 1
+        },
+        {
+          "title": "legacy product reads full exhibits and uses the same carving and lamp geometry in Chromium",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 13586,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:27:52.293Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-b3e0e931aa83f3190ea7",
+          "file": "museum.spec.ts",
+          "line": 142,
+          "column": 1
+        },
+        {
+          "title": "direct museum opens five sections and all eight sourced exhibits without starting a performance",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 41001,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:37:11.418Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-50cc84b897b5fe244d43",
+          "file": "museum.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "layers and real carving are reversible previews of the frozen cast without editing it",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 11645,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#museum-personal')\nExpected substring: \u001b[32m\"云纹 / 朱砂\"\u001b[39m\nReceived string:    \u001b[31m\"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#museum-personal') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#museum-personal')\u001b[22m\n\u001b[2m    13 × locator resolved to <p id=\"museum-personal\" class=\"museum-personal\">本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。</p>\u001b[22m\n\u001b[2m       - unexpected value \"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#museum-personal')\nExpected substring: \u001b[32m\"云纹 / 朱砂\"\u001b[39m\nReceived string:    \u001b[31m\"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#museum-personal') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#museum-personal')\u001b[22m\n\u001b[2m    13 × locator resolved to <p id=\"museum-personal\" class=\"museum-personal\">本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。</p>\u001b[22m\n\u001b[2m       - unexpected value \"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts:57:144",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts",
+                      "column": 144,
+                      "line": 57
+                    },
+                    "snippet": "  55 |\n  56 | test('layers and real carving are reversible previews of the frozen cast without editing it',async({page})=>{\n> 57 |   await seed(page,fixture);await page.goto('/#/museum/E01');await ready(page);await saved(page);await expect(page.locator('#museum-personal')).toContainText('本场影偶 · 朱砂');\n     |                                                                                                                                                ^\n  58 |   await expect(page.locator('#museum-layer-diagram')).toHaveAttribute('data-expanded','false');await page.locator('#museum-layer-toggle').click();await expect(page.locator('#museum-layer-diagram')).toHaveAttribute('data-expanded','true');await expect(page.locator('.museum-demo-layer span').first()).toBeVisible();\n  59 |   await page.locator('#museum-demo-reset').click();await expect(page.locator('#museum-layer-diagram')).toHaveAttribute('data-expanded','false');\n  60 |   await go(page,'/museum/E02');await ready(page);const before=await pixels(page);await page.locator('#museum-carve-toggle').click();await expect(page.locator('#museum-carve-toggle')).toHaveAttribute('aria-pressed','true');expect(await pixels(page)).not.toBe(before);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts",
+                        "column": 144,
+                        "line": 57
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#museum-personal')\nExpected substring: \u001b[32m\"云纹 / 朱砂\"\u001b[39m\nReceived string:    \u001b[31m\"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#museum-personal') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#museum-personal')\u001b[22m\n\u001b[2m    13 × locator resolved to <p id=\"museum-personal\" class=\"museum-personal\">本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。</p>\u001b[22m\n\u001b[2m       - unexpected value \"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[22m\n\n\n  55 |\n  56 | test('layers and real carving are reversible previews of the frozen cast without editing it',async({page})=>{\n> 57 |   await seed(page,fixture);await page.goto('/#/museum/E01');await ready(page);await saved(page);await expect(page.locator('#museum-personal')).toContainText('本场影偶 · 朱砂');\n     |                                                                                                                                                ^\n  58 |   await expect(page.locator('#museum-layer-diagram')).toHaveAttribute('data-expanded','false');await page.locator('#museum-layer-toggle').click();await expect(page.locator('#museum-layer-diagram')).toHaveAttribute('data-expanded','true');await expect(page.locator('.museum-demo-layer span').first()).toBeVisible();\n  59 |   await page.locator('#museum-demo-reset').click();await expect(page.locator('#museum-layer-diagram')).toHaveAttribute('data-expanded','false');\n  60 |   await go(page,'/museum/E02');await ready(page);const before=await pixels(page);await page.locator('#museum-carve-toggle').click();await expect(page.locator('#museum-carve-toggle')).toHaveAttribute('aria-pressed','true');expect(await pixels(page)).not.toBe(before);\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts:57:144"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:37:35.923Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-layers-and-real-car-5f3e5-zen-cast-without-editing-it-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-layers-and-real-car-5f3e5-zen-cast-without-editing-it-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts",
+                    "column": 144,
+                    "line": 57
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-81b5b0fc52fb0cc041d8",
+          "file": "museum.spec.ts",
+          "line": 56,
+          "column": 1
+        },
+        {
+          "title": "native keyboard joints and lamp controls change real geometry and the shared light diagram only",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 14819,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:37:52.546Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-6f9fefc9f1022eee2305",
+          "file": "museum.spec.ts",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "collaboration uses the same wave in two explicit stills and never offers an unavailable audio track",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 12757,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:37:59.540Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-2885947d93294c4a6d16",
+          "file": "museum.spec.ts",
+          "line": 73,
+          "column": 1
+        },
+        {
+          "title": "E08 distinguishes actual in-progress, curtain and completed programmes while keeping the sole creator",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 10392,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:38:17.680Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-ddadbc70f3a25a2b854a",
+          "file": "museum.spec.ts",
+          "line": 78,
+          "column": 1
+        },
+        {
+          "title": "full/call-first returns from exhibits to the same paused graphical checkpoint",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "timedOut",
+                  "duration": 37103,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts",
+                        "column": 236,
+                        "line": 89
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.museum-path').getByRole('link', { name: '回到这一场 →', exact: true })\u001b[22m\n\n\n  87 |   const project=structuredClone(fixture) as ProjectV1;Object.assign(project.story!,{mode,approach,nodeId:approach==='call-first'?'call-light':'split-search'});\n  88 |   await clock(page);await seed(page,project);await page.goto('/#/story');await ready(page);await page.locator('#story-play').click();await range(page,'#story-lamp',-.5);await page.locator('#story-pause').click();\n> 89 |   await go(page,'/museum/E04');await ready(page);await range(page,'#museum-lamp',.7);await range(page,'#museum-distance',.4);await go(page,'/museum/E06');await page.locator('.museum-theatre-return').getByRole('link',{name:'回到这一场 →',exact:true}).click();\n     |                                                                                                                                                                                                                                            ^\n  90 |   await ready(page);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');await expect(page.locator('#story-runtime')).toHaveAttribute('data-elapsed','0');await expect(page.locator('#story-runtime')).toHaveAttribute('data-node',project.story!.nodeId);await expect(page.locator('#story-lamp')).toHaveValue('0');await saved(page);invariant(await stored(page),project);\n  91 | });\n  92 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts:89:236"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:38:07.455Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-full-call-first-ret-fad8c-paused-graphical-checkpoint-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-full-call-first-ret-fad8c-paused-graphical-checkpoint-mobile-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-923a0d30a4fad2de450d",
+          "file": "museum.spec.ts",
+          "line": 86,
+          "column": 106
+        },
+        {
+          "title": "full/split-first returns from exhibits to the same paused graphical checkpoint",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 33720,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts",
+                        "column": 236,
+                        "line": 89
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.museum-path').getByRole('link', { name: '回到这一场 →', exact: true })\u001b[22m\n\n\n  87 |   const project=structuredClone(fixture) as ProjectV1;Object.assign(project.story!,{mode,approach,nodeId:approach==='call-first'?'call-light':'split-search'});\n  88 |   await clock(page);await seed(page,project);await page.goto('/#/story');await ready(page);await page.locator('#story-play').click();await range(page,'#story-lamp',-.5);await page.locator('#story-pause').click();\n> 89 |   await go(page,'/museum/E04');await ready(page);await range(page,'#museum-lamp',.7);await range(page,'#museum-distance',.4);await go(page,'/museum/E06');await page.locator('.museum-theatre-return').getByRole('link',{name:'回到这一场 →',exact:true}).click();\n     |                                                                                                                                                                                                                                            ^\n  90 |   await ready(page);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');await expect(page.locator('#story-runtime')).toHaveAttribute('data-elapsed','0');await expect(page.locator('#story-runtime')).toHaveAttribute('data-node',project.story!.nodeId);await expect(page.locator('#story-lamp')).toHaveValue('0');await saved(page);invariant(await stored(page),project);\n  91 | });\n  92 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts:89:236"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:38:12.390Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-full-split-first-re-dc5a8-paused-graphical-checkpoint-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-full-split-first-re-dc5a8-paused-graphical-checkpoint-mobile-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-c57fe36a4aefa3b71aab",
+          "file": "museum.spec.ts",
+          "line": 86,
+          "column": 106
+        },
+        {
+          "title": "guided/call-first returns from exhibits to the same paused graphical checkpoint",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 2,
+                  "status": "timedOut",
+                  "duration": 47682,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts",
+                        "column": 236,
+                        "line": 89
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.museum-path').getByRole('link', { name: '回到这一场 →', exact: true })\u001b[22m\n\n\n  87 |   const project=structuredClone(fixture) as ProjectV1;Object.assign(project.story!,{mode,approach,nodeId:approach==='call-first'?'call-light':'split-search'});\n  88 |   await clock(page);await seed(page,project);await page.goto('/#/story');await ready(page);await page.locator('#story-play').click();await range(page,'#story-lamp',-.5);await page.locator('#story-pause').click();\n> 89 |   await go(page,'/museum/E04');await ready(page);await range(page,'#museum-lamp',.7);await range(page,'#museum-distance',.4);await go(page,'/museum/E06');await page.locator('.museum-theatre-return').getByRole('link',{name:'回到这一场 →',exact:true}).click();\n     |                                                                                                                                                                                                                                            ^\n  90 |   await ready(page);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');await expect(page.locator('#story-runtime')).toHaveAttribute('data-elapsed','0');await expect(page.locator('#story-runtime')).toHaveAttribute('data-node',project.story!.nodeId);await expect(page.locator('#story-lamp')).toHaveValue('0');await saved(page);invariant(await stored(page),project);\n  91 | });\n  92 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts:89:236"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:38:29.221Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-guided-call-first-r-f2470-paused-graphical-checkpoint-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-guided-call-first-r-f2470-paused-graphical-checkpoint-mobile-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-5c67855eb753540d3f6e",
+          "file": "museum.spec.ts",
+          "line": 86,
+          "column": 106
+        },
+        {
+          "title": "guided/split-first returns from exhibits to the same paused graphical checkpoint",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 36996,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts",
+                        "column": 236,
+                        "line": 89
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.museum-path').getByRole('link', { name: '回到这一场 →', exact: true })\u001b[22m\n\n\n  87 |   const project=structuredClone(fixture) as ProjectV1;Object.assign(project.story!,{mode,approach,nodeId:approach==='call-first'?'call-light':'split-search'});\n  88 |   await clock(page);await seed(page,project);await page.goto('/#/story');await ready(page);await page.locator('#story-play').click();await range(page,'#story-lamp',-.5);await page.locator('#story-pause').click();\n> 89 |   await go(page,'/museum/E04');await ready(page);await range(page,'#museum-lamp',.7);await range(page,'#museum-distance',.4);await go(page,'/museum/E06');await page.locator('.museum-theatre-return').getByRole('link',{name:'回到这一场 →',exact:true}).click();\n     |                                                                                                                                                                                                                                            ^\n  90 |   await ready(page);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');await expect(page.locator('#story-runtime')).toHaveAttribute('data-elapsed','0');await expect(page.locator('#story-runtime')).toHaveAttribute('data-node',project.story!.nodeId);await expect(page.locator('#story-lamp')).toHaveValue('0');await saved(page);invariant(await stored(page),project);\n  91 | });\n  92 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts:89:236"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:38:55.431Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-guided-split-first--a217e-paused-graphical-checkpoint-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-guided-split-first--a217e-paused-graphical-checkpoint-mobile-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-a8227d3a445c8e1d95bc",
+          "file": "museum.spec.ts",
+          "line": 86,
+          "column": 106
+        },
+        {
+          "title": "future storage is untouched while full knowledge and sample experiments remain available",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 14472,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:38:58.942Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-c0a924f87e3222effd00",
+          "file": "museum.spec.ts",
+          "line": 93,
+          "column": 109
+        },
+        {
+          "title": "corrupt storage is untouched while full knowledge and sample experiments remain available",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 8260,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:39:14.130Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-d1235982f640e3ed3676",
+          "file": "museum.spec.ts",
+          "line": 93,
+          "column": 109
+        },
+        {
+          "title": "failed visit saving stays honest and later previews or visits never retry writes implicitly",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 8160,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:39:22.438Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-e6c1ab499bb655e21abd",
+          "file": "museum.spec.ts",
+          "line": 98,
+          "column": 1
+        },
+        {
+          "title": "memory continuation can visit and export without retrying unavailable storage",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5142,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:39:30.653Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-f9902549e13d838a131d",
+          "file": "museum.spec.ts",
+          "line": 106,
+          "column": 1
+        },
+        {
+          "title": "ten exhibit exits release canvases, inputs and every scene clock",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 16567,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:39:35.840Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-4e2664ae5b841f67de37",
+          "file": "museum.spec.ts",
+          "line": 112,
+          "column": 1
+        },
+        {
+          "title": "importing a different frozen cast clears the old temporary experiment and detached inputs",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 12548,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#museum-personal')\nExpected substring: \u001b[32m\"花纹\"\u001b[39m\nReceived string:    \u001b[31m\"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#museum-personal') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#museum-personal')\u001b[22m\n\u001b[2m    14 × locator resolved to <p id=\"museum-personal\" class=\"museum-personal\">本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。</p>\u001b[22m\n\u001b[2m       - unexpected value \"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#museum-personal')\nExpected substring: \u001b[32m\"花纹\"\u001b[39m\nReceived string:    \u001b[31m\"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#museum-personal') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#museum-personal')\u001b[22m\n\u001b[2m    14 × locator resolved to <p id=\"museum-personal\" class=\"museum-personal\">本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。</p>\u001b[22m\n\u001b[2m       - unexpected value \"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts:125:97",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts",
+                      "column": 97,
+                      "line": 125
+                    },
+                    "snippet": "  123 |   const imported=structuredClone(fixture);imported.story!.runId='fixture-run-2';imported.story!.castSnapshot!.appearance.patternId='flower-v1';imported.story!.castSnapshot!.sharedMotif='flower-v1';imported.story!.castSnapshot!.appearance.paletteId='woodland-v1';\n  124 |   await page.getByRole('button',{name:/我的作品/}).click();await page.locator('#import-project').setInputFiles({name:'another-cast.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(imported))});await saved(page);await expect(page.locator('#app-view')).toHaveAttribute('data-route','/');\n> 125 |   await go(page,'/museum/E04');await ready(page);await expect(page.locator('#museum-personal')).toContainText('山林');await expect(page.locator('#museum-lamp')).toHaveValue('0');await expect(page.locator('#museum-distance')).toHaveValue('0.2');\n      |                                                                                                 ^\n  126 |   expect(await oldCanvas!.evaluate((canvas:HTMLCanvasElement)=>[canvas.isConnected,canvas.width,canvas.height])).toEqual([false,0,0]);await oldInput!.evaluate((input:HTMLInputElement)=>{input.value='-.6';input.dispatchEvent(new Event('input',{bubbles:true}));});await expect(page.locator('#museum-lamp')).toHaveValue('0');await saved(page);const current=await stored(page);expect(current.story).toEqual(imported.story);expect(current.projectId).not.toBe(fixture.projectId);expect(current.stage).toEqual(fixture.stage);\n  127 | });\n  128 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts",
+                        "column": 97,
+                        "line": 125
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#museum-personal')\nExpected substring: \u001b[32m\"花纹\"\u001b[39m\nReceived string:    \u001b[31m\"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#museum-personal') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#museum-personal')\u001b[22m\n\u001b[2m    14 × locator resolved to <p id=\"museum-personal\" class=\"museum-personal\">本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。</p>\u001b[22m\n\u001b[2m       - unexpected value \"本场影偶 · 朱砂。数字示意只在此处生效，回去仍从原段暂停接续。\"\u001b[22m\n\n\n  123 |   const imported=structuredClone(fixture);imported.story!.runId='fixture-run-2';imported.story!.castSnapshot!.appearance.patternId='flower-v1';imported.story!.castSnapshot!.sharedMotif='flower-v1';imported.story!.castSnapshot!.appearance.paletteId='woodland-v1';\n  124 |   await page.getByRole('button',{name:/我的作品/}).click();await page.locator('#import-project').setInputFiles({name:'another-cast.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(imported))});await saved(page);await expect(page.locator('#app-view')).toHaveAttribute('data-route','/');\n> 125 |   await go(page,'/museum/E04');await ready(page);await expect(page.locator('#museum-personal')).toContainText('山林');await expect(page.locator('#museum-lamp')).toHaveValue('0');await expect(page.locator('#museum-distance')).toHaveValue('0.2');\n      |                                                                                                 ^\n  126 |   expect(await oldCanvas!.evaluate((canvas:HTMLCanvasElement)=>[canvas.isConnected,canvas.width,canvas.height])).toEqual([false,0,0]);await oldInput!.evaluate((input:HTMLInputElement)=>{input.value='-.6';input.dispatchEvent(new Event('input',{bubbles:true}));});await expect(page.locator('#museum-lamp')).toHaveValue('0');await saved(page);const current=await stored(page);expect(current.story).toEqual(imported.story);expect(current.projectId).not.toBe(fixture.projectId);expect(current.stage).toEqual(fixture.stage);\n  127 | });\n  128 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts:125:97"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:39:46.777Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-importing-a-differe-2a7ed-eriment-and-detached-inputs-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\museum-importing-a-differe-2a7ed-eriment-and-detached-inputs-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\museum.spec.ts",
+                    "column": 97,
+                    "line": 125
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-09b47809bc3ce7908fe9",
+          "file": "museum.spec.ts",
+          "line": 120,
+          "column": 1
+        },
+        {
+          "title": "failed exhibit images retry for real and late images cannot restore an exited stage",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4932,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:39:52.487Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-3fc16bd3b7a4d99ace10",
+          "file": "museum.spec.ts",
+          "line": 129,
+          "column": 1
+        },
+        {
+          "title": "Canvas failure keeps all exhibit text, sources and navigation usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1336,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:39:57.476Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-efcb2b6e38ba0832a9a7",
+          "file": "museum.spec.ts",
+          "line": 138,
+          "column": 1
+        },
+        {
+          "title": "legacy product reads full exhibits and uses the same carving and lamp geometry in Chromium",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4109,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T09:39:58.839Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e1b554b8332ecd9026f-986d33e6045d8e0d5c99",
+          "file": "museum.spec.ts",
+          "line": 142,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-24T09:17:09.106Z",
+    "duration": 1375256.153,
+    "expected": 54,
+    "skipped": 0,
+    "unexpected": 12,
+    "flaky": 0
+  }
+}

@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 import { preview } from 'vite';
 import { chromium } from 'playwright';
 const sha = value => createHash('sha256').update(value).digest('hex');
-const report = { kind:'native-production-museum-loading', clientReviewDate:'2026-10-23', machineUTC:new Date().toISOString(), indexSha256:sha(readFileSync('dist/index.html')), definition:'Fresh context, HTTP cache disabled, native timers. Home must request no external museum photos. Open E07, scroll its gallery into view, decode all photos in that exhibit. Times include navigation and image decode. Local server and Chromium emulation, not physical devices.', runs:[] };
+const report = { kind:'native-production-museum-loading', clientReviewDate:'2026-10-24', machineUTC:new Date().toISOString(), indexSha256:sha(readFileSync('dist/index.html')), definition:'Fresh context, HTTP cache disabled, native timers. Home must request no external museum photos. Open E07, scroll its gallery into view, decode all photos in that exhibit. Times include navigation and image decode. Local server and Chromium emulation, not physical devices.', runs:[] };
 let server, browser;
 try {
   server=await preview({preview:{host:'127.0.0.1',port:0,strictPort:true,open:false}});browser=await chromium.launch();
@@ -19,8 +19,8 @@ try {
     // Scroll each real lazy image into view, retaining its production loading policy.
     for(const image of await page.locator('#museum-gallery img').all()){await image.scrollIntoViewIfNeeded();await image.evaluate(image=>image.decode());}
     row.galleryReadyMs=performance.now()-started;row.images=await page.locator('#museum-gallery img').evaluateAll(images=>images.map(image=>({path:new URL(image.src).pathname,width:image.naturalWidth,height:image.naturalHeight,loading:image.loading})));
-    row.passed=row.homeMuseumRequests.length===0&&row.images.length>=2&&row.images.every(i=>i.width>0&&i.loading==='lazy')&&row.galleryReadyMs<=15000&&!row.errors.length;
+    row.passed=row.homeMuseumRequests.length===0&&row.images.length>=2&&row.images.every((i,index)=>i.width>0&&i.loading===(index===0?'eager':'lazy'))&&row.galleryReadyMs<=15000&&!row.errors.length;
     console.log(JSON.stringify(row));await context.close();
   }
-}finally{await browser?.close();await server?.close();writeFileSync('docs/evidence/t22-museum-loading.json',JSON.stringify(report,null,2)+'\n');}
+}finally{await browser?.close();await server?.close();writeFileSync(process.argv.includes('--output')?process.argv[process.argv.indexOf('--output')+1]:'docs/evidence/t25-t28/museum-loading.json',JSON.stringify(report,null,2)+'\n');}
 if(report.runs.length!==4||report.runs.some(r=>!r.passed))process.exitCode=1;

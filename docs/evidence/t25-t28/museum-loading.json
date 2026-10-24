@@ -1,0 +1,113 @@
+{
+  "kind": "native-production-museum-loading",
+  "clientReviewDate": "2026-10-24",
+  "machineUTC": "2026-10-24T09:47:24.250Z",
+  "indexSha256": "283837594ee06439db2fc023e4e66e0790b7860803c3464eafce04e62bfea7de",
+  "definition": "Fresh context, HTTP cache disabled, native timers. Home must request no external museum photos. Open E07, scroll its gallery into view, decode all photos in that exhibit. Times include navigation and image decode. Local server and Chromium emulation, not physical devices.",
+  "runs": [
+    {
+      "profile": "desktop",
+      "network": "local",
+      "requests": [
+        "tangshan-ran.jpg",
+        "huaxian-01.png"
+      ],
+      "errors": [],
+      "passed": true,
+      "homeMuseumRequests": [],
+      "galleryReadyMs": 260.50940000000014,
+      "images": [
+        {
+          "path": "/assets/museum/tangshan-ran.jpg",
+          "width": 600,
+          "height": 958,
+          "loading": "eager"
+        },
+        {
+          "path": "/assets/museum/huaxian-01.png",
+          "width": 399,
+          "height": 519,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "profile": "desktop",
+      "network": "5Mbps-150ms",
+      "requests": [
+        "tangshan-ran.jpg",
+        "huaxian-01.png"
+      ],
+      "errors": [],
+      "passed": true,
+      "homeMuseumRequests": [],
+      "galleryReadyMs": 987.3915999999999,
+      "images": [
+        {
+          "path": "/assets/museum/tangshan-ran.jpg",
+          "width": 600,
+          "height": 958,
+          "loading": "eager"
+        },
+        {
+          "path": "/assets/museum/huaxian-01.png",
+          "width": 399,
+          "height": 519,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "profile": "narrow",
+      "network": "local",
+      "requests": [
+        "tangshan-ran.jpg",
+        "huaxian-01.png"
+      ],
+      "errors": [],
+      "passed": true,
+      "homeMuseumRequests": [],
+      "galleryReadyMs": 1109.3917000000001,
+      "images": [
+        {
+          "path": "/assets/museum/tangshan-ran.jpg",
+          "width": 600,
+          "height": 958,
+          "loading": "eager"
+        },
+        {
+          "path": "/assets/museum/huaxian-01.png",
+          "width": 399,
+          "height": 519,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "profile": "narrow",
+      "network": "5Mbps-150ms",
+      "requests": [
+        "tangshan-ran.jpg",
+        "huaxian-01.png"
+      ],
+      "errors": [],
+      "passed": true,
+      "homeMuseumRequests": [],
+      "galleryReadyMs": 1106.9111999999996,
+      "images": [
+        {
+          "path": "/assets/museum/tangshan-ran.jpg",
+          "width": 600,
+          "height": 958,
+          "loading": "eager"
+        },
+        {
+          "path": "/assets/museum/huaxian-01.png",
+          "width": 399,
+          "height": 519,
+          "loading": "lazy"
+        }
+      ]
+    }
+  ]
+}

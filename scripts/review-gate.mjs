@@ -14,6 +14,7 @@ export function reviewSubjects(kind){
   }
   const sources=json('src/content/sources.json').sources,media=json('src/content/museum-media.json');
   return [
+    ...json('src/content/stories/reunion-v4.json').nodes.map(node=>({id:'story-v4:'+node.id,sha256:digest([node,json('src/content/stories/reunion-v4.json').endings]),rightsRequired:false})),
     ...json('src/content/stories/reunion-v3.json').nodes.map(node=>({id:'story-v3:'+node.id,sha256:digest([node,json('src/content/stories/reunion-v3.json').endings]),rightsRequired:false})),
     {id:'story-background:v3',sha256:digest(json('src/content/story-background.json')),rightsRequired:false},
     ...media.exhibits.map(row=>({id:'museum-reading:'+row.exhibitId,sha256:digest([row,media.sources]),rightsRequired:false})),

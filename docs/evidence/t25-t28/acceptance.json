@@ -1,0 +1,123 @@
+{
+  "reviewDate": "2026-10-24",
+  "kind": "T25-T28-functional-acceptance",
+  "productionSourceCommit": "540bdebc22dd75cf7db5a385f0c02ccb11ea2cc7",
+  "indexSha256": "283837594ee06439db2fc023e4e66e0790b7860803c3464eafce04e62bfea7de",
+  "checks": {
+    "typecheck": "passed",
+    "unitFiles": 45,
+    "unitsPassed": 509,
+    "productionModules": 147,
+    "legacyES5Chunks": 14,
+    "originalGamePNGs": 81,
+    "museumPlacements": 17,
+    "museumDistinctImages": 16,
+    "externalOriginalImages": 12,
+    "knownStoryVersions": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "browser": {
+    "stages": [
+      {
+        "file": "browser-initial.json",
+        "startTime": "2026-10-24T09:09:17.167Z",
+        "duration": 162178.972,
+        "expected": 52,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      {
+        "file": "browser-routes.json",
+        "startTime": "2026-10-24T09:17:09.106Z",
+        "duration": 1375256.153,
+        "expected": 54,
+        "skipped": 0,
+        "unexpected": 12,
+        "flaky": 0
+      },
+      {
+        "file": "browser-museum-recheck.json",
+        "startTime": "2026-10-24T09:41:15.636Z",
+        "duration": 34879.189999999995,
+        "expected": 12,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    ],
+    "uniqueLatestObservations": 118,
+    "allLatestPassed": true,
+    "singleFullAllGreen": false,
+    "failedInitialAssertions": "12 obsolete museum motif/return-container expectations; updated and 12/12 targeted recheck passed",
+    "v4Routes": {
+      "approaches": 2,
+      "endings": 5,
+      "viewportProfiles": 2,
+      "passed": 20
+    },
+    "controlledClocksAreNotDurationEvidence": true
+  },
+  "loading": {
+    "startup": {
+      "file": "startup.json",
+      "maxReadyMs": 4334.399999976158,
+      "samples": 4,
+      "indexSha256": "283837594ee06439db2fc023e4e66e0790b7860803c3464eafce04e62bfea7de"
+    },
+    "startup-png": {
+      "file": "startup-png.json",
+      "maxReadyMs": 5768.5,
+      "samples": 4,
+      "indexSha256": "283837594ee06439db2fc023e4e66e0790b7860803c3464eafce04e62bfea7de"
+    },
+    "museum-loading": {
+      "file": "museum-loading.json",
+      "maxReadyMs": 1109.3917000000001,
+      "samples": 4,
+      "indexSha256": "283837594ee06439db2fc023e4e66e0790b7860803c3464eafce04e62bfea7de"
+    },
+    "lamp-loading": {
+      "file": "lamp-loading.json",
+      "maxReadyMs": 3382.799100000001,
+      "samples": 4,
+      "indexSha256": "283837594ee06439db2fc023e4e66e0790b7860803c3464eafce04e62bfea7de"
+    }
+  },
+  "actualUserHistoryReset": {
+    "origin": "http://127.0.0.1:5173",
+    "browser": "Codex in-app browser",
+    "method": "Actual site clear button; two open tabs refreshed and showed the fresh background-start CTA with no continue link",
+    "passed": true,
+    "screenshot": "fresh-user-start.png",
+    "doesNotCoverOtherOriginsOrDownloadedFiles": true
+  },
+  "review": {
+    "items": 263,
+    "approved": 0,
+    "separateMusicRightsGranted": 2,
+    "snapshot": "ecbb334035734390b0025e360b632bd0956fd574135037f5c68fd4b8f293783a"
+  },
+  "remaining": [
+    "Formal literary/art/cultural/rights review",
+    "Physical IE/mobile/Safari and real touch",
+    "Existing software GPU performance shortfall",
+    "Human listening, duration and at least three external participants",
+    "T14 delivery/clean install/handoff and optional P1"
+  ],
+  "reportSha256": {
+    "browser-initial.json": "81132f883ffb8624588c405cd5fac124a44e538076933dfb4b8c1bdbeb520ba0",
+    "browser-museum-recheck.json": "167677389af8a4a1b1f4723123866d82fc0ab3f9b1cc34ce10eadcf935af1d50",
+    "browser-routes.json": "35fdc6821fe5bb5426b56dcfef6ae85128867a86501d1986f584433016e3bfdc",
+    "grip-visual.json": "dbad61341cf8755d53ee8ee579dce23fe698661fb372cc2880ec3d94c8f14d95",
+    "lamp-loading.json": "6b1789ac8b7a5bd733480158fc20f7e418a39da26c0d66b26bc800b04baf92c5",
+    "museum-loading.json": "d0f2a71d4558ef092d05b284ab53c09e9827dcba7ea6a1836a193b480a282767",
+    "museum-visual.json": "cdcd0fd840cc1b454389b8419177fc8337365b73c425b52b871cbe3711e5ff4d",
+    "startup-png.json": "89643efd3594a21744a5e7ed7c991d7e2dece3f2691334cf14f3a806737995ab",
+    "startup.json": "af8b00689e7ecc9ab81f03d4c134ca4dae391c7f0b0fbb1804d6c204a9cb7a38"
+  }
+}
