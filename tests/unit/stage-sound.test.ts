@@ -187,11 +187,11 @@ describe('T10 finite opt-in stage sound lifecycle', () => {
   });
 
   it('keeps the reunion hold completely silent for its first two seconds in both modes', async () => {
-    for (const mode of ['full', 'guided'] as const) {
-      const { sound, contexts } = setup(); sound.update(sample({ nodeId: 'reunion-hold', mode })); await sound.enable();
-      for (const elapsedMs of [0, 1000, 1999, 2000, 2499]) sound.update(sample({ nodeId: 'reunion-hold', mode, playing: true, elapsedMs }));
+    for (const definitionVersion of [1,2,3] as const) for (const mode of ['full', 'guided'] as const) {
+      const { sound, contexts } = setup(); sound.update(sample({ nodeId: 'reunion-hold', mode,definitionVersion })); await sound.enable();
+      for (const elapsedMs of [0, 1000, 1999, 2000, 2499]) sound.update(sample({ nodeId: 'reunion-hold', mode,definitionVersion, playing: true, elapsedMs }));
       expect(contexts[0]!.sources).toHaveLength(0);
-      sound.update(sample({ nodeId: 'reunion-hold', mode, playing: true, elapsedMs: 2500 }));
+      sound.update(sample({ nodeId: 'reunion-hold', mode,definitionVersion, playing: true, elapsedMs: 2500 }));
       expect(contexts[0]!.sources).toHaveLength(1); sound.dispose();
     }
   });

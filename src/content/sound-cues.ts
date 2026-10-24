@@ -24,7 +24,11 @@ export function stageSoundCues(nodeId: StoryNodeId, mode: StoryProgress['mode'],
   const node = definitionFor({ definitionVersion }).nodes.find(item => item.id === nodeId);
   if (!node || !node.fullTiming.targetMs) return [];
   const duration = mode === 'full' ? node.fullTiming.targetMs : node.guidedTiming.targetMs;
-  return (timeline[nodeId] ?? []).map(cue => ({ ...cue, atMs: cue.atMs / node.fullTiming.targetMs * duration }));
+  return (timeline[nodeId] ?? []).map(cue => ({ ...cue,
+    // The initial silence is a stage direction in every version/mode, not a
+    // proportion of a longer literary hold that the guide may shorten.
+    atMs: nodeId === 'reunion-hold' ? cue.atMs : cue.atMs / node.fullTiming.targetMs * duration,
+  }));
 }
 
 export function stageEventTimbre(nodeId: StoryNodeId, event: StageSoundEvent): StageTimbre | null {
