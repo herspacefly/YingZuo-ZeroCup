@@ -6,355 +6,60 @@
   "interpolation": "smoothstep between absolute-time offset keyframes; hold last frame",
   "actions": [
     {
-      "id": "wave-v1",
-      "label": "挥手",
-      "durationMs": 2600,
-      "attachmentIds": [],
+      "id": "wave-v1", "label": "挥手", "durationMs": 2600, "attachmentIds": [],
       "keyframes": [
-        {
-          "atMs": 0,
-          "joints": {}
-        },
-        {
-          "atMs": 500,
-          "joints": {
-            "rightShoulder": 1.6,
-            "rightElbow": 0.9,
-            "head": 0.06
-          }
-        },
-        {
-          "atMs": 800,
-          "joints": {
-            "rightShoulder": 1.4,
-            "rightElbow": 1.5,
-            "head": 0.06
-          }
-        },
-        {
-          "atMs": 1100,
-          "joints": {
-            "rightShoulder": 1.6,
-            "rightElbow": 0.8,
-            "head": 0.06
-          }
-        },
-        {
-          "atMs": 1400,
-          "joints": {
-            "rightShoulder": 1.4,
-            "rightElbow": 1.5,
-            "head": 0.06
-          }
-        },
-        {
-          "atMs": 1700,
-          "joints": {
-            "rightShoulder": 1.6,
-            "rightElbow": 0.8,
-            "head": 0.06
-          }
-        },
-        {
-          "atMs": 2000,
-          "joints": {
-            "rightShoulder": 1.4,
-            "rightElbow": 1.5,
-            "head": 0.06
-          }
-        },
-        {
-          "atMs": 2300,
-          "joints": {
-            "rightShoulder": 1.6,
-            "rightElbow": 0.9,
-            "head": 0.06
-          }
-        },
-        {
-          "atMs": 2600,
-          "joints": {
-            "rightShoulder": 1.5,
-            "rightElbow": 1,
-            "head": 0.06
-          }
-        }
+        { "atMs": 0, "joints": {} },
+        { "atMs": 500, "joints": { "rightShoulder": 1.6, "rightElbow": 0.9, "head": 0.06 } },
+        { "atMs": 800, "joints": { "rightShoulder": 1.4, "rightElbow": 1.5, "head": 0.06 } },
+        { "atMs": 1100, "joints": { "rightShoulder": 1.6, "rightElbow": 0.8, "head": 0.06 } },
+        { "atMs": 1400, "joints": { "rightShoulder": 1.4, "rightElbow": 1.5, "head": 0.06 } },
+        { "atMs": 1700, "joints": { "rightShoulder": 1.6, "rightElbow": 0.8, "head": 0.06 } },
+        { "atMs": 2000, "joints": { "rightShoulder": 1.4, "rightElbow": 1.5, "head": 0.06 } },
+        { "atMs": 2300, "joints": { "rightShoulder": 1.6, "rightElbow": 0.9, "head": 0.06 } },
+        { "atMs": 2600, "joints": { "rightShoulder": 1.5, "rightElbow": 1, "head": 0.06 } }
       ]
     },
     {
-      "id": "walk-v1",
-      "label": "上路",
-      "durationMs": 3200,
-      "attachmentIds": [],
+      "id": "walk-v1", "label": "上路", "durationMs": 3200, "attachmentIds": [],
       "keyframes": [
-        {
-          "atMs": 0,
-          "x": 0,
-          "y": 0,
-          "joints": {}
-        },
-        {
-          "atMs": 400,
-          "x": 0.015,
-          "y": -0.008,
-          "joints": {
-            "leftHip": -0.34,
-            "leftKnee": 0.32,
-            "rightHip": 0.34,
-            "rightKnee": -0.08,
-            "leftShoulder": 0.22,
-            "rightShoulder": -0.22
-          }
-        },
-        {
-          "atMs": 800,
-          "x": 0.03,
-          "y": 0,
-          "joints": {
-            "leftHip": 0.34,
-            "leftKnee": 0.08,
-            "rightHip": -0.34,
-            "rightKnee": -0.32,
-            "leftShoulder": -0.22,
-            "rightShoulder": 0.22
-          }
-        },
-        {
-          "atMs": 1200,
-          "x": 0.045,
-          "y": -0.008,
-          "joints": {
-            "leftHip": -0.34,
-            "leftKnee": 0.32,
-            "rightHip": 0.34,
-            "rightKnee": -0.08,
-            "leftShoulder": 0.22,
-            "rightShoulder": -0.22
-          }
-        },
-        {
-          "atMs": 1600,
-          "x": 0.06,
-          "y": 0,
-          "joints": {
-            "leftHip": 0.34,
-            "leftKnee": 0.08,
-            "rightHip": -0.34,
-            "rightKnee": -0.32,
-            "leftShoulder": -0.22,
-            "rightShoulder": 0.22
-          }
-        },
-        {
-          "atMs": 2000,
-          "x": 0.075,
-          "y": -0.008,
-          "joints": {
-            "leftHip": -0.34,
-            "leftKnee": 0.32,
-            "rightHip": 0.34,
-            "rightKnee": -0.08,
-            "leftShoulder": 0.22,
-            "rightShoulder": -0.22
-          }
-        },
-        {
-          "atMs": 2400,
-          "x": 0.09,
-          "y": 0,
-          "joints": {
-            "leftHip": 0.34,
-            "leftKnee": 0.08,
-            "rightHip": -0.34,
-            "rightKnee": -0.32,
-            "leftShoulder": -0.22,
-            "rightShoulder": 0.22
-          }
-        },
-        {
-          "atMs": 2800,
-          "x": 0.105,
-          "y": -0.008,
-          "joints": {
-            "leftHip": -0.34,
-            "leftKnee": 0.32,
-            "rightHip": 0.34,
-            "rightKnee": -0.08,
-            "leftShoulder": 0.22,
-            "rightShoulder": -0.22
-          }
-        },
-        {
-          "atMs": 3200,
-          "x": 0.12,
-          "y": 0,
-          "joints": {}
-        }
+        { "atMs": 0, "x": 0, "y": 0, "joints": {} },
+        { "atMs": 400, "x": 0.015, "y": -0.008, "joints": { "leftHip": -0.34, "leftKnee": 0.32, "rightHip": 0.34, "rightKnee": -0.08, "leftShoulder": 0.22, "rightShoulder": -0.22 } },
+        { "atMs": 800, "x": 0.03, "y": 0, "joints": { "leftHip": 0.34, "leftKnee": 0.08, "rightHip": -0.34, "rightKnee": -0.32, "leftShoulder": -0.22, "rightShoulder": 0.22 } },
+        { "atMs": 1200, "x": 0.045, "y": -0.008, "joints": { "leftHip": -0.34, "leftKnee": 0.32, "rightHip": 0.34, "rightKnee": -0.08, "leftShoulder": 0.22, "rightShoulder": -0.22 } },
+        { "atMs": 1600, "x": 0.06, "y": 0, "joints": { "leftHip": 0.34, "leftKnee": 0.08, "rightHip": -0.34, "rightKnee": -0.32, "leftShoulder": -0.22, "rightShoulder": 0.22 } },
+        { "atMs": 2000, "x": 0.075, "y": -0.008, "joints": { "leftHip": -0.34, "leftKnee": 0.32, "rightHip": 0.34, "rightKnee": -0.08, "leftShoulder": 0.22, "rightShoulder": -0.22 } },
+        { "atMs": 2400, "x": 0.09, "y": 0, "joints": { "leftHip": 0.34, "leftKnee": 0.08, "rightHip": -0.34, "rightKnee": -0.32, "leftShoulder": -0.22, "rightShoulder": 0.22 } },
+        { "atMs": 2800, "x": 0.105, "y": -0.008, "joints": { "leftHip": -0.34, "leftKnee": 0.32, "rightHip": 0.34, "rightKnee": -0.08, "leftShoulder": 0.22, "rightShoulder": -0.22 } },
+        { "atMs": 3200, "x": 0.12, "y": 0, "joints": {} }
       ]
     },
     {
-      "id": "bow-v1",
-      "label": "谢幕",
-      "durationMs": 2200,
-      "attachmentIds": [],
+      "id": "bow-v1", "label": "谢幕", "durationMs": 2200, "attachmentIds": [],
       "keyframes": [
-        {
-          "atMs": 0,
-          "y": 0,
-          "joints": {}
-        },
-        {
-          "atMs": 700,
-          "y": 0.025,
-          "joints": {
-            "head": -0.36,
-            "leftShoulder": -0.2,
-            "leftElbow": -0.45,
-            "rightShoulder": 0.2,
-            "rightElbow": 0.45,
-            "leftKnee": 0.28,
-            "rightKnee": -0.28
-          }
-        },
-        {
-          "atMs": 1500,
-          "y": 0.025,
-          "joints": {
-            "head": -0.36,
-            "leftShoulder": -0.2,
-            "leftElbow": -0.45,
-            "rightShoulder": 0.2,
-            "rightElbow": 0.45,
-            "leftKnee": 0.28,
-            "rightKnee": -0.28
-          }
-        },
-        {
-          "atMs": 2200,
-          "y": 0,
-          "joints": {}
-        }
+        { "atMs": 0, "y": 0, "joints": {} },
+        { "atMs": 700, "y": 0.025, "joints": { "head": -0.36, "leftShoulder": -0.2, "leftElbow": -0.45, "rightShoulder": 0.2, "rightElbow": 0.45, "leftKnee": 0.28, "rightKnee": -0.28 } },
+        { "atMs": 1500, "y": 0.025, "joints": { "head": -0.36, "leftShoulder": -0.2, "leftElbow": -0.45, "rightShoulder": 0.2, "rightElbow": 0.45, "leftKnee": 0.28, "rightKnee": -0.28 } },
+        { "atMs": 2200, "y": 0, "joints": {} }
       ]
     },
     {
-      "id": "raise-axe-v1",
-      "label": "举斧",
-      "durationMs": 2800,
-      "attachmentIds": [
-        "axe"
-      ],
+      "id": "raise-axe-v1", "label": "举斧", "durationMs": 2800, "attachmentIds": ["axe"],
       "keyframes": [
-        {
-          "atMs": 0,
-          "joints": {}
-        },
-        {
-          "atMs": 300,
-          "y": 0.014,
-          "joints": {
-            "rightShoulder": -0.16,
-            "rightElbow": 0.4,
-            "leftKnee": 0.14,
-            "rightKnee": -0.14,
-            "head": -0.04
-          }
-        },
-        {
-          "atMs": 800,
-          "y": -0.008,
-          "joints": {
-            "rightShoulder": 1.45,
-            "rightElbow": 1.1,
-            "leftShoulder": -0.35,
-            "leftElbow": -0.7,
-            "head": 0.12
-          }
-        },
-        {
-          "atMs": 1250,
-          "y": -0.008,
-          "joints": {
-            "rightShoulder": 1.55,
-            "rightElbow": 1.2,
-            "leftShoulder": -0.4,
-            "leftElbow": -0.8,
-            "head": 0.1
-          }
-        },
-        {
-          "atMs": 1700,
-          "y": 0.022,
-          "x": 0.012,
-          "joints": {
-            "rightShoulder": -0.8,
-            "rightElbow": 0.2,
-            "leftShoulder": -0.28,
-            "leftElbow": -0.6,
-            "leftKnee": 0.23,
-            "rightKnee": -0.2,
-            "head": -0.18
-          }
-        },
-        {
-          "atMs": 2050,
-          "y": 0.014,
-          "x": 0.008,
-          "joints": {
-            "rightShoulder": -0.68,
-            "rightElbow": 0.35,
-            "leftShoulder": -0.2,
-            "leftElbow": -0.5,
-            "leftKnee": 0.12,
-            "rightKnee": -0.12,
-            "head": -0.08
-          }
-        },
-        {
-          "atMs": 2800,
-          "y": 0,
-          "joints": {
-            "rightShoulder": -0.35,
-            "rightElbow": 0.45,
-            "leftShoulder": -0.15,
-            "leftElbow": -0.4,
-            "head": 0
-          }
-        }
+        {"atMs": 0, "joints": {}},
+        {"atMs": 300, "y": 0.014, "joints": {"rightShoulder": -0.16, "rightElbow": 0.4, "leftKnee": 0.14, "rightKnee": -0.14, "head": -0.04}},
+        {"atMs": 800, "y": -0.008, "joints": {"rightShoulder": 1.45, "rightElbow": 1.1, "leftShoulder": -0.35, "leftElbow": -0.7, "head": 0.12}},
+        {"atMs": 1250, "y": -0.008, "joints": {"rightShoulder": 1.55, "rightElbow": 1.2, "leftShoulder": -0.4, "leftElbow": -0.8, "head": 0.1}},
+        {"atMs": 1700, "y": 0.022, "x": 0.012, "joints": {"rightShoulder": -0.8, "rightElbow": 0.2, "leftShoulder": -0.28, "leftElbow": -0.6, "leftKnee": 0.23, "rightKnee": -0.2, "head": -0.18}},
+        {"atMs": 2050, "y": 0.014, "x": 0.008, "joints": {"rightShoulder": -0.68, "rightElbow": 0.35, "leftShoulder": -0.2, "leftElbow": -0.5, "leftKnee": 0.12, "rightKnee": -0.12, "head": -0.08}},
+        {"atMs": 2800, "y": 0, "joints": {"rightShoulder": -0.35, "rightElbow": 0.45, "leftShoulder": -0.15, "leftElbow": -0.4, "head": 0}}
       ]
     },
     {
-      "id": "reach-v1",
-      "label": "伸手",
-      "durationMs": 1800,
-      "attachmentIds": [],
+      "id": "reach-v1", "label": "伸手", "durationMs": 1800, "attachmentIds": [],
       "keyframes": [
-        {
-          "atMs": 0,
-          "x": 0,
-          "joints": {}
-        },
-        {
-          "atMs": 900,
-          "x": 0.015,
-          "joints": {
-            "rightShoulder": 1.45,
-            "rightElbow": 0.12,
-            "leftShoulder": -0.25,
-            "leftElbow": -0.35,
-            "head": 0.08
-          }
-        },
-        {
-          "atMs": 1800,
-          "x": 0.025,
-          "joints": {
-            "rightShoulder": 1.55,
-            "rightElbow": 0.08,
-            "leftShoulder": -0.25,
-            "leftElbow": -0.35,
-            "head": 0.08
-          }
-        }
+        { "atMs": 0, "x": 0, "joints": {} },
+        { "atMs": 900, "x": 0.015, "joints": { "rightShoulder": 1.45, "rightElbow": 0.12, "leftShoulder": -0.25, "leftElbow": -0.35, "head": 0.08 } },
+        { "atMs": 1800, "x": 0.025, "joints": { "rightShoulder": 1.55, "rightElbow": 0.08, "leftShoulder": -0.25, "leftElbow": -0.35, "head": 0.08 } }
       ]
     }
   ]
