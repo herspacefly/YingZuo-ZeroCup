@@ -68,7 +68,7 @@ export function referenceGeometry(spec){
 export const referencePropGrips={
   'chenxiang-v1':{
     // Pixel (80,330) on the 304x544 axe is the lower shaft, not the image center.
-    axe:{sourcePoint:[522,284],pivot:[0,-.08625],bindAngleRad:-1.2,orientation:'follow-host'},
+    axe:{sourcePoint:[522,284],pivot:[0,-.08625],bindAngleRad:-1.2,orientation:'follow-host',gripMotion:'axe-wrist-v1'},
     // The finger hooks the ring's left rim; its body hangs just outside the sleeve.
     lantern:{sourcePoint:[522,284],pivot:[-.01,0],bindAngleRad:0,orientation:'upright'},
   },
@@ -83,7 +83,7 @@ export function bindReferencePropGrips(template){
     const factor=arm.lowerLength/piece.length,dx=grip.sourcePoint[0]-piece.a[0],dy=grip.sourcePoint[1]-piece.a[1];
     attachment.anchor=[g.s*(dx*g.uy-dy*g.ux)*factor,-g.s*(dx*g.ux+dy*g.uy)*factor];
     attachment.pivot=[...(grip.pivot??[0,0])];
-    attachment.bindAngleRad=grip.bindAngleRad;attachment.orientation=grip.orientation;attachment.drawOrder=30.5;
+    attachment.bindAngleRad=grip.bindAngleRad;attachment.orientation=grip.orientation;if(grip.gripMotion)attachment.gripMotion=grip.gripMotion;attachment.drawOrder=30.5;
   }
   if(template.id==='mother-v1')for(const prop of template.attachments){const arm=template.arms.find(a=>a.side==='right'),part=template.parts.find(p=>p.partId==='rightForearm');if(prop.id==='lantern'&&arm&&part){prop.anchor=[arm.handLocal[0]+.015,arm.handLocal[1]-.012];prop.orientation='upright';prop.bindAngleRad=0;prop.drawOrder=part.drawOrder-.5;}}
   return template;

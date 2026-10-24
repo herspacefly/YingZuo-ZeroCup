@@ -7,6 +7,7 @@ export type EditorCommand = { type: 'RENAME'; title: string } | { type: 'APPEARA
   { type: 'CARVE_SEGMENT'; index: 0 | 1 | 2; carved: boolean } | { type: 'CARVE_NEXT' } |
   { type: 'COLOR_SLOT'; slot: 'body' | 'sleeve' | 'hem'; colorIndex: number } |
   { type: 'APPLY_PALETTE'; paletteId: PaletteId } |
+  { type: 'LAMP_POSITION'; lampX: number; lampDepth: number } |
   { type: 'LAMP_X'; lampX: number } | { type: 'PUPPET_DISTANCE'; puppetDistance: number } |
   { type: 'VISIT'; exhibitId: ExhibitId } | { type: 'ROUTE'; route: ProjectRoute };
 
@@ -37,6 +38,7 @@ export function applyEditorCommand(project: ProjectV1, command: EditorCommand): 
       next.appearance.colorSlots[command.slot] = command.colorIndex; break;
     case 'PATTERN': next.appearance.patternId = command.patternId; break;
     case 'STAGE': next.stage = command.stage; break;
+    case 'LAMP_POSITION': next.stage.lampX = command.lampX; next.stage.lampGeometry = {version:1,depth:command.lampDepth}; break;
     case 'LAMP_X': next.stage.lampX = command.lampX; break;
     case 'PUPPET_DISTANCE': next.stage.puppetDistance = command.puppetDistance; break;
     case 'POSE': next.pose = command.pose; break;

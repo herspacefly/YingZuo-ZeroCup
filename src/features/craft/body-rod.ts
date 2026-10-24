@@ -1,3 +1,4 @@
+import { cableScreenPath } from '../../domain/cables';
 import { assetCatalog } from '../../content/catalog';
 import { fitViewport, viewportToWorld, worldToViewport } from '../../domain/projection';
 import type { Point } from '../../domain/projection';
@@ -17,13 +18,13 @@ const oldKeys: Record<string, string> = { Left: 'ArrowLeft', Right: 'ArrowRight'
 const copyPose = (pose: Pose): Pose => ({ ...pose, joints: { ...pose.joints } });
 
 /** A temporary craft-preview input. The caller owns the pose, readiness and all persistence. */
-export function mountCraftBodyRod(stage: ReturnType<typeof canvasStage>, onMove: (pose: Pose) => void) {
+export function mountCraftBodyRod(stage: ReturnType<typeof canvasStage>, onMove: (pose: Pose) => void, wake:()=>void=()=>{}) {
   const life = scope(), touchCleanups: (() => void)[] = [];
   const overlay = element('div', 'rod-overlay');
   overlay.hidden = true;
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   svg.setAttribute('class', 'rod-lines'); svg.setAttribute('aria-hidden', 'true');
-  const line = document.createElementNS('http://www.w3.org/2000/svg', 'line'); svg.appendChild(line);
+  const line = document.createElementNS('http://www.w3.org/2000/svg', 'path'); svg.appendChild(line);
   const handle = element('button', 'rod-handle', '身');
   handle.type = 'button'; handle.disabled = true;
   handle.setAttribute('data-craft-rod', 'body');
@@ -56,8 +57,7 @@ export function mountCraftBodyRod(stage: ReturnType<typeof canvasStage>, onMove:
       const minY = viewport.y + Math.min(24, viewport.height / 2), maxY = viewport.y + viewport.height - Math.min(24, viewport.height / 2);
       const x = Math.max(minX, Math.min(maxX, point.x)), y = Math.max(minY, Math.min(maxY, point.y + .22 * viewport.height));
       svg.setAttribute('viewBox', `0 0 ${rect.width} ${rect.height}`);
-      line.setAttribute('x1', String(point.x)); line.setAttribute('y1', String(point.y));
-      line.setAttribute('x2', String(x)); line.setAttribute('y2', String(y));
+      const motion=stage.cables.sample();line.setAttribute('d',cableScreenPath(point,{x,y},motion?.source==='body'?motion.bend:0,viewport.scale));
       handle.style.left = `${x}px`; handle.style.top = `${y}px`;
       handle.setAttribute('aria-pressed', String(Boolean(drag)));
     } catch (error) {
@@ -79,7 +79,7 @@ export function mountCraftBodyRod(stage: ReturnType<typeof canvasStage>, onMove:
     }
     report(limited ? '已按幕面边界限制试提位置。' : '身杆试提位置已调整。');
     // The callback may synchronously update, disable or dispose this input. Do not mutate after it.
-    try { onMove(copyPose(fit.pose)); }
+    try { stage.cables.pull('body',fit.pose.x-model!.pose.x);onMove(copyPose(fit.pose)); }
     catch (error) { release(); render(); report(`身杆试提未能完成：${error instanceof Error ? error.message : String(error)}`); }
   }
   function start(id: number, kind: Drag['kind'], clientX: number, clientY: number) {
@@ -87,7 +87,7 @@ export function mountCraftBodyRod(stage: ReturnType<typeof canvasStage>, onMove:
     const point = screenPoint(clientX, clientY); if (!point) return false;
     const connection = rodScreenPoint(template, model!.pose, model!.stage, 'body');
     drag = { id, kind, offset: { x: point.x - connection.x, y: point.y - connection.y } };
-    report('正在试提身杆。'); render(); return true;
+    stage.cables.pull('body');wake();report('正在试提身杆。'); render(); return true;
   }
   function move(clientX: number, clientY: number) {
     if (!drag || !canMove()) return;
@@ -97,7 +97,7 @@ export function mountCraftBodyRod(stage: ReturnType<typeof canvasStage>, onMove:
     try { accept(moveRodTo(template, model!.pose, model!.stage, 'body', target), target); }
     catch (error) { release(); render(); report(`身杆试提未能完成：${error instanceof Error ? error.message : String(error)}`); }
   }
-  function end() { if (drag) { release(); render(); report('已放开身杆。'); } }
+  function end() { if (drag) { release();stage.cables.release();wake(); render(); report('已放开身杆。'); } }
 
   if ('PointerEvent' in window && window.PointerEvent) {
     life.on(handle, 'pointerdown', event => {
@@ -156,11 +156,12 @@ export function mountCraftBodyRod(stage: ReturnType<typeof canvasStage>, onMove:
       accept(moveRodBy(template, model!.pose, model!.stage, 'body', direction), { x: target.x + direction.x, y: target.y + direction.y });
     } catch (error) { report(`身杆试提未能完成：${error instanceof Error ? error.message : String(error)}`); }
   });
-  life.on(handle, 'blur', end); life.on(window, 'blur', end);
+  life.on(handle, 'blur', end); life.on(window, 'blur', ()=>{release();stage.cables.clear();render();});
   life.on(document, 'visibilitychange', () => { if (document.hidden) end(); });
   life.on(window, 'resize', render);
 
   return {
+    render,
     update(next: Model | null, editable: boolean) {
       if (disposed) return;
       if (!next || !editable || (model && JSON.stringify(model.stage) !== JSON.stringify(next.stage))) release();

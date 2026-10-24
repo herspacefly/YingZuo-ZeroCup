@@ -5,6 +5,9 @@ import type { StageConfig } from '../../domain/types';
 export interface CanvasFrame {
   spatial?: import('../../story/spatial-presentation').SpatialPresentation;
   actors: RenderActor[];
+  /** Actor-only transparent projection, used as an independent curtain shadow. */
+  shadowOnly?: boolean;
+  cableMotion?: import('../../domain/cables').CablePresentation;
   stage: StageConfig;
   sceneLayers?: { id: string; x: number; y: number; opacity: number }[];
   attachments?: { actorId: RenderActor['actorId']; attachmentId: string }[];

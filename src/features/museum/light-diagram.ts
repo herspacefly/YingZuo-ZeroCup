@@ -1,4 +1,4 @@
-import { LAMP_DEPTH, projectPoint, projectionParameters } from '../../domain/projection';
+import { projectPoint, projectionParameters } from '../../domain/projection';
 import type { StageConfig } from '../../domain/types';
 import { append, element } from '../shared/dom';
 
@@ -37,9 +37,9 @@ export function mountLightDiagram() {
     figure,
     update(stage: StageConfig) {
       if (disposed) return;
-      const { lampX } = projectionParameters(stage);
+      const { lampX, lampDepth } = projectionParameters(stage);
       const distance = Number.isFinite(stage.puppetDistance) ? Math.max(.05, Math.min(.4, stage.puppetDistance)) : .2;
-      const sectionX = 335 - distance / LAMP_DEPTH * 290, lampY = 145 - lampX * 105;
+      const sectionX = 335 - distance / lampDepth * 290, lampY = 145 - lampX * 105;
       const endpoints = [-.2, .2].map(x => projectPoint({ x, y: 0 }, stage));
       rays.forEach((ray, index) => {
         ray.setAttribute('x1', '45'); ray.setAttribute('y1', String(lampY)); ray.setAttribute('x2', '335'); ray.setAttribute('y2', String(145 - endpoints[index]!.x * 105));
@@ -50,7 +50,7 @@ export function mountLightDiagram() {
       shadow.setAttribute('x1', '335'); shadow.setAttribute('x2', '335'); shadow.setAttribute('y1', String(145 - endpoints[0]!.x * 105)); shadow.setAttribute('y2', String(145 - endpoints[1]!.x * 105));
       const shadowWidth = endpoints[1]!.x - endpoints[0]!.x;
       width.textContent = `偶幕距离 ${distance.toFixed(2)}；幕前参考影宽 ${shadowWidth.toFixed(2)} 示意单位。`;
-      description.textContent = `横轴为深度。灯距幕 ${LAMP_DEPTH.toFixed(2)}，灯的横向位置 ${lampX.toFixed(2)}；影偶参考截面距幕 ${distance.toFixed(2)}，固定宽 0.40；两条光线在幕上的端点为 ${endpoints[0]!.x.toFixed(2)} 和 ${endpoints[1]!.x.toFixed(2)}，影宽 ${shadowWidth.toFixed(2)}。`;
+      description.textContent = `横轴为深度。灯距幕 ${lampDepth.toFixed(2)}，灯的横向位置 ${lampX.toFixed(2)}；影偶参考截面距幕 ${distance.toFixed(2)}，固定宽 0.40；两条光线在幕上的端点为 ${endpoints[0]!.x.toFixed(2)} 和 ${endpoints[1]!.x.toFixed(2)}，影宽 ${shadowWidth.toFixed(2)}。`;
     },
     dispose() { disposed = true; if (figure.parentNode) figure.parentNode.removeChild(figure); },
   };

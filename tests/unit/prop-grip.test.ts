@@ -25,7 +25,7 @@ describe('held props',()=>{
       const grip=projectLocalPoint(transformPoint(shaft,held),pose,stage);
       const palm=projectLocalPoint(transformPoint({x:axe.anchor[0],y:axe.anchor[1]},partTransform(chenxiang,pose,host)),pose,stage);
       expect(grip.x).toBeCloseTo(palm.x,12);expect(grip.y).toBeCloseTo(palm.y,12);
-      expect(held.angle-partTransform(chenxiang,pose,host).angle).toBeCloseTo(-1.2,12);
+      expect(held.angle-partTransform(chenxiang,pose,host).angle).toBeCloseTo(-1.2+Math.max(-.6,Math.min(.6,.38*shoulder!-.18*elbow!)),12);
     }
   });
   it('keeps the same lower-handle grip when reference templates are regenerated',()=>{
@@ -53,7 +53,7 @@ describe('held props',()=>{
   it('keeps omitted orientation compatible with the original rigid host transform',()=>{
     const axe=structuredClone(chenxiang.attachments.find(a=>a.id==='axe')!);
     const pose=defaultPose();pose.joints.rightShoulder=.8;pose.joints.rightElbow=1.1;
-    delete axe.orientation;
+    delete axe.orientation;delete axe.gripMotion;
     const old=attachmentTransform(chenxiang,pose,axe);axe.orientation='follow-host';
     expect(attachmentTransform(chenxiang,pose,axe)).toEqual(old);
     const host=chenxiang.parts.find(p=>p.partId===axe.partId)!;

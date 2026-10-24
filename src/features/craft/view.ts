@@ -56,7 +56,7 @@ export const mountCraft:PageFactory=(host,ctx)=>{
   for(const [label,delta]of [['身杆向左',{x:-.025,y:0}],['身杆向上',{x:0,y:.025}],['身杆向下',{x:0,y:-.025}],['身杆向右',{x:.025,y:0}]] as const){const button=element('button','',label);trialPad.appendChild(button);life.on(button,'click',()=>{if(bodyModel&&canTry()){const fit=moveRodBy(template,bodyModel.pose,bodyModel.stage,'body',delta);if(fit.fits){trialPose=fit.pose;render();}}});}
   const resetTrial=element('button','button secondary','重置试提');life.on(resetTrial,'click',()=>{trialPose=null;render();});append(trial,trialHelp,trialPad,resetTrial);stage.figure.appendChild(trial);
   let state:StoreState|null=null,trialPose:Pose|null=null,projectId='',disposed=false,bodyModel:{pose:Pose;stage:StageConfig}|null=null;
-  const body=mountCraftBodyRod(stage,pose=>{trialPose=pose;render();});
+  const body=mountCraftBodyRod(stage,pose=>{trialPose=pose;render();},()=>clock.start());
   const allowed=()=>!!state&&editable(state)&&!ctx.isBusy();
   const canTry=()=>allowed()&&!state!.hasPending&&stage.getStatus().state==='ready';
   function syncControls(){
@@ -64,8 +64,8 @@ export const mountCraft:PageFactory=(host,ctx)=>{
     play.disabled=preset.disabled=restart.disabled=mode.disabled=acknowledge.disabled=next.disabled=!advance;
     trialPad.querySelectorAll('button').forEach(button=>{button.disabled=!canTry();});resetTrial.disabled=!canTry();
   }
-  const direct=mountLimbControls(stage,{read(){const draft=ctx.store.getExportProject()??state?.project;if(!draft||!bodyModel)return null;return {frame:{actors:[{actorId:'chenxiang',templateId:'chenxiang-v1',appearance:draft.appearance,pose:bodyModel.pose}],stage:bodyModel.stage},enabled:canTry()};},change(pose){trialPose=pose;render();},wake(){clock.start();},end(){clock.stop();},report(text){trialHelp.textContent=text;}});
-  const clock=createAnimationClock({request:cb=>requestAnimationFrame(cb),cancel:id=>cancelAnimationFrame(id),now:()=>performance.now()},delta=>{direct.tick(delta);return canTry()&&direct.isActive();},()=>direct.release(),stage.frameObserver);
+  const direct=mountLimbControls(stage,{read(){const draft=ctx.store.getExportProject()??state?.project;if(!draft||!bodyModel)return null;return {frame:{actors:[{actorId:'chenxiang',templateId:'chenxiang-v1',appearance:draft.appearance,pose:bodyModel.pose}],stage:bodyModel.stage},enabled:canTry()};},change(pose){trialPose=pose;render();},wake(){clock.start();},end(){if(!stage.cables.active)clock.stop();},report(text){trialHelp.textContent=text;}});
+  const clock=createAnimationClock({request:cb=>requestAnimationFrame(cb),cancel:id=>cancelAnimationFrame(id),now:()=>performance.now()},delta=>{direct.tick(delta);body.render();return canTry()&&direct.isActive();},()=>direct.release(),stage.frameObserver);
   const offStatus=stage.subscribe(()=>{syncControls();direct.render();});
   function render(){
     if(disposed||!state)return;const draft=ctx.store.getExportProject()??state.project,story=state.project?.story;

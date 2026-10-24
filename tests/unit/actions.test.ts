@@ -105,8 +105,9 @@ describe('versioned absolute-time actions', () => {
     const bow = sampleAction('bow-v1', base, 1000, template, stage);
     expect(bow.pose.joints.head).toBeLessThan(-0.3); expect(bow.pose.y).toBeGreaterThan(base.y);
     expect(sampleAction('bow-v1', base, 2200, template, stage).pose).toEqual(base);
-    const axe = sampleAction('raise-axe-v1', base, 700, template, stage);
-    expect(sampleAction('raise-axe-v1', base, 1300, template, stage).pose).toEqual(axe.pose);
+    const axe = sampleAction('raise-axe-v1', base, 800, template, stage);
+    expect(sampleAction('raise-axe-v1', base, 1250, template, stage).pose.joints.rightShoulder).toBeGreaterThanOrEqual(axe.pose.joints.rightShoulder);
+    expect(sampleAction('raise-axe-v1', base, 300, template, stage).pose.y).toBeGreaterThan(base.y);
     expect(axe.pose.joints.rightShoulder).toBeGreaterThan(1.2);
     expect(sampleAction('raise-axe-v1', base, 1800, template, stage).pose.joints.rightShoulder).toBeLessThan(-0.5);
     const reach = sampleAction('reach-v1', base, 1800, template, stage);

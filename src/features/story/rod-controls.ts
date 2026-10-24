@@ -1,3 +1,4 @@
+import { cableScreenPath } from '../../domain/cables';
 import { mountLimbControls } from '../shared/limb-controls';
 import { assetCatalog } from '../../content/catalog';
 import type { Bounds } from '../../content/asset-types';
@@ -68,9 +69,9 @@ export function mountStoryRodControls(panel:HTMLElement,stage:ReturnType<typeof 
   const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('aria-hidden','true');svg.setAttribute('class','rod-lines');overlay.appendChild(svg);
   const region=document.createElementNS('http://www.w3.org/2000/svg','rect'),target=document.createElementNS('http://www.w3.org/2000/svg','rect');
   region.setAttribute('class','story-region');target.setAttribute('class','story-target');svg.appendChild(region);svg.appendChild(target);
-  const handles=new Map<RodId,HTMLButtonElement>(),lines=new Map<RodId,SVGLineElement>();
+  const handles=new Map<RodId,HTMLButtonElement>(),lines=new Map<RodId,SVGPathElement>();
   for(const id of ROD_IDS){
-    const line=document.createElementNS('http://www.w3.org/2000/svg','line');svg.appendChild(line);lines.set(id,line);
+    const line=document.createElementNS('http://www.w3.org/2000/svg','path');svg.appendChild(line);lines.set(id,line);
     const handle=element('button','rod-handle',id==='body'?'身':id==='leftHand'?'左':'右');handle.type='button';handle.setAttribute('data-story-rod',id);
     handle.setAttribute('aria-label',`拖动${labels[id]}，方向键移动`);handle.setAttribute('aria-describedby',help.id);overlay.appendChild(handle);handles.set(id,handle);
   }
@@ -109,7 +110,7 @@ export function mountStoryRodControls(panel:HTMLElement,stage:ReturnType<typeof 
   }
   function nudge(delta:Point) {
     const current=active();if(!current)return;selectAllowed(current.data);if(!allowed(current.data,selected))return;
-    apply(moveRodBy(template,current.actor.pose,current.data.frame.stage,selected,delta,attachments(current.data)),selected);
+    stage.cables.pull(selected,delta.x);apply(moveRodBy(template,current.actor.pose,current.data.frame.stage,selected,delta,attachments(current.data)),selected);stage.cables.release();
   }
   function release() {
     direct.release();
@@ -146,7 +147,7 @@ export function mountStoryRodControls(panel:HTMLElement,stage:ReturnType<typeof 
       const point=worldToViewport(rodScreenPoint(template,actor.pose,data.frame.stage,id),viewport);
       const dx=id==='body'?0:(id==='leftHand'?-.16:.16)*viewport.width,dy=(id==='body'?.22:.19)*viewport.height;
       const x=Math.max(24,Math.min(rect.width-24,point.x+dx)),y=Math.max(24,Math.min(rect.height-24,point.y+dy));
-      handle.style.left=`${x}px`;handle.style.top=`${y}px`;line.setAttribute('x1',String(point.x));line.setAttribute('y1',String(point.y));line.setAttribute('x2',String(x));line.setAttribute('y2',String(y));
+      handle.style.left=`${x}px`;handle.style.top=`${y}px`;const motion=stage.cables.sample();line.setAttribute('d',cableScreenPath(point,{x,y},motion?.source===id?motion.bend:0,viewport.scale));
     }
     overlay.hidden=stage.getStatus().state!=='ready'||(!data.rods.length&&!data.target&&!data.region);direct.render(rect);
   }
@@ -157,14 +158,14 @@ export function mountStoryRodControls(panel:HTMLElement,stage:ReturnType<typeof 
     const current=active();if(!current||drag||!allowed(current.data,id))return false;
     const point=screenPoint(clientX,clientY);if(!point)return false;
     keys.clear();selected=id;const connection=rodScreenPoint(template,current.actor.pose,current.data.frame.stage,id);
-    drag={rod:id,id:eventId,handle,kind,offset:{x:point.x-connection.x,y:point.y-connection.y}};render();port.wake();return true;
+    stage.cables.pull(id);drag={rod:id,id:eventId,handle,kind,offset:{x:point.x-connection.x,y:point.y-connection.y}};render();port.wake();return true;
   }
   function moveDrag(clientX:number,clientY:number) {
     const current=active();if(!drag||!current||!allowed(current.data,drag.rod)){release();return;}
     const point=screenPoint(clientX,clientY);if(!point)return;
-    apply(moveRodTo(template,current.actor.pose,current.data.frame.stage,drag.rod,{x:point.x-drag.offset.x,y:point.y-drag.offset.y},attachments(current.data)),drag.rod);
+    stage.cables.pull(drag.rod,point.x-rodScreenPoint(template,current.actor.pose,current.data.frame.stage,drag.rod).x);apply(moveRodTo(template,current.actor.pose,current.data.frame.stage,drag.rod,{x:point.x-drag.offset.x,y:point.y-drag.offset.y},attachments(current.data)),drag.rod);
   }
-  function endDrag() {release();render();}
+  function endDrag() {const source=drag?.rod;release();if(source){stage.cables.pull(source);stage.cables.release();port.wake();}render();}
   if('PointerEvent' in window&&window.PointerEvent){
     for(const [id,handle] of handles){
       life.on(handle,'pointerdown',event=>{const e=event as PointerEvent;if(e.button!==0||e.isPrimary===false)return;
@@ -204,7 +205,7 @@ export function mountStoryRodControls(panel:HTMLElement,stage:ReturnType<typeof 
     render,
     release,
     tick(deltaMs:number) {
-      direct.tick(deltaMs);
+      direct.tick(deltaMs);render();
       if(disposed)return;
       const current=active();if(!current){release();return;}
       if(!keys.size||!Number.isFinite(deltaMs)||deltaMs<=0)return;

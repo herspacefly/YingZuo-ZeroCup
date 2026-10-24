@@ -81,7 +81,7 @@ export function validateAssetCatalog(catalog: AssetCatalog): string[] {
         check(upper?.parentJoint === arm.shoulder && forearm?.parentJoint === arm.elbow && rod?.partId === forearm?.partId && rod && near(rod.point[0],arm.handLocal[0]) && near(rod.point[1],arm.handLocal[1]), `${context}: hand rod chain ${arm.side}`);
       }
       check(puppet.rods.length === expectedSides.length+1 && puppet.rods.find(r=>r.id === 'body')?.partId === 'torso', `${context}: rod count/body`);
-      for (const attachment of puppet.attachments) { ref(attachment.assetId,'prop'); check(parts.has(attachment.partId) && point(attachment.anchor) && point(attachment.pivot) && box(attachment.bounds) && finite(attachment.bindAngleRad) && finite(attachment.drawOrder) && typeof attachment.defaultVisible === 'boolean' && (attachment.orientation === undefined || ['follow-host','upright'].includes(attachment.orientation)), `${context}: attachment transform`); }
+      for (const attachment of puppet.attachments) { ref(attachment.assetId,'prop'); check(parts.has(attachment.partId) && point(attachment.anchor) && point(attachment.pivot) && box(attachment.bounds) && finite(attachment.bindAngleRad) && finite(attachment.drawOrder) && typeof attachment.defaultVisible === 'boolean' && (attachment.orientation === undefined || ['follow-host','upright'].includes(attachment.orientation)) && (attachment.gripMotion === undefined || attachment.gripMotion === 'axe-wrist-v1'), `${context}: attachment transform`); }
       const motif = puppet.motifPlacement;
       check(puppet.id === 'guardian-v1' ? motif === null : !!motif, `${context}: motif required`);
       if (motif) {

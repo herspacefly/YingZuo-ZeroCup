@@ -1,6 +1,9 @@
+import { limbLocalPoint } from '../../domain/limb-input';
+import { cableCurve } from '../../domain/cables';
+import { localToWorld, worldToLocal } from '../../domain/projection';
 import type { AssetCatalog, Bounds, PuppetTemplate, RenderActor } from '../../content/asset-types';
 import { attachmentTransform, jointTransform, partTransform, rodPoint } from '../../domain/pose';
-import { fitViewport, projectLocalPoint } from '../../domain/projection';
+import { fitViewport, projectLocalPoint, projectionParameters } from '../../domain/projection';
 import { PartCompositor } from './compositing';
 import { prepareFrame, requiredAssets } from './frame';
 import { TextureCache } from './texture-cache';
@@ -26,7 +29,7 @@ export function mountCanvasRenderer(host: HTMLElement, catalog: AssetCatalog, on
     ctx!.drawImage(image,0,0,b.maxX-b.minX,b.maxY-b.minY); ctx!.restore();
   }
   function drawActor(actor: RenderActor,template: PuppetTemplate) {
-    const t=1.2/(1.2-frame!.stage.puppetDistance), root=projectLocalPoint({x:0,y:0},actor.pose,frame!.stage);
+    const t=projectionParameters(frame!.stage).magnification, root=projectLocalPoint({x:0,y:0},actor.pose,frame!.stage);
     ctx!.save(); ctx!.globalAlpha=frame!.actorOpacity?.[actor.actorId]??1; ctx!.translate(root.x,root.y); ctx!.scale(t*actor.pose.scale*actor.pose.facing,t*actor.pose.scale);
     const operations: { order:number; draw():void }[]=template.parts.map(part=>({order:part.drawOrder,draw(){
       const transform=partTransform(template,actor.pose,part);
@@ -40,9 +43,12 @@ export function mountCanvasRenderer(host: HTMLElement, catalog: AssetCatalog, on
     for (const op of operations.map((op,index)=>({...op,index})).sort((a,b)=>a.order-b.order||a.index-b.index)) op.draw();
     if (frame!.showRods) {
       ctx!.strokeStyle='rgba(70,44,27,.55)'; ctx!.lineWidth=.004;
-      for (const rod of template.rods) {
-        const point=rodPoint(template,actor.pose,rod.id);
-        ctx!.beginPath(); ctx!.moveTo(point.x,point.y); ctx!.lineTo(point.x-.025,-.65); ctx!.stroke();
+      for (const rod of [...template.rods,...(actor.actorId==='chenxiang'?[{id:'leftFoot'},{id:'rightFoot'}]:[])]) {
+        const point=rod.id==='leftFoot'||rod.id==='rightFoot'?limbLocalPoint(template,actor.pose,rod.id):rodPoint(template,actor.pose,rod.id);
+        const world=localToWorld(point,actor.pose),end=worldToLocal({x:world.x-.025,y:-1.6},actor.pose);
+        const motion=actor.actorId==='chenxiang'&&frame!.cableMotion?.source===rod.id?frame!.cableMotion:undefined;
+        const curve=cableCurve(point,end,(motion?.bend??0)/actor.pose.scale);
+        ctx!.beginPath();ctx!.moveTo(point.x,point.y);ctx!.bezierCurveTo(curve.first.x,curve.first.y,curve.second.x,curve.second.y,end.x,end.y);ctx!.stroke();
       }
       ctx!.fillStyle='#d7a253';
       for (const joint of template.joints.filter(item=>item.enabled)) { const p=jointTransform(template,actor.pose,joint.jointId); ctx!.beginPath(); ctx!.arc(p.x,p.y,.008,0,Math.PI*2); ctx!.fill(); }
@@ -53,6 +59,14 @@ export function mountCanvasRenderer(host: HTMLElement, catalog: AssetCatalog, on
     if(disposed||!ready||!ctx||!frame) return;
     try {
       clear(); const v=fitViewport(canvas.width,canvas.height), scene=catalog.scenes.scenes.find(item=>item.id===frame!.stage.backgroundId)!;
+      if(frame.shadowOnly){
+        ctx.save();ctx.beginPath();ctx.rect(v.x,v.y,v.width,v.height);ctx.clip();
+        ctx.translate(v.x+v.width/2,v.y+v.height/2);ctx.scale(v.scale,-v.scale);
+        for(const actor of frame.actors)drawActor(actor,catalog.puppets.find(item=>item.id===actor.templateId)!);
+        ctx.restore();ctx.save();ctx.globalCompositeOperation='source-in';ctx.fillStyle='rgba(61,34,26,.83)';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.restore();
+        draws++;canvas.setAttribute('data-draws',String(draws));canvas.setAttribute('data-shadow-only','true');canvas.setAttribute('data-actors',frame.actors.map(actor=>actor.actorId).join(','));status('ready','独立幕影已就绪 · 拖动幕后的灯，观察影子偏移与放大');return;
+      }
+      canvas.removeAttribute('data-shadow-only');
       const layers=scene.layers.map(layer=>{
         const override=frame!.sceneLayers!.find(item=>item.id===layer.id);
         return {...layer,x:override?.x??layer.x,y:override?.y??layer.y,opacity:override?.opacity??layer.opacity};

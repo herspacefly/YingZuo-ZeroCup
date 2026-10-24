@@ -14,6 +14,8 @@ export interface Appearance {
 export interface StageConfig {
   backgroundId: 'plain-v1' | 'home-v1' | 'road-v1' | 'mountain-v1';
   lampX: number; puppetDistance: number;
+  /** Optional physical lamp distance; absent legacy data uses 1.2. */
+  lampGeometry?: { version: 1; depth: number };
 }
 export type StoryNodeId = 'intro' | 'craft' | 'memory-wave' | 'memory-separate' | 'road' |
   'training' | 'guardian' | 'approach-choice' | 'call-light' | 'call-response' | 'call-split' |

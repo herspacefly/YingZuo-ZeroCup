@@ -56,10 +56,16 @@ function appearance(value: unknown, path: string) {
   segments.forEach(segment => bool(segment, `${path}.carvedSegments`));
 }
 function stage(value: unknown, path: string) {
-  const s = record(value, ['backgroundId', 'lampX', 'puppetDistance'], path);
+  const optional = !!value && typeof value === 'object' && Object.prototype.hasOwnProperty.call(value, 'lampGeometry');
+  const s = record(value, ['backgroundId', 'lampX', 'puppetDistance', ...(optional ? ['lampGeometry'] : [])], path);
   choice(s.backgroundId, BACKGROUND_IDS, `${path}.backgroundId`);
   number(s.lampX, -0.8, 0.8, `${path}.lampX`);
   number(s.puppetDistance, 0.05, 0.4, `${path}.puppetDistance`);
+  if (optional) {
+    const lamp = record(s.lampGeometry, ['version', 'depth'], `${path}.lampGeometry`);
+    version(lamp.version, 1, `${path}.lampGeometry.version`);
+    number(lamp.depth, Math.max(.6, Math.round(3 * (s.puppetDistance as number) * 1e6) / 1e6), 2.4, `${path}.lampGeometry.depth`);
+  }
 }
 function pose(value: unknown, path: string) {
   const p = record(value, ['x', 'y', 'scale', 'facing', 'joints'], path);

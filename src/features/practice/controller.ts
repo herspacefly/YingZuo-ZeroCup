@@ -1,3 +1,4 @@
+import { cableScreenPath } from '../../domain/cables';
 import { mountLimbControls } from '../shared/limb-controls';
 import { createAnimationClock } from '../../app/animation-clock';
 import type { PageContext } from '../../app/view';
@@ -62,9 +63,9 @@ export function mountPracticeController(panel:HTMLElement,stage:ReturnType<typeo
 
   const overlay=element('div','rod-overlay');overlay.hidden=true;overlay.setAttribute('aria-label','沉香操纵杆');
   const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('aria-hidden','true');svg.setAttribute('class','rod-lines');overlay.appendChild(svg);
-  const handles=new Map<RodId,HTMLButtonElement>(),lines=new Map<RodId,SVGLineElement>();
+  const handles=new Map<RodId,HTMLButtonElement>(),lines=new Map<RodId,SVGPathElement>();
   for(const id of ROD_IDS){
-    const line=document.createElementNS('http://www.w3.org/2000/svg','line');svg.appendChild(line);lines.set(id,line);
+    const line=document.createElementNS('http://www.w3.org/2000/svg','path');svg.appendChild(line);lines.set(id,line);
     const handle=element('button','rod-handle',id==='body'?'身':id==='leftHand'?'左':'右');handle.type='button';handle.setAttribute('data-rod',id);handle.setAttribute('aria-label',`拖动${labels[id]}，方向键移动`);handle.setAttribute('aria-describedby','practice-help');
     overlay.appendChild(handle);handles.set(id,handle);
   }
@@ -78,9 +79,9 @@ export function mountPracticeController(panel:HTMLElement,stage:ReturnType<typeo
   const attachments=()=>actionDefinitions.find(item=>item.id===selectedAction)!.attachmentIds;
   const blocked=()=>!project||!state||state.hasPending||ctx.isBusy()||['loading','closed','conflict','unsupported','recovery'].includes(state.status);
   const canInput=()=>!disposed&&!blocked()&&ready;
-  const direct=mountLimbControls(stage,{read(){return project?{frame:{actors:[{actorId:'chenxiang',templateId:'chenxiang-v1',appearance:project.appearance,pose}],stage:project.stage,attachments:attachments().map(attachmentId=>({actorId:'chenxiang',attachmentId}))},enabled:canInput()}:null;},change(next){playing=false;phase=null;applyFit(constrainPoseToStage(next,template,project!.stage,attachments()));submit(false);},wake(){clock.start();renderUI();},end(){if(!playing&&!keys.size)clock.stop();if(dirty)submit(true);renderUI();},report(text){message=text;renderUI();}});
+  const direct=mountLimbControls(stage,{read(){return project?{frame:{actors:[{actorId:'chenxiang',templateId:'chenxiang-v1',appearance:project.appearance,pose}],stage:project.stage,attachments:attachments().map(attachmentId=>({actorId:'chenxiang',attachmentId}))},enabled:canInput()}:null;},change(next){playing=false;phase=null;applyFit(constrainPoseToStage(next,template,project!.stage,attachments()));submit(false);},wake(){clock.start();renderUI();},end(){if(!playing&&!keys.size&&!stage.cables.active)clock.stop();if(dirty)submit(true);renderUI();},report(text){message=text;renderUI();}});
   const clock=createAnimationClock({request:callback=>window.requestAnimationFrame(callback),cancel:id=>window.cancelAnimationFrame(id),now:()=>performance.now()},delta=>{
-    direct.tick(delta);
+    direct.tick(delta);renderHandles();
     if(!canInput()){stop('当前操作已暂停。',false);return false;}
     if(playing&&phase){phase.elapsed+=delta;sample();if(phase.finished){stop('这段动作已结束，保留最后姿态。');return false;}}
     else if(keys.size){const vector={x:0,y:0};for(const key of keys){vector.x+=directions[key]!.x;vector.y+=directions[key]!.y;}
@@ -100,7 +101,7 @@ export function mountPracticeController(panel:HTMLElement,stage:ReturnType<typeo
     if(current?.kind==='pointer')try{if(current.handle.hasPointerCapture?.(current.id))current.handle.releasePointerCapture(current.id);}catch(error){if(!disposed)message=`拖动已结束：${error instanceof Error?error.message:String(error)}`;}
   }
   function stop(text:string,savePose=true) {
-    playing=false;keys.clear();release();direct.release();clock.stop();clearTimeout(saveTimer);saveTimer=undefined;message=text;if(savePose&&dirty)submit(true);renderUI();
+    playing=false;keys.clear();release();direct.release();stage.cables.clear();clock.stop();clearTimeout(saveTimer);saveTimer=undefined;message=text;if(savePose&&dirty)submit(true);renderUI();
   }
   function manual(next:Pose) {
     if(!canInput())return;
@@ -137,7 +138,7 @@ export function mountPracticeController(panel:HTMLElement,stage:ReturnType<typeo
       const dx=id==='body'?0:(id==='leftHand'?-.16:.16)*v.width,dy=(id==='body'?.22:.19)*v.height;
       const x=Math.max(24,Math.min(rect.width-24,point.x+dx)),y=Math.max(24,Math.min(rect.height-24,point.y+dy));
       const handle=handles.get(id)!;handle.style.left=`${x}px`;handle.style.top=`${y}px`;handle.disabled=!canInput();handle.setAttribute('aria-pressed',String(id===selected));
-      const line=lines.get(id)!;line.setAttribute('x1',String(point.x));line.setAttribute('y1',String(point.y));line.setAttribute('x2',String(x));line.setAttribute('y2',String(y));
+      const line=lines.get(id)!;const motion=stage.cables.sample();line.setAttribute('d',cableScreenPath(point,{x,y},motion?.source===id?motion.bend:0,v.scale));
     }
     overlay.hidden=!ready||blocked();direct.render(rect);
   }
@@ -158,13 +159,13 @@ export function mountPracticeController(panel:HTMLElement,stage:ReturnType<typeo
   function startDrag(id:RodId,eventId:number,clientX:number,clientY:number,handle:HTMLButtonElement,kind:Drag['kind']) {
     if(!canInput()||drag)return false;const point=screenPoint(clientX,clientY);if(!point)return false;
     playing=false;phase=null;keys.clear();clock.stop();selected=id;
-    const connection=rodScreenPoint(template,pose,project!.stage,id);drag={rod:id,id:eventId,handle,kind,offset:{x:point.x-connection.x,y:point.y-connection.y}};message=`正在牵动${labels[id]}。`;renderUI();return true;
+    const connection=rodScreenPoint(template,pose,project!.stage,id);stage.cables.pull(id);drag={rod:id,id:eventId,handle,kind,offset:{x:point.x-connection.x,y:point.y-connection.y}};message=`正在牵动${labels[id]}。`;renderUI();clock.start();return true;
   }
   function moveDrag(clientX:number,clientY:number) {
     if(!drag||!canInput())return;const point=screenPoint(clientX,clientY);if(!point)return;
-    applyFit(moveRodTo(template,pose,project!.stage,drag.rod,{x:point.x-drag.offset.x,y:point.y-drag.offset.y},attachments()));submit(false);
+    stage.cables.pull(drag.rod,point.x-rodScreenPoint(template,pose,project!.stage,drag.rod).x);applyFit(moveRodTo(template,pose,project!.stage,drag.rod,{x:point.x-drag.offset.x,y:point.y-drag.offset.y},attachments()));submit(false);
   }
-  function endDrag(){if(!drag)return;release();message='已放开操纵杆，保留当前姿态。';submit(true);renderUI();}
+  function endDrag(){if(!drag)return;release();stage.cables.release();clock.start();message='已放开操纵杆，保留当前姿态。';submit(true);renderUI();}
   if('PointerEvent' in window&&window.PointerEvent) {
     for(const [id,handle] of handles){
       life.on(handle,'pointerdown',event=>{const e=event as PointerEvent;if(e.button!==0||e.isPrimary===false)return;

@@ -9,6 +9,9 @@ export function prepareFrame(input: CanvasFrame, catalog: AssetCatalog): CanvasF
   if (!Array.isArray(input.actors) || input.actors.length > 2) throw new Error('同一幕最多显示两个角色。');
   const scene = catalog.scenes.scenes.find(item => item.id === input.stage.backgroundId);
   if (!scene || !number(input.stage.lampX,-.8,.8) || !number(input.stage.puppetDistance,.05,.4)) throw new Error('灯位或舞台配置超出范围。');
+  if (input.stage.lampGeometry && (input.stage.lampGeometry.version !== 1 || !number(input.stage.lampGeometry.depth, Math.max(.6,Math.round(3*input.stage.puppetDistance*1e6)/1e6),2.4))) throw new Error('灯距配置无效。');
+  if(input.shadowOnly!==undefined&&typeof input.shadowOnly!=='boolean')throw new Error('幕影模式无效。');
+  if(input.cableMotion&&(!['body','leftHand','rightHand','leftFoot','rightFoot'].includes(input.cableMotion.source)||!number(input.cableMotion.bend,-.035,.035)))throw new Error('操偶柔线数据无效。');
   const ids = new Set<string>();
   const actors = input.actors.map(actor => {
     if (ids.has(actor.actorId)) throw new Error('同一角色不能在一幕中重复出现。'); ids.add(actor.actorId);
@@ -48,6 +51,8 @@ export function prepareFrame(input: CanvasFrame, catalog: AssetCatalog): CanvasF
   const sceneLayers=(input.sceneLayers??[]).map(layer=>({id:layer.id,x:layer.x,y:layer.y,opacity:layer.opacity}));
   return JSON.parse(JSON.stringify({ actors, stage:input.stage, sceneLayers, attachments:input.attachments ?? [], showRods:!!input.showRods,
     ...(input.spatial?{spatial:input.spatial}:{}),
+    ...(input.shadowOnly ? {shadowOnly:true} : {}),
+    ...(input.cableMotion?{cableMotion:input.cableMotion}:{}),
     ...(input.actorOpacity===undefined?{}:{actorOpacity}) })) as CanvasFrame;
 }
 export function requiredAssets(frame: CanvasFrame, catalog: AssetCatalog): string[] {

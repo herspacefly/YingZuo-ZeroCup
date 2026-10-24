@@ -1,9 +1,12 @@
+import { limbLocalPoint } from '../../domain/limb-input';
+import { cableCurve, cablePoint } from '../../domain/cables';
+import { worldToLocal } from '../../domain/projection';
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { assetCatalog } from '../../content/catalog';
 import type { Bounds, PuppetTemplate } from '../../content/asset-types';
 import { attachmentTransform, jointTransform, partTransform, rodPoint } from '../../domain/pose';
-import { localToWorld, LAMP_DEPTH } from '../../domain/projection';
+import { localToWorld, LAMP_DEPTH, projectionParameters } from '../../domain/projection';
 import { PartCompositor } from '../canvas/compositing';
 import { prepareFrame, requiredAssets } from '../canvas/frame';
 import { TextureCache } from '../canvas/texture-cache';
@@ -32,6 +35,7 @@ export function mountThreeStage(host: HTMLElement, source: HTMLCanvasElement, op
   const geometries = new Set<THREE.BufferGeometry>(), materials = new Set<THREE.Material>(), textures = new Set<THREE.Texture>();
   const actorObjects = new Map<string, ActorObjects>(), actorTextures = new Set<THREE.Texture>(), actorScratch = new Set<HTMLCanvasElement>();
   const sceneObjects=new THREE.Group();
+  const lampDeck=new THREE.Group();
   const stageObjects = new THREE.Group(), actors = new THREE.Group(), wings: THREE.Group[] = [];
   const sourceScratch = document.createElement('canvas');
   let sourceContext: CanvasRenderingContext2D | null = null;
@@ -39,7 +43,7 @@ export function mountThreeStage(host: HTMLElement, source: HTMLCanvasElement, op
   let disposed = false, lost = false, ready = false, view: StageView = 'workshop', currentScope = '', resourceGeneration = 0, frameGeneration = 0;
   const scenery=new Map<string,THREE.Mesh<THREE.PlaneGeometry,THREE.MeshLambertMaterial|THREE.MeshBasicMaterial>>();
   let focusActor='chenxiang',yaw=0,pitch=0,zoom=1;
-  let warm:THREE.PointLight;
+  let warm:THREE.PointLight, linen:THREE.Mesh<THREE.PlaneGeometry,THREE.MeshBasicMaterial>;
   let latest: CanvasFrame | null = null, pending: Promise<void> | null = null, sourceTexture: THREE.CanvasTexture;
   let curtain: THREE.Mesh<THREE.PlaneGeometry, THREE.MeshBasicMaterial>, lamp: THREE.Group;
   let currentHeight = stageCamera(view).height;
@@ -118,8 +122,8 @@ export function mountThreeStage(host: HTMLElement, source: HTMLCanvasElement, op
         const mesh = plane(assets!.get(attachment.assetId), attachment.bounds, attachment.drawOrder);
         item.group.add(mesh); item.parts.push({ mesh, partId: attachment.id, attachment: true });
       }
-      for (const rod of template.rods) {
-        const geometry = new THREE.BufferGeometry(); geometry.setAttribute('position', new THREE.BufferAttribute(new Float32Array(6), 3)); geometries.add(geometry);
+      for (const rod of [...template.rods,...(actor.actorId==='chenxiang'?[{id:'leftFoot'},{id:'rightFoot'}]:[])]) {
+        const geometry = new THREE.BufferGeometry(); geometry.setAttribute('position', new THREE.BufferAttribute(new Float32Array(36), 3)); geometries.add(geometry);
         const value = new THREE.LineBasicMaterial({ color: '#a68153', transparent: true, opacity: .95, depthTest: false }); materials.add(value);
         const line = new THREE.Line(geometry, value); line.renderOrder = 120; item.group.add(line); item.rods.push({ line, rodId: rod.id });
       }
@@ -146,7 +150,7 @@ export function mountThreeStage(host: HTMLElement, source: HTMLCanvasElement, op
   function positionActors(frame: CanvasFrame) {
     const definition=assetCatalog.scenes.scenes.find(s=>s.id===frame.stage.backgroundId)!;
     for(const layer of definition.layers){const mesh=scenery.get(layer.id);if(!mesh)continue;const current=frame.sceneLayers?.find(l=>l.id===layer.id)??layer;mesh.position.set(current.x,current.y,mesh.userData.depth as number);mesh.material.opacity=current.opacity;mesh.visible=view==='story'||view==='character';if(softwareBudget){const level=.15+.85*(frame.spatial?.light??1);mesh.material.color.setRGB(level,level*.97,level*.92);}}
-    const cue=frame.spatial;warm.intensity=10*(cue?.light??1);warm.position.x=frame.stage.lampX;curtain.material.color.setScalar(.15+.85*(cue?.light??1));
+    const cue=frame.spatial;warm.intensity=10*(cue?.light??1);warm.position.x=frame.stage.lampX;warm.position.z=-projectionParameters(frame.stage).lampDepth;curtain.material.color.setScalar(.15+.85*(cue?.light??1));
     if(view==='story'||view==='character'){const actor=frame.actors.find(a=>a.actorId===focusActor)??frame.actors[0],root=actor?localToWorld({x:0,y:0},actor.pose):{x:0,y:0};
       const near=view==='character',p=cue?.progress??0,back=cue?.backstage&&!near;currentHeight=(near?1.2:2.25)/zoom;
       const angle=(back?Math.PI+.3:.22)+yaw+(cue?.reducedMotion?0:Math.sin(p*Math.PI)*.12);
@@ -166,15 +170,17 @@ export function mountThreeStage(host: HTMLElement, source: HTMLCanvasElement, op
         entry.mesh.position.set(transform.x, transform.y, part.drawOrder * .00005); entry.mesh.rotation.z = transform.angle; entry.mesh.material.opacity = opacity;entry.mesh.material.color.setScalar(.15+.85*(cue?.light??1));
       }
       for (const entry of item.rods) {
-        const point = rodPoint(template, actor.pose, entry.rodId), attribute = entry.line.geometry.getAttribute('position');
-        attribute.setXYZ(0, point.x, point.y, -.007); attribute.setXYZ(1, point.x - .025, -.85 / actor.pose.scale, -.08);
-        attribute.needsUpdate = true; entry.line.geometry.computeBoundingSphere(); entry.line.material.opacity = opacity;
+        const point = entry.rodId==='leftFoot'||entry.rodId==='rightFoot'?limbLocalPoint(template,actor.pose,entry.rodId):rodPoint(template, actor.pose, entry.rodId), attribute = entry.line.geometry.getAttribute('position');
+        const world=localToWorld(point,actor.pose),end=worldToLocal({x:world.x-.025,y:-1.6},actor.pose),motion=actor.actorId==='chenxiang'&&frame.cableMotion?.source===entry.rodId?frame.cableMotion:undefined;
+        const curve=cableCurve(point,end,(motion?.bend??0)/actor.pose.scale);for(let i=0;i<12;i++){const p=cablePoint(curve,i/11);attribute.setXYZ(i,p.x,p.y,-.007-i/11*.07);}
+        attribute.needsUpdate = true; entry.line.geometry.computeBoundingSphere(); entry.line.material.opacity = opacity;entry.line.visible=!!frame.showRods;
       }
       for (const entry of item.joints) { const point = jointTransform(template, actor.pose, entry.jointId); entry.mesh.position.set(point.x, point.y, .01); entry.mesh.material.visible = opacity > 0; }
     }
-    lamp.position.x = frame.stage.lampX;
+    lamp.position.x = frame.stage.lampX;lamp.position.z=-projectionParameters(frame.stage).lampDepth;
     canvas.setAttribute('data-actors', frame.actors.map(actor => actor.actorId).join(','));
-    canvas.setAttribute('data-lamp-x', String(frame.stage.lampX)); canvas.setAttribute('data-puppet-distance', String(frame.stage.puppetDistance));
+    const lampScreen=new THREE.Vector3(frame.stage.lampX,0,-projectionParameters(frame.stage).lampDepth).project(camera);canvas.setAttribute('data-lamp-screen-x',String((lampScreen.x+1)/2));canvas.setAttribute('data-lamp-screen-y',String((1-lampScreen.y)/2));
+    canvas.setAttribute('data-lamp-depth',String(projectionParameters(frame.stage).lampDepth));canvas.setAttribute('data-lamp-x', String(frame.stage.lampX)); canvas.setAttribute('data-puppet-distance', String(frame.stage.puppetDistance));
   }
   function copySource() {
     if (!source.width || !source.height) throw new Error('二维幕面尚未就绪，空间展示未绘制。');
@@ -206,7 +212,8 @@ export function mountThreeStage(host: HTMLElement, source: HTMLCanvasElement, op
     if (disposed || lost) return;
     view = next; const preset = stageCamera(view); currentHeight = preset.height;
     camera.position.set(...preset.position); camera.up.set(0, 1, 0); camera.lookAt(...preset.target);
-    curtain.material.opacity = view === 'front' ? 1 : view==='story'||view==='character' ? .06 : .24;
+    lampDeck.visible=view==='lamp-workshop';linen.material.opacity=view==='lamp-workshop'?.96:.1;linen.position.z=view==='lamp-workshop'?.012:-.015;
+    curtain.material.opacity = view === 'front'||view==='lamp-workshop' ? 1 : view==='story'||view==='character' ? .06 : .24;
     actors.visible = view !== 'front'; lamp.visible = view !== 'front';
     for (let index = 0; index < wings.length; index++) { wings[index]!.rotation.y = view === 'exhibit' ? (index ? -1 : 1) * .75 : 0; }
     canvas.setAttribute('data-view', view); resize();
@@ -232,7 +239,7 @@ export function mountThreeStage(host: HTMLElement, source: HTMLCanvasElement, op
     sourceContext = sourceScratch.getContext('2d'); if (!sourceContext) throw new Error('无法准备空间幕面，二维展示仍可使用。');
     sourceTexture = new THREE.CanvasTexture(sourceScratch); sourceTexture.colorSpace = THREE.SRGBColorSpace;
     sourceTexture.minFilter = sourceTexture.magFilter = THREE.LinearFilter; sourceTexture.generateMipmaps = false; textures.add(sourceTexture);
-    scene.add(stageObjects, actors,sceneObjects);
+    scene.add(stageObjects, actors,sceneObjects,lampDeck);
     scene.add(new THREE.HemisphereLight('#b8d2ed','#61402b',2));
     const rim=new THREE.DirectionalLight('#9bb6df',2);rim.position.set(-2,3,2);scene.add(rim);
     warm=new THREE.PointLight('#ffd294',10,8,2);warm.position.set(0,.45,-1.2);scene.add(warm);
@@ -242,7 +249,7 @@ export function mountThreeStage(host: HTMLElement, source: HTMLCanvasElement, op
     for(let i=0;i<11;i++)box(stageObjects,[.12,.035,.035],[-1+i*.2,.755,.09],'#c29b5b');
     // Fine deterministic threads retain the quiet linen surface without a new media download.
     const cloth=document.createElement('canvas');cloth.width=cloth.height=128;const c=cloth.getContext('2d')!;c.fillStyle='#d7c7a2';c.fillRect(0,0,128,128);for(let i=0;i<128;i+=4){c.fillStyle=i%8?'#c4b58f':'#e0d2b4';c.fillRect(i,0,1,128);c.fillRect(0,i,128,1);}const textile=new THREE.CanvasTexture(cloth);textile.colorSpace=THREE.SRGBColorSpace;textile.wrapS=textile.wrapT=THREE.RepeatWrapping;textile.repeat.set(5,4);textures.add(textile);
-    const clothGeometry=new THREE.PlaneGeometry(2.04,1.54);geometries.add(clothGeometry);const clothMaterial=new THREE.MeshBasicMaterial({map:textile,transparent:true,opacity:.1,side:THREE.DoubleSide,depthWrite:false});materials.add(clothMaterial);const linen=new THREE.Mesh(clothGeometry,clothMaterial);linen.position.z=-.015;stageObjects.add(linen);
+    const clothGeometry=new THREE.PlaneGeometry(2.04,1.54);geometries.add(clothGeometry);const clothMaterial=new THREE.MeshBasicMaterial({map:textile,transparent:true,opacity:.1,side:THREE.DoubleSide,depthWrite:false});materials.add(clothMaterial);linen=new THREE.Mesh(clothGeometry,clothMaterial);linen.position.z=-.015;stageObjects.add(linen);
     box(stageObjects, [2.55, .12, 1.65], [0, -.84, -.52], '#71442c');
     box(stageObjects, [2.42, .08, .13], [0, .82, .01], '#9a6236');
     for (const x of [-1.12, 1.12]) box(stageObjects, [.09, 1.66, .13], [x, -.01, .01], '#8c5432');
@@ -258,7 +265,16 @@ export function mountThreeStage(host: HTMLElement, source: HTMLCanvasElement, op
     box(lamp, [.045, .66, .045], [0, -.47, 0], '#af864d');
     const bulbGeometry = new THREE.SphereGeometry(.075, 12, 8); geometries.add(bulbGeometry);
     const bulb = new THREE.Mesh(bulbGeometry, material('#ffd68d')); lamp.add(bulb);
-    box(lamp, [.22, .03, .16], [0, -.78, 0], '#b18a56');
+    box(lamp, [.28, .035, .24], [0, -.78, 0], '#b18a56');
+    box(lamp,[.18,.025,.16],[0,-.75,0],'#6f432b');
+    box(lamp,[.035,.16,.035],[0,-.07,.02],'#c69d59');
+    for(const side of [-1,1]){box(lamp,[.018,.16,.018],[side*.09,.015,0],'#bb8c48');box(lamp,[.02,.02,.15],[side*.09,.09,0],'#d8b374');}
+    box(lampDeck,[2.55,.12,1.25],[0,-.84,-1.97],'#71442c');
+    for(let i=0;i<9;i++)box(lampDeck,[.27,.018,1.25],[-1.08+i*.27,-.765,-1.97],i%2?'#805b3d':'#94704b');
+    for(let i=0;i<13;i++)box(lampDeck,[.012,.009,2.2],[-.78+i*.13,-.748,-1.35],'#a97d42');
+    for(const z of [-.25,-.6,-1.2,-1.8,-2.4])box(lampDeck,[1.8,.008,.012],[0,-.743,z],'#c7a263');
+    const haloGeometry=new THREE.RingGeometry(.15,.18,32);geometries.add(haloGeometry);const haloMaterial=new THREE.MeshBasicMaterial({color:'#e6b75d',transparent:true,opacity:.8,side:THREE.DoubleSide,depthWrite:false});materials.add(haloMaterial);const halo=new THREE.Mesh(haloGeometry,haloMaterial);halo.rotation.x=-Math.PI/2;halo.position.y=-.735;lamp.add(halo);
+    batchArchitecture(lampDeck);
     batchArchitecture(stageObjects);
     host.appendChild(canvas); window.addEventListener('resize', onResize); canvas.addEventListener('webglcontextlost', onLost);
     setView('workshop'); status('loading', '正在准备同一影偶的空间示意…');
@@ -287,5 +303,15 @@ export function mountThreeStage(host: HTMLElement, source: HTMLCanvasElement, op
       if (!disposed && !lost && token === frameGeneration) { ready = false; pending = null; clearActors(); status('error', error instanceof Error ? error.message : String(error)); }
     }
   }
-  return { canvas, update, setView, observe, resize, dispose };
+  const raycaster=new THREE.Raycaster(),ground=new THREE.Plane(new THREE.Vector3(0,1,0),0);
+  function lampPlanePoint(clientX:number,clientY:number){
+    if(disposed||lost||!ready||!latest)return null;const rect=canvas.getBoundingClientRect();
+    raycaster.setFromCamera(new THREE.Vector2((clientX-rect.left)/rect.width*2-1,1-(clientY-rect.top)/rect.height*2),camera);
+    const point=new THREE.Vector3();return raycaster.ray.intersectPlane(ground,point)?{x:point.x,depth:-point.z}:null;
+  }
+  function pickLamp(clientX:number,clientY:number){
+    if(view!=='lamp-workshop'||!ready||!latest)return null;const point=lampPlanePoint(clientX,clientY);
+    return point&&raycaster.intersectObject(lamp,true).length?{x:point.x-latest.stage.lampX,depth:point.depth-projectionParameters(latest.stage).lampDepth}:null;
+  }
+  return { canvas, update, setView, observe, resize, dispose, pickLamp, lampPlanePoint };
 }

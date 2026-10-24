@@ -12,10 +12,15 @@ function bounded(value: number, min: number, max: number, fallback: number): num
 }
 
 /** Runtime inputs use the same finite lamp/distance range as ProjectV1. */
-export function projectionParameters(stage: StageConfig): { lampX: number; magnification: number } {
+export function minimumLampDepth(stage: Pick<StageConfig, 'puppetDistance'>): number {
+  return Math.max(.6, Math.round(3 * bounded(stage.puppetDistance, .05, .4, .2) * 1e6) / 1e6);
+}
+
+export function projectionParameters(stage: StageConfig): { lampX: number; lampDepth: number; magnification: number } {
   const lampX = bounded(stage.lampX, -0.8, 0.8, 0);
   const distance = bounded(stage.puppetDistance, 0.05, 0.4, 0.2);
-  return { lampX, magnification: LAMP_DEPTH / (LAMP_DEPTH - distance) };
+  const lampDepth = bounded(stage.lampGeometry?.depth ?? LAMP_DEPTH, minimumLampDepth(stage), 2.4, LAMP_DEPTH);
+  return { lampX, lampDepth, magnification: lampDepth / (lampDepth - distance) };
 }
 
 export function projectPoint(world: Point, stage: StageConfig): Point {

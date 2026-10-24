@@ -72,7 +72,7 @@ describe('posed template transforms', () => {
     const transform = attachmentTransform(template, pose, attachment);
     const anchor = transformPoint({ x: 0.04, y: -0.12 }, partTransform(template, pose, host));
     closePoint(transformPoint({ x: 0.03, y: 0.02 }, transform), anchor);
-    expect(transform.angle).toBeCloseTo(1.5);
+    expect(transform.angle).toBeCloseTo(1.5 + .38*.8 - .18*.6);
   });
 
   it('does not mirror skeleton or bend signs when facing changes', () => {
