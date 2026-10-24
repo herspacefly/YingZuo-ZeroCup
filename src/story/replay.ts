@@ -57,7 +57,7 @@ export function createReunionReplay(project: ProjectV1) {
     const entry = { token: `replay:${summary.runId}:${node.id}`, guard: storyGuard(transient.story!),
       paused: true as const, elapsedMs: 0, node: copy(node) };
     const director = createSceneDirector(transient, entry);
-    return { node, director, clip: createInteractionClip(node, director), allCues: story.definitionVersion===3?node.subtitles:subtitlesForMode(node, story.mode) };
+    return { node, director, clip: createInteractionClip(node, director), allCues: story.definitionVersion>=3?node.subtitles:subtitlesForMode(node, story.mode) };
   });
   const metadata = scenes.map(({ node, director }): ReunionReplaySegment => ({
     id: node.id, title: node.title, durationMs: director.durationMs,

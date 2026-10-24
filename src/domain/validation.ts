@@ -69,7 +69,7 @@ function pose(value: unknown, path: string) {
   JOINT_IDS.forEach(key => number(joints[key], -MAX_JOINT_ANGLE, MAX_JOINT_ANGLE, `${path}.joints.${key}`));
 }
 function story(value: unknown) {
-  const expanded=[2,3].includes(ownValue(value,'definitionVersion') as number);
+  const expanded=[2,3,4].includes(ownValue(value,'definitionVersion') as number);
   const s = record(value, ['storyId', 'definitionVersion', 'runId', 'revision', 'mode', 'nodeId', 'approach',
     'approachSource', 'castSnapshot', 'assistedNodeIds', 'presetAppearanceUsed', 'completedAt',...(expanded?['ending','endingSource']:[])], 'story');
   if(!expanded)version(s.definitionVersion, 1, 'story.definitionVersion');
@@ -86,7 +86,7 @@ function story(value: unknown) {
     if (cast.sharedMotif !== (cast.appearance as Record<string, unknown>).patternId) invalid('castSnapshot.sharedMotif', '必须与冻结纹样一致');
   } else if (s.nodeId !== 'intro' && s.nodeId !== 'craft') invalid('story.castSnapshot', '开演后必须有冻结角色');
   if(expanded){choice(s.ending,[null,...ENDING_IDS],'story.ending');choice(s.endingSource,[null,'user'],'story.endingSource');}
-  const prefix=storyPrefix(s.definitionVersion as 1|2|3),path=storyPath(s.definitionVersion as 1|2|3,s.approach as 'call-first'|'split-first'|null,expanded?s.ending as EndingId|null:null);
+  const prefix=storyPrefix(s.definitionVersion as 1|2|3|4),path=storyPath(s.definitionVersion as 1|2|3|4,s.approach as 'call-first'|'split-first'|null,expanded?s.ending as EndingId|null:null);
   const index = path.indexOf(s.nodeId as typeof path[number]);
   if (index < 0) invalid('story.nodeId', '节点与所选路径不一致');
   if (index < prefix.length) {
@@ -154,7 +154,7 @@ export function validateProject(input: unknown): ProjectV1 {
     for (const key of ['schemaVersion', 'assetVersion']) detectFutureVersion(ownValue(input, key), key);
     const s = ownValue(input, 'story');
     const storyVersion=ownValue(s,'definitionVersion');
-    if(storyVersion!==2&&storyVersion!==3)detectFutureVersion(storyVersion, 'story.definitionVersion');
+    if(storyVersion!==2&&storyVersion!==3&&storyVersion!==4)detectFutureVersion(storyVersion, 'story.definitionVersion');
     detectFutureVersion(ownValue(ownValue(s, 'castSnapshot'), 'assetVersion'), 'castSnapshot.assetVersion');
   }
   assertPlainData(input);

@@ -14,7 +14,7 @@ export function validateStoryDefinition(definition: StoryDefinition,refs: StoryR
   const same=(a: readonly string[],b: readonly string[])=>[...a].sort().join(',')===[...b].sort().join(',');
   const expanded=definition.definitionVersion!==1;
   try {
-    check(definition.storyId==='reunion' && [1,2,3].includes(definition.definitionVersion) && definition.assetVersion===1 && definition.startNodeId==='intro','story identity/version');
+    check(definition.storyId==='reunion' && [1,2,3,4].includes(definition.definitionVersion) && definition.assetVersion===1 && definition.startNodeId==='intro','story identity/version');
     check(!!definition.title && !!definition.adaptationCredit,'adaptation credit missing');
     check(definition.subtitleTimebase==='full-target-ms','subtitle timebase must be explicit');
     check(same(definition.nodes.map(n=>n.id),refs.nodeIds),`exact ${expanded?36:18} story nodes required`);
@@ -80,10 +80,10 @@ export function validateStoryDefinition(definition: StoryDefinition,refs: StoryR
       }
       for(const timing of [node.fullTiming,node.guidedTiming])check(finite(timing.targetMs) && finite(timing.minDurationMs,0,timing.targetMs),`node timing ${id}`);
       check(node.guidedTiming.targetMs<=node.fullTiming.targetMs,`guided timing ${id}`);
-      if(['cinematic','curtain'].includes(node.kind))check(node.fullTiming.minDurationMs>=4000 && node.fullTiming.targetMs<=(definition.definitionVersion===3?120000:expanded?60000:20000) && node.guidedTiming.minDurationMs>=4000,`short scene duration ${id}`);
+      if(['cinematic','curtain'].includes(node.kind))check(node.fullTiming.minDurationMs>=4000 && node.fullTiming.targetMs<=(definition.definitionVersion>=3?120000:expanded?60000:20000) && node.guidedTiming.minDurationMs>=4000,`short scene duration ${id}`);
       for(const cue of [...node.subtitles,...(node.guidedSubtitles??[])])check(finite(cue.startMs,0,node.fullTiming.targetMs) && finite(cue.endMs,cue.startMs,node.fullTiming.targetMs) && cue.endMs>cue.startMs && cue.text && ['narrator',...node.actors].includes(cue.speaker) && cue.contentKind==='original-adaptation',`subtitles ${id}`);
       for(const cue of subtitlesForMode(node,'guided'))check(finite(cue.startMs,0,node.guidedTiming.targetMs) && finite(cue.endMs,cue.startMs,node.guidedTiming.targetMs),`mapped guided subtitles ${id}`);
-      if(definition.definitionVersion===3&&node.id!=='craft'&&node.id!=='completed'){
+      if(definition.definitionVersion>=3&&node.id!=='craft'&&node.id!=='completed'){
         check(node.fullTiming.minDurationMs===node.fullTiming.targetMs&&node.guidedTiming.minDurationMs===node.guidedTiming.targetMs,`v3 dialogue gate ${id}`);
         for(const [mode,cues]of [['full',node.subtitles],['guided',subtitlesForMode(node,'guided')]] as const){
           const duration=mode==='full'?node.fullTiming.targetMs:node.guidedTiming.targetMs;

@@ -52,13 +52,13 @@ describe('v3 narrative, version compatibility and canonical showcase', () => {
       expect(() => validateProject(wrong)).toThrow();
     });
   }
-  it('preserves actual v1/v2 consumers and protects a genuinely unknown v4', () => {
+  it('preserves actual v1/v2 consumers and protects a genuinely unknown v5', () => {
     for (const project of [at('completed'), expandedAt('completed')]) {
       expect(definitionFor(validateProject(project).story).definitionVersion).toBe(project.story!.definitionVersion);
       expect(createReunionReplay(project).segments.length).toBe(project.story!.definitionVersion === 1 ? 14 : 20);
     }
-    const future = structuredClone(expandedAt('completed')); Reflect.set(future.story!, 'definitionVersion', 4);
+    const future = structuredClone(expandedAt('completed')); Reflect.set(future.story!, 'definitionVersion', 5);
     expect(() => validateProject(future)).toThrowError(expect.objectContaining({ code: 'unsupported-version' }));
-    expect(definitionFor(null).definitionVersion).toBe(3);
+    expect(definitionFor(null).definitionVersion).toBe(4);
   });
 });

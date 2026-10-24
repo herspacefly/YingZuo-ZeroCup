@@ -31,7 +31,7 @@ describe('DATA-01/02/05 ProjectV1 serialization', () => {
   it.each([
     ['schema', (p: any) => { p.schemaVersion = 2; }],
     ['assets', (p: any) => { p.assetVersion = 2; }],
-    ['definition', (p: any) => { p.story.definitionVersion = 4; }],
+    ['definition', (p: any) => { p.story.definitionVersion = 5; }],
     ['cast assets', (p: any) => { p.story.castSnapshot.assetVersion = 2; }],
   ])('distinguishes unknown %s versions from corrupt data', (_, mutate) => {
     const p = project(); mutate(p);

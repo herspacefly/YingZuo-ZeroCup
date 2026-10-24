@@ -27,6 +27,6 @@ export const mountIntro: PageFactory = (host, ctx) => {
   return { update(state) {
     const hasStory = !!state.project?.story; primary.hidden = hasStory; guided.hidden = hasStory; resume.hidden = !hasStory;
     primary.disabled = guided.disabled = !advancing(state); resume.href = continueHash(state.project);
-    progress.textContent = state.project?.story&&state.project.story.definitionVersion!==3?'已保留先前的团圆演出。继续仍按原剧本；想体验五终章，可到制偶页归档重开。':hasStory ? '已为你保留这一场。继续时，从当前小段的起点暂停接续。' : '先读缘起，再制偶、调灯和练习；准备好以后再正式开演。也可直接选择节选导览。';
+    progress.textContent = state.project?.story&&state.project.story.definitionVersion<3?'已保留先前的团圆演出。继续仍按原剧本；想体验五终章，可到制偶页归档重开。':hasStory ? '已为你保留这一场。继续时，从当前小段的起点暂停接续。' : '先读缘起，再制偶、调灯和练习；准备好以后再正式开演。也可直接选择节选导览。';
   }, dispose: () => life.dispose() };
 };

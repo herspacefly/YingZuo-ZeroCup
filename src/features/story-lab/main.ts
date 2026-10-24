@@ -32,7 +32,7 @@ function render(state:StoreState) {
   const protectedState=!project || ['conflict','unsupported','recovery','loading','closed'].includes(state.status);
   const blocked=protectedState||state.hasPending||state.status==='saving';
   mode.disabled=blocked||!paused||!!node&&!node.allowedActions.includes('SET_MODE');if(story)mode.value=story.mode;
-  button('story-start',blocked||!!story);button('story-play',blocked||!node||!paused||(node.kind==='terminal'||(node.kind==='choice'&&story?.definitionVersion!==3))||node.id==='craft');button('story-pause',paused||blocked);
+  button('story-start',blocked||!!story);button('story-play',blocked||!node||!paused||(node.kind==='terminal'||(node.kind==='choice'&&(story?.definitionVersion??0)<3))||node.id==='craft');button('story-pause',paused||blocked);
   button('story-skip',blocked||node?.id!=='intro');
   el('story-node').dataset.node=node?.id??'none';el('node-act').textContent=node?`${node.act?`第${node.act}幕`:'序与制偶'} · ${node.id}`:'尚未开演';
   el('node-title').textContent=node?.title??'为这一场留一个起点。';el('node-lead').textContent=node?.lead??'开始后，进度将通过正式事务存档保存。刷新从当前短节点起点暂停接续。';
@@ -41,7 +41,7 @@ function render(state:StoreState) {
   for(const cue of node?.subtitles??[]){const p=document.createElement('p');p.textContent=`${{narrator:'旁白',chenxiang:'沉香',mother:'母亲',guardian:'二郎神'}[cue.speaker]}：${cue.text}`;subtitles.appendChild(p);}
   el('cast-summary').textContent=story?.castSnapshot?`本场冻结：${story.castSnapshot.appearance.patternId} / ${story.castSnapshot.appearance.paletteId}；已记录协助 ${story.assistedNodeIds.length} 段。`:'开演确认前，尚未冻结本场造型。';
   for(const id of ['story-craft','story-preset','story-assist','story-choose-call','story-choose-split','story-complete']){el(id).hidden=true;button(id,true);}
-  const timing=story?.mode==='guided'?node?.guidedTiming:node?.fullTiming,waiting=story?.definitionVersion===3&&elapsed<(timing?.minDurationMs??0);
+  const timing=story?.mode==='guided'?node?.guidedTiming:node?.fullTiming,waiting=(story?.definitionVersion??0)>=3&&elapsed<(timing?.minDurationMs??0);
   const endings=definitionFor(story).endings;
   for(const {b,end} of endingButtons){const label=endings?.find(item=>item.id===end.id)?.choiceLabel;if(label&&b.textContent!==label)b.textContent=label;b.hidden=node?.id!=='ending-choice';b.disabled=blocked||!!waiting;}
   if(node){

@@ -34,7 +34,7 @@ type Assistance={elapsed:number;base:Pose;stage:Pick<StageConfig,'lampX'|'puppet
 type Runtime={entry:ReturnType<typeof storyEntry>;scene:Director;scope:ReturnType<typeof createNodeScope>;
   stage:ReturnType<typeof canvasStage>;clock:ReturnType<typeof createAnimationClock>;shade:HTMLDivElement;
   controls:ReturnType<typeof mountStoryRodControls>|null;interaction:ReturnType<typeof createNodeInteraction>;
-  sample:ReturnType<Director['sample']>;version:1|2|3;clip:ReturnType<typeof createInteractionClip>|null;elapsed:number;playing:boolean;ready:boolean;requested:boolean;mode:'full'|'guided';
+  sample:ReturnType<Director['sample']>;version:1|2|3|4;clip:ReturnType<typeof createInteractionClip>|null;elapsed:number;playing:boolean;ready:boolean;requested:boolean;mode:'full'|'guided';
   pose:Pose;light:Pick<StageConfig,'lampX'|'puppetDistance'>;operated:boolean;handOperated:boolean;reading:InteractionReading|null;
   assistance:Assistance|null;resolution:Resolution|null;completed:ReadyCommand|null};
 let generation=0;
@@ -87,7 +87,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   function blocked(){return disposed||!state?.project||state.hasPending||ctx.isBusy()||['loading','closed','conflict','recovery','unsupported'].includes(state.status);}
   function current(rt:Runtime){return !disposed&&rt===live&&rt.scope.isCurrent(rt.entry.token);}
   function interactive(rt:Runtime){return rt.entry.node.kind==='interaction'&&rt.entry.node.id!=='craft';}
-  function canPlay(rt:Runtime){return current(rt)&&!blocked()&&rt.ready&&!rt.completed&&!rt.requested&&(interactive(rt)||(['cinematic','curtain',...(rt.version===3?['choice']:[])].includes(rt.entry.node.kind)&&!rt.sample.ended));}
+  function canPlay(rt:Runtime){return current(rt)&&!blocked()&&rt.ready&&!rt.completed&&!rt.requested&&(interactive(rt)||(['cinematic','curtain',...(rt.version>=3?['choice']:[])].includes(rt.entry.node.kind)&&!rt.sample.ended));}
   function facts(rt:Runtime):SceneObservation{return {token:rt.entry.token,paused:!rt.playing,elapsedMs:rt.elapsed,now:new Date().toISOString()};}
   function stop(rt:Runtime,text?:string){
     rt.playing=false;rt.clock.stop();rt.controls?.release();
@@ -105,13 +105,13 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   }
   function renderDisplayed(){
     if(!display)return;const rt=display;title.textContent=rt.entry.node.title;lead.textContent=rt.entry.node.lead;shot.textContent=rt.sample.shotLabel;
-    rt.shade.style.opacity=String(1-rt.sample.lightLevel);subtitles.update(rt.sample.cues,rt.version===3?rt.entry.node.subtitles:subtitlesForMode(rt.entry.node,rt.mode),rt.entry.token);
+    rt.shade.style.opacity=String(1-rt.sample.lightLevel);subtitles.update(rt.sample.cues,rt.version>=3?rt.entry.node.subtitles:subtitlesForMode(rt.entry.node,rt.mode),rt.entry.token);
   }
   function submit(rt:Runtime,ready:ReadyCommand){
     if(!current(rt)||blocked()||rt.requested)return;
     rt.completed=ready;rt.requested=true;stop(rt,'正在保存这一刻，保存后再切幕…');
     void ctx.durable(()=>submitScopedSceneCommand(ctx.store,rt.scope,ready.command,ready.facts),
-      rt.entry.node.id==='intro'&&rt.version!==3?{path:'/craft',exhibitId:null}:undefined);
+      rt.entry.node.id==='intro'&&rt.version<3?{path:'/craft',exhibitId:null}:undefined);
   }
   function offer(rt:Runtime,ready:ReadyCommand){
     rt.completed=ready;stop(rt,'这一段已完成。');
@@ -130,7 +130,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     const t=reduced?(progress>=1?1:progress>=.5?.5:0):smooth(progress),kind=rt.entry.node.completion.kind;
     rt.sample.frame=stagePlayFrame(rt.entry.node,rt.sample.frame,{opening:kind==='axe'?t:0,reveal:rt.resolution?1:(rt.reading?.coverage??0)/.35,
       reaction:rt.entry.node.id==='memory-wave'?t:0,guardianExit:rt.entry.node.id==='guardian'?t:0,holding});
-    if(interactive(rt))rt.sample.frame.showRods=rt.version!==3||rt.elapsed>=rt.scene.durationMs;
+    if(interactive(rt))rt.sample.frame.showRods=rt.version<3||rt.elapsed>=rt.scene.durationMs;
     }
     rt.stage.update(rt.sample.frame);if(display===rt)renderDisplayed();
     updateSound({nodeId:rt.entry.node.id,mode:rt.mode,elapsedMs:rt.elapsed,playing:rt.playing&&rt.ready});
@@ -169,8 +169,8 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     rt.elapsed+=delta;
     if(rt.resolution){rt.resolution.elapsed+=delta;sample(rt);if(rt.resolution.elapsed>=rt.resolution.duration){finishResolution(rt);return false;}renderUI();return true;}
     if(interactive(rt)){
-      if(rt.version===3&&rt.elapsed<rt.scene.durationMs){sample(rt);message='先听这一段故事；对白结束后，握柄会出现，再由你接过影偶。';renderUI();return true;}
-      if(rt.version===3&&rt.elapsed-delta<rt.scene.durationMs)message='对白说完了。现在接过影偶，完成下面的动作。';
+      if(rt.version>=3&&rt.elapsed<rt.scene.durationMs){sample(rt);message='先听这一段故事；对白结束后，握柄会出现，再由你接过影偶。';renderUI();return true;}
+      if(rt.version>=3&&rt.elapsed-delta<rt.scene.durationMs)message='对白说完了。现在接过影偶，完成下面的动作。';
       if(rt.assistance)assistanceFrame(rt,delta);else rt.controls?.tick(delta);
       sample(rt);rt.reading=rt.interaction.observe(rt.sample.frame,rt.elapsed,false,rt.operated&&(rt.entry.node.completion.kind!=='reach'||rt.handOperated||!!rt.assistance));
       if(rt.reading.evidence&&(!rt.assistance||rt.assistance.elapsed>=3200))beginResolution(rt,rt.reading);
@@ -200,7 +200,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
       const stage=canvasStage('当前短节点 · 使用本场冻结造型；操作与瞬时姿态不另存为录像。'),nodeScope=createNodeScope(entry.token,error=>ctx.notify(`片段清理失败：${errorText(error)}`));
       stage.restoreSpatial(spatialPreference);
       const shade=element('div','story-scene-shade');shade.setAttribute('aria-hidden','true');stage.screen.appendChild(shade);
-      const rt:Runtime={entry,scene,version:project.story!.definitionVersion,clip:project.story!.definitionVersion===3&&entry.node.kind==='interaction'&&entry.node.id!=='craft'?createInteractionClip(entry.node,scene):null,scope:nodeScope,stage,shade,sample:initialSample,elapsed:0,playing:false,ready:false,requested:false,mode:project.story!.mode,clock:null!,controls:null,
+      const rt:Runtime={entry,scene,version:project.story!.definitionVersion,clip:project.story!.definitionVersion>=3&&entry.node.kind==='interaction'&&entry.node.id!=='craft'?createInteractionClip(entry.node,scene):null,scope:nodeScope,stage,shade,sample:initialSample,elapsed:0,playing:false,ready:false,requested:false,mode:project.story!.mode,clock:null!,controls:null,
         interaction:createNodeInteraction(entry.node),pose:clone(entry.node.entryPoses.chenxiang!),light:{lampX:entry.node.entryStage.lampX,puppetDistance:entry.node.entryStage.puppetDistance},operated:false,handOperated:false,reading:null,assistance:null,resolution:null,completed:null};
       rt.clock=createAnimationClock({request:callback=>window.requestAnimationFrame(callback),cancel:id=>window.cancelAnimationFrame(id),now:()=>performance.now()},delta=>tick(rt,delta),
         fault=>stop(rt,fault.reason==='gap'?'页面停顿较久，已暂停；继续时不补算这段时间。':`片段已停止：${errorText(fault.error)}`),stage.frameObserver);
@@ -218,7 +218,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
             const hands=completion.kind==='reach'?interactionHandPoints(rt.sample.frame):null;
             const target=hands?{minX:hands.mother.x-.07,maxX:hands.mother.x+.07,minY:hands.mother.y-.07,maxY:hands.mother.y+.07}:
               'target'in completion?normalizedTargetBounds(completion.target):null;
-            return {frame:rt.sample.frame,enabled:!blocked()&&rt.ready&&rt.playing&&(rt.version!==3||rt.elapsed>=rt.scene.durationMs)&&!rt.assistance&&!rt.resolution&&!rt.completed,rods,
+            return {frame:rt.sample.frame,enabled:!blocked()&&rt.ready&&rt.playing&&(rt.version<3||rt.elapsed>=rt.scene.durationMs)&&!rt.assistance&&!rt.resolution&&!rt.completed,rods,
               lights:completion.kind==='light',target,
               region:hands?{minX:hands.chenxiang.x-.03,maxX:hands.chenxiang.x+.03,minY:hands.chenxiang.y-.03,maxY:hands.chenxiang.y+.03}:
                 ['wave','road','block','light'].includes(completion.kind)?projectedInteractionRegion(rt.sample.frame,completion.kind as 'wave'|'road'|'block'|'light'):null};},
@@ -234,27 +234,27 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   }
   function renderUI(){
     if(disposed)return;const rt=live,node=rt?.entry.node,hasStory=!!state?.project?.story;
-    legacyNote.hidden=!state?.project?.story||state.project.story.definitionVersion===3;legacyNote.textContent='你正在接续先前版本的演出，仍按当时的台词与编排继续。';
+    legacyNote.hidden=!state?.project?.story||state.project.story.definitionVersion>=3;legacyNote.textContent='你正在接续先前版本的演出，仍按当时的台词与编排继续。';
     start.hidden=hasStory;start.disabled=blocked();skip.hidden=node?.id!=='intro';skip.disabled=blocked()||!rt?.ready;
-    craft.hidden=node?.id!=='craft'||display!==rt;confirm.hidden=craft.hidden||rt?.version!==3;confirm.disabled=blocked()||!rt?.ready||!!rt.requested;result.hidden=!['curtain','completed'].includes(node?.id??'');modeLabel.hidden=!rt;transport.hidden=!rt||(node?.kind==='choice'&&rt?.version!==3)||node?.kind==='terminal'||node?.id==='craft';
+    craft.hidden=node?.id!=='craft'||display!==rt;confirm.hidden=craft.hidden||(rt?.version??0)<3;confirm.disabled=blocked()||!rt?.ready||!!rt.requested;result.hidden=!['curtain','completed'].includes(node?.id??'');modeLabel.hidden=!rt;transport.hidden=!rt||(node?.kind==='choice'&&(rt?.version??0)<3)||node?.kind==='terminal'||node?.id==='craft';
     const endings=definitionFor(state?.project?.story).endings;
-    choices.hidden=node?.kind!=='choice';call.hidden=split.hidden=node?.id!=='approach-choice';for(const [id,button] of endingButtons){const label=endings?.find(end=>end.id===id)?.choiceLabel;if(label&&button.textContent!==label)button.textContent=label;button.hidden=node?.id!=='ending-choice';button.disabled=blocked()||!rt?.ready||!!rt.requested||(rt?.version===3&&rt.elapsed<rt.scene.durationMs);}call.disabled=split.disabled=blocked()||!rt?.ready||!!rt.requested||(rt?.version===3&&rt.elapsed<rt.scene.durationMs);
+    choices.hidden=node?.kind!=='choice';call.hidden=split.hidden=node?.id!=='approach-choice';for(const [id,button] of endingButtons){const label=endings?.find(end=>end.id===id)?.choiceLabel;if(label&&button.textContent!==label)button.textContent=label;button.hidden=node?.id!=='ending-choice';button.disabled=blocked()||!rt?.ready||!!rt.requested||((rt?.version??0)>=3&&rt.elapsed<rt.scene.durationMs);}call.disabled=split.disabled=blocked()||!rt?.ready||!!rt.requested||((rt?.version??0)>=3&&rt.elapsed<rt.scene.durationMs);
     play.disabled=!rt||!canPlay(rt)||rt.playing;pause.disabled=!rt?.playing;reset.disabled=!rt||blocked();
     soundToggle.disabled=!rt||blocked()||['unavailable','enabling','disposed'].includes(soundState);
     showcaseSkip.hidden=showcaseAgain.hidden=!rt?.resolution||!rt.clip;showcaseSkip.disabled=showcaseAgain.disabled=blocked();
-    play.textContent=rt?.resolution&&rt.clip?'继续定场放映':rt?.version===3&&rt.elapsed<rt.scene.durationMs&&interactive(rt)?'听这一段故事':node?.id==='intro'&&rt?.elapsed===0?'点亮幕灯，开始序幕':rt&&interactive(rt)?'继续操偶':'继续片段';
+    play.textContent=rt?.resolution&&rt.clip?'继续定场放映':rt&&rt.version>=3&&rt.elapsed<rt.scene.durationMs&&interactive(rt)?'听这一段故事':node?.id==='intro'&&rt?.elapsed===0?'点亮幕灯，开始序幕':rt&&interactive(rt)?'继续操偶':'继续片段';
     mode.disabled=!rt||blocked()||rt.playing||!!rt.resolution||!!rt.completed||!rt.ready||!rt.entry.node.allowedActions.includes('SET_MODE');if(rt)mode.value=rt.mode;
     retry.hidden=!mountError&&rt?.stage.getStatus().state!=='error';retry.disabled=blocked();
     finish.hidden=!rt?.completed||rt.requested;finish.disabled=blocked()||!rt?.ready;finish.textContent=node?.id==='reunion-hold'&&state?.project?.story?.definitionVersion===1?'谢幕':node?.id.endsWith('-hold')?'读终章后记':'确认进入下一段';
-    assist.hidden=!rt||!interactive(rt)||!!rt.completed;assist.disabled=blocked()||!rt?.ready||!!rt?.resolution||!!rt?.assistance||(rt?.version===3&&rt.elapsed<rt.scene.durationMs);
+    assist.hidden=!rt||!interactive(rt)||!!rt.completed;assist.disabled=blocked()||!rt?.ready||!!rt?.resolution||!!rt?.assistance||((rt?.version??0)>=3&&rt.elapsed<rt.scene.durationMs);
     const phase=mountError||rt?.stage.getStatus().state==='error'?'error':blocked()?'saving':rt&&!rt.ready?'loading':rt?.playing?'playing':'paused';
     runtime.setAttribute('data-showcase',rt?.resolution&&rt.clip?'playing':rt?.completed&&rt.clip?'complete':'none');runtime.setAttribute('data-showcase-elapsed',String(Math.round(rt?.resolution?.elapsed??0)));runtime.setAttribute('data-state',phase);runtime.setAttribute('data-elapsed',String(Math.round(rt?.elapsed??0)));runtime.setAttribute('data-node',node?.id??'');
     runtime.setAttribute('data-token',rt?.entry.token??'');runtime.setAttribute('data-reduced-motion',String(reduced));runtime.setAttribute('data-coverage',String(rt?.reading?.coverage??0));
     runtime.setAttribute('data-held',String(rt?.reading?.heldMs??0));runtime.setAttribute('data-interaction',rt?.reading?.phase??'waiting');runtime.setAttribute('data-distance',String(rt?.reading?.distanceRatio??1));
     runtime.textContent=state?.hasPending?'检查点尚未保存；画面保留在当前段。请在作品工具中重试、取消或选择仅在本页继续。':message;
     note.textContent=!rt?'确认开演后，才会为本场留下独立的演出身份；直接打开页面不会替你开始。':node?.id==='craft'?'确认已经准备好的造型，便为本场冻结行装；也可回到制偶页调整。':
-      node?.kind==='choice'?(rt.version===3&&rt.elapsed<rt.scene.durationMs?'先听这段对白；说完以后，再亲自选择这一场的去向。':'请亲自选择这一场的去向。操作失误和使用协助不会替你决定结局。'):
-      rt.version===3&&interactive(rt)&&rt.elapsed<rt.scene.durationMs?'先听这一段故事，随后会展开握柄与操偶控件。也可展开本段完整台词阅读。':
+      node?.kind==='choice'?(rt.version>=3&&rt.elapsed<rt.scene.durationMs?'先听这段对白；说完以后，再亲自选择这一场的去向。':'请亲自选择这一场的去向。操作失误和使用协助不会替你决定结局。'):
+      rt.version>=3&&interactive(rt)&&rt.elapsed<rt.scene.durationMs?'先听这一段故事，随后会展开握柄与操偶控件。也可展开本段完整台词阅读。':
       rt.resolution&&rt.clip?'这一段已达标，握柄已收起。可暂停、跳过放映或从头再看；放映结束后只保存一次。':interactive(rt)?`${tips[node!.id]??(node!.completion.kind==='axe'?'抬起右手，稳住半秒，再亲手落斧。':node!.completion.kind==='light'?'移动身躯与灯位，让纹样照进金色区域。':'用方向键移身，走进金色区域后停留。')} 金色是目标区域，白线是当前观察范围。暂停不累计动作时间；刷新会从本段开头的静止画面重新开始。`:
       `尚未播放时是本段开头的静止画面；继续片段后，字幕与场面一起走。${reduced?'已启用减少动态。':''}声音可选，静音也保留全部字幕与操作。`;
     if(!hasStory){title.textContent='还没有开始这一场';lead.textContent=note.textContent;shot.textContent='';subtitles.update([],[],'empty');}rt?.controls?.render();
@@ -284,7 +284,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     submit(rt,{command:{...rt.entry.guard,action:'CHOOSE',approach},facts:facts(rt)});
   });
   life.on(assist,'click',()=>{
-    const rt=live;if(!rt||blocked()||!rt.ready||!interactive(rt)||rt.assistance||rt.resolution||rt.completed||(rt.version===3&&rt.elapsed<rt.scene.durationMs))return;
+    const rt=live;if(!rt||blocked()||!rt.ready||!interactive(rt)||rt.assistance||rt.resolution||rt.completed||(rt.version>=3&&rt.elapsed<rt.scene.durationMs))return;
     const goal=interactionGoal(rt.entry.node,rt.sample.frame);if(!goal){message='当前几何条件无法演出这段协助动作，请重开片段后重试。';renderUI();return;}
     rt.interaction.reset();rt.assistance={elapsed:0,base:clone(rt.pose),stage:{...rt.light},goal};rt.playing=true;message='与你协作演这一段；完成后节目单会记录本段协助。';updateSound({nodeId:rt.entry.node.id,mode:rt.mode,elapsedMs:rt.elapsed,playing:true});renderUI();rt.clock.start();
   });

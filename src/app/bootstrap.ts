@@ -147,14 +147,14 @@ async function mount() {
       edit(command) { void run(() => opened.edit(command)); },
       start(mode) {
         const story = opened.getState().project?.story;
-        if (story) { router?.navigate({ path: story.nodeId === 'craft' && story.definitionVersion!==3 ? '/craft' : '/story', exhibitId: null }); return; }
+        if (story) { router?.navigate({ path: story.nodeId === 'craft' && story.definitionVersion<3 ? '/craft' : '/story', exhibitId: null }); return; }
         void durable(() => startStory(opened, newIdentifier('run'), mode), { path: '/story', exhibitId: null });
       },
       skipIntro() {
         const story = opened.getState().project?.story;
         if (story?.nodeId !== 'intro') return;
         void durable(() => submitStoryCommand(opened, { ...storyGuard(story), action: 'COMPLETE_SCENE', source: 'user', skipped: true },
-          { paused: true, elapsedMs: 0, now: new Date().toISOString() }), { path: story.definitionVersion===3?'/story':'/craft', exhibitId: null });
+          { paused: true, elapsedMs: 0, now: new Date().toISOString() }), { path: story.definitionVersion>=3?'/story':'/craft', exhibitId: null });
       },
     };
     const view=factories[parsed.route.path](host, context),journey=mountJourney(host,parsed.route);

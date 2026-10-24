@@ -8,7 +8,7 @@ export const paletteLabel = (id: string) => palettes.palettes.find(p => p.id ===
 export const patternLabel = (id: string) => patterns.patterns.find(p => p.id === id)?.label ?? '未识别纹样';
 export const editable = (state: StoreState) => !!state.project && !['loading', 'closed', 'unsupported', 'recovery', 'conflict'].includes(state.status);
 export const advancing = (state: StoreState) => editable(state) && !state.hasPending && state.status !== 'saving';
-export const continueHash = (project: ProjectV1 | null) => project?.story?.nodeId === 'craft' && project.story.definitionVersion!==3 ? '#/craft' : '#/story';
+export const continueHash = (project: ProjectV1 | null) => project?.story?.nodeId === 'craft' && project.story.definitionVersion<3 ? '#/craft' : '#/story';
 export function heading(eyebrow: string, title: string, lead: string) {
   const head = element('div', 'page-heading'); append(head, element('p', 'eyebrow', eyebrow), element('h1', '', title), element('p', 'page-lead', lead)); return head;
 }

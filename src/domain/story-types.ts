@@ -6,7 +6,7 @@ export type Completion =
   | { kind: 'scene'; activation: 'automatic' | 'user'; skippable: boolean }
   | { kind: 'craft' }
   | { kind: 'wave' | 'road' | 'block'; target: TargetRect; overlapRatio: number; holdMs: number }
-  | { kind: 'light'; target: TargetRect; overlapRatio: number; holdMs: number }
+  | { kind: 'light'; region?: 'lantern'; target: TargetRect; overlapRatio: number; holdMs: number }
   | { kind: 'axe'; target: TargetRect; raisedAngleRange: [number,number]; landedAngleRange: [number,number]; holdMs: number }
   | { kind: 'reach'; target: TargetRect; maxDistanceRatio: number; maxSnapRatio: number }
   | { kind: 'choice' | 'terminal' };
@@ -26,7 +26,7 @@ export interface StoryNode {
   assetIds: string[]; sourceIds: string[]; contentKind: 'original-adaptation';
 }
 export interface StoryDefinition {
-  storyId: 'reunion'; definitionVersion: 1 | 2 | 3; assetVersion: 1; startNodeId: 'intro';
+  storyId: 'reunion'; definitionVersion: 1 | 2 | 3 | 4; assetVersion: 1; startNodeId: 'intro';
   title: string; adaptationCredit: string; nodes: StoryNode[];
   subtitleTimebase: 'full-target-ms';
   endings?: {id:EndingId;title:string;choiceLabel:string;summary:string;holdNodeId:StoryNodeId;epilogueNodeId:StoryNodeId}[];

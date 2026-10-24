@@ -12,7 +12,7 @@ const finiteRange=(v: number,min=0,max=Number.MAX_SAFE_INTEGER)=>typeof v==='num
 export function storyGuard(story: StoryProgress): StoryGuard {
   return {runId:story.runId,expectedRevision:story.revision,expectedNodeId:story.nodeId};
 }
-export function beginStory(project: ProjectV1,runId: string,mode: StoryProgress['mode'],definitionVersion:1|2|3=1): ProjectV1 | null {
+export function beginStory(project: ProjectV1,runId: string,mode: StoryProgress['mode'],definitionVersion:1|2|3|4=1): ProjectV1 | null {
   const next=validateProject(project);if(next.story)return null;
   next.story={storyId:'reunion',definitionVersion,runId,revision:0,mode,nodeId:'intro',approach:null,approachSource:null,castSnapshot:null,assistedNodeIds:[],presetAppearanceUsed:false,completedAt:null,
     ...(definitionVersion!==1?{ending:null,endingSource:null}:{})};
@@ -58,7 +58,7 @@ export function reduceStory(project: ProjectV1,command: StoryCommand,context: St
     if(command.mode===story.mode)return null;
     story.mode=command.mode;story.revision++;return validateProject(next);
   }
-  if(story.definitionVersion===3&&command.action!=='COMPLETE_SCENE'&&node.id!=='craft'){const timing=story.mode==='full'?node.fullTiming:node.guidedTiming;requireFact(context.elapsedMs>=timing.minDurationMs,'请先听完这一段对白，再决定或操偶。');}
+  if(story.definitionVersion>=3&&command.action!=='COMPLETE_SCENE'&&node.id!=='craft'){const timing=story.mode==='full'?node.fullTiming:node.guidedTiming;requireFact(context.elapsedMs>=timing.minDurationMs,'请先听完这一段对白，再决定或操偶。');}
   let destination: string | undefined;
   if(command.action==='CHOOSE') {
     requireFact(node.id==='approach-choice' && node.kind==='choice' && node.completion.kind==='choice' && node.next && !('default' in node.next),'当前没有可选路线。');
