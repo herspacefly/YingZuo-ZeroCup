@@ -114,7 +114,7 @@ function checkExpected(records: RawRecords, expected: ProjectBaseline | null): P
 }
 
 interface StorageOptions { writerId: string; now: () => string; databaseName?: string }
-interface Mutation<T> { result: T; writes: [typeof KEYS[number], unknown][] }
+interface Mutation<T> { result: T; writes: [typeof KEYS[number], unknown][]; deletes?: readonly typeof KEYS[number][] }
 
 /** One serial entry per tab; cross-tab ownership is checked inside each readwrite transaction. */
 export class ProjectStorage {
@@ -192,6 +192,7 @@ export class ProjectStorage {
           const records: RawRecords = { draft: values[0], backup: values[1], previousProject: values[2], rawInvalid: values[3] };
           try {
             outcome = mutate(records);
+            for (const deleteKey of outcome.deletes ?? []) store.delete(deleteKey);
             for (const [writeKey, value] of outcome.writes) store.put(value, writeKey);
           } catch (error) { failure = error; tx.abort(); }
         };
@@ -207,6 +208,22 @@ export class ProjectStorage {
   private stamp(project: ProjectV1, revision: number): ProjectV1 {
     return parseProjectJSON(serializeProject({ ...project, saveRevision: revision,
       writerId: this.options.writerId, savedAt: this.options.now() }));
+  }
+  /** Explicit destructive reset, deliberately separate from archive/recovery paths.
+   * Deletions and the new identity commit together, so old tabs fail their CAS. */
+  resetLocalHistory(candidate: ProjectV1): Promise<ProjectV1> {
+    const snapshot = validateProject(candidate);
+    if (snapshot.saveRevision !== 0 || snapshot.story || snapshot.museum.visitedExhibitIds.length || snapshot.performance || snapshot.partialRecording) {
+      return Promise.reject(new StorageError('invalid', '清理后必须从全新作品开始。'));
+    }
+    return this.enqueue(() => this.transaction('readwrite', records => {
+      // A reset is the user's explicit permission to erase even an unknown or
+      // corrupt record. Ordinary saving and recovery still protect those data.
+      const old = inspect(records.draft).project;
+      if (old?.projectId === snapshot.projectId) throw new StorageError('invalid', '清理历史必须使用新的作品身份。');
+      const next = this.stamp(snapshot, 1);
+      return { result: next, deletes: KEYS, writes: [['draft', serializeProject(next)]] };
+    }));
   }
   save(candidate: ProjectV1, expected: ProjectBaseline | null): Promise<ProjectV1> {
     const snapshot = validateProject(candidate);

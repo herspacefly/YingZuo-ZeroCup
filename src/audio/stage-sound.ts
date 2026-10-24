@@ -4,11 +4,12 @@ import type { StageSoundEvent, StageTimbre } from '../content/sound-cues';
 import type { StoryNodeId, StoryProgress } from '../domain/types';
 
 export interface StageSoundStatus {
-  state: 'muted' | 'enabling' | 'enabled' | 'unavailable' | 'error' | 'disposed';
+  state: 'muted' | 'blocked' | 'enabling' | 'enabled' | 'unavailable' | 'error' | 'disposed';
   message: string;
 }
 export interface StageSoundSample {
   nodeId: StoryNodeId; mode: StoryProgress['mode']; elapsedMs: number; playing: boolean;
+  definitionVersion?: StoryProgress['definitionVersion'];
   event?: StageSoundEvent;
 }
 
@@ -55,8 +56,12 @@ export function createStageSound(onStatus: (status: StageSoundStatus) => void, o
   let context: StageAudioContext | null = null, disposed = false, enabled = false, generation = 0;
   let pending: Promise<boolean> | null = null, sample: StageSoundSample | null = null, cursor = -1;
   const voices = new Set<Voice>(), consumed = new Set<string>();
+  const listeners = new Set<(status: StageSoundStatus) => void>();
+  let status: StageSoundStatus = { state: factory ? 'muted' : 'unavailable', message: '' };
 
-  function report(state: StageSoundStatus['state'], message: string) { onStatus({ state, message }); }
+  function report(state: StageSoundStatus['state'], message: string) {
+    status = { state, message }; onStatus(status); listeners.forEach(listener => listener(status));
+  }
   function release(voice: Voice, stop: boolean): string[] {
     if (voice.released) return [];
     voice.released = true; voices.delete(voice); voice.source.onended = null;
@@ -79,19 +84,15 @@ export function createStageSound(onStatus: (status: StageSoundStatus) => void, o
       void old.close().catch(failedClose);
     } catch (error) { failedClose(error); }
   }
-  function invalidatePending(message: string) {
-    if (!pending) return;
-    generation++; pending = null; enabled = false; stopVoices(); closeContext();
-    report('muted', message);
-  }
   function fail(error: unknown) {
     generation++; pending = null; enabled = false;
     const cleanup = stopVoices(); closeContext();
-    report('error', `声音未能播放，静音下仍可完成本场。可重新开启声音：${errorText(error)}${cleanup.length ? `；清理报告：${cleanup.join('；')}` : ''}`);
+    const blocked = !!error && typeof error === 'object' && 'name' in error && error.name === 'NotAllowedError';
+    report(blocked ? 'blocked' : 'error', blocked ? '舞台音效默认开启；点击或按键后由浏览器自动解锁。' : `声音未能播放，静音下仍可完成本场。可重新开启声音：${errorText(error)}${cleanup.length ? `；清理报告：${cleanup.join('；')}` : ''}`);
   }
   function consumePast(time: number, preserveStart = false) {
     if (!sample) return;
-    for (const cue of stageSoundCues(sample.nodeId, sample.mode)) {
+    for (const cue of stageSoundCues(sample.nodeId, sample.mode, sample.definitionVersion)) {
       if (cue.atMs <= time && !(preserveStart && cue.atMs === 0 && time === 0)) consumed.add(cue.id);
     }
   }
@@ -147,16 +148,14 @@ export function createStageSound(onStatus: (status: StageSoundStatus) => void, o
   function update(next: StageSoundSample) {
     if (disposed) return;
     const elapsedMs = Number.isFinite(next.elapsedMs) ? Math.max(0, next.elapsedMs) : 0;
-    const changed = !sample || next.nodeId !== sample.nodeId || next.mode !== sample.mode;
+    const changed = !sample || next.nodeId !== sample.nodeId || next.mode !== sample.mode || next.definitionVersion !== sample.definitionVersion;
     const resumed = !!sample && !sample.playing && next.playing;
     if (changed) {
-      invalidatePending('片段已切换，声音保持静音，可重新开启。');
       const errors = stopVoices(); if (errors.length) fail(new Error(errors.join('；')));
       consumed.clear(); cursor = -1;
     }
     sample = { ...next, elapsedMs };
     if (!next.playing) {
-      invalidatePending('演出已暂停，声音保持静音，可重新开启。');
       const errors = stopVoices(); if (errors.length) fail(new Error(errors.join('；')));
       consumePast(elapsedMs, true);
       if (next.event) consumed.add(`event:${next.event}`);
@@ -165,7 +164,7 @@ export function createStageSound(onStatus: (status: StageSoundStatus) => void, o
     }
     // Resuming does not backfill cues from a pause or from a muted interval.
     if (resumed) consumePast(elapsedMs, true);
-    for (const cue of stageSoundCues(next.nodeId, next.mode)) {
+    for (const cue of stageSoundCues(next.nodeId, next.mode, next.definitionVersion)) {
       if (consumed.has(cue.id) || cue.atMs > elapsedMs) continue;
       consumed.add(cue.id);
       if (enabled && cue.atMs > cursor && elapsedMs - cue.atMs <= maxLatenessMs) {
@@ -182,10 +181,19 @@ export function createStageSound(onStatus: (status: StageSoundStatus) => void, o
     cursor = elapsedMs;
   }
 
-  function enable(): Promise<boolean> {
+  function enable(retryPending = false): Promise<boolean> {
     if (disposed) return Promise.resolve(false);
     if (!factory) { report('unavailable', '当前浏览器不支持声音合成，静音下仍可完成本场。'); return Promise.resolve(false); }
-    if (pending) return pending;
+    if (pending) {
+      // resume() may stay pending until a user gesture. Invoke it again inside
+      // that gesture, rather than just returning the pre-gesture promise.
+      if (retryPending && context) {
+        const retryContext=context,retryGeneration=generation;
+        const retryFailed=(error:unknown)=>{if(!disposed&&retryContext===context&&retryGeneration===generation)fail(error);};
+        try { void retryContext.resume().catch(retryFailed); } catch (error) { retryFailed(error); }
+      }
+      return pending ?? Promise.resolve(false);
+    }
     if (enabled && context?.state === 'running') return Promise.resolve(true);
     const token = ++generation;
     report('enabling', '正在开启原创合成舞台音效…');
@@ -196,6 +204,7 @@ export function createStageSound(onStatus: (status: StageSoundStatus) => void, o
     consumePast(sample?.elapsedMs ?? 0, true);
     let resumed: Promise<void>;
     try { resumed = active.resume(); } catch (error) { fail(error); return Promise.resolve(false); }
+    if (active.state !== 'running') report('blocked', '舞台音效默认开启；点击或按键后由浏览器自动解锁。');
     const operation = resumed.then(() => {
         if (disposed || token !== generation || active !== context) return false;
         pending = null;
@@ -216,10 +225,16 @@ export function createStageSound(onStatus: (status: StageSoundStatus) => void, o
   }
   function reset(nodeId: StoryNodeId) {
     if (disposed) return;
-    invalidatePending('片段已重开，声音保持静音，可重新开启。');
     const errors = stopVoices(); if (errors.length) fail(new Error(errors.join('；')));
     consumed.clear(); cursor = -1;
-    sample = sample ? { nodeId, mode: sample.mode, elapsedMs: 0, playing: false } : null;
+    sample = sample ? { nodeId, mode: sample.mode, definitionVersion: sample.definitionVersion, elapsedMs: 0, playing: false } : null;
+  }
+  function seek(next: StageSoundSample) {
+    if (disposed) return;
+    const errors = stopVoices(); if (errors.length) fail(new Error(errors.join('；')));
+    sample = { ...next, elapsedMs: Number.isFinite(next.elapsedMs) ? Math.max(0, next.elapsedMs) : 0 };
+    consumed.clear(); consumePast(sample.elapsedMs); cursor = sample.elapsedMs;
+    if (next.event) consumed.add(`event:${next.event}`);
   }
   function dispose() {
     if (disposed) return;
@@ -228,5 +243,8 @@ export function createStageSound(onStatus: (status: StageSoundStatus) => void, o
     report('disposed', errors.length ? `声音已退出；清理报告：${errors.join('；')}` : '声音已退出。');
   }
   report(factory ? 'muted' : 'unavailable', factory ? '默认静音。可选择开启原创合成舞台音效。' : '当前浏览器不支持声音合成，静音下仍可完成本场。');
-  return { enable, mute, update, reset, dispose };
+  return { enable, mute, update, reset, seek, dispose,
+    getStatus: () => ({ ...status }),
+    subscribe(listener: (next: StageSoundStatus) => void) { listeners.add(listener); listener({ ...status }); return () => { listeners.delete(listener); }; },
+  };
 }

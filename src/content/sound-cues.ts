@@ -1,5 +1,5 @@
 import type { StoryNodeId, StoryProgress } from '../domain/types';
-import { reunionDefinition } from './reunion';
+import { definitionFor } from './reunion';
 
 export type StageTimbre = 'lamp' | 'low-drum' | 'mountain' | 'settle';
 export type StageSoundEvent = 'mountain-open' | 'light-found' | 'hands-meet';
@@ -20,8 +20,8 @@ const timeline: Partial<Record<StoryNodeId, readonly StageSoundCue[]>> = {
   curtain: [{ id: 'curtain', atMs: 0, timbre: 'settle' }],
 };
 
-export function stageSoundCues(nodeId: StoryNodeId, mode: StoryProgress['mode']): StageSoundCue[] {
-  const node = reunionDefinition.nodes.find(item => item.id === nodeId);
+export function stageSoundCues(nodeId: StoryNodeId, mode: StoryProgress['mode'], definitionVersion: StoryProgress['definitionVersion'] = 1): StageSoundCue[] {
+  const node = definitionFor({ definitionVersion }).nodes.find(item => item.id === nodeId);
   if (!node || !node.fullTiming.targetMs) return [];
   const duration = mode === 'full' ? node.fullTiming.targetMs : node.guidedTiming.targetMs;
   return (timeline[nodeId] ?? []).map(cue => ({ ...cue, atMs: cue.atMs / node.fullTiming.targetMs * duration }));

@@ -9,7 +9,7 @@ export interface MusicTrack {
 
 export interface MusicSample { trackId: string | null; playing: boolean }
 export interface MusicStatus {
-  state: 'muted' | 'enabling' | 'enabled' | 'unavailable' | 'error' | 'disposed';
+  state: 'muted' | 'blocked' | 'enabling' | 'enabled' | 'unavailable' | 'error' | 'disposed';
   message: string;
   trackId: string | null;
 }
@@ -81,7 +81,8 @@ export function createStageMusic(onStatus: (status: MusicStatus) => void, option
   function fail(error: unknown) {
     enabled = false;
     const cleanup = releaseActive();
-    report('error', `音乐未能播放，可重新开启音乐：${errorText(error)}${cleanup.length ? `；清理报告：${cleanup.join('；')}` : ''}`);
+    const blocked = !!error && typeof error === 'object' && 'name' in error && error.name === 'NotAllowedError';
+    report(blocked ? 'blocked' : 'error', blocked ? '音乐默认开启；浏览器正在等待你的首次操作，点击或按键后自动播放。' : `音乐未能播放，可重新开启音乐：${errorText(error)}${cleanup.length ? `；清理报告：${cleanup.join('；')}` : ''}`);
   }
 
   function shouldPlay(player: Player) {

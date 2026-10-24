@@ -64,16 +64,19 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   const showcaseSkip=element('button','button secondary','跳过定场放映'),showcaseAgain=element('button','button secondary','再看一次'),confirm=element('button','button primary','确认这身行装，进入第一幕');
   showcaseSkip.id='showcase-skip';showcaseAgain.id='showcase-again';confirm.id='story-confirm-craft';
   const mode=element('select'),modeLabel=element('label','','演出节奏（暂停时可切换）'),transport=element('div','story-transport');
-  const soundToggle=element('button','button secondary','开启舞台音效'),soundStatus=element('p','quiet-note'),soundPanel=element('div','stage-sound-controls');
+  const soundToggle=element('button','button secondary','关闭舞台音效'),soundStatus=element('p','quiet-note'),soundPanel=element('div','stage-sound-controls');
   soundToggle.id='story-sound-toggle';soundToggle.type='button';soundStatus.id='story-sound-status';soundStatus.setAttribute('role','status');
   soundToggle.setAttribute('aria-describedby',soundStatus.id);append(soundPanel,soundToggle,soundStatus);
   let soundState:StageSoundStatus['state']='muted',soundDisposed=false;
-  const sound=createStageSound(update=>{
+  const reportSound=(update:StageSoundStatus)=>{
     if(soundDisposed)return;soundState=update.state;soundStatus.textContent=update.message;soundStatus.setAttribute('data-state',update.state);
-    soundToggle.textContent=update.state==='enabled'?'关闭舞台音效':update.state==='enabling'?'正在开启音效…':'开启舞台音效';
-    soundToggle.setAttribute('aria-pressed',String(update.state==='enabled'));soundToggle.disabled=['unavailable','enabling','disposed'].includes(update.state);
-  });
-  function updateSound(sample:StageSoundSample){sound.update(sample);ctx.musicSample?.(sample);}
+    const enabled=ctx.audio?.effectsEnabled()??update.state==='enabled';
+    soundToggle.textContent=enabled?'关闭舞台音效':'开启舞台音效';
+    soundToggle.setAttribute('aria-pressed',String(enabled));soundToggle.disabled=['unavailable','disposed'].includes(update.state);
+  };
+  const sound=ctx.audio?.effects??createStageSound(reportSound);
+  const unsubscribeSound=ctx.audio?sound.subscribe(reportSound):()=>{};
+  function updateSound(sample:StageSoundSample){const next={...sample,definitionVersion:live?.version??state?.project?.story?.definitionVersion};sound.update(next);ctx.musicSample?.(next);}
   for(const [value,label]of [['full','完整演出'],['guided','节选导览']]){const option=element('option','',label);option.value=value!;mode.appendChild(option);}
   const craft=link('去备行装 →','#/craft'),result=link('带走本场节目单 →','#/result'),note=element('p','quiet-note'),inputHost=element('div'),choices=element('div','story-choices');
   const call=element('button','button primary','先举灯呼唤'),split=element('button','button primary','先挥斧开山');
@@ -196,7 +199,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     identity=nextIdentity;
     try{
       const entry=storyEntry(project,definitionFor(project.story),++generation),scene=createSceneDirector(project,entry),initialSample=scene.sample(0,undefined,reduced);
-      sound.reset(entry.node.id);ctx.musicSample?.({nodeId:entry.node.id,mode:project.story!.mode,elapsedMs:0,playing:false});
+      sound.reset(entry.node.id);ctx.musicSample?.({nodeId:entry.node.id,mode:project.story!.mode,definitionVersion:project.story!.definitionVersion,elapsedMs:0,playing:false});
       const stage=canvasStage('当前短节点 · 使用本场冻结造型；操作与瞬时姿态不另存为录像。'),nodeScope=createNodeScope(entry.token,error=>ctx.notify(`片段清理失败：${errorText(error)}`));
       stage.restoreSpatial(spatialPreference);
       const shade=element('div','story-scene-shade');shade.setAttribute('aria-hidden','true');stage.screen.appendChild(shade);
@@ -240,7 +243,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     const endings=definitionFor(state?.project?.story).endings;
     choices.hidden=node?.kind!=='choice';call.hidden=split.hidden=node?.id!=='approach-choice';for(const [id,button] of endingButtons){const label=endings?.find(end=>end.id===id)?.choiceLabel;if(label&&button.textContent!==label)button.textContent=label;button.hidden=node?.id!=='ending-choice';button.disabled=blocked()||!rt?.ready||!!rt.requested||((rt?.version??0)>=3&&rt.elapsed<rt.scene.durationMs);}call.disabled=split.disabled=blocked()||!rt?.ready||!!rt.requested||((rt?.version??0)>=3&&rt.elapsed<rt.scene.durationMs);
     play.disabled=!rt||!canPlay(rt)||rt.playing;pause.disabled=!rt?.playing;reset.disabled=!rt||blocked();
-    soundToggle.disabled=!rt||blocked()||['unavailable','enabling','disposed'].includes(soundState);
+    soundToggle.disabled=!rt||blocked()||['unavailable','disposed'].includes(soundState);
     showcaseSkip.hidden=showcaseAgain.hidden=!rt?.resolution||!rt.clip;showcaseSkip.disabled=showcaseAgain.disabled=blocked();
     play.textContent=rt?.resolution&&rt.clip?'继续定场放映':rt&&rt.version>=3&&rt.elapsed<rt.scene.durationMs&&interactive(rt)?'听这一段故事':node?.id==='intro'&&rt?.elapsed===0?'点亮幕灯，开始序幕':rt&&interactive(rt)?'继续操偶':'继续片段';
     mode.disabled=!rt||blocked()||rt.playing||!!rt.resolution||!!rt.completed||!rt.ready||!rt.entry.node.allowedActions.includes('SET_MODE');if(rt)mode.value=rt.mode;
@@ -268,7 +271,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   life.on(showcaseAgain,'click',()=>{const rt=live;if(!rt?.resolution||!rt.clip||blocked())return;rt.resolution.elapsed=0;safeSample(rt);message='从收杆定场处，再看一次。';renderUI();});
   life.on(confirm,'click',()=>{const rt=live;if(!rt||blocked()||!rt.ready||rt.entry.node.id!=='craft'||rt.requested)return;void ctx.durable(()=>confirmCraft(ctx.store,{runId:rt.entry.guard.runId,mode:rt.mode,presetAppearanceUsed:false,guard:rt.entry.guard,now:new Date().toISOString()}));});
   life.on(start,'click',()=>ctx.start('full'));
-  life.on(soundToggle,'click',()=>{if(soundState==='enabled')sound.mute();else void sound.enable();});
+  life.on(soundToggle,'click',()=>{if(ctx.audio?.effectsEnabled()??soundState==='enabled')sound.mute();else void sound.enable();});
   life.on(play,'click',()=>{const rt=live;if(!rt||!canPlay(rt))return;rt.playing=true;message=rt.resolution&&rt.clip?'正在放映这一段的编排动作。':interactive(rt)?'这一段在等你的手。':reduced?'正在播放静态分镜与字幕。':'正在播放当前片段。';updateSound({nodeId:rt.entry.node.id,mode:rt.mode,elapsedMs:rt.elapsed,playing:true});renderUI();rt.clock.start();});
   life.on(pause,'click',()=>{if(live)stop(live,'片段已暂停；继续时从此处接续，连续动作重新计时。');});
   life.on(reset,'click',()=>{if(!blocked()&&state?.project?.story)mount(state.project);});
@@ -297,6 +300,6 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
       if(nextKey!==key){key=nextKey;if(project&&story)mount(project);else {holding=null;identity='';clearRuntimes();}}
       if(live&&blocked()&&live.playing)stop(live,'正在处理作品，片段已暂停。');renderUI();
     },
-    dispose(){if(disposed)return;disposed=true;soundDisposed=true;sound.dispose();life.dispose();if(media){if(media.removeEventListener)media.removeEventListener('change',motionChanged);else media.removeListener(motionChanged);}subtitles.dispose();clearRuntimes();holding=null;},
+    dispose(){if(disposed)return;disposed=true;soundDisposed=true;unsubscribeSound();if(!ctx.audio)sound.dispose();life.dispose();if(media){if(media.removeEventListener)media.removeEventListener('change',motionChanged);else media.removeListener(motionChanged);}subtitles.dispose();clearRuntimes();holding=null;},
   };
 }

@@ -59,6 +59,14 @@ function setup(gates: ReturnType<typeof deferred>[] = []) {
 const flush = async () => { await Promise.resolve(); await Promise.resolve(); await Promise.resolve(); };
 
 describe('opt-in local stage music lifecycle', () => {
+  it('reports browser autoplay refusal as blocked and retains no playing resource',async()=>{
+    const gate=deferred(),{music,statuses,players}=setup([gate]);
+    music.update({trackId:'instrumental',playing:true});const attempt=music.enable();
+    gate.reject(new DOMException('gesture required','NotAllowedError'));
+    expect(await attempt).toBe(false);expect(statuses.at(-1)?.state).toBe('blocked');
+    expect(players[0]!.audible).toBe(false);expect(players[0]!.listeners.size).toBe(0);
+    expect(await music.enable()).toBe(true);
+  });
   it('creates and loads nothing until an enabled sample actually asks for a track', async () => {
     const { music, statuses, players } = setup();
     music.update({ trackId: 'instrumental', playing: true });

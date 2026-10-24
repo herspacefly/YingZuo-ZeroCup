@@ -11,10 +11,8 @@ import '../styles/spatial.css';
 import '../styles/legacy.css';
 import '../styles/music.css';
 import musicCatalog from '../content/music.json';
-import { createStageMusic } from '../audio/stage-music';
-import { musicForScene } from '../audio/music-scene';
+import { createStageAudioSession } from '../audio/stage-session';
 import type { StageSoundSample } from '../audio/stage-sound';
-import type { MusicStatus } from '../audio/stage-music';
 import { createHashRouter } from './router';
 import type { AppRoute } from './router';
 import { openProjectSession } from './session';
@@ -54,19 +52,27 @@ if(help&&!('open' in document.createElement('details'))){const summary=help.quer
 let store: ProjectStore | null = null, page: PageView | null = null;
 let router: ReturnType<typeof createHashRouter> | null = null, unsubscribe = () => {};
 let disposed = false, locked = false, current: AppRoute | null = null;
-let musicScene:StageSoundSample|null=null,musicFocused=true,musicState:MusicStatus['state']='muted';
+let musicScene:StageSoundSample|null=null,musicFocused=true;
 const musicButton=get<HTMLButtonElement>('site-music-toggle'),musicStatus=get<HTMLElement>('site-music-status');
-const music=createStageMusic(status=>{
-  if(disposed)return;musicState=status.state;musicStatus.textContent=status.message;musicStatus.setAttribute('data-state',status.state);musicStatus.setAttribute('data-track',status.trackId??'');
-  musicButton.textContent=status.state==='enabled'?'关闭戏曲音乐':status.state==='enabling'?'正在开启音乐…':'开启戏曲音乐';
-  musicButton.setAttribute('aria-pressed',String(status.state==='enabled'));musicButton.disabled=['unavailable','disposed'].includes(status.state);
+const audio=createStageAudioSession({tracks:musicCatalog.tracks,onMusic(status,enabled){
+  if(disposed)return;musicStatus.textContent=status.message;musicStatus.setAttribute('data-state',status.state);musicStatus.setAttribute('data-track',status.trackId??'');
+  musicButton.textContent=enabled?'关闭戏曲音乐':'开启戏曲音乐';
+  musicButton.setAttribute('aria-pressed',String(enabled));musicButton.disabled=['unavailable','disposed'].includes(status.state);
   get<HTMLElement>('site-music-credit').textContent=musicCatalog.tracks.find(t=>t.id===status.trackId)?.credit??'京胡器乐作背景，谢幕选用京剧唱段；静候时保留安静。';
-},{tracks:musicCatalog.tracks});
-function syncMusic(){music.update(musicForScene(musicScene,current?.path==='/story',musicFocused&&!document.hidden&&!disposed));}
-life.on(musicButton,'click',()=>{if(['enabled','enabling'].includes(musicState))music.mute();else{musicFocused=true;syncMusic();void music.enable();}});
+}});
+function syncMusic(){
+  const state=store?.getState();
+  audio.setActive(musicFocused&&!document.hidden&&!disposed&&!locked&&!state?.hasPending&&!['saving','closed','conflict','recovery','unsupported'].includes(state?.status??''));
+  audio.setScene(musicScene,current?.path==='/story');
+}
+life.on(musicButton,'click',()=>audio.toggleMusic());
 life.on(window,'blur',()=>{musicFocused=false;syncMusic();});
 life.on(window,'focus',()=>{musicFocused=true;syncMusic();});
 life.on(document,'visibilitychange',syncMusic);
+// Capture before page handlers: user activation is lost if play/resume is
+// deferred behind an async store command. Never persist a mute preference.
+const unlockAudio=(event:Event)=>{if(!event.isTrusted)return;if(event instanceof KeyboardEvent&&(event.ctrlKey||event.metaKey||event.altKey||['Shift','Control','Alt','Meta','Escape','Tab'].includes(event.key)))return;audio.unlock();};
+document.addEventListener('pointerdown',unlockAudio,true);document.addEventListener('touchstart',unlockAudio,true);document.addEventListener('click',unlockAudio,true);document.addEventListener('keydown',unlockAudio,true);
 
 function notify(message: string) {
   if (disposed) return;
@@ -105,6 +111,7 @@ function setMenu(open: boolean) {
   menu.setAttribute('aria-expanded', String(open));
 }
 function update(state: StoreState) {
+  syncMusic();
   const status = get<HTMLElement>('save-state'); status.textContent = labels[state.status]; status.setAttribute('data-state', state.status);
   get<HTMLElement>('storage-detail').textContent = state.message;
   const blocked = locked || state.hasPending || !state.project || ['loading', 'saving', 'closed', 'unsupported', 'recovery', 'conflict'].includes(state.status);
@@ -117,6 +124,10 @@ function update(state: StoreState) {
   get<HTMLButtonElement>('new-project').disabled = blocked;
   get<HTMLButtonElement>('reload-project').disabled = locked;
   get<HTMLInputElement>('import-project').disabled = blocked;
+  get<HTMLButtonElement>('clear-local-history').disabled = locked || state.status==='loading' || state.status==='saving' || state.status==='closed';
+  get<HTMLButtonElement>('confirm-clear-history').disabled = locked;
+  get<HTMLButtonElement>('cancel-clear-history').disabled = locked;
+  get<HTMLButtonElement>('export-before-clear').disabled = locked;
   if (['error', 'conflict', 'recovery', 'unsupported', 'memory'].includes(state.status)) showTools(true);
   page?.update(locked ? { ...state, status: 'saving' } : state);
 }
@@ -145,6 +156,7 @@ async function mount() {
     page?.dispose();musicScene=null;clear(host); current = parsed.route;syncMusic();
     const context: PageContext = {
       store: opened, route: parsed.route, navigate: route => router?.navigate(route), isBusy:()=>locked, run, durable, notify,
+      audio,
       musicSample(sample){musicScene=sample;syncMusic();},
       edit(command) { void run(() => opened.edit(command)); },
       start(mode) {
@@ -177,6 +189,7 @@ async function mount() {
   });
   unsubscribe = opened.subscribe(update);
   router.start();
+  syncMusic();audio.unlock();
   life.on(menu, 'click', () => setMenu(menu.getAttribute('aria-expanded') !== 'true'));
   life.on(get<HTMLElement>('open-project-tools'), 'click', () => showTools(!tools.hasAttribute('open')));
   life.on(tools.querySelector('summary')!, 'click', event => { event.preventDefault(); showTools(false); });
@@ -191,6 +204,25 @@ async function mount() {
   life.on(get<HTMLElement>('cancel-pending'), 'click', () => { void run(async () => { await opened.cancelPending(); operation.textContent = ''; notify(''); }); });
   life.on(get<HTMLElement>('continue-memory'), 'click', () => { void run(() => opened.continuePendingUnsaved()); });
   life.on(get<HTMLElement>('new-project'), 'click', () => { void durable(() => opened.newProject(undefined, get<HTMLInputElement>('archive-ack').checked), { path: '/', exhibitId: null }); });
+  const clearPanel=get<HTMLElement>('clear-history-confirmation'),clearButton=get<HTMLButtonElement>('clear-local-history');
+  life.on(clearButton,'click',()=>{clearPanel.hidden=false;get<HTMLElement>('clear-history-title').focus();});
+  life.on(get<HTMLElement>('cancel-clear-history'),'click',()=>{clearPanel.hidden=true;clearButton.focus();});
+  life.on(get<HTMLElement>('export-before-clear'),'click',()=>{void run(async()=>{
+    const project=opened.getExportProject();
+    if(project)saveDownload(exportProjectJSON(project),'yingzuo-project-before-reset.json');
+    else saveDownload(serializeRawRecords(await opened.readRaw()),'yingzuo-raw-before-reset.json');
+  });});
+  life.on(get<HTMLElement>('confirm-clear-history'),'click',()=>{void (async()=>{
+    if(disposed||locked)return;
+    locked=true;operation.textContent='';refresh();
+    try{
+      const result=await opened.resetLocalHistory();if(disposed)return;
+      if(!result.ok){report(result.error);return;}
+      page?.dispose();page=null;audio.dispose();
+      window.history.replaceState(null,'',`${window.location.pathname}${window.location.search}#/`);
+      window.location.reload();
+    }catch(error){report(error);}finally{locked=false;refresh();}
+  })();});
   const input = get<HTMLInputElement>('import-project');
   life.on(input, 'change', () => {
     const file = input.files?.[0]; if (!file) return;
@@ -205,7 +237,8 @@ async function mount() {
 
 function dispose() {
   if (disposed) return;
-  disposed = true; siteMotion.dispose();life.dispose(); router?.dispose(); page?.dispose();music.dispose();unsubscribe();
+  disposed = true; siteMotion.dispose();life.dispose(); router?.dispose(); page?.dispose();audio.dispose();unsubscribe();
+  document.removeEventListener('pointerdown',unlockAudio,true);document.removeEventListener('touchstart',unlockAudio,true);document.removeEventListener('click',unlockAudio,true);document.removeEventListener('keydown',unlockAudio,true);
   downloads.forEach(cleanup => cleanup()); store?.dispose();
 }
 window.addEventListener('pagehide', dispose);

@@ -8,7 +8,7 @@ import type { LoadResult, ProjectStorage } from '../persistence/storage';
 import { applyEditorCommand } from './commands';
 import type { EditorCommand } from './commands';
 
-type StoragePort = Pick<ProjectStorage, 'load' | 'save' | 'replace' | 'promoteBackup' | 'startAfterCorruption' | 'readRaw' | 'close'>;
+type StoragePort = Pick<ProjectStorage, 'load' | 'save' | 'replace' | 'promoteBackup' | 'startAfterCorruption' | 'readRaw' | 'close'> & Partial<Pick<ProjectStorage, 'resetLocalHistory'>>;
 export type StoreStatus = 'loading' | 'saved' | 'unsaved' | 'saving' | 'error' | 'conflict' | 'recovery' | 'unsupported' | 'memory' | 'closed';
 export interface StoreState {
   project: ProjectV1 | null; status: StoreStatus; message: string; error: Error | null;
@@ -32,6 +32,8 @@ export class ProjectStore {
   private deferredEdits: EditorCommand[] = [];
   private dirty = false;
   private disposed = false;
+  private resetting = false;
+  private resetPromise: Promise<SaveResult> | null = null;
   private timerGeneration = 0;
   private debounce: ReturnType<typeof setTimeout> | undefined;
   private maximum: ReturnType<typeof setTimeout> | undefined;
@@ -65,7 +67,8 @@ export class ProjectStore {
       catch (error) { console.error('ProjectStore subscriber failed after state update', error); }
     });
   }
-  private enqueue<T>(operation: () => T | Promise<T>): Promise<T> {
+  private enqueue<T>(operation: () => T | Promise<T>, duringReset = false): Promise<T> {
+    if (this.resetting && !duringReset) return Promise.reject(new StorageError('invalid', '正在清除本机历史，操作已暂停。'));
     const result = this.tail.then(() => {
       if (this.disposed) throw new StorageError('closed', '页面已离开，旧操作未执行。');
       return operation();
@@ -114,7 +117,7 @@ export class ProjectStore {
     this.debounce = undefined; this.maximum = undefined; this.timerGeneration += 1;
   }
   private schedule() {
-    if (this.disposed || ['error', 'conflict', 'unsupported', 'memory'].includes(this.status) || this.pending) return;
+    if (this.disposed || this.resetting || ['error', 'conflict', 'unsupported', 'memory'].includes(this.status) || this.pending) return;
     clearTimeout(this.debounce);
     const generation = this.timerGeneration;
     const requestFlush = () => {
@@ -291,6 +294,30 @@ export class ProjectStore {
     });
   }
   readRaw() { return this.storage.readRaw(); }
+  /** Fence new work immediately, drain already-started work, then atomically
+   * replace all local history. Failure retains the current/exportable candidate. */
+  resetLocalHistory(): Promise<SaveResult> {
+    if (this.resetPromise) return this.resetPromise;
+    this.cancelTimers(); this.resetting = true;
+    this.status = 'saving'; this.message = '正在清除本机历史，等待存储事务完成…'; this.emit();
+    const operation = this.enqueue(async (): Promise<SaveResult> => {
+      this.cancelTimers();
+      try {
+        if (!this.storage.resetLocalHistory) throw new StorageError('unavailable', '当前存储不支持清理，未删除任何历史。');
+        const candidate = createProject(this.environment.createId(), this.environment.writerId, this.environment.now());
+        const committed = await this.storage.resetLocalHistory(candidate);
+        if (!this.disposed) {
+          this.pending = null; this.deferredEdits = []; this.recovery = null;
+          this.accept(committed); this.message = '本机历史已清除，已创建全新作品。'; this.emit();
+        }
+        return { ok: true, project: committed };
+      } catch (error) { return this.fail(error); }
+      finally { this.resetting = false; }
+    }, true);
+    this.resetPromise = operation;
+    void operation.then(() => { this.resetPromise = null; }, () => { this.resetting = false; this.resetPromise = null; });
+    return operation;
+  }
   dispose() {
     this.disposed = true; this.cancelTimers(); this.listeners.clear(); this.status = 'closed';
     this.storage.close();

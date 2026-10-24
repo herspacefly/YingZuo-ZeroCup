@@ -35,6 +35,37 @@ beforeEach(() => { factory = new IDBFactory(); });
 afterEach(() => { vi.restoreAllMocks(); instances.splice(0).forEach(storage => storage.close()); });
 
 describe('DATA-03/04 transactional project persistence', () => {
+  it('resets all four history keys in one transaction and fences old-tab saves with a new identity', async () => {
+    const a = adapter('resetter'), b = adapter('old-tab');
+    const first = await a.save(fresh(), null);
+    await rawWrite({ backup: serializeProject(first), 'previous-project': serializeProject(first), 'raw-invalid': '{old broken' });
+    const next = await a.resetLocalHistory(fresh()), records = await a.readRaw();
+    expect(next).toMatchObject({ saveRevision: 1, story: null, museum: { visitedExhibitIds: [] }, lastRoute: '/' });
+    expect(next.projectId).not.toBe(first.projectId);
+    expect(decodeStoredProject(records.draft)).toEqual(next);
+    expect(records.backup).toBeUndefined(); expect(records.previousProject).toBeUndefined(); expect(records.rawInvalid).toBeUndefined();
+    await expect(b.save({ ...first, title: 'old tab revival' }, baselineOf(first))).rejects.toMatchObject({ code: 'conflict' });
+    expect((await a.load()).project).toEqual(next);
+  });
+  it('rolls back every deletion if the new clean draft cannot commit', async () => {
+    const storage = adapter(), first = await storage.save(fresh(), null);
+    await rawWrite({ backup: serializeProject(first), 'previous-project': serializeProject(first), 'raw-invalid': 'quarantined' });
+    const before = await storage.readRaw(), original = FakeObjectStore.prototype.put;
+    vi.spyOn(FakeObjectStore.prototype, 'put').mockImplementation(function(this: IDBObjectStore, value, key) {
+      const request = original.call(this, value, key);
+      if (key === 'draft') request.addEventListener('success', () => this.transaction.abort());
+      return request;
+    });
+    await expect(storage.resetLocalHistory(fresh())).rejects.toMatchObject({ code: 'aborted' });
+    expect(await storage.readRaw()).toEqual(before);
+  });
+  it('only the explicit history reset can erase unknown and damaged snapshots', async () => {
+    const storage = adapter();
+    await rawWrite({ draft: JSON.stringify(unknownVersion), backup: '{broken', 'raw-invalid': { kept: true } });
+    await expect(storage.save(fresh(), null)).rejects.toMatchObject({ code: 'unsupported-version' });
+    expect(await storage.resetLocalHistory(fresh())).toMatchObject({ saveRevision: 1, story: null });
+    expect((await storage.readRaw()).rawInvalid).toBeUndefined();
+  });
   it('commits the entire project and keeps the prior valid draft as backup', async () => {
     const storage = adapter(); expect((await storage.load()).kind).toBe('empty');
     const first = await storage.save(fresh(), null);

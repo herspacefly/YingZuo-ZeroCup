@@ -18,6 +18,7 @@ class MemoryPort {
   denied = false;
   closed = false;
   gate: Promise<void> | null = null;
+  resets = 0;
   holdNext() {
     let release!: () => void;
     this.gate = new Promise<void>(resolve => { release = resolve; });
@@ -50,6 +51,14 @@ class MemoryPort {
     return clone(this.current);
   }
   async promoteBackup(_observation: Observation): Promise<ProjectV1> { throw new Error('Not a recovery fixture'); }
+  async resetLocalHistory(project: ProjectV1): Promise<ProjectV1> {
+    this.resets++;
+    if (this.denied) throw new StorageError('unavailable', '禁止存储');
+    if (this.failNext) { this.failNext = false; throw new StorageError('quota', '配额不足'); }
+    this.previous = null;
+    this.current = clone({ ...project, saveRevision: 1, writerId: 'store-writer', savedAt: NOW });
+    return clone(this.current);
+  }
   async startAfterCorruption(_project: ProjectV1, _observation: Observation): Promise<ProjectV1> { throw new Error('Not a corrupt fixture'); }
   close() { this.closed = true; }
 }
@@ -67,6 +76,37 @@ beforeEach(() => { vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] });
 afterEach(() => { stores.splice(0).forEach(store => store.dispose()); vi.useRealTimers(); });
 
 describe('T03 serial store, debounce and immediate durable commands', () => {
+  it('cancels autosave timers, drops a failed candidate and deduplicates repeated clear actions', async () => {
+    const { store, port } = await open(); port.failNext = true;
+    await store.commit(advanceNode); await store.edit({ type: 'RENAME', title: 'queued after failure' });
+    const first = store.resetLocalHistory(), repeated = store.resetLocalHistory();
+    expect(first).toBe(repeated); expect(await first).toMatchObject({ ok: true });
+    expect(store.getState()).toMatchObject({ status: 'saved', hasPending: false, queuedEdits: 0, project: { story: null, saveRevision: 1, lastRoute: '/' } });
+    expect(port.resets).toBe(1); expect(port.current.projectId).not.toBe(fixture.projectId);
+    const count = port.attempts.length;
+    await vi.advanceTimersByTimeAsync(5000); expect(port.attempts.length).toBe(count);
+  });
+  it('drains an in-flight save before clearing and refuses edits during the clear fence', async () => {
+    const { store, port } = await open(), release = port.holdNext();
+    await store.edit({ type: 'RENAME', title: 'old in flight' }); const saving = store.flush();
+    await Promise.resolve(); await Promise.resolve();
+    const editing = store.edit({ type: 'RENAME', title: 'old queued' });
+    const reset = store.resetLocalHistory();
+    await expect(store.edit({ type: 'RENAME', title: 'cannot enter clear' })).rejects.toThrow('正在清除');
+    release(); await saving; await editing; expect(await reset).toMatchObject({ ok: true });
+    expect(port.current.title).toBe('一幕团圆'); expect(port.current.saveRevision).toBe(1);
+    await vi.advanceTimersByTimeAsync(5000); expect(port.current.story).toBeNull();
+  });
+  it('retains the exact failed candidate for export when history clearing fails, and permits retry', async () => {
+    const { store, port } = await open(); port.failNext = true; await store.commit(advanceNode);
+    await store.edit({ type: 'RENAME', title: '清理失败后保留' });
+    const candidate = store.getExportProject(); port.failNext = true;
+    expect(await store.resetLocalHistory()).toMatchObject({ ok: false });
+    expect(store.getExportProject()).toEqual(candidate); expect(store.getState().hasPending).toBe(true);
+    expect(port.current.projectId).toBe(fixture.projectId);
+    await vi.advanceTimersByTimeAsync(5000); expect(port.current.projectId).toBe(fixture.projectId);
+    expect(await store.resetLocalHistory()).toMatchObject({ ok: true });
+  });
   it('debounces to the latest entire state rather than a captured older snapshot', async () => {
     const { store, port } = await open();
     await store.edit({ type: 'RENAME', title: '先前' });
