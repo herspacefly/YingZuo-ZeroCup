@@ -29,7 +29,10 @@ for(const mode of ['full','guided'] as const)test(`${mode}: current mode cues se
   await buttons.last().click();await advance(page,(mode==='guided'?node.guidedTiming:node.fullTiming).targetMs-cues[cues.length-1]!.startMs*ratio+100);
   await expect(page.locator('.limb-overlay')).toBeVisible();await page.locator('#story-assist').click();await advance(page,3600);await expect(runtime(page)).toHaveAttribute('data-showcase','playing');
   await expect(buttons.first()).toBeDisabled();expect((await stored(page)).story!.nodeId).toBe('memory-wave');
-  await page.locator('#showcase-skip').click();await expect(runtime(page)).toHaveAttribute('data-node','memory-words');await ready(page);expect((await stored(page)).story!.revision).toBe(saved!.revision+1);
+  if(mode==='guided')await page.evaluate(()=>{const put=IDBObjectStore.prototype.put;let fail=true;IDBObjectStore.prototype.put=function(value:unknown,key?:IDBValidKey){if(fail&&key==='draft'){fail=false;throw new DOMException('Cue transport quota probe','QuotaExceededError');}return put.call(this,value,key);};});
+  await page.locator('#showcase-skip').click();
+  if(mode==='guided'){await expect(page.locator('#save-state')).toHaveAttribute('data-state','error');await expect(buttons.first()).toBeDisabled();expect((await stored(page)).story!.nodeId).toBe('memory-wave');await page.locator('#retry-save').click();}
+  await expect(runtime(page)).toHaveAttribute('data-node','memory-words');await ready(page);expect((await stored(page)).story!.revision).toBe(saved!.revision+1);
 });
 test('craft keeps original image details and palette, with no added pattern or carving selection',async({page})=>{
   test.setTimeout(60000);const p=project();p.story=null;await seed(page,p);await page.goto('/#/craft');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready',{timeout:15000});
