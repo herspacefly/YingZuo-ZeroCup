@@ -28,8 +28,8 @@ export function spatialPartPoint(actor: RenderActor, template: PuppetTemplate, p
 /** Pose, fades, light and camera changes reuse one resource load and one set of GPU textures. */
 export function spatialResourceScope(frame: CanvasFrame): string {
   return JSON.stringify([frame.stage.backgroundId, frame.actors.map(actor => {
-    if (actor.actorId === 'chenxiang') return [actor.actorId, actor.templateId, actor.appearance];
-    if (actor.actorId === 'mother') return [actor.actorId, actor.templateId, actor.paletteId, actor.sharedMotif];
+    if (actor.actorId === 'chenxiang') return [actor.actorId, actor.templateId, actor.appearance,actor.costumeTreatment];
+    if (actor.actorId === 'mother') return [actor.actorId, actor.templateId, actor.paletteId, actor.sharedMotif,actor.costumeTreatment];
     return [actor.actorId, actor.templateId, actor.paletteId];
   }), frame.attachments ?? []]);
 }

@@ -95,7 +95,7 @@ export function validateStoryDefinition(definition: StoryDefinition,refs: StoryR
       const c=node.completion;
       if('target' in c)check(finite(c.target.x,0,1) && finite(c.target.y,0,1) && finite(c.target.width,Number.EPSILON,1-c.target.x) && finite(c.target.height,Number.EPSILON,1-c.target.y),`normalized target ${id}`);
       if('overlapRatio' in c)check(c.overlapRatio===.35 && finite(c.holdMs,0,2000),`overlap threshold ${id}`);
-      if(c.kind==='light')check(c.holdMs===600,`light hold ${id}`);
+      if(c.kind==='light'){check(c.holdMs===600,`light hold ${id}`);check(definition.definitionVersion===4?c.region==='lantern':c.region===undefined,`versioned light region ${id}`);}
       if(c.kind==='axe')check(c.holdMs===500 && c.raisedAngleRange.length===2 && c.landedAngleRange.length===2 && c.raisedAngleRange.every(v=>finite(v,-1.4,1.8)) && c.landedAngleRange.every(v=>finite(v,-1.4,1.8)) && c.raisedAngleRange[0]<c.raisedAngleRange[1] && c.landedAngleRange[0]<c.landedAngleRange[1],`axe hold/angles ${id}`);
       if(c.kind==='reach')check(c.maxDistanceRatio===.04 && c.maxSnapRatio===.02,`reach/snap thresholds ${id}`);
       if(c.kind==='scene')check(c.activation===(['reunion-hold','ending-light-hold','ending-road-hold','ending-waiting-hold','ending-sacrifice-hold'].includes(id)?'user':'automatic') && c.skippable===(id==='intro'),`scene activation ${id}`);

@@ -19,12 +19,12 @@ export function editorFrame(project: ProjectV1, duet = false, showRods = false):
   const template=assetCatalog.puppets.find(item=>item.id==='chenxiang-v1')!;
   const fitted=constrainPoseToStage(pose,template,stage);
   if(!fitted.fits) throw new Error('当前姿态超出幕面，请先调整姿态或灯位。');
-  const actors:RenderActor[]=[{actorId:'chenxiang',templateId:'chenxiang-v1',appearance:project.appearance,pose:fitted.pose}];
+  const actors:RenderActor[]=[{actorId:'chenxiang',templateId:'chenxiang-v1',costumeTreatment:'original-texture',appearance:project.appearance,pose:fitted.pose}];
   if(duet) {
     const mother={...defaultPose(),x:.72,y:.62,facing:-1 as const};
     const fit=constrainPoseToStage(mother,assetCatalog.puppets.find(item=>item.id==='mother-v1')!,stage);
     if(!fit.fits) throw new Error('母亲的预览姿态暂时无法放入幕面。');
-    actors.push({actorId:'mother',templateId:'mother-v1',paletteId:'mother-v1',sharedMotif:project.story?.castSnapshot?.sharedMotif??project.appearance.patternId,pose:fit.pose});
+    actors.push({actorId:'mother',templateId:'mother-v1',costumeTreatment:'original-texture',paletteId:'mother-v1',sharedMotif:project.story?.castSnapshot?.sharedMotif??project.appearance.patternId,pose:fit.pose});
   }
   return {actors,stage,showRods};
 }
@@ -32,11 +32,12 @@ export function editorFrame(project: ProjectV1, duet = false, showRods = false):
 export function storyFrame(project: ProjectV1): CanvasFrame | null {
   if(!project.story)return null;
   const story=project.story,node=currentStoryNode(definitionFor(story),story),cast=story.castSnapshot;
+  const costumeTreatment=story.definitionVersion===4?'original-texture' as const:'legacy-motif' as const;
   const actors=node.actors.map((id):RenderActor=>{
     const pose=node.entryPoses[id]!;
-    if(id==='chenxiang')return {actorId:id,templateId:'chenxiang-v1',appearance:cast?.appearance??project.appearance,pose};
-    if(id==='mother')return {actorId:id,templateId:'mother-v1',paletteId:'mother-v1',sharedMotif:cast?.sharedMotif??project.appearance.patternId,pose};
-    return {actorId:id,templateId:'guardian-v1',paletteId:'guardian-v1',pose};
+    if(id==='chenxiang')return {costumeTreatment,actorId:id,templateId:'chenxiang-v1',appearance:cast?.appearance??project.appearance,pose};
+    if(id==='mother')return {costumeTreatment,actorId:id,templateId:'mother-v1',paletteId:'mother-v1',sharedMotif:cast?.sharedMotif??project.appearance.patternId,pose};
+    return {costumeTreatment,actorId:id,templateId:'guardian-v1',paletteId:'guardian-v1',pose};
   });
   return {actors,stage:node.entryStage,sceneLayers:node.entrySceneLayers,attachments:node.entryAttachments};
 }

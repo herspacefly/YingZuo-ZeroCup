@@ -48,7 +48,7 @@ export function mountReunionExporter(host: HTMLElement, artifact: ReunionArtifac
     const ctx = canvas.getContext('2d');
     if (!ctx) throw new Error('此浏览器无法绘制团圆留影，仍可保存可恢复的作品文件。');
     const summary = snapshot.summary, appearance = summary.castSnapshot.appearance;
-    const pattern = assetCatalog.patterns.patterns.find(item => item.id === appearance.patternId)!.label;
+    const pattern = summary.definitionVersion===4?'精细原画':assetCatalog.patterns.patterns.find(item => item.id === appearance.patternId)!.label;
     const palette = assetCatalog.palettes.palettes.find(item => item.id === appearance.paletteId)!.label;
     const route = summary.approach === 'call-first' ? '先呼唤，再开山' : '先开山，再寻光';
     ctx.fillStyle = '#f2e5c9'; ctx.fillRect(0, 0, 1600, 1200);

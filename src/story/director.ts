@@ -49,6 +49,7 @@ export function createSceneDirector(project: ProjectV1, entry: ReturnType<typeof
   }
   const node = clone(entry.node), mode = story.mode;
   const appearance = clone(story.castSnapshot?.appearance ?? project.appearance);
+  const costumeTreatment=story.definitionVersion===4?'original-texture' as const:'legacy-motif' as const;
   const sharedMotif = story.castSnapshot?.sharedMotif ?? appearance.patternId;
   const durationMs = (mode === 'full' ? node.fullTiming : node.guidedTiming).targetMs;
   const allCues = subtitlesForMode(node, mode);
@@ -146,7 +147,7 @@ export function createSceneDirector(project: ProjectV1, entry: ReturnType<typeof
         case 'call-response':
           respond(between(fullTime, 0, 3000));
           stage.lampX += .1 * Math.sin(Math.PI * progress);
-          shotLabel = '山中回应 · 袖口共纹';
+          shotLabel = story.definitionVersion===4?'山中回应 · 灯火相认':'山中回应 · 袖口共纹';
           break;
         case 'split-response':
           respond(between(fullTime, 0, 3000));
@@ -201,9 +202,9 @@ export function createSceneDirector(project: ProjectV1, entry: ReturnType<typeof
         const attachments = node.entryAttachments.filter(item => item.actorId === id).map(item => item.attachmentId);
         const fit = constrainPoseToStage(pose, templateFor(id), stage, attachments);
         if (!fit.fits) throw new RangeError(`${id} 当前姿态与附件无法放入幕面。`);
-        if (id === 'chenxiang') return { actorId: id, templateId: 'chenxiang-v1', appearance: clone(appearance), pose: fit.pose };
-        if (id === 'mother') return { actorId: id, templateId: 'mother-v1', paletteId: 'mother-v1', sharedMotif, pose: fit.pose };
-        return { actorId: id, templateId: 'guardian-v1', paletteId: 'guardian-v1', pose: fit.pose };
+        if (id === 'chenxiang') return { costumeTreatment,actorId: id, templateId: 'chenxiang-v1', appearance: clone(appearance), pose: fit.pose };
+        if (id === 'mother') return { costumeTreatment,actorId: id, templateId: 'mother-v1', paletteId: 'mother-v1', sharedMotif, pose: fit.pose };
+        return { costumeTreatment,actorId: id, templateId: 'guardian-v1', paletteId: 'guardian-v1', pose: fit.pose };
       });
       let actorOpacity:CanvasFrame['actorOpacity'];
       if(ending==='sacrifice'&&node.id!=='ending-sacrifice-axe'){actorOpacity={chenxiang:node.id==='ending-sacrifice-hold'?1-.84*progress:.16,mother:1};lightLevel=.8+.2*progress;}

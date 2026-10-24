@@ -1,7 +1,7 @@
 import { mountLimbControls } from '../shared/limb-controls';
 import { createAnimationClock } from '../../app/animation-clock';
 import { append, element, link, scope } from '../shared/dom';
-import { editable, heading, pageLinks, paletteLabel, patternLabel } from '../shared/pieces';
+import { editable, heading, pageLinks, paletteLabel } from '../shared/pieces';
 import { canvasStage, editorFrame } from '../shared/canvas-stage';
 import { mountCraftBodyRod } from './body-rod';
 import { archiveForRehearsal, confirmCraft } from '../../app/craft-commands';
@@ -12,25 +12,18 @@ import { moveRodBy } from '../../domain/rod-input';
 import { assetCatalog } from '../../content/catalog';
 import type { PageFactory } from '../../app/view';
 import type { StoreState } from '../../app/store';
-import type { PaletteId, PatternId, Pose, StageConfig } from '../../domain/types';
+import type { PaletteId, Pose, StageConfig } from '../../domain/types';
 import palettes from '../../content/palettes.json';
-import patterns from '../../content/patterns.json';
 
 const template=assetCatalog.puppets.find(item=>item.id==='chenxiang-v1')!;
 const colorNames:Record<string,string>={'#B83B30':'朱红','#D7A253':'金黄','#314C58':'靛青','#17130F':'墨黑','#F2E5C9':'米白','#8BA6A4':'青灰','#4F6B49':'苔绿','#A26A42':'赭棕'};
 export const mountCraft:PageFactory=(host,ctx)=>{
-  const life=scope();append(host,heading('先备行装','把你的选择，留在衣角。','选一道纹，揭开三段镂空，再把颜色留在衣上。云、水、花都能走到团圆。'),pageLinks());
-  const layout=element('section','workspace craft-workspace'),stage=canvasStage('沉香与母亲 · 原创皮影风格设计稿。母亲固定配色，袖口同纹是本作的舞台呼应。');
+  const life=scope();append(host,heading('先备行装','给远行的人，备一身衣色。','保留影偶原画的细密刻纹，选择一套颜色；再牵一牵手脚，看看这身行装怎样走上舞台。'),pageLinks());
+  const layout=element('section','workspace craft-workspace'),stage=canvasStage('沉香与母亲 · 原创皮影风格设计稿。母亲保持自己的配色，原画细节完整保留。');
   const panel=element('div','control-panel'),field=element('fieldset');field.appendChild(element('legend','','沉香的行装'));
-  const pattern=element('select'),palette=element('select');pattern.id='craft-pattern';palette.id='craft-palette';
-  for(const p of patterns.patterns){const option=element('option','',p.label);option.value=p.id;pattern.appendChild(option);}
+  const palette=element('select');palette.id='craft-palette';
   for(const p of palettes.palettes.filter(item=>item.editable)){const option=element('option','',p.label);option.value=p.id;palette.appendChild(option);}
-  const patternLabelNode=element('label','','衣上的纹样'),paletteLabelNode=element('label','','这一套颜色');append(patternLabelNode,pattern);append(paletteLabelNode,palette);
-  const cuts=element('div','carve-segments');cuts.setAttribute('role','group');cuts.setAttribute('aria-label','三段镂空');
-  const cutButtons=[0,1,2].map(index=>{const button=element('button','button secondary');button.id=`craft-cut-${index+1}`;button.type='button';cuts.appendChild(button);
-    life.on(button,'click',()=>{if(!allowed())return;const current=ctx.store.getExportProject()!;ctx.edit({type:'CARVE_SEGMENT',index:index as 0|1|2,carved:!current.appearance.carvedSegments[index]});});return button;});
-  const nextCut=element('button','button secondary','完成下一段');nextCut.id='craft-cut-next';
-  const cutStatus=element('p','quiet-note');cutStatus.id='craft-cut-status';cutStatus.setAttribute('role','status');
+  const paletteLabelNode=element('label','','这一套颜色');append(paletteLabelNode,palette);
   const apply=element('button','button secondary','采用这套配色');apply.id='craft-apply-palette';
   const colorToggle=element('button','button secondary','分别给衣身、袖、下摆着色');colorToggle.setAttribute('aria-expanded','false');colorToggle.setAttribute('aria-controls','craft-colors');
   const colors=element('div');colors.id='craft-colors';colors.hidden=true;const slots=new Map<'body'|'sleeve'|'hem',HTMLSelectElement>();
@@ -40,7 +33,7 @@ export const mountCraft:PageFactory=(host,ctx)=>{
   }
   const swatches=element('div','palette-swatches');swatches.setAttribute('aria-hidden','true');
   const summary=element('p','selection-summary'),save=element('button','button secondary','保存这身行装');summary.id='craft-summary';
-  append(field,patternLabelNode,cuts,nextCut,cutStatus,paletteLabelNode,swatches,apply,colorToggle,colors);append(panel,field,summary,save);
+  append(field,paletteLabelNode,swatches,apply,colorToggle,colors);append(panel,field,summary,save);
   const confirmation=element('section','craft-confirmation'),confirmationText=element('p','quiet-note'),mode=element('select');mode.id='craft-mode';
   for(const [value,label]of [['full','完整演出'],['guided','节选导览']]){const option=element('option','',label);option.value=value!;mode.appendChild(option);}
   const modeLabel=element('label','','新场的节奏');modeLabel.appendChild(mode);
@@ -48,7 +41,7 @@ export const mountCraft:PageFactory=(host,ctx)=>{
   const restart=element('button','button secondary','归档旧场，用新造型重新开演');restart.id='craft-restart';
   const acknowledgeLabel=element('label','acknowledge'),acknowledge=element('input');acknowledge.type='checkbox';acknowledge.id='craft-archive-ack';append(acknowledgeLabel,acknowledge,element('span','','允许替换已有的上一项目（可先导出）'));
   const back=link('继续本场已冻结的演出 →','#/story');back.id='craft-return';
-  const next=element('button','button primary journey-recommended','保存行装，下一步调灯 →');next.id='journey-to-light';const nextBox=element('section','journey-next');append(nextBox,element('p','','第2步 / 制偶：挑好喜欢的纹样与颜色，就可以继续调灯。现在只保存编辑稿，正式开演时再确认本场造型。'),next);panel.appendChild(nextBox);
+  const next=element('button','button primary journey-recommended','保存行装，下一步调灯 →');next.id='journey-to-light';const nextBox=element('section','journey-next');append(nextBox,element('p','','第2步 / 制偶：挑好喜欢的颜色，就可以继续调灯。现在只保存编辑稿，正式开演时再确认本场造型。'),next);panel.appendChild(nextBox);
   append(confirmation,confirmationText,modeLabel,play,preset,back,restart,acknowledgeLabel);panel.appendChild(confirmation);
   append(layout,stage.figure,panel);host.appendChild(layout);
   const trial=element('div','craft-trial'),trialHelp=element('p','quiet-note','试提身杆：拖动幕下握柄，或聚焦后用方向键。这里的试提可重置，不改练习台存下的姿态。');
@@ -76,13 +69,11 @@ export const mountCraft:PageFactory=(host,ctx)=>{
     try {frame=editorFrame(draft,true,true);if(trialPose){const fit=constrainPoseToStage(trialPose,template,frame.stage);if(fit.fits)frame.actors[0]!.pose=fit.pose;}}
     catch(error){bodyModel=null;body.update(null,false);stage.update(()=>{throw error;});return;}
     bodyModel={pose:frame.actors[0]!.pose,stage:frame.stage};stage.update(frame);body.update(bodyModel,canTry());
-    pattern.value=draft.appearance.patternId;palette.value=draft.appearance.paletteId;
-    const count=draft.appearance.carvedSegments.filter(Boolean).length;cutStatus.textContent=`已揭开 ${count}/3 段；刻去的地方会透出幕光。`;
-    cutButtons.forEach((button,index)=>{const cut=draft.appearance.carvedSegments[index];button.textContent=`${cut?'还原':'刻'}第${index+1}段`;button.setAttribute('aria-pressed',String(cut));});nextCut.disabled=count===3;
+    palette.value=draft.appearance.paletteId;
     const selected=palettes.palettes.find(item=>item.id===draft.appearance.paletteId)!;
     for(const [slot,select]of slots){for(let i=0;i<5;i++)select.options[i]!.textContent=colorNames[selected.colors[i]!]!;select.value=String(draft.appearance.colorSlots[slot]);}
     while(swatches.firstChild)swatches.removeChild(swatches.firstChild);for(const color of selected.colors){const span=element('span','swatch');span.style.backgroundColor=color;swatches.appendChild(span);}
-    summary.textContent=`${patternLabel(pattern.value)} · ${paletteLabel(palette.value)}。${state.hasPending&&draft.story?.castSnapshot?'待保存的本场造型已冻结；后续修改排队到编辑稿，不改候选演出。':story?.castSnapshot?'这是编辑稿；本场已冻结的造型和母亲袖纹保持不变。':'母亲袖口预览同一道纹。确认开演前还可以修改。'}`;
+    summary.textContent=`${paletteLabel(palette.value)}。${state.hasPending&&draft.story?.castSnapshot?'待保存的本场造型已冻结；后续修改排队到编辑稿，不改候选演出。':story?.castSnapshot?'这是编辑稿；本场已冻结的造型保持不变。':'保留原画的精细纹理；确认开演前还可以修改配色。'}`;
     const frozen=!!story?.castSnapshot;nextBox.hidden=!!story;play.className=story?'button primary':'button secondary';
     modeLabel.hidden=!!story;play.hidden=preset.hidden=frozen;
     back.hidden=!story;restart.hidden=acknowledgeLabel.hidden=!frozen;
@@ -90,9 +81,7 @@ export const mountCraft:PageFactory=(host,ctx)=>{
     confirmationText.textContent=frozen?'本场已冻结。继续会使用原造型；归档重开会保留现在的编辑稿并建立新项目，随后由你确认新场。':'推荐先调灯、练习，再正式开演。也可以在此直接确认造型并进入第一幕；采用默认影偶会标为预设造型。';
     syncControls();direct.render();
   }
-  life.on(pattern,'change',()=>{if(allowed())ctx.edit({type:'PATTERN',patternId:pattern.value as PatternId});});
   life.on(palette,'change',()=>{if(allowed())ctx.edit({type:'PALETTE',paletteId:palette.value as PaletteId});});
-  life.on(nextCut,'click',()=>{if(allowed())ctx.edit({type:'CARVE_NEXT'});});
   life.on(apply,'click',()=>{if(allowed())ctx.edit({type:'APPLY_PALETTE',paletteId:palette.value as PaletteId});});
   life.on(colorToggle,'click',()=>{colors.hidden=!colors.hidden;colorToggle.setAttribute('aria-expanded',String(!colors.hidden));});
   life.on(save,'click',()=>{if(allowed()&&!state!.hasPending)void ctx.run(()=>ctx.store.flush());});

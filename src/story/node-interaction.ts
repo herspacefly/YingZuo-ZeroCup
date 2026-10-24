@@ -1,7 +1,7 @@
 import { assetCatalog } from '../content/catalog';
 import type { Bounds, RenderActor } from '../content/asset-types';
 import { JOINT_IDS } from '../domain/limits';
-import { constrainPoseToStage, partTransform, projectedPoseBounds, rodPoint, solveArm, transformPoint } from '../domain/pose';
+import { attachmentTransform, constrainPoseToStage, partTransform, projectedPoseBounds, rodPoint, solveArm, transformPoint } from '../domain/pose';
 import { projectLocalPoint, projectionParameters, screenToLocalPoint, WORLD_HEIGHT, WORLD_WIDTH } from '../domain/projection';
 import type { Point } from '../domain/projection';
 import type { InteractionEvidence, StoryNode } from '../domain/story-types';
@@ -57,10 +57,16 @@ function boundsOf(points: Point[]): Bounds | null {
   return { minX: Math.min(...points.map(point => point.x)), minY: Math.min(...points.map(point => point.y)),
     maxX: Math.max(...points.map(point => point.x)), maxY: Math.max(...points.map(point => point.y)) };
 }
-function region(frame: CanvasFrame, kind: RegionKind): Bounds | null {
+function region(frame: CanvasFrame, kind: RegionKind, lightRegion?: 'lantern'): Bounds | null {
   const actor = frame.actors.find(item => item.actorId === 'chenxiang');
   if (!actor) return null;
   const template = templateFor(actor.templateId)!;
+  if(kind==='light'&&lightRegion==='lantern'){
+    const lantern=template.attachments.find(item=>item.id==='lantern');
+    if(!lantern||!frame.attachments?.some(item=>item.actorId===actor.actorId&&item.attachmentId==='lantern'))return null;
+    const transform=attachmentTransform(template,actor.pose,lantern);
+    return boundsOf(corners(lantern.bounds).map(point=>projectLocalPoint(transformPoint(point,transform),actor.pose,frame.stage)));
+  }
   if (kind === 'road') return projectedPoseBounds(template, actor.pose, frame.stage,
     frame.attachments?.filter(item => item.actorId === actor.actorId).map(item => item.attachmentId) ?? []);
   const parts = kind === 'light' ? [template.parts.find(part => part.partId === template.motifPlacement?.partId)]
@@ -76,10 +82,10 @@ function region(frame: CanvasFrame, kind: RegionKind): Bounds | null {
   return boundsOf(points);
 }
 
-/** The light region is the torso motif placement; arm tasks use only the two actual right-arm parts. */
-export function projectedInteractionRegion(frame: CanvasFrame, kind: RegionKind): Bounds | null {
+/** v4 light tasks observe the held lantern; older scripts keep their original motif region. */
+export function projectedInteractionRegion(frame: CanvasFrame, kind: RegionKind, lightRegion?: 'lantern'): Bounds | null {
   const prepared = validatedFrame(frame);
-  return prepared && ['wave', 'road', 'block', 'light'].includes(kind) ? region(prepared, kind) : null;
+  return prepared && ['wave', 'road', 'block', 'light'].includes(kind) ? region(prepared, kind, lightRegion) : null;
 }
 
 function handPoints(frame: CanvasFrame): { chenxiang: Point; mother: Point } | null {
@@ -115,7 +121,7 @@ export function createNodeInteraction(node: StoryNode) {
       const target = 'target' in completion ? normalizedTargetBounds(completion.target) : null;
       const kind = completion.kind;
       const observed = prepared && (kind === 'wave' || kind === 'road' || kind === 'block' || kind === 'light')
-        ? region(prepared, kind) : null;
+        ? region(prepared, kind, completion.kind==='light'?completion.region:undefined) : null;
       const coverage = observed && target ? targetCoverageRatio(observed, target) : 0;
       const hands = prepared && kind === 'reach' ? handPoints(prepared) : null;
       const distanceRatio = hands ? handDistanceRatio(hands.chenxiang, hands.mother) : Infinity;
@@ -200,18 +206,18 @@ export function interactionGoal(node: StoryNode, input: CanvasFrame): Interactio
   }
   const kind = completion.kind;
   if (kind !== 'wave' && kind !== 'road' && kind !== 'block' && kind !== 'light') return null;
-  const shoulderAngles = kind === 'wave' || kind === 'block' ? [actor.pose.joints.rightShoulder, .6, 1, 1.4, 1.8, -.6, -1.2] : [actor.pose.joints.rightShoulder];
-  const elbowAngles = kind === 'wave' || kind === 'block' ? [actor.pose.joints.rightElbow, .6, 1.2, 1.8, 2.4] : [actor.pose.joints.rightElbow];
+  const shoulderAngles = kind === 'wave' || kind === 'block' || (kind==='light'&&completion.region==='lantern') ? [actor.pose.joints.rightShoulder, .6, 1, 1.4, 1.8, -.6, -1.2] : [actor.pose.joints.rightShoulder];
+  const elbowAngles = kind === 'wave' || kind === 'block' || (kind==='light'&&completion.region==='lantern') ? [actor.pose.joints.rightElbow, .6, 1.2, 1.8, 2.4] : [actor.pose.joints.rightElbow];
   for (const shoulder of shoulderAngles) for (const elbow of elbowAngles) {
     const pose = clone(actor.pose); pose.joints.rightShoulder = shoulder; pose.joints.rightElbow = elbow;
-    const observed = region(candidateFrame(pose), kind);
+    const observed = region(candidateFrame(pose), kind, completion.kind==='light'?completion.region:undefined);
     if (!observed) continue;
     if (kind !== 'wave') {
       const magnification = projectionParameters(stage).magnification;
       pose.x += ((target.minX + target.maxX) - (observed.minX + observed.maxX)) / 2 / magnification / WORLD_WIDTH;
       pose.y -= ((target.minY + target.maxY) - (observed.minY + observed.maxY)) / 2 / magnification / WORLD_HEIGHT;
     }
-    const fitted = fit(pose), finalRegion = region(candidateFrame(fitted.pose), kind);
+    const fitted = fit(pose), finalRegion = region(candidateFrame(fitted.pose), kind, completion.kind==='light'?completion.region:undefined);
     // The first lesson exposes only the hand rod. A demonstration must obey that same input boundary.
     if (kind === 'wave' && (fitted.pose.x !== actor.pose.x || fitted.pose.y !== actor.pose.y || fitted.pose.scale !== actor.pose.scale)) continue;
     if (fitted.fits && finalRegion && targetCoverageRatio(finalRegion, target) >= completion.overlapRatio) return result(fitted.pose);

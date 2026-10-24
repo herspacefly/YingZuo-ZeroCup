@@ -14,6 +14,7 @@ export function prepareFrame(input: CanvasFrame, catalog: AssetCatalog): CanvasF
   if(input.cableMotion&&(!['body','leftHand','rightHand','leftFoot','rightFoot'].includes(input.cableMotion.source)||!number(input.cableMotion.bend,-.035,.035)))throw new Error('操偶柔线数据无效。');
   const ids = new Set<string>();
   const actors = input.actors.map(actor => {
+    if(actor.costumeTreatment!==undefined&&!['original-texture','legacy-motif'].includes(actor.costumeTreatment))throw new Error('衣饰呈现方式无效。');
     if (ids.has(actor.actorId)) throw new Error('同一角色不能在一幕中重复出现。'); ids.add(actor.actorId);
     const template = catalog.puppets.find(item => item.id === actor.templateId);
     if (!template || actor.templateId !== `${actor.actorId}-v1`) throw new Error('角色与分件模板不匹配。');
@@ -61,7 +62,7 @@ export function requiredAssets(frame: CanvasFrame, catalog: AssetCatalog): strin
     const template=catalog.puppets.find(item=>item.id===actor.templateId)!;
     // Canonical verification proves color/mask/regions alpha identical. Do not transfer that same alpha a third time.
     for (const part of template.parts) for (const id of [part.colorAssetId,part.colorMapAssetId]) ids.add(id);
-    const patternId=actor.actorId==='chenxiang'?actor.appearance.patternId:actor.actorId==='mother'?actor.sharedMotif:null;
+    const patternId=actor.costumeTreatment==='original-texture'?null:actor.actorId==='chenxiang'?actor.appearance.patternId:actor.actorId==='mother'?actor.sharedMotif:null;
     if (patternId) for (const id of catalog.patterns.patterns.find(item=>item.id===patternId)!.segments) ids.add(id);
     for (const prop of template.attachments) if (frame.attachments?.some(item=>item.actorId===actor.actorId&&item.attachmentId===prop.id)) ids.add(prop.assetId);
   }

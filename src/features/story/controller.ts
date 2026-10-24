@@ -10,6 +10,8 @@ import { definitionFor } from '../../content/reunion';
 import { subtitlesForMode } from '../../content/story-contract';
 import { moveRodTo,rodScreenPoint } from '../../domain/rod-input';
 import type { RodId } from '../../domain/rod-input';
+import { cueSeekTime } from '../../story/cue-seek';
+import type { CueSeek } from '../../story/cue-seek';
 import { storyEntry } from '../../domain/story';
 import type { Pose,ProjectV1,StageConfig } from '../../domain/types';
 import type { CanvasFrame } from '../../renderers/canvas/types';
@@ -47,8 +49,8 @@ const tips:Record<string,string>={
   'memory-wave':'牵起右手杆，让手臂进入金色轮廓，停一小会。她会回应你。',
   road:'用身杆向右前行，走到金色区域后稍作停留。也可用下方方向按钮。',
   guardian:'牵动右手杆，让手臂进入金色架挡区域，稳住这一瞬。',
-  'call-light':'先把偶幕距离调大，再用身杆提起纹样、左右移灯，让白框覆盖金色山缝。',
-  'split-search':'山已打开。调大偶幕距离，用身杆和灯位把纹样送进金色区域，让尘幕散去。',
+  'call-light':'举起手中的灯，移动身躯与灯位，让白框内的灯火照进金色山缝。',
+  'split-search':'山已打开。举起灯笼，调整身躯与灯位，把灯火送进金色区域，让尘幕散去。',
   'call-split':'身杆保持稳定，把持斧手抬到约70°并停半秒，再由你落回身侧。',
   'split-axe':'身杆保持稳定，把持斧手抬到约70°并停半秒，再由你落回身侧。',
   'reunion-reach':'慢慢牵右手靠近母亲。你停下，她会等你；握柄和下方滑块都能操作。',
@@ -58,7 +60,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   const life=scope(),title=element('h2'),lead=element('p'),runtime=element('p','story-runtime'),shot=element('p','eyebrow'),cueHost=element('div','subtitles');
   const legacyNote=element('p','quiet-note','你正在继续先前的团圆剧本。五终章新剧本可从制偶页归档重开。');legacyNote.hidden=true;legacyNote.appendChild(link(' 去制偶页 →','#/craft'));
   runtime.id='story-runtime';runtime.setAttribute('role','status');shot.id='story-shot';
-  const subtitles=mountSubtitles(cueHost),start=element('button','button primary','确认开始这一场'),skip=element('button','button secondary','先为他备好行装');
+  const subtitles=mountSubtitles(cueHost,seek),start=element('button','button primary','确认开始这一场'),skip=element('button','button secondary','先为他备好行装');
   const play=element('button','button primary','继续片段'),pause=element('button','button secondary','暂停'),reset=element('button','button secondary','重开片段（暂停）');
   const retry=element('button','button secondary','重试当前片段'),finish=element('button','button primary','确认进入下一段'),assist=element('button','button secondary','帮我演过这一段');
   const showcaseSkip=element('button','button secondary','跳过定场放映'),showcaseAgain=element('button','button secondary','再看一次'),confirm=element('button','button primary','确认这身行装，进入第一幕');
@@ -108,7 +110,29 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   }
   function renderDisplayed(){
     if(!display)return;const rt=display;title.textContent=rt.entry.node.title;lead.textContent=rt.entry.node.lead;shot.textContent=rt.sample.shotLabel;
-    rt.shade.style.opacity=String(1-rt.sample.lightLevel);subtitles.update(rt.sample.cues,rt.version>=3?rt.entry.node.subtitles:subtitlesForMode(rt.entry.node,rt.mode),rt.entry.token);
+    rt.shade.style.opacity=String(1-rt.sample.lightLevel);renderSubtitles(rt);
+  }
+  function renderSubtitles(rt:Runtime){
+    const enabled=current(rt)&&!blocked()&&state?.status!=='saving'&&rt.ready&&!rt.requested&&!rt.resolution&&!rt.completed&&rt.entry.node.id!=='craft'&&rt.entry.node.kind!=='terminal';
+    subtitles.update(rt.sample.cues,rt.version>=3?rt.entry.node.subtitles:subtitlesForMode(rt.entry.node,rt.mode),rt.entry.token,
+      {mode:rt.mode,cues:subtitlesForMode(rt.entry.node,rt.mode),elapsedMs:rt.elapsed,enabled,
+        reason:rt.resolution?'这一段已达标，定场放映期间不能定位台词。':rt.completed?'本段达标证据已确认，请先保存进入下一段。':'幕面准备、造型确认或保存期间，台词定位暂不可用。'});
+  }
+  function seek(request:CueSeek){
+    const rt=live;if(!rt||!current(rt))return;
+    const time=cueSeekTime(request,{nodeToken:rt.entry.token,mode:rt.mode,node:rt.entry.node,ready:rt.ready,
+      blocked:blocked()||state?.status==='saving'||rt.requested,resolving:!!rt.resolution,completed:!!rt.completed});
+    if(time===null)return;
+    const wasPlaying=rt.playing;rt.playing=false;rt.clock.stop();rt.controls?.release();
+    rt.interaction.reset();rt.reading=null;rt.operated=false;rt.handOperated=false;rt.assistance=null;holding=null;
+    rt.pose=clone(rt.entry.node.entryPoses.chenxiang!);rt.light={lampX:rt.entry.node.entryStage.lampX,puppetDistance:rt.entry.node.entryStage.puppetDistance};rt.elapsed=time;
+    const soundSample:StageSoundSample&{definitionVersion:Runtime['version']}={definitionVersion:rt.version,nodeId:rt.entry.node.id,mode:rt.mode,elapsedMs:time,playing:false};
+    const seeker=sound as typeof sound&{seek?:(sample:StageSoundSample)=>void};
+    if(seeker.seek)seeker.seek(soundSample);else sound.update(soundSample);
+    ctx.musicSample?.(soundSample);safeSample(rt);
+    // Sampling itself must never observe a task, offer a command or persist the transport position.
+    rt.playing=wasPlaying&&rt.ready&&!blocked();message=rt.playing?'已定位当前台词，按原节奏继续；操偶动作重新计时。':'已定位当前台词，暂停查看；操偶动作重新计时。';
+    updateSound({...soundSample,playing:rt.playing});renderUI();if(rt.playing)rt.clock.start();
   }
   function submit(rt:Runtime,ready:ReadyCommand){
     if(!current(rt)||blocked()||rt.requested)return;
@@ -165,7 +189,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     }
     rt.resolution={elapsed:0,duration:rt.clip?.durationMs??(kind==='axe'?4000:kind==='wave'?2000:kind==='reach'?700:1500),ready:{command,facts:observed},departure:clone(rt.sample.frame)};
     if(kind==='axe'||kind==='light'||kind==='reach')updateSound({nodeId:rt.entry.node.id,mode:rt.mode,elapsedMs:rt.elapsed,playing:rt.playing&&rt.ready,event:kind==='axe'?'mountain-open':kind==='light'?'light-found':'hands-meet'});
-    rt.controls?.release();if(rt.clip){message='达标已确认。收杆定场后，为你放映这一段的编排动作。';safeSample(rt);renderUI();return;}message=kind==='wave'?'她看见了你的手。袖口也留着同一纹样。':kind==='axe'?'斧已落下，山片正在打开。':kind==='light'?'纹样的光穿过遮挡，她在回应你。':kind==='reach'?'这一回，握住。':'让这一瞬的动作留在幕上。';renderUI();
+    rt.controls?.release();if(rt.clip){message='达标已确认。收杆定场后，为你放映这一段的编排动作。';safeSample(rt);renderUI();return;}message=kind==='wave'?'她看见了你的手，灯下的回应仍像从前。':kind==='axe'?'斧已落下，山片正在打开。':kind==='light'?'灯火穿过遮挡，她在回应你。':kind==='reach'?'这一回，握住。':'让这一瞬的动作留在幕上。';renderUI();
   }
   function tick(rt:Runtime,delta:number){
     if(!current(rt)||blocked()||!rt.ready){stop(rt,'当前操作已暂停。');return false;}
@@ -224,7 +248,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
             return {frame:rt.sample.frame,enabled:!blocked()&&rt.ready&&rt.playing&&(rt.version<3||rt.elapsed>=rt.scene.durationMs)&&!rt.assistance&&!rt.resolution&&!rt.completed,rods,
               lights:completion.kind==='light',target,
               region:hands?{minX:hands.chenxiang.x-.03,maxX:hands.chenxiang.x+.03,minY:hands.chenxiang.y-.03,maxY:hands.chenxiang.y+.03}:
-                ['wave','road','block','light'].includes(completion.kind)?projectedInteractionRegion(rt.sample.frame,completion.kind as 'wave'|'road'|'block'|'light'):null};},
+                ['wave','road','block','light'].includes(completion.kind)?projectedInteractionRegion(rt.sample.frame,completion.kind as 'wave'|'road'|'block'|'light',completion.kind==='light'?completion.region:undefined):null};},
           change(pose,source){if(!current(rt)||blocked()||!rt.playing||rt.assistance||rt.resolution)return;
             if(Math.abs(pose.joints.rightShoulder-rt.pose.joints.rightShoulder)>1e-8||Math.abs(pose.joints.rightElbow-rt.pose.joints.rightElbow)>1e-8)rt.handOperated=true;
             rt.pose=clone(pose);if(source!=='leftFoot'&&source!=='rightFoot')rt.operated=true;safeSample(rt);renderUI();},
@@ -258,8 +282,9 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     note.textContent=!rt?'确认开演后，才会为本场留下独立的演出身份；直接打开页面不会替你开始。':node?.id==='craft'?'确认已经准备好的造型，便为本场冻结行装；也可回到制偶页调整。':
       node?.kind==='choice'?(rt.version>=3&&rt.elapsed<rt.scene.durationMs?'先听这段对白；说完以后，再亲自选择这一场的去向。':'请亲自选择这一场的去向。操作失误和使用协助不会替你决定结局。'):
       rt.version>=3&&interactive(rt)&&rt.elapsed<rt.scene.durationMs?'先听这一段故事，随后会展开握柄与操偶控件。也可展开本段完整台词阅读。':
-      rt.resolution&&rt.clip?'这一段已达标，握柄已收起。可暂停、跳过放映或从头再看；放映结束后只保存一次。':interactive(rt)?`${tips[node!.id]??(node!.completion.kind==='axe'?'抬起右手，稳住半秒，再亲手落斧。':node!.completion.kind==='light'?'移动身躯与灯位，让纹样照进金色区域。':'用方向键移身，走进金色区域后停留。')} 金色是目标区域，白线是当前观察范围。暂停不累计动作时间；刷新会从本段开头的静止画面重新开始。`:
+      rt.resolution&&rt.clip?'这一段已达标，握柄已收起。可暂停、跳过放映或从头再看；放映结束后只保存一次。':interactive(rt)?`${tips[node!.id]??(node!.completion.kind==='axe'?'抬起右手，稳住半秒，再亲手落斧。':node!.completion.kind==='light'?'举起灯笼，移动身躯与灯位，让灯火照进金色区域。':'用方向键移身，走进金色区域后停留。')} 金色是目标区域，白线是当前观察范围。暂停不累计动作时间；刷新会从本段开头的静止画面重新开始。`:
       `尚未播放时是本段开头的静止画面；继续片段后，字幕与场面一起走。${reduced?'已启用减少动态。':''}声音可选，静音也保留全部字幕与操作。`;
+    if(display)renderSubtitles(display);
     if(!hasStory){title.textContent='还没有开始这一场';lead.textContent=note.textContent;shot.textContent='';subtitles.update([],[],'empty');}rt?.controls?.render();
   }
   function finishResolution(rt:Runtime){

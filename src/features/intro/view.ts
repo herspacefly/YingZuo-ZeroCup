@@ -13,11 +13,11 @@ export const mountIntro: PageFactory = (host, ctx) => {
   const art = stageFrame('一幕\n团圆', '一盏灯 · 一张幕 · 等一个人归来'); art.className += ' hero-stage';
   append(hero, copy, art); host.appendChild(hero);
   const story = element('section', 'story-strip');
-  append(story, element('p', 'eyebrow', '这一出戏'), element('h2', '', '从灯下的回应，到山后的相见。'), element('p', 'section-lead', '为沉香留一道纹样，陪他上路，替他举灯或开山，再决定山开以后的去向。'));
+  append(story, element('p', 'eyebrow', '这一出戏'), element('h2', '', '从灯下的回应，到山后的相见。'), element('p', 'section-lead', '为沉香备一身行装，陪他上路，替他举灯或开山，再决定山开以后的去向。'));
   const acts = element('ol', 'act-list');
   ['灯下记得', '带着灯上路', '山前一线光', '山开以后'].forEach((label, i) => { const li = element('li'); append(li, element('span', 'act-number', ['一', '二', '三', '四'][i]!), element('span', '', label)); acts.appendChild(li); });
   append(story, acts, element('p', 'adaptation', '据传统故事《劈山救母》原创交互改编。三位影偶与分层场景采用本作原创皮影风格设计稿。')); host.appendChild(story);
-  const steps=element('section','intro-steps');append(steps,element('h2','','初来这张幕，先试三件事'));const list=element('ol');for(const text of ['为沉香选纹样与配色，也可用默认影偶开演。','点继续操偶，直接拖动手脚；点击幕面后用方向键移身。','在故事里选择路线和终章，再带走本场节目单。'])list.appendChild(element('li','',text));append(steps,list,element('p','quiet-note','每页顶部都有“操作说明”。声音可选，遇到难处可请协助演过；二维可完成全部体验。'));host.appendChild(steps);
+  const steps=element('section','intro-steps');append(steps,element('h2','','初来这张幕，先试三件事'));const list=element('ol');for(const text of ['为沉香挑选配色，也可用默认影偶开演。','点继续操偶，直接拖动手脚；点击幕面后用方向键移身。','在故事里选择路线和终章，再带走本场节目单。'])list.appendChild(element('li','',text));append(steps,list,element('p','quiet-note','每页顶部都有“操作说明”。声音可选，遇到难处可请协助演过；二维可完成全部体验。'));host.appendChild(steps);
   const origin=element('section','story-background');origin.id='story-background';origin.setAttribute('aria-labelledby','background-title');const originTitle=element('h2','',background.title);originTitle.id='background-title';const originGrid=element('div','story-background-grid');
   append(origin,element('p','eyebrow','先认识这一家人'),originTitle,element('p','',background.intro));for(const section of background.sections){const part=element('article');append(part,element('h3','',section.title),element('p','',section.text));originGrid.appendChild(part);}
   const prepare=link('明白了，为沉香备行装 →','#/craft','button primary journey-recommended');prepare.id='journey-to-craft';append(origin,originGrid,element('p','adaptation',background.adaptationNote),link('传统故事背景参考：文化和旅游部《宝莲灯》剧情介绍 ↗','https://www.mct.gov.cn/ggfw/zyjzzt/yanchu/yanchuwqhg/201909/t20190923_846995.html'),prepare);host.appendChild(origin);

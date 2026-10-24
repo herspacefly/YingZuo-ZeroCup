@@ -35,10 +35,11 @@ export interface PuppetTemplate {
   note: string;
 }
 // Consumer contract for T04/T16: fixed actors never acquire editable Appearance.
-export type RenderActor =
+export type CostumeTreatment = 'original-texture' | 'legacy-motif';
+export type RenderActor = (
   | { actorId: 'chenxiang'; templateId: 'chenxiang-v1'; appearance: Appearance; pose: Pose }
   | { actorId: 'mother'; templateId: 'mother-v1'; paletteId: 'mother-v1'; sharedMotif: PatternId; pose: Pose }
-  | { actorId: 'guardian'; templateId: 'guardian-v1'; paletteId: 'guardian-v1'; pose: Pose };
+  | { actorId: 'guardian'; templateId: 'guardian-v1'; paletteId: 'guardian-v1'; pose: Pose }) & { costumeTreatment?: CostumeTreatment };
 export interface PatternDefinition { id: PatternId; label: string; operation: 'destination-out'; alphaMeaning: 'cut-away'; mapping: 'stretch-to-placement-bounds'; segments: [string, string, string]; note: string }
 export interface Palette { id: string; label: string; editable: boolean; colors: [string, string, string, string, string] }
 export interface SceneLayer { id: string; assetId: string; order: number; x: number; y: number; opacity: number; xRange: [number, number]; yRange: [number, number]; opacityRange: [number, number] }

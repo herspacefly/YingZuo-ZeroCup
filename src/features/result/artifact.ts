@@ -22,10 +22,11 @@ export function createReunionArtifact(project: ProjectV1): ReunionArtifact {
   const hold=summary.definitionVersion!==1?definition.endings!.find(e=>e.id===summary.ending)!.epilogueNodeId:'reunion-hold';
   const node = definition.nodes.find(item => item.id === hold)!;
   const cast = summary.castSnapshot;
+  const costumeTreatment=summary.definitionVersion===4?'original-texture' as const:'legacy-motif' as const;
   const frame = stagePlayFrame(node, prepareFrame({
     actors: [
-      { actorId: 'chenxiang', templateId: 'chenxiang-v1', appearance: copy(cast.appearance), pose: copy(node.entryPoses.chenxiang!) },
-      { actorId: 'mother', templateId: 'mother-v1', paletteId: 'mother-v1', sharedMotif: cast.sharedMotif, pose: copy(node.entryPoses.mother!) },
+      { costumeTreatment,actorId: 'chenxiang', templateId: 'chenxiang-v1', appearance: copy(cast.appearance), pose: copy(node.entryPoses.chenxiang!) },
+      { costumeTreatment,actorId: 'mother', templateId: 'mother-v1', paletteId: 'mother-v1', sharedMotif: cast.sharedMotif, pose: copy(node.entryPoses.mother!) },
     ],
     stage: copy(node.entryStage),
     sceneLayers: copy(node.entrySceneLayers),

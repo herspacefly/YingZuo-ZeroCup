@@ -17,7 +17,7 @@ export class PartCompositor {
     const paletteId = actor.actorId === 'chenxiang' ? actor.appearance.paletteId : actor.paletteId;
     const slots = actor.actorId === 'chenxiang' ? actor.appearance.colorSlots : { body:0, sleeve:1, hem:2 };
     const motif = template.motifPlacement;
-    const patternId = actor.actorId === 'chenxiang' ? actor.appearance.patternId : actor.actorId === 'mother' ? actor.sharedMotif : null;
+    const patternId = actor.costumeTreatment === 'original-texture' ? null : actor.actorId === 'chenxiang' ? actor.appearance.patternId : actor.actorId === 'mother' ? actor.sharedMotif : null;
     const segments = actor.actorId === 'chenxiang' ? actor.appearance.carvedSegments : [true,true,true];
     const signature = JSON.stringify([paletteId, slots, motif?.partId === part.partId ? [patternId,segments] : null]);
     const key = `${actor.actorId}/${part.partId}`, cached = this.parts.get(key);

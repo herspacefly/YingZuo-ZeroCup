@@ -17,6 +17,7 @@ export interface ReunionReplaySample {
   frame: CanvasFrame;
   cues: StoryNode['subtitles'];
   allCues: StoryNode['subtitles'];
+  seekCues: StoryNode['subtitles'];
   lightLevel: number;
   shotLabel: string;
   ended: boolean;
@@ -77,7 +78,7 @@ export function createReunionReplay(project: ProjectV1) {
       const sampled = scene.clip.sample(progress, elapsed, reducedMotion);
       const label = node.id === 'craft' ? '制偶回看 · 本场冻结造型' : node.id === 'approach-choice'
         ? summary.approach === 'call-first' ? '本场路线 · 先呼唤母亲' : '本场路线 · 先劈开山石' : sampled.shotLabel;
-      return { frame: sampled.frame, cues: copy(sampled.cues), allCues: copy(scene.allCues), lightLevel: sampled.lightLevel,
+      return { frame: sampled.frame, cues: copy(sampled.cues), allCues: copy(scene.allCues),seekCues:subtitlesForMode(node,story.mode), lightLevel: sampled.lightLevel,
         shotLabel: label, ended: elapsed >= director.durationMs };
     },
   };

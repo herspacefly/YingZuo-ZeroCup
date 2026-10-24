@@ -1,5 +1,6 @@
 import { createAnimationClock } from '../../app/animation-clock';
 import type { ProjectV1 } from '../../domain/types';
+import type { CueSeek } from '../../story/cue-seek';
 import { createReunionReplay } from '../../story/replay';
 import { canvasStage } from '../shared/canvas-stage';
 import { append,element,scope } from '../shared/dom';
@@ -13,7 +14,7 @@ export function mountReunionReplay(host:HTMLElement,project:ProjectV1){
   const chooseLabel=element('label','','重演片段'),choose=element('select');choose.id='replay-segment';chooseLabel.appendChild(choose);
   replay.segments.forEach((item,index)=>{const option=element('option','',`${String(index+1).padStart(2,'0')} · ${item.title}`);option.value=String(index);choose.appendChild(option);});
   const status=element('p','selection-summary');status.id='replay-status';status.setAttribute('role','status');
-  const shot=element('p','eyebrow'),cueHost=element('div'),subtitles=mountSubtitles(cueHost),transport=element('div','transport');
+  const shot=element('p','eyebrow'),cueHost=element('div'),subtitles=mountSubtitles(cueHost,seek),transport=element('div','transport');
   const play=element('button','button primary','播放编排'),pause=element('button','button secondary','暂停重演'),reset=element('button','button secondary','从头重演（暂停）');
   const previous=element('button','button secondary','上一片段'),next=element('button','button secondary','下一片段'),step=element('button','button secondary','前进 250 毫秒');
   for(const [button,id]of [[play,'play'],[pause,'pause'],[reset,'reset'],[previous,'previous'],[next,'next'],[step,'step']] as const){button.type='button';button.id=`replay-${id}`;transport.appendChild(button);}
@@ -34,8 +35,14 @@ export function mountReunionReplay(host:HTMLElement,project:ProjectV1){
   function stop(text?:string){playing=false;clock.stop();if(text)message=text;controls();}
   function draw(){
     if(disposed)return;
-    try{const sample=replay.sample(index,elapsed,reduced);stage.update(sample.frame);shot.textContent=sample.shotLabel;stage.screen.style.opacity=String(sample.lightLevel);subtitles.update(sample.cues,sample.allCues,String(index));controls();}
+    try{const sample=replay.sample(index,elapsed,reduced);stage.update(sample.frame);shot.textContent=sample.shotLabel;stage.screen.style.opacity=String(sample.lightLevel);subtitles.update(sample.cues,sample.allCues,String(index),{mode:project.story!.mode,cues:sample.seekCues,elapsedMs:elapsed,enabled:!blocked&&ready});controls();}
     catch(error){stop(`无法显示这段编排：${error instanceof Error?error.message:String(error)}`);}
+  }
+  function seek(request:CueSeek){
+    if(disposed||blocked||!ready||request.nodeToken!==String(index)||request.mode!==project.story!.mode||!Number.isInteger(request.cueIndex)||request.cueIndex<0)return;
+    const cue=replay.sample(index,elapsed,reduced).seekCues[request.cueIndex];if(!cue)return;
+    const resume=playing;clock.stop();elapsed=cue.startMs;message='已定位本段台词；这次操作不会写入作品。';draw();
+    playing=resume&&!blocked&&ready;controls();if(playing)clock.start();
   }
   function select(value:number){stop('切换片段，暂停查看。');index=value;elapsed=0;choose.value=String(index);draw();}
   function advance(delta:number){
