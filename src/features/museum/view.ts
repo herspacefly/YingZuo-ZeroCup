@@ -10,7 +10,7 @@ import type { PageFactory } from '../../app/view';
 import type { ProjectV1 } from '../../domain/types';
 import { mountMuseumDemo, museumPreviewFrame } from './demos';
 import { mountMuseumEnsemble } from './ensemble';
-import { mountMuseumGallery, museumCover } from './gallery';
+import { mountMuseumGallery, museumCover, museumMedia } from './gallery';
 import '../../styles/museum-gallery.css';
 
 const factLabels={culture:'工艺与剧目资料',model:'交互示意',original:'本作原创'};
@@ -20,8 +20,9 @@ function sourceLink(id:string){
 }
 export const mountMuseum:PageFactory=(host,ctx)=>{
   const life=scope(),selected=museumExhibits.find(item=>item.id===ctx.route.exhibitId);
-  append(host,heading('同台成馆 / 五区八件',selected?.title??'把刚才的光影，翻到背面看。',
-    selected?.summary??'不必演完，也不必集齐。从一张皮、一道刻、一束光，走进同一张幕的背面。'));
+  host.classList.add('digital-museum');
+  append(host,heading('影作数字展馆 / 皮影艺术',selected?.title??'一张皮，一束光，千年戏。',
+    selected?.summary??'循着实物与工艺照片，认识皮影的材料、刻制、操演和地方风貌。五个展区，八件展签，随时入馆。'));
   const returnLink=link('回到这一场 →','#/story','button secondary'),visit=element('p','quiet-note'),context=element('p','museum-personal');
   visit.id='museum-visit';visit.setAttribute('role','status');context.id='museum-personal';
   const path=element('nav','museum-path');path.setAttribute('aria-label','展馆导览');
@@ -30,22 +31,31 @@ export const mountMuseum:PageFactory=(host,ctx)=>{
     path.appendChild(link('五个展区 ←','#/museum','button secondary'));
     if(index>0)path.appendChild(link(`上一件 · ${museumExhibits[index-1]!.id}`,`#/museum/${museumExhibits[index-1]!.id}`,'button secondary'));
     if(index<museumExhibits.length-1)path.appendChild(link(`下一件 · ${museumExhibits[index+1]!.id}`,`#/museum/${museumExhibits[index+1]!.id}`,'button secondary'));
-    append(path,returnLink);append(host,path,element('p','exhibit-code',`${selected.section} / ${selected.id}`),context,visit);
+    append(host,path,element('p','exhibit-code',`${selected.section} / ${selected.id}`));
   }else{
     for(const [index,label]of museumSections.entries()){
       const button=element('button','museum-section-tab',label);button.type='button';
       life.on(button,'click',()=>{const title=host.querySelector<HTMLElement>(`#museum-section-${index}`);title?.focus();title?.scrollIntoView({block:'start'});});path.appendChild(button);
     }
-    append(path,returnLink);append(host,path,context);
+    append(host,path);
+    const hero=element('section','museum-hero'),copy=element('div','museum-hero-copy'),photo=element('figure','museum-hero-photo');
+    const cover=museumMedia.media.find(item=>item.kind==='external'&&item.region.includes('唐山'))??museumMedia.media.find(item=>item.kind==='external')!;
+    const image=element('img');image.src=cover.localPath;image.alt=cover.alt;image.width=cover.width;image.height=cover.height;image.decoding='async';
+    const fallback=element('p','museum-hero-fallback','照片暂未载入，可从下方展区继续阅读。');fallback.hidden=true;life.on(image,'error',()=>{image.hidden=true;fallback.hidden=false;});
+    const caption=element('figcaption');append(caption,element('span','',`${cover.region} · ${cover.originalCaption}`));
+    if(cover.sourcePage){const source=link('资料出处 ↗',cover.sourcePage);source.target='_blank';source.rel='noopener noreferrer';caption.appendChild(source);}
+    append(photo,image,fallback,caption);
+    append(copy,element('span','eyebrow','光影之间 / 手艺长存'),element('h2','','从一刀一线，读懂一出戏。'),element('p','','影窗前，是人物的聚散；影窗后，是皮料、刻刀、色彩、灯与操演者的手。先看真实的手工痕迹，再走近它们怎样共同成就一场演出。'),link('从材料与颜色开始 →','#/museum/E01','button journey-recommended'),element('p','quiet-note','公开资料照片逐图附来源与地域。本作互动示意安排在科普内容之后。'));
+    append(hero,copy,photo);host.appendChild(hero);
   }
   let demo:ReturnType<typeof mountMuseumDemo>|null=null,portrait:ReturnType<typeof canvasStage>|null=null,ensemble:ReturnType<typeof mountMuseumEnsemble>|null=null,gallery:ReturnType<typeof mountMuseumGallery>|null=null;
   const programme=element('section','programme museum-programme'),programmeTitle=element('h2'),programmeRows=element('dl','programme-list'),programmeLink=link('查看本场节目单 →','#/result');
   function mountReading(exhibit:MuseumExhibit){
-    const toggle=element('button','button secondary','展开说明与资料来源'),reading=element('section','museum-reading');
+    const toggle=element('button','button secondary museum-model-reading','展开数字示意说明与资料来源'),reading=element('section','museum-reading');
     toggle.id='exhibit-reading-toggle';toggle.type='button';reading.id='exhibit-reading';reading.hidden=true;
     toggle.setAttribute('aria-controls',reading.id);toggle.setAttribute('aria-expanded','false');
-    life.on(toggle,'click',()=>{reading.hidden=!reading.hidden;toggle.setAttribute('aria-expanded',String(!reading.hidden));toggle.textContent=reading.hidden?'展开说明与资料来源':'收起说明与资料来源';});
-    append(reading,element('h2','','再走近一点'),element('p','exhibit-detail-copy',exhibit.detail));
+    life.on(toggle,'click',()=>{reading.hidden=!reading.hidden;toggle.setAttribute('aria-expanded',String(!reading.hidden));toggle.textContent=reading.hidden?'展开数字示意说明与资料来源':'收起说明与资料来源';});
+    append(reading,element('h2','','资料索引与数字示意'),element('p','exhibit-detail-copy',exhibit.detail));
     const facts=element('ul','museum-facts');
     for(const id of exhibit.factIds){
       const fact=museumFacts.find(item=>item.id===id)!,row=element('li');
@@ -64,6 +74,8 @@ export const mountMuseum:PageFactory=(host,ctx)=>{
     append(host,toggle,reading);
   }
   if(selected){
+    gallery=mountMuseumGallery(host,selected.id);
+    const divider=element('header','museum-demo-heading');append(divider,element('span','eyebrow','延伸体验 / 数字示意'),element('h2','','把刚才的知识，放到幕上试一试。'),element('p','quiet-note','下方为本作的简化模型与剧场设计，帮助理解关系；不作为传统工艺的统一标准。'));host.appendChild(divider);
     mountReading(selected);
     const display=element('section','museum-display');display.id='museum-display';display.setAttribute('aria-label',selected.alt);host.appendChild(display);
     if(['layers','carving','joints','light'].includes(selected.demo))demo=mountMuseumDemo(display,selected.demo as 'layers'|'carving'|'joints'|'light');
@@ -80,7 +92,7 @@ export const mountMuseum:PageFactory=(host,ctx)=>{
       }
       append(diagram,panels,element('figcaption','stage-caption',selected.alt));display.appendChild(diagram);
     }
-    gallery=mountMuseumGallery(host,selected.id);
+    const exit=element('aside','museum-theatre-return');append(exit,context,visit,returnLink);host.appendChild(exit);
   }
   const catalogue=element('section',selected?'museum-catalogue compact':'museum-catalogue');
   if(selected)catalogue.appendChild(element('h2','','沿展签，再看一件。'));
@@ -103,7 +115,7 @@ export const mountMuseum:PageFactory=(host,ctx)=>{
   function programmeUpdate(project:ProjectV1|null){
     const result=project?reunionSummary(project):null,story=project?.story;clear(programmeRows);
     const ending=endingFor(story);programmeTitle.textContent=result?(ending?'本场终章 · '+ending.title:'这一场，已经相见。'):'这一场的参与记录';programmeLink.hidden=!result;const rows:[string,string][]=[];
-    if(story?.castSnapshot)rows.push(['本场纹样',patternLabel(story.castSnapshot.appearance.patternId)],['本场配色',paletteLabel(story.castSnapshot.appearance.paletteId)],['造型来源',story.presetAppearanceUsed?'采用默认影偶':'采用你确认的造型']);
+    if(story?.castSnapshot){if(story.definitionVersion!==4)rows.push(['本场纹样',patternLabel(story.castSnapshot.appearance.patternId)]);rows.push(['本场配色',paletteLabel(story.castSnapshot.appearance.paletteId)],['造型来源',story.presetAppearanceUsed?'采用默认影偶':'采用你确认的造型']);}
     rows.push(['演出进度',story?definitionFor(story).nodes.find(node=>node.id===story.nodeId)!.title:'尚未开演，示例不代表个人成果']);
     if(story?.approach)rows.push(['你的选择',story.approach==='call-first'?'先举灯呼唤':'先挥斧开山']);
     if(ending)rows.push(['你的终章',ending.title],['终章去向',ending.summary]);
@@ -115,7 +127,7 @@ export const mountMuseum:PageFactory=(host,ctx)=>{
     update(state){
       if(disposed)return;const project=state.project,cast=project?.story?.castSnapshot;
       returnLink.href=continueHash(project);returnLink.textContent=project?.story?'回到这一场 →':'从这里去看一场 →';
-      context.textContent=cast?`本场影偶 · ${patternLabel(cast.appearance.patternId)} / ${paletteLabel(cast.appearance.paletteId)}。展品试验只在此处生效，回去仍从原段暂停接续。`:
+      context.textContent=cast?`本场影偶 · ${paletteLabel(cast.appearance.paletteId)}。数字示意只在此处生效，回去仍从原段暂停接续。`:
         '展品使用示例影偶，随时可以试一试。无需开演或集齐展签，试验不会替你开始或完成故事。';
       for(const [id,label]of seenLabels)label.textContent=project?.museum.visitedExhibitIds.includes(id as MuseumExhibit['id'])?'来过':'';
       if(selected){
@@ -127,6 +139,6 @@ export const mountMuseum:PageFactory=(host,ctx)=>{
       }
       demo?.update(project);ensemble?.update(project);portrait?.update(()=>museumPreviewFrame(project));if(selected?.demo==='credits')programmeUpdate(project);
     },
-    dispose(){if(disposed)return;disposed=true;life.dispose();demo?.dispose();ensemble?.dispose();portrait?.dispose();gallery?.dispose();},
+    dispose(){if(disposed)return;disposed=true;life.dispose();demo?.dispose();ensemble?.dispose();portrait?.dispose();gallery?.dispose();host.classList.remove('digital-museum');},
   };
 };

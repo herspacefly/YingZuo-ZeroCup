@@ -1,4 +1,5 @@
 import { mountJourney } from '../features/shared/journey';
+import { mountSiteMotion } from '../features/shared/site-motion';
 import '../styles/help.css';
 import '../styles/tokens.css';
 import '../styles/base.css';
@@ -44,6 +45,7 @@ const labels: Record<StoreState['status'], string> = {
 };
 function get<T extends HTMLElement>(id: string): T { return document.getElementById(id) as T; }
 const host = get<HTMLDivElement>('app-view'), main = get<HTMLElement>('main');
+const siteMotion = mountSiteMotion(host);
 const tools = get<HTMLDetailsElement>('project-tools'), operation = get<HTMLElement>('project-operation');
 const menu = get<HTMLButtonElement>('menu-toggle'), nav = get<HTMLElement>('primary-nav');
 const life = scope(), downloads: (() => void)[] = [];
@@ -203,7 +205,7 @@ async function mount() {
 
 function dispose() {
   if (disposed) return;
-  disposed = true; life.dispose(); router?.dispose(); page?.dispose();music.dispose();unsubscribe();
+  disposed = true; siteMotion.dispose();life.dispose(); router?.dispose(); page?.dispose();music.dispose();unsubscribe();
   downloads.forEach(cleanup => cleanup()); store?.dispose();
 }
 window.addEventListener('pagehide', dispose);

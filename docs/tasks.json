@@ -1310,6 +1310,115 @@
         "2026-10-23: docs/acceptance/t21-t24.md and docs/evidence/t21-t24-acceptance.json distinguish final label-only change from measured/visual build; formal review and device/performance limits retained."
       ],
       "phase": "G3"
+    },
+    {
+      "id": "T25",
+      "title": "本机数据清理与默认声音会话",
+      "priority": "P0",
+      "status": "in_progress",
+      "dependsOn": [
+        "T21"
+      ],
+      "owner": "codex-root",
+      "branch": "codex/v4-reset-audio",
+      "touchFiles": [
+        "src/app/",
+        "src/audio/",
+        "src/persistence/",
+        "index.html",
+        "tests/"
+      ],
+      "acceptanceRefs": [
+        "T25"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "按docs/plans/2026-10-24-v4-light-and-museum.md实施与验证；完成前不得标done。",
+      "blocker": null,
+      "verification": [],
+      "phase": "G3"
+    },
+    {
+      "id": "T26",
+      "title": "v4灯火剧本、去附加衣纹与台词定位",
+      "priority": "P0",
+      "status": "in_progress",
+      "dependsOn": [
+        "T21",
+        "T24"
+      ],
+      "owner": "codex-root",
+      "branch": "codex/v4-story-seek",
+      "touchFiles": [
+        "src/content/",
+        "src/domain/",
+        "src/story/",
+        "src/features/story/",
+        "src/features/craft/",
+        "tests/"
+      ],
+      "acceptanceRefs": [
+        "T26"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "按docs/plans/2026-10-24-v4-light-and-museum.md实施与验证；完成前不得标done。",
+      "blocker": null,
+      "verification": [],
+      "phase": "G3"
+    },
+    {
+      "id": "T27",
+      "title": "动态持斧、柔线与三维灯影工坊",
+      "priority": "P0",
+      "status": "in_progress",
+      "dependsOn": [
+        "T20",
+        "T23"
+      ],
+      "owner": "codex-root",
+      "branch": "codex/v4-lamp-motion",
+      "touchFiles": [
+        "src/renderers/",
+        "src/domain/",
+        "src/features/light/",
+        "src/features/shared/",
+        "src/styles/",
+        "tests/"
+      ],
+      "acceptanceRefs": [
+        "T27"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "按docs/plans/2026-10-24-v4-light-and-museum.md实施与验证；完成前不得标done。",
+      "blocker": null,
+      "verification": [],
+      "phase": "G3"
+    },
+    {
+      "id": "T28",
+      "title": "科普优先数字展馆与全站动效",
+      "priority": "P0",
+      "status": "in_progress",
+      "dependsOn": [
+        "T22",
+        "T23"
+      ],
+      "owner": "codex-root",
+      "branch": "main",
+      "touchFiles": [
+        "src/features/museum/",
+        "src/content/exhibits.json",
+        "src/styles/",
+        "src/features/shared/",
+        "docs/"
+      ],
+      "acceptanceRefs": [
+        "T28"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "按docs/plans/2026-10-24-v4-light-and-museum.md实施与验证；完成前不得标done。",
+      "blocker": null,
+      "verification": [],
+      "phase": "G3"
     }
   ],
   "originalWorkspace": "D:/.MyLearning/VSCodeProject/ZeroCup",

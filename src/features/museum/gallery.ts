@@ -5,8 +5,8 @@ import { append, element, link, scope } from '../shared/dom';
 
 export const museumMedia = parseMuseumMedia(document);
 export function museumCover(exhibitId: string): MuseumMedia | undefined {
-  const id = museumMedia.exhibits.find(row => row.exhibitId === exhibitId)?.mediaIds[0];
-  return museumMedia.media.find(row => row.id === id);
+  const ids = museumMedia.exhibits.find(row => row.exhibitId === exhibitId)?.mediaIds ?? [];
+  return museumMedia.media.find(row => ids.includes(row.id) && row.kind === 'external') ?? museumMedia.media.find(row => row.id === ids[0]);
 }
 function externalLink(label: string, url: string) {
   const anchor = link(label, url); anchor.target = '_blank'; anchor.rel = 'noopener noreferrer'; return anchor;
@@ -44,7 +44,7 @@ export function mountMuseumGallery(host: HTMLElement, exhibitId: string) {
     for (const id of paragraph.sourceIds) { const source = museumMedia.sources.find(row => row.id === id)!; card.appendChild(externalLink(`资料 · ${source.title}`, source.url)); }
     prose.appendChild(card);
   }
-  const grid = element('div', 'museum-photo-grid'), images: ReturnType<typeof imageView>[] = [];
+  const grid = element('div', 'museum-photo-grid'), originals = element('div', 'museum-photo-grid museum-original-grid'), images: ReturnType<typeof imageView>[] = [];
   let closeModal: (() => void) | null = null, disposed = false;
   function open(media: MuseumMedia, opener: HTMLElement) {
     closeModal?.();
@@ -80,15 +80,18 @@ export function mountMuseumGallery(host: HTMLElement, exhibitId: string) {
     const toolbar = element('div', 'museum-lightbox-toolbar'); append(toolbar, title, close);
     append(panel, toolbar, large.box, element('p', 'museum-photo-description', media.description), attribution(media)); overlay.appendChild(panel); window.document.body.appendChild(overlay); close.focus();
   }
-  for (const id of reading.mediaIds) {
-    const media = museumMedia.media.find(row => row.id === id)!, card = element('figure', 'museum-photo-card'), preview = imageView(media), enlarge = element('button', 'button secondary museum-photo-enlarge', `放大查看 · ${media.title}`), caption = element('figcaption');
+  for (const [index,id] of [...reading.mediaIds].sort((a,b)=>Number(museumMedia.media.find(row=>row.id===a)!.kind==='original')-Number(museumMedia.media.find(row=>row.id===b)!.kind==='original')).entries()) {
+    const media = museumMedia.media.find(row => row.id === id)!, card = element('figure', 'museum-photo-card'), preview = imageView(media,index===0), enlarge = element('button', 'button secondary museum-photo-enlarge', `放大查看 · ${media.title}`), caption = element('figcaption');
+    card.setAttribute('data-media-kind',media.kind);
     images.push(preview); enlarge.type = 'button'; enlarge.setAttribute('aria-haspopup', 'dialog'); life.on(enlarge, 'click', () => open(media, enlarge));
     // The whole photo is also a pointer target, with a separate discoverable keyboard button.
     preview.image.style.cursor = 'zoom-in'; life.on(preview.image, 'click', () => open(media, enlarge));
     append(caption, element('span', 'museum-photo-kind', media.kind === 'external' ? '公开资料照片' : '本作数字设计'), element('h3', '', media.title), element('p', 'museum-photo-description', media.description), attribution(media));
-    append(card, preview.box, enlarge, caption); grid.appendChild(card);
+    append(card, preview.box, enlarge, caption); (media.kind==='external'?grid:originals).appendChild(card);
   }
-  append(section, top, observation, grid, prose); host.appendChild(section);
+  append(section, top, grid, observation, prose);
+  if(originals.childElementCount)append(section,element('h3','museum-original-heading','延伸 · 本作数字设计'),originals);
+  host.appendChild(section);
   return { dispose() { if (disposed) return; disposed = true; closeModal?.(); life.dispose(); for (const image of images) image.dispose(); } };
 }
 
