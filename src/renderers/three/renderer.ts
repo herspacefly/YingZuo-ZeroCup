@@ -172,7 +172,7 @@ export function mountThreeStage(host: HTMLElement, source: HTMLCanvasElement, op
       for (const entry of item.rods) {
         const point = entry.rodId==='leftFoot'||entry.rodId==='rightFoot'?limbLocalPoint(template,actor.pose,entry.rodId):rodPoint(template, actor.pose, entry.rodId), attribute = entry.line.geometry.getAttribute('position');
         const world=localToWorld(point,actor.pose),end=worldToLocal({x:world.x-.025,y:-1.6},actor.pose),motion=actor.actorId==='chenxiang'&&frame.cableMotion?.source===entry.rodId?frame.cableMotion:undefined;
-        const curve=cableCurve(point,end,(motion?.bend??0)/actor.pose.scale);for(let i=0;i<12;i++){const p=cablePoint(curve,i/11);attribute.setXYZ(i,p.x,p.y,-.007-i/11*.07);}
+        const curve=cableCurve(point,end,(motion?.bend??0)*actor.pose.facing/actor.pose.scale);for(let i=0;i<12;i++){const p=cablePoint(curve,i/11);attribute.setXYZ(i,p.x,p.y,-.007-i/11*.07);}
         attribute.needsUpdate = true; entry.line.geometry.computeBoundingSphere(); entry.line.material.opacity = opacity;entry.line.visible=!!frame.showRods;
       }
       for (const entry of item.joints) { const point = jointTransform(template, actor.pose, entry.jointId); entry.mesh.position.set(point.x, point.y, .01); entry.mesh.material.visible = opacity > 0; }

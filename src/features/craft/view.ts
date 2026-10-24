@@ -58,7 +58,7 @@ export const mountCraft:PageFactory=(host,ctx)=>{
     trialPad.querySelectorAll('button').forEach(button=>{button.disabled=!canTry();});resetTrial.disabled=!canTry();
   }
   const direct=mountLimbControls(stage,{read(){const draft=ctx.store.getExportProject()??state?.project;if(!draft||!bodyModel)return null;return {frame:{actors:[{actorId:'chenxiang',templateId:'chenxiang-v1',appearance:draft.appearance,pose:bodyModel.pose}],stage:bodyModel.stage},enabled:canTry()};},change(pose){trialPose=pose;render();},wake(){clock.start();},end(){if(!stage.cables.active)clock.stop();},report(text){trialHelp.textContent=text;}});
-  const clock=createAnimationClock({request:cb=>requestAnimationFrame(cb),cancel:id=>cancelAnimationFrame(id),now:()=>performance.now()},delta=>{direct.tick(delta);body.render();return canTry()&&direct.isActive();},()=>direct.release(),stage.frameObserver);
+  const clock=createAnimationClock({request:cb=>requestAnimationFrame(cb),cancel:id=>cancelAnimationFrame(id),now:()=>performance.now()},delta=>{direct.tick(delta);body.render();return canTry()&&direct.isActive();},()=>{direct.release();body.render();},stage.frameObserver);
   const offStatus=stage.subscribe(()=>{syncControls();direct.render();});
   function render(){
     if(disposed||!state)return;const draft=ctx.store.getExportProject()??state.project,story=state.project?.story;

@@ -2,7 +2,7 @@ import { cableScreenPath } from '../../domain/cables';
 import { assetCatalog } from '../../content/catalog';
 import { LIMBS,limbScreenPoint,moveLimbTo } from '../../domain/limb-input';
 import type { LimbId } from '../../domain/limb-input';
-import { fitViewport,viewportToWorld,worldToViewport } from '../../domain/projection';
+import { fitViewport,viewportToWorld,worldToViewport,unprojectPoint,projectPoint,projectionParameters } from '../../domain/projection';
 import type { Point } from '../../domain/projection';
 import { moveRodBy } from '../../domain/rod-input';
 import type { Pose } from '../../domain/types';
@@ -27,7 +27,7 @@ export function mountLimbControls(stage:ReturnType<typeof canvasStage>,port:Limb
   function read(){if(disposed)return null;const data=port.read(),actor=data?.frame.actors.find(a=>a.actorId==='chenxiang');return data&&actor?{...data,actor}:null;}
   function active(){const r=read();return r?.enabled&&stage.getStatus().state==='ready'?r:null;}
   function point(x:number,y:number){const r=stage.canvas.getBoundingClientRect();return viewportToWorld({x:x-r.left,y:y-r.top},fitViewport(r.width,r.height));}
-  function release(settle=false){if(settle)stage.cables.release();else stage.cables.clear();const old=drag;drag=null;keys.clear();if(old){const h=handles.get(old.id)!;try{if(h.hasPointerCapture?.(old.pointer))h.releasePointerCapture(old.pointer);}catch(e){port.report('已结束拖动：'+String(e));}}}
+  function release(settle=false){if(settle)stage.cables.release();else {stage.cables.clear();for(const line of lines.values()){const values=line.getAttribute('d')?.match(/-?\d+(?:\.\d+)?(?:e[-+]?\d+)?/gi)?.map(Number);if(values?.length===8)line.setAttribute('d',cableScreenPath({x:values[0]!,y:values[1]!},{x:values[6]!,y:values[7]!},0,1));}}const old=drag;drag=null;keys.clear();if(old){const h=handles.get(old.id)!;try{if(h.hasPointerCapture?.(old.pointer))h.releasePointerCapture(old.pointer);}catch(e){port.report('已结束拖动：'+String(e));}}}
   function render(bounds?:DOMRect){
     const r=read();overlay.hidden=!r?.enabled;if(!r?.enabled){release();return;}
     const rect=bounds??stage.canvas.getBoundingClientRect(),v=fitViewport(rect.width,rect.height),enabled=stage.getStatus().state==='ready';
@@ -47,7 +47,7 @@ export function mountLimbControls(stage:ReturnType<typeof canvasStage>,port:Limb
         if(found)break;
       }
       placed.push({...position,radius:24});h.style.left=position.x+'px';h.style.top=position.y+'px';h.disabled=!enabled;
-      const line=lines.get(id)!;const motion=stage.cables.sample();line.setAttribute('d',cableScreenPath(anchor,position,motion?.source===id?motion.bend:0,v.scale));
+      const line=lines.get(id)!;const motion=stage.cables.sample(),world=unprojectPoint(limbScreenPoint(template,r.actor.pose,r.frame.stage,id),r.frame.stage),end=worldToViewport(projectPoint({x:world.x-.025,y:-1.6},r.frame.stage),v);line.setAttribute('d',cableScreenPath(anchor,end,motion?.source===id?-motion.bend*projectionParameters(r.frame.stage).magnification:0,v.scale));
     }
   }
   function move(x:number,y:number){const r=active(),p=point(x,y);if(!r||!p||!drag)return;const fit=moveLimbTo(template,r.actor.pose,r.frame.stage,drag.id,{x:p.x-drag.offset.x,y:p.y-drag.offset.y},r.frame.attachments?.filter(a=>a.actorId==='chenxiang').map(a=>a.attachmentId));if(fit.fits){const before=limbScreenPoint(template,r.actor.pose,r.frame.stage,drag.id),after=limbScreenPoint(template,fit.pose,r.frame.stage,drag.id);stage.cables.pull(drag.id,after.x-before.x);port.change(fit.pose,drag.id);port.wake();render();}}

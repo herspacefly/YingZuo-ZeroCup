@@ -47,7 +47,7 @@ export function mountCanvasRenderer(host: HTMLElement, catalog: AssetCatalog, on
         const point=rod.id==='leftFoot'||rod.id==='rightFoot'?limbLocalPoint(template,actor.pose,rod.id):rodPoint(template,actor.pose,rod.id);
         const world=localToWorld(point,actor.pose),end=worldToLocal({x:world.x-.025,y:-1.6},actor.pose);
         const motion=actor.actorId==='chenxiang'&&frame!.cableMotion?.source===rod.id?frame!.cableMotion:undefined;
-        const curve=cableCurve(point,end,(motion?.bend??0)/actor.pose.scale);
+        const curve=cableCurve(point,end,(motion?.bend??0)*actor.pose.facing/actor.pose.scale);
         ctx!.beginPath();ctx!.moveTo(point.x,point.y);ctx!.bezierCurveTo(curve.first.x,curve.first.y,curve.second.x,curve.second.y,end.x,end.y);ctx!.stroke();
       }
       ctx!.fillStyle='#d7a253';

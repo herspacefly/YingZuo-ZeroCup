@@ -6,7 +6,7 @@ export interface CableCurve { start: Point; first: Point; second: Point; end: Po
 /** One shared cubic for Canvas, SVG and sampled Three lines. Bend is in world units. */
 export function cableCurve(start:Point,end:Point,bend=0):CableCurve {
   const x=end.x-start.x,y=end.y-start.y,length=Math.hypot(x,y)||1;
-  const b=Number.isFinite(bend)?Math.max(-.035,Math.min(.035,bend)):0;
+  const b=Number.isFinite(bend)?bend:0;
   return {start:{...start},first:{x:start.x+x/3-y/length*b,y:start.y+y/3+x/length*b},second:{x:start.x+x*2/3-y/length*b,y:start.y+y*2/3+x/length*b},end:{...end}};
 }
 export function cablePoint(curve:CableCurve,t:number):Point{const u=1-t;return{x:u*u*u*curve.start.x+3*u*u*t*curve.first.x+3*u*t*t*curve.second.x+t*t*t*curve.end.x,y:u*u*u*curve.start.y+3*u*u*t*curve.first.y+3*u*t*t*curve.second.y+t*t*t*curve.end.y};}
