@@ -10,7 +10,7 @@ button:disabled { opacity:.55; border-color:#66543e; box-shadow:none; }
 .button.secondary { background:#2b2319; color:#f2e5c9; } .button.secondary:hover:not(:disabled) { background:#372b1e; }
 .button:disabled { border-color:#66543e; box-shadow:none; }
 .project-toggle { font-size:13px; line-height:1.4; background:transparent; border:0; box-shadow:none; }
-fieldset { border:0; padding:0; margin:0; min-width:0; } legend { font-family:SimSun,serif; font-size:26px; margin-bottom:20px; } label { display:block; margin-bottom:20px; } select { display:block; width:100%; margin-top:8px; } input[type=checkbox] { width:18px; height:18px; vertical-align:middle; margin-right:8px; }
+fieldset { border:0; padding:0; margin:0; min-width:0; } legend { font-family:inherit; font-size:26px; margin-bottom:20px; } label { display:block; margin-bottom:20px; } select { display:block; width:100%; margin-top:8px; } input[type=checkbox] { width:18px; height:18px; vertical-align:middle; margin-right:8px; }
 .palette-swatches { display:flex; margin:10px 0 20px; } .swatch { display:block; width:38px; height:28px; border:1px solid #c1b297; border-radius:6px; margin-right:5px; } .selection-summary { font-size:14px; color:#c1b297; }
 .tool-actions { display:flex; flex-wrap:wrap; margin:14px 0; } .tool-actions>* { margin:5px 12px 5px 0; } .tool-actions a { display:inline-flex; align-items:center; min-height:44px; color:#d7a253; text-decoration:underline; }
 .file-control { max-width:460px; margin:20px 0; } .file-control input { display:block; width:100%; margin-top:10px; } .acknowledge { font-size:14px; color:#c1b297; } #project-operation { color:#ffb3a7; } .transport { display:flex; flex-wrap:wrap; margin:16px 0; } .transport button { margin:0 12px 12px 0; }

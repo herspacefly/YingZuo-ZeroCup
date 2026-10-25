@@ -2,6 +2,7 @@ import { definitionFor } from '../../content/reunion';
 import { assetCatalog } from '../../content/catalog';
 import { mountCanvasRenderer } from '../../renderers/canvas/renderer';
 import type { ReunionArtifact } from './artifact';
+import { KAI_FONT_FAMILY,loadKaiFont } from '../shared/typography';
 
 export interface ReunionExporter {
   canvas: HTMLCanvasElement;
@@ -29,7 +30,8 @@ export function mountReunionExporter(host: HTMLElement, artifact: ReunionArtifac
   const sourceHost = document.createElement('div'); sourceHost.hidden = true; sourceHost.setAttribute('aria-hidden', 'true');
   host.appendChild(sourceHost);
   let source: ReturnType<typeof mountCanvasRenderer> | null = null;
-  let disposed = false, settled = false;
+  const font=loadKaiFont();
+  let disposed = false, settled = false, composing = false;
   let resolveReady!: () => void, rejectReady!: (error: Error) => void;
   const pending = new Set<(error: Error) => void>();
   const ready = new Promise<void>((resolve, reject) => { resolveReady = resolve; rejectReady = reject; });
@@ -42,6 +44,7 @@ export function mountReunionExporter(host: HTMLElement, artifact: ReunionArtifac
   }
   function fail(value: unknown) {
     if (settled || disposed) return;
+    font.dispose();
     settled = true; canvas.setAttribute('data-state', 'error'); releaseSource(); rejectReady(errorFor(value));
   }
   function compose(image: HTMLCanvasElement) {
@@ -54,14 +57,14 @@ export function mountReunionExporter(host: HTMLElement, artifact: ReunionArtifac
     ctx.fillStyle = '#f2e5c9'; ctx.fillRect(0, 0, 1600, 1200);
     ctx.strokeStyle = '#a26a42'; ctx.lineWidth = 2; ctx.strokeRect(28, 28, 1544, 1144);
     ctx.fillStyle = '#3b281b'; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
-    ctx.font = '52px SimSun, "Songti SC", serif'; ctx.fillText(ending?'影作 · '+ending.title:'影作 · 一幕团圆', 800, 88);
-    ctx.font = '26px SimSun, "Songti SC", serif';
+    ctx.font = '52px '+KAI_FONT_FAMILY; ctx.fillText(ending?'影作 · '+ending.title:'影作 · 一幕团圆', 800, 88);
+    ctx.font = '26px '+KAI_FONT_FAMILY;
     ctx.fillText(`${route}　·　${pattern} / ${palette}　·　${summary.presetAppearanceUsed ? '默认造型' : '本场制偶造型'}`, 800, 136);
     ctx.drawImage(image, 200, 180, 1200, 900);
-    ctx.font = '22px SimSun, "Songti SC", serif';
+    ctx.font = '22px '+KAI_FONT_FAMILY;
     const marker = summary.runId.length > 20 ? `…${summary.runId.slice(-20)}` : summary.runId;
     ctx.fillText(`成果 ${marker}:${summary.ending??'reunion'}　·　完成（UTC）${summary.completedAt}`, 800, 1120);
-    ctx.font = '21px SimSun, "Songti SC", serif';
+    ctx.font = '21px '+KAI_FONT_FAMILY;
     ctx.fillText('零组 · 张宇翔（SpaceFly）　｜　影作 · 一幕团圆', 800, 1158);
   }
 
@@ -70,11 +73,15 @@ export function mountReunionExporter(host: HTMLElement, artifact: ReunionArtifac
       if (settled || disposed) return;
       if (status.state === 'error') { fail(new Error(status.message)); return; }
       if (status.state !== 'ready' || !source) return;
-      try {
-        compose(source.canvas);
-        // The renderer can report ready again after a resize; the still is composed only once.
-        settled = true; canvas.setAttribute('data-state', 'ready'); releaseSource(); resolveReady();
-      } catch (error) { fail(error); }
+      if(composing)return;composing=true;
+      void font.ready.then(()=>{
+        if(disposed||settled||!source)return;
+        try {
+          compose(source.canvas);
+          // The renderer can report ready again after a resize; compose once after fonts settle.
+          settled = true; canvas.setAttribute('data-state', 'ready'); releaseSource(); resolveReady();
+        } catch (error) { fail(error); }
+      });
     });
     void source.update(snapshot.frame).catch(fail);
   } catch (error) { fail(error); }
@@ -109,6 +116,7 @@ export function mountReunionExporter(host: HTMLElement, artifact: ReunionArtifac
     dispose() {
       if (disposed) return;
       disposed = true;
+      font.dispose();
       if (!settled) { settled = true; rejectReady(closedError()); }
       for (const reject of Array.from(pending)) reject(closedError());
       releaseSource(); canvas.width = canvas.height = 0;

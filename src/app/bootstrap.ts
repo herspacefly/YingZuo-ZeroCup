@@ -1,16 +1,7 @@
 import {mountGuidedPage} from '../features/shared/guide-session';
 import { mountJourney } from '../features/shared/journey';
 import { mountSiteMotion } from '../features/shared/site-motion';
-import '../styles/presentation.css';
-import '../styles/tokens.css';
-import '../styles/base.css';
-import '../styles/layout.css';
-import '../styles/controls.css';
-import '../styles/museum.css';
-import '../styles/result.css';
-import '../styles/spatial.css';
-import '../styles/legacy.css';
-import '../styles/music.css';
+import '../styles/site.css';
 import musicCatalog from '../content/music.json';
 import { createStageAudioSession } from '../audio/stage-session';
 import type { StageSoundSample } from '../audio/stage-sound';

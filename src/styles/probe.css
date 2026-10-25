@@ -1,6 +1,7 @@
+@import './typography.css';
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: #17130f; color: #f2e5c9; font-family: "Microsoft YaHei", "PingFang SC", sans-serif; font-size: 16px; line-height: 1.8; }
+body { margin: 0; background: #17130f; color: #f2e5c9; font-family: "Yingzuo Kai",KaiTi,"Kaiti SC",STKaiti,serif; font-size: 16px; line-height: 1.8; }
 a { color: inherit; text-decoration: none; }
 button, input { font: inherit; }
 button, a, input { -webkit-tap-highlight-color: transparent; }
@@ -11,14 +12,14 @@ button, a.button { cursor: pointer; }
 .skip-link:focus { top: 12px; }
 .site-header, footer { max-width: 1440px; padding: 26px 56px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
 .site-header { border-bottom: 1px solid #352d23; }
-.wordmark { font-family: "Noto Serif SC", "Songti SC", SimSun, serif; font-size: 30px; letter-spacing: .16em; }
-.wordmark span { display: inline-block; vertical-align: middle; font-family: "Microsoft YaHei", sans-serif; font-size: 12px; letter-spacing: .2em; color: #c8b99e; margin-left: 20px; padding-left: 20px; border-left: 1px solid #63513a; }
+.wordmark { font-family: inherit; font-size: 30px; letter-spacing: .16em; }
+.wordmark span { display: inline-block; vertical-align: middle; font-family: inherit; font-size: 12px; letter-spacing: .2em; color: #c8b99e; margin-left: 20px; padding-left: 20px; border-left: 1px solid #63513a; }
 .header-note, footer { color: #c1b297; font-size: 13px; letter-spacing: .08em; }
 main { max-width: 1440px; margin: 0 auto; padding: 0 56px; }
 .opening { display: flex; align-items: center; min-height: 760px; padding: 65px 0 80px; }
 .opening-copy { width: 43%; padding-right: 42px; }
 .eyebrow { color: #d7a253; letter-spacing: .22em; font-size: 13px; margin: 0 0 30px; }
-h1, h2 { font-family: "Noto Serif SC", "Songti SC", SimSun, serif; font-weight: 400; }
+h1, h2 { font-family: inherit; font-weight: 400; }
 h1 { font-size: 48px; line-height: 1.4; letter-spacing: .02em; margin: 0 0 24px; }
 .lead { font-size: 18px; line-height: 2; color: #d6c9b1; }
 .adaptation { font-size: 12px; color: #b3a58f; margin: 24px 0 32px; }
@@ -48,7 +49,7 @@ h2 { font-size: 30px; margin: 0 0 18px; }
 .act-list li { width: 25%; color: #dbc9a9; border-right: 1px solid #453626; padding: 10px 24px; }
 .act-list li:first-child { padding-left: 0; }
 .act-list li:last-child { border: 0; }
-.act-list span { font-family: SimSun, serif; font-size: 28px; color: #ba8250; padding-right: 20px; }
+.act-list span { font-family: inherit; font-size: 28px; color: #ba8250; padding-right: 20px; }
 footer { border-top: 1px solid #352d23; }
 footer a { padding: 10px; }
 .probe-page { max-width: 1050px; padding-top: 48px; padding-bottom: 60px; }

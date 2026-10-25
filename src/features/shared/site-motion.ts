@@ -7,7 +7,7 @@ export function mountSiteMotion(host:HTMLElement){
  button.id='site-motion-toggle';button.type='button';art.setAttribute('aria-hidden','true');
  const ns='http://www.w3.org/2000/svg';
  for(let i=0;i<8;i++){const item=document.createElementNS(ns,'svg');item.setAttribute('viewBox','0 0 160 180');item.setAttribute('class','lotus-motif');item.style.left=(i%2===0?1:88)+'%';item.style.top=(8+(i*23)%82)+'%';item.style.animationDelay=(-i*2.3)+'s';item.innerHTML='<defs><radialGradient id="lotus-glow-'+i+'"><stop stop-color="#ffdc83" stop-opacity=".85"/><stop offset="1" stop-color="#c64823" stop-opacity="0"/></radialGradient></defs><ellipse cx="80" cy="92" rx="78" ry="72" fill="url(#lotus-glow-'+i+')"/><path d="M80 123C36 125 19 98 23 78C58 78 72 96 80 123M80 123C124 125 141 98 137 78C102 78 88 96 80 123M80 123C46 103 52 67 80 47C108 67 114 103 80 123" fill="#b6482e" stroke="#f2be60" stroke-width="2"/><path class="lotus-flame" d="M80 92C52 80 71 61 80 36C84 65 106 76 80 92" fill="#ffe2a0"/><path d="M26 149Q51 131 78 146T136 145M36 157Q61 142 90 156" fill="none" stroke="#bca775" stroke-width="2"/>';art.appendChild(item);}
- document.body.appendChild(art);document.body.appendChild(button);
+ document.body.appendChild(art);(document.querySelector('.site-footer')??document.body).appendChild(button);
  let enabled=!media?.matches,focused=true,disposed=false,observer:IntersectionObserver|null=null,tilted:HTMLElement|null=null;
  const seen=new WeakSet<Element>();
  const curtain=element('div','opening-curtain');curtain.setAttribute('aria-hidden','true');

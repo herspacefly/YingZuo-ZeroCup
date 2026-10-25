@@ -125,6 +125,14 @@ const walk=directory=>readdirSync(directory,{withFileTypes:true}).flatMap(entry=
 const museumRoot=path.join(root,'public/assets/museum')+path.sep;
 const presentation=json('public/assets/presentation/manifest.json');const presentationPaths=new Set();
 for(const asset of presentation.assets){const file=path.join(root,'public',asset.path),bytes=readFileSync(file);check(asset.path.startsWith('assets/presentation/')&&!asset.path.includes('..'),'Presentation path');check(bytes.length===asset.bytes&&createHash('sha256').update(bytes).digest('hex')===asset.sha256,'Presentation integrity '+asset.path);presentationPaths.add(file);if(asset.path.endsWith('.png'))check(bytes.readUInt32BE(16)===asset.width&&bytes.readUInt32BE(20)===asset.height,'Presentation dimensions');}
+const kai=json('public/assets/typography/manifest.json');
+check(kai.family==='Yingzuo Kai'&&kai.license==='OFL-1.1'&&kai.missingCharacters===''&&kai.characters.length>1000,'Regular Kai font metadata/coverage');
+for(const asset of kai.assets){
+  const safe=asset.path.startsWith('assets/typography/')&&!asset.path.includes('..');check(safe,'Kai path');if(!safe)continue;
+  const bytes=readFileSync(path.join(root,'public',asset.path));check(bytes.length===asset.bytes&&createHash('sha256').update(bytes).digest('hex')===asset.sha256,'Kai integrity '+asset.path);
+  if(asset.path.endsWith('.woff2'))check(bytes.toString('ascii',0,4)==='wOF2','Kai WOFF2 signature');
+  if(asset.path.endsWith('.woff'))check(bytes.toString('ascii',0,4)==='wOFF','Kai WOFF signature');
+}
 const files=walk(path.join(root,'public/assets')).filter(file=>file.endsWith('.png')&&!file.startsWith(museumRoot)&&!presentationPaths.has(file));
 check(files.length === actualPaths.size && files.every(file=>actualPaths.has(path.relative(path.join(root,'public'),file).split(path.sep).join('/'))), 'unlisted PNG files under public/assets');
 const sources=json('src/content/sources.json');

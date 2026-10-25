@@ -7,8 +7,8 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T29_T32_functional_acceptance_complete",
-  "activeTaskId": null,
+  "stage": "T33_responsive_kai_publish",
+  "activeTaskId": "T33",
   "lastVerifiedCommit": "97060a2c063b204ad9094cde40ef39b44c333fb1",
   "features": {
     "singlePuppetRecording": "planned_optional",
@@ -1560,6 +1560,37 @@
         "543 unit cases; 130 cross-phase browser cases latest observation passed; final guide20/20 and layout6/6",
         "Final production native startup/PNG and 30 stills; type/build/ES5/assets/content/museum/state checks passed."
       ],
+      "phase": "G3"
+    },
+    {
+      "id": "T33",
+      "title": "开发/生产响应式布局、常规楷体与Git发布",
+      "priority": "P0",
+      "status": "in_progress",
+      "dependsOn": [
+        "T29",
+        "T30",
+        "T31",
+        "T32"
+      ],
+      "owner": "codex-root",
+      "branch": "main",
+      "touchFiles": [
+        "src/styles/",
+        "src/app/bootstrap.ts",
+        "src/features/",
+        "public/assets/typography/",
+        "scripts/",
+        "tests/",
+        "docs/"
+      ],
+      "acceptanceRefs": [
+        "T33"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "布局/字体源码已接入；完成Chromium/Edge开发与生产18宽度矩阵、字体失败/离页与导出/三维回归，补WebKit和短窗口目检，再提交证据并普通push。",
+      "blocker": null,
+      "verification": [],
       "phase": "G3"
     }
   ],
