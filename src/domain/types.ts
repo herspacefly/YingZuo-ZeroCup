@@ -33,7 +33,7 @@ export interface StoryProgress {
   storyId: 'reunion'; definitionVersion: 1 | 2 | 3 | 4; runId: string; revision: number;
   mode: 'full' | 'guided'; nodeId: StoryNodeId;
   approach: Approach | null; approachSource: 'user' | null;
-  castSnapshot: CastSnapshot | null; assistedNodeIds: StoryNodeId[];
+  castSnapshot: CastSnapshot | null; assistedNodeIds: StoryNodeId[]; skippedNodeIds?: StoryNodeId[];
   presetAppearanceUsed: boolean; completedAt: string | null;
   /** Present and required in definitionVersion 2/3/4; forbidden in legacy version 1 JSON. */
   ending?: EndingId | null; endingSource?: 'user' | null;

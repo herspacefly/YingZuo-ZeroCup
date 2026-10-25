@@ -62,6 +62,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   runtime.id='story-runtime';runtime.setAttribute('role','status');shot.id='story-shot';
   const subtitles=mountSubtitles(cueHost,seek),start=element('button','button primary','确认开始这一场'),skip=element('button','button secondary','先为他备好行装');
   const play=element('button','button primary','继续片段'),pause=element('button','button secondary','暂停'),reset=element('button','button secondary','重开片段（暂停）');
+  const nextNode=element('button','button secondary story-next-node','下一片段');nextNode.id='story-next-node';
   const retry=element('button','button secondary','重试当前片段'),finish=element('button','button primary','确认进入下一段'),assist=element('button','button secondary','帮我演过这一段');
   const showcaseSkip=element('button','button secondary','跳过定场放映'),showcaseAgain=element('button','button secondary','再看一次'),confirm=element('button','button primary','确认这身行装，进入第一幕');
   showcaseSkip.id='showcase-skip';showcaseAgain.id='showcase-again';confirm.id='story-confirm-craft';
@@ -71,7 +72,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   soundToggle.setAttribute('aria-describedby',soundStatus.id);append(soundPanel,soundToggle,soundStatus);
   let soundState:StageSoundStatus['state']='muted',soundDisposed=false;
   const reportSound=(update:StageSoundStatus)=>{
-    if(soundDisposed)return;soundState=update.state;soundStatus.textContent=update.message;soundStatus.setAttribute('data-state',update.state);
+    if(soundDisposed)return;soundState=update.state;soundStatus.textContent=['blocked','error','unavailable'].includes(update.state)?update.message:'';soundStatus.setAttribute('data-state',update.state);
     const enabled=ctx.audio?.effectsEnabled()??update.state==='enabled';
     soundToggle.textContent=enabled?'关闭舞台音效':'开启舞台音效';
     soundToggle.setAttribute('aria-pressed',String(enabled));soundToggle.disabled=['unavailable','disposed'].includes(update.state);
@@ -84,7 +85,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   const call=element('button','button primary','先举灯呼唤'),split=element('button','button primary','先挥斧开山');
   call.id='story-call-first';split.id='story-split-first';append(choices,call,split);
   for(const [node,id]of [[start,'start'],[skip,'skip'],[play,'play'],[pause,'pause'],[reset,'reset'],[retry,'retry'],[finish,'finish'],[assist,'assist'],[mode,'mode']] as const)node.id=`story-${id}`;
-  note.id='story-help';modeLabel.appendChild(mode);append(transport,play,pause,reset,showcaseSkip,showcaseAgain);
+  inputHost.className='story-inputs';note.id='story-help';modeLabel.appendChild(mode);append(transport,play,pause,reset,nextNode,showcaseSkip,showcaseAgain);
   append(panel,runtime,title,lead,legacyNote,shot,cueHost,start,skip,craft,confirm,choices,modeLabel,transport,soundPanel,finish,assist,note,inputHost,retry,result,link('先去展馆走走 →','#/museum'));
   let live:Runtime|null=null,display:Runtime|null=null,state:StoreState|null=null,key='',identity='',disposed=false,mountError='',holding:CanvasFrame|null=null;
   let message='已恢复，暂停接续。';
@@ -105,7 +106,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   function clearRuntimes(){if(live){closeScope(live);if(live!==display)live.stage.dispose();}display?.stage.dispose();live=display=null;clear(stageSlot);}
   function show(rt:Runtime){
     if(!current(rt))return;rt.ready=true;
-    if(display!==rt){display?.stage.dispose();clear(stageSlot);stageSlot.appendChild(rt.stage.figure);display=rt;rt.stage.resize();}
+    if(display!==rt){display?.stage.dispose();clear(stageSlot);stageSlot.appendChild(rt.stage.figure);rt.stage.figure.appendChild(inputHost);display=rt;rt.stage.resize();}
     message='已恢复，暂停接续。';renderDisplayed();renderUI();
   }
   function renderDisplayed(){
@@ -224,7 +225,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     try{
       const entry=storyEntry(project,definitionFor(project.story),++generation),scene=createSceneDirector(project,entry),initialSample=scene.sample(0,undefined,reduced);
       sound.reset(entry.node.id);ctx.musicSample?.({nodeId:entry.node.id,mode:project.story!.mode,definitionVersion:project.story!.definitionVersion,elapsedMs:0,playing:false});
-      const stage=canvasStage('当前短节点 · 使用本场冻结造型；操作与瞬时姿态不另存为录像。'),nodeScope=createNodeScope(entry.token,error=>ctx.notify(`片段清理失败：${errorText(error)}`));
+      const stage=canvasStage('先听这一段，再接过操偶。'),nodeScope=createNodeScope(entry.token,error=>ctx.notify(`片段清理失败：${errorText(error)}`));
       stage.restoreSpatial(spatialPreference);
       const shade=element('div','story-scene-shade');shade.setAttribute('aria-hidden','true');stage.screen.appendChild(shade);
       const rt:Runtime={entry,scene,version:project.story!.definitionVersion,clip:project.story!.definitionVersion>=3&&entry.node.kind==='interaction'&&entry.node.id!=='craft'?createInteractionClip(entry.node,scene):null,scope:nodeScope,stage,shade,sample:initialSample,elapsed:0,playing:false,ready:false,requested:false,mode:project.story!.mode,clock:null!,controls:null,
@@ -249,19 +250,21 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
               lights:completion.kind==='light',target,
               region:hands?{minX:hands.chenxiang.x-.03,maxX:hands.chenxiang.x+.03,minY:hands.chenxiang.y-.03,maxY:hands.chenxiang.y+.03}:
                 ['wave','road','block','light'].includes(completion.kind)?projectedInteractionRegion(rt.sample.frame,completion.kind as 'wave'|'road'|'block'|'light',completion.kind==='light'?completion.region:undefined):null};},
-          change(pose,source){if(!current(rt)||blocked()||!rt.playing||rt.assistance||rt.resolution)return;
+          change(pose,source){if(!current(rt)||blocked()||!rt.playing||rt.assistance||rt.resolution)return;runtime.setAttribute('data-input-revision',String(Number(runtime.getAttribute('data-input-revision')??0)+1));
             if(Math.abs(pose.joints.rightShoulder-rt.pose.joints.rightShoulder)>1e-8||Math.abs(pose.joints.rightElbow-rt.pose.joints.rightElbow)>1e-8)rt.handOperated=true;
             rt.pose=clone(pose);if(source!=='leftFoot'&&source!=='rightFoot')rt.operated=true;safeSample(rt);renderUI();},
           light(lampX,puppetDistance){if(!current(rt)||blocked()||!rt.playing||rt.assistance||rt.resolution)return;rt.light={lampX,puppetDistance};rt.operated=true;safeSample(rt);renderUI();},
           wake(){if(rt.playing&&current(rt)&&!blocked())rt.clock.start();},report(text){message=text;renderUI();},
         });nodeScope.own(()=>rt.controls?.dispose());
       }
-      if(!display){display=rt;stageSlot.appendChild(stage.figure);renderDisplayed();}sample(rt);
+      if(ctx.guide==='puppetry'&&interactive(rt)){rt.elapsed=rt.scene.durationMs;rt.playing=true;}
+      if(!display){display=rt;stageSlot.appendChild(stage.figure);stage.figure.appendChild(inputHost);renderDisplayed();}sample(rt);
     }catch(error){if(live){closeScope(live);if(live!==display)live.stage.dispose();live=null;}mountError=errorText(error);message=`片段未能准备：${mountError}`;ctx.notify(message);renderUI();}
   }
   function renderUI(){
     if(disposed)return;const rt=live,node=rt?.entry.node,hasStory=!!state?.project?.story;
     legacyNote.hidden=!state?.project?.story||state.project.story.definitionVersion>=3;legacyNote.textContent='你正在接续先前版本的演出，仍按当时的台词与编排继续。';
+    const destination=node?.next&&'default'in node.next?definitionFor(state?.project?.story).nodes.find(n=>n.id===(node.next as {default:string}).default):null;nextNode.hidden=!hasStory||node?.kind==='terminal';nextNode.disabled=blocked()||!rt?.ready||!!rt.resolution||!!rt.completed||!destination||node?.id==='craft';nextNode.textContent=node?.kind==='choice'?'请先选择去向':node?.id==='craft'?'请先确认这身行装':destination?'跳过本段，进入《'+destination.title+'》':'下一片段';
     start.hidden=hasStory;start.disabled=blocked();skip.hidden=node?.id!=='intro';skip.disabled=blocked()||!rt?.ready;
     craft.hidden=node?.id!=='craft'||display!==rt;confirm.hidden=craft.hidden||(rt?.version??0)<3;confirm.disabled=blocked()||!rt?.ready||!!rt.requested;result.hidden=!['curtain','completed'].includes(node?.id??'');modeLabel.hidden=!rt;transport.hidden=!rt||(node?.kind==='choice'&&(rt?.version??0)<3)||node?.kind==='terminal'||node?.id==='craft';
     const endings=definitionFor(state?.project?.story).endings;
@@ -295,6 +298,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   life.on(showcaseSkip,'click',()=>{if(live?.resolution&&live.clip&&!blocked())finishResolution(live);});
   life.on(showcaseAgain,'click',()=>{const rt=live;if(!rt?.resolution||!rt.clip||blocked())return;rt.resolution.elapsed=0;safeSample(rt);message='从收杆定场处，再看一次。';renderUI();});
   life.on(confirm,'click',()=>{const rt=live;if(!rt||blocked()||!rt.ready||rt.entry.node.id!=='craft'||rt.requested)return;void ctx.durable(()=>confirmCraft(ctx.store,{runId:rt.entry.guard.runId,mode:rt.mode,presetAppearanceUsed:false,guard:rt.entry.guard,now:new Date().toISOString()}));});
+  life.on(nextNode,'click',()=>{const rt=live;if(!rt||blocked()||!rt.ready||rt.requested||rt.resolution||rt.completed||rt.entry.node.kind==='choice'||rt.entry.node.id==='craft')return;stop(rt,'正在进入下一片段。');submit(rt,{command:{...rt.entry.guard,action:'SKIP_NODE',source:'user'},facts:facts(rt)});});
   life.on(start,'click',()=>ctx.start('full'));
   life.on(soundToggle,'click',()=>{if(ctx.audio?.effectsEnabled()??soundState==='enabled')sound.mute();else void sound.enable();});
   life.on(play,'click',()=>{const rt=live;if(!rt||!canPlay(rt))return;rt.playing=true;message=rt.resolution&&rt.clip?'正在放映这一段的编排动作。':interactive(rt)?'这一段在等你的手。':reduced?'正在播放静态分镜与字幕。':'正在播放当前片段。';updateSound({nodeId:rt.entry.node.id,mode:rt.mode,elapsedMs:rt.elapsed,playing:true});renderUI();rt.clock.start();});
@@ -319,6 +323,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   const motionChanged=()=>{reduced=media?.matches??false;if(live){stop(live,'动态偏好已变化，当前片段暂停。');safeSample(live);}renderUI();};
   if(media){if(media.addEventListener)media.addEventListener('change',motionChanged);else media.addListener(motionChanged);}
   return {
+    suspendForGuide(){const rt=live,wasPlaying=rt?.playing;if(rt){rt.playing=false;rt.clock.stop();rt.controls?.release();updateSound({nodeId:rt.entry.node.id,mode:rt.mode,elapsedMs:rt.elapsed,playing:false});}return ()=>{if(rt&&current(rt)&&wasPlaying&&!blocked()){rt.playing=true;rt.clock.start();renderUI();}};},
     update(next:StoreState){
       const hadPending=state?.hasPending;state=next;const project=next.project,story=project?.story,nextKey=story?`${project!.projectId}:${story.runId}:${story.revision}:${story.nodeId}`:'';
       if(hadPending&&!next.hasPending&&nextKey===key&&live?.requested){live.requested=false;message='已取消未保存的切幕，保留当前片段；可重新确认或重开。';}

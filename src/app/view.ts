@@ -5,6 +5,7 @@ import type { StageSoundSample } from '../audio/stage-sound';
 import type { StageAudioSession } from '../audio/stage-session';
 
 export interface PageContext {
+  guide?: 'page'|'puppetry';
   store: ProjectStore; route: AppRoute;
   navigate(route: AppRoute): void;
   isBusy():boolean;
@@ -17,5 +18,5 @@ export interface PageContext {
   audio?: StageAudioSession;
   durable(job: () => Promise<SaveResult>, next?: AppRoute): Promise<void>;
 }
-export interface PageView { update(state: StoreState): void; dispose(): void }
+export interface PageView { suspendForGuide?():()=>void; update(state: StoreState): void; dispose(): void }
 export type PageFactory = (host: HTMLElement, context: PageContext) => PageView;

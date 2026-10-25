@@ -1,7 +1,7 @@
 import type { Approach, EndingId, Pose, StoryNodeId, StageConfig } from './types';
 
 export type ActorId = 'chenxiang' | 'mother' | 'guardian';
-export type StoryAction = 'CHOOSE' | 'CHOOSE_ENDING' | 'COMPLETE_INTERACTION' | 'COMPLETE_SCENE' | 'SET_MODE';
+export type StoryAction = 'SKIP_NODE' | 'CHOOSE' | 'CHOOSE_ENDING' | 'COMPLETE_INTERACTION' | 'COMPLETE_SCENE' | 'SET_MODE';
 export type Completion =
   | { kind: 'scene'; activation: 'automatic' | 'user'; skippable: boolean }
   | { kind: 'craft' }
@@ -38,6 +38,7 @@ export type InteractionEvidence =
   | { kind: 'axe'; stableBody: boolean; raisedAngleRad: number; raisedHoldMs: number; landedAngleRad: number; lowered: boolean }
   | { kind: 'reach'; handDistanceRatio: number };
 export type StoryPayload =
+  | {action:'SKIP_NODE';source:'user'}
   | { action: 'CHOOSE'; approach: Approach }
   | { action: 'CHOOSE_ENDING'; ending: EndingId }
   | { action: 'SET_MODE'; mode: 'full' | 'guided' }

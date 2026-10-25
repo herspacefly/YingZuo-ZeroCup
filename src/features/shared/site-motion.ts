@@ -1,51 +1,28 @@
-import { element, scope } from './dom';
+import {element,scope} from './dom';
+import {mountInkTitles} from './ink-titles';
 import '../../styles/site-motion.css';
-
-/** Decorative presentation only. Story poses and director time never depend on it. */
-export function mountSiteMotion(host: HTMLElement) {
-  const life=scope(),root=document.documentElement,media=window.matchMedia?.('(prefers-reduced-motion: reduce)');
-  const button=element('button','button secondary site-motion-toggle'),dust=element('div','site-light-dust');
-  button.id='site-motion-toggle';button.type='button';dust.setAttribute('aria-hidden','true');
-  for(let i=0;i<24;i++){
-    const mote=element('i');mote.style.left=`${(i*37+9)%100}%`;mote.style.top=`${(i*23+4)%100}%`;
-    mote.style.animationDelay=`-${i*.71}s`;mote.style.animationDuration=`${12+i%7}s`;dust.appendChild(mote);
-  }
-  document.body.appendChild(dust);document.body.appendChild(button);
-  let enabled=!media?.matches,focused=true,observer:IntersectionObserver|null=null,tilted:HTMLElement|null=null,disposed=false;
-  function resetTilt(){tilted?.style.removeProperty('--motion-x');tilted?.style.removeProperty('--motion-y');tilted=null;}
-  function sync(){
-    root.setAttribute('data-motion',enabled&&!media?.matches?'full':'reduced');
-    root.setAttribute('data-motion-paused',String(document.hidden||!focused));
-    button.textContent=media?.matches?'动效 · 系统简化':enabled?'动效 · 华彩已开':'动效 · 已简化';
-    button.setAttribute('aria-label',media?.matches?'系统已启用减少动态':'切换全站装饰动效');
-    button.setAttribute('aria-pressed',String(enabled&&!media?.matches));button.disabled=!!media?.matches;
-    if(!enabled||media?.matches)resetTilt();
-  }
-  function present(){
-    observer?.disconnect();resetTilt();
-    const targets=[...host.querySelectorAll<HTMLElement>('.page-heading,.opening-copy,.hero-stage,.story-background,.intro-steps,.museum-hero,.museum-photo-card,.museum-gallery-paragraph,.museum-section,.museum-invitation,.programme,.control-panel')];
-    if(typeof IntersectionObserver==='function'){
-      observer=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting){entry.target.classList.remove('motion-awaiting');observer?.unobserve(entry.target);}},{threshold:.08});
-      for(const [index,target]of targets.entries()){
-        target.classList.add('motion-reveal','motion-awaiting');target.style.setProperty('--reveal-delay',`${Math.min(index%4*65,195)}ms`);observer.observe(target);
-      }
-    }
-    host.classList.remove('motion-route-enter');void host.offsetWidth;host.classList.add('motion-route-enter');
-  }
-  life.on(button,'click',()=>{enabled=!enabled;sync();});
-  life.on(document,'visibilitychange',sync);life.on(window,'blur',()=>{focused=false;sync();});life.on(window,'focus',()=>{focused=true;sync();});
-  if(media){if(typeof media.addEventListener==='function')life.on(media,'change',sync);else{media.addListener(sync);life.on(window,'pagehide',()=>media.removeListener(sync));}}
-  life.on(host,'pointermove',event=>{
-    if(!enabled||media?.matches||(event as PointerEvent).buttons!==0)return;
-    let node=event.target as HTMLElement|null;
-    while(node&&node!==host&&!node.classList.contains('museum-hero-photo')&&!node.classList.contains('hero-stage'))node=node.parentElement;
-    if(!node||node===host){resetTilt();return;}
-    if(tilted!==node){resetTilt();tilted=node;}
-    const box=node.getBoundingClientRect(),p=event as PointerEvent;
-    node.style.setProperty('--motion-x',`${Math.max(-1,Math.min(1,(p.clientX-box.left)/box.width*2-1))*3}deg`);
-    node.style.setProperty('--motion-y',`${Math.max(-1,Math.min(1,(p.clientY-box.top)/box.height*2-1))*-3}deg`);
-  });
-  life.on(host,'pointerleave',resetTilt);
-  const mutation=new MutationObserver(present);mutation.observe(host,{childList:true});sync();present();
-  return {dispose(){if(disposed)return;disposed=true;mutation.disconnect();observer?.disconnect();resetTilt();life.dispose();media?.removeListener(sync);button.parentNode?.removeChild(button);dust.parentNode?.removeChild(dust);root.removeAttribute('data-motion');root.removeAttribute('data-motion-paused');}};
+let opened=false;
+export function mountSiteMotion(host:HTMLElement){
+ const life=scope(),root=document.documentElement,media=window.matchMedia?.('(prefers-reduced-motion: reduce)'),button=element('button','button secondary site-motion-toggle'),art=element('div','lotus-atmosphere');
+ button.id='site-motion-toggle';button.type='button';art.setAttribute('aria-hidden','true');
+ const ns='http://www.w3.org/2000/svg';
+ for(let i=0;i<8;i++){const item=document.createElementNS(ns,'svg');item.setAttribute('viewBox','0 0 160 180');item.classList.add('lotus-motif');item.style.left=(i%2===0?1:88)+'%';item.style.top=(8+(i*23)%82)+'%';item.style.animationDelay=(-i*2.3)+'s';item.innerHTML='<defs><radialGradient id="lotus-glow-'+i+'"><stop stop-color="#ffdc83" stop-opacity=".85"/><stop offset="1" stop-color="#c64823" stop-opacity="0"/></radialGradient></defs><ellipse cx="80" cy="92" rx="78" ry="72" fill="url(#lotus-glow-'+i+')"/><path d="M80 123C36 125 19 98 23 78C58 78 72 96 80 123M80 123C124 125 141 98 137 78C102 78 88 96 80 123M80 123C46 103 52 67 80 47C108 67 114 103 80 123" fill="#b6482e" stroke="#f2be60" stroke-width="2"/><path class="lotus-flame" d="M80 92C52 80 71 61 80 36C84 65 106 76 80 92" fill="#ffe2a0"/><path d="M26 149Q51 131 78 146T136 145M36 157Q61 142 90 156" fill="none" stroke="#bca775" stroke-width="2"/>';art.appendChild(item);}
+ document.body.append(art,button);
+ let enabled=!media?.matches,focused=true,disposed=false,observer:IntersectionObserver|null=null,tilted:HTMLElement|null=null;
+ const seen=new WeakSet<Element>();
+ const curtain=element('div','opening-curtain');curtain.setAttribute('aria-hidden','true');
+ curtain.innerHTML='<svg viewBox="0 0 1200 900" preserveAspectRatio="none"><defs><linearGradient id="cloth" x2="1"><stop stop-color="#310b0a"/><stop offset=".2" stop-color="#ad372c"/><stop offset=".45" stop-color="#52140f"/><stop offset=".7" stop-color="#bb4130"/><stop offset="1" stop-color="#3a0d0a"/></linearGradient></defs><g class="cloth-left"><path d="M-30-40H610C590 160 635 350 596 520S620 740 568 865Q280 920-30 867Z" fill="url(#cloth)"/><path d="M30-30Q125 260 70 570T65 885M145-30Q230 240 180 560T184 889M275-30Q350 250 300 580T310 900M420-30Q490 250 445 570T456 884M555-30Q590 290 548 595T540 872" fill="none" stroke="#f2b57b" stroke-opacity=".2" stroke-width="10"/><path d="M-20 850Q260 908 570 851" fill="none" stroke="#d3a251" stroke-width="12"/></g><g class="cloth-right" transform="translate(1200 0) scale(-1 1)"><path d="M-30-40H610C590 160 635 350 596 520S620 740 568 865Q280 920-30 867Z" fill="url(#cloth)"/><path d="M30-30Q125 260 70 570T65 885M145-30Q230 240 180 560T184 889M275-30Q350 250 300 580T310 900M420-30Q490 250 445 570T456 884M555-30Q590 290 548 595T540 872" fill="none" stroke="#f2b57b" stroke-opacity=".2" stroke-width="10"/><path d="M-20 850Q260 908 570 851" fill="none" stroke="#d3a251" stroke-width="12"/></g></svg>';
+ let timer:ReturnType<typeof setTimeout>|undefined;
+ function finish(){curtain.remove();root.setAttribute('data-intro','done');document.dispatchEvent(new Event('yingzuo:opened'));}
+ if(!opened){opened=true;if(!media?.matches){root.setAttribute('data-intro','opening');document.body.appendChild(curtain);timer=setTimeout(finish,2700);}else finish();}else root.setAttribute('data-intro','done');
+ function resetTilt(){tilted?.style.removeProperty('--motion-x');tilted?.style.removeProperty('--motion-y');tilted=null;}
+ function sync(){root.setAttribute('data-motion',enabled&&!media?.matches?'full':'reduced');root.setAttribute('data-motion-paused',String(document.hidden||!focused));button.textContent=media?.matches?'动效 · 系统简化':enabled?'动效 · 灯火流转':'动效 · 已简化';button.setAttribute('aria-label',media?.matches?'系统已启用减少动态':'切换全站装饰动效');button.setAttribute('aria-pressed',String(enabled&&!media?.matches));button.disabled=!!media?.matches;if(!enabled||media?.matches){resetTilt();finish();}document.dispatchEvent(new Event('yingzuo:motion'));}
+ function present(){const targets=host.querySelectorAll<HTMLElement>('.page-heading,.opening-copy,.hero-stage,.story-background,.intro-steps,.museum-hero,.museum-photo-card,.museum-gallery-paragraph,.museum-section,.museum-invitation,.programme,.surface-card');for(const target of targets){if(seen.has(target))continue;seen.add(target);target.classList.add('motion-reveal');if(observer){target.classList.add('motion-awaiting');observer.observe(target);}}}
+ if(typeof IntersectionObserver==='function')observer=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting){entry.target.classList.remove('motion-awaiting');observer?.unobserve(entry.target);}},{threshold:.03});
+ const mutation=new MutationObserver(present);mutation.observe(host,{childList:true,subtree:true});
+ life.on(button,'click',()=>{enabled=!enabled;sync();});life.on(document,'visibilitychange',sync);life.on(window,'blur',()=>{focused=false;sync();});life.on(window,'focus',()=>{focused=true;sync();});
+ if(media){if(typeof media.addEventListener==='function')life.on(media,'change',sync);else media.addListener(sync);}
+ life.on(host,'pointermove',event=>{if(!enabled||media?.matches||(event as PointerEvent).buttons!==0)return;const node=(event.target as Element).closest<HTMLElement>('.hero-stage,.museum-hero-photo');if(!node){resetTilt();return;}if(tilted!==node){resetTilt();tilted=node;}const box=node.getBoundingClientRect(),p=event as PointerEvent;node.style.setProperty('--motion-x',Math.max(-1,Math.min(1,(p.clientX-box.left)/box.width*2-1))*4+'deg');node.style.setProperty('--motion-y',Math.max(-1,Math.min(1,(p.clientY-box.top)/box.height*2-1))*-4+'deg');});life.on(host,'pointerleave',resetTilt);
+ sync();present();const ink=mountInkTitles(host);
+ return{dispose(){if(disposed)return;disposed=true;clearTimeout(timer);finish();ink.dispose();mutation.disconnect();observer?.disconnect();life.dispose();media?.removeListener(sync);art.remove();button.remove();resetTilt();root.removeAttribute('data-motion');root.removeAttribute('data-motion-paused');}};
 }

@@ -77,7 +77,7 @@ function pose(value: unknown, path: string) {
 function story(value: unknown) {
   const expanded=[2,3,4].includes(ownValue(value,'definitionVersion') as number);
   const s = record(value, ['storyId', 'definitionVersion', 'runId', 'revision', 'mode', 'nodeId', 'approach',
-    'approachSource', 'castSnapshot', 'assistedNodeIds', 'presetAppearanceUsed', 'completedAt',...(expanded?['ending','endingSource']:[])], 'story');
+    'approachSource', 'castSnapshot', 'assistedNodeIds', 'presetAppearanceUsed', 'completedAt',...(expanded?['ending','endingSource']:[]),...(ownValue(value,'skippedNodeIds')!==undefined?['skippedNodeIds']:[])], 'story');
   if(!expanded)version(s.definitionVersion, 1, 'story.definitionVersion');
   choice(s.storyId, ['reunion'], 'story.storyId'); id(s.runId, 'story.runId');
   number(s.revision, 0, Number.MAX_SAFE_INTEGER, 'story.revision', true);
@@ -109,6 +109,7 @@ function story(value: unknown) {
     const assistedIndex = path.indexOf(node as typeof path[number]);
     if (assistedIndex < 0 || assistedIndex >= index) invalid('story.assistedNodeIds', '只能包含本路径已完成且可协助的节点');
   }
+  if(s.skippedNodeIds!==undefined){for(const skipped of list(s.skippedNodeIds,EXPANDED_STORY_NODE_IDS.length,'story.skippedNodeIds')){const i=path.indexOf(skipped as typeof path[number]);if(i<0||i>=index||['craft','approach-choice','ending-choice','completed'].includes(String(skipped))||assisted.includes(skipped))invalid('story.skippedNodeIds','只能记录本路径已明确跳过的普通片段');}}
   if (s.nodeId === 'curtain' || s.nodeId === 'completed') date(s.completedAt, 'story.completedAt');
   else if (s.completedAt !== null) invalid('story.completedAt', '只在进入谢幕时生成完成时间');
 }
@@ -185,6 +186,6 @@ export function validateProject(input: unknown): ProjectV1 {
   if (utf8Bytes(json) > MAX_PROJECT_BYTES) throw new ProjectValidationError('too-large', '项目超过 512 KiB，未写入。');
   const result = JSON.parse(json) as ProjectV1;
   result.museum.visitedExhibitIds = [...new Set(result.museum.visitedExhibitIds)];
-  if (result.story) result.story.assistedNodeIds = [...new Set(result.story.assistedNodeIds)];
+  if (result.story) {result.story.assistedNodeIds = [...new Set(result.story.assistedNodeIds)];if(result.story.skippedNodeIds)result.story.skippedNodeIds=[...new Set(result.story.skippedNodeIds)];}
   return result;
 }

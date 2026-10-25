@@ -1,6 +1,7 @@
+import {mountGuidedPage} from '../features/shared/guide-session';
 import { mountJourney } from '../features/shared/journey';
 import { mountSiteMotion } from '../features/shared/site-motion';
-import '../styles/help.css';
+import '../styles/presentation.css';
 import '../styles/tokens.css';
 import '../styles/base.css';
 import '../styles/layout.css';
@@ -47,18 +48,15 @@ const siteMotion = mountSiteMotion(host);
 const tools = get<HTMLDetailsElement>('project-tools'), operation = get<HTMLElement>('project-operation');
 const menu = get<HTMLButtonElement>('menu-toggle'), nav = get<HTMLElement>('primary-nav');
 const life = scope(), downloads: (() => void)[] = [];
-const help=document.getElementById('operation-help');
-if(help&&!('open' in document.createElement('details'))){const summary=help.querySelector('summary');if(summary){summary.setAttribute('tabindex','0');const toggle=()=>{if(help.hasAttribute('open'))help.removeAttribute('open');else help.setAttribute('open','');};life.on(summary,'click',toggle);life.on(summary,'keydown',event=>{const e=event as KeyboardEvent;if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});}}
 let store: ProjectStore | null = null, page: PageView | null = null;
 let router: ReturnType<typeof createHashRouter> | null = null, unsubscribe = () => {};
 let disposed = false, locked = false, current: AppRoute | null = null;
 let musicScene:StageSoundSample|null=null,musicFocused=true;
 const musicButton=get<HTMLButtonElement>('site-music-toggle'),musicStatus=get<HTMLElement>('site-music-status');
 const audio=createStageAudioSession({tracks:musicCatalog.tracks,onMusic(status,enabled){
-  if(disposed)return;musicStatus.textContent=status.message;musicStatus.setAttribute('data-state',status.state);musicStatus.setAttribute('data-track',status.trackId??'');
+  if(disposed)return;musicStatus.textContent=status.state==='blocked'?'点击或按键，让音乐响起。':status.state==='error'||status.state==='unavailable'?'音乐暂未播放，请重试声音开关。':'';get<HTMLElement>('site-music-panel').hidden=!musicStatus.textContent;musicStatus.setAttribute('data-state',status.state);musicStatus.setAttribute('data-track',status.trackId??'');
   musicButton.textContent=enabled?'关闭戏曲音乐':'开启戏曲音乐';
   musicButton.setAttribute('aria-pressed',String(enabled));musicButton.disabled=['unavailable','disposed'].includes(status.state);
-  get<HTMLElement>('site-music-credit').textContent=musicCatalog.tracks.find(t=>t.id===status.trackId)?.credit??'京胡器乐作背景，谢幕选用京剧唱段；静候时保留安静。';
 }});
 function syncMusic(){
   const state=store?.getState();
@@ -149,7 +147,7 @@ async function mount() {
   store = opened;
   get<HTMLElement>('app-runtime').setAttribute('data-entry', import.meta.env.LEGACY ? 'legacy' : 'modern');
   tools.hidden = false; menu.hidden = false; get<HTMLElement>('open-project-tools').hidden = false;
-  musicButton.hidden=false;get<HTMLElement>('site-music-panel').hidden=false;
+  musicButton.hidden=false;
   document.body.classList.add('app-ready');
   router = createHashRouter({
     read: () => window.location.hash,
@@ -179,7 +177,7 @@ async function mount() {
           { paused: true, elapsedMs: 0, now: new Date().toISOString() }), { path: story.definitionVersion>=3?'/story':'/craft', exhibitId: null });
       },
     };
-    const view=factories[parsed.route.path](host, context),journey=mountJourney(host,parsed.route);
+    const view=mountGuidedPage(host,context,factories[parsed.route.path]),journey=mountJourney(host,parsed.route);
     page={update(state){journey.update(state);view.update(state);},dispose(){view.dispose();journey.dispose();}}; host.setAttribute('data-route', parsed.route.path);
     update(opened.getState());
     for (const anchor of Array.from(nav.querySelectorAll('a'))) {

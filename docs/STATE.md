@@ -1,3 +1,7 @@
+# 正在实施（2026-10-25）
+
+作者已批准T29—T32启幕、书法、分阶段隔离引导及跳段方案。接续5fcbbc4，root/main登记并执行；当前T29，原生产验证与限制见下文。未改用户DOCX/PPTX，不重复删除用户历史。
+
 # 当前状态与交接（2026-10-24）
 
 T25—T28本轮实现与功能验收完成。main生产源码 **540bdebc22dd75cf7db5a385f0c02ccb11ea2cc7**，验证/证据检查点 **933efc04bbf78ffe2d863b69a6ef5aa1f3b30dca**；构建入口 **283837594ee06439db2fc023e4e66e0790b7860803c3464eafce04e62bfea7de**。Node24.18.1/npm12.0.2。5173开发服务和dist保留，npm run dev可启动。验收见acceptance/t25-t28.md，机器汇总evidence/t25-t28/acceptance.json。

@@ -19,7 +19,7 @@ export function mountMuseumDemo(host: HTMLElement, kind: MuseumCanvasDemo) {
   root.id = 'museum-demo-root'; root.setAttribute('data-kind', kind);
   root.setAttribute('aria-label', { layers: '色影分层示意', carving: '镂空前后对比', joints: '关节与三杆演示', light: '灯影几何实验' }[kind]);
   const layout = element('div', 'workspace museum-demo-workspace'), panel = element('div', 'control-panel');
-  const stage = canvasStage('沉香 · 复用剧场的影偶、刻纹遮罩与灯影投影。当前为原创皮影风格设计稿。');
+  const stage = canvasStage('在幕上试一试，观察皮影各部分怎样配合。');
   const field = element('fieldset'), legend = element('legend', '', { layers: '把色影翻到背面', carving: '同一纹样，刻前与刻后', joints: '抬肩，再弯肘', light: '挪灯，或改变偶幕距离' }[kind]);
   field.appendChild(legend);
   const reading = element('p', 'selection-summary'); reading.id = 'museum-demo-reading'; reading.setAttribute('role', 'status');

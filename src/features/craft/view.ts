@@ -19,7 +19,7 @@ const template=assetCatalog.puppets.find(item=>item.id==='chenxiang-v1')!;
 const colorNames:Record<string,string>={'#B83B30':'朱红','#D7A253':'金黄','#314C58':'靛青','#17130F':'墨黑','#F2E5C9':'米白','#8BA6A4':'青灰','#4F6B49':'苔绿','#A26A42':'赭棕'};
 export const mountCraft:PageFactory=(host,ctx)=>{
   const life=scope();append(host,heading('先备行装','给远行的人，备一身衣色。','保留影偶原画的细密刻纹，选择一套颜色；再牵一牵手脚，看看这身行装怎样走上舞台。'),pageLinks());
-  const layout=element('section','workspace craft-workspace'),stage=canvasStage('沉香与母亲 · 原创皮影风格设计稿。母亲保持自己的配色，原画细节完整保留。');
+  const layout=element('section','workspace craft-workspace'),stage=canvasStage('为沉香选好行装，再试着牵动他的手脚。');
   const panel=element('div','control-panel'),field=element('fieldset');field.appendChild(element('legend','','沉香的行装'));
   const palette=element('select');palette.id='craft-palette';
   for(const p of palettes.palettes.filter(item=>item.editable)){const option=element('option','',p.label);option.value=p.id;palette.appendChild(option);}

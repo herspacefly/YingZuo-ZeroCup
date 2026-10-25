@@ -11,6 +11,7 @@ export default defineConfig({
     terserOptions: { ecma: 5, format: { ecma: 5 } },
     rollupOptions: {
       input: {
+        credits: fileURLToPath(new URL('./credits.html', import.meta.url)),
         main: fileURLToPath(new URL('./index.html', import.meta.url)),
         study: fileURLToPath(new URL('./study.html', import.meta.url)),
         probe: fileURLToPath(new URL('./probe.html', import.meta.url)),

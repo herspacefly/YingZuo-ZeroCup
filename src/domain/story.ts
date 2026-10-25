@@ -47,7 +47,7 @@ export function reduceStory(project: ProjectV1,command: StoryCommand,context: St
   const node=currentStoryNode(definition,story);
   requireFact(definition.assetVersion===next.assetVersion,'资源版本不匹配。');
   requireFact(story.revision<Number.MAX_SAFE_INTEGER,'剧情版本已达上限，未覆盖存档。');
-  requireFact(node.allowedActions.includes(command.action),'当前节点不接受这个动作。');
+  requireFact(command.action==='SKIP_NODE'||node.allowedActions.includes(command.action),'当前节点不接受这个动作。');
   requireFact(typeof context.paused==='boolean' && finiteRange(context.elapsedMs),'当前节点时钟无效。');
   requireFact(!node.prerequisites.frozenCast || !!story.castSnapshot,'当前节点缺少冻结角色。');
   requireFact(node.prerequisites.approach===null || node.prerequisites.approach===story.approach,'当前节点与已选路径不符。');
@@ -58,7 +58,7 @@ export function reduceStory(project: ProjectV1,command: StoryCommand,context: St
     if(command.mode===story.mode)return null;
     story.mode=command.mode;story.revision++;return validateProject(next);
   }
-  if(story.definitionVersion>=3&&command.action!=='COMPLETE_SCENE'&&node.id!=='craft'){const timing=story.mode==='full'?node.fullTiming:node.guidedTiming;requireFact(context.elapsedMs>=timing.minDurationMs,'请先听完这一段对白，再决定或操偶。');}
+  if(story.definitionVersion>=3&&command.action!=='COMPLETE_SCENE'&&command.action!=='SKIP_NODE'&&node.id!=='craft'){const timing=story.mode==='full'?node.fullTiming:node.guidedTiming;requireFact(context.elapsedMs>=timing.minDurationMs,'请先听完这一段对白，再决定或操偶。');}
   let destination: string | undefined;
   if(command.action==='CHOOSE') {
     requireFact(node.id==='approach-choice' && node.kind==='choice' && node.completion.kind==='choice' && node.next && !('default' in node.next),'当前没有可选路线。');
@@ -74,7 +74,10 @@ export function reduceStory(project: ProjectV1,command: StoryCommand,context: St
     destination=(node.next as Record<typeof command.ending,string>)[command.ending];
   } else {
     requireFact(node.next && 'default' in node.next,'当前节点没有顺序出口。');
-    if(command.action==='COMPLETE_INTERACTION') {
+    if(command.action==='SKIP_NODE'){
+      requireFact(command.source==='user'&&node.kind!=='choice'&&node.kind!=='terminal'&&node.id!=='craft','当前片段需要明确选择或确认造型，不能跳过。');
+      story.skippedNodeIds=[...(story.skippedNodeIds??[]),story.nodeId];
+    } else if(command.action==='COMPLETE_INTERACTION') {
       requireFact(node.kind==='interaction','当前不是操作节点。');
       if(command.source==='assistance') {
         requireFact(node.completion.kind!=='craft','制作确认不能冒充协助操作。');
@@ -117,7 +120,7 @@ export function reunionSummary(project: ProjectV1) {
   const p=validateProject(project),s=p.story;
   if(!s || !['curtain','completed'].includes(s.nodeId) || !s.completedAt || !s.castSnapshot || !s.approach)return null;
   return {id:s.definitionVersion===1?`${s.runId}:reunion`:`${s.runId}:ending:${s.ending}`,runId:s.runId,definitionVersion:s.definitionVersion,
-    ending:s.definitionVersion!==1?s.ending!:null,completedAt:s.completedAt,approach:s.approach,castSnapshot:s.castSnapshot,assistedNodeIds:s.assistedNodeIds,presetAppearanceUsed:s.presetAppearanceUsed};
+    ending:s.definitionVersion!==1?s.ending!:null,completedAt:s.completedAt,approach:s.approach,castSnapshot:s.castSnapshot,assistedNodeIds:s.assistedNodeIds,skippedNodeIds:s.skippedNodeIds??[],presetAppearanceUsed:s.presetAppearanceUsed};
 }
 /** Rebuild only the current short node; caller owns a fresh transient mount generation. */
 export function storyEntry(project: ProjectV1,definition: StoryDefinition,generation: number) {

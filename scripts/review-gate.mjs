@@ -10,7 +10,7 @@ export function reviewSubjects(kind){
   if(kind==='assets'){
     const manifest=json('src/content/manifest.json');
     const bindings={puppets:['chenxiang-v1','mother-v1','guardian-v1'].map(id=>json(`src/content/puppets/${id}.json`)),scenes:json('src/content/scenes.json'),patterns:json('src/content/patterns.json'),palettes:json('src/content/palettes.json'),colorMapEncoding:manifest.colorMapEncoding};
-    return manifest.assets.map(asset=>assetReviewSubject(asset,manifest.provenance,bindings));
+    const presentation=json('public/assets/presentation/manifest.json');return [...manifest.assets.map(asset=>assetReviewSubject(asset,manifest.provenance,bindings)),{id:'asset:presentation-lotus-theatre',sha256:digest([presentation.homeArt,presentation.assets.find(asset=>asset.path.endsWith('lotus-theatre.png'))]),rightsRequired:true,license:'project-authorized'}];
   }
   const sources=json('src/content/sources.json').sources,media=json('src/content/museum-media.json');
   return [

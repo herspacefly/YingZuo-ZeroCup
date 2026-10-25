@@ -23,7 +23,7 @@ export function mountSpatialStage(figure:HTMLElement,source:HTMLCanvasElement){
   const inspect=element('div','spatial-inspect'),actorSelect=element('select'),resetView=element('button','button secondary','复位观察'),zoomIn=element('button','button secondary','放大'),zoomOut=element('button','button secondary','缩小');
   actorSelect.setAttribute('aria-label','近看人物');for(const [id,label]of [['chenxiang','沉香'],['mother','母亲'],['guardian','二郎神']]){const option=element('option','',label);option.value=id!;actorSelect.appendChild(option);}append(inspect,element('p','quiet-note','拖动空间画面改变视角；放大查看刻纹与持物。操偶仍在上方二维幕面完成。'),actorSelect,zoomIn,zoomOut,resetView);
   const close=element('button','button secondary spatial-close','只看二维幕面');close.type='button';
-  append(panel,mount,controls,inspect,exhibits,element('p','quiet-note','空间模型为本作示意，影偶、刻纹与灯位沿用上方这张幕。操作仍在二维幕面完成，切换观察机位不会改变演出。'),close);
+  append(panel,mount,controls,inspect,exhibits,element('p','quiet-note','切换机位可以看清幕后的关系；操偶仍在上方幕面完成。'),close);
   append(root,toggle,status,panel);figure.appendChild(root);
   let disposed=false,expanded=false,loading=false,originReady=false,last:CanvasFrame|null=null,stage:SpatialStage|null=null,generation=0,view:StageView='story',lightweight=false;
   let yaw=0,pitch=0,zoom=1,drag:{x:number;y:number}|null=null,wanted=false;

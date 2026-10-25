@@ -13,9 +13,9 @@ function externalLink(label: string, url: string) {
 }
 function attribution(media: MuseumMedia) {
   const box = element('div', 'museum-photo-attribution');
-  append(box, element('p', 'museum-photo-region', media.region), element('p', '', `原图注：${media.originalCaption}`), element('p', '', media.credit));
-  if (media.sourcePage && media.originalImage) append(box, externalLink('查看机构原页面 ↗', media.sourcePage), externalLink('查看原始图片 ↗', media.originalImage));
-  append(box, element('p', 'quiet-note', media.rightsNote));
+  append(box,element('p','museum-photo-region',media.region),element('p','',media.originalCaption));
+  if(media.sourcePage)box.appendChild(externalLink('资料出处 ↗',media.sourcePage));
+  box.appendChild(link('素材致谢','./credits.html#'+media.id));
   return box;
 }
 function imageView(media: MuseumMedia, eager = false) {

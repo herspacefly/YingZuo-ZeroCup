@@ -40,6 +40,14 @@ export class ProjectStore {
   private tail: Promise<unknown> = Promise.resolve();
   private listeners = new Set<(state: StoreState) => void>();
   private constructor(private readonly storage: StoragePort, private readonly environment: StoreEnvironment) {}
+  /** A complete command-compatible fork with no IndexedDB, downloads or real writer. */
+  static preview(project:ProjectV1):ProjectStore {
+    const unavailable=async():Promise<never>=>{throw new Error('试练不会替换、恢复或导出正式作品。');};
+    const store=new ProjectStore({load:unavailable,save:async candidate=>validateProject(candidate),replace:unavailable,
+      promoteBackup:unavailable,startAfterCorruption:unavailable,readRaw:unavailable,close(){}},
+      {writerId:project.writerId,createId:()=>project.projectId,now:()=>project.savedAt});
+    store.accept(validateProject(project));return store;
+  }
   static async open(storage: StoragePort, environment: StoreEnvironment): Promise<ProjectStore> {
     const store = new ProjectStore(storage, environment);
     await store.initialize();

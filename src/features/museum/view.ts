@@ -45,7 +45,7 @@ export const mountMuseum:PageFactory=(host,ctx)=>{
     const caption=element('figcaption');append(caption,element('span','',`${cover.region} · ${cover.originalCaption}`));
     if(cover.sourcePage){const source=link('资料出处 ↗',cover.sourcePage);source.target='_blank';source.rel='noopener noreferrer';caption.appendChild(source);}
     append(photo,image,fallback,caption);
-    append(copy,element('span','eyebrow','光影之间 / 手艺长存'),element('h2','','从一刀一线，读懂一出戏。'),element('p','','影窗前，是人物的聚散；影窗后，是皮料、刻刀、色彩、灯与操演者的手。先看真实的手工痕迹，再走近它们怎样共同成就一场演出。'),link('从材料与颜色开始 →','#/museum/E01','button journey-recommended'),element('p','quiet-note','公开资料照片逐图附来源与地域。本作互动示意安排在科普内容之后。'));
+    append(copy,element('span','eyebrow','光影之间 / 手艺长存'),element('h2','','从一刀一线，读懂一出戏。'),element('p','','影窗前，是人物的聚散；影窗后，是皮料、刻刀、色彩、灯与操演者的手。先看真实的手工痕迹，再走近它们怎样共同成就一场演出。'),link('从材料与颜色开始 →','#/museum/E01','button journey-recommended'),element('p','quiet-note','先看实物，认识一刀一线；再亲手试一试。'));
     append(hero,copy,photo);host.appendChild(hero);
   }
   let demo:ReturnType<typeof mountMuseumDemo>|null=null,portrait:ReturnType<typeof canvasStage>|null=null,ensemble:ReturnType<typeof mountMuseumEnsemble>|null=null,gallery:ReturnType<typeof mountMuseumGallery>|null=null;
@@ -69,7 +69,7 @@ export const mountMuseum:PageFactory=(host,ctx)=>{
         append(item,element('span','exhibit-code',`${id} / `),sourceLink(id));
         if(source.accessStatus!=='readable')item.appendChild(element('p','quiet-note',source.verificationNote));list.appendChild(item);
       }
-      append(reading,list,element('p','quiet-note','以上链接用于查阅资料。展签中的几何图示与互动为本作设计，链接不代表外部图片或录音的复用授权。'));
+      append(reading,list,element('p','quiet-note','可以从这些资料继续了解工艺与地方风貌。'));
     }
     append(host,toggle,reading);
   }
@@ -81,7 +81,7 @@ export const mountMuseum:PageFactory=(host,ctx)=>{
     if(['layers','carving','joints','light'].includes(selected.demo))demo=mountMuseumDemo(display,selected.demo as 'layers'|'carving'|'joints'|'light');
     else if(selected.demo==='ensemble')ensemble=mountMuseumEnsemble(display);
     else if(selected.demo==='credits'){
-      const layout=element('div','workspace museum-credits'),panel=element('div','control-panel');portrait=canvasStage('本场影偶或未开演示例 · 原创皮影风格设计稿。');
+      const layout=element('div','workspace museum-credits'),panel=element('div','control-panel');portrait=canvasStage('回看这一场的影偶与节目单。');
       append(programme,programmeTitle,programmeRows,programmeLink);panel.appendChild(programme);append(layout,portrait.figure,panel);display.appendChild(layout);
     }
     if(selected.panels.length){
@@ -118,6 +118,7 @@ export const mountMuseum:PageFactory=(host,ctx)=>{
     if(story?.castSnapshot){if(story.definitionVersion!==4)rows.push(['本场纹样',patternLabel(story.castSnapshot.appearance.patternId)]);rows.push(['本场配色',paletteLabel(story.castSnapshot.appearance.paletteId)],['造型来源',story.presetAppearanceUsed?'采用默认影偶':'采用你确认的造型']);}
     rows.push(['演出进度',story?definitionFor(story).nodes.find(node=>node.id===story.nodeId)!.title:'尚未开演，示例不代表个人成果']);
     if(story?.approach)rows.push(['你的选择',story.approach==='call-first'?'先举灯呼唤':'先挥斧开山']);
+    if(story?.skippedNodeIds?.length)rows.push(['主动跳过的片段',story.skippedNodeIds.map(id=>definitionFor(story).nodes.find(node=>node.id===id)!.title).join('、')]);
     if(ending)rows.push(['你的终章',ending.title],['终章去向',ending.summary]);
     if(story)rows.push(['已记录的协助',story.assistedNodeIds.length?story.assistedNodeIds.map(id=>definitionFor(story).nodes.find(node=>node.id===id)!.title).join('、'):'未记录协助']);
     if(result)rows.push(['终章完成时间',new Date(result.completedAt).toLocaleString()],['谢幕',story!.nodeId==='completed'?'已经看完':'终章已保存，谢幕尚未结束']);

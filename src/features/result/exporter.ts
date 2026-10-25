@@ -21,7 +21,7 @@ export function mountReunionExporter(host: HTMLElement, artifact: ReunionArtifac
   canvas.width = 1600; canvas.height = 1200; canvas.className = 'reunion-artifact';
   canvas.setAttribute('role', 'img');
   const ending=snapshot.summary.ending?definitionFor(snapshot.summary).endings!.find(e=>e.id===snapshot.summary.ending):null;
-  canvas.setAttribute('aria-label',ending?ending.title+'：'+ending.summary:'一幕团圆留影：沉香与母亲伸手相见，使用本场冻结造型；原创皮影风格设计稿。');
+  canvas.setAttribute('aria-label',ending?ending.title+'：'+ending.summary:'一幕团圆留影：沉香与母亲伸手相见，使用本场冻结造型。');
   canvas.setAttribute('data-state', 'loading');
   host.appendChild(canvas);
   // Hidden source dimensions fall back to the renderer's normal 1024×768 backing canvas.
@@ -62,7 +62,7 @@ export function mountReunionExporter(host: HTMLElement, artifact: ReunionArtifac
     const marker = summary.runId.length > 20 ? `…${summary.runId.slice(-20)}` : summary.runId;
     ctx.fillText(`成果 ${marker}:${summary.ending??'reunion'}　·　完成（UTC）${summary.completedAt}`, 800, 1120);
     ctx.font = '21px SimSun, "Songti SC", serif';
-    ctx.fillText('零组 · 张宇翔（SpaceFly）　｜　原创改编 · 皮影风格设计稿', 800, 1158);
+    ctx.fillText('零组 · 张宇翔（SpaceFly）　｜　影作 · 一幕团圆', 800, 1158);
   }
 
   try {

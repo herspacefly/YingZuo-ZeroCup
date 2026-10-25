@@ -12,7 +12,7 @@ import { mountReunionReplay } from './replay-view';
 
 export const mountResult:PageFactory=(host,ctx)=>{
   const life=scope(),head=heading('一幕团圆 / 本场节目单','这一场，还在路上。','终章之后，属于这一场的造型、选择与协作会在这里留下。');host.appendChild(head);
-  const layout=element('section','result-layout'),figure=element('figure','result-portrait'),capture=element('div','result-capture'),caption=element('figcaption','stage-caption','1600 × 1200 · 依本场冻结构图生成的终章留影，当前为原创皮影风格设计稿。');
+  const layout=element('section','result-layout'),figure=element('figure','result-portrait'),capture=element('div','result-capture'),caption=element('figcaption','stage-caption','留下这一场的终章画面。');
   capture.id='result-capture';append(figure,capture,caption);
   const programme=element('section','programme result-programme'),title=element('h2'),details=element('dl','programme-list'),resume=link('回到这一场 →','#/story','button secondary');
   const id=element('p','result-identity'),saveState=element('p','quiet-note'),operation=element('p','selection-summary');id.id='result-id';saveState.id='result-save-note';operation.id='result-operation';operation.setAttribute('role','status');
@@ -68,10 +68,11 @@ export const mountResult:PageFactory=(host,ctx)=>{
       if(ending){head.querySelector('h1')!.textContent=ending.title;title.textContent='本场终章 · '+ending.title;head.querySelector('.page-lead')!.textContent=ending.summary;caption.textContent='1600 × 1200 · 本场终章留影';png.textContent='下载终章留影 PNG';}
       const path=result?definitionFor(state.project?.story).nodes.filter(node=>node.actors.includes('chenxiang')&&node.kind==='interaction'&&node.id!=='craft'&&(node.prerequisites.approach===null||node.prerequisites.approach===result.approach)&&(!node.prerequisites.ending||node.prerequisites.ending===result.ending)):[];
       const rows:[string,string][]=result?[
-        ['角色','沉香、母亲（三圣母）；沉香由你操作或明确选择协助，母亲由程序编排'],
+        ['角色','沉香、母亲（三圣母）；沉香由你操演，母亲与你同台'],
         ['衣饰',result.definitionVersion===4?'精细原画':patternLabel(result.castSnapshot.appearance.patternId)],['配色',paletteLabel(result.castSnapshot.appearance.paletteId)],
         ['本场终章',ending?.title??'一幕团圆'],['这一次的选择',result.approach==='call-first'?'先举灯呼唤':'先挥斧开山'],['造型来源',result.presetAppearanceUsed?'采用默认影偶':'使用已编辑的造型'],
-        ['亲手完成的片段',path.filter(node=>!result.assistedNodeIds.includes(node.id)).map(node=>node.title).join('、')||'本场操作片段均采用明确协助'],
+        ['亲手完成的片段',path.filter(node=>!result.assistedNodeIds.includes(node.id)&&!result.skippedNodeIds.includes(node.id)).map(node=>node.title).join('、')||'本场操作片段均采用明确协助'],
+        ['主动跳过的片段',result.skippedNodeIds.length?result.skippedNodeIds.map(nodeId=>definitionFor(state.project?.story).nodes.find(node=>node.id===nodeId)!.title).join('、'):'未主动跳过'],
         ['使用协助的片段',result.assistedNodeIds.length?result.assistedNodeIds.map(nodeId=>definitionFor(state.project?.story).nodes.find(node=>node.id===nodeId)!.title).join('、'):'未记录协助'],
         ['终章完成时间',new Date(result.completedAt).toLocaleString()],['谢幕',state.project?.story?.nodeId==='completed'?'已经看完':'团圆已保存，谢幕尚未结束'],['创作署名','零组 · 张宇翔（SpaceFly）'],
       ]:[['当前进度',state.project?.story?definitionFor(state.project?.story).nodes.find(node=>node.id===state.project!.story!.nodeId)!.title:'尚未开演']];

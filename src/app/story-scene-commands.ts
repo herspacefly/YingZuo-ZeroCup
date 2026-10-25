@@ -4,7 +4,7 @@ import { definitionFor } from '../content/reunion';
 import type { EndingId } from '../domain/types';
 import type { ProjectStore } from './store';
 
-export type SceneCommand=StoryGuard&({action:'COMPLETE_SCENE';source:'script'}|
+export type SceneCommand=StoryGuard&({action:'SKIP_NODE';source:'user'}|{action:'COMPLETE_SCENE';source:'script'}|
   {action:'COMPLETE_SCENE';source:'user';skipped?:true}|{action:'SET_MODE';mode:'full'|'guided'}|
   {action:'CHOOSE';approach:'call-first'|'split-first'}|
   {action:'CHOOSE_ENDING';ending:EndingId}|

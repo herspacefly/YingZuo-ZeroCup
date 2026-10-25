@@ -24,7 +24,7 @@ const keyName=(key:string)=>((({Left:'ArrowLeft',Right:'ArrowRight',Up:'ArrowUp'
 type Drag={rod:RodId;id:number;offset:Point;handle:HTMLButtonElement;kind:'pointer'|'mouse'|'touch'};
 type Phase={id:ActionId;base:Pose;elapsed:number;finished:boolean};
 
-export function mountPracticeController(panel:HTMLElement,stage:ReturnType<typeof canvasStage>,ctx:PageContext) {
+export function mountPracticeController(panel:HTMLElement,stage:ReturnType<typeof canvasStage>,ctx:PageContext,posePanel:HTMLElement=panel) {
   const life=scope(),field=element('fieldset'),legend=element('legend','','沉香的三根杆');field.appendChild(legend);
   const runtime=element('p','practice-runtime','正在恢复练习姿态…');runtime.id='practice-runtime';runtime.setAttribute('role','status');
   const help=element('p','quiet-note','拖动手脚或幕下握柄；舞台方向键移动身躯，方向按钮移动所选杆，下方滑块精调关节。');help.id='practice-help';
@@ -36,30 +36,34 @@ export function mountPracticeController(panel:HTMLElement,stage:ReturnType<typeo
     const button=element('button','',name);button.type='button';pad.appendChild(button);life.on(button,'click',()=>nudge(delta));
   }
   field.appendChild(pad);
+  const groups=element('div','pose-groups'),bodyGroup=element('div','pose-group'),upper=element('div','pose-group'),lower=element('div','pose-group');
+  for(const [group,label]of [[bodyGroup,'身躯与朝向'],[upper,'手臂'],[lower,'双腿']] as const)group.appendChild(element('h3','',label));
+  while(field.children.length>1)bodyGroup.appendChild(field.children[1]!);append(groups,bodyGroup,upper,lower);field.appendChild(groups);let rangeHost=bodyGroup;
   const ranges=new Map<string,HTMLInputElement>();
   function range(label:string,id:string,min:number,max:number,step:number,change:(value:number)=>void) {
     const group=element('label','range-control',label),value=element('output'),input=element('input');
     input.type='range';input.id=id;input.min=String(min);input.max=String(max);input.step=String(step);input.setAttribute('aria-label',label);value.setAttribute('for',id);
-    append(group,value,input);field.appendChild(group);ranges.set(id,input);
+    append(group,value,input);rangeHost.appendChild(group);ranges.set(id,input);
     life.on(input,'input',()=>change(Number(input.value)));life.on(input,'change',()=>{change(Number(input.value));if(dirty)submit(true);});
   }
   range('身杆左右','practice-x',0,1,.005,value=>manual({...pose,x:value}));
   range('身杆高低','practice-y',0,1,.005,value=>manual({...pose,y:value}));
   for(const side of ['left','right'] as const)for(const joint of ['Shoulder','Elbow','Hip','Knee'] as const){
+    rangeHost=joint==='Shoulder'||joint==='Elbow'?upper:lower;
     const id=`${side}${joint}` as const,limit=template.joints.find(item=>item.jointId===id)!;
     range(`${side==='left'?'左':'右'}${({Shoulder:'肩',Elbow:'肘',Hip:'髋',Knee:'膝'})[joint]}角度`,`practice-${id}`,limit.minRad,limit.maxRad,.01,value=>manual({...pose,joints:{...pose.joints,[id]:value}}));
   }
-  range('影偶大小','practice-scale',.6,1,.01,value=>manual({...pose,scale:value}));
+  rangeHost=bodyGroup;range('影偶大小','practice-scale',.6,1,.01,value=>manual({...pose,scale:value}));
   const facing=element('select');facing.id='practice-facing';
   for(const [value,label] of [['1','面向右侧'],['-1','面向左侧']]){const option=element('option','',label);option.value=value!;facing.appendChild(option);}
-  const faceLabel=element('label','','影偶朝向');faceLabel.appendChild(facing);field.appendChild(faceLabel);
+  const faceLabel=element('label','','影偶朝向');faceLabel.appendChild(facing);bodyGroup.appendChild(faceLabel);
   const action=element('select');action.id='practice-action';
   for(const definition of actionDefinitions){const option=element('option','',definition.label);option.value=definition.id;action.appendChild(option);}
-  const actionLabel=element('label','','基础动作');actionLabel.appendChild(action);field.appendChild(actionLabel);
+  const actionLabel=element('label','','基础动作');actionLabel.appendChild(action);panel.appendChild(actionLabel);
   const transport=element('div','practice-transport'),play=element('button','button primary','演示所选动作'),pause=element('button','button secondary','暂停'),resume=element('button','button secondary','继续动作'),step=element('button','button secondary','前进 0.25 秒');
-  play.id='practice-play';pause.id='practice-pause';resume.id='practice-resume';step.id='practice-step';append(transport,play,pause,resume,step);field.appendChild(transport);
-  const save=element('button','button secondary','保存当前姿态'),reset=element('button','button secondary','姿态归位');save.id='practice-save';reset.id='practice-reset';append(field,save,reset);
-  append(panel,help,runtime,field);
+  play.id='practice-play';pause.id='practice-pause';resume.id='practice-resume';step.id='practice-step';append(transport,play,pause,resume,step);panel.appendChild(transport);
+  const save=element('button','button secondary','保存当前姿态'),reset=element('button','button secondary','姿态归位');save.id='practice-save';reset.id='practice-reset';const poseFooter=element('div','pose-footer');append(poseFooter,save,reset);field.appendChild(poseFooter);
+  append(posePanel,help,field);panel.insertBefore(runtime,panel.firstChild);
 
   const overlay=element('div','rod-overlay');overlay.hidden=true;overlay.setAttribute('aria-label','沉香操纵杆');
   const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('aria-hidden','true');svg.setAttribute('class','rod-lines');overlay.appendChild(svg);
@@ -122,7 +126,7 @@ export function mountPracticeController(panel:HTMLElement,stage:ReturnType<typeo
     applyFit(result);
   }
   function begin() {
-    if(!canInput())return;stop('动作已准备。');phase={id:selectedAction,base:clone(pose),elapsed:0,finished:false};
+    if(!canInput())return;stop('动作已准备。',false);phase=null;applyFit(constrainPoseToStage(defaultPose(),template,project!.stage,attachments()));phase={id:selectedAction,base:clone(pose),elapsed:0,finished:false};
     if(reduced){message='已启用减少动态。可逐步预览同一个动作。';renderUI();return;}
     playing=true;message='正在演示；拖杆或调整滑块可接管。';renderUI();clock.start();
   }
@@ -204,6 +208,7 @@ export function mountPracticeController(panel:HTMLElement,stage:ReturnType<typeo
   life.on(reset,'click',()=>{manual(defaultPose());submit(true);});
   const unsubscribe=stage.subscribe(status=>{ready=status.state==='ready';if(status.state==='error')stop('幕面未就绪，练习暂停；可重试幕面。');else renderUI();});
   return {
+    suspendForGuide(){const wasPlaying=playing;stop('先试一遍，随后回到这里。',false);return ()=>{if(wasPlaying&&phase&&!phase.finished){playing=true;clock.start();renderUI();}};},
     update(next:StoreState) {
       if(disposed)return;state=next;const nextProject=next.project;
       if(nextProject?.projectId!==projectId){stop('已恢复练习姿态，默认暂停。',false);project=nextProject;projectId=nextProject?.projectId??'';phase=null;dirty=false;

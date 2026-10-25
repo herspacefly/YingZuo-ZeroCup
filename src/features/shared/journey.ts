@@ -19,7 +19,7 @@ export function mountJourney(host: HTMLElement, route: AppRoute) {
     if (route.path === step.path) { anchor.setAttribute('aria-current', 'step'); li.className = 'current'; }
     li.appendChild(anchor); list.appendChild(li);
   }
-  append(section, label, list); if(route.path==='/museum')host.appendChild(section);else if(route.path==='/')host.insertBefore(section,host.firstChild?.nextSibling??null);else host.insertBefore(section,host.firstChild);
+  append(section, label, list); if(route.path==='/museum')host.appendChild(section);else if(route.path==='/'){const content=host.querySelector('.page-content')??host;content.insertBefore(section,content.firstChild?.nextSibling??null);}else host.insertBefore(section,host.firstChild);
   const recommended=Array.from(host.querySelectorAll<HTMLElement>('.journey-recommended'));
   const observer=typeof window.IntersectionObserver==='function'?new IntersectionObserver(entries=>{
     for(const entry of entries)if(entry.isIntersecting){entry.target.classList.add('journey-visible');observer?.unobserve(entry.target);}
