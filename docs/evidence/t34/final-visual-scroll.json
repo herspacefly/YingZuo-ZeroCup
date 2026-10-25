@@ -1,0 +1,606 @@
+{
+  "config": {
+    "argv": [
+      "E:\\Software_after2026\\nodejs\\node.exe",
+      "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/continuous-stage.spec.ts",
+      "tests/e2e/guide-scroll.spec.ts",
+      "--grep",
+      "visual evidence|large current|assistance after|guide locks|initial positioning",
+      "--workers=2"
+    ],
+    "configFile": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\playwright.config.ts",
+    "rootDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "desktop-chromium",
+        "name": "desktop-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "desktop-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop-chromium"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "mobile-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile-chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/t34/final-visual-scroll.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 2,
+    "webServer": {
+      "command": "npm run preview -- --port 4173 --strictPort",
+      "url": "http://127.0.0.1:4173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "continuous-stage.spec.ts",
+      "file": "continuous-stage.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "explicit assistance after pausing starts a fresh continuous handoff",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3630,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:36:38.093Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-a271554a83bceadd3a0d",
+          "file": "continuous-stage.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "large current captions remain in view above controls and survive dialogue gaps",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2751,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:36:38.099Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-96f98be7ef660caa6287",
+          "file": "continuous-stage.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "corrected mountain planes and canonical action distances have native visual evidence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 32223,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:36:41.164Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-43d39c38da6883fdd717",
+          "file": "continuous-stage.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "explicit assistance after pausing starts a fresh continuous handoff",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3472,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:36:51.862Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-663b4b75f7fbb69bd498",
+          "file": "continuous-stage.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "large current captions remain in view above controls and survive dialogue gaps",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2356,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:36:55.520Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-c9ac8e4fb41a4879a215",
+          "file": "continuous-stage.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "corrected mountain planes and canonical action distances have native visual evidence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 28296,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:36:57.894Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-2048d9e22eaf8c460d5f",
+          "file": "continuous-stage.spec.ts",
+          "line": 34,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "guide-scroll.spec.ts",
+      "file": "guide-scroll.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "guide locks native scrolling and navigation, then restores original overflow and position",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 4724,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m243\u001b[39m\nReceived: \u001b[31m203\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m243\u001b[39m\nReceived: \u001b[31m203\u001b[39m\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-scroll.spec.ts:6:272",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-scroll.spec.ts",
+                      "column": 272,
+                      "line": 6
+                    },
+                    "snippet": "  4 |  await page.goto('/#/craft');await expect(page.locator('.guide-banner')).toBeVisible({timeout:20000});\n  5 |  const before=await page.evaluate(()=>scrollY);await page.mouse.wheel(0,900);await page.waitForTimeout(200);expect(await page.evaluate(()=>scrollY)).toBe(before);\n> 6 |  const cdp=await page.context().newCDPSession(page);await cdp.send('Input.synthesizeScrollGesture',{x:Math.round(page.viewportSize()!.width/2),y:Math.round(page.viewportSize()!.height/2),yDistance:-500,gestureSourceType:'touch'});expect(await page.evaluate(()=>scrollY)).toBe(before);await cdp.detach();\n    |                                                                                                                                                                                                                                                                                ^\n  7 |  await page.locator('#guide-skip').focus();await page.keyboard.press('PageDown');expect(await page.evaluate(()=>scrollY)).toBe(before);\n  8 |  await page.locator('.wordmark').dispatchEvent('click');await expect(page.locator('.guide-banner')).toBeVisible();await expect(page.locator('#app-view')).toHaveAttribute('data-route','/craft');\n  9 |  expect(await page.evaluate(()=>getComputedStyle(document.documentElement).overflow)).toBe('hidden');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-scroll.spec.ts",
+                        "column": 272,
+                        "line": 6
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m243\u001b[39m\nReceived: \u001b[31m203\u001b[39m\n\n  4 |  await page.goto('/#/craft');await expect(page.locator('.guide-banner')).toBeVisible({timeout:20000});\n  5 |  const before=await page.evaluate(()=>scrollY);await page.mouse.wheel(0,900);await page.waitForTimeout(200);expect(await page.evaluate(()=>scrollY)).toBe(before);\n> 6 |  const cdp=await page.context().newCDPSession(page);await cdp.send('Input.synthesizeScrollGesture',{x:Math.round(page.viewportSize()!.width/2),y:Math.round(page.viewportSize()!.height/2),yDistance:-500,gestureSourceType:'touch'});expect(await page.evaluate(()=>scrollY)).toBe(before);await cdp.detach();\n    |                                                                                                                                                                                                                                                                                ^\n  7 |  await page.locator('#guide-skip').focus();await page.keyboard.press('PageDown');expect(await page.evaluate(()=>scrollY)).toBe(before);\n  8 |  await page.locator('.wordmark').dispatchEvent('click');await expect(page.locator('.guide-banner')).toBeVisible();await expect(page.locator('#app-view')).toHaveAttribute('data-route','/craft');\n  9 |  expect(await page.evaluate(()=>getComputedStyle(document.documentElement).overflow)).toBe('hidden');\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-scroll.spec.ts:6:272"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:36:42.015Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\guide-scroll-guide-locks-n-bc634-ginal-overflow-and-position-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\guide-scroll-guide-locks-n-bc634-ginal-overflow-and-position-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-scroll.spec.ts",
+                    "column": 272,
+                    "line": 6
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c7efb9896b26a30240af-3b94a19762ac2bc6dd82",
+          "file": "guide-scroll.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "initial positioning failure restores the real page and releases its scroll lock",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3424,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:36:47.482Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c7efb9896b26a30240af-89faa4904f3e71321c43",
+          "file": "guide-scroll.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "guide locks native scrolling and navigation, then restores original overflow and position",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 4030,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1161\u001b[39m\nReceived: \u001b[31m1127\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1161\u001b[39m\nReceived: \u001b[31m1127\u001b[39m\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-scroll.spec.ts:5:150",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-scroll.spec.ts",
+                      "column": 150,
+                      "line": 5
+                    },
+                    "snippet": "  3 |  await page.addInitScript(()=>{document.addEventListener('DOMContentLoaded',()=>{document.documentElement.style.setProperty('overflow','auto','important');document.documentElement.style.setProperty('overscroll-behavior','contain');},{once:true});});\n  4 |  await page.goto('/#/craft');await expect(page.locator('.guide-banner')).toBeVisible({timeout:20000});\n> 5 |  const before=await page.evaluate(()=>scrollY);await page.mouse.wheel(0,900);await page.waitForTimeout(200);expect(await page.evaluate(()=>scrollY)).toBe(before);\n    |                                                                                                                                                      ^\n  6 |  const cdp=await page.context().newCDPSession(page);await cdp.send('Input.synthesizeScrollGesture',{x:Math.round(page.viewportSize()!.width/2),y:Math.round(page.viewportSize()!.height/2),yDistance:-500,gestureSourceType:'touch'});expect(await page.evaluate(()=>scrollY)).toBe(before);await cdp.detach();\n  7 |  await page.locator('#guide-skip').focus();await page.keyboard.press('PageDown');expect(await page.evaluate(()=>scrollY)).toBe(before);\n  8 |  await page.locator('.wordmark').dispatchEvent('click');await expect(page.locator('.guide-banner')).toBeVisible();await expect(page.locator('#app-view')).toHaveAttribute('data-route','/craft');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-scroll.spec.ts",
+                        "column": 150,
+                        "line": 5
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1161\u001b[39m\nReceived: \u001b[31m1127\u001b[39m\n\n  3 |  await page.addInitScript(()=>{document.addEventListener('DOMContentLoaded',()=>{document.documentElement.style.setProperty('overflow','auto','important');document.documentElement.style.setProperty('overscroll-behavior','contain');},{once:true});});\n  4 |  await page.goto('/#/craft');await expect(page.locator('.guide-banner')).toBeVisible({timeout:20000});\n> 5 |  const before=await page.evaluate(()=>scrollY);await page.mouse.wheel(0,900);await page.waitForTimeout(200);expect(await page.evaluate(()=>scrollY)).toBe(before);\n    |                                                                                                                                                      ^\n  6 |  const cdp=await page.context().newCDPSession(page);await cdp.send('Input.synthesizeScrollGesture',{x:Math.round(page.viewportSize()!.width/2),y:Math.round(page.viewportSize()!.height/2),yDistance:-500,gestureSourceType:'touch'});expect(await page.evaluate(()=>scrollY)).toBe(before);await cdp.detach();\n  7 |  await page.locator('#guide-skip').focus();await page.keyboard.press('PageDown');expect(await page.evaluate(()=>scrollY)).toBe(before);\n  8 |  await page.locator('.wordmark').dispatchEvent('click');await expect(page.locator('.guide-banner')).toBeVisible();await expect(page.locator('#app-view')).toHaveAttribute('data-route','/craft');\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-scroll.spec.ts:5:150"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:37:14.347Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\guide-scroll-guide-locks-n-bc634-ginal-overflow-and-position-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\guide-scroll-guide-locks-n-bc634-ginal-overflow-and-position-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-scroll.spec.ts",
+                    "column": 150,
+                    "line": 5
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c7efb9896b26a30240af-51e522aac273c17db007",
+          "file": "guide-scroll.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "initial positioning failure restores the real page and releases its scroll lock",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3461,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:37:19.539Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c7efb9896b26a30240af-99e8fa7104300c1937ed",
+          "file": "guide-scroll.spec.ts",
+          "line": 19,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-25T15:36:35.724Z",
+    "duration": 51287.367,
+    "expected": 8,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

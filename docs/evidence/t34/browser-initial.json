@@ -1,0 +1,1988 @@
+{
+  "config": {
+    "argv": [
+      "E:\\Software_after2026\\nodejs\\node.exe",
+      "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/continuous-stage.spec.ts",
+      "tests/e2e/guide-scroll.spec.ts",
+      "tests/e2e/presentation-guidance.spec.ts",
+      "tests/e2e/guide-lifecycle.spec.ts",
+      "--workers=2"
+    ],
+    "configFile": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\playwright.config.ts",
+    "rootDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "desktop-chromium",
+        "name": "desktop-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "desktop-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop-chromium"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "mobile-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile-chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/t34/browser-initial.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 2,
+    "webServer": {
+      "command": "npm run preview -- --port 4173 --strictPort",
+      "url": "http://127.0.0.1:4173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "continuous-stage.spec.ts",
+      "file": "continuous-stage.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "one opening click starts intro; costume confirmation carries playback into the first act",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4419,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:23:10.100Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-9ed32eae56a687db48eb",
+          "file": "continuous-stage.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "normal cuts continue, explicit pause and refresh keep a stable paused checkpoint",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6422,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:23:10.162Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-aef0b6dd7d2ba686aefb",
+          "file": "continuous-stage.spec.ts",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "choice remains explicit, then home begins without another play click",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3302,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:23:15.136Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-3f8254637e9794e1213b",
+          "file": "continuous-stage.spec.ts",
+          "line": 19,
+          "column": 76
+        },
+        {
+          "title": "choice remains explicit, then light begins without another play click",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3146,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:23:17.146Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-4b9f05722e9b171023ca",
+          "file": "continuous-stage.spec.ts",
+          "line": 19,
+          "column": 76
+        },
+        {
+          "title": "choice remains explicit, then road begins without another play click",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3185,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:23:18.469Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-996a85384f521b552360",
+          "file": "continuous-stage.spec.ts",
+          "line": 19,
+          "column": 76
+        },
+        {
+          "title": "choice remains explicit, then waiting begins without another play click",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2741,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:23:20.311Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-ed23584ea6c20cfde556",
+          "file": "continuous-stage.spec.ts",
+          "line": 19,
+          "column": 76
+        },
+        {
+          "title": "choice remains explicit, then sacrifice begins without another play click",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2936,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:23:21.668Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-d14831a78082fdef3a50",
+          "file": "continuous-stage.spec.ts",
+          "line": 19,
+          "column": 76
+        },
+        {
+          "title": "save failure and explicit retry never revive the former playback intent",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3032,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:23:23.086Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-ca25711560ffc5760f34",
+          "file": "continuous-stage.spec.ts",
+          "line": 22,
+          "column": 1
+        },
+        {
+          "title": "blur during next actor loading cancels the one-use handoff",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2527,
+                  "error": {
+                    "message": "Error: route.continue: Route is already handled!",
+                    "stack": "Error: route.continue: Route is already handled!\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\continuous-stage.spec.ts:26:506",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\continuous-stage.spec.ts",
+                      "column": 506,
+                      "line": 26
+                    },
+                    "snippet": "  24 | });\n  25 | test('blur during next actor loading cancels the one-use handoff',async({page})=>{\n> 26 |  await clock(page);await seed(page,'training');const held:Route[]=[];await page.route(/guardian.*\\.(png|webp)/,route=>{held.push(route);});await page.locator('#story-play').click();await advance(page,duration('training'));await expect(runtime(page)).toHaveAttribute('data-node','guardian');await expect(runtime(page)).toHaveAttribute('data-state','loading');await page.evaluate(()=>dispatchEvent(new Event('blur')));await page.unroute(/guardian.*\\.(png|webp)/);for(const route of held)await route.continue();await ready(page,'guardian','paused');\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ^\n  27 | });\n  28 | test('large current captions remain in view above controls and survive dialogue gaps',async({page})=>{\n  29 |  await clock(page);await seed(page,'memory-words');await page.locator('#story-play').click();await advance(page,1200);const current=page.locator('.story-caption-dock');await expect(current).not.toHaveText('');await page.locator('#story-pause').click();await page.locator('#story-next-node').scrollIntoViewIfNeeded();const box=(await current.boundingBox())!;expect(box.y).toBeGreaterThanOrEqual(0);expect(box.y+box.height).toBeLessThanOrEqual(page.viewportSize()!.height);expect(await current.locator('.current-subtitles').evaluate(el=>parseFloat(getComputedStyle(el).fontSize))).toBeGreaterThanOrEqual(22);await expect(page.locator('.ink-replay')).toHaveCount(0);await current.screenshot({path:`docs/evidence/t34/current-caption-${test.info().project.name}.png`});"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\continuous-stage.spec.ts",
+                        "column": 506,
+                        "line": 26
+                      },
+                      "message": "Error: route.continue: Route is already handled!\n\n  24 | });\n  25 | test('blur during next actor loading cancels the one-use handoff',async({page})=>{\n> 26 |  await clock(page);await seed(page,'training');const held:Route[]=[];await page.route(/guardian.*\\.(png|webp)/,route=>{held.push(route);});await page.locator('#story-play').click();await advance(page,duration('training'));await expect(runtime(page)).toHaveAttribute('data-node','guardian');await expect(runtime(page)).toHaveAttribute('data-state','loading');await page.evaluate(()=>dispatchEvent(new Event('blur')));await page.unroute(/guardian.*\\.(png|webp)/);for(const route of held)await route.continue();await ready(page,'guardian','paused');\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ^\n  27 | });\n  28 | test('large current captions remain in view above controls and survive dialogue gaps',async({page})=>{\n  29 |  await clock(page);await seed(page,'memory-words');await page.locator('#story-play').click();await advance(page,1200);const current=page.locator('.story-caption-dock');await expect(current).not.toHaveText('');await page.locator('#story-pause').click();await page.locator('#story-next-node').scrollIntoViewIfNeeded();const box=(await current.boundingBox())!;expect(box.y).toBeGreaterThanOrEqual(0);expect(box.y+box.height).toBeLessThanOrEqual(page.viewportSize()!.height);expect(await current.locator('.current-subtitles').evaluate(el=>parseFloat(getComputedStyle(el).fontSize))).toBeGreaterThanOrEqual(22);await expect(page.locator('.ink-replay')).toHaveCount(0);await current.screenshot({path:`docs/evidence/t34/current-caption-${test.info().project.name}.png`});\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\continuous-stage.spec.ts:26:506"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:23:24.619Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\continuous-stage-blur-duri-c4022-cancels-the-one-use-handoff-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\continuous-stage-blur-duri-c4022-cancels-the-one-use-handoff-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\continuous-stage.spec.ts",
+                    "column": 506,
+                    "line": 26
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "790be685619ad33ff040-754975c96c9b4be18c19",
+          "file": "continuous-stage.spec.ts",
+          "line": 25,
+          "column": 1
+        },
+        {
+          "title": "large current captions remain in view above controls and survive dialogue gaps",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2344,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:23:26.152Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-96f98be7ef660caa6287",
+          "file": "continuous-stage.spec.ts",
+          "line": 28,
+          "column": 1
+        },
+        {
+          "title": "one opening click starts intro; costume confirmation carries playback into the first act",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 8088,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:24:07.643Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-78180a2e67cb47022ff2",
+          "file": "continuous-stage.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "normal cuts continue, explicit pause and refresh keep a stable paused checkpoint",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10067,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:24:25.616Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-c8178ae24410e0b6bf63",
+          "file": "continuous-stage.spec.ts",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "choice remains explicit, then home begins without another play click",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3615,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:24:16.605Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-cd171d894de31ec0596e",
+          "file": "continuous-stage.spec.ts",
+          "line": 19,
+          "column": 76
+        },
+        {
+          "title": "choice remains explicit, then light begins without another play click",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3846,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:24:20.241Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-ab8f47e52b6ff486dd68",
+          "file": "continuous-stage.spec.ts",
+          "line": 19,
+          "column": 76
+        },
+        {
+          "title": "choice remains explicit, then road begins without another play click",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3712,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:24:24.107Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-cb9c1a240a45815ee843",
+          "file": "continuous-stage.spec.ts",
+          "line": 19,
+          "column": 76
+        },
+        {
+          "title": "choice remains explicit, then waiting begins without another play click",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 8467,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:24:27.839Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-7bb5194d1dbca7134066",
+          "file": "continuous-stage.spec.ts",
+          "line": 19,
+          "column": 76
+        },
+        {
+          "title": "choice remains explicit, then sacrifice begins without another play click",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8784,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:24:36.115Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-81b0f575442bbc319cee",
+          "file": "continuous-stage.spec.ts",
+          "line": 19,
+          "column": 76
+        },
+        {
+          "title": "save failure and explicit retry never revive the former playback intent",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 8623,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:24:36.365Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-94d334e4bd46d52877fc",
+          "file": "continuous-stage.spec.ts",
+          "line": 22,
+          "column": 1
+        },
+        {
+          "title": "blur during next actor loading cancels the one-use handoff",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5606,
+                  "error": {
+                    "message": "Error: route.continue: Route is already handled!",
+                    "stack": "Error: route.continue: Route is already handled!\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\continuous-stage.spec.ts:26:506",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\continuous-stage.spec.ts",
+                      "column": 506,
+                      "line": 26
+                    },
+                    "snippet": "  24 | });\n  25 | test('blur during next actor loading cancels the one-use handoff',async({page})=>{\n> 26 |  await clock(page);await seed(page,'training');const held:Route[]=[];await page.route(/guardian.*\\.(png|webp)/,route=>{held.push(route);});await page.locator('#story-play').click();await advance(page,duration('training'));await expect(runtime(page)).toHaveAttribute('data-node','guardian');await expect(runtime(page)).toHaveAttribute('data-state','loading');await page.evaluate(()=>dispatchEvent(new Event('blur')));await page.unroute(/guardian.*\\.(png|webp)/);for(const route of held)await route.continue();await ready(page,'guardian','paused');\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ^\n  27 | });\n  28 | test('large current captions remain in view above controls and survive dialogue gaps',async({page})=>{\n  29 |  await clock(page);await seed(page,'memory-words');await page.locator('#story-play').click();await advance(page,1200);const current=page.locator('.story-caption-dock');await expect(current).not.toHaveText('');await page.locator('#story-pause').click();await page.locator('#story-next-node').scrollIntoViewIfNeeded();const box=(await current.boundingBox())!;expect(box.y).toBeGreaterThanOrEqual(0);expect(box.y+box.height).toBeLessThanOrEqual(page.viewportSize()!.height);expect(await current.locator('.current-subtitles').evaluate(el=>parseFloat(getComputedStyle(el).fontSize))).toBeGreaterThanOrEqual(22);await expect(page.locator('.ink-replay')).toHaveCount(0);await current.screenshot({path:`docs/evidence/t34/current-caption-${test.info().project.name}.png`});"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\continuous-stage.spec.ts",
+                        "column": 506,
+                        "line": 26
+                      },
+                      "message": "Error: route.continue: Route is already handled!\n\n  24 | });\n  25 | test('blur during next actor loading cancels the one-use handoff',async({page})=>{\n> 26 |  await clock(page);await seed(page,'training');const held:Route[]=[];await page.route(/guardian.*\\.(png|webp)/,route=>{held.push(route);});await page.locator('#story-play').click();await advance(page,duration('training'));await expect(runtime(page)).toHaveAttribute('data-node','guardian');await expect(runtime(page)).toHaveAttribute('data-state','loading');await page.evaluate(()=>dispatchEvent(new Event('blur')));await page.unroute(/guardian.*\\.(png|webp)/);for(const route of held)await route.continue();await ready(page,'guardian','paused');\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ^\n  27 | });\n  28 | test('large current captions remain in view above controls and survive dialogue gaps',async({page})=>{\n  29 |  await clock(page);await seed(page,'memory-words');await page.locator('#story-play').click();await advance(page,1200);const current=page.locator('.story-caption-dock');await expect(current).not.toHaveText('');await page.locator('#story-pause').click();await page.locator('#story-next-node').scrollIntoViewIfNeeded();const box=(await current.boundingBox())!;expect(box.y).toBeGreaterThanOrEqual(0);expect(box.y+box.height).toBeLessThanOrEqual(page.viewportSize()!.height);expect(await current.locator('.current-subtitles').evaluate(el=>parseFloat(getComputedStyle(el).fontSize))).toBeGreaterThanOrEqual(22);await expect(page.locator('.ink-replay')).toHaveCount(0);await current.screenshot({path:`docs/evidence/t34/current-caption-${test.info().project.name}.png`});\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\continuous-stage.spec.ts:26:506"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:24:45.016Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\continuous-stage-blur-duri-c4022-cancels-the-one-use-handoff-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\continuous-stage-blur-duri-c4022-cancels-the-one-use-handoff-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\continuous-stage.spec.ts",
+                    "column": 506,
+                    "line": 26
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "790be685619ad33ff040-409c19aa5748fc2caf17",
+          "file": "continuous-stage.spec.ts",
+          "line": 25,
+          "column": 1
+        },
+        {
+          "title": "large current captions remain in view above controls and survive dialogue gaps",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5371,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:24:45.055Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "790be685619ad33ff040-c9ac8e4fb41a4879a215",
+          "file": "continuous-stage.spec.ts",
+          "line": 28,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "guide-lifecycle.spec.ts",
+      "file": "guide-lifecycle.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "v1 silent node guide stays on its checkpoint, restores scroll and cancels on blur",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3644,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:23:28.245Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c935895c2fa19e0d8982-0a4805ae8603c773a70d",
+          "file": "guide-lifecycle.spec.ts",
+          "line": 3,
+          "column": 28
+        },
+        {
+          "title": "v2 silent node guide stays on its checkpoint, restores scroll and cancels on blur",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3554,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:23:28.556Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c935895c2fa19e0d8982-3c5f8b7ff60aff93d7b4",
+          "file": "guide-lifecycle.spec.ts",
+          "line": 3,
+          "column": 28
+        },
+        {
+          "title": "legacy entry remains usable with modern DOM methods and WebGL absent",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2360,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:23:32.120Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c935895c2fa19e0d8982-c4b4413cdd1e3587d744",
+          "file": "guide-lifecycle.spec.ts",
+          "line": 10,
+          "column": 1
+        },
+        {
+          "title": "v1 silent node guide stays on its checkpoint, restores scroll and cancels on blur",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3824,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:24:50.520Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c935895c2fa19e0d8982-69c3191071be25aae088",
+          "file": "guide-lifecycle.spec.ts",
+          "line": 3,
+          "column": 28
+        },
+        {
+          "title": "v2 silent node guide stays on its checkpoint, restores scroll and cancels on blur",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4774,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:24:52.941Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c935895c2fa19e0d8982-a4425814ff6661a5f127",
+          "file": "guide-lifecycle.spec.ts",
+          "line": 3,
+          "column": 28
+        },
+        {
+          "title": "legacy entry remains usable with modern DOM methods and WebGL absent",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2234,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:24:54.374Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c935895c2fa19e0d8982-d945c51593acf12d73ae",
+          "file": "guide-lifecycle.spec.ts",
+          "line": 10,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "guide-scroll.spec.ts",
+      "file": "guide-scroll.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "guide locks native scrolling and navigation, then restores original overflow and position",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 4054,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"overscroll\": \"contain\",\u001b[39m\n\u001b[32m-   \"priority\": \"important\",\u001b[39m\n\u001b[32m-   \"value\": \"auto\",\u001b[39m\n\u001b[31m+   \"overscroll\": \"\",\u001b[39m\n\u001b[31m+   \"priority\": \"\",\u001b[39m\n\u001b[31m+   \"value\": \"\",\u001b[39m\n\u001b[2m  }\u001b[22m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"overscroll\": \"contain\",\u001b[39m\n\u001b[32m-   \"priority\": \"important\",\u001b[39m\n\u001b[32m-   \"value\": \"auto\",\u001b[39m\n\u001b[31m+   \"overscroll\": \"\",\u001b[39m\n\u001b[31m+   \"priority\": \"\",\u001b[39m\n\u001b[31m+   \"value\": \"\",\u001b[39m\n\u001b[2m  }\u001b[22m\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-scroll.spec.ts:9:354",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-scroll.spec.ts",
+                      "column": 354,
+                      "line": 9
+                    },
+                    "snippet": "   7 |  await page.locator('.wordmark').dispatchEvent('click');await expect(page.locator('.guide-banner')).toBeVisible();await expect(page.locator('#app-view')).toHaveAttribute('data-route','/craft');\n   8 |  expect(await page.evaluate(()=>getComputedStyle(document.documentElement).overflow)).toBe('hidden');\n>  9 |  await page.keyboard.press('Escape');await expect(page.locator('.guide-banner')).toHaveCount(0);expect(await page.evaluate(()=>({value:document.documentElement.style.getPropertyValue('overflow'),priority:document.documentElement.style.getPropertyPriority('overflow'),overscroll:document.documentElement.style.getPropertyValue('overscroll-behavior')}))).toEqual({value:'auto',priority:'important',overscroll:'contain'});\n     |                                                                                                                                                                                                                                                                                                                                                                  ^\n  10 |  await page.mouse.wheel(0,600);await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(0);\n  11 | });\n  12 | test('keyboard can reach offscreen rehearsal alternatives and blur releases the lock',async({page})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-scroll.spec.ts",
+                        "column": 354,
+                        "line": 9
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"overscroll\": \"contain\",\u001b[39m\n\u001b[32m-   \"priority\": \"important\",\u001b[39m\n\u001b[32m-   \"value\": \"auto\",\u001b[39m\n\u001b[31m+   \"overscroll\": \"\",\u001b[39m\n\u001b[31m+   \"priority\": \"\",\u001b[39m\n\u001b[31m+   \"value\": \"\",\u001b[39m\n\u001b[2m  }\u001b[22m\n\n   7 |  await page.locator('.wordmark').dispatchEvent('click');await expect(page.locator('.guide-banner')).toBeVisible();await expect(page.locator('#app-view')).toHaveAttribute('data-route','/craft');\n   8 |  expect(await page.evaluate(()=>getComputedStyle(document.documentElement).overflow)).toBe('hidden');\n>  9 |  await page.keyboard.press('Escape');await expect(page.locator('.guide-banner')).toHaveCount(0);expect(await page.evaluate(()=>({value:document.documentElement.style.getPropertyValue('overflow'),priority:document.documentElement.style.getPropertyPriority('overflow'),overscroll:document.documentElement.style.getPropertyValue('overscroll-behavior')}))).toEqual({value:'auto',priority:'important',overscroll:'contain'});\n     |                                                                                                                                                                                                                                                                                                                                                                  ^\n  10 |  await page.mouse.wheel(0,600);await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(0);\n  11 | });\n  12 | test('keyboard can reach offscreen rehearsal alternatives and blur releases the lock',async({page})=>{\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-scroll.spec.ts:9:354"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:23:32.130Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\guide-scroll-guide-locks-n-bc634-ginal-overflow-and-position-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\guide-scroll-guide-locks-n-bc634-ginal-overflow-and-position-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-scroll.spec.ts",
+                    "column": 354,
+                    "line": 9
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c7efb9896b26a30240af-3b94a19762ac2bc6dd82",
+          "file": "guide-scroll.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "keyboard can reach offscreen rehearsal alternatives and blur releases the lock",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3835,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:23:34.507Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c7efb9896b26a30240af-4e270252c9842f21f2a3",
+          "file": "guide-scroll.spec.ts",
+          "line": 12,
+          "column": 1
+        },
+        {
+          "title": "guide locks native scrolling and navigation, then restores original overflow and position",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 4633,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"overscroll\": \"contain\",\u001b[39m\n\u001b[32m-   \"priority\": \"important\",\u001b[39m\n\u001b[32m-   \"value\": \"auto\",\u001b[39m\n\u001b[31m+   \"overscroll\": \"\",\u001b[39m\n\u001b[31m+   \"priority\": \"\",\u001b[39m\n\u001b[31m+   \"value\": \"\",\u001b[39m\n\u001b[2m  }\u001b[22m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"overscroll\": \"contain\",\u001b[39m\n\u001b[32m-   \"priority\": \"important\",\u001b[39m\n\u001b[32m-   \"value\": \"auto\",\u001b[39m\n\u001b[31m+   \"overscroll\": \"\",\u001b[39m\n\u001b[31m+   \"priority\": \"\",\u001b[39m\n\u001b[31m+   \"value\": \"\",\u001b[39m\n\u001b[2m  }\u001b[22m\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-scroll.spec.ts:9:354",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-scroll.spec.ts",
+                      "column": 354,
+                      "line": 9
+                    },
+                    "snippet": "   7 |  await page.locator('.wordmark').dispatchEvent('click');await expect(page.locator('.guide-banner')).toBeVisible();await expect(page.locator('#app-view')).toHaveAttribute('data-route','/craft');\n   8 |  expect(await page.evaluate(()=>getComputedStyle(document.documentElement).overflow)).toBe('hidden');\n>  9 |  await page.keyboard.press('Escape');await expect(page.locator('.guide-banner')).toHaveCount(0);expect(await page.evaluate(()=>({value:document.documentElement.style.getPropertyValue('overflow'),priority:document.documentElement.style.getPropertyPriority('overflow'),overscroll:document.documentElement.style.getPropertyValue('overscroll-behavior')}))).toEqual({value:'auto',priority:'important',overscroll:'contain'});\n     |                                                                                                                                                                                                                                                                                                                                                                  ^\n  10 |  await page.mouse.wheel(0,600);await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(0);\n  11 | });\n  12 | test('keyboard can reach offscreen rehearsal alternatives and blur releases the lock',async({page})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-scroll.spec.ts",
+                        "column": 354,
+                        "line": 9
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"overscroll\": \"contain\",\u001b[39m\n\u001b[32m-   \"priority\": \"important\",\u001b[39m\n\u001b[32m-   \"value\": \"auto\",\u001b[39m\n\u001b[31m+   \"overscroll\": \"\",\u001b[39m\n\u001b[31m+   \"priority\": \"\",\u001b[39m\n\u001b[31m+   \"value\": \"\",\u001b[39m\n\u001b[2m  }\u001b[22m\n\n   7 |  await page.locator('.wordmark').dispatchEvent('click');await expect(page.locator('.guide-banner')).toBeVisible();await expect(page.locator('#app-view')).toHaveAttribute('data-route','/craft');\n   8 |  expect(await page.evaluate(()=>getComputedStyle(document.documentElement).overflow)).toBe('hidden');\n>  9 |  await page.keyboard.press('Escape');await expect(page.locator('.guide-banner')).toHaveCount(0);expect(await page.evaluate(()=>({value:document.documentElement.style.getPropertyValue('overflow'),priority:document.documentElement.style.getPropertyPriority('overflow'),overscroll:document.documentElement.style.getPropertyValue('overscroll-behavior')}))).toEqual({value:'auto',priority:'important',overscroll:'contain'});\n     |                                                                                                                                                                                                                                                                                                                                                                  ^\n  10 |  await page.mouse.wheel(0,600);await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(0);\n  11 | });\n  12 | test('keyboard can reach offscreen rehearsal alternatives and blur releases the lock',async({page})=>{\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-scroll.spec.ts:9:354"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:24:56.632Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\guide-scroll-guide-locks-n-bc634-ginal-overflow-and-position-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\guide-scroll-guide-locks-n-bc634-ginal-overflow-and-position-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-scroll.spec.ts",
+                    "column": 354,
+                    "line": 9
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c7efb9896b26a30240af-51e522aac273c17db007",
+          "file": "guide-scroll.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "keyboard can reach offscreen rehearsal alternatives and blur releases the lock",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3945,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:24:57.937Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c7efb9896b26a30240af-db9910647f836c059615",
+          "file": "guide-scroll.spec.ts",
+          "line": 12,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "presentation-guidance.spec.ts",
+      "file": "presentation-guidance.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "one soft curtain, semantic brush titles without replay buttons and public credits",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5938,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:23:37.161Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-f5486b5b5eb36b5e1534",
+          "file": "presentation-guidance.spec.ts",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "craft rehearsal restores exact stored appearance and returns on every entry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5303,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:23:38.390Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-18473626c83f47891f7a",
+          "file": "presentation-guidance.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "lamp and limb practice are isolated, with posture controls below the screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6493,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:23:43.325Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-9cac30362028f33c42a9",
+          "file": "presentation-guidance.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "story rehearsal restores its checkpoint and explicit skip retries only once",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 9907,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#story-runtime')\nExpected: \u001b[32m\"p\u001b[7maused\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"p\u001b[7mlaying\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#story-runtime')\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"1466\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"1499\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"1566\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"1683\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"1783\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"2299\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"2816\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"3333\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"3849\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"4333\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"4866\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"5383\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"5899\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"6416\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#story-runtime')\nExpected: \u001b[32m\"p\u001b[7maused\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"p\u001b[7mlaying\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#story-runtime')\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"1466\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"1499\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"1566\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"1683\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"1783\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"2299\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"2816\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"3333\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"3849\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"4333\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"4866\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"5383\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"5899\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"6416\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts:27:547",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts",
+                      "column": 547,
+                      "line": 27
+                    },
+                    "snippet": "  25 | });\n  26 | test('story rehearsal restores its checkpoint and explicit skip retries only once',async({page})=>{\n> 27 |  test.setTimeout(90000);await page.goto('/#/story');await page.locator('#story-start').click();await expect(guide(page)).toBeVisible({timeout:15000});const before=await stored(page);await page.locator('#story-play').click();await expect(guide(page)).toContainText('把这一刻停下来');await page.locator('#story-pause').click();await expect(guide(page)).toContainText('试着点一句台词');await page.locator('.subtitle-cue').last().click();await expect(guide(page)).toHaveCount(0);expect(await stored(page)).toBe(before);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ^\n  28 |  await page.evaluate(()=>{const put=IDBObjectStore.prototype.put;let fail=true;IDBObjectStore.prototype.put=function(value:unknown,key?:IDBValidKey){if(fail&&key==='draft'){fail=false;throw new DOMException('retry-probe','QuotaExceededError');}return put.call(this,value,key);};});\n  29 |  await page.locator('#story-next-node').click();await expect(page.locator('#save-state')).toHaveAttribute('data-state','error');expect(await stored(page)).toBe(before);await page.locator('#retry-save').click();await saved(page);const after=JSON.parse(await stored(page));expect(after.story.nodeId).toBe('craft');expect(after.story.skippedNodeIds).toEqual(['intro']);expect(after.story.assistedNodeIds).toEqual([]);expect(after.story.revision).toBe(JSON.parse(before).story.revision+1);await expect(page.locator('#story-next-node')).toBeDisabled();\n  30 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts",
+                        "column": 547,
+                        "line": 27
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#story-runtime')\nExpected: \u001b[32m\"p\u001b[7maused\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"p\u001b[7mlaying\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#story-runtime')\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"1466\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"1499\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"1566\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"1683\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"1783\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"2299\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"2816\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"3333\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"3849\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"4333\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"4866\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"5383\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"5899\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"6416\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-c29c5cfb80905714b94f0f7ed9d4192f:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\n\n  25 | });\n  26 | test('story rehearsal restores its checkpoint and explicit skip retries only once',async({page})=>{\n> 27 |  test.setTimeout(90000);await page.goto('/#/story');await page.locator('#story-start').click();await expect(guide(page)).toBeVisible({timeout:15000});const before=await stored(page);await page.locator('#story-play').click();await expect(guide(page)).toContainText('把这一刻停下来');await page.locator('#story-pause').click();await expect(guide(page)).toContainText('试着点一句台词');await page.locator('.subtitle-cue').last().click();await expect(guide(page)).toHaveCount(0);expect(await stored(page)).toBe(before);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ^\n  28 |  await page.evaluate(()=>{const put=IDBObjectStore.prototype.put;let fail=true;IDBObjectStore.prototype.put=function(value:unknown,key?:IDBValidKey){if(fail&&key==='draft'){fail=false;throw new DOMException('retry-probe','QuotaExceededError');}return put.call(this,value,key);};});\n  29 |  await page.locator('#story-next-node').click();await expect(page.locator('#save-state')).toHaveAttribute('data-state','error');expect(await stored(page)).toBe(before);await page.locator('#retry-save').click();await saved(page);const after=JSON.parse(await stored(page));expect(after.story.nodeId).toBe('craft');expect(after.story.skippedNodeIds).toEqual(['intro']);expect(after.story.assistedNodeIds).toEqual([]);expect(after.story.revision).toBe(JSON.parse(before).story.revision+1);await expect(page.locator('#story-next-node')).toBeDisabled();\n  30 | });\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts:27:547"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:23:43.727Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\presentation-guidance-stor-99cc4-icit-skip-retries-only-once-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\presentation-guidance-stor-99cc4-icit-skip-retries-only-once-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts",
+                    "column": 547,
+                    "line": 27
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-f09328836b45f60ae167",
+          "file": "presentation-guidance.spec.ts",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "font failure and reduced motion keep readable titles without ornamental animation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 655,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:23:49.833Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-9789f8fa155861e19242",
+          "file": "presentation-guidance.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "real hand and keyboard rehearsal restores the running story clock without task evidence",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 12092,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.guide-replay')\nExpected: enabled\nReceived: disabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" locator('.guide-replay') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.guide-replay')\u001b[22m\n\u001b[2m    13 × locator resolved to <button disabled type=\"button\" data-last-skill=\"puppetry\" class=\"button secondary guide-replay\">再练一次</button>\u001b[22m\n\u001b[2m       - unexpected value \"disabled\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.guide-replay')\nExpected: enabled\nReceived: disabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" locator('.guide-replay') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.guide-replay')\u001b[22m\n\u001b[2m    13 × locator resolved to <button disabled type=\"button\" data-last-skill=\"puppetry\" class=\"button secondary guide-replay\">再练一次</button>\u001b[22m\n\u001b[2m       - unexpected value \"disabled\"\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts:39:745",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts",
+                      "column": 745,
+                      "line": 39
+                    },
+                    "snippet": "  37 |  await page.evaluate(async value=>{const db=await new Promise<IDBDatabase>((resolve,reject)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});await new Promise<void>((resolve,reject)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>resolve();tx.onabort=()=>reject(tx.error);});db.close();},p);\n  38 |  await page.goto('/#/story');await expect(guide(page)).toBeVisible({timeout:15000});await page.locator('#guide-skip').click();await page.locator('#story-play').click();await page.evaluate(ms=>Reflect.get(window,'__advance')(ms),story.nodes.find(n=>n.id==='memory-wave')!.guidedTiming.targetMs);\n> 39 |  await expect(guide(page)).toContainText('轮到你接过影偶');const before=await stored(page);const handle=page.locator('.limb-handle').first();await expect(handle).toBeVisible();await handle.scrollIntoViewIfNeeded();await expect(handle).toBeEnabled();const box=await handle.boundingBox();await page.mouse.move(box!.x+box!.width/2,box!.y+box!.height/2);await page.mouse.down();await page.mouse.move(box!.x+box!.width/2+30,box!.y+box!.height/2-15,{steps:6});await page.mouse.up();await expect(guide(page)).toHaveCount(0);expect(await stored(page)).toBe(before);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','playing');await page.locator('#story-next-node').click();await saved(page);await expect(page.locator('.guide-replay')).toBeEnabled();await page.locator('.guide-replay').click();await expect(guide(page)).toContainText('听故事，也掌握它的节奏');await page.keyboard.press('Escape');\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ^\n  40 | });\n  41 | test('all major pages keep their columns within narrow and wide viewports',async({page})=>{\n  42 |  test.setTimeout(150000);await page.addInitScript(()=>new MutationObserver(()=>document.querySelector<HTMLButtonElement>('#guide-skip')?.click()).observe(document,{childList:true,subtree:true}));"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts",
+                        "column": 745,
+                        "line": 39
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.guide-replay')\nExpected: enabled\nReceived: disabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" locator('.guide-replay') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.guide-replay')\u001b[22m\n\u001b[2m    13 × locator resolved to <button disabled type=\"button\" data-last-skill=\"puppetry\" class=\"button secondary guide-replay\">再练一次</button>\u001b[22m\n\u001b[2m       - unexpected value \"disabled\"\u001b[22m\n\n\n  37 |  await page.evaluate(async value=>{const db=await new Promise<IDBDatabase>((resolve,reject)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});await new Promise<void>((resolve,reject)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>resolve();tx.onabort=()=>reject(tx.error);});db.close();},p);\n  38 |  await page.goto('/#/story');await expect(guide(page)).toBeVisible({timeout:15000});await page.locator('#guide-skip').click();await page.locator('#story-play').click();await page.evaluate(ms=>Reflect.get(window,'__advance')(ms),story.nodes.find(n=>n.id==='memory-wave')!.guidedTiming.targetMs);\n> 39 |  await expect(guide(page)).toContainText('轮到你接过影偶');const before=await stored(page);const handle=page.locator('.limb-handle').first();await expect(handle).toBeVisible();await handle.scrollIntoViewIfNeeded();await expect(handle).toBeEnabled();const box=await handle.boundingBox();await page.mouse.move(box!.x+box!.width/2,box!.y+box!.height/2);await page.mouse.down();await page.mouse.move(box!.x+box!.width/2+30,box!.y+box!.height/2-15,{steps:6});await page.mouse.up();await expect(guide(page)).toHaveCount(0);expect(await stored(page)).toBe(before);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','playing');await page.locator('#story-next-node').click();await saved(page);await expect(page.locator('.guide-replay')).toBeEnabled();await page.locator('.guide-replay').click();await expect(guide(page)).toContainText('听故事，也掌握它的节奏');await page.keyboard.press('Escape');\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ^\n  40 | });\n  41 | test('all major pages keep their columns within narrow and wide viewports',async({page})=>{\n  42 |  test.setTimeout(150000);await page.addInitScript(()=>new MutationObserver(()=>document.querySelector<HTMLButtonElement>('#guide-skip')?.click()).observe(document,{childList:true,subtree:true}));\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts:39:745"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:23:50.504Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\presentation-guidance-real-3fc2b-clock-without-task-evidence-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\presentation-guidance-real-3fc2b-clock-without-task-evidence-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts",
+                    "column": 745,
+                    "line": 39
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-5e7fb210d04ca1449403",
+          "file": "presentation-guidance.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "all major pages keep their columns within narrow and wide viewports",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 150000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11070,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:23:55.244Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-623d1fd38401f2799e85",
+          "file": "presentation-guidance.spec.ts",
+          "line": 41,
+          "column": 1
+        },
+        {
+          "title": "one soft curtain, semantic brush titles without replay buttons and public credits",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6911,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:25:01.933Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-a910cafdc1cef30794c5",
+          "file": "presentation-guidance.spec.ts",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "craft rehearsal restores exact stored appearance and returns on every entry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 8408,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:25:03.922Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-7c3d2975d1162d7c6133",
+          "file": "presentation-guidance.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "lamp and limb practice are isolated, with posture controls below the screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8202,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:25:08.867Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-b95c4e50d68aa35c74ab",
+          "file": "presentation-guidance.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "story rehearsal restores its checkpoint and explicit skip retries only once",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 13402,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#story-runtime')\nExpected: \u001b[32m\"p\u001b[7maused\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"p\u001b[7mlaying\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#story-runtime')\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"726\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"760\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"826\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"926\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"1060\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"1560\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"2093\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"2610\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"3110\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"3626\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"4143\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"4643\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"5159\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"5676\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#story-runtime')\nExpected: \u001b[32m\"p\u001b[7maused\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"p\u001b[7mlaying\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#story-runtime')\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"726\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"760\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"826\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"926\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"1060\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"1560\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"2093\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"2610\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"3110\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"3626\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"4143\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"4643\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"5159\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"5676\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts:27:547",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts",
+                      "column": 547,
+                      "line": 27
+                    },
+                    "snippet": "  25 | });\n  26 | test('story rehearsal restores its checkpoint and explicit skip retries only once',async({page})=>{\n> 27 |  test.setTimeout(90000);await page.goto('/#/story');await page.locator('#story-start').click();await expect(guide(page)).toBeVisible({timeout:15000});const before=await stored(page);await page.locator('#story-play').click();await expect(guide(page)).toContainText('把这一刻停下来');await page.locator('#story-pause').click();await expect(guide(page)).toContainText('试着点一句台词');await page.locator('.subtitle-cue').last().click();await expect(guide(page)).toHaveCount(0);expect(await stored(page)).toBe(before);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ^\n  28 |  await page.evaluate(()=>{const put=IDBObjectStore.prototype.put;let fail=true;IDBObjectStore.prototype.put=function(value:unknown,key?:IDBValidKey){if(fail&&key==='draft'){fail=false;throw new DOMException('retry-probe','QuotaExceededError');}return put.call(this,value,key);};});\n  29 |  await page.locator('#story-next-node').click();await expect(page.locator('#save-state')).toHaveAttribute('data-state','error');expect(await stored(page)).toBe(before);await page.locator('#retry-save').click();await saved(page);const after=JSON.parse(await stored(page));expect(after.story.nodeId).toBe('craft');expect(after.story.skippedNodeIds).toEqual(['intro']);expect(after.story.assistedNodeIds).toEqual([]);expect(after.story.revision).toBe(JSON.parse(before).story.revision+1);await expect(page.locator('#story-next-node')).toBeDisabled();\n  30 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts",
+                        "column": 547,
+                        "line": 27
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#story-runtime')\nExpected: \u001b[32m\"p\u001b[7maused\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"p\u001b[7mlaying\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#story-runtime')\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"726\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"760\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"826\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"926\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"1060\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"1560\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"2093\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"2610\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"3110\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"3626\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"4143\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"4643\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"5159\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" data-held=\"0\" data-node=\"intro\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-elapsed=\"5676\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"run-3b50fe4660250702d62921842a7e5ab9:0:intro:1\">正在播放当前片段，后续片段会自动接续。</p>\u001b[22m\n\u001b[2m    - unexpected value \"playing\"\u001b[22m\n\n\n  25 | });\n  26 | test('story rehearsal restores its checkpoint and explicit skip retries only once',async({page})=>{\n> 27 |  test.setTimeout(90000);await page.goto('/#/story');await page.locator('#story-start').click();await expect(guide(page)).toBeVisible({timeout:15000});const before=await stored(page);await page.locator('#story-play').click();await expect(guide(page)).toContainText('把这一刻停下来');await page.locator('#story-pause').click();await expect(guide(page)).toContainText('试着点一句台词');await page.locator('.subtitle-cue').last().click();await expect(guide(page)).toHaveCount(0);expect(await stored(page)).toBe(before);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ^\n  28 |  await page.evaluate(()=>{const put=IDBObjectStore.prototype.put;let fail=true;IDBObjectStore.prototype.put=function(value:unknown,key?:IDBValidKey){if(fail&&key==='draft'){fail=false;throw new DOMException('retry-probe','QuotaExceededError');}return put.call(this,value,key);};});\n  29 |  await page.locator('#story-next-node').click();await expect(page.locator('#save-state')).toHaveAttribute('data-state','error');expect(await stored(page)).toBe(before);await page.locator('#retry-save').click();await saved(page);const after=JSON.parse(await stored(page));expect(after.story.nodeId).toBe('craft');expect(after.story.skippedNodeIds).toEqual(['intro']);expect(after.story.assistedNodeIds).toEqual([]);expect(after.story.revision).toBe(JSON.parse(before).story.revision+1);await expect(page.locator('#story-next-node')).toBeDisabled();\n  30 | });\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts:27:547"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:25:13.144Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\presentation-guidance-stor-99cc4-icit-skip-retries-only-once-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\presentation-guidance-stor-99cc4-icit-skip-retries-only-once-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts",
+                    "column": 547,
+                    "line": 27
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-a4fd8362d2aaae987d75",
+          "file": "presentation-guidance.spec.ts",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "font failure and reduced motion keep readable titles without ornamental animation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1477,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:25:17.103Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-94a7f3d8b5eb589161d1",
+          "file": "presentation-guidance.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "real hand and keyboard rehearsal restores the running story clock without task evidence",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 13705,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.guide-replay')\nExpected: enabled\nReceived: disabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" locator('.guide-replay') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.guide-replay')\u001b[22m\n\u001b[2m    13 × locator resolved to <button disabled type=\"button\" data-last-skill=\"puppetry\" class=\"button secondary guide-replay\">再练一次</button>\u001b[22m\n\u001b[2m       - unexpected value \"disabled\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.guide-replay')\nExpected: enabled\nReceived: disabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" locator('.guide-replay') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.guide-replay')\u001b[22m\n\u001b[2m    13 × locator resolved to <button disabled type=\"button\" data-last-skill=\"puppetry\" class=\"button secondary guide-replay\">再练一次</button>\u001b[22m\n\u001b[2m       - unexpected value \"disabled\"\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts:39:745",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts",
+                      "column": 745,
+                      "line": 39
+                    },
+                    "snippet": "  37 |  await page.evaluate(async value=>{const db=await new Promise<IDBDatabase>((resolve,reject)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});await new Promise<void>((resolve,reject)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>resolve();tx.onabort=()=>reject(tx.error);});db.close();},p);\n  38 |  await page.goto('/#/story');await expect(guide(page)).toBeVisible({timeout:15000});await page.locator('#guide-skip').click();await page.locator('#story-play').click();await page.evaluate(ms=>Reflect.get(window,'__advance')(ms),story.nodes.find(n=>n.id==='memory-wave')!.guidedTiming.targetMs);\n> 39 |  await expect(guide(page)).toContainText('轮到你接过影偶');const before=await stored(page);const handle=page.locator('.limb-handle').first();await expect(handle).toBeVisible();await handle.scrollIntoViewIfNeeded();await expect(handle).toBeEnabled();const box=await handle.boundingBox();await page.mouse.move(box!.x+box!.width/2,box!.y+box!.height/2);await page.mouse.down();await page.mouse.move(box!.x+box!.width/2+30,box!.y+box!.height/2-15,{steps:6});await page.mouse.up();await expect(guide(page)).toHaveCount(0);expect(await stored(page)).toBe(before);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','playing');await page.locator('#story-next-node').click();await saved(page);await expect(page.locator('.guide-replay')).toBeEnabled();await page.locator('.guide-replay').click();await expect(guide(page)).toContainText('听故事，也掌握它的节奏');await page.keyboard.press('Escape');\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ^\n  40 | });\n  41 | test('all major pages keep their columns within narrow and wide viewports',async({page})=>{\n  42 |  test.setTimeout(150000);await page.addInitScript(()=>new MutationObserver(()=>document.querySelector<HTMLButtonElement>('#guide-skip')?.click()).observe(document,{childList:true,subtree:true}));"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts",
+                        "column": 745,
+                        "line": 39
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.guide-replay')\nExpected: enabled\nReceived: disabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" locator('.guide-replay') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.guide-replay')\u001b[22m\n\u001b[2m    13 × locator resolved to <button disabled type=\"button\" data-last-skill=\"puppetry\" class=\"button secondary guide-replay\">再练一次</button>\u001b[22m\n\u001b[2m       - unexpected value \"disabled\"\u001b[22m\n\n\n  37 |  await page.evaluate(async value=>{const db=await new Promise<IDBDatabase>((resolve,reject)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});await new Promise<void>((resolve,reject)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>resolve();tx.onabort=()=>reject(tx.error);});db.close();},p);\n  38 |  await page.goto('/#/story');await expect(guide(page)).toBeVisible({timeout:15000});await page.locator('#guide-skip').click();await page.locator('#story-play').click();await page.evaluate(ms=>Reflect.get(window,'__advance')(ms),story.nodes.find(n=>n.id==='memory-wave')!.guidedTiming.targetMs);\n> 39 |  await expect(guide(page)).toContainText('轮到你接过影偶');const before=await stored(page);const handle=page.locator('.limb-handle').first();await expect(handle).toBeVisible();await handle.scrollIntoViewIfNeeded();await expect(handle).toBeEnabled();const box=await handle.boundingBox();await page.mouse.move(box!.x+box!.width/2,box!.y+box!.height/2);await page.mouse.down();await page.mouse.move(box!.x+box!.width/2+30,box!.y+box!.height/2-15,{steps:6});await page.mouse.up();await expect(guide(page)).toHaveCount(0);expect(await stored(page)).toBe(before);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','playing');await page.locator('#story-next-node').click();await saved(page);await expect(page.locator('.guide-replay')).toBeEnabled();await page.locator('.guide-replay').click();await expect(guide(page)).toContainText('听故事，也掌握它的节奏');await page.keyboard.press('Escape');\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ^\n  40 | });\n  41 | test('all major pages keep their columns within narrow and wide viewports',async({page})=>{\n  42 |  test.setTimeout(150000);await page.addInitScript(()=>new MutationObserver(()=>document.querySelector<HTMLButtonElement>('#guide-skip')?.click()).observe(document,{childList:true,subtree:true}));\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts:39:745"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:25:18.605Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\presentation-guidance-real-3fc2b-clock-without-task-evidence-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\presentation-guidance-real-3fc2b-clock-without-task-evidence-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts",
+                    "column": 745,
+                    "line": 39
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-6393c303dcb2d758b3e8",
+          "file": "presentation-guidance.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "all major pages keep their columns within narrow and wide viewports",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 150000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 11540,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T15:25:31.205Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-48559a843ae17d46d9d9",
+          "file": "presentation-guidance.spec.ts",
+          "line": 41,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-25T15:23:06.256Z",
+    "duration": 157643.553,
+    "expected": 36,
+    "skipped": 0,
+    "unexpected": 8,
+    "flaky": 0
+  }
+}

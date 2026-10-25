@@ -7,9 +7,9 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T34_continuous_stage_and_guidance",
-  "activeTaskId": "T34",
-  "lastVerifiedCommit": "39601f6a892061f74eefc0ce3171a1dbb81e998a",
+  "stage": "T34_verified",
+  "activeTaskId": null,
+  "lastVerifiedCommit": "2c9682581559b71c0e5c4551f7f5b8a752831d60",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -1604,7 +1604,7 @@
       "id": "T34",
       "title": "连续开演、人物景片分层与台词/引导细节",
       "priority": "P0",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "T33"
       ],
@@ -1623,10 +1623,17 @@
       "acceptanceRefs": [
         "T34"
       ],
-      "checkpointCommit": null,
-      "nextAction": "核实山片覆盖沉香与留灯矩形残留；补同页连续播放票据、固定醒目台词、引导滚动锁，移除题字重播并验证恢复/失败清理。",
+      "checkpointCommit": "2c9682581559b71c0e5c4551f7f5b8a752831d60",
+      "nextAction": "本轮七项实现与功能验收完成；见docs/acceptance/t34.md。正式审看、实体设备/体验者、真实时长/听感与旧性能缺口继续T10/T11/T13，T14/P1独立保留。",
       "blocker": null,
-      "verification": [],
+      "verification": [
+        "2026-10-25源码2c96825；48文件553单元、类型/147模块构建、17个ES5 chunks/七入口、81PNG+字库摘要/字集、四版本内容通过。",
+        "浏览器首轮36/44，修复后46/46；补验8/10的滚动锚定问题修正后18/18，最终场面2/2。50个唯一用例最新观察通过，不称最终同包一次全套。",
+        "新场一次点击、正常切幕、五终章选择后自动续播、暂停/刷新/保存失败/迟到资源失焦、协助再启动、教学隔离/初始化失败/滚轮/软件触摸/键盘与退出恢复已验。",
+        "四版本126节点各5点场面/动作边界，二维三维层次与宽窄关键截图目检；已开山的牺牲段不再合山，母亲与斧头间距清楚。",
+        "最终包四条件原生禁缓存：首页画面/启幕最慢8.3219秒，点击后首段4.0929秒，5548934字节；约15秒目标通过。",
+        "只读审看册264项结构与快照753ba32f9e9d9e25507bbd0bf1f44d7c49fb4709c97326b5db55e6660da8c139通过；不提升正式审看或设备/体验状态。"
+      ],
       "phase": "G3"
     }
   ],

@@ -1,0 +1,210 @@
+{
+  "task": "T34",
+  "recordedAt": "2026-10-25T15:56:20.398Z",
+  "sourceCommit": "2c9682581559b71c0e5c4551f7f5b8a752831d60",
+  "indexSha256": "bfc7c35aec5d3d3c6a852c919726916f6c447fe48fdc905f1f472808854aeb88",
+  "unit": {
+    "file": "unit-final.json",
+    "files": 48,
+    "total": 553,
+    "passed": 553
+  },
+  "build": {
+    "modules": 147,
+    "legacyChunks": 17,
+    "entryPages": 7,
+    "typecheck": true
+  },
+  "staticChecks": {
+    "assets": true,
+    "content": true,
+    "state": true,
+    "reviewPacket": true
+  },
+  "browserPhases": [
+    {
+      "file": "browser-initial.json",
+      "passed": 36,
+      "failed": 8
+    },
+    {
+      "file": "browser-recheck.json",
+      "passed": 46,
+      "failed": 0
+    },
+    {
+      "file": "final-visual-scroll.json",
+      "passed": 8,
+      "failed": 2
+    },
+    {
+      "file": "final-guide-and-visual.json",
+      "passed": 18,
+      "failed": 0
+    },
+    {
+      "file": "final-composition.json",
+      "passed": 2,
+      "failed": 0
+    }
+  ],
+  "latestUniqueCasesPassed": 50,
+  "notASingleFinalFullSuite": true,
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "layoutWidths": [
+    1920,
+    1440,
+    1024,
+    390,
+    320
+  ],
+  "touch": "CDP synthetic touch scroll, not physical device",
+  "sceneSampling": {
+    "versions": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "nodes": 126,
+    "pointsPerNode": 5
+  },
+  "startup": {
+    "file": "startup.json",
+    "conditions": 4,
+    "samplesPerCondition": 1,
+    "homePresentationMaxMs": 8321.89999999851,
+    "introReadyFromClickMaxMs": 4092.9000000059605,
+    "imageFontBytes": 5548934,
+    "within15s": true
+  },
+  "review": {
+    "items": 264,
+    "status": "pending",
+    "snapshot": "753ba32f9e9d9e25507bbd0bf1f44d7c49fb4709c97326b5db55e6660da8c139"
+  },
+  "screens": [
+    {
+      "file": "current-caption-desktop-chromium.png",
+      "sha256": "277c268c190497f627855cea89e43eea1790504f22c9943aaaed3958513c7208"
+    },
+    {
+      "file": "current-caption-mobile-chromium.png",
+      "sha256": "773fbc570493457fb29ada45ccd8d663e9c9bccba79ac6a092c080e0f0bd33ac"
+    },
+    {
+      "file": "header-desktop-chromium.png",
+      "sha256": "9f823ffbfbdc8c143af1c63e0c9a732b3fee735f1e2b3f8e927c893d8627f5e9"
+    },
+    {
+      "file": "header-mobile-chromium.png",
+      "sha256": "2debcd9a50853ceabb56092c22474914af4a2c09c6b2430927dac20e1bc63dd4"
+    },
+    {
+      "file": "mountain-space.png",
+      "sha256": "55b7a2f4c35081e854387c887e333987768c5d019762c42b3affd734353f82ab"
+    },
+    {
+      "file": "showcase-ending-road-walk-desktop-chromium.png",
+      "sha256": "9bce1bff6c1510c5442ccefc815d20684707f5631c5c2d390331a2b23589ef8c"
+    },
+    {
+      "file": "showcase-ending-road-walk-mobile-chromium.png",
+      "sha256": "c2629b94194f2e770e51478206fd373ba2954a31e699b6297eedf3c61bc9ee3a"
+    },
+    {
+      "file": "showcase-ending-sacrifice-axe-desktop-chromium.png",
+      "sha256": "cf449ca60b7c69bf6cee817d1e6e3001c20c3865c1d40bcbea03d0845cd9e31a"
+    },
+    {
+      "file": "showcase-ending-sacrifice-axe-mobile-chromium.png",
+      "sha256": "807073e9274aba219294c3cddf22bfd0e8ab03d727d82403f60ab0cb2dfac42f"
+    },
+    {
+      "file": "showcase-guardian-desktop-chromium.png",
+      "sha256": "990c62ab3e551783ac05e5e2f018d86629fde97a6f03627e2694e2b2ccc010e9"
+    },
+    {
+      "file": "showcase-guardian-mobile-chromium.png",
+      "sha256": "3da6d01f61ab669728ded126b6353846edabef144713b4d9a466a9b0d02881d8"
+    },
+    {
+      "file": "stage-call-light-desktop-chromium.png",
+      "sha256": "8adc55a624697a27f05c649afbcb94f5c02b746b58387cb7e6f32653e8906dc9"
+    },
+    {
+      "file": "stage-call-light-mobile-chromium.png",
+      "sha256": "5d556c2b1660294a7f51f423546bbe2c9c19fb62784d2ef4e6eff7f5b844cc6b"
+    },
+    {
+      "file": "stage-call-response-desktop-chromium.png",
+      "sha256": "37962d4c21aa4eb605f1280ff1a96b287ae3b3a9c8ee97379395313df416879a"
+    },
+    {
+      "file": "stage-call-response-mobile-chromium.png",
+      "sha256": "41ee63a0921758e6c044369567288e05192b4e3f6cd93cc536325cc62fa7ed80"
+    },
+    {
+      "file": "stage-call-split-desktop-chromium.png",
+      "sha256": "86fdf1c8b3604406411ff7654ccf8b86e5f5cb6a7667e20e8227fa17ca9282eb"
+    },
+    {
+      "file": "stage-call-split-mobile-chromium.png",
+      "sha256": "15cc4562419ced49f66c4f4595f055f0d70e7719cd6d964a3298b17a145bfb12"
+    },
+    {
+      "file": "stage-ending-light-place-desktop-chromium.png",
+      "sha256": "9aeae7c4f9aa685898275cd96f07bd7e9de7e89a564b1fc121ca29f3d6dc6060"
+    },
+    {
+      "file": "stage-ending-light-place-mobile-chromium.png",
+      "sha256": "5cd69609d01c5dea1baaab2ed26f029119b2de6fa83e592e14d96eb12da58a46"
+    },
+    {
+      "file": "stage-ending-road-walk-desktop-chromium.png",
+      "sha256": "24aa2243a55de5e3587a906d8713af250194f5cf30ece40d0c1760c86802df44"
+    },
+    {
+      "file": "stage-ending-road-walk-mobile-chromium.png",
+      "sha256": "317c71ae556944ce86ce413e81d1eb313302fc7f0f00c9f37147d6b3e9a38aa7"
+    },
+    {
+      "file": "stage-ending-sacrifice-axe-desktop-chromium.png",
+      "sha256": "3c36ee430a28014b380024aa5b3127038ec05c814d65409150b9dae061e6f7ca"
+    },
+    {
+      "file": "stage-ending-sacrifice-axe-mobile-chromium.png",
+      "sha256": "90b48116b11d7f90bfe39893f3b9012fc6d11f6fccc5d803b87ffb0cee5e12b5"
+    },
+    {
+      "file": "stage-guardian-desktop-chromium.png",
+      "sha256": "862775b4627e6ecb1266aab87d8e3a01907873e25d51ec6e1a6b87ab964a5a0d"
+    },
+    {
+      "file": "stage-guardian-mobile-chromium.png",
+      "sha256": "5c7a3987e3d78b1e062cdd2120431652b348cabb03b2f2ba617b9c21469f911f"
+    },
+    {
+      "file": "story-origin-actions-desktop-chromium.png",
+      "sha256": "4adaf9faab2e2585a9338eabe6df1decfc2a224f625c591a44aaf866bc3b8345"
+    },
+    {
+      "file": "story-origin-actions-mobile-chromium.png",
+      "sha256": "8cf4d9ae177c6ff56e79d7a3a0a737439b5018f1243fbeafdb8508b5f4af8832"
+    }
+  ],
+  "limitations": [
+    "Controlled story clock for browser compositions; not native full duration or hearing proof.",
+    "Physical devices and prior software GPU performance gap remain open.",
+    "Formal art/content/culture/rights review remains independent."
+  ]
+}

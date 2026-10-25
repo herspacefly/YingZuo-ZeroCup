@@ -41,7 +41,7 @@ const report = {
   definitions: {
     homeReady: 'First enabled visible background-entry button, formal save state saved, then two native animation frames; measured from navigation time origin.',
     homePresentationReady: 'Home content enabled, document load (including CSS background image) complete, local fonts settled, 2.6s opening finished, no guide overlay, then two native animation frames; separate 15s asset/presentation target. No mocked clocks.',
-    introReady: 'Explicit full-story confirmation button click on the unstarted story page to paused intro with ready Canvas, nonempty pixel buffer and enabled play control, then two native animation frames.',
+    introReady: 'Explicit full-story confirmation click to ready intro (paused or playing), nonempty Canvas and enabled play or pause control, then two native animation frames.',
     cold: 'Fresh browser context per sample; pattern=fresh has no project; explicit --pattern preloads only a fixture draft with story=null in IndexedDB via study.html before recording requests. HTTP cache disabled through CDP, Service Workers blocked, no pre-existing project for pattern=fresh. OS/server filesystem caches are not cleared.',
     network: 'CDP Network.emulateNetworkConditions; 5Mbps is 625000 bytes/s aggregated download and upload, latency 150ms request-to-response-header minimum. No CPU throttle.',
     imageFontBudget: 'Image/font HTTP response encoded body sizes, verified against matching ResourceTiming, HTTP Content-Length and the built artifact; Playwright response.body may be empty for consumed fetches and is never treated as zero transfer. Unique URLs requested from navigation through first intro ready. Includes resources loaded ahead for later shots within that intro. Inline SVG is part of HTML/JS, not a separate image transfer.',
@@ -91,7 +91,7 @@ try {
           const runtime = document.querySelector('#story-runtime'), canvas = document.querySelector('.shadow-stage');
           return !document.documentElement.hasAttribute('data-guiding') && runtime?.getAttribute('data-node') === 'intro' && ['paused','playing'].includes(runtime.getAttribute('data-state')) &&
             document.querySelector('.canvas-stage-status')?.getAttribute('data-state') === 'ready' &&
-            document.querySelector('#save-state')?.getAttribute('data-state') === 'saved' && canvas?.width > 0 && canvas.height > 0 && visibleEnabled(document.querySelector('#story-play'));
+            document.querySelector('#save-state')?.getAttribute('data-state') === 'saved' && canvas?.width > 0 && canvas.height > 0 && (visibleEnabled(document.querySelector('#story-play')) || visibleEnabled(document.querySelector('#story-pause')));
         }
         function inspect() {
           document.querySelector('#guide-skip')?.click();

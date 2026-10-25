@@ -1,0 +1,7 @@
+{
+  "kind": "probe-diagnostic",
+  "observed": "desktop/local timed out after 45000ms",
+  "reason": "Old probe required enabled play button; new single-click opening is playing with play disabled and pause enabled.",
+  "applicationFailure": false,
+  "action": "Stopped only the owned probe process tree; updated readiness to accept enabled play or pause. Fresh measurements are in startup.json."
+}
