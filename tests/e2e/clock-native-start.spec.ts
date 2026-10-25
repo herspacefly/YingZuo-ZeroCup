@@ -1,4 +1,4 @@
-import {expect,test} from '@playwright/test';
+import {test,expect} from './formal-fixture';
 import type {Page} from '@playwright/test';
 import fixture from '../fixtures/project-v1.json' with {type:'json'};
 async function seed(page:Page){await page.goto('/study.html');await page.evaluate(async value=>{

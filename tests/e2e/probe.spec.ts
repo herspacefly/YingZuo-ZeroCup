@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import {test,expect} from './formal-fixture';
 import type { Page } from '@playwright/test';
 
 async function setLamp(page: Page, value: number) {

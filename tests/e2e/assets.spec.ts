@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import {test,expect} from './formal-fixture';
 import type { Page } from '@playwright/test';
 
 const ready=async(page: Page)=>expect(page.locator('#asset-status')).toHaveAttribute('data-state','ready');

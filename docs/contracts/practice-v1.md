@@ -14,7 +14,7 @@ Pointer优先，鼠标/Touch回退。只跟踪当前pointerId/touch identifier�
 
 `domain/actions.ts`导出只读actionDefinitions及`sampleAction(id,basePose,elapsedMs,template,stage)`。固定ID为wave-v1、walk-v1、bow-v1、raise-axe-v1、reach-v1。关键帧在content/actions.json，角度为局部弧度、根偏移为归一化单位。采样只读basePose与绝对毫秒，不读墙钟/前帧；输出新`pose/finished/elapsedMs/attachmentIds/bounds/fits`。根x偏移跟随base.facing；+Infinity取终点，负数/NaN/-Infinity取0；未知ID或缺axe附件抛RangeError。
 
-选举斧会准备附件并重新适配边界；明确播放才运行。暂停保留相位，继续不补墙钟；重演从当前姿态捕获新base。拖杆/方向键/range结束预设相位并接管。减少动态时只提供250ms步进，不自动连续播放。
+选举斧会准备附件并重新适配边界；明确播放才运行。暂停保留相位，继续不补墙钟；2026-10-25起，演示先恢复完整defaultPose再捕获base（外观与灯光不变），不继承用户先前乱拖的姿态。拖杆/方向键/range结束预设相位并接管。减少动态时只提供250ms步进，不自动连续播放。
 
 `app/animation-clock.ts`的createAnimationClock接request/cancel/now端口，最多一个RAF。重复start不叠加，stop/dispose取消，代号拒绝晚到回调。delta非法、倒退或超过250ms暂停；暂停时间不补算。Renderer仍无RAF。T16应在NodeScope复用此调度器，不叠加多条循环。
 
@@ -37,3 +37,5 @@ PageContext.isBusy在根durable操作前锁定输入，包括导入读文件。�
 - emptyHoldObservation/observeHold：节点绝对毫秒连续观察；首样本不赚时间，暂停、不匹配、倒退及超过250ms断档均清零。
 
 T16/T17须使用最终受限姿态的实际区域/手点，并通过runId/revision/nodeId guard提交。几何值或动画结束回调本身不推进剧情。本任务不等于全图形剧情/手动可达性或正式美术验收。
+
+2026-10-25补充：布局与隔离演练遵守[presentation-guidance-v1](presentation-guidance-v1.md)。操作松开后仅牵线按唯一时钟回弹700ms，影偶不再位移；衰减结束刷新暂停状态并停止RAF。

@@ -1,4 +1,4 @@
-import {expect,test} from '@playwright/test';
+import {test,expect} from './formal-fixture';
 import type {Page,Download} from '@playwright/test';
 import type {ProjectV1} from '../../src/domain/types';
 import story from '../../src/content/stories/reunion-v3.json' with {type:'json'};

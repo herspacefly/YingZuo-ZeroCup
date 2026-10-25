@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import {test,expect} from './formal-fixture';
 import media from '../../src/content/museum-media.json' with { type: 'json' };
 
 test('museum photo gallery keeps local lazy images, actual captions and keyboard modal focus', async ({ page }) => {

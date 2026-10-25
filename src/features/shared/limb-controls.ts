@@ -8,7 +8,7 @@ import { moveRodBy } from '../../domain/rod-input';
 import type { Pose } from '../../domain/types';
 import type { CanvasFrame } from '../../renderers/canvas/types';
 import type { canvasStage } from './canvas-stage';
-import { element,scope } from './dom';
+import { element,scope,focusWithoutScroll } from './dom';
 
 const template=assetCatalog.puppets.find(p=>p.id==='chenxiang-v1')!;
 const labels:Record<LimbId,string>={leftHand:'左手',rightHand:'右手',leftFoot:'左脚',rightFoot:'右脚'};
@@ -55,12 +55,12 @@ export function mountLimbControls(stage:ReturnType<typeof canvasStage>,port:Limb
   if(window.PointerEvent){
     life.on(stage.screen,'pointerdown',event=>{const e=event as PointerEvent;if(e.button!==0||e.isPrimary===false)return;const r=active();if(!r)return;const target=e.target as HTMLElement;let id=target.dataset.limb as LimbId|undefined;
       if(!id&&target===stage.canvas){const rect=stage.canvas.getBoundingClientRect(),v=fitViewport(rect.width,rect.height);let best=30;for(const candidate of LIMBS){const p=worldToViewport(limbScreenPoint(template,r.actor.pose,r.frame.stage,candidate),v),d=Math.hypot(e.clientX-rect.left-p.x,e.clientY-rect.top-p.y);if(d<best){best=d;id=candidate;}}}
-      if(id){e.preventDefault();stage.screen.focus();if(begin(id,e.clientX,e.clientY,e.pointerId))handles.get(id)!.setPointerCapture?.(e.pointerId);}else if(target===stage.canvas||target===stage.screen)stage.screen.focus();
+      if(id){e.preventDefault();focusWithoutScroll(stage.screen);if(begin(id,e.clientX,e.clientY,e.pointerId))handles.get(id)!.setPointerCapture?.(e.pointerId);}else if(target===stage.canvas||target===stage.screen)focusWithoutScroll(stage.screen);
     });
     life.on(window,'pointermove',event=>{const e=event as PointerEvent;if(drag?.pointer===e.pointerId){e.preventDefault();move(e.clientX,e.clientY);}});
     for(const name of ['pointerup','pointercancel','lostpointercapture'])life.on(name==='lostpointercapture'?overlay:window,name,()=>{if(drag){release(true);port.wake();port.end?.();}});
   }else{
-    for(const [id,h] of handles)life.on(h,'mousedown',event=>{const e=event as MouseEvent;if(e.button===0&&begin(id,e.clientX,e.clientY,0)){e.preventDefault();stage.screen.focus();}});
+    for(const [id,h] of handles)life.on(h,'mousedown',event=>{const e=event as MouseEvent;if(e.button===0&&begin(id,e.clientX,e.clientY,0)){e.preventDefault();focusWithoutScroll(stage.screen);}});
     life.on(window,'mousemove',event=>{if(drag){const e=event as MouseEvent;move(e.clientX,e.clientY);}});life.on(window,'mouseup',()=>{if(drag){release(true);port.wake();port.end?.();}});
     const startTouch=(event:Event)=>{const e=event as TouchEvent,t=e.changedTouches[0],id=(e.target as HTMLElement).dataset.limb as LimbId;if(t&&LIMBS.includes(id)&&begin(id,t.clientX,t.clientY,t.identifier))e.preventDefault();};
     const moveTouch=(event:Event)=>{const e=event as TouchEvent;if(!drag)return;for(let i=0;i<e.changedTouches.length;i++){const t=e.changedTouches[i]!;if(t.identifier===drag.pointer){e.preventDefault();move(t.clientX,t.clientY);}}};
@@ -72,6 +72,6 @@ export function mountLimbControls(stage:ReturnType<typeof canvasStage>,port:Limb
     if(!directions[key]||/INPUT|SELECT|TEXTAREA/.test(target.tagName)||target.isContentEditable)return;const r=active();if(!r)return;e.preventDefault();e.stopImmediatePropagation();if(!keys.has(key)){const fit=moveRodBy(template,r.actor.pose,r.frame.stage,'body',{x:directions[key]!.x*.02,y:directions[key]!.y*.02},r.frame.attachments?.filter(a=>a.actorId==='chenxiang').map(a=>a.attachmentId));if(fit.fits){stage.cables.pull('body',directions[key]!.x*.02);port.change(fit.pose,'body');render();}}keys.add(key);port.wake();};
   stage.screen.addEventListener('keydown',onKey,true);
   life.on(window,'keyup',event=>{const key=({Left:'ArrowLeft',Right:'ArrowRight',Up:'ArrowUp',Down:'ArrowDown'} as Record<string,string>)[(event as KeyboardEvent).key]??(event as KeyboardEvent).key;if(keys.delete(key)){if(!keys.size){stage.cables.release();port.wake();port.end?.();}}});
-  life.on(window,'blur',()=>release());life.on(stage.screen,'focusout',()=>{release();port.end?.();});life.on(document,'visibilitychange',()=>{if(document.hidden)release();});life.on(window,'resize',()=>render());
+  life.on(window,'blur',()=>release());life.on(stage.screen,'focusout',event=>{const next=(event as FocusEvent).relatedTarget;if(next instanceof Node&&stage.screen.contains(next))return;release();port.end?.();});life.on(document,'visibilitychange',()=>{if(document.hidden)release();});life.on(window,'resize',()=>render());
   return {render,release,isActive:()=>keys.size>0||stage.cables.active,isDragging:()=>!!drag,tick(delta:number){stage.cables.tick(delta);render();const r=active();if(!r){release();return;}if(!(delta>0&&delta<=250)||!keys.size)return;let x=0,y=0;for(const k of keys){x+=directions[k]!.x;y+=directions[k]!.y;}const length=Math.hypot(x,y);if(!length)return;const fit=moveRodBy(template,r.actor.pose,r.frame.stage,'body',{x:x/length*.4*delta/1000,y:y/length*.4*delta/1000},r.frame.attachments?.filter(a=>a.actorId==='chenxiang').map(a=>a.attachmentId));if(fit.fits){stage.cables.pull('body',x/length*.4*delta/1000);port.change(fit.pose,'body');render();}},dispose(){release();disposed=true;life.dispose();touchCleanup();stage.screen.removeEventListener('keydown',onKey,true);if(overlay.parentNode)overlay.parentNode.removeChild(overlay);if(hint.parentNode)hint.parentNode.removeChild(hint);}};
 }

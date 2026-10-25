@@ -22,3 +22,5 @@
 @media(max-width:1050px){.pose-group:first-child{grid-column:1/-1}.pose-group:first-child>label{min-width:0}.pose-groups{gap:14px}}@media(max-width:760px){.pose-group{width:100%}.pose-group:first-child{grid-column:auto}}
 
 .canvas-stage-status:empty{display:none}.hero-title:focus,.page-heading h1:focus{outline:none}
+
+@media(max-width:760px){.practice-workspace{display:flex;flex-direction:column}.practice-workspace .stage-column{display:contents}.practice-workspace>.stage-column>.stage-figure{order:0}.practice-workspace>.control-panel{order:1;margin-top:0}.practice-workspace .pose-panel{order:2;width:100%;margin-top:0}}

@@ -1,4 +1,4 @@
-import { expect,test } from '@playwright/test';
+import {test,expect} from './formal-fixture';
 import type { Page } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 import type { ProjectV1 } from '../../src/domain/types';

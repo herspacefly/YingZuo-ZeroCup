@@ -14,7 +14,7 @@ import { moveRodBy, moveRodTo, ROD_IDS, rodScreenPoint } from '../../domain/rod-
 import type { RodId } from '../../domain/rod-input';
 import type { Pose, ProjectV1 } from '../../domain/types';
 import type { canvasStage } from '../shared/canvas-stage';
-import { append, element, scope } from '../shared/dom';
+import { append, element, scope, focusWithoutScroll } from '../shared/dom';
 
 const template=assetCatalog.puppets.find(item=>item.id==='chenxiang-v1')!;
 const clone=(pose:Pose):Pose=>({...pose,joints:{...pose.joints}});
@@ -90,7 +90,7 @@ export function mountPracticeController(panel:HTMLElement,stage:ReturnType<typeo
     if(playing&&phase){phase.elapsed+=delta;sample();if(phase.finished){stop('这段动作已结束，保留最后姿态。');return false;}}
     else if(keys.size){const vector={x:0,y:0};for(const key of keys){vector.x+=directions[key]!.x;vector.y+=directions[key]!.y;}
       const length=Math.hypot(vector.x,vector.y);if(length)applyFit(moveRodBy(template,pose,project!.stage,selected,{x:vector.x/length*.4*delta/1000,y:vector.y/length*.4*delta/1000},attachments()));}
-    submit(false);return playing||keys.size>0||direct.isActive();
+    submit(false);const running=playing||keys.size>0||direct.isActive();if(!running)renderUI();return running;
   },fault=>{stop(fault.reason==='gap'?'页面停顿较久，已暂停；继续时不补算这段时间。':`动作已停止：${fault.error instanceof Error?fault.error.message:String(fault.error)}`);},stage.frameObserver);
 
   function submit(flush:boolean,allowBusy=false,force=false,explicitSave=false) {
@@ -173,14 +173,14 @@ export function mountPracticeController(panel:HTMLElement,stage:ReturnType<typeo
   if('PointerEvent' in window&&window.PointerEvent) {
     for(const [id,handle] of handles){
       life.on(handle,'pointerdown',event=>{const e=event as PointerEvent;if(e.button!==0||e.isPrimary===false)return;
-        if(startDrag(id,e.pointerId,e.clientX,e.clientY,handle,'pointer')){e.preventDefault();handle.focus();try{handle.setPointerCapture?.(e.pointerId);}catch(error){message=`使用页面范围跟踪拖动：${error instanceof Error?error.message:String(error)}`;}}});
+        if(startDrag(id,e.pointerId,e.clientX,e.clientY,handle,'pointer')){e.preventDefault();focusWithoutScroll(handle);try{handle.setPointerCapture?.(e.pointerId);}catch(error){message=`使用页面范围跟踪拖动：${error instanceof Error?error.message:String(error)}`;}}});
       life.on(handle,'lostpointercapture',event=>{if(drag?.kind==='pointer'&&drag.id===(event as PointerEvent).pointerId)endDrag();});
     }
     life.on(window,'pointermove',event=>{const e=event as PointerEvent;if(drag?.kind==='pointer'&&drag.id===e.pointerId){e.preventDefault();moveDrag(e.clientX,e.clientY);}});
     for(const name of ['pointerup','pointercancel'])life.on(window,name,event=>{if(drag?.kind==='pointer'&&drag.id===(event as PointerEvent).pointerId)endDrag();});
   } else {
     for(const [id,handle] of handles){
-      life.on(handle,'mousedown',event=>{const e=event as MouseEvent;if(e.button===0&&startDrag(id,0,e.clientX,e.clientY,handle,'mouse')){e.preventDefault();handle.focus();}});
+      life.on(handle,'mousedown',event=>{const e=event as MouseEvent;if(e.button===0&&startDrag(id,0,e.clientX,e.clientY,handle,'mouse')){e.preventDefault();focusWithoutScroll(handle);}});
       const onTouch=(event:Event)=>{const e=event as TouchEvent,t=e.changedTouches[0];if(t&&startDrag(id,t.identifier,t.clientX,t.clientY,handle,'touch'))e.preventDefault();};
       handle.addEventListener('touchstart',onTouch,{passive:false});touchCleanups.push(()=>handle.removeEventListener('touchstart',onTouch,{capture:false}));
     }

@@ -1,4 +1,4 @@
-import { expect,test } from '@playwright/test';
+import {test,expect} from './formal-fixture';
 import type { Download,Page } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 import type { ProjectV1 } from '../../src/domain/types';
@@ -102,7 +102,7 @@ test('PNG encoding rejection and browser refusal report failure, while JSON rema
 
 test('late PNG encoding after exit cannot download or replace the new page',async({page})=>{
   await page.addInitScript(()=>{HTMLCanvasElement.prototype.toBlob=function(callback){Reflect.set(window,'__encoded',()=>callback(new Blob(['late'],{type:'image/png'})));};Reflect.set(window,'__downloadCount',0);const click=HTMLAnchorElement.prototype.click;HTMLAnchorElement.prototype.click=function(){if(this.download)Reflect.set(window,'__downloadCount',Reflect.get(window,'__downloadCount')+1);return click.call(this);};});
-  await seed(page,completed());await page.goto('/#/result');await ready(page);await page.locator('#result-png').click();await expect.poll(()=>page.evaluate(()=>typeof Reflect.get(window,'__encoded'))).toBe('function');await go(page,'/museum');await page.evaluate(()=>Reflect.get(window,'__encoded')());expect(await page.evaluate(()=>Reflect.get(window,'__downloadCount'))).toBe(0);await expect(page.locator('#app-view h1')).toContainText('翻到背面看');
+  await seed(page,completed());await page.goto('/#/result');await ready(page);await page.locator('#result-png').click();await expect.poll(()=>page.evaluate(()=>typeof Reflect.get(window,'__encoded'))).toBe('function');await go(page,'/museum');await page.evaluate(()=>Reflect.get(window,'__encoded')());expect(await page.evaluate(()=>Reflect.get(window,'__downloadCount'))).toBe(0);await expect(page.locator('#app-view h1')).toContainText('一张皮，一束光，千年戏。');
 });
 
 test('Canvas failure keeps programme, JSON and replay transcript without reporting a successful image',async({page})=>{

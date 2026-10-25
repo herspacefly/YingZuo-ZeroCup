@@ -40,13 +40,14 @@ const report = {
   host: { platform: os.platform(), release: os.release(), architecture: os.arch(), cpu: os.cpus()[0]?.model, logicalCores: os.cpus().length, totalMemoryBytes: os.totalmem(), node: process.version },
   definitions: {
     homeReady: 'First enabled visible background-entry button, formal save state saved, then two native animation frames; measured from navigation time origin.',
+    homePresentationReady: 'Home content enabled, document load (including CSS background image) complete, local fonts settled, 2.6s opening finished, no guide overlay, then two native animation frames; separate 15s asset/presentation target. No mocked clocks.',
     introReady: 'Explicit full-story confirmation button click on the unstarted story page to paused intro with ready Canvas, nonempty pixel buffer and enabled play control, then two native animation frames.',
     cold: 'Fresh browser context per sample; pattern=fresh has no project; explicit --pattern preloads only a fixture draft with story=null in IndexedDB via study.html before recording requests. HTTP cache disabled through CDP, Service Workers blocked, no pre-existing project for pattern=fresh. OS/server filesystem caches are not cleared.',
     network: 'CDP Network.emulateNetworkConditions; 5Mbps is 625000 bytes/s aggregated download and upload, latency 150ms request-to-response-header minimum. No CPU throttle.',
     imageFontBudget: 'Image/font HTTP response encoded body sizes, verified against matching ResourceTiming, HTTP Content-Length and the built artifact; Playwright response.body may be empty for consumed fetches and is never treated as zero transfer. Unique URLs requested from navigation through first intro ready. Includes resources loaded ahead for later shots within that intro. Inline SVG is part of HTML/JS, not a separate image transfer.',
   },
   loadingPolicy,
-  limitations: ['This host and Chromium emulation are not physical phones/IE/Safari or a remote deployment.', 'Music/effects use product default-on behavior; this probe measures Canvas readiness, not audible readiness, WebGL, FPS or full performance duration.', 'Image/font bytes are historical diagnostics only; current author target is complete intro readiness within about 15 seconds, with original pixels retained.', 'The 2s/5s targets refer to home interaction and remain separate from the new explicit-opening resource target. Music readiness is measured independently.'],
+  limitations: ['This host and Chromium emulation are not physical phones/IE/Safari or a remote deployment.', 'Music/effects use product default-on behavior; this probe measures Canvas readiness, not audible readiness, WebGL, FPS or full performance duration.', 'Image/font bytes are historical diagnostics only; current author target is complete intro readiness within about 15 seconds, with original pixels retained.', 'The optional entry rehearsal is explicitly skipped by this measurement before observing the real paused intro; teaching/reading time is not an asset-download measurement.', 'The 2s/5s targets refer to home interaction and remain separate from the new explicit-opening resource target. Music readiness is measured independently.'],
 };
 
 try {
@@ -81,18 +82,20 @@ try {
       await cdp.send('Network.emulateNetworkConditions', network.cdp);
       await page.addInitScript(() => {
         performance.setResourceTimingBufferSize(2000);
-        const measurement = { homeReadyMs: null, startClickedAtMs: null, introReadyMs: null, homeResources: [] };
+        const measurement = { homeReadyMs: null, homePresentationReadyMs: null, startClickedAtMs: null, introReadyMs: null, homeResources: [] };
         Reflect.set(window, '__startupMeasurement', measurement);
-        let homeQueued = false, introQueued = false;
+        let homeQueued = false, introQueued = false, presentationQueued = false;
         const visibleEnabled = button => !!button && !button.disabled && !button.hidden && button.getBoundingClientRect().width > 0;
         function homeReady() { return document.querySelector('#app-view')?.getAttribute('data-route') === '/' && document.querySelector('#save-state')?.getAttribute('data-state') === 'saved' && visibleEnabled(document.querySelector('.opening-actions button')); }
         function introReady() {
           const runtime = document.querySelector('#story-runtime'), canvas = document.querySelector('.shadow-stage');
-          return runtime?.getAttribute('data-node') === 'intro' && runtime.getAttribute('data-state') === 'paused' &&
+          return !document.documentElement.hasAttribute('data-guiding') && runtime?.getAttribute('data-node') === 'intro' && runtime.getAttribute('data-state') === 'paused' &&
             document.querySelector('.canvas-stage-status')?.getAttribute('data-state') === 'ready' &&
             document.querySelector('#save-state')?.getAttribute('data-state') === 'saved' && canvas?.width > 0 && canvas.height > 0 && visibleEnabled(document.querySelector('#story-play'));
         }
         function inspect() {
+          document.querySelector('#guide-skip')?.click();
+          if(!presentationQueued && homeReady() && document.readyState==='complete' && document.documentElement.getAttribute('data-intro')==='done' && (!document.fonts || document.fonts.status==='loaded')){presentationQueued=true;requestAnimationFrame(()=>requestAnimationFrame(()=>{measurement.homePresentationReadyMs=performance.now();}));}
           if (!homeQueued && homeReady()) {
             homeQueued = true;
             requestAnimationFrame(() => requestAnimationFrame(() => {
@@ -107,10 +110,10 @@ try {
         }
         new MutationObserver(inspect).observe(document, { childList: true, subtree: true, attributes: true });
         document.addEventListener('click', event => { if (event.target?.closest?.('#story-start')) measurement.startClickedAtMs = performance.now(); }, true);
-        document.addEventListener('DOMContentLoaded', inspect);
+        document.addEventListener('DOMContentLoaded', inspect);window.addEventListener('load',inspect);document.fonts?.addEventListener('loadingdone',inspect);
       });
       await page.goto(base + '/#/', { waitUntil: 'domcontentloaded' });
-      await page.waitForFunction(() => Reflect.get(window, '__startupMeasurement').homeReadyMs !== null, null, { timeout: 45_000 });
+      await page.waitForFunction(() => Reflect.get(window, '__startupMeasurement').homePresentationReadyMs !== null, null, { timeout: 45_000 });
       await page.evaluate(()=>{window.location.hash='#/story';});
       await page.getByRole('button', { name: '确认开始这一场', exact: true }).click();
       await page.waitForFunction(() => Reflect.get(window, '__startupMeasurement').introReadyMs !== null, null, { timeout: 45_000 });
@@ -146,7 +149,7 @@ try {
       const deliveryRequests=imageFonts.filter(asset=>asset.path.startsWith('/assets/delivery/')).length;
       if(observedPattern !== null || !observedOriginalCostume || (forcePNG && deliveryRequests)) throw new Error('Original costume/compatibility path not actually observed');
       Object.assign(item, observed, { introReadyFromClickMs: observed.introReadyMs - observed.startClickedAtMs,
-        imageFonts, imageFontBytes, observedPattern, observedOriginalCostume, deliveryRequests, homeWithinTarget: observed.homeReadyMs <= network.targetHomeMs,
+        homePresentationWithinTarget: observed.homePresentationReadyMs <= loadingPolicy.assetReadyTargetMs, imageFonts, imageFontBytes, observedPattern, observedOriginalCostume, deliveryRequests, homeWithinTarget: observed.homeReadyMs <= network.targetHomeMs,
         homeTargetMs: network.targetHomeMs, introWithinTarget: observed.introReadyMs-observed.startClickedAtMs<=loadingPolicy.assetReadyTargetMs,
         imageFontWithinHistoricalReference: imageFontBytes <= loadingPolicy.historicalImageFontReferenceBytes,
         errors, externalRequests, failedRequests });
@@ -166,6 +169,7 @@ for (const profile of profiles) for (const network of networks) {
   const home = runs.map(item => item.homeReadyMs).filter(Number.isFinite).sort((a, b) => a - b);
   const intro = runs.map(item => item.introReadyFromClickMs).filter(Number.isFinite).sort((a, b) => a - b);
   summary.push({ profile: profile.id, network: network.id, samples: runs.length, errors: runs.filter(item => item.error).length,
+    homePresentationMaxMs: Math.max(0,...runs.map(item=>item.homePresentationReadyMs??0)), allHomePresentationWithinTarget: runs.length===samples&&runs.every(item=>item.homePresentationWithinTarget&&!item.error),
     homeTargetMs: network.targetHomeMs, homeMedianMs: home.length ? home[Math.floor(home.length / 2)] : null, homeMaxMs: home.length ? Math.max(...home) : null,
     introMedianFromClickMs: intro.length ? intro[Math.floor(intro.length / 2)] : null, introMaxFromClickMs: intro.length ? Math.max(...intro) : null,
     imageFontMaxBytes: Math.max(0, ...runs.map(item => item.imageFontBytes ?? 0)),
@@ -177,4 +181,4 @@ for (const profile of profiles) for (const network of networks) {
 Object.assign(report, { samplesPerCondition: samples, summary, results });
 mkdirSync(path.dirname(output), { recursive: true }); writeFileSync(output, JSON.stringify(report, null, 2) + '\n');
 console.log(JSON.stringify({ output: path.relative(root, output), summary }, null, 2));
-if (summary.some(item => !item.allHomeWithinTarget || !item.allIntroWithinTarget)) process.exitCode = 1;
+if (summary.some(item => !item.allHomeWithinTarget || !item.allIntroWithinTarget || !item.allHomePresentationWithinTarget)) process.exitCode = 1;

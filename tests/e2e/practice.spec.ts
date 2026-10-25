@@ -1,4 +1,4 @@
-import { expect,test } from '@playwright/test';
+import {test,expect} from './formal-fixture';
 import type { Download,Page } from '@playwright/test';
 import type { ProjectV1 } from '../../src/domain/types';
 import chenxiang from '../../src/content/puppets/chenxiang-v1.json' with {type:'json'};
@@ -49,7 +49,7 @@ test('quick input-only trailing save and native change keep the final range and 
 test('grip arrow keys use one clock, key release/blur stop motion and native range arrows still work',async({page})=>{
   await fakeClock(page);await page.goto('/#/practice');await ready(page);const grip=page.locator('[data-rod="body"]');await grip.focus();
   const before=Number(await page.locator('#practice-x').inputValue());await page.keyboard.down('ArrowRight');await frame(page,100);await expect(page.locator('#practice-runtime')).toHaveAttribute('data-state','moving');
-  expect(Number(await page.locator('#practice-x').inputValue())).toBeGreaterThan(before);await page.keyboard.up('ArrowRight');expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(0);
+  expect(Number(await page.locator('#practice-x').inputValue())).toBeGreaterThan(before);await page.keyboard.up('ArrowRight');const released=await page.locator('#practice-x').inputValue();for(let i=0;i<8;i++)await frame(page,100);expect(await page.locator('#practice-x').inputValue()).toBe(released);expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(0);
   await page.keyboard.down('ArrowRight');await page.evaluate(()=>window.dispatchEvent(new Event('blur')));const stopped=await page.locator('#practice-x').inputValue();await frame(page,100);expect(await page.locator('#practice-x').inputValue()).toBe(stopped);await page.keyboard.up('ArrowRight');
   await page.locator('#practice-x').focus();await page.keyboard.press('ArrowLeft');expect(Number(await page.locator('#practice-x').inputValue())).toBeLessThan(Number(stopped));expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(0);
   await page.locator('#practice-rod').selectOption('rightHand');await expect(page.locator('#practice-rod')).toHaveValue('rightHand');

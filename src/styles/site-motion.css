@@ -19,3 +19,5 @@
 @keyframes cloth-open-right{0%,16%{transform:translateX(1200px) scaleX(-1) skewY(0)}48%{transform:translateX(1370px) scaleX(-1) skewY(-3deg)}100%{transform:translateX(1850px) scaleX(-1) skewY(5deg)}}
 @media(max-width:760px){.lotus-motif{width:100px;height:120px}.lotus-motif:nth-child(n+5){display:none}.lotus-motif:nth-child(even){left:82%!important}}
 @media(prefers-reduced-motion:reduce){.lotus-atmosphere,.opening-curtain{display:none}.ink-overlay{display:none!important}}
+
+@media(max-width:760px){.site-motion-toggle{position:static;display:block;margin:16px auto 24px;max-width:300px;width:calc(100% - 40px)}}

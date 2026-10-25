@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import {test,expect} from './formal-fixture';
 import type { Download, Page } from '@playwright/test';
 import fixture from '../fixtures/project-v1.json' with { type: 'json' };
 import corrupt from '../fixtures/corrupt-project.json' with { type: 'json' };

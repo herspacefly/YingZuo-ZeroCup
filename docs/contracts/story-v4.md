@@ -28,4 +28,4 @@ StageConfig.lampGeometry?:{version:1,depth:number}缺省depth=1.2，LAMP_POSITIO
 
 斧头保留下段斧柄握点，附件gripMotion=axe-wrist-v1从肩肘导出受限角补偿；Canvas/Three/边界/PNG共用attachmentTransform，灯笼依旧竖直。CablePresentation为瞬时source/bend，活动部位曲线最大.035世界单位，松开700ms衰减；静止直线延伸幕外，复用页面唯一时钟，取消输入立即清理。
 
-装饰动效不驱动剧情：最多24粒光尘，IntersectionObserver入场，页面失焦/隐藏暂停，减少动态与总开关关闭装饰。展馆传统硬杆科普不受数字柔线表现改变。
+2026-10-25的[呈现与引导契约](presentation-guidance-v1.md)替代原装饰数量/帮助入口：最多8组莲灯意象（窄屏4组），IntersectionObserver入场，页面失焦/隐藏暂停，减少动态与总开关关闭装饰。展馆传统硬杆科普不受数字柔线表现改变。

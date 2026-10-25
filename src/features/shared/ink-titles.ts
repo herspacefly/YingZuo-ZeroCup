@@ -1,9 +1,9 @@
-import {element,scope} from './dom';
+import {element,scope,removeNode} from './dom';
 import '../../styles/ink-titles.css';
 let serial=0;
 /** Semantic HTML owns layout. The decorative SVG is disposable and never the source of text. */
 export function mountInkTitles(host:HTMLElement){
- const life=scope(),bindings=new Map<HTMLElement,{dispose():void;play():void;refresh():void}>();let disposed=false,scheduled=false;
+ const life=scope(),bindings=new Map<HTMLElement,{dispose():void;play():void;refresh():void;freeze():void}>();let disposed=false,scheduled=false;
  const selector='.page-heading h1,.hero-title,.intro-steps h2,.story-strip h2,.museum-invitation h2,.story-background>h2,.museum-hero-copy h2,.museum-gallery-heading h2';
  const fonts=document.fonts;const available=fonts?Promise.race([fonts.load('32px "Yingzuo Brush"').then(values=>values.length>0).catch(()=>false),new Promise<boolean>(resolve=>setTimeout(()=>resolve(false),2500))]):Promise.resolve(false);
  function bind(title:HTMLElement){
@@ -11,7 +11,7 @@ export function mountInkTitles(host:HTMLElement){
   title.classList.add('ink-title');title.insertAdjacentElement('afterend',button);
   function quiet(){return document.documentElement.getAttribute('data-motion')!=='full'||window.matchMedia('(prefers-reduced-motion: reduce)').matches;}
   function draw(){
-   if(dead||!title.isConnected)return;const size=title.getBoundingClientRect(),sizeKey=size.width+':'+size.height+':'+getComputedStyle(title).fontFamily+':'+title.textContent;if(sizeKey===lastSize&&overlay&&title.classList.contains('ink-enhanced')&&!quiet())return;lastSize=sizeKey;overlay?.remove();overlay=null;title.classList.remove('ink-enhanced');if(quiet())return;
+   if(dead||!document.documentElement.contains(title))return;const size=title.getBoundingClientRect(),sizeKey=size.width+':'+size.height+':'+getComputedStyle(title).fontFamily+':'+title.textContent;if(sizeKey===lastSize&&overlay&&title.classList.contains('ink-enhanced')&&!quiet())return;lastSize=sizeKey;removeNode(overlay);overlay=null;title.classList.remove('ink-enhanced');if(quiet())return;
    const text=title.firstChild;if(!text||text.nodeType!==Node.TEXT_NODE||title.childNodes.length!==1)return;
    const box=title.getBoundingClientRect();if(!box.width||!box.height)return;
    const ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg'),defs=document.createElementNS(ns,'defs'),mask=document.createElementNS(ns,'mask'),id='ink-'+ ++serial;
@@ -23,11 +23,11 @@ export function mountInkTitles(host:HTMLElement){
   }
   function play(){if(quiet()||!overlay||document.documentElement.getAttribute('data-intro')!=='done')return;played=true;overlay.classList.remove('ink-complete','ink-playing');void overlay.getBoundingClientRect();overlay.classList.add('ink-playing');button.hidden=false;}
   function attempt(){if(!played&&title.getBoundingClientRect().top<innerHeight&&title.getBoundingClientRect().bottom>0)play();}
-  own.on(button,'click',play);own.on(document,'yingzuo:opened',attempt);own.on(document,'yingzuo:motion',()=>{if(quiet()){title.classList.remove('ink-enhanced');button.hidden=true;}else{draw();attempt();}});
+  own.on(button,'click',play);own.on(document,'yingzuo:opened',attempt);own.on(document,'yingzuo:motion',()=>{if(quiet()){title.classList.remove('ink-enhanced');button.hidden=true;}else{draw();attempt();button.hidden=!overlay||!played;}});
   void available.then(ok=>{if(dead||!ok||!('SVGForeignObjectElement'in window))return;fontLoaded=true;draw();if(typeof ResizeObserver==='function'){resize=new ResizeObserver(()=>{draw();attempt();});resize.observe(title);}else own.on(window,'resize',draw);if(typeof IntersectionObserver==='function'){observer=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting)attempt();},{threshold:.1});observer.observe(title);}attempt();});
-  return{play,refresh(){if(fontLoaded)draw();},dispose(){dead=true;observer?.disconnect();resize?.disconnect();own.dispose();overlay?.remove();button.remove();title.classList.remove('ink-title','ink-enhanced');}};
+  return{play,freeze(){if(played&&overlay){overlay.classList.remove('ink-playing');overlay.classList.add('ink-complete');}},refresh(){if(fontLoaded)draw();},dispose(){dead=true;observer?.disconnect();resize?.disconnect();own.dispose();removeNode(overlay);removeNode(button);title.classList.remove('ink-title','ink-enhanced');}};
  }
- function scan(){scheduled=false;if(disposed)return;for(const [node,binding]of bindings)if(!host.contains(node)&&!document.documentElement.hasAttribute('data-guiding')){binding.dispose();bindings.delete(node);}for(const node of host.querySelectorAll<HTMLElement>(selector))if(!bindings.has(node))bindings.set(node,bind(node));else bindings.get(node)!.refresh();}
+ function scan(){scheduled=false;if(disposed)return;for(const [node,binding]of bindings)if(!host.contains(node)){if(document.documentElement.hasAttribute('data-guiding'))binding.freeze();else{binding.dispose();bindings.delete(node);}}for(const node of host.querySelectorAll<HTMLElement>(selector))if(!bindings.has(node))bindings.set(node,bind(node));else bindings.get(node)!.refresh();}
  const mutation=new MutationObserver(()=>{if(!scheduled){scheduled=true;void Promise.resolve().then(scan);}});mutation.observe(host,{childList:true,subtree:true});scan();
  return{dispose(){disposed=true;mutation.disconnect();life.dispose();bindings.forEach(value=>value.dispose());bindings.clear();}};
 }

@@ -194,6 +194,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   }
   function tick(rt:Runtime,delta:number){
     if(!current(rt)||blocked()||!rt.ready){stop(rt,'当前操作已暂停。');return false;}
+    if(ctx.guide==='page'){rt.elapsed=Math.min(rt.elapsed+delta,Math.max(0,rt.scene.durationMs-1));safeSample(rt);renderUI();return rt.playing;}
     rt.elapsed+=delta;
     if(rt.resolution){rt.resolution.elapsed+=delta;sample(rt);if(rt.resolution.elapsed>=rt.resolution.duration){finishResolution(rt);return false;}renderUI();return true;}
     if(interactive(rt)){
