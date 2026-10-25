@@ -1,0 +1,742 @@
+{
+  "config": {
+    "argv": [
+      "E:\\Software_after2026\\nodejs\\node.exe",
+      "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/presentation-guidance.spec.ts",
+      "--workers=2"
+    ],
+    "configFile": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\playwright.config.ts",
+    "rootDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "desktop-chromium",
+        "name": "desktop-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "desktop-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop-chromium"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "mobile-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile-chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/t29-t32/browser-final.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 2,
+    "webServer": {
+      "command": "npm run preview -- --port 4173 --strictPort",
+      "url": "http://127.0.0.1:4173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "presentation-guidance.spec.ts",
+      "file": "presentation-guidance.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "one soft curtain, semantic brush titles, replay and public credits",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4963,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T02:34:12.649Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-20ac824c003385f0b647",
+          "file": "presentation-guidance.spec.ts",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "craft rehearsal restores exact stored appearance and returns on every entry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5520,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T02:34:12.666Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-18473626c83f47891f7a",
+          "file": "presentation-guidance.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "lamp and limb practice are isolated, with posture controls below the screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6496,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T02:34:17.936Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-9cac30362028f33c42a9",
+          "file": "presentation-guidance.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "story rehearsal restores its checkpoint and explicit skip retries only once",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4825,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T02:34:18.492Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-f09328836b45f60ae167",
+          "file": "presentation-guidance.spec.ts",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "font failure and reduced motion keep readable titles without ornamental animation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 845,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T02:34:23.338Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-9789f8fa155861e19242",
+          "file": "presentation-guidance.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "real hand and keyboard rehearsal restores the running story clock without task evidence",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "timedOut",
+                  "duration": 61771,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts",
+                        "column": 161,
+                        "line": 38
+                      },
+                      "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nBrowser logs:\n\n[pid=9904][err] [1025/103417.208:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103417.208:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103417.660:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103417.661:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103417.663:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103417.664:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103417.666:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103417.668:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103417.670:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103417.681:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103417.684:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103417.684:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103417.691:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103417.695:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103417.701:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103417.750:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103417.753:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103417.756:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103418.170:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103418.172:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103418.174:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103418.175:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103418.177:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103418.181:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103418.183:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103418.192:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103418.195:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103418.196:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103418.200:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103418.201:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103418.205:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103418.218:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103418.220:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103418.224:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103419.738:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103419.738:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103419.739:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103419.739:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103419.739:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103419.743:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103419.749:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103419.761:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103419.766:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103419.770:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103419.771:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103419.780:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103419.794:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103419.810:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103419.813:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103419.816:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103421.848:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103421.849:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103421.851:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103421.853:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103421.858:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103421.860:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103421.863:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103421.873:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103421.876:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103421.878:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103421.881:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103421.883:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103421.887:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103421.895:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103421.899:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103421.902:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103423.233:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103423.234:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103423.236:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103423.236:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103423.238:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103423.240:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103423.244:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103423.254:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103423.257:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103423.258:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103423.333:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103423.336:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103423.337:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103423.788:INFO:CONSOLE:2] \"The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103425.536:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103425.542:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103425.548:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103425.552:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103425.556:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103425.561:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103425.568:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103425.580:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103425.589:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103425.589:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103425.602:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103425.607:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103425.624:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103425.638:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103425.639:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103425.639:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103427.697:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103427.697:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103427.698:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103427.699:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103427.700:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103427.701:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103427.703:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103427.707:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103427.714:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103427.714:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103427.719:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103427.721:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103427.726:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103427.737:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103427.742:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103427.746:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103428.488:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103428.490:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103428.493:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103428.498:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103428.500:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103428.504:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103428.504:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103428.523:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103428.527:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103428.527:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103428.533:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103428.536:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103428.544:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103428.567:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103428.572:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904][err] [1025/103428.578:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=9904] <gracefully close start>\n[pid=9904][err] [1025/103525.987:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103525.987:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103525.987:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103525.988:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103525.988:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103525.988:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103525.988:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103525.988:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103525.988:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103525.988:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103525.988:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103525.988:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103525.988:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103525.988:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103525.988:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103525.988:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103525.988:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103525.988:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103525.988:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103525.988:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\n[pid=9904][err] [1025/103525.988:ERROR:gpu\\command_buffer\\service\\shared_image\\shared_image_manager.cc:401] SharedImageManager::ProduceMemory: Trying to Produce a Memory representation from a non-existent mailbox.\nCall log:\n\u001b[2m  - waiting for locator('#story-play')\u001b[22m\n\u001b[2m    - locator resolved to <button disabled id=\"story-play\" class=\"button primary\">继续操偶</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    104 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m        - element is not enabled\u001b[22m\n\u001b[2m      - retrying click action\u001b[22m\n\u001b[2m        - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n\n  36 |  await page.goto('/study.html');const p=structuredClone(fixture);Object.assign(p.story!,{definitionVersion:4,nodeId:'memory-wave',approach:null,approachSource:null,ending:null,endingSource:null,mode:'guided',assistedNodeIds:[],completedAt:null});\n  37 |  await page.evaluate(async value=>{const db=await new Promise<IDBDatabase>((resolve,reject)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});await new Promise<void>((resolve,reject)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>resolve();tx.onabort=()=>reject(tx.error);});db.close();},p);\n> 38 |  await page.goto('/#/story');await expect(guide(page)).toBeVisible({timeout:15000});await page.locator('#guide-skip').click();await page.locator('#story-play').click();await page.evaluate(ms=>Reflect.get(window,'__advance')(ms),story.nodes.find(n=>n.id==='memory-wave')!.guidedTiming.targetMs);\n     |                                                                                                                                                                 ^\n  39 |  await expect(guide(page)).toContainText('轮到你接过影偶');const before=await stored(page);const handle=page.locator('.limb-handle').first();await expect(handle).toBeEnabled();const box=await handle.boundingBox();await page.mouse.move(box!.x+box!.width/2,box!.y+box!.height/2);await page.mouse.down();await page.mouse.move(box!.x+box!.width/2+30,box!.y+box!.height/2-15,{steps:6});await page.mouse.up();await expect(guide(page)).toHaveCount(0);expect(await stored(page)).toBe(before);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','playing');\n  40 | });\n  41 | test('all major pages keep their columns within narrow and wide viewports',async({page})=>{\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts:38:161"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T02:34:24.199Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\presentation-guidance-real-3fc2b-clock-without-task-evidence-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\presentation-guidance-real-3fc2b-clock-without-task-evidence-desktop-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-5e7fb210d04ca1449403",
+          "file": "presentation-guidance.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "all major pages keep their columns within narrow and wide viewports",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 150000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10964,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T02:34:24.453Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-623d1fd38401f2799e85",
+          "file": "presentation-guidance.spec.ts",
+          "line": 41,
+          "column": 1
+        },
+        {
+          "title": "one soft curtain, semantic brush titles, replay and public credits",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 62113,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts",
+                        "column": 110,
+                        "line": 12
+                      },
+                      "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a[href=\"#/museum\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"#/museum\">展馆</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    109 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m        - element is not visible\u001b[22m\n\u001b[2m      - retrying click action\u001b[22m\n\u001b[2m        - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n\n  10 |  await page.goto('/');await expect(page.locator('html')).toHaveAttribute('data-intro','done');await expect(page.locator('#title')).toContainText('让思念有了形。');await expect(page.locator('.opening .ink-overlay').first()).toBeVisible();\n  11 |  expect(await page.locator('#title').evaluate(el=>el.querySelector('svg'))).toBeNull();await page.getByRole('button',{name:/重放题字：隔着/}).click();\n> 12 |  expect(await page.locator('.lotus-motif').count()).toBe(8);await page.locator('a[href=\"#/museum\"]').first().click();await expect(page.locator('.museum-hero')).toBeVisible();await page.locator('a[href=\"#/\"]').first().click();await expect(page.locator('#title')).toBeVisible();expect(await page.evaluate(()=>Reflect.get(window,'__curtains')())).toBe(1);\n     |                                                                                                              ^\n  13 |  await page.locator('.opening').screenshot({path:`docs/evidence/t29-t32/home-${test.info().project.name}.png`,animations:'disabled'});const original=await stored(page);await page.goto('/credits.html');await expect(page.getByRole('heading',{name:'音乐与录音'})).toBeVisible();expect(await stored(page)).toBe(original);\n  14 | });\n  15 | test('craft rehearsal restores exact stored appearance and returns on every entry',async({page})=>{\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts:12:110"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T02:34:36.320Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\presentation-guidance-one--acf81-s-replay-and-public-credits-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\presentation-guidance-one--acf81-s-replay-and-public-credits-mobile-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-4c8c52745296c9de7cd0",
+          "file": "presentation-guidance.spec.ts",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "craft rehearsal restores exact stored appearance and returns on every entry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4947,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T02:35:27.932Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-7c3d2975d1162d7c6133",
+          "file": "presentation-guidance.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "lamp and limb practice are isolated, with posture controls below the screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6389,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T02:35:33.050Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-b95c4e50d68aa35c74ab",
+          "file": "presentation-guidance.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "story rehearsal restores its checkpoint and explicit skip retries only once",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5068,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T02:35:39.459Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-a4fd8362d2aaae987d75",
+          "file": "presentation-guidance.spec.ts",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "font failure and reduced motion keep readable titles without ornamental animation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 893,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T02:35:41.159Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-94a7f3d8b5eb589161d1",
+          "file": "presentation-guidance.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "real hand and keyboard rehearsal restores the running story clock without task evidence",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 60895,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts",
+                        "column": 161,
+                        "line": 38
+                      },
+                      "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nBrowser logs:\n\n<launching> C:\\Users\\zhang\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1248\\chrome-headless-shell-win64\\chrome-headless-shell.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\zhang\\AppData\\Local\\Temp\\playwright_chromiumdev_profile-qhPHzX --remote-debugging-pipe --no-startup-window\n<launched> pid=7428\n[pid=7428][err] [1025/103541.893:INFO:CONSOLE:2] \"The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103543.011:INFO:CONSOLE:2] \"The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103543.840:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103543.841:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103543.842:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103543.847:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103543.851:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103543.855:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103543.868:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103543.886:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103543.893:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103543.898:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103543.905:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103543.910:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103543.928:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103543.947:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103543.957:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103543.961:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103545.809:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103545.810:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103545.812:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103545.814:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103545.814:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103545.816:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103545.817:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103545.826:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103545.828:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103545.830:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103545.835:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103545.837:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103545.841:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103545.855:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103545.856:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103545.860:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103546.453:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103546.453:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103546.459:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103546.459:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103546.460:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103546.463:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103546.465:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103546.475:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103546.477:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103546.479:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103546.481:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103546.485:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103546.492:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103546.510:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103546.515:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428][err] [1025/103546.521:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-DJ1PpNcg.js (2)\n[pid=7428] <gracefully close start>\nCall log:\n\u001b[2m  - waiting for locator('#story-play')\u001b[22m\n\u001b[2m    - locator resolved to <button disabled id=\"story-play\" class=\"button primary\">继续操偶</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    106 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m        - element is not enabled\u001b[22m\n\u001b[2m      - retrying click action\u001b[22m\n\u001b[2m        - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n\n  36 |  await page.goto('/study.html');const p=structuredClone(fixture);Object.assign(p.story!,{definitionVersion:4,nodeId:'memory-wave',approach:null,approachSource:null,ending:null,endingSource:null,mode:'guided',assistedNodeIds:[],completedAt:null});\n  37 |  await page.evaluate(async value=>{const db=await new Promise<IDBDatabase>((resolve,reject)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});await new Promise<void>((resolve,reject)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>resolve();tx.onabort=()=>reject(tx.error);});db.close();},p);\n> 38 |  await page.goto('/#/story');await expect(guide(page)).toBeVisible({timeout:15000});await page.locator('#guide-skip').click();await page.locator('#story-play').click();await page.evaluate(ms=>Reflect.get(window,'__advance')(ms),story.nodes.find(n=>n.id==='memory-wave')!.guidedTiming.targetMs);\n     |                                                                                                                                                                 ^\n  39 |  await expect(guide(page)).toContainText('轮到你接过影偶');const before=await stored(page);const handle=page.locator('.limb-handle').first();await expect(handle).toBeEnabled();const box=await handle.boundingBox();await page.mouse.move(box!.x+box!.width/2,box!.y+box!.height/2);await page.mouse.down();await page.mouse.move(box!.x+box!.width/2+30,box!.y+box!.height/2-15,{steps:6});await page.mouse.up();await expect(guide(page)).toHaveCount(0);expect(await stored(page)).toBe(before);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','playing');\n  40 | });\n  41 | test('all major pages keep their columns within narrow and wide viewports',async({page})=>{\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts:38:161"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T02:35:42.242Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\presentation-guidance-real-3fc2b-clock-without-task-evidence-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\presentation-guidance-real-3fc2b-clock-without-task-evidence-mobile-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-6393c303dcb2d758b3e8",
+          "file": "presentation-guidance.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "all major pages keep their columns within narrow and wide viewports",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 150000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 10499,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T02:35:44.542Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-48559a843ae17d46d9d9",
+          "file": "presentation-guidance.spec.ts",
+          "line": 41,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-25T02:34:10.588Z",
+    "duration": 153905.866,
+    "expected": 11,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

@@ -7,9 +7,9 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T29_T32_functional_verification",
-  "activeTaskId": "T32",
-  "lastVerifiedCommit": "933efc04bbf78ffe2d863b69a6ef5aa1f3b30dca",
+  "stage": "T29_T32_functional_acceptance_complete",
+  "activeTaskId": null,
+  "lastVerifiedCommit": "97060a2c063b204ad9094cde40ef39b44c333fb1",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -1441,7 +1441,7 @@
       "id": "T29",
       "title": "文案净化、独立致谢与短卡布局",
       "priority": "P0",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "T25",
         "T28"
@@ -1460,17 +1460,21 @@
       "acceptanceRefs": [
         "T29"
       ],
-      "checkpointCommit": null,
-      "nextAction": "功能已接入；40项生产呈现/隔离/跳段路线通过。继续110项相关回归、末轮手机排序、原生加载测量和审看/交接同步。",
+      "checkpointCommit": "97060a2c063b204ad9094cde40ef39b44c333fb1",
+      "nextAction": "本轮功能验收完成；正式审看、实体设备/体验者及既有性能缺口继续按T10/T11/T13，交付按T14；不从本轮测试推导这些批准。",
       "blocker": null,
-      "verification": [],
+      "verification": [
+        "2026-10-25: docs/acceptance/t29-t32.md; docs/evidence/t29-t32/acceptance.json",
+        "543 unit cases; 130 cross-phase browser cases latest observation passed; final guide20/20 and layout6/6",
+        "Final production native startup/PNG and 30 stills; type/build/ES5/assets/content/museum/state checks passed."
+      ],
       "phase": "G3"
     },
     {
       "id": "T30",
       "title": "单次柔幕、宝莲灯意象与书法标题",
       "priority": "P0",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "T28"
       ],
@@ -1486,17 +1490,21 @@
       "acceptanceRefs": [
         "T30"
       ],
-      "checkpointCommit": null,
-      "nextAction": "功能已接入；40项生产呈现/隔离/跳段路线通过。继续110项相关回归、末轮手机排序、原生加载测量和审看/交接同步。",
+      "checkpointCommit": "97060a2c063b204ad9094cde40ef39b44c333fb1",
+      "nextAction": "本轮功能验收完成；正式审看、实体设备/体验者及既有性能缺口继续按T10/T11/T13，交付按T14；不从本轮测试推导这些批准。",
       "blocker": null,
-      "verification": [],
+      "verification": [
+        "2026-10-25: docs/acceptance/t29-t32.md; docs/evidence/t29-t32/acceptance.json",
+        "543 unit cases; 130 cross-phase browser cases latest observation passed; final guide20/20 and layout6/6",
+        "Final production native startup/PNG and 30 stills; type/build/ES5/assets/content/museum/state checks passed."
+      ],
       "phase": "G3"
     },
     {
       "id": "T31",
       "title": "每次入页的隔离实操引导",
       "priority": "P0",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "T25",
         "T26",
@@ -1513,17 +1521,21 @@
       "acceptanceRefs": [
         "T31"
       ],
-      "checkpointCommit": null,
-      "nextAction": "功能已接入；40项生产呈现/隔离/跳段路线通过。继续110项相关回归、末轮手机排序、原生加载测量和审看/交接同步。",
+      "checkpointCommit": "97060a2c063b204ad9094cde40ef39b44c333fb1",
+      "nextAction": "本轮功能验收完成；正式审看、实体设备/体验者及既有性能缺口继续按T10/T11/T13，交付按T14；不从本轮测试推导这些批准。",
       "blocker": null,
-      "verification": [],
+      "verification": [
+        "2026-10-25: docs/acceptance/t29-t32.md; docs/evidence/t29-t32/acceptance.json",
+        "543 unit cases; 130 cross-phase browser cases latest observation passed; final guide20/20 and layout6/6",
+        "Final production native startup/PNG and 30 stills; type/build/ES5/assets/content/museum/state checks passed."
+      ],
       "phase": "G3"
     },
     {
       "id": "T32",
       "title": "显式跳段、版本校验与综合验收",
       "priority": "P0",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "T26"
       ],
@@ -1540,10 +1552,14 @@
       "acceptanceRefs": [
         "T32"
       ],
-      "checkpointCommit": null,
-      "nextAction": "功能已接入；40项生产呈现/隔离/跳段路线通过。继续110项相关回归、末轮手机排序、原生加载测量和审看/交接同步。",
+      "checkpointCommit": "97060a2c063b204ad9094cde40ef39b44c333fb1",
+      "nextAction": "本轮功能验收完成；正式审看、实体设备/体验者及既有性能缺口继续按T10/T11/T13，交付按T14；不从本轮测试推导这些批准。",
       "blocker": null,
-      "verification": [],
+      "verification": [
+        "2026-10-25: docs/acceptance/t29-t32.md; docs/evidence/t29-t32/acceptance.json",
+        "543 unit cases; 130 cross-phase browser cases latest observation passed; final guide20/20 and layout6/6",
+        "Final production native startup/PNG and 30 stills; type/build/ES5/assets/content/museum/state checks passed."
+      ],
       "phase": "G3"
     }
   ],

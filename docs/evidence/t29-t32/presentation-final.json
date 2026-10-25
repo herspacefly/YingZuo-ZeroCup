@@ -1,0 +1,696 @@
+{
+  "config": {
+    "argv": [
+      "E:\\Software_after2026\\nodejs\\node.exe",
+      "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/presentation-guidance.spec.ts",
+      "--workers=2"
+    ],
+    "configFile": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\playwright.config.ts",
+    "rootDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "desktop-chromium",
+        "name": "desktop-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "desktop-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop-chromium"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "mobile-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile-chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/t29-t32/presentation-final.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 2,
+    "webServer": {
+      "command": "npm run preview -- --port 4173 --strictPort",
+      "url": "http://127.0.0.1:4173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "presentation-guidance.spec.ts",
+      "file": "presentation-guidance.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "one soft curtain, semantic brush titles, replay and public credits",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5876,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:51:01.733Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-20ac824c003385f0b647",
+          "file": "presentation-guidance.spec.ts",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "craft rehearsal restores exact stored appearance and returns on every entry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5966,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:51:01.712Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-18473626c83f47891f7a",
+          "file": "presentation-guidance.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "lamp and limb practice are isolated, with posture controls below the screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6206,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:51:08.033Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-9cac30362028f33c42a9",
+          "file": "presentation-guidance.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "story rehearsal restores its checkpoint and explicit skip retries only once",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5119,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:51:08.180Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-f09328836b45f60ae167",
+          "file": "presentation-guidance.spec.ts",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "font failure and reduced motion keep readable titles without ornamental animation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 793,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:51:13.318Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-9789f8fa155861e19242",
+          "file": "presentation-guidance.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "real hand and keyboard rehearsal restores the running story clock without task evidence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 8035,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:51:14.131Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-5e7fb210d04ca1449403",
+          "file": "presentation-guidance.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "all major pages keep their columns within narrow and wide viewports",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 150000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10438,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:51:14.257Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-623d1fd38401f2799e85",
+          "file": "presentation-guidance.spec.ts",
+          "line": 41,
+          "column": 1
+        },
+        {
+          "title": "one soft curtain, semantic brush titles, replay and public credits",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7072,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:51:23.411Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-4c8c52745296c9de7cd0",
+          "file": "presentation-guidance.spec.ts",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "craft rehearsal restores exact stored appearance and returns on every entry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5233,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:51:25.547Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-7c3d2975d1162d7c6133",
+          "file": "presentation-guidance.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "lamp and limb practice are isolated, with posture controls below the screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7201,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:51:30.758Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-b95c4e50d68aa35c74ab",
+          "file": "presentation-guidance.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "story rehearsal restores its checkpoint and explicit skip retries only once",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 11503,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.guide-banner')\nExpected substring: \u001b[32m\"把这一刻停下来\"\u001b[39m\nReceived string:    \u001b[31m\"先试一遍 · 1/3 · 本次操作不保存听故事，也掌握它的节奏点一次播放，让这一段开始。这里只试一遍，不推进你的正式演出。跳过引导\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.guide-banner') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.guide-banner')\u001b[22m\n\u001b[2m    13 × locator resolved to <section aria-label=\"实操引导\" aria-live=\"polite\" class=\"guide-banner\">…</section>\u001b[22m\n\u001b[2m       - unexpected value \"先试一遍 · 1/3 · 本次操作不保存听故事，也掌握它的节奏点一次播放，让这一段开始。这里只试一遍，不推进你的正式演出。跳过引导\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.guide-banner')\nExpected substring: \u001b[32m\"把这一刻停下来\"\u001b[39m\nReceived string:    \u001b[31m\"先试一遍 · 1/3 · 本次操作不保存听故事，也掌握它的节奏点一次播放，让这一段开始。这里只试一遍，不推进你的正式演出。跳过引导\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.guide-banner') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.guide-banner')\u001b[22m\n\u001b[2m    13 × locator resolved to <section aria-label=\"实操引导\" aria-live=\"polite\" class=\"guide-banner\">…</section>\u001b[22m\n\u001b[2m       - unexpected value \"先试一遍 · 1/3 · 本次操作不保存听故事，也掌握它的节奏点一次播放，让这一段开始。这里只试一遍，不推进你的正式演出。跳过引导\"\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts:27:251",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts",
+                      "column": 251,
+                      "line": 27
+                    },
+                    "snippet": "  25 | });\n  26 | test('story rehearsal restores its checkpoint and explicit skip retries only once',async({page})=>{\n> 27 |  test.setTimeout(90000);await page.goto('/#/story');await page.locator('#story-start').click();await expect(guide(page)).toBeVisible({timeout:15000});const before=await stored(page);await page.locator('#story-play').click();await expect(guide(page)).toContainText('把这一刻停下来');await page.locator('#story-pause').click();await expect(guide(page)).toContainText('试着点一句台词');await page.locator('.subtitle-cue').last().click();await expect(guide(page)).toHaveCount(0);expect(await stored(page)).toBe(before);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');\n     |                                                                                                                                                                                                                                                           ^\n  28 |  await page.evaluate(()=>{const put=IDBObjectStore.prototype.put;let fail=true;IDBObjectStore.prototype.put=function(value:unknown,key?:IDBValidKey){if(fail&&key==='draft'){fail=false;throw new DOMException('retry-probe','QuotaExceededError');}return put.call(this,value,key);};});\n  29 |  await page.locator('#story-next-node').click();await expect(page.locator('#save-state')).toHaveAttribute('data-state','error');expect(await stored(page)).toBe(before);await page.locator('#retry-save').click();await saved(page);const after=JSON.parse(await stored(page));expect(after.story.nodeId).toBe('craft');expect(after.story.skippedNodeIds).toEqual(['intro']);expect(after.story.assistedNodeIds).toEqual([]);expect(after.story.revision).toBe(JSON.parse(before).story.revision+1);await expect(page.locator('#story-next-node')).toBeDisabled();\n  30 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts",
+                        "column": 251,
+                        "line": 27
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.guide-banner')\nExpected substring: \u001b[32m\"把这一刻停下来\"\u001b[39m\nReceived string:    \u001b[31m\"先试一遍 · 1/3 · 本次操作不保存听故事，也掌握它的节奏点一次播放，让这一段开始。这里只试一遍，不推进你的正式演出。跳过引导\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.guide-banner') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.guide-banner')\u001b[22m\n\u001b[2m    13 × locator resolved to <section aria-label=\"实操引导\" aria-live=\"polite\" class=\"guide-banner\">…</section>\u001b[22m\n\u001b[2m       - unexpected value \"先试一遍 · 1/3 · 本次操作不保存听故事，也掌握它的节奏点一次播放，让这一段开始。这里只试一遍，不推进你的正式演出。跳过引导\"\u001b[22m\n\n\n  25 | });\n  26 | test('story rehearsal restores its checkpoint and explicit skip retries only once',async({page})=>{\n> 27 |  test.setTimeout(90000);await page.goto('/#/story');await page.locator('#story-start').click();await expect(guide(page)).toBeVisible({timeout:15000});const before=await stored(page);await page.locator('#story-play').click();await expect(guide(page)).toContainText('把这一刻停下来');await page.locator('#story-pause').click();await expect(guide(page)).toContainText('试着点一句台词');await page.locator('.subtitle-cue').last().click();await expect(guide(page)).toHaveCount(0);expect(await stored(page)).toBe(before);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');\n     |                                                                                                                                                                                                                                                           ^\n  28 |  await page.evaluate(()=>{const put=IDBObjectStore.prototype.put;let fail=true;IDBObjectStore.prototype.put=function(value:unknown,key?:IDBValidKey){if(fail&&key==='draft'){fail=false;throw new DOMException('retry-probe','QuotaExceededError');}return put.call(this,value,key);};});\n  29 |  await page.locator('#story-next-node').click();await expect(page.locator('#save-state')).toHaveAttribute('data-state','error');expect(await stored(page)).toBe(before);await page.locator('#retry-save').click();await saved(page);const after=JSON.parse(await stored(page));expect(after.story.nodeId).toBe('craft');expect(after.story.skippedNodeIds).toEqual(['intro']);expect(after.story.assistedNodeIds).toEqual([]);expect(after.story.revision).toBe(JSON.parse(before).story.revision+1);await expect(page.locator('#story-next-node')).toBeDisabled();\n  30 | });\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts:27:251"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:51:30.959Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\presentation-guidance-stor-99cc4-icit-skip-retries-only-once-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\presentation-guidance-stor-99cc4-icit-skip-retries-only-once-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\presentation-guidance.spec.ts",
+                    "column": 251,
+                    "line": 27
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-a4fd8362d2aaae987d75",
+          "file": "presentation-guidance.spec.ts",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "font failure and reduced motion keep readable titles without ornamental animation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1118,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:51:37.980Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-94a7f3d8b5eb589161d1",
+          "file": "presentation-guidance.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "real hand and keyboard rehearsal restores the running story clock without task evidence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6891,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:51:39.122Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-6393c303dcb2d758b3e8",
+          "file": "presentation-guidance.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "all major pages keep their columns within narrow and wide viewports",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 150000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11216,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:51:44.893Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-48559a843ae17d46d9d9",
+          "file": "presentation-guidance.spec.ts",
+          "line": 41,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-25T07:50:59.640Z",
+    "duration": 57666.905,
+    "expected": 13,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

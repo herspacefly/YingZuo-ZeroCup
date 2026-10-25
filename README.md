@@ -63,7 +63,7 @@ node scripts/verify-delivery-assets.mjs --pixels
 node scripts/verify-art-reproducibility.mjs
 ```
 
-测量脚本自行启动私有预览并关闭，不与其他浏览器测试并行运行。启动测量默认12次冷context，区分首页可操作与点击后序幕就绪；`--pattern wave-v1 --samples 1`可预置带旧纹样字段的草稿，验证新v4仍不叠加粗纹样。按作者2026-10-20要求，图片及原生音乐可用目标为约15秒，完整素材保留，旧2MiB只列参考，详见[素材加载合同](docs/contracts/loading-v1.md)。音乐就绪不代表整曲下载或扬声器听感；首页2秒/5秒与入口JS目标独立。runtime使用原生时钟和实际绘制计数，软件GPU结果不代表物理显示帧率；目标未达仍真实退出1，详见[当前预检结果](docs/acceptance/loading-and-backdrop.md)。输出请使用新文件名保留历史测量。生成器复现额外需要FFmpeg 9（含libwebp）和Playwright Chromium；运行应用及普通静态素材校验无需FFmpeg。
+测量脚本自行启动私有预览并关闭，不与其他浏览器测试并行运行。启动测量默认12次冷context，区分首页可操作与点击后序幕就绪；`--pattern wave-v1 --samples 1`可预置带旧纹样字段的草稿，验证新v4仍不叠加粗纹样。按作者2026-10-20要求，图片及原生音乐可用目标为约15秒，完整素材保留，旧2MiB只列参考，详见[素材加载合同](docs/contracts/loading-v1.md)。音乐就绪不代表整曲下载或扬声器听感；首页按钮2秒/5秒与入口JS目标独立；新增首页视觉就绪（整幅画、本地字体及2.6秒启幕）另按15秒记录。runtime使用原生时钟和实际绘制计数，软件GPU结果不代表物理显示帧率；目标未达仍真实退出1，详见[当前预检结果](docs/acceptance/loading-and-backdrop.md)。输出请使用新文件名保留历史测量。生成器复现额外需要FFmpeg 9（含libwebp）和Playwright Chromium；运行应用及普通静态素材校验无需FFmpeg。
 
 `verify:assets`检查实际PNG、引用、CSV与哈希；`verify:content`检查v1的18节点两路径与v2/v3/v4各36节点十路径、角色/附件/姿态/图层、字幕时间基准、五区八件字数与事实/来源映射。开发结构有效时通过。两项加`-- --release`还检查[逐项审看记录](docs/reviews/README.md)、内容和证据SHA及具体权利记录；当前未审定项目明确NOT_READY/退出码2，不能把结构通过当作正式发布批准。
 

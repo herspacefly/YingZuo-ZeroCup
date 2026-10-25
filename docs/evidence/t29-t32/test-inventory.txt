@@ -1,0 +1,556 @@
+Listing tests:
+  [desktop-chromium] › art-audio.spec.ts:26:1 › default-on sound plays once, pause/reset/mute and document exit release native audio
+  [desktop-chromium] › art-audio.spec.ts:31:55 › call-split emits the actual mountain sound only when the axe resolves
+  [desktop-chromium] › art-audio.spec.ts:31:55 › split-axe emits the actual mountain sound only when the axe resolves
+  [desktop-chromium] › art-audio.spec.ts:34:1 › reunion keeps the first two seconds silent and uses the new layered design
+  [desktop-chromium] › art-audio.spec.ts:37:1 › missing audio capability leaves every scene control and subtitle available
+  [desktop-chromium] › art-audio.spec.ts:40:1 › a real context resume refusal is reported and explicit retry creates a working device
+  [desktop-chromium] › art-audio.spec.ts:43:1 › a pending native resume survives a route exit without reviving the old scene
+  [desktop-chromium] › art-audio.spec.ts:46:1 › an old native close rejection cannot hide the fresh device mute control
+  [desktop-chromium] › art-audio.spec.ts:49:1 › ten story exits reuse one document audio context and retain a manual mute
+  [desktop-chromium] › asset-delivery.spec.ts:12:1 › lossless delivery and canonical PNG draw identical carving, palettes, frozen duet, WebGL and result PNG
+  [desktop-chromium] › asset-delivery.spec.ts:40:1 › unsupported non-premultiplied decoding uses PNG without requesting delivery files
+  [desktop-chromium] › asset-delivery.spec.ts:46:1 › damaged delivery fails visibly and explicit retry refetches a repaired image
+  [desktop-chromium] › asset-delivery.spec.ts:52:1 › a decoded bitmap arriving after route exit is closed and cannot revive its old canvas
+  [desktop-chromium] › assets.spec.ts:11:1 › all local assets decode and distinct neutral roles, cutouts and scenes draw
+  [desktop-chromium] › assets.spec.ts:32:1 › a missing required mask clears the preview and retry loads a complete actor
+  [desktop-chromium] › assets.spec.ts:40:1 › legacy asset page consumes the same PNGs in Chromium smoke check
+  [desktop-chromium] › assets.spec.ts:50:1 › Canvas failure remains readable and does not report successful assembly
+  [desktop-chromium] › backdrop-cache.spec.ts:34:1 › opaque background is reused, moving light stays direct, resize and exit release old pixels
+  [desktop-chromium] › backdrop-cache.spec.ts:50:1 › optional backdrop allocation failure retains full original-quality drawing
+  [desktop-chromium] › backdrop-cache.spec.ts:57:1 › cached drawing failure clears buffers and actual retry loads a fresh background
+  [desktop-chromium] › backdrop-cache.spec.ts:67:1 › stable drawing refreshes control geometry once and Three follows each new Canvas frame
+  [desktop-chromium] › canvas-stage.spec.ts:22:1 › duet recolors the editor but preserves the frozen mother and saved story
+  [desktop-chromium] › canvas-stage.spec.ts:34:1 › paused story uses its node scene, props and frozen cast independently of editor previews
+  [desktop-chromium] › canvas-stage.spec.ts:44:1 › missing color image fails visibly with a blank canvas and retry restores both actors
+  [desktop-chromium] › canvas-stage.spec.ts:50:1 › carving changes the puppet while keeping the already drawn curtain opaque
+  [desktop-chromium] › canvas-stage.spec.ts:59:1 › Canvas failure leaves the editor and story text available without false ready status
+  [desktop-chromium] › canvas-stage.spec.ts:64:1 › a drawing failure clears cached images and retry reads fresh sources
+  [desktop-chromium] › canvas-stage.spec.ts:74:1 › late images and ten remounts leave one canvas and no detached drawing or resize listeners
+  [desktop-chromium] › canvas-stage.spec.ts:92:1 › legacy product draws the same two-role frame in Chromium smoke check
+  [desktop-chromium] › clock-native-start.spec.ts:8:1 › twelve native-clock play clicks advance without falsely pausing at the first frame
+  [desktop-chromium] › craft-light.spec.ts:27:1 › three cut segments, per-part colors and candidate mother motif render and survive SAVE-01
+  [desktop-chromium] › craft-light.spec.ts:41:1 › immediate direct-craft opening freezes queued unsaved edits once and keeps guided intent
+  [desktop-chromium] › craft-light.spec.ts:52:1 › default opening uses the existing craft run, marks preset and preserves editor work
+  [desktop-chromium] › craft-light.spec.ts:58:1 › failed confirmation exports the frozen candidate while later edits queue separately and retry preserves it
+  [desktop-chromium] › craft-light.spec.ts:67:1 › editing and explicit archive-rehearsal preserve the old frozen run and the new editor
+  [desktop-chromium] › craft-light.spec.ts:75:1 › existing archive protection preserves both projects until explicit retry acknowledgement
+  [desktop-chromium] › craft-light.spec.ts:81:1 › lamp ranges, native keyboard, step buttons and reset save without changing story or practice pose
+  [desktop-chromium] › craft-light.spec.ts:90:1 › memory-only craft and lamp edits never retry writes until explicit save
+  [desktop-chromium] › craft-light.spec.ts:97:1 › body trial mouse, keyboard and touch are reversible and never replace the saved practice pose
+  [desktop-chromium] › craft-light.spec.ts:109:1 › legacy product freezes carved colors and saves lamp controls through the same Store in Chromium
+  [desktop-chromium] › craft-light.spec.ts:115:1 › ten craft/light remounts release input listeners and unavailable Canvas blocks freeze while editing stays available
+  [desktop-chromium] › director.spec.ts:41:46 › full intro has four timed shots and saves exactly once before craft
+  [desktop-chromium] › director.spec.ts:41:46 › guided intro has four timed shots and saves exactly once before craft
+  [desktop-chromium] › director.spec.ts:57:1 › pause, resume, long gap, blur, mode switch and reload never count stopped time
+  [desktop-chromium] › director.spec.ts:69:1 › skip is explicit only in intro and interaction, choice and quiet hold cannot auto finish
+  [desktop-chromium] › director.spec.ts:82:1 › reduced motion changes still shots with synchronized text and no automatic start
+  [desktop-chromium] › director.spec.ts:91:1 › failed automatic checkpoint retains the applied frame and exact candidate until explicit retry
+  [desktop-chromium] › director.spec.ts:99:1 › memory playback never retries storage without confirming the next scene
+  [desktop-chromium] › director.spec.ts:108:1 › canceling a failed scene allows confirmation from the held final frame without replay
+  [desktop-chromium] › director.spec.ts:115:1 › a normal route autosave never interrupts the playing scene
+  [desktop-chromium] › director.spec.ts:121:1 › incoming resource error retains the previous canvas and subtitles and retry swaps only when ready
+  [desktop-chromium] › director.spec.ts:129:1 › ten route exits, reset and late callbacks leave one clock and release all scene listeners
+  [desktop-chromium] › director.spec.ts:141:1 › a late incoming texture after route exit cannot restore the old canvas or advance again
+  [desktop-chromium] › director.spec.ts:151:1 › legacy entry plays the director in Chromium smoke coverage
+  [desktop-chromium] › director.spec.ts:157:1 › Canvas failure still exposes the current story and its complete transcript
+  [desktop-chromium] › expanded-story.spec.ts:21:92 › v2 call-first/home: entire graphical route, restore, result and replay
+  [desktop-chromium] › expanded-story.spec.ts:21:92 › v2 call-first/light: entire graphical route, restore, result and replay
+  [desktop-chromium] › expanded-story.spec.ts:21:92 › v2 call-first/road: entire graphical route, restore, result and replay
+  [desktop-chromium] › expanded-story.spec.ts:21:92 › v2 call-first/waiting: entire graphical route, restore, result and replay
+  [desktop-chromium] › expanded-story.spec.ts:21:92 › v2 call-first/sacrifice: entire graphical route, restore, result and replay
+  [desktop-chromium] › expanded-story.spec.ts:21:92 › v2 split-first/home: entire graphical route, restore, result and replay
+  [desktop-chromium] › expanded-story.spec.ts:21:92 › v2 split-first/light: entire graphical route, restore, result and replay
+  [desktop-chromium] › expanded-story.spec.ts:21:92 › v2 split-first/road: entire graphical route, restore, result and replay
+  [desktop-chromium] › expanded-story.spec.ts:21:92 › v2 split-first/waiting: entire graphical route, restore, result and replay
+  [desktop-chromium] › expanded-story.spec.ts:21:92 › v2 split-first/sacrifice: entire graphical route, restore, result and replay
+  [desktop-chromium] › expanded-story.spec.ts:35:1 › new runs use v4; help is reachable and guide has no unmeasured duration promise
+  [desktop-chromium] › expanded-story.spec.ts:39:1 › actual hand and foot dragging, body arrows, pause and focus keep separate ownership
+  [desktop-chromium] › expanded-story.spec.ts:47:1 › spatial story layers follow the shared clock and observation never changes the checkpoint
+  [desktop-chromium] › expanded-story.spec.ts:55:1 › a v2 terminal save failure exports the same ending candidate and retries once
+  [desktop-chromium] › expanded-story.spec.ts:64:1 › reduced motion without WebGL retains the full open ending and no Three download
+  [desktop-chromium] › expanded-story.spec.ts:68:1 › all four direct grips remain independently draggable in the practice viewport
+  [desktop-chromium] › frame-rate.spec.ts:73:1 › ten slow seconds offer real lightweight 2D without advancing or saving, and quality can be restored
+  [desktop-chromium] › frame-rate.spec.ts:99:1 › 24fps playback and a few isolated slow seconds do not show the suggestion
+  [desktop-chromium] › frame-rate.spec.ts:105:1 › pause, blur, long gaps and route disposal reset the slow streak and reject late callbacks
+  [desktop-chromium] › frame-rate.spec.ts:124:1 › continuing the current picture dismisses the suggestion without switching quality or adding clocks
+  [desktop-chromium] › frame-rate.spec.ts:132:1 › lightweight choice survives short-stage route changes and refresh returns to the default display
+  [desktop-chromium] › frame-rate.spec.ts:154:1 › practice keyboard motion shares the monitor and display quality cannot change the frozen performance
+  [desktop-chromium] › frame-rate.spec.ts:165:1 › read-only reunion replay offers the same suggestion and leaves the complete saved result untouched
+  [desktop-chromium] › guide-lifecycle.spec.ts:3:28 › v1 silent node guide stays on its checkpoint, restores scroll and cancels on blur
+  [desktop-chromium] › guide-lifecycle.spec.ts:3:28 › v2 silent node guide stays on its checkpoint, restores scroll and cancels on blur
+  [desktop-chromium] › guide-lifecycle.spec.ts:10:1 › legacy entry remains usable with modern DOM methods and WebGL absent
+  [desktop-chromium] › literary-journey.spec.ts:40:1 › restored v2 and v3 retain their own ending choice labels in graphical and text entries
+  [desktop-chromium] › literary-journey.spec.ts:55:3 › v3 call-first/home: complete route, canonical showcase, result and replay
+  [desktop-chromium] › literary-journey.spec.ts:55:3 › v3 call-first/light: complete route, canonical showcase, result and replay
+  [desktop-chromium] › literary-journey.spec.ts:55:3 › v3 call-first/road: complete route, canonical showcase, result and replay
+  [desktop-chromium] › literary-journey.spec.ts:55:3 › v3 call-first/waiting: complete route, canonical showcase, result and replay
+  [desktop-chromium] › literary-journey.spec.ts:55:3 › v3 call-first/sacrifice: complete route, canonical showcase, result and replay
+  [desktop-chromium] › literary-journey.spec.ts:55:3 › v3 split-first/home: complete route, canonical showcase, result and replay
+  [desktop-chromium] › literary-journey.spec.ts:55:3 › v3 split-first/light: complete route, canonical showcase, result and replay
+  [desktop-chromium] › literary-journey.spec.ts:55:3 › v3 split-first/road: complete route, canonical showcase, result and replay
+  [desktop-chromium] › literary-journey.spec.ts:55:3 › v3 split-first/waiting: complete route, canonical showcase, result and replay
+  [desktop-chromium] › literary-journey.spec.ts:55:3 › v3 split-first/sacrifice: complete route, canonical showcase, result and replay
+  [desktop-chromium] › literary-journey.spec.ts:55:3 › v4 call-first/home: complete route, canonical showcase, result and replay
+  [desktop-chromium] › literary-journey.spec.ts:55:3 › v4 call-first/light: complete route, canonical showcase, result and replay
+  [desktop-chromium] › literary-journey.spec.ts:55:3 › v4 call-first/road: complete route, canonical showcase, result and replay
+  [desktop-chromium] › literary-journey.spec.ts:55:3 › v4 call-first/waiting: complete route, canonical showcase, result and replay
+  [desktop-chromium] › literary-journey.spec.ts:55:3 › v4 call-first/sacrifice: complete route, canonical showcase, result and replay
+  [desktop-chromium] › literary-journey.spec.ts:55:3 › v4 split-first/home: complete route, canonical showcase, result and replay
+  [desktop-chromium] › literary-journey.spec.ts:55:3 › v4 split-first/light: complete route, canonical showcase, result and replay
+  [desktop-chromium] › literary-journey.spec.ts:55:3 › v4 split-first/road: complete route, canonical showcase, result and replay
+  [desktop-chromium] › literary-journey.spec.ts:55:3 › v4 split-first/waiting: complete route, canonical showcase, result and replay
+  [desktop-chromium] › literary-journey.spec.ts:55:3 › v4 split-first/sacrifice: complete route, canonical showcase, result and replay
+  [desktop-chromium] › literary-journey.spec.ts:79:1 › first visit follows background, draft craft, light, practice and explicit story confirmation
+  [desktop-chromium] › literary-journey.spec.ts:92:1 › canonical showcase pauses, restarts, refreshes safely and a skipped failed save retries once
+  [desktop-chromium] › literary-journey.spec.ts:102:1 › real foot dragging and body movement produce the same canonical film as an untouched stage
+  [desktop-chromium] › museum-media.spec.ts:4:1 › museum photo gallery keeps local lazy images, actual captions and keyboard modal focus
+  [desktop-chromium] › museum-media.spec.ts:27:1 › gallery load failure reports and really retries; exiting an open modal releases it
+  [desktop-chromium] › museum-media.spec.ts:42:1 › all eight photo readings retain their declared counts and original files
+  [desktop-chromium] › museum.spec.ts:39:1 › direct museum opens five sections and all eight sourced exhibits without starting a performance
+  [desktop-chromium] › museum.spec.ts:56:1 › layers and real carving are reversible previews of the frozen cast without editing it
+  [desktop-chromium] › museum.spec.ts:64:1 › native keyboard joints and lamp controls change real geometry and the shared light diagram only
+  [desktop-chromium] › museum.spec.ts:73:1 › collaboration uses the same wave in two explicit stills and never offers an unavailable audio track
+  [desktop-chromium] › museum.spec.ts:78:1 › E08 distinguishes actual in-progress, curtain and completed programmes while keeping the sole creator
+  [desktop-chromium] › museum.spec.ts:86:106 › full/call-first returns from exhibits to the same paused graphical checkpoint
+  [desktop-chromium] › museum.spec.ts:86:106 › full/split-first returns from exhibits to the same paused graphical checkpoint
+  [desktop-chromium] › museum.spec.ts:86:106 › guided/call-first returns from exhibits to the same paused graphical checkpoint
+  [desktop-chromium] › museum.spec.ts:86:106 › guided/split-first returns from exhibits to the same paused graphical checkpoint
+  [desktop-chromium] › museum.spec.ts:93:109 › future storage is untouched while full knowledge and sample experiments remain available
+  [desktop-chromium] › museum.spec.ts:93:109 › corrupt storage is untouched while full knowledge and sample experiments remain available
+  [desktop-chromium] › museum.spec.ts:98:1 › failed visit saving stays honest and later previews or visits never retry writes implicitly
+  [desktop-chromium] › museum.spec.ts:106:1 › memory continuation can visit and export without retrying unavailable storage
+  [desktop-chromium] › museum.spec.ts:112:1 › ten exhibit exits release canvases, inputs and every scene clock
+  [desktop-chromium] › museum.spec.ts:120:1 › importing a different frozen cast clears the old temporary experiment and detached inputs
+  [desktop-chromium] › museum.spec.ts:129:1 › failed exhibit images retry for real and late images cannot restore an exited stage
+  [desktop-chromium] › museum.spec.ts:138:1 › Canvas failure keeps all exhibit text, sources and navigation usable
+  [desktop-chromium] › museum.spec.ts:142:1 › legacy product reads full exhibits and uses the same carving and lamp geometry in Chromium
+  [desktop-chromium] › navigation.spec.ts:34:1 › direct routes, museum children, back and refresh preserve the confirmed performance
+  [desktop-chromium] › navigation.spec.ts:49:1 › URLs cannot start a story or manufacture a completed result
+  [desktop-chromium] › navigation.spec.ts:57:1 › explicit guided opening and intro skip persist once, and ten remounts cannot repeat the command
+  [desktop-chromium] › navigation.spec.ts:67:1 › craft saves the current editor while leaving frozen cast and decision intact
+  [desktop-chromium] › navigation.spec.ts:76:1 › a failed opening stays on the old page, exports its candidate and retries the identical run
+  [desktop-chromium] › navigation.spec.ts:87:1 › denied storage keeps an editable export and an explicit memory-only opening
+  [desktop-chromium] › navigation.spec.ts:97:1 › archive/import use the shared serial entry, and cancel preserves the existing project
+  [desktop-chromium] › navigation.spec.ts:111:1 › workbench recovery can be explicitly reread without leaving the product stuck
+  [desktop-chromium] › navigation.spec.ts:119:1 › a real curtain checkpoint produces the actual programme and prepared reunion image
+  [desktop-chromium] › navigation.spec.ts:129:13 › future records remain protected while the museum is readable
+  [desktop-chromium] › navigation.spec.ts:129:13 › corrupt records remain protected while the museum is readable
+  [desktop-chromium] › navigation.spec.ts:136:1 › alias redirects once, keyboard skip does not change route and mobile menu has real focus targets
+  [desktop-chromium] › navigation.spec.ts:144:1 › legacy product entry uses the same project and can save an editor change in Chromium
+  [desktop-chromium] › navigation.spec.ts:152:1 › static product introduction remains readable without JavaScript
+  [desktop-chromium] › practice.spec.ts:28:1 › all three real mouse grips change pose and reload saves the final editor without touching story
+  [desktop-chromium] › practice.spec.ts:42:1 › quick input-only trailing save and native change keep the final range and facing on reload
+  [desktop-chromium] › practice.spec.ts:49:1 › grip arrow keys use one clock, key release/blur stop motion and native range arrows still work
+  [desktop-chromium] › practice.spec.ts:58:1 › action selection, pause/resume, hidden page and long gaps retain time without catch-up
+  [desktop-chromium] › practice.spec.ts:68:1 › all five actions step visibly, keep the axe within the curtain and do not start a story
+  [desktop-chromium] › practice.spec.ts:82:1 › reduced motion uses explicit 250ms steps and never launches a loop
+  [desktop-chromium] › practice.spec.ts:88:1 › actual touch drag cancels cleanly and fallback touch handles unrelated identifiers and multiple ends
+  [desktop-chromium] › practice.spec.ts:100:1 › import during an action archives the latest old pose and never overwrites the new project
+  [desktop-chromium] › practice.spec.ts:107:1 › save failure keeps the final pose exportable and automatic input never retries disk writes
+  [desktop-chromium] › practice.spec.ts:115:1 › memory-only progress stays memory after practice until an explicit save
+  [desktop-chromium] › practice.spec.ts:122:1 › Canvas failure disables input and ten playing remounts clear every practice callback
+  [desktop-chromium] › presentation-guidance.spec.ts:8:1 › one soft curtain, semantic brush titles, replay and public credits
+  [desktop-chromium] › presentation-guidance.spec.ts:15:1 › craft rehearsal restores exact stored appearance and returns on every entry
+  [desktop-chromium] › presentation-guidance.spec.ts:19:1 › lamp and limb practice are isolated, with posture controls below the screen
+  [desktop-chromium] › presentation-guidance.spec.ts:26:1 › story rehearsal restores its checkpoint and explicit skip retries only once
+  [desktop-chromium] › presentation-guidance.spec.ts:31:1 › font failure and reduced motion keep readable titles without ornamental animation
+  [desktop-chromium] › presentation-guidance.spec.ts:34:1 › real hand and keyboard rehearsal restores the running story clock without task evidence
+  [desktop-chromium] › presentation-guidance.spec.ts:41:1 › all major pages keep their columns within narrow and wide viewports
+  [desktop-chromium] › probe.spec.ts:8:1 › production canvas responds to keyboard and has no horizontal overflow
+  [desktop-chromium] › probe.spec.ts:26:1 › commits, reloads and rolls back in actual browser IndexedDB
+  [desktop-chromium] › probe.spec.ts:46:1 › stale second tab keeps its unsaved sample and reports a conflict
+  [desktop-chromium] › probe.spec.ts:65:1 › denied storage preserves an editable sample and offers a real download
+  [desktop-chromium] › probe.spec.ts:87:1 › legacy production chunks operate in Chromium smoke check, not an IE test
+  [desktop-chromium] › probe.spec.ts:112:1 › readable story and museum introduction survives disabled JavaScript
+  [desktop-chromium] › probe.spec.ts:125:1 › Canvas initialization failure leaves honest readable fallback
+  [desktop-chromium] › project-storage.spec.ts:40:1 › formal project autosaves and resumes identity and editing choices after real reload
+  [desktop-chromium] › project-storage.spec.ts:60:1 › imports a real project file as a new project without altering frozen cast or checkpoint
+  [desktop-chromium] › project-storage.spec.ts:77:1 › malformed and future-version file imports leave the existing current project intact
+  [desktop-chromium] › project-storage.spec.ts:87:1 › pending replacement preserves continuous typing and can be canceled without losing queued edits
+  [desktop-chromium] › project-storage.spec.ts:101:1 › new project autosaves keep the previous project recoverable
+  [desktop-chromium] › project-storage.spec.ts:120:1 › damaged draft is quarantined and backup can be edited, saved and reloaded
+  [desktop-chromium] › project-storage.spec.ts:135:1 › unknown stored versions remain exportable and cannot be overwritten through recovery
+  [desktop-chromium] › project-storage.spec.ts:145:1 › two tabs retain both versions on conflict and takeover requires an explicit action
+  [desktop-chromium] › project-storage.spec.ts:161:1 › storage denial keeps an honest in-memory draft with a working project file download
+  [desktop-chromium] › project-storage.spec.ts:169:1 › formal store and file export operate through legacy production chunks in Chromium smoke check
+  [desktop-chromium] › reset-history.spec.ts:16:1 › clear history offers export and cancellation, then atomically restores a fresh-user home
+  [desktop-chromium] › reset-history.spec.ts:25:1 › an old live tab cannot write discarded history back after reset
+  [desktop-chromium] › reset-history.spec.ts:31:1 › a failed reset preserves all history and the retry really starts fresh
+  [desktop-chromium] › result.spec.ts:35:1 › unfinished and protected records never manufacture a reunion or offer result downloads
+  [desktop-chromium] › result.spec.ts:43:61 › call-first exports a real frozen 1600x1200 PNG twice and an unchanged programme
+  [desktop-chromium] › result.spec.ts:43:61 › split-first exports a real frozen 1600x1200 PNG twice and an unchanged programme
+  [desktop-chromium] › result.spec.ts:54:61 › call-first replay is paused, follows only the saved branch and cannot edit the performance
+  [desktop-chromium] › result.spec.ts:54:61 › split-first replay is paused, follows only the saved branch and cannot edit the performance
+  [desktop-chromium] › result.spec.ts:71:1 › SAVE-03 JSON into a fresh browser preserves result identity, frozen PNG and replay decisions
+  [desktop-chromium] › result.spec.ts:80:1 › reduced motion uses explicit still steps and clears every replay callback on ten route exits
+  [desktop-chromium] › result.spec.ts:92:1 › a missing required mask fails the image truthfully and retry loads the actual asset
+  [desktop-chromium] › result.spec.ts:97:1 › PNG encoding rejection and browser refusal report failure, while JSON remains available
+  [desktop-chromium] › result.spec.ts:103:1 › late PNG encoding after exit cannot download or replace the new page
+  [desktop-chromium] › result.spec.ts:108:1 › Canvas failure keeps programme, JSON and replay transcript without reporting a successful image
+  [desktop-chromium] › result.spec.ts:112:1 › legacy PNG encoding fallback produces a real file and all download URLs are released
+  [desktop-chromium] › result.spec.ts:121:1 › failed autosaving still exports the actual reunited draft and replay never retries disk implicitly
+  [desktop-chromium] › result.spec.ts:129:1 › late required images after result exit cannot resurrect the capture or its download action
+  [desktop-chromium] › result.spec.ts:134:1 › a PNG finishing during a pending file import cannot download the previous project
+  [desktop-chromium] › result.spec.ts:146:1 › legacy product exports PNG and plays a read-only frozen scene through the same modules
+  [desktop-chromium] › save-boundaries.spec.ts:122:3 › full opening: close the tab and restore a fresh page at the saved checkpoint
+  [desktop-chromium] › save-boundaries.spec.ts:122:3 › full before-choice: close the tab and restore a fresh page at the saved checkpoint
+  [desktop-chromium] › save-boundaries.spec.ts:122:3 › full after-choice: close the tab and restore a fresh page at the saved checkpoint
+  [desktop-chromium] › save-boundaries.spec.ts:122:3 › full operating: close the tab and restore a fresh page at the saved checkpoint
+  [desktop-chromium] › save-boundaries.spec.ts:122:3 › full operation-saved: close the tab and restore a fresh page at the saved checkpoint
+  [desktop-chromium] › save-boundaries.spec.ts:122:3 › full curtain: close the tab and restore a fresh page at the saved checkpoint
+  [desktop-chromium] › save-boundaries.spec.ts:122:3 › guided opening: close the tab and restore a fresh page at the saved checkpoint
+  [desktop-chromium] › save-boundaries.spec.ts:122:3 › guided before-choice: close the tab and restore a fresh page at the saved checkpoint
+  [desktop-chromium] › save-boundaries.spec.ts:122:3 › guided after-choice: close the tab and restore a fresh page at the saved checkpoint
+  [desktop-chromium] › save-boundaries.spec.ts:122:3 › guided operating: close the tab and restore a fresh page at the saved checkpoint
+  [desktop-chromium] › save-boundaries.spec.ts:122:3 › guided operation-saved: close the tab and restore a fresh page at the saved checkpoint
+  [desktop-chromium] › save-boundaries.spec.ts:122:3 › guided curtain: close the tab and restore a fresh page at the saved checkpoint
+  [desktop-chromium] › save-boundaries.spec.ts:174:3 › full: close after the guardian checkpoint commits while its required image is still loading
+  [desktop-chromium] › save-boundaries.spec.ts:174:3 › guided: close after the guardian checkpoint commits while its required image is still loading
+  [desktop-chromium] › save-boundaries.spec.ts:196:1 › product craft tabs keep both edited palettes when one transaction loses the version check
+  [desktop-chromium] › save-boundaries.spec.ts:218:1 › product story tabs export both branch decisions while the stale candidate cannot replace the winner
+  [desktop-chromium] › save-boundaries.spec.ts:241:3 › palette edit then call-first within 500ms commits the latest whole project and invalidates old timers
+  [desktop-chromium] › save-boundaries.spec.ts:241:3 › palette edit then split-first within 500ms commits the latest whole project and invalidates old timers
+  [desktop-chromium] › site-music.spec.ts:13:1 › site music defaults on, unlocks on the first ordinary click and retains manual mute across routes
+  [desktop-chromium] › site-music.spec.ts:26:1 › reunion first two seconds stay quiet and paused story stops the actual music media
+  [desktop-chromium] › site-music.spec.ts:29:1 › only actual curtain playback selects vocals, pause and mute release the media
+  [desktop-chromium] › site-music.spec.ts:32:1 › failed audio file reports a real error and the next ordinary gesture retries
+  [desktop-chromium] › site-music.spec.ts:35:1 › ten route exits keep one active global player and actual pagehide releases its source
+  [desktop-chromium] › skip-routes.spec.ts:5:136 › explicit skip call-first/home preserves choices, result and read-only replay
+  [desktop-chromium] › skip-routes.spec.ts:5:136 › explicit skip call-first/light preserves choices, result and read-only replay
+  [desktop-chromium] › skip-routes.spec.ts:5:136 › explicit skip call-first/road preserves choices, result and read-only replay
+  [desktop-chromium] › skip-routes.spec.ts:5:136 › explicit skip call-first/waiting preserves choices, result and read-only replay
+  [desktop-chromium] › skip-routes.spec.ts:5:136 › explicit skip call-first/sacrifice preserves choices, result and read-only replay
+  [desktop-chromium] › skip-routes.spec.ts:5:136 › explicit skip split-first/home preserves choices, result and read-only replay
+  [desktop-chromium] › skip-routes.spec.ts:5:136 › explicit skip split-first/light preserves choices, result and read-only replay
+  [desktop-chromium] › skip-routes.spec.ts:5:136 › explicit skip split-first/road preserves choices, result and read-only replay
+  [desktop-chromium] › skip-routes.spec.ts:5:136 › explicit skip split-first/waiting preserves choices, result and read-only replay
+  [desktop-chromium] › skip-routes.spec.ts:5:136 › explicit skip split-first/sacrifice preserves choices, result and read-only replay
+  [desktop-chromium] › story-and-resume.spec.ts:59:3 › full/call-first real graphical controls reach reunion and one curtain with manual input
+  [desktop-chromium] › story-and-resume.spec.ts:59:3 › full/call-first real graphical controls reach reunion and one curtain with explicit assistance
+  [desktop-chromium] › story-and-resume.spec.ts:59:3 › full/split-first real graphical controls reach reunion and one curtain with manual input
+  [desktop-chromium] › story-and-resume.spec.ts:59:3 › full/split-first real graphical controls reach reunion and one curtain with explicit assistance
+  [desktop-chromium] › story-and-resume.spec.ts:59:3 › guided/call-first real graphical controls reach reunion and one curtain with manual input
+  [desktop-chromium] › story-and-resume.spec.ts:59:3 › guided/call-first real graphical controls reach reunion and one curtain with explicit assistance
+  [desktop-chromium] › story-and-resume.spec.ts:59:3 › guided/split-first real graphical controls reach reunion and one curtain with manual input
+  [desktop-chromium] › story-and-resume.spec.ts:59:3 › guided/split-first real graphical controls reach reunion and one curtain with explicit assistance
+  [desktop-chromium] › story-and-resume.spec.ts:87:1 › manual light uses the motif rather than the whole puppet and failed progress is retried once
+  [desktop-chromium] › story-and-resume.spec.ts:98:1 › holding a raised axe never auto-lowers and pause invalidates its continuous observation
+  [desktop-chromium] › story-and-resume.spec.ts:106:1 › choice and operated node reload preserve the branch and reset only transient pose and time
+  [desktop-chromium] › story-and-resume.spec.ts:114:1 › pausing the assisted axe restarts a valid short gesture instead of losing its raised stage forever
+  [desktop-chromium] › story-and-resume.spec.ts:120:1 › reunion requires a final hand operation, four quiet seconds and explicit curtain; retry keeps the same result
+  [desktop-chromium] › story-and-resume.spec.ts:130:1 › real mouse grip and native keyboard input can perform wave and body movement without editing the project
+  [desktop-chromium] › story-and-resume.spec.ts:141:1 › explicit reduced-motion assistance, memory continuation and ten playing exits keep one clock
+  [desktop-chromium] › story-and-resume.spec.ts:156:1 › actual touch, cancellation and legacy Touch identifiers move only the active story body
+  [desktop-chromium] › story-and-resume.spec.ts:171:1 › legacy product accepts real keyboard axe input and the same guarded graphical transition
+  [desktop-chromium] › story-and-resume.spec.ts:180:1 › export and clean-browser import preserve a graphical checkpoint while dropping transient light and pose
+  [desktop-chromium] › story-keyboard.spec.ts:27:3 › full/call-first completes every graphical interaction and curtain using only native keyboard controls
+  [desktop-chromium] › story-keyboard.spec.ts:27:3 › full/split-first completes every graphical interaction and curtain using only native keyboard controls
+  [desktop-chromium] › story-keyboard.spec.ts:27:3 › guided/call-first completes every graphical interaction and curtain using only native keyboard controls
+  [desktop-chromium] › story-keyboard.spec.ts:27:3 › guided/split-first completes every graphical interaction and curtain using only native keyboard controls
+  [desktop-chromium] › story-state.spec.ts:47:3 › full/call-first uses the real text controls, commits one reunion and completes curtain
+  [desktop-chromium] › story-state.spec.ts:47:3 › full/split-first uses the real text controls, commits one reunion and completes curtain
+  [desktop-chromium] › story-state.spec.ts:47:3 › guided/call-first uses the real text controls, commits one reunion and completes curtain
+  [desktop-chromium] › story-state.spec.ts:47:3 › guided/split-first uses the real text controls, commits one reunion and completes curtain
+  [desktop-chromium] › story-state.spec.ts:59:1 › refresh retains a confirmed choice, restarts paused and mode changes only the current short node
+  [desktop-chromium] › story-state.spec.ts:69:1 › a failed reunion stays at the old node, exports its exact candidate, and retries without a second result
+  [desktop-chromium] › story-state.spec.ts:84:1 › legacy text entry uses the same guarded store in Chromium smoke check
+  [desktop-chromium] › three-stage.spec.ts:29:1 › four actual WebGL views share the same two-role Canvas and leave the performance untouched
+  [desktop-chromium] › three-stage.spec.ts:40:1 › carving, colors and lamp changes update the real spatial resources from the same frame
+  [desktop-chromium] › three-stage.spec.ts:46:1 › weak-device hints enforce the actual buffer and texture budget without removing controls
+  [desktop-chromium] › three-stage.spec.ts:51:1 › no WebGL interface keeps the complete 2D editor and never imports Three
+  [desktop-chromium] › three-stage.spec.ts:55:1 › renderer initialization failure returns to 2D and an explicit retry really initializes WebGL
+  [desktop-chromium] › three-stage.spec.ts:59:1 › actual context loss releases the old canvas, preserves 2D and allows a fresh context
+  [desktop-chromium] › three-stage.spec.ts:63:1 › a failed dynamic chunk leaves 2D usable and a fresh request can retry the observation
+  [desktop-chromium] › three-stage.spec.ts:67:1 › closing during a delayed module load prevents a late context and still permits reopening
+  [desktop-chromium] › three-stage.spec.ts:71:1 › ten spatial exits release contexts and listeners without creating animation clocks
+  [desktop-chromium] › three-stage.spec.ts:79:1 › a playing story retains one clock while all camera changes stay outside story progress
+  [desktop-chromium] › three-stage.spec.ts:85:1 › protected future records still allow spatial examples without writing the unknown draft
+  [desktop-chromium] › three-stage.spec.ts:89:1 › legacy product keeps every 2D control and never executes the Three chunk
+  [desktop-chromium] › v4-seek.spec.ts:21:46 › full: current mode cues seek locally, preserve pause/play, reset task evidence and lock during film
+  [desktop-chromium] › v4-seek.spec.ts:21:46 › guided: current mode cues seek locally, preserve pause/play, reset task evidence and lock during film
+  [desktop-chromium] › v4-seek.spec.ts:37:1 › craft keeps original image details and palette, with no added pattern or carving selection
+  [desktop-chromium] › v4-seek.spec.ts:46:1 › fresh guide starts v4 without freezing an unconfirmed costume
+  [desktop-chromium] › v4-seek.spec.ts:50:1 › paused result replay unlocks its cue directory when the first frame becomes ready
+  [desktop-chromium] › v4-workshop.spec.ts:17:1 › native lamp dragging changes lamp geometry, leaves the puppet fixed and survives a context loss
+  [desktop-chromium] › v4-workshop.spec.ts:32:1 › without WebGL the lamp experiment keeps its shadow and keyboard controls
+  [desktop-chromium] › v4-workshop.spec.ts:39:1 › practice uses the detailed original costume even when old pattern fields change
+  [desktop-chromium] › v4-workshop.spec.ts:46:1 › museum prioritizes public photos, supports enlargement and offers a motion switch
+  [mobile-chromium] › art-audio.spec.ts:26:1 › default-on sound plays once, pause/reset/mute and document exit release native audio
+  [mobile-chromium] › art-audio.spec.ts:31:55 › call-split emits the actual mountain sound only when the axe resolves
+  [mobile-chromium] › art-audio.spec.ts:31:55 › split-axe emits the actual mountain sound only when the axe resolves
+  [mobile-chromium] › art-audio.spec.ts:34:1 › reunion keeps the first two seconds silent and uses the new layered design
+  [mobile-chromium] › art-audio.spec.ts:37:1 › missing audio capability leaves every scene control and subtitle available
+  [mobile-chromium] › art-audio.spec.ts:40:1 › a real context resume refusal is reported and explicit retry creates a working device
+  [mobile-chromium] › art-audio.spec.ts:43:1 › a pending native resume survives a route exit without reviving the old scene
+  [mobile-chromium] › art-audio.spec.ts:46:1 › an old native close rejection cannot hide the fresh device mute control
+  [mobile-chromium] › art-audio.spec.ts:49:1 › ten story exits reuse one document audio context and retain a manual mute
+  [mobile-chromium] › asset-delivery.spec.ts:12:1 › lossless delivery and canonical PNG draw identical carving, palettes, frozen duet, WebGL and result PNG
+  [mobile-chromium] › asset-delivery.spec.ts:40:1 › unsupported non-premultiplied decoding uses PNG without requesting delivery files
+  [mobile-chromium] › asset-delivery.spec.ts:46:1 › damaged delivery fails visibly and explicit retry refetches a repaired image
+  [mobile-chromium] › asset-delivery.spec.ts:52:1 › a decoded bitmap arriving after route exit is closed and cannot revive its old canvas
+  [mobile-chromium] › assets.spec.ts:11:1 › all local assets decode and distinct neutral roles, cutouts and scenes draw
+  [mobile-chromium] › assets.spec.ts:32:1 › a missing required mask clears the preview and retry loads a complete actor
+  [mobile-chromium] › assets.spec.ts:40:1 › legacy asset page consumes the same PNGs in Chromium smoke check
+  [mobile-chromium] › assets.spec.ts:50:1 › Canvas failure remains readable and does not report successful assembly
+  [mobile-chromium] › backdrop-cache.spec.ts:34:1 › opaque background is reused, moving light stays direct, resize and exit release old pixels
+  [mobile-chromium] › backdrop-cache.spec.ts:50:1 › optional backdrop allocation failure retains full original-quality drawing
+  [mobile-chromium] › backdrop-cache.spec.ts:57:1 › cached drawing failure clears buffers and actual retry loads a fresh background
+  [mobile-chromium] › backdrop-cache.spec.ts:67:1 › stable drawing refreshes control geometry once and Three follows each new Canvas frame
+  [mobile-chromium] › canvas-stage.spec.ts:22:1 › duet recolors the editor but preserves the frozen mother and saved story
+  [mobile-chromium] › canvas-stage.spec.ts:34:1 › paused story uses its node scene, props and frozen cast independently of editor previews
+  [mobile-chromium] › canvas-stage.spec.ts:44:1 › missing color image fails visibly with a blank canvas and retry restores both actors
+  [mobile-chromium] › canvas-stage.spec.ts:50:1 › carving changes the puppet while keeping the already drawn curtain opaque
+  [mobile-chromium] › canvas-stage.spec.ts:59:1 › Canvas failure leaves the editor and story text available without false ready status
+  [mobile-chromium] › canvas-stage.spec.ts:64:1 › a drawing failure clears cached images and retry reads fresh sources
+  [mobile-chromium] › canvas-stage.spec.ts:74:1 › late images and ten remounts leave one canvas and no detached drawing or resize listeners
+  [mobile-chromium] › canvas-stage.spec.ts:92:1 › legacy product draws the same two-role frame in Chromium smoke check
+  [mobile-chromium] › clock-native-start.spec.ts:8:1 › twelve native-clock play clicks advance without falsely pausing at the first frame
+  [mobile-chromium] › craft-light.spec.ts:27:1 › three cut segments, per-part colors and candidate mother motif render and survive SAVE-01
+  [mobile-chromium] › craft-light.spec.ts:41:1 › immediate direct-craft opening freezes queued unsaved edits once and keeps guided intent
+  [mobile-chromium] › craft-light.spec.ts:52:1 › default opening uses the existing craft run, marks preset and preserves editor work
+  [mobile-chromium] › craft-light.spec.ts:58:1 › failed confirmation exports the frozen candidate while later edits queue separately and retry preserves it
+  [mobile-chromium] › craft-light.spec.ts:67:1 › editing and explicit archive-rehearsal preserve the old frozen run and the new editor
+  [mobile-chromium] › craft-light.spec.ts:75:1 › existing archive protection preserves both projects until explicit retry acknowledgement
+  [mobile-chromium] › craft-light.spec.ts:81:1 › lamp ranges, native keyboard, step buttons and reset save without changing story or practice pose
+  [mobile-chromium] › craft-light.spec.ts:90:1 › memory-only craft and lamp edits never retry writes until explicit save
+  [mobile-chromium] › craft-light.spec.ts:97:1 › body trial mouse, keyboard and touch are reversible and never replace the saved practice pose
+  [mobile-chromium] › craft-light.spec.ts:109:1 › legacy product freezes carved colors and saves lamp controls through the same Store in Chromium
+  [mobile-chromium] › craft-light.spec.ts:115:1 › ten craft/light remounts release input listeners and unavailable Canvas blocks freeze while editing stays available
+  [mobile-chromium] › director.spec.ts:41:46 › full intro has four timed shots and saves exactly once before craft
+  [mobile-chromium] › director.spec.ts:41:46 › guided intro has four timed shots and saves exactly once before craft
+  [mobile-chromium] › director.spec.ts:57:1 › pause, resume, long gap, blur, mode switch and reload never count stopped time
+  [mobile-chromium] › director.spec.ts:69:1 › skip is explicit only in intro and interaction, choice and quiet hold cannot auto finish
+  [mobile-chromium] › director.spec.ts:82:1 › reduced motion changes still shots with synchronized text and no automatic start
+  [mobile-chromium] › director.spec.ts:91:1 › failed automatic checkpoint retains the applied frame and exact candidate until explicit retry
+  [mobile-chromium] › director.spec.ts:99:1 › memory playback never retries storage without confirming the next scene
+  [mobile-chromium] › director.spec.ts:108:1 › canceling a failed scene allows confirmation from the held final frame without replay
+  [mobile-chromium] › director.spec.ts:115:1 › a normal route autosave never interrupts the playing scene
+  [mobile-chromium] › director.spec.ts:121:1 › incoming resource error retains the previous canvas and subtitles and retry swaps only when ready
+  [mobile-chromium] › director.spec.ts:129:1 › ten route exits, reset and late callbacks leave one clock and release all scene listeners
+  [mobile-chromium] › director.spec.ts:141:1 › a late incoming texture after route exit cannot restore the old canvas or advance again
+  [mobile-chromium] › director.spec.ts:151:1 › legacy entry plays the director in Chromium smoke coverage
+  [mobile-chromium] › director.spec.ts:157:1 › Canvas failure still exposes the current story and its complete transcript
+  [mobile-chromium] › expanded-story.spec.ts:21:92 › v2 call-first/home: entire graphical route, restore, result and replay
+  [mobile-chromium] › expanded-story.spec.ts:21:92 › v2 call-first/light: entire graphical route, restore, result and replay
+  [mobile-chromium] › expanded-story.spec.ts:21:92 › v2 call-first/road: entire graphical route, restore, result and replay
+  [mobile-chromium] › expanded-story.spec.ts:21:92 › v2 call-first/waiting: entire graphical route, restore, result and replay
+  [mobile-chromium] › expanded-story.spec.ts:21:92 › v2 call-first/sacrifice: entire graphical route, restore, result and replay
+  [mobile-chromium] › expanded-story.spec.ts:21:92 › v2 split-first/home: entire graphical route, restore, result and replay
+  [mobile-chromium] › expanded-story.spec.ts:21:92 › v2 split-first/light: entire graphical route, restore, result and replay
+  [mobile-chromium] › expanded-story.spec.ts:21:92 › v2 split-first/road: entire graphical route, restore, result and replay
+  [mobile-chromium] › expanded-story.spec.ts:21:92 › v2 split-first/waiting: entire graphical route, restore, result and replay
+  [mobile-chromium] › expanded-story.spec.ts:21:92 › v2 split-first/sacrifice: entire graphical route, restore, result and replay
+  [mobile-chromium] › expanded-story.spec.ts:35:1 › new runs use v4; help is reachable and guide has no unmeasured duration promise
+  [mobile-chromium] › expanded-story.spec.ts:39:1 › actual hand and foot dragging, body arrows, pause and focus keep separate ownership
+  [mobile-chromium] › expanded-story.spec.ts:47:1 › spatial story layers follow the shared clock and observation never changes the checkpoint
+  [mobile-chromium] › expanded-story.spec.ts:55:1 › a v2 terminal save failure exports the same ending candidate and retries once
+  [mobile-chromium] › expanded-story.spec.ts:64:1 › reduced motion without WebGL retains the full open ending and no Three download
+  [mobile-chromium] › expanded-story.spec.ts:68:1 › all four direct grips remain independently draggable in the practice viewport
+  [mobile-chromium] › frame-rate.spec.ts:73:1 › ten slow seconds offer real lightweight 2D without advancing or saving, and quality can be restored
+  [mobile-chromium] › frame-rate.spec.ts:99:1 › 24fps playback and a few isolated slow seconds do not show the suggestion
+  [mobile-chromium] › frame-rate.spec.ts:105:1 › pause, blur, long gaps and route disposal reset the slow streak and reject late callbacks
+  [mobile-chromium] › frame-rate.spec.ts:124:1 › continuing the current picture dismisses the suggestion without switching quality or adding clocks
+  [mobile-chromium] › frame-rate.spec.ts:132:1 › lightweight choice survives short-stage route changes and refresh returns to the default display
+  [mobile-chromium] › frame-rate.spec.ts:154:1 › practice keyboard motion shares the monitor and display quality cannot change the frozen performance
+  [mobile-chromium] › frame-rate.spec.ts:165:1 › read-only reunion replay offers the same suggestion and leaves the complete saved result untouched
+  [mobile-chromium] › guide-lifecycle.spec.ts:3:28 › v1 silent node guide stays on its checkpoint, restores scroll and cancels on blur
+  [mobile-chromium] › guide-lifecycle.spec.ts:3:28 › v2 silent node guide stays on its checkpoint, restores scroll and cancels on blur
+  [mobile-chromium] › guide-lifecycle.spec.ts:10:1 › legacy entry remains usable with modern DOM methods and WebGL absent
+  [mobile-chromium] › literary-journey.spec.ts:40:1 › restored v2 and v3 retain their own ending choice labels in graphical and text entries
+  [mobile-chromium] › literary-journey.spec.ts:55:3 › v3 call-first/home: complete route, canonical showcase, result and replay
+  [mobile-chromium] › literary-journey.spec.ts:55:3 › v3 call-first/light: complete route, canonical showcase, result and replay
+  [mobile-chromium] › literary-journey.spec.ts:55:3 › v3 call-first/road: complete route, canonical showcase, result and replay
+  [mobile-chromium] › literary-journey.spec.ts:55:3 › v3 call-first/waiting: complete route, canonical showcase, result and replay
+  [mobile-chromium] › literary-journey.spec.ts:55:3 › v3 call-first/sacrifice: complete route, canonical showcase, result and replay
+  [mobile-chromium] › literary-journey.spec.ts:55:3 › v3 split-first/home: complete route, canonical showcase, result and replay
+  [mobile-chromium] › literary-journey.spec.ts:55:3 › v3 split-first/light: complete route, canonical showcase, result and replay
+  [mobile-chromium] › literary-journey.spec.ts:55:3 › v3 split-first/road: complete route, canonical showcase, result and replay
+  [mobile-chromium] › literary-journey.spec.ts:55:3 › v3 split-first/waiting: complete route, canonical showcase, result and replay
+  [mobile-chromium] › literary-journey.spec.ts:55:3 › v3 split-first/sacrifice: complete route, canonical showcase, result and replay
+  [mobile-chromium] › literary-journey.spec.ts:55:3 › v4 call-first/home: complete route, canonical showcase, result and replay
+  [mobile-chromium] › literary-journey.spec.ts:55:3 › v4 call-first/light: complete route, canonical showcase, result and replay
+  [mobile-chromium] › literary-journey.spec.ts:55:3 › v4 call-first/road: complete route, canonical showcase, result and replay
+  [mobile-chromium] › literary-journey.spec.ts:55:3 › v4 call-first/waiting: complete route, canonical showcase, result and replay
+  [mobile-chromium] › literary-journey.spec.ts:55:3 › v4 call-first/sacrifice: complete route, canonical showcase, result and replay
+  [mobile-chromium] › literary-journey.spec.ts:55:3 › v4 split-first/home: complete route, canonical showcase, result and replay
+  [mobile-chromium] › literary-journey.spec.ts:55:3 › v4 split-first/light: complete route, canonical showcase, result and replay
+  [mobile-chromium] › literary-journey.spec.ts:55:3 › v4 split-first/road: complete route, canonical showcase, result and replay
+  [mobile-chromium] › literary-journey.spec.ts:55:3 › v4 split-first/waiting: complete route, canonical showcase, result and replay
+  [mobile-chromium] › literary-journey.spec.ts:55:3 › v4 split-first/sacrifice: complete route, canonical showcase, result and replay
+  [mobile-chromium] › literary-journey.spec.ts:79:1 › first visit follows background, draft craft, light, practice and explicit story confirmation
+  [mobile-chromium] › literary-journey.spec.ts:92:1 › canonical showcase pauses, restarts, refreshes safely and a skipped failed save retries once
+  [mobile-chromium] › literary-journey.spec.ts:102:1 › real foot dragging and body movement produce the same canonical film as an untouched stage
+  [mobile-chromium] › museum-media.spec.ts:4:1 › museum photo gallery keeps local lazy images, actual captions and keyboard modal focus
+  [mobile-chromium] › museum-media.spec.ts:27:1 › gallery load failure reports and really retries; exiting an open modal releases it
+  [mobile-chromium] › museum-media.spec.ts:42:1 › all eight photo readings retain their declared counts and original files
+  [mobile-chromium] › museum.spec.ts:39:1 › direct museum opens five sections and all eight sourced exhibits without starting a performance
+  [mobile-chromium] › museum.spec.ts:56:1 › layers and real carving are reversible previews of the frozen cast without editing it
+  [mobile-chromium] › museum.spec.ts:64:1 › native keyboard joints and lamp controls change real geometry and the shared light diagram only
+  [mobile-chromium] › museum.spec.ts:73:1 › collaboration uses the same wave in two explicit stills and never offers an unavailable audio track
+  [mobile-chromium] › museum.spec.ts:78:1 › E08 distinguishes actual in-progress, curtain and completed programmes while keeping the sole creator
+  [mobile-chromium] › museum.spec.ts:86:106 › full/call-first returns from exhibits to the same paused graphical checkpoint
+  [mobile-chromium] › museum.spec.ts:86:106 › full/split-first returns from exhibits to the same paused graphical checkpoint
+  [mobile-chromium] › museum.spec.ts:86:106 › guided/call-first returns from exhibits to the same paused graphical checkpoint
+  [mobile-chromium] › museum.spec.ts:86:106 › guided/split-first returns from exhibits to the same paused graphical checkpoint
+  [mobile-chromium] › museum.spec.ts:93:109 › future storage is untouched while full knowledge and sample experiments remain available
+  [mobile-chromium] › museum.spec.ts:93:109 › corrupt storage is untouched while full knowledge and sample experiments remain available
+  [mobile-chromium] › museum.spec.ts:98:1 › failed visit saving stays honest and later previews or visits never retry writes implicitly
+  [mobile-chromium] › museum.spec.ts:106:1 › memory continuation can visit and export without retrying unavailable storage
+  [mobile-chromium] › museum.spec.ts:112:1 › ten exhibit exits release canvases, inputs and every scene clock
+  [mobile-chromium] › museum.spec.ts:120:1 › importing a different frozen cast clears the old temporary experiment and detached inputs
+  [mobile-chromium] › museum.spec.ts:129:1 › failed exhibit images retry for real and late images cannot restore an exited stage
+  [mobile-chromium] › museum.spec.ts:138:1 › Canvas failure keeps all exhibit text, sources and navigation usable
+  [mobile-chromium] › museum.spec.ts:142:1 › legacy product reads full exhibits and uses the same carving and lamp geometry in Chromium
+  [mobile-chromium] › navigation.spec.ts:34:1 › direct routes, museum children, back and refresh preserve the confirmed performance
+  [mobile-chromium] › navigation.spec.ts:49:1 › URLs cannot start a story or manufacture a completed result
+  [mobile-chromium] › navigation.spec.ts:57:1 › explicit guided opening and intro skip persist once, and ten remounts cannot repeat the command
+  [mobile-chromium] › navigation.spec.ts:67:1 › craft saves the current editor while leaving frozen cast and decision intact
+  [mobile-chromium] › navigation.spec.ts:76:1 › a failed opening stays on the old page, exports its candidate and retries the identical run
+  [mobile-chromium] › navigation.spec.ts:87:1 › denied storage keeps an editable export and an explicit memory-only opening
+  [mobile-chromium] › navigation.spec.ts:97:1 › archive/import use the shared serial entry, and cancel preserves the existing project
+  [mobile-chromium] › navigation.spec.ts:111:1 › workbench recovery can be explicitly reread without leaving the product stuck
+  [mobile-chromium] › navigation.spec.ts:119:1 › a real curtain checkpoint produces the actual programme and prepared reunion image
+  [mobile-chromium] › navigation.spec.ts:129:13 › future records remain protected while the museum is readable
+  [mobile-chromium] › navigation.spec.ts:129:13 › corrupt records remain protected while the museum is readable
+  [mobile-chromium] › navigation.spec.ts:136:1 › alias redirects once, keyboard skip does not change route and mobile menu has real focus targets
+  [mobile-chromium] › navigation.spec.ts:144:1 › legacy product entry uses the same project and can save an editor change in Chromium
+  [mobile-chromium] › navigation.spec.ts:152:1 › static product introduction remains readable without JavaScript
+  [mobile-chromium] › practice.spec.ts:28:1 › all three real mouse grips change pose and reload saves the final editor without touching story
+  [mobile-chromium] › practice.spec.ts:42:1 › quick input-only trailing save and native change keep the final range and facing on reload
+  [mobile-chromium] › practice.spec.ts:49:1 › grip arrow keys use one clock, key release/blur stop motion and native range arrows still work
+  [mobile-chromium] › practice.spec.ts:58:1 › action selection, pause/resume, hidden page and long gaps retain time without catch-up
+  [mobile-chromium] › practice.spec.ts:68:1 › all five actions step visibly, keep the axe within the curtain and do not start a story
+  [mobile-chromium] › practice.spec.ts:82:1 › reduced motion uses explicit 250ms steps and never launches a loop
+  [mobile-chromium] › practice.spec.ts:88:1 › actual touch drag cancels cleanly and fallback touch handles unrelated identifiers and multiple ends
+  [mobile-chromium] › practice.spec.ts:100:1 › import during an action archives the latest old pose and never overwrites the new project
+  [mobile-chromium] › practice.spec.ts:107:1 › save failure keeps the final pose exportable and automatic input never retries disk writes
+  [mobile-chromium] › practice.spec.ts:115:1 › memory-only progress stays memory after practice until an explicit save
+  [mobile-chromium] › practice.spec.ts:122:1 › Canvas failure disables input and ten playing remounts clear every practice callback
+  [mobile-chromium] › presentation-guidance.spec.ts:8:1 › one soft curtain, semantic brush titles, replay and public credits
+  [mobile-chromium] › presentation-guidance.spec.ts:15:1 › craft rehearsal restores exact stored appearance and returns on every entry
+  [mobile-chromium] › presentation-guidance.spec.ts:19:1 › lamp and limb practice are isolated, with posture controls below the screen
+  [mobile-chromium] › presentation-guidance.spec.ts:26:1 › story rehearsal restores its checkpoint and explicit skip retries only once
+  [mobile-chromium] › presentation-guidance.spec.ts:31:1 › font failure and reduced motion keep readable titles without ornamental animation
+  [mobile-chromium] › presentation-guidance.spec.ts:34:1 › real hand and keyboard rehearsal restores the running story clock without task evidence
+  [mobile-chromium] › presentation-guidance.spec.ts:41:1 › all major pages keep their columns within narrow and wide viewports
+  [mobile-chromium] › probe.spec.ts:8:1 › production canvas responds to keyboard and has no horizontal overflow
+  [mobile-chromium] › probe.spec.ts:26:1 › commits, reloads and rolls back in actual browser IndexedDB
+  [mobile-chromium] › probe.spec.ts:46:1 › stale second tab keeps its unsaved sample and reports a conflict
+  [mobile-chromium] › probe.spec.ts:65:1 › denied storage preserves an editable sample and offers a real download
+  [mobile-chromium] › probe.spec.ts:87:1 › legacy production chunks operate in Chromium smoke check, not an IE test
+  [mobile-chromium] › probe.spec.ts:112:1 › readable story and museum introduction survives disabled JavaScript
+  [mobile-chromium] › probe.spec.ts:125:1 › Canvas initialization failure leaves honest readable fallback
+  [mobile-chromium] › project-storage.spec.ts:40:1 › formal project autosaves and resumes identity and editing choices after real reload
+  [mobile-chromium] › project-storage.spec.ts:60:1 › imports a real project file as a new project without altering frozen cast or checkpoint
+  [mobile-chromium] › project-storage.spec.ts:77:1 › malformed and future-version file imports leave the existing current project intact
+  [mobile-chromium] › project-storage.spec.ts:87:1 › pending replacement preserves continuous typing and can be canceled without losing queued edits
+  [mobile-chromium] › project-storage.spec.ts:101:1 › new project autosaves keep the previous project recoverable
+  [mobile-chromium] › project-storage.spec.ts:120:1 › damaged draft is quarantined and backup can be edited, saved and reloaded
+  [mobile-chromium] › project-storage.spec.ts:135:1 › unknown stored versions remain exportable and cannot be overwritten through recovery
+  [mobile-chromium] › project-storage.spec.ts:145:1 › two tabs retain both versions on conflict and takeover requires an explicit action
+  [mobile-chromium] › project-storage.spec.ts:161:1 › storage denial keeps an honest in-memory draft with a working project file download
+  [mobile-chromium] › project-storage.spec.ts:169:1 › formal store and file export operate through legacy production chunks in Chromium smoke check
+  [mobile-chromium] › reset-history.spec.ts:16:1 › clear history offers export and cancellation, then atomically restores a fresh-user home
+  [mobile-chromium] › reset-history.spec.ts:25:1 › an old live tab cannot write discarded history back after reset
+  [mobile-chromium] › reset-history.spec.ts:31:1 › a failed reset preserves all history and the retry really starts fresh
+  [mobile-chromium] › result.spec.ts:35:1 › unfinished and protected records never manufacture a reunion or offer result downloads
+  [mobile-chromium] › result.spec.ts:43:61 › call-first exports a real frozen 1600x1200 PNG twice and an unchanged programme
+  [mobile-chromium] › result.spec.ts:43:61 › split-first exports a real frozen 1600x1200 PNG twice and an unchanged programme
+  [mobile-chromium] › result.spec.ts:54:61 › call-first replay is paused, follows only the saved branch and cannot edit the performance
+  [mobile-chromium] › result.spec.ts:54:61 › split-first replay is paused, follows only the saved branch and cannot edit the performance
+  [mobile-chromium] › result.spec.ts:71:1 › SAVE-03 JSON into a fresh browser preserves result identity, frozen PNG and replay decisions
+  [mobile-chromium] › result.spec.ts:80:1 › reduced motion uses explicit still steps and clears every replay callback on ten route exits
+  [mobile-chromium] › result.spec.ts:92:1 › a missing required mask fails the image truthfully and retry loads the actual asset
+  [mobile-chromium] › result.spec.ts:97:1 › PNG encoding rejection and browser refusal report failure, while JSON remains available
+  [mobile-chromium] › result.spec.ts:103:1 › late PNG encoding after exit cannot download or replace the new page
+  [mobile-chromium] › result.spec.ts:108:1 › Canvas failure keeps programme, JSON and replay transcript without reporting a successful image
+  [mobile-chromium] › result.spec.ts:112:1 › legacy PNG encoding fallback produces a real file and all download URLs are released
+  [mobile-chromium] › result.spec.ts:121:1 › failed autosaving still exports the actual reunited draft and replay never retries disk implicitly
+  [mobile-chromium] › result.spec.ts:129:1 › late required images after result exit cannot resurrect the capture or its download action
+  [mobile-chromium] › result.spec.ts:134:1 › a PNG finishing during a pending file import cannot download the previous project
+  [mobile-chromium] › result.spec.ts:146:1 › legacy product exports PNG and plays a read-only frozen scene through the same modules
+  [mobile-chromium] › save-boundaries.spec.ts:122:3 › full opening: close the tab and restore a fresh page at the saved checkpoint
+  [mobile-chromium] › save-boundaries.spec.ts:122:3 › full before-choice: close the tab and restore a fresh page at the saved checkpoint
+  [mobile-chromium] › save-boundaries.spec.ts:122:3 › full after-choice: close the tab and restore a fresh page at the saved checkpoint
+  [mobile-chromium] › save-boundaries.spec.ts:122:3 › full operating: close the tab and restore a fresh page at the saved checkpoint
+  [mobile-chromium] › save-boundaries.spec.ts:122:3 › full operation-saved: close the tab and restore a fresh page at the saved checkpoint
+  [mobile-chromium] › save-boundaries.spec.ts:122:3 › full curtain: close the tab and restore a fresh page at the saved checkpoint
+  [mobile-chromium] › save-boundaries.spec.ts:122:3 › guided opening: close the tab and restore a fresh page at the saved checkpoint
+  [mobile-chromium] › save-boundaries.spec.ts:122:3 › guided before-choice: close the tab and restore a fresh page at the saved checkpoint
+  [mobile-chromium] › save-boundaries.spec.ts:122:3 › guided after-choice: close the tab and restore a fresh page at the saved checkpoint
+  [mobile-chromium] › save-boundaries.spec.ts:122:3 › guided operating: close the tab and restore a fresh page at the saved checkpoint
+  [mobile-chromium] › save-boundaries.spec.ts:122:3 › guided operation-saved: close the tab and restore a fresh page at the saved checkpoint
+  [mobile-chromium] › save-boundaries.spec.ts:122:3 › guided curtain: close the tab and restore a fresh page at the saved checkpoint
+  [mobile-chromium] › save-boundaries.spec.ts:174:3 › full: close after the guardian checkpoint commits while its required image is still loading
+  [mobile-chromium] › save-boundaries.spec.ts:174:3 › guided: close after the guardian checkpoint commits while its required image is still loading
+  [mobile-chromium] › save-boundaries.spec.ts:196:1 › product craft tabs keep both edited palettes when one transaction loses the version check
+  [mobile-chromium] › save-boundaries.spec.ts:218:1 › product story tabs export both branch decisions while the stale candidate cannot replace the winner
+  [mobile-chromium] › save-boundaries.spec.ts:241:3 › palette edit then call-first within 500ms commits the latest whole project and invalidates old timers
+  [mobile-chromium] › save-boundaries.spec.ts:241:3 › palette edit then split-first within 500ms commits the latest whole project and invalidates old timers
+  [mobile-chromium] › site-music.spec.ts:13:1 › site music defaults on, unlocks on the first ordinary click and retains manual mute across routes
+  [mobile-chromium] › site-music.spec.ts:26:1 › reunion first two seconds stay quiet and paused story stops the actual music media
+  [mobile-chromium] › site-music.spec.ts:29:1 › only actual curtain playback selects vocals, pause and mute release the media
+  [mobile-chromium] › site-music.spec.ts:32:1 › failed audio file reports a real error and the next ordinary gesture retries
+  [mobile-chromium] › site-music.spec.ts:35:1 › ten route exits keep one active global player and actual pagehide releases its source
+  [mobile-chromium] › skip-routes.spec.ts:5:136 › explicit skip call-first/home preserves choices, result and read-only replay
+  [mobile-chromium] › skip-routes.spec.ts:5:136 › explicit skip call-first/light preserves choices, result and read-only replay
+  [mobile-chromium] › skip-routes.spec.ts:5:136 › explicit skip call-first/road preserves choices, result and read-only replay
+  [mobile-chromium] › skip-routes.spec.ts:5:136 › explicit skip call-first/waiting preserves choices, result and read-only replay
+  [mobile-chromium] › skip-routes.spec.ts:5:136 › explicit skip call-first/sacrifice preserves choices, result and read-only replay
+  [mobile-chromium] › skip-routes.spec.ts:5:136 › explicit skip split-first/home preserves choices, result and read-only replay
+  [mobile-chromium] › skip-routes.spec.ts:5:136 › explicit skip split-first/light preserves choices, result and read-only replay
+  [mobile-chromium] › skip-routes.spec.ts:5:136 › explicit skip split-first/road preserves choices, result and read-only replay
+  [mobile-chromium] › skip-routes.spec.ts:5:136 › explicit skip split-first/waiting preserves choices, result and read-only replay
+  [mobile-chromium] › skip-routes.spec.ts:5:136 › explicit skip split-first/sacrifice preserves choices, result and read-only replay
+  [mobile-chromium] › story-and-resume.spec.ts:59:3 › full/call-first real graphical controls reach reunion and one curtain with manual input
+  [mobile-chromium] › story-and-resume.spec.ts:59:3 › full/call-first real graphical controls reach reunion and one curtain with explicit assistance
+  [mobile-chromium] › story-and-resume.spec.ts:59:3 › full/split-first real graphical controls reach reunion and one curtain with manual input
+  [mobile-chromium] › story-and-resume.spec.ts:59:3 › full/split-first real graphical controls reach reunion and one curtain with explicit assistance
+  [mobile-chromium] › story-and-resume.spec.ts:59:3 › guided/call-first real graphical controls reach reunion and one curtain with manual input
+  [mobile-chromium] › story-and-resume.spec.ts:59:3 › guided/call-first real graphical controls reach reunion and one curtain with explicit assistance
+  [mobile-chromium] › story-and-resume.spec.ts:59:3 › guided/split-first real graphical controls reach reunion and one curtain with manual input
+  [mobile-chromium] › story-and-resume.spec.ts:59:3 › guided/split-first real graphical controls reach reunion and one curtain with explicit assistance
+  [mobile-chromium] › story-and-resume.spec.ts:87:1 › manual light uses the motif rather than the whole puppet and failed progress is retried once
+  [mobile-chromium] › story-and-resume.spec.ts:98:1 › holding a raised axe never auto-lowers and pause invalidates its continuous observation
+  [mobile-chromium] › story-and-resume.spec.ts:106:1 › choice and operated node reload preserve the branch and reset only transient pose and time
+  [mobile-chromium] › story-and-resume.spec.ts:114:1 › pausing the assisted axe restarts a valid short gesture instead of losing its raised stage forever
+  [mobile-chromium] › story-and-resume.spec.ts:120:1 › reunion requires a final hand operation, four quiet seconds and explicit curtain; retry keeps the same result
+  [mobile-chromium] › story-and-resume.spec.ts:130:1 › real mouse grip and native keyboard input can perform wave and body movement without editing the project
+  [mobile-chromium] › story-and-resume.spec.ts:141:1 › explicit reduced-motion assistance, memory continuation and ten playing exits keep one clock
+  [mobile-chromium] › story-and-resume.spec.ts:156:1 › actual touch, cancellation and legacy Touch identifiers move only the active story body
+  [mobile-chromium] › story-and-resume.spec.ts:171:1 › legacy product accepts real keyboard axe input and the same guarded graphical transition
+  [mobile-chromium] › story-and-resume.spec.ts:180:1 › export and clean-browser import preserve a graphical checkpoint while dropping transient light and pose
+  [mobile-chromium] › story-keyboard.spec.ts:27:3 › full/call-first completes every graphical interaction and curtain using only native keyboard controls
+  [mobile-chromium] › story-keyboard.spec.ts:27:3 › full/split-first completes every graphical interaction and curtain using only native keyboard controls
+  [mobile-chromium] › story-keyboard.spec.ts:27:3 › guided/call-first completes every graphical interaction and curtain using only native keyboard controls
+  [mobile-chromium] › story-keyboard.spec.ts:27:3 › guided/split-first completes every graphical interaction and curtain using only native keyboard controls
+  [mobile-chromium] › story-state.spec.ts:47:3 › full/call-first uses the real text controls, commits one reunion and completes curtain
+  [mobile-chromium] › story-state.spec.ts:47:3 › full/split-first uses the real text controls, commits one reunion and completes curtain
+  [mobile-chromium] › story-state.spec.ts:47:3 › guided/call-first uses the real text controls, commits one reunion and completes curtain
+  [mobile-chromium] › story-state.spec.ts:47:3 › guided/split-first uses the real text controls, commits one reunion and completes curtain
+  [mobile-chromium] › story-state.spec.ts:59:1 › refresh retains a confirmed choice, restarts paused and mode changes only the current short node
+  [mobile-chromium] › story-state.spec.ts:69:1 › a failed reunion stays at the old node, exports its exact candidate, and retries without a second result
+  [mobile-chromium] › story-state.spec.ts:84:1 › legacy text entry uses the same guarded store in Chromium smoke check
+  [mobile-chromium] › three-stage.spec.ts:29:1 › four actual WebGL views share the same two-role Canvas and leave the performance untouched
+  [mobile-chromium] › three-stage.spec.ts:40:1 › carving, colors and lamp changes update the real spatial resources from the same frame
+  [mobile-chromium] › three-stage.spec.ts:46:1 › weak-device hints enforce the actual buffer and texture budget without removing controls
+  [mobile-chromium] › three-stage.spec.ts:51:1 › no WebGL interface keeps the complete 2D editor and never imports Three
+  [mobile-chromium] › three-stage.spec.ts:55:1 › renderer initialization failure returns to 2D and an explicit retry really initializes WebGL
+  [mobile-chromium] › three-stage.spec.ts:59:1 › actual context loss releases the old canvas, preserves 2D and allows a fresh context
+  [mobile-chromium] › three-stage.spec.ts:63:1 › a failed dynamic chunk leaves 2D usable and a fresh request can retry the observation
+  [mobile-chromium] › three-stage.spec.ts:67:1 › closing during a delayed module load prevents a late context and still permits reopening
+  [mobile-chromium] › three-stage.spec.ts:71:1 › ten spatial exits release contexts and listeners without creating animation clocks
+  [mobile-chromium] › three-stage.spec.ts:79:1 › a playing story retains one clock while all camera changes stay outside story progress
+  [mobile-chromium] › three-stage.spec.ts:85:1 › protected future records still allow spatial examples without writing the unknown draft
+  [mobile-chromium] › three-stage.spec.ts:89:1 › legacy product keeps every 2D control and never executes the Three chunk
+  [mobile-chromium] › v4-seek.spec.ts:21:46 › full: current mode cues seek locally, preserve pause/play, reset task evidence and lock during film
+  [mobile-chromium] › v4-seek.spec.ts:21:46 › guided: current mode cues seek locally, preserve pause/play, reset task evidence and lock during film
+  [mobile-chromium] › v4-seek.spec.ts:37:1 › craft keeps original image details and palette, with no added pattern or carving selection
+  [mobile-chromium] › v4-seek.spec.ts:46:1 › fresh guide starts v4 without freezing an unconfirmed costume
+  [mobile-chromium] › v4-seek.spec.ts:50:1 › paused result replay unlocks its cue directory when the first frame becomes ready
+  [mobile-chromium] › v4-workshop.spec.ts:17:1 › native lamp dragging changes lamp geometry, leaves the puppet fixed and survives a context loss
+  [mobile-chromium] › v4-workshop.spec.ts:32:1 › without WebGL the lamp experiment keeps its shadow and keyboard controls
+  [mobile-chromium] › v4-workshop.spec.ts:39:1 › practice uses the detailed original costume even when old pattern fields change
+  [mobile-chromium] › v4-workshop.spec.ts:46:1 › museum prioritizes public photos, supports enlargement and offers a motion switch
+Total: 554 tests in 30 files

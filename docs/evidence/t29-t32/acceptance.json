@@ -1,0 +1,826 @@
+{
+  "recordedAt": "2026-10-25",
+  "kind": "T29-T32 functional acceptance, cross-phase evidence",
+  "sourceCommit": "97060a2c063b204ad9094cde40ef39b44c333fb1",
+  "indexSha256": "eb3598b9ab1a247fa45f898f1414d5153a5664bee2448110c9a03dd5b65b98bf",
+  "sourceSha256": {
+    "src/features/shared/guide-session.ts": "57665024a295c85dc5647e3a442cc24c9b4c15fb3746d14ce777dd86f8edb6e8",
+    "src/features/shared/ink-titles.ts": "1e227d511207ad07efeff9dfb34a6acbbe4263de8b7b98e74465877b1fc7a2d7",
+    "src/features/shared/site-motion.ts": "5f8e1a7d68ec392812e7734b34d29e380bea180e2bd68c752ff413cd64f280d9",
+    "src/features/shared/limb-controls.ts": "5607ac9d8032455f145b4f2aa1948a969ce065506fcdbeacee9d5f3b45839e56",
+    "src/features/shared/cables.css": "5cb929f165cd93240b3713498ca9481895fda71de42d6ba3e7da8e14c1dff863",
+    "src/features/story/controller.ts": "0647963bc258c525d24249cdff672546e7954a9f32d1362dc322f9f0fe8028e4",
+    "src/features/practice/controller.ts": "a43222d825286eacff37c736bdad459324fddf05892221ab2a977062b95e5469",
+    "src/domain/story.ts": "6550d30143538eb415c926688941061ceb9d3b48aeda2b02a0669e6277da3c67",
+    "src/domain/validation.ts": "db514a29bbed5267c200aee35c2a563c919bc862a527fbb3ca620fd5f3c428e3",
+    "src/domain/types.ts": "ab6f0ce834197c7438d67a5854825fe7bda15cc382790dbc7a4df4c321cd1ea9",
+    "src/app/story-commands.ts": "f3eef6a4243d8f623ac34541a16183263fd601adc9c3ea5633f7b52095631dd8",
+    "src/styles/presentation.css": "1679bf2a6d4aeb124903f3cee5c3024b20d80ccc5165bd59e00464b7633b11d5",
+    "src/styles/site-motion.css": "46ed8a24a9dc2e8934433d33268a49f02cf00ec52cbe95ba47f29073be9c6dfd",
+    "public/assets/presentation/manifest.json": "a430ce0e1b8e6e458ab864050c89f7e20987f96b385cc5f734c74c0193ce24b9"
+  },
+  "checks": {
+    "typecheck": "passed via final build",
+    "buildModules": 153,
+    "legacyChunks": 17,
+    "unitFiles": 46,
+    "unitPassed": 543,
+    "assetPNGs": 81,
+    "presentationManifest": "hashes/bytes/dimensions passed",
+    "knownStoryVersions": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "museumPlacements": 17,
+    "museumDecodedImages": 16,
+    "distinctExternalOriginals": 12,
+    "stateTasks": 33,
+    "reviewPacketSnapshot": "ff6fc1aee71743fd0d8fa77aa6be85c807da8423b11b923d60a581d112fef80e"
+  },
+  "browserPhases": [
+    {
+      "file": "browser-first-input-failure.json",
+      "sha256": "034b1cc11447cbdf8fac6ac0e473bae9e4ea4ffcc1e59b9172e9790ace259ac9",
+      "total": 14,
+      "passed": 11,
+      "failed": 3,
+      "durationMs": 153905.866
+    },
+    {
+      "file": "browser-production-fixed.json",
+      "sha256": "4c7fd282f3c4e6bffe6ef08de2ecf15613cff61fdb61a0ef170f2fb2c49bb27c",
+      "total": 40,
+      "passed": 18,
+      "failed": 22,
+      "durationMs": 266646.202
+    },
+    {
+      "file": "browser-final-pass.json",
+      "sha256": "14b3f1a8290d1a2d8ab7b4c30eea4fc86d2e98621da6d56518d991c109138047",
+      "total": 40,
+      "passed": 40,
+      "failed": 0,
+      "durationMs": 275626.125
+    },
+    {
+      "file": "regression.json",
+      "sha256": "a4a266a603a257873b4684299be550931f05ee118794ed79cea747825167a26f",
+      "total": 110,
+      "passed": 102,
+      "failed": 8,
+      "durationMs": 560491.9659999999
+    },
+    {
+      "file": "regression-recheck.json",
+      "sha256": "481419afb70aebdcbffe5ec9209aeb667c357953790046efd2bcdb2143e34622",
+      "total": 48,
+      "passed": 48,
+      "failed": 0,
+      "durationMs": 155583.264
+    },
+    {
+      "file": "presentation-final.json",
+      "sha256": "f365d3468ea75bffe716ef739161065e376c81c868378280064873b9eacdc55c",
+      "total": 14,
+      "passed": 13,
+      "failed": 1,
+      "durationMs": 57666.905
+    },
+    {
+      "file": "guide-final-recheck.json",
+      "sha256": "8eb686d0ce18cd0ebf9da69621f0bf33823b097125363dde1bfb64735fc95a46",
+      "total": 20,
+      "passed": 20,
+      "failed": 0,
+      "durationMs": 63276.093
+    },
+    {
+      "file": "layout-final.json",
+      "sha256": "19cac4a60b00881f9279c90b7668bad2acdc6352ac789b9974a2bd4e0def2712",
+      "total": 6,
+      "passed": 6,
+      "failed": 0,
+      "durationMs": 26154.120000000003
+    }
+  ],
+  "latestCrossPhase": {
+    "uniqueCases": 130,
+    "passed": 130,
+    "sameFinalBuildSingleRun": false,
+    "defaultCollectedSuiteExecuted": false,
+    "cases": [
+      {
+        "case": "presentation-guidance.spec.ts :: one soft curtain, semantic brush titles, replay and public credits :: desktop-chromium",
+        "status": "passed",
+        "report": "guide-final-recheck.json"
+      },
+      {
+        "case": "presentation-guidance.spec.ts :: craft rehearsal restores exact stored appearance and returns on every entry :: desktop-chromium",
+        "status": "passed",
+        "report": "guide-final-recheck.json"
+      },
+      {
+        "case": "presentation-guidance.spec.ts :: lamp and limb practice are isolated, with posture controls below the screen :: desktop-chromium",
+        "status": "passed",
+        "report": "guide-final-recheck.json"
+      },
+      {
+        "case": "presentation-guidance.spec.ts :: story rehearsal restores its checkpoint and explicit skip retries only once :: desktop-chromium",
+        "status": "passed",
+        "report": "layout-final.json"
+      },
+      {
+        "case": "presentation-guidance.spec.ts :: font failure and reduced motion keep readable titles without ornamental animation :: desktop-chromium",
+        "status": "passed",
+        "report": "guide-final-recheck.json"
+      },
+      {
+        "case": "presentation-guidance.spec.ts :: real hand and keyboard rehearsal restores the running story clock without task evidence :: desktop-chromium",
+        "status": "passed",
+        "report": "layout-final.json"
+      },
+      {
+        "case": "presentation-guidance.spec.ts :: all major pages keep their columns within narrow and wide viewports :: desktop-chromium",
+        "status": "passed",
+        "report": "layout-final.json"
+      },
+      {
+        "case": "presentation-guidance.spec.ts :: one soft curtain, semantic brush titles, replay and public credits :: mobile-chromium",
+        "status": "passed",
+        "report": "guide-final-recheck.json"
+      },
+      {
+        "case": "presentation-guidance.spec.ts :: craft rehearsal restores exact stored appearance and returns on every entry :: mobile-chromium",
+        "status": "passed",
+        "report": "guide-final-recheck.json"
+      },
+      {
+        "case": "presentation-guidance.spec.ts :: lamp and limb practice are isolated, with posture controls below the screen :: mobile-chromium",
+        "status": "passed",
+        "report": "guide-final-recheck.json"
+      },
+      {
+        "case": "presentation-guidance.spec.ts :: story rehearsal restores its checkpoint and explicit skip retries only once :: mobile-chromium",
+        "status": "passed",
+        "report": "layout-final.json"
+      },
+      {
+        "case": "presentation-guidance.spec.ts :: font failure and reduced motion keep readable titles without ornamental animation :: mobile-chromium",
+        "status": "passed",
+        "report": "guide-final-recheck.json"
+      },
+      {
+        "case": "presentation-guidance.spec.ts :: real hand and keyboard rehearsal restores the running story clock without task evidence :: mobile-chromium",
+        "status": "passed",
+        "report": "layout-final.json"
+      },
+      {
+        "case": "presentation-guidance.spec.ts :: all major pages keep their columns within narrow and wide viewports :: mobile-chromium",
+        "status": "passed",
+        "report": "layout-final.json"
+      },
+      {
+        "case": "guide-lifecycle.spec.ts :: v1 silent node guide stays on its checkpoint, restores scroll and cancels on blur :: desktop-chromium",
+        "status": "passed",
+        "report": "guide-final-recheck.json"
+      },
+      {
+        "case": "guide-lifecycle.spec.ts :: v2 silent node guide stays on its checkpoint, restores scroll and cancels on blur :: desktop-chromium",
+        "status": "passed",
+        "report": "guide-final-recheck.json"
+      },
+      {
+        "case": "guide-lifecycle.spec.ts :: legacy entry remains usable with modern DOM methods and WebGL absent :: desktop-chromium",
+        "status": "passed",
+        "report": "guide-final-recheck.json"
+      },
+      {
+        "case": "guide-lifecycle.spec.ts :: v1 silent node guide stays on its checkpoint, restores scroll and cancels on blur :: mobile-chromium",
+        "status": "passed",
+        "report": "guide-final-recheck.json"
+      },
+      {
+        "case": "guide-lifecycle.spec.ts :: v2 silent node guide stays on its checkpoint, restores scroll and cancels on blur :: mobile-chromium",
+        "status": "passed",
+        "report": "guide-final-recheck.json"
+      },
+      {
+        "case": "guide-lifecycle.spec.ts :: legacy entry remains usable with modern DOM methods and WebGL absent :: mobile-chromium",
+        "status": "passed",
+        "report": "guide-final-recheck.json"
+      },
+      {
+        "case": "skip-routes.spec.ts :: explicit skip call-first/home preserves choices, result and read-only replay :: desktop-chromium",
+        "status": "passed",
+        "report": "browser-final-pass.json"
+      },
+      {
+        "case": "skip-routes.spec.ts :: explicit skip call-first/light preserves choices, result and read-only replay :: desktop-chromium",
+        "status": "passed",
+        "report": "browser-final-pass.json"
+      },
+      {
+        "case": "skip-routes.spec.ts :: explicit skip call-first/road preserves choices, result and read-only replay :: desktop-chromium",
+        "status": "passed",
+        "report": "browser-final-pass.json"
+      },
+      {
+        "case": "skip-routes.spec.ts :: explicit skip call-first/waiting preserves choices, result and read-only replay :: desktop-chromium",
+        "status": "passed",
+        "report": "browser-final-pass.json"
+      },
+      {
+        "case": "skip-routes.spec.ts :: explicit skip call-first/sacrifice preserves choices, result and read-only replay :: desktop-chromium",
+        "status": "passed",
+        "report": "browser-final-pass.json"
+      },
+      {
+        "case": "skip-routes.spec.ts :: explicit skip split-first/home preserves choices, result and read-only replay :: desktop-chromium",
+        "status": "passed",
+        "report": "browser-final-pass.json"
+      },
+      {
+        "case": "skip-routes.spec.ts :: explicit skip split-first/light preserves choices, result and read-only replay :: desktop-chromium",
+        "status": "passed",
+        "report": "browser-final-pass.json"
+      },
+      {
+        "case": "skip-routes.spec.ts :: explicit skip split-first/road preserves choices, result and read-only replay :: desktop-chromium",
+        "status": "passed",
+        "report": "browser-final-pass.json"
+      },
+      {
+        "case": "skip-routes.spec.ts :: explicit skip split-first/waiting preserves choices, result and read-only replay :: desktop-chromium",
+        "status": "passed",
+        "report": "browser-final-pass.json"
+      },
+      {
+        "case": "skip-routes.spec.ts :: explicit skip split-first/sacrifice preserves choices, result and read-only replay :: desktop-chromium",
+        "status": "passed",
+        "report": "browser-final-pass.json"
+      },
+      {
+        "case": "skip-routes.spec.ts :: explicit skip call-first/home preserves choices, result and read-only replay :: mobile-chromium",
+        "status": "passed",
+        "report": "browser-final-pass.json"
+      },
+      {
+        "case": "skip-routes.spec.ts :: explicit skip call-first/light preserves choices, result and read-only replay :: mobile-chromium",
+        "status": "passed",
+        "report": "browser-final-pass.json"
+      },
+      {
+        "case": "skip-routes.spec.ts :: explicit skip call-first/road preserves choices, result and read-only replay :: mobile-chromium",
+        "status": "passed",
+        "report": "browser-final-pass.json"
+      },
+      {
+        "case": "skip-routes.spec.ts :: explicit skip call-first/waiting preserves choices, result and read-only replay :: mobile-chromium",
+        "status": "passed",
+        "report": "browser-final-pass.json"
+      },
+      {
+        "case": "skip-routes.spec.ts :: explicit skip call-first/sacrifice preserves choices, result and read-only replay :: mobile-chromium",
+        "status": "passed",
+        "report": "browser-final-pass.json"
+      },
+      {
+        "case": "skip-routes.spec.ts :: explicit skip split-first/home preserves choices, result and read-only replay :: mobile-chromium",
+        "status": "passed",
+        "report": "browser-final-pass.json"
+      },
+      {
+        "case": "skip-routes.spec.ts :: explicit skip split-first/light preserves choices, result and read-only replay :: mobile-chromium",
+        "status": "passed",
+        "report": "browser-final-pass.json"
+      },
+      {
+        "case": "skip-routes.spec.ts :: explicit skip split-first/road preserves choices, result and read-only replay :: mobile-chromium",
+        "status": "passed",
+        "report": "browser-final-pass.json"
+      },
+      {
+        "case": "skip-routes.spec.ts :: explicit skip split-first/waiting preserves choices, result and read-only replay :: mobile-chromium",
+        "status": "passed",
+        "report": "browser-final-pass.json"
+      },
+      {
+        "case": "skip-routes.spec.ts :: explicit skip split-first/sacrifice preserves choices, result and read-only replay :: mobile-chromium",
+        "status": "passed",
+        "report": "browser-final-pass.json"
+      },
+      {
+        "case": "practice.spec.ts :: all three real mouse grips change pose and reload saves the final editor without touching story :: desktop-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "practice.spec.ts :: quick input-only trailing save and native change keep the final range and facing on reload :: desktop-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "practice.spec.ts :: grip arrow keys use one clock, key release/blur stop motion and native range arrows still work :: desktop-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "practice.spec.ts :: action selection, pause/resume, hidden page and long gaps retain time without catch-up :: desktop-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "practice.spec.ts :: all five actions step visibly, keep the axe within the curtain and do not start a story :: desktop-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "practice.spec.ts :: reduced motion uses explicit 250ms steps and never launches a loop :: desktop-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "practice.spec.ts :: actual touch drag cancels cleanly and fallback touch handles unrelated identifiers and multiple ends :: desktop-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "practice.spec.ts :: import during an action archives the latest old pose and never overwrites the new project :: desktop-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "practice.spec.ts :: save failure keeps the final pose exportable and automatic input never retries disk writes :: desktop-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "practice.spec.ts :: memory-only progress stays memory after practice until an explicit save :: desktop-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "practice.spec.ts :: Canvas failure disables input and ten playing remounts clear every practice callback :: desktop-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "practice.spec.ts :: all three real mouse grips change pose and reload saves the final editor without touching story :: mobile-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "practice.spec.ts :: quick input-only trailing save and native change keep the final range and facing on reload :: mobile-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "practice.spec.ts :: grip arrow keys use one clock, key release/blur stop motion and native range arrows still work :: mobile-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "practice.spec.ts :: action selection, pause/resume, hidden page and long gaps retain time without catch-up :: mobile-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "practice.spec.ts :: all five actions step visibly, keep the axe within the curtain and do not start a story :: mobile-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "practice.spec.ts :: reduced motion uses explicit 250ms steps and never launches a loop :: mobile-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "practice.spec.ts :: actual touch drag cancels cleanly and fallback touch handles unrelated identifiers and multiple ends :: mobile-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "practice.spec.ts :: import during an action archives the latest old pose and never overwrites the new project :: mobile-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "practice.spec.ts :: save failure keeps the final pose exportable and automatic input never retries disk writes :: mobile-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "practice.spec.ts :: memory-only progress stays memory after practice until an explicit save :: mobile-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "practice.spec.ts :: Canvas failure disables input and ten playing remounts clear every practice callback :: mobile-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "result.spec.ts :: unfinished and protected records never manufacture a reunion or offer result downloads :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: call-first exports a real frozen 1600x1200 PNG twice and an unchanged programme :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: split-first exports a real frozen 1600x1200 PNG twice and an unchanged programme :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: call-first replay is paused, follows only the saved branch and cannot edit the performance :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: split-first replay is paused, follows only the saved branch and cannot edit the performance :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: SAVE-03 JSON into a fresh browser preserves result identity, frozen PNG and replay decisions :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: reduced motion uses explicit still steps and clears every replay callback on ten route exits :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: a missing required mask fails the image truthfully and retry loads the actual asset :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: PNG encoding rejection and browser refusal report failure, while JSON remains available :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: late PNG encoding after exit cannot download or replace the new page :: desktop-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "result.spec.ts :: Canvas failure keeps programme, JSON and replay transcript without reporting a successful image :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: legacy PNG encoding fallback produces a real file and all download URLs are released :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: failed autosaving still exports the actual reunited draft and replay never retries disk implicitly :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: late required images after result exit cannot resurrect the capture or its download action :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: a PNG finishing during a pending file import cannot download the previous project :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: legacy product exports PNG and plays a read-only frozen scene through the same modules :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: unfinished and protected records never manufacture a reunion or offer result downloads :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: call-first exports a real frozen 1600x1200 PNG twice and an unchanged programme :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: split-first exports a real frozen 1600x1200 PNG twice and an unchanged programme :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: call-first replay is paused, follows only the saved branch and cannot edit the performance :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: split-first replay is paused, follows only the saved branch and cannot edit the performance :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: SAVE-03 JSON into a fresh browser preserves result identity, frozen PNG and replay decisions :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: reduced motion uses explicit still steps and clears every replay callback on ten route exits :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: a missing required mask fails the image truthfully and retry loads the actual asset :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: PNG encoding rejection and browser refusal report failure, while JSON remains available :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: late PNG encoding after exit cannot download or replace the new page :: mobile-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "result.spec.ts :: Canvas failure keeps programme, JSON and replay transcript without reporting a successful image :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: legacy PNG encoding fallback produces a real file and all download URLs are released :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: failed autosaving still exports the actual reunited draft and replay never retries disk implicitly :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: late required images after result exit cannot resurrect the capture or its download action :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: a PNG finishing during a pending file import cannot download the previous project :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "result.spec.ts :: legacy product exports PNG and plays a read-only frozen scene through the same modules :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "site-music.spec.ts :: site music defaults on, unlocks on the first ordinary click and retains manual mute across routes :: desktop-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "site-music.spec.ts :: reunion first two seconds stay quiet and paused story stops the actual music media :: desktop-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "site-music.spec.ts :: only actual curtain playback selects vocals, pause and mute release the media :: desktop-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "site-music.spec.ts :: failed audio file reports a real error and the next ordinary gesture retries :: desktop-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "site-music.spec.ts :: ten route exits keep one active global player and actual pagehide releases its source :: desktop-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "site-music.spec.ts :: site music defaults on, unlocks on the first ordinary click and retains manual mute across routes :: mobile-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "site-music.spec.ts :: reunion first two seconds stay quiet and paused story stops the actual music media :: mobile-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "site-music.spec.ts :: only actual curtain playback selects vocals, pause and mute release the media :: mobile-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "site-music.spec.ts :: failed audio file reports a real error and the next ordinary gesture retries :: mobile-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "site-music.spec.ts :: ten route exits keep one active global player and actual pagehide releases its source :: mobile-chromium",
+        "status": "passed",
+        "report": "regression-recheck.json"
+      },
+      {
+        "case": "story-keyboard.spec.ts :: full/call-first completes every graphical interaction and curtain using only native keyboard controls :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "story-keyboard.spec.ts :: full/split-first completes every graphical interaction and curtain using only native keyboard controls :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "story-keyboard.spec.ts :: guided/call-first completes every graphical interaction and curtain using only native keyboard controls :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "story-keyboard.spec.ts :: guided/split-first completes every graphical interaction and curtain using only native keyboard controls :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "story-keyboard.spec.ts :: full/call-first completes every graphical interaction and curtain using only native keyboard controls :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "story-keyboard.spec.ts :: full/split-first completes every graphical interaction and curtain using only native keyboard controls :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "story-keyboard.spec.ts :: guided/call-first completes every graphical interaction and curtain using only native keyboard controls :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "story-keyboard.spec.ts :: guided/split-first completes every graphical interaction and curtain using only native keyboard controls :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "v4-seek.spec.ts :: full: current mode cues seek locally, preserve pause/play, reset task evidence and lock during film :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "v4-seek.spec.ts :: guided: current mode cues seek locally, preserve pause/play, reset task evidence and lock during film :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "v4-seek.spec.ts :: craft keeps original image details and palette, with no added pattern or carving selection :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "v4-seek.spec.ts :: fresh guide starts v4 without freezing an unconfirmed costume :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "v4-seek.spec.ts :: paused result replay unlocks its cue directory when the first frame becomes ready :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "v4-seek.spec.ts :: full: current mode cues seek locally, preserve pause/play, reset task evidence and lock during film :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "v4-seek.spec.ts :: guided: current mode cues seek locally, preserve pause/play, reset task evidence and lock during film :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "v4-seek.spec.ts :: craft keeps original image details and palette, with no added pattern or carving selection :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "v4-seek.spec.ts :: fresh guide starts v4 without freezing an unconfirmed costume :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "v4-seek.spec.ts :: paused result replay unlocks its cue directory when the first frame becomes ready :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "v4-workshop.spec.ts :: native lamp dragging changes lamp geometry, leaves the puppet fixed and survives a context loss :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "v4-workshop.spec.ts :: without WebGL the lamp experiment keeps its shadow and keyboard controls :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "v4-workshop.spec.ts :: practice uses the detailed original costume even when old pattern fields change :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "v4-workshop.spec.ts :: museum prioritizes public photos, supports enlargement and offers a motion switch :: desktop-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "v4-workshop.spec.ts :: native lamp dragging changes lamp geometry, leaves the puppet fixed and survives a context loss :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "v4-workshop.spec.ts :: without WebGL the lamp experiment keeps its shadow and keyboard controls :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "v4-workshop.spec.ts :: practice uses the detailed original costume even when old pattern fields change :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      },
+      {
+        "case": "v4-workshop.spec.ts :: museum prioritizes public photos, supports enlargement and offers a motion switch :: mobile-chromium",
+        "status": "passed",
+        "report": "regression.json"
+      }
+    ]
+  },
+  "loading": [
+    {
+      "file": "startup-final.json",
+      "sha256": "1f2cdf3874adf531f42278f2e4931682c90c44dd3209b739f71203cafc243e64",
+      "source": "97060a2c063b204ad9094cde40ef39b44c333fb1",
+      "samples": 4,
+      "homeVisualMaxMs": 7949.89999999851,
+      "introMaxMs": 4049.89999999851,
+      "imageFontMaxBytes": 5247946
+    },
+    {
+      "file": "startup-png-final.json",
+      "sha256": "e4d55cd9a4471e80477717aa8e058a2d586b2f20273ace1087f98b7482dd1827",
+      "source": "97060a2c063b204ad9094cde40ef39b44c333fb1",
+      "samples": 4,
+      "homeVisualMaxMs": 7931.800000000745,
+      "introMaxMs": 5553.10000000149,
+      "imageFontMaxBytes": 6305451
+    }
+  ],
+  "visual": {
+    "file": "visual.json",
+    "sha256": "36e35efb0672ab81652f4eec9c4fdcdf091372d4a12d08804580c8e2179162ab",
+    "stills": 30,
+    "viewportWidths": [
+      1920,
+      1440,
+      1024,
+      390,
+      320
+    ],
+    "fixtureResults": "Canonical completed v4 stills; actual routes separately exercised in skip-routes.spec.ts"
+  },
+  "reviewPending": {
+    "pending": 264
+  },
+  "protectedGitBlobs": {
+    "START_HERE.md": {
+      "base": "46a63e80edfff86d9758e7a312523fc5956de06e",
+      "current": "46a63e80edfff86d9758e7a312523fc5956de06e"
+    },
+    ".gitignore": {
+      "base": "9d229a31ddac6366ccd3c5b7e995c71424080c4c",
+      "current": "9d229a31ddac6366ccd3c5b7e995c71424080c4c"
+    },
+    "package-lock.json": {
+      "base": "d344fd4193496951eb572025f4c6acbbc09c9cd0",
+      "current": "d344fd4193496951eb572025f4c6acbbc09c9cd0"
+    }
+  },
+  "untouchedUntrackedDocuments": [
+    "2026年零杯开幕式PPT（含初赛评分细则）.pptx",
+    "2026年零杯网页设计大赛选手手册.docx"
+  ],
+  "limitations": [
+    "Formal art/literary/cultural/rights review remains T10; no approval inferred.",
+    "Physical IE/phones/Safari/touch and at least three external participants remain T11/T13.",
+    "Native v4 full duration/hearing and existing SwiftShader FPS gap were not replaced by controlled RAF tests.",
+    "T14 and P1 remain unchanged; no new deletion of real user history."
+  ]
+}

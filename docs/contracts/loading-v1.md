@@ -15,3 +15,7 @@
 首页、入口gzip JS≤200KiB、运行帧率和draw calls继续独立判定；剧情时钟断档、团圆静候及P1十五秒录制均不受本合同改变。当前无损传输与PNG兼容路径保留，不为历史体积门槛删图、降低色彩或省略音频。
 
 `measure-startup.mjs`判定首页及图片实际就绪，字节统计仅列历史参考；`measure-music-load.mjs`检查原生音乐就绪并记录buffered范围及HTTP媒体响应。历史JSON及其当时的2MiB失败保留，新口径使用独立的`t10-loading-*`与`t10-music-readiness.json`，不改写过去。
+
+## 2026-10-25 首页视觉就绪
+
+新增 homePresentationReadyMs：document load（含本地首页背景图）完成、document.fonts settled、2.6秒启幕结束且首页可用，再等两帧原生RAF；与图片/首段一样按作者约15秒目标单列。历史homeReadyMs仍表示按钮可用，不包含整幅画面与启幕，不放宽其本地2秒/慢网5秒参考。测量先显式跳过可选演练，再观测真实暂停序幕；教学阅读时间不混入下载时间。原始PNG和现代交付均测，字节超过旧参考不删减美术或音频。

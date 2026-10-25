@@ -1,0 +1,2333 @@
+{
+  "config": {
+    "argv": [
+      "E:\\Software_after2026\\nodejs\\node.exe",
+      "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/presentation-guidance.spec.ts",
+      "tests/e2e/guide-lifecycle.spec.ts",
+      "tests/e2e/skip-routes.spec.ts",
+      "--workers=2"
+    ],
+    "configFile": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\playwright.config.ts",
+    "rootDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "desktop-chromium",
+        "name": "desktop-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "desktop-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop-chromium"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "mobile-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile-chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/t29-t32/browser-production-fixed.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 2,
+    "webServer": {
+      "command": "npm run preview -- --port 4173 --strictPort",
+      "url": "http://127.0.0.1:4173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "guide-lifecycle.spec.ts",
+      "file": "guide-lifecycle.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "v1 silent node guide stays on its checkpoint, restores scroll and cancels on blur",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 4119,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m180\u001b[39m\nReceived: \u001b[31m256\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m180\u001b[39m\nReceived: \u001b[31m256\u001b[39m\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-lifecycle.spec.ts:7:742",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-lifecycle.spec.ts",
+                      "column": 742,
+                      "line": 7
+                    },
+                    "snippet": "   5 |  await page.goto('/study.html');const p=structuredClone(fixture);Object.assign(p.story!,{definitionVersion:version,nodeId:'call-split'});\n   6 |  await page.evaluate(async value=>{const db=await new Promise<IDBDatabase>((yes,no)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>yes(r.result);r.onerror=()=>no(r.error);});await new Promise<void>((yes,no)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>yes();tx.onabort=()=>no(tx.error);});db.close();},p);\n>  7 |  await page.goto('/#/story');await expect(page.locator('.guide-banner')).toContainText('1/2');await page.locator('#guide-skip').click();await expect(page.locator('.guide-replay')).toBeEnabled();await page.evaluate(()=>scrollTo(0,180));const scroll=await page.evaluate(()=>scrollY);await page.locator('.guide-replay').dispatchEvent('click');await page.locator('#story-play').click();await page.evaluate(()=>Reflect.get(window,'__advance')(60000));await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','call-split');await expect(page.locator('.guide-banner')).toContainText('2/2');await page.locator('#story-pause').click();await expect(page.locator('.guide-banner')).toHaveCount(0);expect(await page.evaluate(()=>scrollY)).toBe(scroll);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^\n   8 |  await page.locator('.guide-replay').click();await expect(page.locator('.guide-banner')).toBeVisible();await page.evaluate(()=>dispatchEvent(new Event('blur')));await expect(page.locator('.guide-shade')).toHaveCount(0);await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','call-split');await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');await page.goto('/#/museum');await expect(page.locator('.guide-banner')).toHaveCount(0);await expect(page.locator('html')).not.toHaveAttribute('data-guiding');\n   9 | });\n  10 | test('legacy entry remains usable with modern DOM methods and WebGL absent',async({page})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-lifecycle.spec.ts",
+                        "column": 742,
+                        "line": 7
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m180\u001b[39m\nReceived: \u001b[31m256\u001b[39m\n\n   5 |  await page.goto('/study.html');const p=structuredClone(fixture);Object.assign(p.story!,{definitionVersion:version,nodeId:'call-split'});\n   6 |  await page.evaluate(async value=>{const db=await new Promise<IDBDatabase>((yes,no)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>yes(r.result);r.onerror=()=>no(r.error);});await new Promise<void>((yes,no)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>yes();tx.onabort=()=>no(tx.error);});db.close();},p);\n>  7 |  await page.goto('/#/story');await expect(page.locator('.guide-banner')).toContainText('1/2');await page.locator('#guide-skip').click();await expect(page.locator('.guide-replay')).toBeEnabled();await page.evaluate(()=>scrollTo(0,180));const scroll=await page.evaluate(()=>scrollY);await page.locator('.guide-replay').dispatchEvent('click');await page.locator('#story-play').click();await page.evaluate(()=>Reflect.get(window,'__advance')(60000));await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','call-split');await expect(page.locator('.guide-banner')).toContainText('2/2');await page.locator('#story-pause').click();await expect(page.locator('.guide-banner')).toHaveCount(0);expect(await page.evaluate(()=>scrollY)).toBe(scroll);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^\n   8 |  await page.locator('.guide-replay').click();await expect(page.locator('.guide-banner')).toBeVisible();await page.evaluate(()=>dispatchEvent(new Event('blur')));await expect(page.locator('.guide-shade')).toHaveCount(0);await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','call-split');await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');await page.goto('/#/museum');await expect(page.locator('.guide-banner')).toHaveCount(0);await expect(page.locator('html')).not.toHaveAttribute('data-guiding');\n   9 | });\n  10 | test('legacy entry remains usable with modern DOM methods and WebGL absent',async({page})=>{\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-lifecycle.spec.ts:7:742"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T06:59:58.587Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\guide-lifecycle-v1-silent--2fd04--scroll-and-cancels-on-blur-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\guide-lifecycle-v1-silent--2fd04--scroll-and-cancels-on-blur-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-lifecycle.spec.ts",
+                    "column": 742,
+                    "line": 7
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c935895c2fa19e0d8982-0a4805ae8603c773a70d",
+          "file": "guide-lifecycle.spec.ts",
+          "line": 3,
+          "column": 28
+        },
+        {
+          "title": "v2 silent node guide stays on its checkpoint, restores scroll and cancels on blur",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 5829,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.guide-banner')\nExpected substring: \u001b[32m\"1/2\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.guide-banner') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.guide-banner')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.guide-banner')\nExpected substring: \u001b[32m\"1/2\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.guide-banner') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.guide-banner')\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-lifecycle.spec.ts:7:74",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-lifecycle.spec.ts",
+                      "column": 74,
+                      "line": 7
+                    },
+                    "snippet": "   5 |  await page.goto('/study.html');const p=structuredClone(fixture);Object.assign(p.story!,{definitionVersion:version,nodeId:'call-split'});\n   6 |  await page.evaluate(async value=>{const db=await new Promise<IDBDatabase>((yes,no)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>yes(r.result);r.onerror=()=>no(r.error);});await new Promise<void>((yes,no)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>yes();tx.onabort=()=>no(tx.error);});db.close();},p);\n>  7 |  await page.goto('/#/story');await expect(page.locator('.guide-banner')).toContainText('1/2');await page.locator('#guide-skip').click();await expect(page.locator('.guide-replay')).toBeEnabled();await page.evaluate(()=>scrollTo(0,180));const scroll=await page.evaluate(()=>scrollY);await page.locator('.guide-replay').dispatchEvent('click');await page.locator('#story-play').click();await page.evaluate(()=>Reflect.get(window,'__advance')(60000));await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','call-split');await expect(page.locator('.guide-banner')).toContainText('2/2');await page.locator('#story-pause').click();await expect(page.locator('.guide-banner')).toHaveCount(0);expect(await page.evaluate(()=>scrollY)).toBe(scroll);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');\n     |                                                                          ^\n   8 |  await page.locator('.guide-replay').click();await expect(page.locator('.guide-banner')).toBeVisible();await page.evaluate(()=>dispatchEvent(new Event('blur')));await expect(page.locator('.guide-shade')).toHaveCount(0);await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','call-split');await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');await page.goto('/#/museum');await expect(page.locator('.guide-banner')).toHaveCount(0);await expect(page.locator('html')).not.toHaveAttribute('data-guiding');\n   9 | });\n  10 | test('legacy entry remains usable with modern DOM methods and WebGL absent',async({page})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-lifecycle.spec.ts",
+                        "column": 74,
+                        "line": 7
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.guide-banner')\nExpected substring: \u001b[32m\"1/2\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.guide-banner') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.guide-banner')\u001b[22m\n\n\n   5 |  await page.goto('/study.html');const p=structuredClone(fixture);Object.assign(p.story!,{definitionVersion:version,nodeId:'call-split'});\n   6 |  await page.evaluate(async value=>{const db=await new Promise<IDBDatabase>((yes,no)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>yes(r.result);r.onerror=()=>no(r.error);});await new Promise<void>((yes,no)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>yes();tx.onabort=()=>no(tx.error);});db.close();},p);\n>  7 |  await page.goto('/#/story');await expect(page.locator('.guide-banner')).toContainText('1/2');await page.locator('#guide-skip').click();await expect(page.locator('.guide-replay')).toBeEnabled();await page.evaluate(()=>scrollTo(0,180));const scroll=await page.evaluate(()=>scrollY);await page.locator('.guide-replay').dispatchEvent('click');await page.locator('#story-play').click();await page.evaluate(()=>Reflect.get(window,'__advance')(60000));await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','call-split');await expect(page.locator('.guide-banner')).toContainText('2/2');await page.locator('#story-pause').click();await expect(page.locator('.guide-banner')).toHaveCount(0);expect(await page.evaluate(()=>scrollY)).toBe(scroll);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');\n     |                                                                          ^\n   8 |  await page.locator('.guide-replay').click();await expect(page.locator('.guide-banner')).toBeVisible();await page.evaluate(()=>dispatchEvent(new Event('blur')));await expect(page.locator('.guide-shade')).toHaveCount(0);await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','call-split');await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');await page.goto('/#/museum');await expect(page.locator('.guide-banner')).toHaveCount(0);await expect(page.locator('html')).not.toHaveAttribute('data-guiding');\n   9 | });\n  10 | test('legacy entry remains usable with modern DOM methods and WebGL absent',async({page})=>{\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-lifecycle.spec.ts:7:74"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T06:59:58.548Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\guide-lifecycle-v2-silent--e1d9a--scroll-and-cancels-on-blur-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\guide-lifecycle-v2-silent--e1d9a--scroll-and-cancels-on-blur-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-lifecycle.spec.ts",
+                    "column": 74,
+                    "line": 7
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c935895c2fa19e0d8982-3c5f8b7ff60aff93d7b4",
+          "file": "guide-lifecycle.spec.ts",
+          "line": 3,
+          "column": 28
+        },
+        {
+          "title": "legacy entry remains usable with modern DOM methods and WebGL absent",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2036,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:00:03.933Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c935895c2fa19e0d8982-c4b4413cdd1e3587d744",
+          "file": "guide-lifecycle.spec.ts",
+          "line": 10,
+          "column": 1
+        },
+        {
+          "title": "v1 silent node guide stays on its checkpoint, restores scroll and cancels on blur",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 2900,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m180\u001b[39m\nReceived: \u001b[31m256\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m180\u001b[39m\nReceived: \u001b[31m256\u001b[39m\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-lifecycle.spec.ts:7:742",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-lifecycle.spec.ts",
+                      "column": 742,
+                      "line": 7
+                    },
+                    "snippet": "   5 |  await page.goto('/study.html');const p=structuredClone(fixture);Object.assign(p.story!,{definitionVersion:version,nodeId:'call-split'});\n   6 |  await page.evaluate(async value=>{const db=await new Promise<IDBDatabase>((yes,no)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>yes(r.result);r.onerror=()=>no(r.error);});await new Promise<void>((yes,no)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>yes();tx.onabort=()=>no(tx.error);});db.close();},p);\n>  7 |  await page.goto('/#/story');await expect(page.locator('.guide-banner')).toContainText('1/2');await page.locator('#guide-skip').click();await expect(page.locator('.guide-replay')).toBeEnabled();await page.evaluate(()=>scrollTo(0,180));const scroll=await page.evaluate(()=>scrollY);await page.locator('.guide-replay').dispatchEvent('click');await page.locator('#story-play').click();await page.evaluate(()=>Reflect.get(window,'__advance')(60000));await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','call-split');await expect(page.locator('.guide-banner')).toContainText('2/2');await page.locator('#story-pause').click();await expect(page.locator('.guide-banner')).toHaveCount(0);expect(await page.evaluate(()=>scrollY)).toBe(scroll);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^\n   8 |  await page.locator('.guide-replay').click();await expect(page.locator('.guide-banner')).toBeVisible();await page.evaluate(()=>dispatchEvent(new Event('blur')));await expect(page.locator('.guide-shade')).toHaveCount(0);await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','call-split');await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');await page.goto('/#/museum');await expect(page.locator('.guide-banner')).toHaveCount(0);await expect(page.locator('html')).not.toHaveAttribute('data-guiding');\n   9 | });\n  10 | test('legacy entry remains usable with modern DOM methods and WebGL absent',async({page})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-lifecycle.spec.ts",
+                        "column": 742,
+                        "line": 7
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m180\u001b[39m\nReceived: \u001b[31m256\u001b[39m\n\n   5 |  await page.goto('/study.html');const p=structuredClone(fixture);Object.assign(p.story!,{definitionVersion:version,nodeId:'call-split'});\n   6 |  await page.evaluate(async value=>{const db=await new Promise<IDBDatabase>((yes,no)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>yes(r.result);r.onerror=()=>no(r.error);});await new Promise<void>((yes,no)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>yes();tx.onabort=()=>no(tx.error);});db.close();},p);\n>  7 |  await page.goto('/#/story');await expect(page.locator('.guide-banner')).toContainText('1/2');await page.locator('#guide-skip').click();await expect(page.locator('.guide-replay')).toBeEnabled();await page.evaluate(()=>scrollTo(0,180));const scroll=await page.evaluate(()=>scrollY);await page.locator('.guide-replay').dispatchEvent('click');await page.locator('#story-play').click();await page.evaluate(()=>Reflect.get(window,'__advance')(60000));await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','call-split');await expect(page.locator('.guide-banner')).toContainText('2/2');await page.locator('#story-pause').click();await expect(page.locator('.guide-banner')).toHaveCount(0);expect(await page.evaluate(()=>scrollY)).toBe(scroll);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^\n   8 |  await page.locator('.guide-replay').click();await expect(page.locator('.guide-banner')).toBeVisible();await page.evaluate(()=>dispatchEvent(new Event('blur')));await expect(page.locator('.guide-shade')).toHaveCount(0);await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','call-split');await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');await page.goto('/#/museum');await expect(page.locator('.guide-banner')).toHaveCount(0);await expect(page.locator('html')).not.toHaveAttribute('data-guiding');\n   9 | });\n  10 | test('legacy entry remains usable with modern DOM methods and WebGL absent',async({page})=>{\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-lifecycle.spec.ts:7:742"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:02:16.594Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\guide-lifecycle-v1-silent--2fd04--scroll-and-cancels-on-blur-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\guide-lifecycle-v1-silent--2fd04--scroll-and-cancels-on-blur-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-lifecycle.spec.ts",
+                    "column": 742,
+                    "line": 7
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c935895c2fa19e0d8982-69c3191071be25aae088",
+          "file": "guide-lifecycle.spec.ts",
+          "line": 3,
+          "column": 28
+        },
+        {
+          "title": "v2 silent node guide stays on its checkpoint, restores scroll and cancels on blur",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 5803,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.guide-banner')\nExpected substring: \u001b[32m\"1/2\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.guide-banner') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.guide-banner')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.guide-banner')\nExpected substring: \u001b[32m\"1/2\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.guide-banner') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.guide-banner')\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-lifecycle.spec.ts:7:74",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-lifecycle.spec.ts",
+                      "column": 74,
+                      "line": 7
+                    },
+                    "snippet": "   5 |  await page.goto('/study.html');const p=structuredClone(fixture);Object.assign(p.story!,{definitionVersion:version,nodeId:'call-split'});\n   6 |  await page.evaluate(async value=>{const db=await new Promise<IDBDatabase>((yes,no)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>yes(r.result);r.onerror=()=>no(r.error);});await new Promise<void>((yes,no)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>yes();tx.onabort=()=>no(tx.error);});db.close();},p);\n>  7 |  await page.goto('/#/story');await expect(page.locator('.guide-banner')).toContainText('1/2');await page.locator('#guide-skip').click();await expect(page.locator('.guide-replay')).toBeEnabled();await page.evaluate(()=>scrollTo(0,180));const scroll=await page.evaluate(()=>scrollY);await page.locator('.guide-replay').dispatchEvent('click');await page.locator('#story-play').click();await page.evaluate(()=>Reflect.get(window,'__advance')(60000));await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','call-split');await expect(page.locator('.guide-banner')).toContainText('2/2');await page.locator('#story-pause').click();await expect(page.locator('.guide-banner')).toHaveCount(0);expect(await page.evaluate(()=>scrollY)).toBe(scroll);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');\n     |                                                                          ^\n   8 |  await page.locator('.guide-replay').click();await expect(page.locator('.guide-banner')).toBeVisible();await page.evaluate(()=>dispatchEvent(new Event('blur')));await expect(page.locator('.guide-shade')).toHaveCount(0);await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','call-split');await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');await page.goto('/#/museum');await expect(page.locator('.guide-banner')).toHaveCount(0);await expect(page.locator('html')).not.toHaveAttribute('data-guiding');\n   9 | });\n  10 | test('legacy entry remains usable with modern DOM methods and WebGL absent',async({page})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-lifecycle.spec.ts",
+                        "column": 74,
+                        "line": 7
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.guide-banner')\nExpected substring: \u001b[32m\"1/2\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.guide-banner') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.guide-banner')\u001b[22m\n\n\n   5 |  await page.goto('/study.html');const p=structuredClone(fixture);Object.assign(p.story!,{definitionVersion:version,nodeId:'call-split'});\n   6 |  await page.evaluate(async value=>{const db=await new Promise<IDBDatabase>((yes,no)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>yes(r.result);r.onerror=()=>no(r.error);});await new Promise<void>((yes,no)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>yes();tx.onabort=()=>no(tx.error);});db.close();},p);\n>  7 |  await page.goto('/#/story');await expect(page.locator('.guide-banner')).toContainText('1/2');await page.locator('#guide-skip').click();await expect(page.locator('.guide-replay')).toBeEnabled();await page.evaluate(()=>scrollTo(0,180));const scroll=await page.evaluate(()=>scrollY);await page.locator('.guide-replay').dispatchEvent('click');await page.locator('#story-play').click();await page.evaluate(()=>Reflect.get(window,'__advance')(60000));await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','call-split');await expect(page.locator('.guide-banner')).toContainText('2/2');await page.locator('#story-pause').click();await expect(page.locator('.guide-banner')).toHaveCount(0);expect(await page.evaluate(()=>scrollY)).toBe(scroll);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');\n     |                                                                          ^\n   8 |  await page.locator('.guide-replay').click();await expect(page.locator('.guide-banner')).toBeVisible();await page.evaluate(()=>dispatchEvent(new Event('blur')));await expect(page.locator('.guide-shade')).toHaveCount(0);await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','call-split');await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');await page.goto('/#/museum');await expect(page.locator('.guide-banner')).toHaveCount(0);await expect(page.locator('html')).not.toHaveAttribute('data-guiding');\n   9 | });\n  10 | test('legacy entry remains usable with modern DOM methods and WebGL absent',async({page})=>{\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-lifecycle.spec.ts:7:74"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:02:20.612Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\guide-lifecycle-v2-silent--e1d9a--scroll-and-cancels-on-blur-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\guide-lifecycle-v2-silent--e1d9a--scroll-and-cancels-on-blur-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\guide-lifecycle.spec.ts",
+                    "column": 74,
+                    "line": 7
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c935895c2fa19e0d8982-a4425814ff6661a5f127",
+          "file": "guide-lifecycle.spec.ts",
+          "line": 3,
+          "column": 28
+        },
+        {
+          "title": "legacy entry remains usable with modern DOM methods and WebGL absent",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2000,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:02:23.785Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c935895c2fa19e0d8982-d945c51593acf12d73ae",
+          "file": "guide-lifecycle.spec.ts",
+          "line": 10,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "presentation-guidance.spec.ts",
+      "file": "presentation-guidance.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "one soft curtain, semantic brush titles, replay and public credits",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7700,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:00:05.769Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-20ac824c003385f0b647",
+          "file": "presentation-guidance.spec.ts",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "craft rehearsal restores exact stored appearance and returns on every entry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7202,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:00:06.182Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-18473626c83f47891f7a",
+          "file": "presentation-guidance.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "lamp and limb practice are isolated, with posture controls below the screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9299,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:00:13.406Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-9cac30362028f33c42a9",
+          "file": "presentation-guidance.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "story rehearsal restores its checkpoint and explicit skip retries only once",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7999,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:00:13.659Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-f09328836b45f60ae167",
+          "file": "presentation-guidance.spec.ts",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "font failure and reduced motion keep readable titles without ornamental animation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 817,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:00:21.700Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-9789f8fa155861e19242",
+          "file": "presentation-guidance.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "real hand and keyboard rehearsal restores the running story clock without task evidence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 10448,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:00:22.550Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-5e7fb210d04ca1449403",
+          "file": "presentation-guidance.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "all major pages keep their columns within narrow and wide viewports",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 150000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16976,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:00:22.745Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-623d1fd38401f2799e85",
+          "file": "presentation-guidance.spec.ts",
+          "line": 41,
+          "column": 1
+        },
+        {
+          "title": "one soft curtain, semantic brush titles, replay and public credits",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9790,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:02:25.956Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-4c8c52745296c9de7cd0",
+          "file": "presentation-guidance.spec.ts",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "craft rehearsal restores exact stored appearance and returns on every entry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 8008,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:02:27.804Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-7c3d2975d1162d7c6133",
+          "file": "presentation-guidance.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "lamp and limb practice are isolated, with posture controls below the screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10279,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:02:35.780Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-b95c4e50d68aa35c74ab",
+          "file": "presentation-guidance.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "story rehearsal restores its checkpoint and explicit skip retries only once",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 9626,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:02:35.978Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-a4fd8362d2aaae987d75",
+          "file": "presentation-guidance.spec.ts",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "font failure and reduced motion keep readable titles without ornamental animation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1042,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:02:45.639Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-94a7f3d8b5eb589161d1",
+          "file": "presentation-guidance.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "real hand and keyboard rehearsal restores the running story clock without task evidence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10222,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:02:46.106Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-6393c303dcb2d758b3e8",
+          "file": "presentation-guidance.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "all major pages keep their columns within narrow and wide viewports",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 150000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 17944,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:02:46.721Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-48559a843ae17d46d9d9",
+          "file": "presentation-guidance.spec.ts",
+          "line": 41,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "skip-routes.spec.ts",
+      "file": "skip-routes.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "explicit skip call-first/home preserves choices, result and read-only replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 19872,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。\"></canvas> aka getByRole('img', { name: '人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。\"></canvas> aka getByRole('img', { name: '人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                      "column": 55,
+                      "line": 22
+                    },
+                    "snippet": "  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                        "column": 55,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。\"></canvas> aka getByRole('img', { name: '人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n\n  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:00:33.126Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--ed021-result-and-read-only-replay-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--ed021-result-and-read-only-replay-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                    "column": 55,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "aeae7c5a84d01be11dcf-74e2fe62c01d9832f938",
+          "file": "skip-routes.spec.ts",
+          "line": 5,
+          "column": 136
+        },
+        {
+          "title": "explicit skip call-first/light preserves choices, result and read-only replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 17944,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"山门长明：母亲先恢复自由，再自愿留灯照路；母子可以自由来去，分别不再等同失散。\"></canvas> aka getByRole('img', { name: '山门长明：母亲先恢复自由，再自愿留灯照路；母子可以自由来去，分别不再等同失散。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"山门长明：母亲先恢复自由，再自愿留灯照路；母子可以自由来去，分别不再等同失散。\"></canvas> aka getByRole('img', { name: '山门长明：母亲先恢复自由，再自愿留灯照路；母子可以自由来去，分别不再等同失散。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                      "column": 55,
+                      "line": 22
+                    },
+                    "snippet": "  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                        "column": 55,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"山门长明：母亲先恢复自由，再自愿留灯照路；母子可以自由来去，分别不再等同失散。\"></canvas> aka getByRole('img', { name: '山门长明：母亲先恢复自由，再自愿留灯照路；母子可以自由来去，分别不再等同失散。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n\n  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:00:39.775Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--56640-result-and-read-only-replay-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--56640-result-and-read-only-replay-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                    "column": 55,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "aeae7c5a84d01be11dcf-a20440403e5ad60c7d42",
+          "file": "skip-routes.spec.ts",
+          "line": 5,
+          "column": 136
+        },
+        {
+          "title": "explicit skip call-first/road preserves choices, result and read-only replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 17533,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。\"></canvas> aka getByRole('img', { name: '共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。\"></canvas> aka getByRole('img', { name: '共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                      "column": 55,
+                      "line": 22
+                    },
+                    "snippet": "  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                        "column": 55,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。\"></canvas> aka getByRole('img', { name: '共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n\n  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:00:54.698Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--bee27-result-and-read-only-replay-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--bee27-result-and-read-only-replay-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                    "column": 55,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "aeae7c5a84d01be11dcf-147c1262eaf82727b431",
+          "file": "skip-routes.spec.ts",
+          "line": 5,
+          "column": 136
+        },
+        {
+          "title": "explicit skip call-first/waiting preserves choices, result and read-only replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 19291,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。\"></canvas> aka getByRole('img', { name: '隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。\"></canvas> aka getByRole('img', { name: '隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                      "column": 55,
+                      "line": 22
+                    },
+                    "snippet": "  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                        "column": 55,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。\"></canvas> aka getByRole('img', { name: '隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n\n  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:00:59.726Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--a0564-result-and-read-only-replay-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--a0564-result-and-read-only-replay-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                    "column": 55,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "aeae7c5a84d01be11dcf-a3bb5082a6e5b6b8bea0",
+          "file": "skip-routes.spec.ts",
+          "line": 5,
+          "column": 136
+        },
+        {
+          "title": "explicit skip call-first/sacrifice preserves choices, result and read-only replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 19641,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。\"></canvas> aka getByRole('img', { name: '此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。\"></canvas> aka getByRole('img', { name: '此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                      "column": 55,
+                      "line": 22
+                    },
+                    "snippet": "  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                        "column": 55,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。\"></canvas> aka getByRole('img', { name: '此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n\n  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:01:14.137Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--95111-result-and-read-only-replay-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--95111-result-and-read-only-replay-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                    "column": 55,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "aeae7c5a84d01be11dcf-e7c83b348a14bce30910",
+          "file": "skip-routes.spec.ts",
+          "line": 5,
+          "column": 136
+        },
+        {
+          "title": "explicit skip split-first/home preserves choices, result and read-only replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 18918,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。\"></canvas> aka getByRole('img', { name: '人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。\"></canvas> aka getByRole('img', { name: '人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                      "column": 55,
+                      "line": 22
+                    },
+                    "snippet": "  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                        "column": 55,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。\"></canvas> aka getByRole('img', { name: '人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n\n  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:01:20.748Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--001a3-result-and-read-only-replay-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--001a3-result-and-read-only-replay-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                    "column": 55,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "aeae7c5a84d01be11dcf-c4ffeaf6da6b11ea1829",
+          "file": "skip-routes.spec.ts",
+          "line": 5,
+          "column": 136
+        },
+        {
+          "title": "explicit skip split-first/light preserves choices, result and read-only replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 16242,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"山门长明：母亲先恢复自由，再自愿留灯照路；母子可以自由来去，分别不再等同失散。\"></canvas> aka getByRole('img', { name: '山门长明：母亲先恢复自由，再自愿留灯照路；母子可以自由来去，分别不再等同失散。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"山门长明：母亲先恢复自由，再自愿留灯照路；母子可以自由来去，分别不再等同失散。\"></canvas> aka getByRole('img', { name: '山门长明：母亲先恢复自由，再自愿留灯照路；母子可以自由来去，分别不再等同失散。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                      "column": 55,
+                      "line": 22
+                    },
+                    "snippet": "  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                        "column": 55,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"山门长明：母亲先恢复自由，再自愿留灯照路；母子可以自由来去，分别不再等同失散。\"></canvas> aka getByRole('img', { name: '山门长明：母亲先恢复自由，再自愿留灯照路；母子可以自由来去，分别不再等同失散。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n\n  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:01:36.359Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--8fdd1-result-and-read-only-replay-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--8fdd1-result-and-read-only-replay-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                    "column": 55,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "aeae7c5a84d01be11dcf-60b35a7b0fdaa0674e02",
+          "file": "skip-routes.spec.ts",
+          "line": 5,
+          "column": 136
+        },
+        {
+          "title": "explicit skip split-first/road preserves choices, result and read-only replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 20300,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。\"></canvas> aka getByRole('img', { name: '共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。\"></canvas> aka getByRole('img', { name: '共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                      "column": 55,
+                      "line": 22
+                    },
+                    "snippet": "  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                        "column": 55,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。\"></canvas> aka getByRole('img', { name: '共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n\n  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:01:41.425Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--9ab9c-result-and-read-only-replay-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--9ab9c-result-and-read-only-replay-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                    "column": 55,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "aeae7c5a84d01be11dcf-76086ed230e52b00fe2e",
+          "file": "skip-routes.spec.ts",
+          "line": 5,
+          "column": 136
+        },
+        {
+          "title": "explicit skip split-first/waiting preserves choices, result and read-only replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 20562,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。\"></canvas> aka getByRole('img', { name: '隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。\"></canvas> aka getByRole('img', { name: '隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                      "column": 55,
+                      "line": 22
+                    },
+                    "snippet": "  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                        "column": 55,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。\"></canvas> aka getByRole('img', { name: '隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n\n  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:01:54.308Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--31c91-result-and-read-only-replay-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--31c91-result-and-read-only-replay-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                    "column": 55,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "aeae7c5a84d01be11dcf-8f436725606c35ad0cdc",
+          "file": "skip-routes.spec.ts",
+          "line": 5,
+          "column": 136
+        },
+        {
+          "title": "explicit skip split-first/sacrifice preserves choices, result and read-only replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 18271,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。\"></canvas> aka getByRole('img', { name: '此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。\"></canvas> aka getByRole('img', { name: '此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                      "column": 55,
+                      "line": 22
+                    },
+                    "snippet": "  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                        "column": 55,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。\"></canvas> aka getByRole('img', { name: '此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n\n  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:02:04.392Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--86e2a-result-and-read-only-replay-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--86e2a-result-and-read-only-replay-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                    "column": 55,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "aeae7c5a84d01be11dcf-b3ceba68259b4f78a032",
+          "file": "skip-routes.spec.ts",
+          "line": 5,
+          "column": 136
+        },
+        {
+          "title": "explicit skip call-first/home preserves choices, result and read-only replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 18474,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。\"></canvas> aka getByRole('img', { name: '人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。\"></canvas> aka getByRole('img', { name: '人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                      "column": 55,
+                      "line": 22
+                    },
+                    "snippet": "  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                        "column": 55,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。\"></canvas> aka getByRole('img', { name: '人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n\n  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:02:56.413Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--ed021-result-and-read-only-replay-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--ed021-result-and-read-only-replay-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                    "column": 55,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "aeae7c5a84d01be11dcf-d52bd283596d246b2c83",
+          "file": "skip-routes.spec.ts",
+          "line": 5,
+          "column": 136
+        },
+        {
+          "title": "explicit skip call-first/light preserves choices, result and read-only replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 16294,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:03:04.740Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aeae7c5a84d01be11dcf-3ed8cba1e97c9785e4b7",
+          "file": "skip-routes.spec.ts",
+          "line": 5,
+          "column": 136
+        },
+        {
+          "title": "explicit skip call-first/road preserves choices, result and read-only replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 15605,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。\"></canvas> aka getByRole('img', { name: '共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。\"></canvas> aka getByRole('img', { name: '共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                      "column": 55,
+                      "line": 22
+                    },
+                    "snippet": "  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                        "column": 55,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。\"></canvas> aka getByRole('img', { name: '共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n\n  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:03:16.274Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--bee27-result-and-read-only-replay-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--bee27-result-and-read-only-replay-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                    "column": 55,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "aeae7c5a84d01be11dcf-8f7b72ae48612688c33e",
+          "file": "skip-routes.spec.ts",
+          "line": 5,
+          "column": 136
+        },
+        {
+          "title": "explicit skip call-first/waiting preserves choices, result and read-only replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 14883,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。\"></canvas> aka getByRole('img', { name: '隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。\"></canvas> aka getByRole('img', { name: '隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                      "column": 55,
+                      "line": 22
+                    },
+                    "snippet": "  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                        "column": 55,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。\"></canvas> aka getByRole('img', { name: '隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n\n  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:03:21.067Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--a0564-result-and-read-only-replay-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--a0564-result-and-read-only-replay-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                    "column": 55,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "aeae7c5a84d01be11dcf-37f055014f9756b80903",
+          "file": "skip-routes.spec.ts",
+          "line": 5,
+          "column": 136
+        },
+        {
+          "title": "explicit skip call-first/sacrifice preserves choices, result and read-only replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 17,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 13959,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。\"></canvas> aka getByRole('img', { name: '此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。\"></canvas> aka getByRole('img', { name: '此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                      "column": 55,
+                      "line": 22
+                    },
+                    "snippet": "  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                        "column": 55,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。\"></canvas> aka getByRole('img', { name: '此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n\n  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:03:33.180Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--95111-result-and-read-only-replay-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--95111-result-and-read-only-replay-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                    "column": 55,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "aeae7c5a84d01be11dcf-2dcb60da992cc9234c45",
+          "file": "skip-routes.spec.ts",
+          "line": 5,
+          "column": 136
+        },
+        {
+          "title": "explicit skip split-first/home preserves choices, result and read-only replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 15025,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。\"></canvas> aka getByRole('img', { name: '人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。\"></canvas> aka getByRole('img', { name: '人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                      "column": 55,
+                      "line": 22
+                    },
+                    "snippet": "  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                        "column": 55,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。\"></canvas> aka getByRole('img', { name: '人间灯火：母亲恢复自由，母子牵手回家；团圆继续成为彼此重新熟悉的日常。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n\n  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:03:37.538Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--001a3-result-and-read-only-replay-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--001a3-result-and-read-only-replay-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                    "column": 55,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "aeae7c5a84d01be11dcf-6e0ff0b6104cdfed30da",
+          "file": "skip-routes.spec.ts",
+          "line": 5,
+          "column": 136
+        },
+        {
+          "title": "explicit skip split-first/light preserves choices, result and read-only replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14016,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:03:48.360Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aeae7c5a84d01be11dcf-6b7ca596ed8399f446ee",
+          "file": "skip-routes.spec.ts",
+          "line": 5,
+          "column": 136
+        },
+        {
+          "title": "explicit skip split-first/road preserves choices, result and read-only replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 20,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 14473,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。\"></canvas> aka getByRole('img', { name: '共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。\"></canvas> aka getByRole('img', { name: '共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                      "column": 55,
+                      "line": 22
+                    },
+                    "snippet": "  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                        "column": 55,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。\"></canvas> aka getByRole('img', { name: '共赴天明：母亲恢复自由，与沉香同行认路；敞开的山口留给后来的人。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n\n  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:03:53.742Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--9ab9c-result-and-read-only-replay-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--9ab9c-result-and-read-only-replay-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                    "column": 55,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "aeae7c5a84d01be11dcf-da5e48e6f13b66dfe9be",
+          "file": "skip-routes.spec.ts",
+          "line": 5,
+          "column": 136
+        },
+        {
+          "title": "explicit skip split-first/waiting preserves choices, result and read-only replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 15270,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。\"></canvas> aka getByRole('img', { name: '隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。\"></canvas> aka getByRole('img', { name: '隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                      "column": 55,
+                      "line": 22
+                    },
+                    "snippet": "  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                        "column": 55,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。\"></canvas> aka getByRole('img', { name: '隔山有应：山门已开、最后封印未解，母亲仍不能离开；母子互答，继续寻找自由的办法。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n\n  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:04:02.576Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--31c91-result-and-read-only-replay-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--31c91-result-and-read-only-replay-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                    "column": 55,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "aeae7c5a84d01be11dcf-6489688b28ecb121a940",
+          "file": "skip-routes.spec.ts",
+          "line": 5,
+          "column": 136
+        },
+        {
+          "title": "explicit skip split-first/sacrifice preserves choices, result and read-only replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 21,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 12411,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。\"></canvas> aka getByRole('img', { name: '此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。\"></canvas> aka getByRole('img', { name: '此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                      "column": 55,
+                      "line": 22
+                    },
+                    "snippet": "  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                        "column": 55,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-capture canvas')\nExpected: visible\nError: strict mode violation: locator('.result-capture canvas') resolved to 2 elements:\n    1) <canvas role=\"img\" width=\"1600\" height=\"1200\" data-state=\"loading\" class=\"reunion-artifact\" aria-label=\"此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。\"></canvas> aka getByRole('img', { name: '此身为山：沉香明确承山、永久留作山影，失去归家与继续人间生活的可能；母亲自由生活，也真实哀悼。' })\n    2) <canvas role=\"img\" aria-label=\"皮影舞台\" class=\"shadow-stage\" data-state=\"loading\"></canvas> aka getByLabel('皮影舞台')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.result-capture canvas') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-capture canvas')\u001b[22m\n\n\n  20 |  }\n  21 |  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');\n> 22 |  await expect(page.locator('.result-capture canvas')).toBeVisible({timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});\n     |                                                       ^\n  23 |  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');\n  24 | });\n  25 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts:22:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:04:09.506Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--86e2a-result-and-read-only-replay-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\skip-routes-explicit-skip--86e2a-result-and-read-only-replay-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\skip-routes.spec.ts",
+                    "column": 55,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "aeae7c5a84d01be11dcf-bc3effee30522593dd93",
+          "file": "skip-routes.spec.ts",
+          "line": 5,
+          "column": 136
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-25T06:59:56.377Z",
+    "duration": 266646.202,
+    "expected": 18,
+    "skipped": 0,
+    "unexpected": 22,
+    "flaky": 0
+  }
+}

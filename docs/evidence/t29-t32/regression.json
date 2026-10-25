@@ -1,0 +1,4244 @@
+{
+  "config": {
+    "argv": [
+      "E:\\Software_after2026\\nodejs\\node.exe",
+      "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/presentation-guidance.spec.ts",
+      "tests/e2e/guide-lifecycle.spec.ts",
+      "tests/e2e/practice.spec.ts",
+      "tests/e2e/v4-seek.spec.ts",
+      "tests/e2e/v4-workshop.spec.ts",
+      "tests/e2e/site-music.spec.ts",
+      "tests/e2e/story-keyboard.spec.ts",
+      "tests/e2e/result.spec.ts",
+      "--workers=2"
+    ],
+    "configFile": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\playwright.config.ts",
+    "rootDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "desktop-chromium",
+        "name": "desktop-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "desktop-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop-chromium"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "mobile-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile-chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/t29-t32/regression.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 2,
+    "webServer": {
+      "command": "npm run preview -- --port 4173 --strictPort",
+      "url": "http://127.0.0.1:4173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "guide-lifecycle.spec.ts",
+      "file": "guide-lifecycle.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "v1 silent node guide stays on its checkpoint, restores scroll and cancels on blur",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5498,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:21:15.577Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c935895c2fa19e0d8982-0a4805ae8603c773a70d",
+          "file": "guide-lifecycle.spec.ts",
+          "line": 3,
+          "column": 28
+        },
+        {
+          "title": "v2 silent node guide stays on its checkpoint, restores scroll and cancels on blur",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5530,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:21:15.546Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c935895c2fa19e0d8982-3c5f8b7ff60aff93d7b4",
+          "file": "guide-lifecycle.spec.ts",
+          "line": 3,
+          "column": 28
+        },
+        {
+          "title": "legacy entry remains usable with modern DOM methods and WebGL absent",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3572,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:21:21.405Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c935895c2fa19e0d8982-c4b4413cdd1e3587d744",
+          "file": "guide-lifecycle.spec.ts",
+          "line": 10,
+          "column": 1
+        },
+        {
+          "title": "v1 silent node guide stays on its checkpoint, restores scroll and cancels on blur",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4388,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:26:01.301Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c935895c2fa19e0d8982-69c3191071be25aae088",
+          "file": "guide-lifecycle.spec.ts",
+          "line": 3,
+          "column": 28
+        },
+        {
+          "title": "v2 silent node guide stays on its checkpoint, restores scroll and cancels on blur",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4869,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:26:03.599Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c935895c2fa19e0d8982-a4425814ff6661a5f127",
+          "file": "guide-lifecycle.spec.ts",
+          "line": 3,
+          "column": 28
+        },
+        {
+          "title": "legacy entry remains usable with modern DOM methods and WebGL absent",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2224,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:26:05.860Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c935895c2fa19e0d8982-d945c51593acf12d73ae",
+          "file": "guide-lifecycle.spec.ts",
+          "line": 10,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "practice.spec.ts",
+      "file": "practice.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "all three real mouse grips change pose and reload saves the final editor without touching story",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 10285,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#practice-runtime')\nExpected: \u001b[32m\"paused\"\u001b[39m\nReceived: \u001b[31m\"moving\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#practice-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#practice-runtime')\u001b[22m\n\u001b[2m    14 × locator resolved to <p role=\"status\" data-elapsed=\"0\" data-state=\"moving\" id=\"practice-runtime\" class=\"practice-runtime\">已放开操纵杆，保留当前姿态。</p>\u001b[22m\n\u001b[2m       - unexpected value \"moving\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#practice-runtime')\nExpected: \u001b[32m\"paused\"\u001b[39m\nReceived: \u001b[31m\"moving\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#practice-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#practice-runtime')\u001b[22m\n\u001b[2m    14 × locator resolved to <p role=\"status\" data-elapsed=\"0\" data-state=\"moving\" id=\"practice-runtime\" class=\"practice-runtime\">已放开操纵杆，保留当前姿态。</p>\u001b[22m\n\u001b[2m       - unexpected value \"moving\"\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\practice.spec.ts:34:53",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\practice.spec.ts",
+                      "column": 53,
+                      "line": 34
+                    },
+                    "snippet": "  32 |     const handle=page.locator(`[data-rod=\"${rod}\"]`);await handle.scrollIntoViewIfNeeded();const box=(await handle.boundingBox())!;\n  33 |     await page.mouse.move(box.x+box.width/2,box.y+box.height/2);await page.mouse.down();await page.mouse.move(box.x+box.width/2+dx,box.y+box.height/2+dy,{steps:4});await page.mouse.up();\n> 34 |     await expect(page.locator('#practice-runtime')).toHaveAttribute('data-state','paused');\n     |                                                     ^\n  35 |   }\n  36 |   await saved(page);const project=await stored(page);expect(project.pose).not.toEqual(before);expect(project.pose.joints.leftShoulder).not.toBe(0);expect(project.pose.joints.rightShoulder).not.toBe(0);\n  37 |   expect(project.story).toEqual(fixture.story);expect(project.performance).toBeNull();expect(project.partialRecording).toBeNull();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\practice.spec.ts",
+                        "column": 53,
+                        "line": 34
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#practice-runtime')\nExpected: \u001b[32m\"paused\"\u001b[39m\nReceived: \u001b[31m\"moving\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#practice-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#practice-runtime')\u001b[22m\n\u001b[2m    14 × locator resolved to <p role=\"status\" data-elapsed=\"0\" data-state=\"moving\" id=\"practice-runtime\" class=\"practice-runtime\">已放开操纵杆，保留当前姿态。</p>\u001b[22m\n\u001b[2m       - unexpected value \"moving\"\u001b[22m\n\n\n  32 |     const handle=page.locator(`[data-rod=\"${rod}\"]`);await handle.scrollIntoViewIfNeeded();const box=(await handle.boundingBox())!;\n  33 |     await page.mouse.move(box.x+box.width/2,box.y+box.height/2);await page.mouse.down();await page.mouse.move(box.x+box.width/2+dx,box.y+box.height/2+dy,{steps:4});await page.mouse.up();\n> 34 |     await expect(page.locator('#practice-runtime')).toHaveAttribute('data-state','paused');\n     |                                                     ^\n  35 |   }\n  36 |   await saved(page);const project=await stored(page);expect(project.pose).not.toEqual(before);expect(project.pose.joints.leftShoulder).not.toBe(0);expect(project.pose.joints.rightShoulder).not.toBe(0);\n  37 |   expect(project.story).toEqual(fixture.story);expect(project.performance).toBeNull();expect(project.partialRecording).toBeNull();\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\practice.spec.ts:34:53"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:21:21.537Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\practice-all-three-real-mo-fc5b3-itor-without-touching-story-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\practice-all-three-real-mo-fc5b3-itor-without-touching-story-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\practice.spec.ts",
+                    "column": 53,
+                    "line": 34
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c0011e267bb7a139fed4-8bd14e40b2fa15c4d50e",
+          "file": "practice.spec.ts",
+          "line": 28,
+          "column": 1
+        },
+        {
+          "title": "quick input-only trailing save and native change keep the final range and facing on reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2614,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:21:25.081Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c0011e267bb7a139fed4-bbd904547c0bcccf581d",
+          "file": "practice.spec.ts",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "grip arrow keys use one clock, key release/blur stop motion and native range arrows still work",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1364,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\practice.spec.ts:52:193",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\practice.spec.ts",
+                      "column": 193,
+                      "line": 52
+                    },
+                    "snippet": "  50 |   await fakeClock(page);await page.goto('/#/practice');await ready(page);const grip=page.locator('[data-rod=\"body\"]');await grip.focus();\n  51 |   const before=Number(await page.locator('#practice-x').inputValue());await page.keyboard.down('ArrowRight');await frame(page,100);await expect(page.locator('#practice-runtime')).toHaveAttribute('data-state','moving');\n> 52 |   expect(Number(await page.locator('#practice-x').inputValue())).toBeGreaterThan(before);await page.keyboard.up('ArrowRight');expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(0);\n     |                                                                                                                                                                                                 ^\n  53 |   await page.keyboard.down('ArrowRight');await page.evaluate(()=>window.dispatchEvent(new Event('blur')));const stopped=await page.locator('#practice-x').inputValue();await frame(page,100);expect(await page.locator('#practice-x').inputValue()).toBe(stopped);await page.keyboard.up('ArrowRight');\n  54 |   await page.locator('#practice-x').focus();await page.keyboard.press('ArrowLeft');expect(Number(await page.locator('#practice-x').inputValue())).toBeLessThan(Number(stopped));expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(0);\n  55 |   await page.locator('#practice-rod').selectOption('rightHand');await expect(page.locator('#practice-rod')).toHaveValue('rightHand');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\practice.spec.ts",
+                        "column": 193,
+                        "line": 52
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n\n  50 |   await fakeClock(page);await page.goto('/#/practice');await ready(page);const grip=page.locator('[data-rod=\"body\"]');await grip.focus();\n  51 |   const before=Number(await page.locator('#practice-x').inputValue());await page.keyboard.down('ArrowRight');await frame(page,100);await expect(page.locator('#practice-runtime')).toHaveAttribute('data-state','moving');\n> 52 |   expect(Number(await page.locator('#practice-x').inputValue())).toBeGreaterThan(before);await page.keyboard.up('ArrowRight');expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(0);\n     |                                                                                                                                                                                                 ^\n  53 |   await page.keyboard.down('ArrowRight');await page.evaluate(()=>window.dispatchEvent(new Event('blur')));const stopped=await page.locator('#practice-x').inputValue();await frame(page,100);expect(await page.locator('#practice-x').inputValue()).toBe(stopped);await page.keyboard.up('ArrowRight');\n  54 |   await page.locator('#practice-x').focus();await page.keyboard.press('ArrowLeft');expect(Number(await page.locator('#practice-x').inputValue())).toBeLessThan(Number(stopped));expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(0);\n  55 |   await page.locator('#practice-rod').selectOption('rightHand');await expect(page.locator('#practice-rod')).toHaveValue('rightHand');\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\practice.spec.ts:52:193"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:21:27.730Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\practice-grip-arrow-keys-u-8d5ef-ive-range-arrows-still-work-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\practice-grip-arrow-keys-u-8d5ef-ive-range-arrows-still-work-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\practice.spec.ts",
+                    "column": 193,
+                    "line": 52
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c0011e267bb7a139fed4-3129b35635cb7e4663ee",
+          "file": "practice.spec.ts",
+          "line": 49,
+          "column": 1
+        },
+        {
+          "title": "action selection, pause/resume, hidden page and long gaps retain time without catch-up",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2271,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:21:29.937Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c0011e267bb7a139fed4-6a92a9ab799ba58b0cc4",
+          "file": "practice.spec.ts",
+          "line": 58,
+          "column": 1
+        },
+        {
+          "title": "all five actions step visibly, keep the axe within the curtain and do not start a story",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8451,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:21:32.370Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c0011e267bb7a139fed4-5ea8073f37a3cabad8a7",
+          "file": "practice.spec.ts",
+          "line": 68,
+          "column": 1
+        },
+        {
+          "title": "reduced motion uses explicit 250ms steps and never launches a loop",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1197,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:21:33.543Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c0011e267bb7a139fed4-a1c977881530e5fb001a",
+          "file": "practice.spec.ts",
+          "line": 82,
+          "column": 1
+        },
+        {
+          "title": "actual touch drag cancels cleanly and fallback touch handles unrelated identifiers and multiple ends",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4324,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:21:34.940Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c0011e267bb7a139fed4-0f0284f901c1bca0d4ca",
+          "file": "practice.spec.ts",
+          "line": 88,
+          "column": 1
+        },
+        {
+          "title": "import during an action archives the latest old pose and never overwrites the new project",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2657,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:21:39.293Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c0011e267bb7a139fed4-7b86952460bb654d57a9",
+          "file": "practice.spec.ts",
+          "line": 100,
+          "column": 1
+        },
+        {
+          "title": "save failure keeps the final pose exportable and automatic input never retries disk writes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7151,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:21:40.838Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c0011e267bb7a139fed4-a29c5070b001cebc13f8",
+          "file": "practice.spec.ts",
+          "line": 107,
+          "column": 1
+        },
+        {
+          "title": "memory-only progress stays memory after practice until an explicit save",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5941,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:21:42.028Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c0011e267bb7a139fed4-05386725e121f7603a49",
+          "file": "practice.spec.ts",
+          "line": 115,
+          "column": 1
+        },
+        {
+          "title": "Canvas failure disables input and ten playing remounts clear every practice callback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 11848,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:21:48.021Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c0011e267bb7a139fed4-fe79c8b0a964c9573e7c",
+          "file": "practice.spec.ts",
+          "line": 122,
+          "column": 1
+        },
+        {
+          "title": "all three real mouse grips change pose and reload saves the final editor without touching story",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 9899,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#practice-runtime')\nExpected: \u001b[32m\"paused\"\u001b[39m\nReceived: \u001b[31m\"moving\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#practice-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#practice-runtime')\u001b[22m\n\u001b[2m    14 × locator resolved to <p role=\"status\" data-elapsed=\"0\" data-state=\"moving\" id=\"practice-runtime\" class=\"practice-runtime\">已放开操纵杆，保留当前姿态。</p>\u001b[22m\n\u001b[2m       - unexpected value \"moving\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#practice-runtime')\nExpected: \u001b[32m\"paused\"\u001b[39m\nReceived: \u001b[31m\"moving\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#practice-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#practice-runtime')\u001b[22m\n\u001b[2m    14 × locator resolved to <p role=\"status\" data-elapsed=\"0\" data-state=\"moving\" id=\"practice-runtime\" class=\"practice-runtime\">已放开操纵杆，保留当前姿态。</p>\u001b[22m\n\u001b[2m       - unexpected value \"moving\"\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\practice.spec.ts:34:53",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\practice.spec.ts",
+                      "column": 53,
+                      "line": 34
+                    },
+                    "snippet": "  32 |     const handle=page.locator(`[data-rod=\"${rod}\"]`);await handle.scrollIntoViewIfNeeded();const box=(await handle.boundingBox())!;\n  33 |     await page.mouse.move(box.x+box.width/2,box.y+box.height/2);await page.mouse.down();await page.mouse.move(box.x+box.width/2+dx,box.y+box.height/2+dy,{steps:4});await page.mouse.up();\n> 34 |     await expect(page.locator('#practice-runtime')).toHaveAttribute('data-state','paused');\n     |                                                     ^\n  35 |   }\n  36 |   await saved(page);const project=await stored(page);expect(project.pose).not.toEqual(before);expect(project.pose.joints.leftShoulder).not.toBe(0);expect(project.pose.joints.rightShoulder).not.toBe(0);\n  37 |   expect(project.story).toEqual(fixture.story);expect(project.performance).toBeNull();expect(project.partialRecording).toBeNull();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\practice.spec.ts",
+                        "column": 53,
+                        "line": 34
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#practice-runtime')\nExpected: \u001b[32m\"paused\"\u001b[39m\nReceived: \u001b[31m\"moving\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#practice-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#practice-runtime')\u001b[22m\n\u001b[2m    14 × locator resolved to <p role=\"status\" data-elapsed=\"0\" data-state=\"moving\" id=\"practice-runtime\" class=\"practice-runtime\">已放开操纵杆，保留当前姿态。</p>\u001b[22m\n\u001b[2m       - unexpected value \"moving\"\u001b[22m\n\n\n  32 |     const handle=page.locator(`[data-rod=\"${rod}\"]`);await handle.scrollIntoViewIfNeeded();const box=(await handle.boundingBox())!;\n  33 |     await page.mouse.move(box.x+box.width/2,box.y+box.height/2);await page.mouse.down();await page.mouse.move(box.x+box.width/2+dx,box.y+box.height/2+dy,{steps:4});await page.mouse.up();\n> 34 |     await expect(page.locator('#practice-runtime')).toHaveAttribute('data-state','paused');\n     |                                                     ^\n  35 |   }\n  36 |   await saved(page);const project=await stored(page);expect(project.pose).not.toEqual(before);expect(project.pose.joints.leftShoulder).not.toBe(0);expect(project.pose.joints.rightShoulder).not.toBe(0);\n  37 |   expect(project.story).toEqual(fixture.story);expect(project.performance).toBeNull();expect(project.partialRecording).toBeNull();\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\practice.spec.ts:34:53"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:26:08.148Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\practice-all-three-real-mo-fc5b3-itor-without-touching-story-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\practice-all-three-real-mo-fc5b3-itor-without-touching-story-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\practice.spec.ts",
+                    "column": 53,
+                    "line": 34
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c0011e267bb7a139fed4-daeed78ea027ad1052ed",
+          "file": "practice.spec.ts",
+          "line": 28,
+          "column": 1
+        },
+        {
+          "title": "quick input-only trailing save and native change keep the final range and facing on reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3072,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:26:08.768Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c0011e267bb7a139fed4-1a77dcdc63b96c8683dd",
+          "file": "practice.spec.ts",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "grip arrow keys use one clock, key release/blur stop motion and native range arrows still work",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 1785,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\practice.spec.ts:52:193",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\practice.spec.ts",
+                      "column": 193,
+                      "line": 52
+                    },
+                    "snippet": "  50 |   await fakeClock(page);await page.goto('/#/practice');await ready(page);const grip=page.locator('[data-rod=\"body\"]');await grip.focus();\n  51 |   const before=Number(await page.locator('#practice-x').inputValue());await page.keyboard.down('ArrowRight');await frame(page,100);await expect(page.locator('#practice-runtime')).toHaveAttribute('data-state','moving');\n> 52 |   expect(Number(await page.locator('#practice-x').inputValue())).toBeGreaterThan(before);await page.keyboard.up('ArrowRight');const released=await page.locator('#practice-x').inputValue();for(let i=0;i<8;i++)await frame(page,100);expect(await page.locator('#practice-x').inputValue()).toBe(released);expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(0);\n     |                                                                                                                                                                                                 ^\n  53 |   await page.keyboard.down('ArrowRight');await page.evaluate(()=>window.dispatchEvent(new Event('blur')));const stopped=await page.locator('#practice-x').inputValue();await frame(page,100);expect(await page.locator('#practice-x').inputValue()).toBe(stopped);await page.keyboard.up('ArrowRight');\n  54 |   await page.locator('#practice-x').focus();await page.keyboard.press('ArrowLeft');expect(Number(await page.locator('#practice-x').inputValue())).toBeLessThan(Number(stopped));expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(0);\n  55 |   await page.locator('#practice-rod').selectOption('rightHand');await expect(page.locator('#practice-rod')).toHaveValue('rightHand');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\practice.spec.ts",
+                        "column": 193,
+                        "line": 52
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n\n  50 |   await fakeClock(page);await page.goto('/#/practice');await ready(page);const grip=page.locator('[data-rod=\"body\"]');await grip.focus();\n  51 |   const before=Number(await page.locator('#practice-x').inputValue());await page.keyboard.down('ArrowRight');await frame(page,100);await expect(page.locator('#practice-runtime')).toHaveAttribute('data-state','moving');\n> 52 |   expect(Number(await page.locator('#practice-x').inputValue())).toBeGreaterThan(before);await page.keyboard.up('ArrowRight');const released=await page.locator('#practice-x').inputValue();for(let i=0;i<8;i++)await frame(page,100);expect(await page.locator('#practice-x').inputValue()).toBe(released);expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(0);\n     |                                                                                                                                                                                                 ^\n  53 |   await page.keyboard.down('ArrowRight');await page.evaluate(()=>window.dispatchEvent(new Event('blur')));const stopped=await page.locator('#practice-x').inputValue();await frame(page,100);expect(await page.locator('#practice-x').inputValue()).toBe(stopped);await page.keyboard.up('ArrowRight');\n  54 |   await page.locator('#practice-x').focus();await page.keyboard.press('ArrowLeft');expect(Number(await page.locator('#practice-x').inputValue())).toBeLessThan(Number(stopped));expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(0);\n  55 |   await page.locator('#practice-rod').selectOption('rightHand');await expect(page.locator('#practice-rod')).toHaveValue('rightHand');\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\practice.spec.ts:52:193"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:26:11.865Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\practice-grip-arrow-keys-u-8d5ef-ive-range-arrows-still-work-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\practice-grip-arrow-keys-u-8d5ef-ive-range-arrows-still-work-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\practice.spec.ts",
+                    "column": 193,
+                    "line": 52
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c0011e267bb7a139fed4-c4809c66a51f32089c03",
+          "file": "practice.spec.ts",
+          "line": 49,
+          "column": 1
+        },
+        {
+          "title": "action selection, pause/resume, hidden page and long gaps retain time without catch-up",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2517,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:26:14.770Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c0011e267bb7a139fed4-964c257719bf31b071af",
+          "file": "practice.spec.ts",
+          "line": 58,
+          "column": 1
+        },
+        {
+          "title": "all five actions step visibly, keep the axe within the curtain and do not start a story",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 8276,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:26:17.488Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c0011e267bb7a139fed4-4fc631f092905ef87367",
+          "file": "practice.spec.ts",
+          "line": 68,
+          "column": 1
+        },
+        {
+          "title": "reduced motion uses explicit 250ms steps and never launches a loop",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1180,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:26:19.736Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c0011e267bb7a139fed4-a70709b81ee33dec2237",
+          "file": "practice.spec.ts",
+          "line": 82,
+          "column": 1
+        },
+        {
+          "title": "actual touch drag cancels cleanly and fallback touch handles unrelated identifiers and multiple ends",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6113,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:26:21.201Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c0011e267bb7a139fed4-27f5f8c4336929bdc69c",
+          "file": "practice.spec.ts",
+          "line": 88,
+          "column": 1
+        },
+        {
+          "title": "import during an action archives the latest old pose and never overwrites the new project",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2321,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:26:25.790Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c0011e267bb7a139fed4-50dc0a7a9a7148e03e7a",
+          "file": "practice.spec.ts",
+          "line": 100,
+          "column": 1
+        },
+        {
+          "title": "save failure keeps the final pose exportable and automatic input never retries disk writes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4105,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:26:27.350Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c0011e267bb7a139fed4-bb06c15fe3cbae43f8a4",
+          "file": "practice.spec.ts",
+          "line": 107,
+          "column": 1
+        },
+        {
+          "title": "memory-only progress stays memory after practice until an explicit save",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7131,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:26:28.194Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c0011e267bb7a139fed4-c953c551b6202fe3ba9e",
+          "file": "practice.spec.ts",
+          "line": 115,
+          "column": 1
+        },
+        {
+          "title": "Canvas failure disables input and ten playing remounts clear every practice callback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16749,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:26:31.482Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c0011e267bb7a139fed4-7cee0bdfd7c87b1fea92",
+          "file": "practice.spec.ts",
+          "line": 122,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "presentation-guidance.spec.ts",
+      "file": "presentation-guidance.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "one soft curtain, semantic brush titles, replay and public credits",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7862,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:21:48.096Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-20ac824c003385f0b647",
+          "file": "presentation-guidance.spec.ts",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "craft rehearsal restores exact stored appearance and returns on every entry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6962,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:21:55.991Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-18473626c83f47891f7a",
+          "file": "presentation-guidance.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "lamp and limb practice are isolated, with posture controls below the screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 9556,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:21:59.951Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-9cac30362028f33c42a9",
+          "file": "presentation-guidance.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "story rehearsal restores its checkpoint and explicit skip retries only once",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7638,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:22:02.982Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-f09328836b45f60ae167",
+          "file": "presentation-guidance.spec.ts",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "font failure and reduced motion keep readable titles without ornamental animation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1156,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:22:09.537Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-9789f8fa155861e19242",
+          "file": "presentation-guidance.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "real hand and keyboard rehearsal restores the running story clock without task evidence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9460,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:22:10.662Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-5e7fb210d04ca1449403",
+          "file": "presentation-guidance.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "all major pages keep their columns within narrow and wide viewports",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 150000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 15641,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:22:10.744Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-623d1fd38401f2799e85",
+          "file": "presentation-guidance.spec.ts",
+          "line": 41,
+          "column": 1
+        },
+        {
+          "title": "one soft curtain, semantic brush titles, replay and public credits",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 11671,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:26:35.475Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-4c8c52745296c9de7cd0",
+          "file": "presentation-guidance.spec.ts",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "craft rehearsal restores exact stored appearance and returns on every entry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 10105,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:26:47.198Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-7c3d2975d1162d7c6133",
+          "file": "presentation-guidance.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "lamp and limb practice are isolated, with posture controls below the screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10256,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:26:48.348Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-b95c4e50d68aa35c74ab",
+          "file": "presentation-guidance.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "story rehearsal restores its checkpoint and explicit skip retries only once",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6857,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:26:57.389Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-a4fd8362d2aaae987d75",
+          "file": "presentation-guidance.spec.ts",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "font failure and reduced motion keep readable titles without ornamental animation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1209,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:26:58.713Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-94a7f3d8b5eb589161d1",
+          "file": "presentation-guidance.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "real hand and keyboard rehearsal restores the running story clock without task evidence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9142,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:27:00.004Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-6393c303dcb2d758b3e8",
+          "file": "presentation-guidance.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "all major pages keep their columns within narrow and wide viewports",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 150000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 18022,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:27:04.309Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5a85a14a4dc9b0e34c0a-48559a843ae17d46d9d9",
+          "file": "presentation-guidance.spec.ts",
+          "line": 41,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "result.spec.ts",
+      "file": "result.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "unfinished and protected records never manufacture a reunion or offer result downloads",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3734,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:22:20.216Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-1e54594dd695d5d64097",
+          "file": "result.spec.ts",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "call-first exports a real frozen 1600x1200 PNG twice and an unchanged programme",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6537,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:22:23.992Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-3114f7b91d5930fc7cf2",
+          "file": "result.spec.ts",
+          "line": 43,
+          "column": 61
+        },
+        {
+          "title": "split-first exports a real frozen 1600x1200 PNG twice and an unchanged programme",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6262,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:22:26.449Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-7dfbbc277cb8da77a5b3",
+          "file": "result.spec.ts",
+          "line": 43,
+          "column": 61
+        },
+        {
+          "title": "call-first replay is paused, follows only the saved branch and cannot edit the performance",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 17785,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:22:30.561Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-2b1127e1e78e2ec7b958",
+          "file": "result.spec.ts",
+          "line": 54,
+          "column": 61
+        },
+        {
+          "title": "split-first replay is paused, follows only the saved branch and cannot edit the performance",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 15539,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:22:32.736Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-6372e2e937ed060b453a",
+          "file": "result.spec.ts",
+          "line": 54,
+          "column": 61
+        },
+        {
+          "title": "SAVE-03 JSON into a fresh browser preserves result identity, frozen PNG and replay decisions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 12556,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:22:48.335Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-7fc3df2e3a1ccf1c012c",
+          "file": "result.spec.ts",
+          "line": 71,
+          "column": 1
+        },
+        {
+          "title": "reduced motion uses explicit still steps and clears every replay callback on ten route exits",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 26774,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:22:48.376Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-2e9cbdeb6a21dec83bd4",
+          "file": "result.spec.ts",
+          "line": 80,
+          "column": 1
+        },
+        {
+          "title": "a missing required mask fails the image truthfully and retry loads the actual asset",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4750,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:23:00.939Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-60f7c90f38186f5810e1",
+          "file": "result.spec.ts",
+          "line": 92,
+          "column": 1
+        },
+        {
+          "title": "PNG encoding rejection and browser refusal report failure, while JSON remains available",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4625,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:23:05.718Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-57a2921dc97c6ef3c95a",
+          "file": "result.spec.ts",
+          "line": 97,
+          "column": 1
+        },
+        {
+          "title": "late PNG encoding after exit cannot download or replace the new page",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 8802,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#app-view h1')\nExpected substring: \u001b[32m\"翻到背面看\"\u001b[39m\nReceived string:    \u001b[31m\"一张皮，一束光，千年戏。\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#app-view h1') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#app-view h1')\u001b[22m\n\u001b[2m    13 × locator resolved to <h1 tabindex=\"-1\" class=\"ink-title ink-enhanced\">一张皮，一束光，千年戏。</h1>\u001b[22m\n\u001b[2m       - unexpected value \"一张皮，一束光，千年戏。\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#app-view h1')\nExpected substring: \u001b[32m\"翻到背面看\"\u001b[39m\nReceived string:    \u001b[31m\"一张皮，一束光，千年戏。\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#app-view h1') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#app-view h1')\u001b[22m\n\u001b[2m    13 × locator resolved to <h1 tabindex=\"-1\" class=\"ink-title ink-enhanced\">一张皮，一束光，千年戏。</h1>\u001b[22m\n\u001b[2m       - unexpected value \"一张皮，一束光，千年戏。\"\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\result.spec.ts:105:425",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\result.spec.ts",
+                      "column": 425,
+                      "line": 105
+                    },
+                    "snippet": "  103 | test('late PNG encoding after exit cannot download or replace the new page',async({page})=>{\n  104 |   await page.addInitScript(()=>{HTMLCanvasElement.prototype.toBlob=function(callback){Reflect.set(window,'__encoded',()=>callback(new Blob(['late'],{type:'image/png'})));};Reflect.set(window,'__downloadCount',0);const click=HTMLAnchorElement.prototype.click;HTMLAnchorElement.prototype.click=function(){if(this.download)Reflect.set(window,'__downloadCount',Reflect.get(window,'__downloadCount')+1);return click.call(this);};});\n> 105 |   await seed(page,completed());await page.goto('/#/result');await ready(page);await page.locator('#result-png').click();await expect.poll(()=>page.evaluate(()=>typeof Reflect.get(window,'__encoded'))).toBe('function');await go(page,'/museum');await page.evaluate(()=>Reflect.get(window,'__encoded')());expect(await page.evaluate(()=>Reflect.get(window,'__downloadCount'))).toBe(0);await expect(page.locator('#app-view h1')).toContainText('翻到背面看');\n      |                                                                                                                                                                                                                                                                                                                                                                                                                                         ^\n  106 | });\n  107 |\n  108 | test('Canvas failure keeps programme, JSON and replay transcript without reporting a successful image',async({page})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\result.spec.ts",
+                        "column": 425,
+                        "line": 105
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#app-view h1')\nExpected substring: \u001b[32m\"翻到背面看\"\u001b[39m\nReceived string:    \u001b[31m\"一张皮，一束光，千年戏。\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('#app-view h1') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#app-view h1')\u001b[22m\n\u001b[2m    13 × locator resolved to <h1 tabindex=\"-1\" class=\"ink-title ink-enhanced\">一张皮，一束光，千年戏。</h1>\u001b[22m\n\u001b[2m       - unexpected value \"一张皮，一束光，千年戏。\"\u001b[22m\n\n\n  103 | test('late PNG encoding after exit cannot download or replace the new page',async({page})=>{\n  104 |   await page.addInitScript(()=>{HTMLCanvasElement.prototype.toBlob=function(callback){Reflect.set(window,'__encoded',()=>callback(new Blob(['late'],{type:'image/png'})));};Reflect.set(window,'__downloadCount',0);const click=HTMLAnchorElement.prototype.click;HTMLAnchorElement.prototype.click=function(){if(this.download)Reflect.set(window,'__downloadCount',Reflect.get(window,'__downloadCount')+1);return click.call(this);};});\n> 105 |   await seed(page,completed());await page.goto('/#/result');await ready(page);await page.locator('#result-png').click();await expect.poll(()=>page.evaluate(()=>typeof Reflect.get(window,'__encoded'))).toBe('function');await go(page,'/museum');await page.evaluate(()=>Reflect.get(window,'__encoded')());expect(await page.evaluate(()=>Reflect.get(window,'__downloadCount'))).toBe(0);await expect(page.locator('#app-view h1')).toContainText('翻到背面看');\n      |                                                                                                                                                                                                                                                                                                                                                                                                                                         ^\n  106 | });\n  107 |\n  108 | test('Canvas failure keeps programme, JSON and replay transcript without reporting a successful image',async({page})=>{\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\result.spec.ts:105:425"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:23:10.364Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\result-late-PNG-encoding-a-0927c-oad-or-replace-the-new-page-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\result-late-PNG-encoding-a-0927c-oad-or-replace-the-new-page-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\result.spec.ts",
+                    "column": 425,
+                    "line": 105
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-13012da4d144d1f8e95c",
+          "file": "result.spec.ts",
+          "line": 103,
+          "column": 1
+        },
+        {
+          "title": "Canvas failure keeps programme, JSON and replay transcript without reporting a successful image",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2342,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:23:15.173Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-307a5976beabb814fc30",
+          "file": "result.spec.ts",
+          "line": 108,
+          "column": 1
+        },
+        {
+          "title": "legacy PNG encoding fallback produces a real file and all download URLs are released",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2757,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:23:17.534Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-407406a52c25efc11aba",
+          "file": "result.spec.ts",
+          "line": 112,
+          "column": 1
+        },
+        {
+          "title": "failed autosaving still exports the actual reunited draft and replay never retries disk implicitly",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 14534,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:23:20.494Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-317f750fb54a93c41853",
+          "file": "result.spec.ts",
+          "line": 121,
+          "column": 1
+        },
+        {
+          "title": "late required images after result exit cannot resurrect the capture or its download action",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1783,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:23:20.317Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-be820e5b6a2a5447da06",
+          "file": "result.spec.ts",
+          "line": 129,
+          "column": 1
+        },
+        {
+          "title": "a PNG finishing during a pending file import cannot download the previous project",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4616,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:23:22.135Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-fdaecd25f73279437755",
+          "file": "result.spec.ts",
+          "line": 134,
+          "column": 1
+        },
+        {
+          "title": "legacy product exports PNG and plays a read-only frozen scene through the same modules",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4244,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:23:26.798Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-91cd55ff7bbb9a699f3f",
+          "file": "result.spec.ts",
+          "line": 146,
+          "column": 1
+        },
+        {
+          "title": "unfinished and protected records never manufacture a reunion or offer result downloads",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3875,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:27:09.241Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-b3410c8ac759fc23cb90",
+          "file": "result.spec.ts",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "call-first exports a real frozen 1600x1200 PNG twice and an unchanged programme",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8337,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:27:13.151Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-9d3675d01a0bb3541680",
+          "file": "result.spec.ts",
+          "line": 43,
+          "column": 61
+        },
+        {
+          "title": "split-first exports a real frozen 1600x1200 PNG twice and an unchanged programme",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5644,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:27:21.542Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-2bfcd0bd8130766058dd",
+          "file": "result.spec.ts",
+          "line": 43,
+          "column": 61
+        },
+        {
+          "title": "call-first replay is paused, follows only the saved branch and cannot edit the performance",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 25499,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:27:22.424Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-e9c5957a507aae96b97c",
+          "file": "result.spec.ts",
+          "line": 54,
+          "column": 61
+        },
+        {
+          "title": "split-first replay is paused, follows only the saved branch and cannot edit the performance",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20491,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:27:27.264Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-d53efd064d18c826d6ab",
+          "file": "result.spec.ts",
+          "line": 54,
+          "column": 61
+        },
+        {
+          "title": "SAVE-03 JSON into a fresh browser preserves result identity, frozen PNG and replay decisions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9136,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:27:47.803Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-f8b575e7ef1738582f18",
+          "file": "result.spec.ts",
+          "line": 71,
+          "column": 1
+        },
+        {
+          "title": "reduced motion uses explicit still steps and clears every replay callback on ten route exits",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 26717,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:27:47.980Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-b0753d4aad19c34e0355",
+          "file": "result.spec.ts",
+          "line": 80,
+          "column": 1
+        },
+        {
+          "title": "a missing required mask fails the image truthfully and retry loads the actual asset",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2832,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:27:56.971Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-c4d8c040f0cf66d7ce61",
+          "file": "result.spec.ts",
+          "line": 92,
+          "column": 1
+        },
+        {
+          "title": "PNG encoding rejection and browser refusal report failure, while JSON remains available",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3603,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:27:59.843Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-4e6186c4f02145a43621",
+          "file": "result.spec.ts",
+          "line": 97,
+          "column": 1
+        },
+        {
+          "title": "late PNG encoding after exit cannot download or replace the new page",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1727,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:28:03.472Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-cdb1e502176fca8fd61a",
+          "file": "result.spec.ts",
+          "line": 103,
+          "column": 1
+        },
+        {
+          "title": "Canvas failure keeps programme, JSON and replay transcript without reporting a successful image",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2615,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:28:05.222Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-48a16c87e2268395f553",
+          "file": "result.spec.ts",
+          "line": 108,
+          "column": 1
+        },
+        {
+          "title": "legacy PNG encoding fallback produces a real file and all download URLs are released",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2026,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:28:07.860Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-61131d4dbd38daa12412",
+          "file": "result.spec.ts",
+          "line": 112,
+          "column": 1
+        },
+        {
+          "title": "failed autosaving still exports the actual reunited draft and replay never retries disk implicitly",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14003,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:28:09.928Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-3fb55516793285475095",
+          "file": "result.spec.ts",
+          "line": 121,
+          "column": 1
+        },
+        {
+          "title": "late required images after result exit cannot resurrect the capture or its download action",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2232,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:28:14.744Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-64d62365beb8a8c2f972",
+          "file": "result.spec.ts",
+          "line": 129,
+          "column": 1
+        },
+        {
+          "title": "a PNG finishing during a pending file import cannot download the previous project",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6466,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:28:17.002Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-53e0b389dfe3a6ac7286",
+          "file": "result.spec.ts",
+          "line": 134,
+          "column": 1
+        },
+        {
+          "title": "legacy product exports PNG and plays a read-only frozen scene through the same modules",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5217,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:28:23.517Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-7377b4fafe4bfcb09c03",
+          "file": "result.spec.ts",
+          "line": 146,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "site-music.spec.ts",
+      "file": "site-music.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "site music defaults on, unlocks on the first ordinary click and retains manual mute across routes",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 31007,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\site-music.spec.ts",
+                        "column": 41,
+                        "line": 16
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.museum-hero h1')\u001b[22m\n\n\n  14 |   await instrument(page);await page.goto('/#/museum');await expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');\n  15 |   await expect(page.locator('#site-music-toggle')).toHaveAttribute('aria-pressed','true');\n> 16 |   await page.locator('.museum-hero h1').click();await expect(page.locator('#site-music-status')).toHaveAttribute('data-state','enabled');\n     |                                         ^\n  17 |   await expect.poll(async()=>(await stats(page)).find(p=>p.src)?.ready??0).toBeGreaterThanOrEqual(2);\n  18 |   const active=() => stats(page).then(items=>items.find(p=>p.src)!);\n  19 |   expect((await active()).src).toContain('jinghu-instrumental.mp3');expect((await active()).paused).toBe(false);await expect(page.locator('#site-music-credit')).toHaveCount(0);\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\site-music.spec.ts:16:41"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:23:31.125Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\site-music-site-music-defa-315a6-s-manual-mute-across-routes-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\site-music-site-music-defa-315a6-s-manual-mute-across-routes-desktop-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "451ca9a1769f900d4854-217b02bfcd58ca0fd19c",
+          "file": "site-music.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "reunion first two seconds stay quiet and paused story stops the actual music media",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2737,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:23:35.260Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "451ca9a1769f900d4854-dc05d3c59df309ff8576",
+          "file": "site-music.spec.ts",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "only actual curtain playback selects vocals, pause and mute release the media",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1956,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:23:38.019Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "451ca9a1769f900d4854-f6880d63958e7c893bbb",
+          "file": "site-music.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "failed audio file reports a real error and the next ordinary gesture retries",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "timedOut",
+                  "duration": 30806,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\site-music.spec.ts",
+                        "column": 185,
+                        "line": 33
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.museum-hero h1')\u001b[22m\n\n\n  31 | });\n  32 | test('failed audio file reports a real error and the next ordinary gesture retries',async({page})=>{\n> 33 |   await instrument(page);let refuse=true;await page.route('**/audio/*.mp3',r=>refuse?r.abort('failed'):r.continue());await page.goto('/#/museum');await page.locator('.museum-hero h1').click();await expect(page.locator('#site-music-status')).toHaveAttribute('data-state','error');refuse=false;await page.locator('.museum-hero h1').click();await expect(page.locator('#site-music-status')).toHaveAttribute('data-state','enabled');expect((await stats(page)).filter(p=>p.src)).toHaveLength(1);await page.goto('/study.html');\n     |                                                                                                                                                                                         ^\n  34 | });\n  35 | test('ten route exits keep one active global player and actual pagehide releases its source',async({page})=>{\n  36 |   await instrument(page);await page.goto('/#/museum');await page.locator('.museum-hero h1').click();await expect(page.locator('#site-music-status')).toHaveAttribute('data-state','enabled');\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\site-music.spec.ts:33:185"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:23:39.994Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\site-music-failed-audio-fi-2dd74-xt-ordinary-gesture-retries-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\site-music-failed-audio-fi-2dd74-xt-ordinary-gesture-retries-desktop-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "451ca9a1769f900d4854-969e3f4a797e6876ee2b",
+          "file": "site-music.spec.ts",
+          "line": 32,
+          "column": 1
+        },
+        {
+          "title": "ten route exits keep one active global player and actual pagehide releases its source",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 31251,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\site-music.spec.ts",
+                        "column": 93,
+                        "line": 36
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.museum-hero h1')\u001b[22m\n\n\n  34 | });\n  35 | test('ten route exits keep one active global player and actual pagehide releases its source',async({page})=>{\n> 36 |   await instrument(page);await page.goto('/#/museum');await page.locator('.museum-hero h1').click();await expect(page.locator('#site-music-status')).toHaveAttribute('data-state','enabled');\n     |                                                                                             ^\n  37 |   for(let n=0;n<10;n++){const route=n%2?'/museum':'/craft';await page.evaluate(route=>{location.hash='#'+route;},route);await expect(page.locator('#app-view')).toHaveAttribute('data-route',route);}\n  38 |   expect((await stats(page)).filter(p=>p.src)).toHaveLength(1);expect((await stats(page)).find(p=>p.src)!.paused).toBe(false);await page.evaluate(()=>window.dispatchEvent(new PageTransitionEvent('pagehide')));expect((await stats(page)).every(p=>p.paused&&p.src===null)).toBe(true);\n  39 | });\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\site-music.spec.ts:36:93"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:24:04.509Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\site-music-ten-route-exits-a7099-agehide-releases-its-source-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\site-music-ten-route-exits-a7099-agehide-releases-its-source-desktop-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "451ca9a1769f900d4854-a9d763a0b9ea9e91049d",
+          "file": "site-music.spec.ts",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "site music defaults on, unlocks on the first ordinary click and retains manual mute across routes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3292,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:28:24.035Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "451ca9a1769f900d4854-d2a75d4527074d78d853",
+          "file": "site-music.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "reunion first two seconds stay quiet and paused story stops the actual music media",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2959,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:28:27.353Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "451ca9a1769f900d4854-bb7f84ae85d39531c84f",
+          "file": "site-music.spec.ts",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "only actual curtain playback selects vocals, pause and mute release the media",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2209,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:28:28.810Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "451ca9a1769f900d4854-745a2df050c221c608ee",
+          "file": "site-music.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "failed audio file reports a real error and the next ordinary gesture retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2002,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:28:30.341Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "451ca9a1769f900d4854-1479326d3f23e9a12272",
+          "file": "site-music.spec.ts",
+          "line": 32,
+          "column": 1
+        },
+        {
+          "title": "ten route exits keep one active global player and actual pagehide releases its source",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4489,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:28:31.077Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "451ca9a1769f900d4854-d1d89bbf9b2f2866421e",
+          "file": "site-music.spec.ts",
+          "line": 35,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "story-keyboard.spec.ts",
+      "file": "story-keyboard.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "full/call-first completes every graphical interaction and curtain using only native keyboard controls",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 30830,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:24:12.474Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "845289062a4ae5709eea-b16674171165628b74a0",
+          "file": "story-keyboard.spec.ts",
+          "line": 27,
+          "column": 3
+        },
+        {
+          "title": "full/split-first completes every graphical interaction and curtain using only native keyboard controls",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 40034,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:24:45.492Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "845289062a4ae5709eea-626bc2271cd0cd177445",
+          "file": "story-keyboard.spec.ts",
+          "line": 27,
+          "column": 3
+        },
+        {
+          "title": "guided/call-first completes every graphical interaction and curtain using only native keyboard controls",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 39858,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:24:43.520Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "845289062a4ae5709eea-6926f79ead7ba2ab084a",
+          "file": "story-keyboard.spec.ts",
+          "line": 27,
+          "column": 3
+        },
+        {
+          "title": "guided/split-first completes every graphical interaction and curtain using only native keyboard controls",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 32899,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:25:23.400Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "845289062a4ae5709eea-4b6cf614bd2deffd37e7",
+          "file": "story-keyboard.spec.ts",
+          "line": 27,
+          "column": 3
+        },
+        {
+          "title": "full/call-first completes every graphical interaction and curtain using only native keyboard controls",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 60447,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:28:32.409Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "845289062a4ae5709eea-927682e4ea9c80b8ca75",
+          "file": "story-keyboard.spec.ts",
+          "line": 27,
+          "column": 3
+        },
+        {
+          "title": "full/split-first completes every graphical interaction and curtain using only native keyboard controls",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 61194,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:28:35.658Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "845289062a4ae5709eea-87e52091f5a89ccaf0c9",
+          "file": "story-keyboard.spec.ts",
+          "line": 27,
+          "column": 3
+        },
+        {
+          "title": "guided/call-first completes every graphical interaction and curtain using only native keyboard controls",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 30970,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:29:32.887Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "845289062a4ae5709eea-668e14edf24b9fdf5737",
+          "file": "story-keyboard.spec.ts",
+          "line": 27,
+          "column": 3
+        },
+        {
+          "title": "guided/split-first completes every graphical interaction and curtain using only native keyboard controls",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 36048,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:29:36.868Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "845289062a4ae5709eea-fa70752e8d0665dc33d6",
+          "file": "story-keyboard.spec.ts",
+          "line": 27,
+          "column": 3
+        }
+      ]
+    },
+    {
+      "title": "v4-seek.spec.ts",
+      "file": "v4-seek.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "full: current mode cues seek locally, preserve pause/play, reset task evidence and lock during film",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5694,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:25:26.207Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0d17ee383179654e84a3-d7663c5bad37099e6f18",
+          "file": "v4-seek.spec.ts",
+          "line": 21,
+          "column": 46
+        },
+        {
+          "title": "guided: current mode cues seek locally, preserve pause/play, reset task evidence and lock during film",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6244,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:25:31.924Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0d17ee383179654e84a3-d8849227447c557f0074",
+          "file": "v4-seek.spec.ts",
+          "line": 21,
+          "column": 46
+        },
+        {
+          "title": "craft keeps original image details and palette, with no added pattern or carving selection",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3888,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:25:38.194Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0d17ee383179654e84a3-65c461264d2fa311dfc3",
+          "file": "v4-seek.spec.ts",
+          "line": 37,
+          "column": 1
+        },
+        {
+          "title": "fresh guide starts v4 without freezing an unconfirmed costume",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3780,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:25:42.108Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0d17ee383179654e84a3-332447d76d332647d553",
+          "file": "v4-seek.spec.ts",
+          "line": 46,
+          "column": 1
+        },
+        {
+          "title": "paused result replay unlocks its cue directory when the first frame becomes ready",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3436,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:25:45.910Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0d17ee383179654e84a3-c147d9641c6cf525e828",
+          "file": "v4-seek.spec.ts",
+          "line": 50,
+          "column": 1
+        },
+        {
+          "title": "full: current mode cues seek locally, preserve pause/play, reset task evidence and lock during film",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8210,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:30:03.928Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0d17ee383179654e84a3-7ab2840762fa84096e2a",
+          "file": "v4-seek.spec.ts",
+          "line": 21,
+          "column": 46
+        },
+        {
+          "title": "guided: current mode cues seek locally, preserve pause/play, reset task evidence and lock during film",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7046,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:30:12.202Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0d17ee383179654e84a3-800992d2b69aec93c092",
+          "file": "v4-seek.spec.ts",
+          "line": 21,
+          "column": 46
+        },
+        {
+          "title": "craft keeps original image details and palette, with no added pattern or carving selection",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5176,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:30:12.994Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0d17ee383179654e84a3-b1b9607bc13e81e9c06a",
+          "file": "v4-seek.spec.ts",
+          "line": 37,
+          "column": 1
+        },
+        {
+          "title": "fresh guide starts v4 without freezing an unconfirmed costume",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3516,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:30:18.251Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0d17ee383179654e84a3-57e9c4c7a964637912de",
+          "file": "v4-seek.spec.ts",
+          "line": 46,
+          "column": 1
+        },
+        {
+          "title": "paused result replay unlocks its cue directory when the first frame becomes ready",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2746,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:30:19.286Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0d17ee383179654e84a3-4fdf282134a3d14967aa",
+          "file": "v4-seek.spec.ts",
+          "line": 50,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "v4-workshop.spec.ts",
+      "file": "v4-workshop.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "native lamp dragging changes lamp geometry, leaves the puppet fixed and survives a context loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8777,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:25:49.403Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d697895ebd5d0b7b5df9-506f5095432aedd7419a",
+          "file": "v4-workshop.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "without WebGL the lamp experiment keeps its shadow and keyboard controls",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2283,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:25:56.350Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d697895ebd5d0b7b5df9-6511d35df1a92180b2a2",
+          "file": "v4-workshop.spec.ts",
+          "line": 32,
+          "column": 1
+        },
+        {
+          "title": "practice uses the detailed original costume even when old pattern fields change",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1864,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:25:58.206Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d697895ebd5d0b7b5df9-75a299b5c5d615dd0b5d",
+          "file": "v4-workshop.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "museum prioritizes public photos, supports enlargement and offers a motion switch",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2835,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:25:58.664Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d697895ebd5d0b7b5df9-9312a95a5800cc4a15e9",
+          "file": "v4-workshop.spec.ts",
+          "line": 46,
+          "column": 1
+        },
+        {
+          "title": "native lamp dragging changes lamp geometry, leaves the puppet fixed and survives a context loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7622,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:30:21.859Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d697895ebd5d0b7b5df9-3f2aba3360636ab94a65",
+          "file": "v4-workshop.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "without WebGL the lamp experiment keeps its shadow and keyboard controls",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2908,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:30:22.097Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d697895ebd5d0b7b5df9-20730db163c52b4f7f0b",
+          "file": "v4-workshop.spec.ts",
+          "line": 32,
+          "column": 1
+        },
+        {
+          "title": "practice uses the detailed original costume even when old pattern fields change",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2046,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:30:25.054Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d697895ebd5d0b7b5df9-7e84f83b00fd348dc830",
+          "file": "v4-workshop.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "museum prioritizes public photos, supports enlargement and offers a motion switch",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3355,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:30:27.133Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d697895ebd5d0b7b5df9-48cc0179da245c9536c6",
+          "file": "v4-workshop.spec.ts",
+          "line": 46,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-25T07:21:12.592Z",
+    "duration": 560491.9659999999,
+    "expected": 102,
+    "skipped": 0,
+    "unexpected": 8,
+    "flaky": 0
+  }
+}
