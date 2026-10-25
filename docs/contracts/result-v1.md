@@ -14,7 +14,9 @@
 
 `createReunionArtifact(project)`先调用reunionSummary验证完整项目，返回独立`summary/frame`副本，未团圆抛错。场面读取reunion-hold入口与冻结外观/共纹，以现有`stagePlayFrame`恢复双偶稳定抱持，复用剧场远山透明度，保持母亲衣身可辨；没有瞬时鼠标姿态的持久化或伪造。
 
-`mountReunionExporter(host,artifact)`返回`canvas`、`ready:Promise<void>`、`toBlob():Promise<Blob>`及幂等dispose。现有Canvas renderer先绘制完整1024×768源幕面，一次合成到1600×1200输出并加标题、路线、纹样/配色、造型来源、UTC完成时间、短run标记及署名。源幕面完成或失败后立即释放；输出没有RAF或resize监听。1600×1200是输出尺寸，角色源幕面的采样仍遵守现有渲染预算。
+`mountReunionExporter(host,artifact)`返回`canvas`、`ready:Promise<void>`、`toBlob():Promise<Blob>`及幂等dispose。现有Canvas renderer先绘制完整1024×768源幕面，等待本地常规楷体就绪或最多3000ms回退系统字体，再一次合成到1600×1200输出并加标题、路线、纹样/配色、造型来源、UTC完成时间、短run标记及署名。合成完成或失败后释放源幕面；离页取消字体等待并释放，迟到字体不能重新合成。输出没有RAF或resize监听。1600×1200是输出尺寸，角色源幕面的采样仍遵守现有渲染预算。
+
+T33将记录移至留影/下载概览下方的“本场行装、操演记录、终章信息”三组独立短卡，每卡使用语义化dl；未完成场仅显示当前进度。≤1180px概览与画面上下排列，记录≤1180px两列、≤700px一列。全部原记录与只读重演不变，布局不改变ProjectV1或完成条件。
 
 ready只代表图像准备成功。资源/Canvas失败、toBlob抛错或null/空/非PNG、缺少编码能力都拒绝；legacy优先toBlob，否则使用msToBlob。重试通过销毁并重建导出器，实际重新加载资源。dispose拒绝准备/编码中的Promise并将Canvas尺寸归零，迟到图片或编码不能恢复页面。
 

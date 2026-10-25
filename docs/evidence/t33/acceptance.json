@@ -1,0 +1,113 @@
+{
+  "task": "T33",
+  "recordedAt": "2026-10-25T14:17:52.012Z",
+  "sourceCommit": "39601f6a892061f74eefc0ce3171a1dbb81e998a",
+  "primarySourceCommit": "284c518fa6787652b936d897c0209118c97cccb5",
+  "indexSha256": "753279acb561083433bfd2c2b1f722630b9cb21a6c397eefcf5d6eb147c1c00d",
+  "checks": {
+    "unit": {
+      "file": "unit.json",
+      "passed": 543,
+      "total": 543
+    },
+    "types": true,
+    "buildModules": 145,
+    "legacyChunks": 17,
+    "entryPages": 7,
+    "assetsPNG": 81,
+    "kaiCoverage": 1402,
+    "contentVersions": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "tasks": 34,
+    "reviewItems": 264,
+    "reviewStatus": "pending",
+    "reviewSnapshot": "63002eb18ba507b99148dc42f56058ea61c3cc85fc7f6ee4cbb91243a1c68dad"
+  },
+  "layoutPhases": [
+    {
+      "file": "responsive-final.json",
+      "cases": 720,
+      "passed": 720,
+      "failed": 0,
+      "screens": 80
+    },
+    {
+      "file": "responsive-short.json",
+      "cases": 60,
+      "passed": 60,
+      "failed": 0,
+      "screens": 4
+    },
+    {
+      "file": "responsive-webkit-final.json",
+      "cases": 60,
+      "passed": 60,
+      "failed": 0,
+      "screens": 2
+    },
+    {
+      "file": "responsive-short-cards.json",
+      "cases": 216,
+      "passed": 216,
+      "failed": 0,
+      "screens": 24
+    }
+  ],
+  "browserVersions": {
+    "dev/chromium": "156.0.8078.4",
+    "dev/msedge": "156.0.4314.42",
+    "production/chromium": "156.0.8078.4",
+    "production/msedge": "156.0.4314.42",
+    "dev/webkit": "27.2",
+    "production/webkit": "27.2"
+  },
+  "functionalPhases": [
+    {
+      "file": "functional.json",
+      "passed": 60,
+      "total": 60,
+      "note": "Primary implementation before result short cards"
+    },
+    {
+      "file": "woff-fallback.json",
+      "passed": 2,
+      "total": 2
+    },
+    {
+      "file": "final-result-font.json",
+      "passed": 38,
+      "total": 40,
+      "note": "Two timing failures retained"
+    },
+    {
+      "file": "final-font-save-recheck.json",
+      "passed": 8,
+      "total": 8,
+      "note": "All fonts and failed autosave in both viewports, isolated low-load run; latest observations of all 40 cases passed"
+    }
+  ],
+  "startup": {
+    "file": "startup.json",
+    "samplesPerCondition": 1,
+    "conditions": 4,
+    "homePresentationMaxMs": 6481.60000000149,
+    "introMaxFromClickMs": 4271.69999999553,
+    "imageFontBytes": 5548934,
+    "within15Seconds": true
+  },
+  "fontManifestSha256": "ba5606b2d3ebcd4f4b1dcb4c916fe276eabbea4abf858cee7e75b324ee783501",
+  "limitations": [
+    "Firefox cannot launch on this host: missing Windows side-by-side runtime. Not passed.",
+    "Viewport simulations are not physical devices, Safari, IE or physical zoom validation.",
+    "Review/rights approvals, participant tests, real full-duration/hearing and prior SwiftShader FPS gaps remain independent.",
+    "Phased evidence is not a single final full-suite run."
+  ],
+  "push": {
+    "status": "pending",
+    "destination": "git@github.com:herspacefly/ZeroCup.git"
+  }
+}

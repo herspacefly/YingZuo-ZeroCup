@@ -33,3 +33,11 @@ GuideSession、遮罩、目标、步骤、播放位姿和相机都不序列化�
 姿态按钮/滑块/朝向/大小/归位/保存位于幕面下方，按身躯、上肢、下肢短卡分组。动作选择与播放位于右侧短卡。启动所选示范动作先取消旧输入和旧动作，采用完整 `defaultPose` 再采样，保留外观与灯光；不继承用户乱拖后的关节、大小和翻向。
 
 测试证据与未完成的实体设备/正式审看见 `docs/acceptance/t29-t32.md`，不能从 ES5 语法或模拟视口推导真实 IE/触屏兼容。
+
+## T33 响应式与常规楷体
+
+正式站点与独立致谢页统一经 `src/styles/site.css` 按 tokens/base/layout/controls/museum/result/spatial/legacy/music/presentation 顺序载入样式。不能在 bootstrap 重新散列导入，让旧布局覆盖最后的响应式规则。首页桌面为两列网格，画框宽度100%、高宽比1.25；≤980px堆叠。工作区允许内容收缩，练习姿态在幕下；≤1180px的活动演出及成果页上下排列，成果记录独立三组短卡，避免长侧栏与大块空白。
+
+正文、剧情、导航、控件和普通标题继承 `Yingzuo Kai` 常规字体，艺术 `.ink-title` 保留原书法。WOFF2→WOFF→系统KaiTi/Kaiti SC/STKaiti→serif，字体使用swap；没有运行时远程字体。`public/assets/typography/manifest.json`独立记录固定来源、派生名称、字集、字节与摘要，OFL与署名位于素材致谢。源码增加字符后运行 `scripts/prepare-kai-font.py` 更新字集。PNG先等字体就绪或最多3000ms降级，再合成；离页撤计时器并拒绝迟到合成，详见result-v1。
+
+T33验收见 `docs/acceptance/t33.md`。320—2560 CSS像素与不同浏览器内核的自动化结果不等于实体手机、IE或Safari批准；字体失败仍保证完整文字和可用布局。
