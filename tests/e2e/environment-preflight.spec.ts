@@ -83,7 +83,7 @@ for(const mode of ['full','guided'] as const)for(const approach of ['call-first'
     await page.locator('img').evaluateAll(images=>images.forEach(image=>{(image as HTMLImageElement).loading='eager';}));await expect.poll(()=>page.locator('img').evaluateAll(images=>images.every(image=>(image as HTMLImageElement).complete&&(image as HTMLImageElement).naturalWidth>0))).toBe(true);await layout(page);
   }
   await saved(page);expect((await stored(page)).story).toEqual(completed.story);expect((await stored(page)).museum.visitedExhibitIds.length).toBe(8);
-  await page.evaluate(()=>{location.hash='#/result';});await expect(page.locator('#result-png')).toBeEnabled();await layout(page);await expect(page.locator('.programme')).toContainText('张宇翔（SpaceFly）');
+  await page.evaluate(()=>{location.hash='#/result';});await expect(page.locator('#result-png')).toBeEnabled();await layout(page);await expect(page.locator('.programme-list')).toContainText('张宇翔（SpaceFly）');
   const pngWait=page.waitForEvent('download');await page.locator('#result-png').click();const png=await bytes(await pngWait);expect(png.subarray(0,8)).toEqual(Buffer.from([137,80,78,71,13,10,26,10]));expect([png.readUInt32BE(16),png.readUInt32BE(20)]).toEqual([1600,1200]);
   const jsonWait=page.waitForEvent('download');await page.locator('#result-json').click();const exported=JSON.parse((await bytes(await jsonWait)).toString('utf8'));expect(exported).toEqual(await stored(page));
   expect(productExternal).toEqual([]);expect(failures).toEqual([]);expect(errors).toEqual([]);expect(responses).toContain('/audio/jinghu-instrumental.mp3');expect(responses).toContain('/audio/jingju-curtain.mp3');expect(responses.some(p=>/\/assets\/renderer-.*\.js$/.test(p))).toBe(!forced2D);

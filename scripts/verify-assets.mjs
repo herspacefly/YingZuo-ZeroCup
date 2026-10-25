@@ -127,6 +127,11 @@ const presentation=json('public/assets/presentation/manifest.json');const presen
 for(const asset of presentation.assets){const file=path.join(root,'public',asset.path),bytes=readFileSync(file);check(asset.path.startsWith('assets/presentation/')&&!asset.path.includes('..'),'Presentation path');check(bytes.length===asset.bytes&&createHash('sha256').update(bytes).digest('hex')===asset.sha256,'Presentation integrity '+asset.path);presentationPaths.add(file);if(asset.path.endsWith('.png'))check(bytes.readUInt32BE(16)===asset.width&&bytes.readUInt32BE(20)===asset.height,'Presentation dimensions');}
 const kai=json('public/assets/typography/manifest.json');
 check(kai.family==='Yingzuo Kai'&&kai.license==='OFL-1.1'&&kai.missingCharacters===''&&kai.characters.length>1000,'Regular Kai font metadata/coverage');
+const kaiCharacters=new Set(kai.characters),kaiMissing=new Set();
+for(const file of [...walk(path.join(root,'src')).filter(file=>/\.(ts|json|html)$/.test(file)),...readdirSync(root).filter(file=>file.endsWith('.html')).map(file=>path.join(root,file))]){
+  for(const character of readFileSync(file,'utf8'))if(character.codePointAt(0)>=128&&!kaiCharacters.has(character))kaiMissing.add(character);
+}
+check(kaiMissing.size===0,'Regular Kai subset missing source characters: '+[...kaiMissing].join(''));
 for(const asset of kai.assets){
   const safe=asset.path.startsWith('assets/typography/')&&!asset.path.includes('..');check(safe,'Kai path');if(!safe)continue;
   const bytes=readFileSync(path.join(root,'public',asset.path));check(bytes.length===asset.bytes&&createHash('sha256').update(bytes).digest('hex')===asset.sha256,'Kai integrity '+asset.path);

@@ -79,7 +79,7 @@ for(const mode of ['full','guided'] as const)for(const approach of ['call-first'
     await ready(page,'completed');const result=await stored(page);expect(result.story).toMatchObject({approach,mode,nodeId:'completed',castSnapshot:cast});expect(result.story!.completedAt).not.toBeNull();
     expect(result.story!.assistedNodeIds).toEqual(assisted?['memory-wave','road','guardian',...(approach==='call-first'?['call-light','call-split']:['split-axe','split-search']),'reunion-reach']:[]);
     const path=approach==='call-first'?['call-light','call-response','call-split']:['split-axe','split-search','split-response'];expect(seen).toEqual(['intro','craft','memory-wave','memory-separate','road','training','guardian','approach-choice',...path,'reunion-reach','reunion-hold','curtain','completed']);
-    await page.reload();await ready(page,'completed');expect((await stored(page)).story).toEqual(result.story);await go(page,'/result');await expect(page.locator('.programme')).toContainText(approach==='call-first'?'先举灯呼唤':'先挥斧开山');
+    await page.reload();await ready(page,'completed');expect((await stored(page)).story).toEqual(result.story);await go(page,'/result');await expect(page.locator('.programme-list')).toContainText(approach==='call-first'?'先举灯呼唤':'先挥斧开山');
     expect(errors).toEqual([]);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   });
 }
