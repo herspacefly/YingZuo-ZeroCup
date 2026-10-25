@@ -41,6 +41,11 @@ export function prepareFrame(input: CanvasFrame, catalog: AssetCatalog): CanvasF
   }
   if (input.showRods !== undefined && typeof input.showRods !== 'boolean') throw new Error('杆显示设置无效。');
   const actorOpacity:CanvasFrame['actorOpacity']={};
+  const actorSceneOrder:CanvasFrame['actorSceneOrder']={};
+  if(input.actorSceneOrder!==undefined){
+    if(!input.actorSceneOrder||typeof input.actorSceneOrder!=='object'||Array.isArray(input.actorSceneOrder))throw new Error('人物景片层次无效。');
+    for(const [id,order]of Object.entries(input.actorSceneOrder)){if(!ids.has(id)||!Number.isInteger(order)||!number(order,10,40))throw new Error('人物景片层次无效。');actorSceneOrder[id as RenderActor['actorId']]=order;}
+  }
   if(input.actorOpacity!==undefined){
     if(!input.actorOpacity||typeof input.actorOpacity!=='object'||Array.isArray(input.actorOpacity))throw new Error('角色显影设置无效。');
     for(const [id,opacity]of Object.entries(input.actorOpacity)){
@@ -54,8 +59,10 @@ export function prepareFrame(input: CanvasFrame, catalog: AssetCatalog): CanvasF
     ...(input.spatial?{spatial:input.spatial}:{}),
     ...(input.shadowOnly ? {shadowOnly:true} : {}),
     ...(input.cableMotion?{cableMotion:input.cableMotion}:{}),
-    ...(input.actorOpacity===undefined?{}:{actorOpacity}) })) as CanvasFrame;
+    ...(input.actorOpacity===undefined?{}:{actorOpacity}),...(input.actorSceneOrder===undefined?{}:{actorSceneOrder}) })) as CanvasFrame;
 }
+export function actorSceneOrder(frame:CanvasFrame,catalog:AssetCatalog,id:RenderActor['actorId']){return frame.actorSceneOrder?.[id]??catalog.scenes.actorOrder;}
+export function scenePlaneDepth(order:number,puppetDistance:number){return order<10?-.78+order*.025:-puppetDistance+(order-10)*.006;}
 export function requiredAssets(frame: CanvasFrame, catalog: AssetCatalog): string[] {
   const ids = new Set<string>();
   for (const actor of frame.actors) {

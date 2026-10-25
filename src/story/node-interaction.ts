@@ -208,6 +208,7 @@ export function interactionGoal(node: StoryNode, input: CanvasFrame): Interactio
   if (kind !== 'wave' && kind !== 'road' && kind !== 'block' && kind !== 'light') return null;
   const shoulderAngles = kind === 'wave' || kind === 'block' || (kind==='light'&&completion.region==='lantern') ? [actor.pose.joints.rightShoulder, .6, 1, 1.4, 1.8, -.6, -1.2] : [actor.pose.joints.rightShoulder];
   const elbowAngles = kind === 'wave' || kind === 'block' || (kind==='light'&&completion.region==='lantern') ? [actor.pose.joints.rightElbow, .6, 1.2, 1.8, 2.4] : [actor.pose.joints.rightElbow];
+  let blockGoal:InteractionGoal|null=null,blockCost=Infinity;
   for (const shoulder of shoulderAngles) for (const elbow of elbowAngles) {
     const pose = clone(actor.pose); pose.joints.rightShoulder = shoulder; pose.joints.rightElbow = elbow;
     const observed = region(candidateFrame(pose), kind, completion.kind==='light'?completion.region:undefined);
@@ -220,7 +221,11 @@ export function interactionGoal(node: StoryNode, input: CanvasFrame): Interactio
     const fitted = fit(pose), finalRegion = region(candidateFrame(fitted.pose), kind, completion.kind==='light'?completion.region:undefined);
     // The first lesson exposes only the hand rod. A demonstration must obey that same input boundary.
     if (kind === 'wave' && (fitted.pose.x !== actor.pose.x || fitted.pose.y !== actor.pose.y || fitted.pose.scale !== actor.pose.scale)) continue;
-    if (fitted.fits && finalRegion && targetCoverageRatio(finalRegion, target) >= completion.overlapRatio) return result(fitted.pose);
+    if (fitted.fits && finalRegion && targetCoverageRatio(finalRegion, target) >= completion.overlapRatio){
+      if(kind!=='block')return result(fitted.pose);
+      const cost=Math.hypot(fitted.pose.x-actor.pose.x,fitted.pose.y-actor.pose.y)*10+Math.abs(fitted.pose.joints.rightShoulder-1.2)*.03;
+      if(cost<blockCost){blockCost=cost;blockGoal=result(fitted.pose);}
+    }
   }
-  return null;
+  return blockGoal;
 }

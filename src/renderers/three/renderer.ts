@@ -6,9 +6,9 @@ import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { assetCatalog } from '../../content/catalog';
 import type { Bounds, PuppetTemplate } from '../../content/asset-types';
 import { attachmentTransform, jointTransform, partTransform, rodPoint } from '../../domain/pose';
-import { localToWorld, LAMP_DEPTH, projectionParameters } from '../../domain/projection';
+import { localToWorld, LAMP_DEPTH, projectionParameters,WORLD_WIDTH,WORLD_HEIGHT } from '../../domain/projection';
 import { PartCompositor } from '../canvas/compositing';
-import { prepareFrame, requiredAssets } from '../canvas/frame';
+import { prepareFrame, requiredAssets,actorSceneOrder,scenePlaneDepth } from '../canvas/frame';
 import { TextureCache } from '../canvas/texture-cache';
 import type { CanvasFrame } from '../canvas/types';
 import { boundedTextureSize, spatialResourceScope, stageCamera } from './geometry';
@@ -136,12 +136,12 @@ export function mountThreeStage(host: HTMLElement, source: HTMLCanvasElement, op
   }
   function createScenery(frame:CanvasFrame){
     const scene=assetCatalog.scenes.scenes.find(s=>s.id===frame.stage.backgroundId)!;
-    for(const [index,layer]of scene.layers.entries()){
+    for(const layer of scene.layers){
       const geometry=new THREE.PlaneGeometry(2,1.5);geometries.add(geometry);
       const tex=textureFor(assets!.get(layer.assetId));
       const shared={map:tex,transparent:true,alphaTest:.01,depthWrite:false,side:THREE.DoubleSide};
       const material=softwareBudget?new THREE.MeshBasicMaterial(shared):new THREE.MeshLambertMaterial({...shared,emissive:'#ffffff',emissiveMap:tex,emissiveIntensity:.38});materials.add(material);
-      const mesh=new THREE.Mesh(geometry,material);mesh.userData.depth=-.78+index*.09;mesh.renderOrder=1+index;sceneObjects.add(mesh);scenery.set(layer.id,mesh);
+      const mesh=new THREE.Mesh(geometry,material);mesh.renderOrder=layer.order*1000;sceneObjects.add(mesh);scenery.set(layer.id,mesh);
     }
   }
   function observe(nextYaw:number,nextPitch:number,nextZoom:number,actorId=focusActor){
@@ -149,7 +149,7 @@ export function mountThreeStage(host: HTMLElement, source: HTMLCanvasElement, op
   }
   function positionActors(frame: CanvasFrame) {
     const definition=assetCatalog.scenes.scenes.find(s=>s.id===frame.stage.backgroundId)!;
-    for(const layer of definition.layers){const mesh=scenery.get(layer.id);if(!mesh)continue;const current=frame.sceneLayers?.find(l=>l.id===layer.id)??layer;mesh.position.set(current.x,current.y,mesh.userData.depth as number);mesh.material.opacity=current.opacity;mesh.visible=view==='story'||view==='character';if(softwareBudget){const level=.15+.85*(frame.spatial?.light??1);mesh.material.color.setRGB(level,level*.97,level*.92);}}
+    for(const layer of definition.layers){const mesh=scenery.get(layer.id);if(!mesh)continue;const current=frame.sceneLayers?.find(l=>l.id===layer.id)??layer;mesh.position.set(current.x*WORLD_WIDTH,-current.y*WORLD_HEIGHT,scenePlaneDepth(layer.order,frame.stage.puppetDistance));mesh.material.opacity=current.opacity;mesh.visible=view==='story'||view==='character';if(softwareBudget){const level=.15+.85*(frame.spatial?.light??1);mesh.material.color.setRGB(level,level*.97,level*.92);}}
     const cue=frame.spatial;warm.intensity=10*(cue?.light??1);warm.position.x=frame.stage.lampX;warm.position.z=-projectionParameters(frame.stage).lampDepth;curtain.material.color.setScalar(.15+.85*(cue?.light??1));
     if(view==='story'||view==='character'){const actor=frame.actors.find(a=>a.actorId===focusActor)??frame.actors[0],root=actor?localToWorld({x:0,y:0},actor.pose):{x:0,y:0};
       const near=view==='character',p=cue?.progress??0,back=cue?.backstage&&!near;currentHeight=(near?1.2:2.25)/zoom;
@@ -161,21 +161,24 @@ export function mountThreeStage(host: HTMLElement, source: HTMLCanvasElement, op
     for (const actor of frame.actors) {
       const item = actorObjects.get(actor.actorId)!, template = assetCatalog.puppets.find(item => item.id === actor.templateId)!;
       const root = localToWorld({ x: 0, y: 0 }, actor.pose);
-      item.group.position.set(root.x, root.y, -frame.stage.puppetDistance);
+      const planeOrder=actorSceneOrder(frame,assetCatalog,actor.actorId),actorIndex=frame.actors.indexOf(actor);
+      item.group.position.set(root.x, root.y, scenePlaneDepth(planeOrder,frame.stage.puppetDistance));
       item.group.scale.set(actor.pose.scale * actor.pose.facing, actor.pose.scale, 1);
       const opacity = frame.actorOpacity?.[actor.actorId] ?? 1;
       for (const entry of item.parts) {
         const part = entry.attachment ? template.attachments.find(part => part.id === entry.partId)! : template.parts.find(part => part.partId === entry.partId)!;
         const transform = entry.attachment ? attachmentTransform(template, actor.pose, part as PuppetTemplate['attachments'][number]) : partTransform(template, actor.pose, part as PuppetTemplate['parts'][number]);
+        entry.mesh.renderOrder=view==='story'||view==='character'?planeOrder*1000+actorIndex*100+part.drawOrder:10+part.drawOrder;
         entry.mesh.position.set(transform.x, transform.y, part.drawOrder * .00005); entry.mesh.rotation.z = transform.angle; entry.mesh.material.opacity = opacity;entry.mesh.material.color.setScalar(.15+.85*(cue?.light??1));
       }
       for (const entry of item.rods) {
+        entry.line.renderOrder=view==='story'||view==='character'?100000:120;
         const point = entry.rodId==='leftFoot'||entry.rodId==='rightFoot'?limbLocalPoint(template,actor.pose,entry.rodId):rodPoint(template, actor.pose, entry.rodId), attribute = entry.line.geometry.getAttribute('position');
         const world=localToWorld(point,actor.pose),end=worldToLocal({x:world.x-.025,y:-1.6},actor.pose),motion=actor.actorId==='chenxiang'&&frame.cableMotion?.source===entry.rodId?frame.cableMotion:undefined;
         const curve=cableCurve(point,end,(motion?.bend??0)*actor.pose.facing/actor.pose.scale);for(let i=0;i<12;i++){const p=cablePoint(curve,i/11);attribute.setXYZ(i,p.x,p.y,-.007-i/11*.07);}
         attribute.needsUpdate = true; entry.line.geometry.computeBoundingSphere(); entry.line.material.opacity = opacity;entry.line.visible=!!frame.showRods;
       }
-      for (const entry of item.joints) { const point = jointTransform(template, actor.pose, entry.jointId); entry.mesh.position.set(point.x, point.y, .01); entry.mesh.material.visible = opacity > 0; }
+      for (const entry of item.joints) { const point = jointTransform(template, actor.pose, entry.jointId);entry.mesh.renderOrder=view==='story'||view==='character'?100100:130; entry.mesh.position.set(point.x, point.y, .01); entry.mesh.material.visible = opacity > 0; }
     }
     lamp.position.x = frame.stage.lampX;lamp.position.z=-projectionParameters(frame.stage).lampDepth;
     canvas.setAttribute('data-actors', frame.actors.map(actor => actor.actorId).join(','));
@@ -214,6 +217,7 @@ export function mountThreeStage(host: HTMLElement, source: HTMLCanvasElement, op
     camera.position.set(...preset.position); camera.up.set(0, 1, 0); camera.lookAt(...preset.target);
     lampDeck.visible=view==='lamp-workshop';linen.material.opacity=view==='lamp-workshop'?.96:.1;linen.position.z=view==='lamp-workshop'?.012:-.015;
     curtain.material.opacity = view === 'front'||view==='lamp-workshop' ? 1 : view==='story'||view==='character' ? .06 : .24;
+    curtain.renderOrder=view==='story'||view==='character'?200000:200;
     actors.visible = view !== 'front'; lamp.visible = view !== 'front';
     for (let index = 0; index < wings.length; index++) { wings[index]!.rotation.y = view === 'exhibit' ? (index ? -1 : 1) * .75 : 0; }
     canvas.setAttribute('data-view', view); resize();

@@ -43,6 +43,7 @@ let store: ProjectStore | null = null, page: PageView | null = null;
 let router: ReturnType<typeof createHashRouter> | null = null, unsubscribe = () => {};
 let disposed = false, locked = false, current: AppRoute | null = null;
 let musicScene:StageSoundSample|null=null,musicFocused=true;
+let openingRun:string|null=null;
 const musicButton=get<HTMLButtonElement>('site-music-toggle'),musicStatus=get<HTMLElement>('site-music-status');
 const audio=createStageAudioSession({tracks:musicCatalog.tracks,onMusic(status,enabled){
   if(disposed)return;musicStatus.textContent=status.state==='blocked'?'点击或按键，让音乐响起。':status.state==='error'||status.state==='unavailable'?'音乐暂未播放，请重试声音开关。':'';get<HTMLElement>('site-music-panel').hidden=!musicStatus.textContent;musicStatus.setAttribute('data-state',status.state);musicStatus.setAttribute('data-track',status.trackId??'');
@@ -54,9 +55,9 @@ function syncMusic(){
   audio.setScene(musicScene,current?.path==='/story',musicFocused&&!document.hidden&&!disposed&&!locked&&!state?.hasPending&&!['saving','closed','conflict','recovery','unsupported'].includes(state?.status??''));
 }
 life.on(musicButton,'click',()=>audio.toggleMusic());
-life.on(window,'blur',()=>{musicFocused=false;syncMusic();});
+life.on(window,'blur',()=>{openingRun=null;musicFocused=false;syncMusic();});
 life.on(window,'focus',()=>{musicFocused=true;syncMusic();});
-life.on(document,'visibilitychange',syncMusic);
+life.on(document,'visibilitychange',()=>{if(document.hidden)openingRun=null;syncMusic();});
 // Capture before page handlers: user activation is lost if play/resume is
 // deferred behind an async store command. Never persist a mute preference.
 let lastPointerActivation=-Infinity;
@@ -150,16 +151,19 @@ async function mount() {
       notify('先处理待保存动作，再离开这一页。可以重试、导出或取消。'); showTools(true); return false;
     }
     const changed = !!current;
+    if(parsed.route.path!=='/story')openingRun=null;
     page?.dispose();musicScene=null;clear(host); current = parsed.route;syncMusic();
     const context: PageContext = {
       store: opened, route: parsed.route, navigate: route => router?.navigate(route), isBusy:()=>locked, run, durable, notify,
       audio,
+      consumeOpening(runId){if(openingRun!==runId)return false;openingRun=null;return true;},
       musicSample(sample){musicScene=sample;syncMusic();},
       edit(command) { void run(() => opened.edit(command)); },
       start(mode) {
         const story = opened.getState().project?.story;
         if (story) { router?.navigate({ path: story.nodeId === 'craft' && story.definitionVersion<3 ? '/craft' : '/story', exhibitId: null }); return; }
-        void durable(() => startStory(opened, newIdentifier('run'), mode), { path: '/story', exhibitId: null });
+        const runId=newIdentifier('run');openingRun=runId;
+        void durable(async()=>{const result=await startStory(opened,runId,mode);if(!result.ok)openingRun=null;return result;}, { path: '/story', exhibitId: null });
       },
       skipIntro() {
         const story = opened.getState().project?.story;

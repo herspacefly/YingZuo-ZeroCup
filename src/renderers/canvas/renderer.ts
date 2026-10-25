@@ -5,7 +5,7 @@ import type { AssetCatalog, Bounds, PuppetTemplate, RenderActor } from '../../co
 import { attachmentTransform, jointTransform, partTransform, rodPoint } from '../../domain/pose';
 import { fitViewport, projectLocalPoint, projectionParameters } from '../../domain/projection';
 import { PartCompositor } from './compositing';
-import { prepareFrame, requiredAssets } from './frame';
+import { prepareFrame, requiredAssets,actorSceneOrder } from './frame';
 import { TextureCache } from './texture-cache';
 import { BackdropCache } from './backdrop-cache';
 import type { CanvasFrame, CanvasStatus } from './types';
@@ -89,9 +89,9 @@ export function mountCanvasRenderer(host: HTMLElement, catalog: AssetCatalog, on
       // Copy it before establishing the actor/foreground clip, exactly once.
       ctx.save();ctx.beginPath();ctx.rect(v.x,v.y,v.width,v.height);ctx.clip();
       const drawLayer=(layer:typeof layers[number])=>{ ctx!.globalAlpha=layer.opacity; ctx!.drawImage(assets.get(layer.assetId),v.x+layer.x*v.width,v.y+layer.y*v.height,v.width,v.height); ctx!.globalAlpha=1; };
-      ctx.save(); ctx.translate(v.x+v.width/2,v.y+v.height/2); ctx.scale(v.scale,-v.scale);
-      for(const actor of frame.actors) drawActor(actor,catalog.puppets.find(item=>item.id===actor.templateId)!);
-      ctx.restore(); for(const layer of layers.filter(item=>item.order>=catalog.scenes.actorOrder)) drawLayer(layer);
+      const foreground=layers.filter(item=>item.order>=catalog.scenes.actorOrder),actorPlanes=frame.actors.map((actor,index)=>({actor,index,order:actorSceneOrder(frame!,catalog,actor.actorId)}));
+      const planes=[...foreground.map(layer=>({order:layer.order,index:-1,draw:()=>drawLayer(layer)})),...actorPlanes.map(({actor,index,order})=>({order,index,draw:()=>{ctx!.save();try{ctx!.translate(v.x+v.width/2,v.y+v.height/2);ctx!.scale(v.scale,-v.scale);drawActor(actor,catalog.puppets.find(item=>item.id===actor.templateId)!);}finally{ctx!.restore();}}}))].sort((a,b)=>a.order-b.order||a.index-b.index);
+      for(const plane of planes)plane.draw();
       ctx.restore(); draws++; canvas.setAttribute('data-draws',String(draws)); canvas.setAttribute('data-actors',frame.actors.map(actor=>actor.actorId).join(','));
       canvas.setAttribute('data-scene',frame.stage.backgroundId); status('ready','');
     } catch(error) { if(ctx) { canvas.width=canvas.width; ctx=canvas.getContext('2d'); } fail(error); }

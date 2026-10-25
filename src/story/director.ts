@@ -186,6 +186,8 @@ export function createSceneDirector(project: ProjectV1, entry: ReturnType<typeof
         if(poses.mother)poses.mother.x+=.08*progress;
       }
       if(ending==='waiting'){stage.lampX=.12;respond(.25+.15*progress);}
+      if(node.id==='ending-road-walk'&&poses.mother){poses.mother.scale=.72;poses.mother.x=.22;}
+      if(node.id==='ending-sacrifice-axe'&&poses.mother){poses.mother.x=.76;poses.mother.scale=.72;}
 
       // Manual input owns only Chenxiang and the two legal light controls. It never scripts a fixed role.
       if (input.stage) {

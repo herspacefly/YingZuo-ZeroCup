@@ -13,7 +13,8 @@ describe('T17 visible staging and stable reunion recovery',()=>{
   it('keeps the mountain closed until an actual axe resolution while letting the user see the silhouette',()=>{
     const call=setup('call-light'),frame=call.director.sample(2000).frame,before=JSON.stringify(frame);
     const hidden=stagePlayFrame(call.node,frame,effects),revealed=stagePlayFrame(call.node,frame,{...effects,reveal:1});
-    expect(hidden.sceneLayers!.find(layer=>layer.id==='mountain-left')).toMatchObject({x:0,opacity:.3});
+    expect(hidden.sceneLayers!.find(layer=>layer.id==='mountain-left')).toMatchObject({x:0,opacity:1});
+    expect(hidden.actorSceneOrder).toMatchObject({chenxiang:30,mother:25});
     expect(hidden.actorOpacity!.mother).toBe(.05);expect(revealed.actorOpacity!.mother).toBe(1);expect(revealed.sceneLayers!.find(layer=>layer.id==='mountain-left')!.x).toBe(0);
     expect(JSON.stringify(frame)).toBe(before);
     const axe=setup('split-axe'),opened=stagePlayFrame(axe.node,axe.director.sample(0).frame,{...effects,opening:1});

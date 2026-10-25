@@ -14,5 +14,7 @@ export interface CanvasFrame {
   showRods?: boolean;
   /** Transient staging fade; actor geometry/assets remain present and preloaded. */
   actorOpacity?: Partial<Record<RenderActor['actorId'],number>>;
+  /** Authored scene plane, shared by 2D and 3D. Not puppet part order or saved state. */
+  actorSceneOrder?: Partial<Record<RenderActor['actorId'],number>>;
 }
 export type CanvasStatus = { state: 'loading' | 'ready' | 'error'; message: string };

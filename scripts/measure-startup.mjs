@@ -47,7 +47,7 @@ const report = {
     imageFontBudget: 'Image/font HTTP response encoded body sizes, verified against matching ResourceTiming, HTTP Content-Length and the built artifact; Playwright response.body may be empty for consumed fetches and is never treated as zero transfer. Unique URLs requested from navigation through first intro ready. Includes resources loaded ahead for later shots within that intro. Inline SVG is part of HTML/JS, not a separate image transfer.',
   },
   loadingPolicy,
-  limitations: ['This host and Chromium emulation are not physical phones/IE/Safari or a remote deployment.', 'Music/effects use product default-on behavior; this probe measures Canvas readiness, not audible readiness, WebGL, FPS or full performance duration.', 'Image/font bytes are historical diagnostics only; current author target is complete intro readiness within about 15 seconds, with original pixels retained.', 'The optional entry rehearsal is explicitly skipped by this measurement before observing the real paused intro; teaching/reading time is not an asset-download measurement.', 'The 2s/5s targets refer to home interaction and remain separate from the new explicit-opening resource target. Music readiness is measured independently.'],
+  limitations: ['This host and Chromium emulation are not physical phones/IE/Safari or a remote deployment.', 'Music/effects use product default-on behavior; this probe measures Canvas readiness, not audible readiness, WebGL, FPS or full performance duration.', 'Image/font bytes are historical diagnostics only; current author target is complete intro readiness within about 15 seconds, with original pixels retained.', 'The optional entry rehearsal is explicitly skipped by this measurement before observing the real ready intro; teaching/reading time is not an asset-download measurement.', 'The 2s/5s targets refer to home interaction and remain separate from the new explicit-opening resource target. Music readiness is measured independently.'],
 };
 
 try {
@@ -89,7 +89,7 @@ try {
         function homeReady() { return document.querySelector('#app-view')?.getAttribute('data-route') === '/' && document.querySelector('#save-state')?.getAttribute('data-state') === 'saved' && visibleEnabled(document.querySelector('.opening-actions button')); }
         function introReady() {
           const runtime = document.querySelector('#story-runtime'), canvas = document.querySelector('.shadow-stage');
-          return !document.documentElement.hasAttribute('data-guiding') && runtime?.getAttribute('data-node') === 'intro' && runtime.getAttribute('data-state') === 'paused' &&
+          return !document.documentElement.hasAttribute('data-guiding') && runtime?.getAttribute('data-node') === 'intro' && ['paused','playing'].includes(runtime.getAttribute('data-state')) &&
             document.querySelector('.canvas-stage-status')?.getAttribute('data-state') === 'ready' &&
             document.querySelector('#save-state')?.getAttribute('data-state') === 'saved' && canvas?.width > 0 && canvas.height > 0 && visibleEnabled(document.querySelector('#story-play'));
         }

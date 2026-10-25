@@ -27,15 +27,17 @@ export function stagePlayFrame(node:StoryNode,input:CanvasFrame,effects:PlayEffe
   }
   if(frame.stage.backgroundId==='mountain-v1'){
     frame.showRods=node.kind==='interaction'||!!frame.showRods;
+    // The puppeteer stands in front of the closed mountain; only the mother is behind it.
+    frame.actorSceneOrder={chenxiang:30};
+    if(['call-light','call-response'].includes(node.id)&&mother)frame.actorSceneOrder.mother=25;
     for(const layer of frame.sceneLayers??[]){
-      // The placeholder robe and distant mountain share a palette; separate their silhouettes.
       if(layer.id==='mountain-far')layer.opacity=.55;
       if(['mountain-left','mountain-right'].includes(layer.id)){
-        // The closed sheets remain closed; their translucency keeps the user-operated silhouette visible.
-        layer.opacity=.3;
-        if(['call-split','split-axe','ending-sacrifice-axe'].includes(node.id))layer.x=(layer.id==='mountain-left'?-.55:.55)*clamp(effects.opening);
+        layer.opacity=1;
+        if(['call-split','split-axe','ending-sacrifice-axe'].includes(node.id)){const opened=layer.id==='mountain-left'?-.55:.55;layer.x+=(opened-layer.x)*clamp(effects.opening);}
       }
-      if(layer.id==='mountain-dust'&&node.id==='split-search')layer.opacity=.8*(1-clamp(effects.reveal));
+      // This bitmap is a rectangular floor trim, not translucent dust in front of people.
+      if(layer.id==='mountain-dust')layer.opacity=0;
     }
     if(['call-light','split-search'].includes(node.id))frame.actorOpacity={mother:.05+.95*clamp(effects.reveal)};
   }

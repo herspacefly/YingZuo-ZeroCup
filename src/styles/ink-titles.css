@@ -1,8 +1,8 @@
 @font-face{font-family:"Yingzuo Brush";src:url('/assets/presentation/title-brush.woff2') format('woff2');font-weight:400;font-display:swap}
-.ink-title{font-family:"Yingzuo Brush",KaiTi,"Kaiti SC",STKaiti,serif!important;position:relative;white-space:pre-line;font-weight:400;isolation:isolate}.ink-title.ink-enhanced{color:transparent!important}.ink-overlay{position:absolute;inset:0;pointer-events:none;overflow:visible;color:var(--paper);contain:layout style}.ink-overlay mask rect{transform-box:fill-box;transform-origin:left;transform:scaleX(0)}.ink-overlay.ink-playing mask rect{animation:ink-unveil .65s cubic-bezier(.22,.7,.3,1) var(--ink-delay) both}.ink-overlay.ink-complete mask rect{transform:none}.ink-replay{min-height:44px;min-width:44px;font-size:12px;padding:5px 10px;margin:3px 0 8px;opacity:.78;border:1px solid #82653f;border-radius:12px;background:#2b2319;color:#e9cf9e}.ink-replay:hover{opacity:1}
+.ink-title{font-family:"Yingzuo Brush",KaiTi,"Kaiti SC",STKaiti,serif!important;position:relative;white-space:pre-line;font-weight:400;isolation:isolate}.ink-title.ink-enhanced{color:transparent!important}.ink-overlay{position:absolute;inset:0;pointer-events:none;overflow:visible;color:var(--paper);contain:layout style}.ink-overlay mask rect{transform-box:fill-box;transform-origin:left;transform:scaleX(0)}.ink-overlay.ink-playing mask rect{animation:ink-unveil .65s cubic-bezier(.22,.7,.3,1) var(--ink-delay) both}.ink-overlay.ink-complete mask rect{transform:none}
 @keyframes ink-unveil{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @media(max-width:760px){.ink-wash{filter:none!important}.ink-overlay.ink-playing mask rect{animation-duration:.35s}}
-[data-motion=reduced] .ink-title.ink-enhanced{color:inherit!important}[data-motion=reduced] .ink-overlay,[data-motion=reduced] .ink-replay{display:none}
-@media(prefers-reduced-motion:reduce){.ink-title.ink-enhanced{color:inherit!important}.ink-overlay,.ink-replay{display:none!important}}
+[data-motion=reduced] .ink-title.ink-enhanced{color:inherit!important}[data-motion=reduced] .ink-overlay{display:none}
+@media(prefers-reduced-motion:reduce){.ink-title.ink-enhanced{color:inherit!important}.ink-overlay{display:none!important}}
 
 .ink-heading-host{position:relative}.hero-stage .stage-poem{font-family:"Yingzuo Brush",KaiTi,STKaiti,serif}

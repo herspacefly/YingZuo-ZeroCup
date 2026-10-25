@@ -58,7 +58,12 @@ export function createInteractionClip(node: StoryNode, director: ReturnType<type
       case 'ending-road-walk': pose = blend(captured.entryPoses.chenxiang!, goal!.pose, between(beat, .1, .85)); label = '母子同行，走向天明'; break;
       case 'reunion-reach': pose = action('reach-v1', captured, beat / .6); label = '最后伸手，母子相见'; break;
     }
+    if(captured.id==='ending-sacrifice-axe'&&pose)pose.x-=.18;
     const result = director.sample(elapsedMs, { chenxiangPose: pose, stage }, reducedMotion);
+    if(captured.id==='ending-road-walk'){
+      const chen=result.frame.actors.find(actor=>actor.actorId==='chenxiang'),mother=result.frame.actors.find(actor=>actor.actorId==='mother');
+      if(chen&&mother){mother.pose.x=chen.pose.x-.28;mother.pose.scale=.72;mother.pose.y=chen.pose.y;mother.pose.joints.leftHip=.14*Math.sin(beat*Math.PI*4);mother.pose.joints.rightHip=-mother.pose.joints.leftHip;}
+    }
     if (holding) result.frame.actors = result.frame.actors.map(actor => ({ ...actor, pose: blend(actor.pose, holding.actors.find(item => item.actorId === actor.actorId)!.pose, between(beat, .2, 1)) }));
     result.frame = stagePlayFrame(captured, result.frame, effects);
     if (label) result.shotLabel = label;
