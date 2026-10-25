@@ -208,7 +208,7 @@ export function mountPracticeController(panel:HTMLElement,stage:ReturnType<typeo
   life.on(reset,'click',()=>{manual(defaultPose());submit(true);});
   const unsubscribe=stage.subscribe(status=>{ready=status.state==='ready';if(status.state==='error')stop('幕面未就绪，练习暂停；可重试幕面。');else renderUI();});
   return {
-    suspendForGuide(){const wasPlaying=playing;stop('先试一遍，随后回到这里。',false);return ()=>{if(wasPlaying&&phase&&!phase.finished){playing=true;clock.start();renderUI();}};},
+    suspendForGuide(){const wasPlaying=playing;stop(message,false);return ()=>{if(wasPlaying&&phase&&!phase.finished){playing=true;clock.start();renderUI();}};},
     update(next:StoreState) {
       if(disposed)return;state=next;const nextProject=next.project;
       if(nextProject?.projectId!==projectId){stop('已恢复练习姿态，默认暂停。',false);project=nextProject;projectId=nextProject?.projectId??'';phase=null;dirty=false;

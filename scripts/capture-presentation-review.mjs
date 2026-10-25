@@ -14,7 +14,7 @@ try{
    if(route==='/light')await page.waitForFunction(()=>document.querySelector('.three-stage')?.getAttribute('data-state')==='ready'||document.querySelector('.lamp-shadow-host canvas')?.getAttribute('data-state')==='ready',null,{timeout:20000});
    if(route==='/practice'||route==='/craft')await page.waitForFunction(()=>document.querySelector('.canvas-stage-status')?.getAttribute('data-state')==='ready');
    if(route.startsWith('/museum')){for(const img of await page.locator('.museum-photo-card img').all()){await img.scrollIntoViewIfNeeded();await img.evaluate(img=>img.decode());}}
-   const target=route==='/'?'.opening':route==='/practice'?'.practice-workspace':route==='/craft'||route==='/light'?'.workspace':'#app-view';const file=`view-${width}-${route==='/'?'home':route.replace(/\//g,'-').slice(1)}.png`;await page.locator(target).screenshot({path:output+'/'+file,animations:'disabled'});rows.push({width,route,file,noOverflow:await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)});
+   await page.locator('.guide-complete').waitFor({state:'hidden',timeout:6000});const target=route==='/'?'.opening':route==='/practice'?'.practice-workspace':route==='/craft'||route==='/light'?'.workspace':'#app-view';const file=`view-${width}-${route==='/'?'home':route.replace(/\//g,'-').slice(1)}.png`;await page.locator(target).screenshot({path:output+'/'+file,animations:'disabled'});rows.push({width,route,file,noOverflow:await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)});
   }await context.close();
  }
 
