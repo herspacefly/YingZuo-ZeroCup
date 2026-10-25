@@ -7,8 +7,8 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T33_responsive_kai_publish",
-  "activeTaskId": "T33",
+  "stage": "T33_verified_published",
+  "activeTaskId": null,
   "lastVerifiedCommit": "39601f6a892061f74eefc0ce3171a1dbb81e998a",
   "features": {
     "singlePuppetRecording": "planned_optional",
@@ -1566,7 +1566,7 @@
       "id": "T33",
       "title": "开发/生产响应式布局、常规楷体与Git发布",
       "priority": "P0",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "T29",
         "T30",
@@ -1588,14 +1588,15 @@
         "T33"
       ],
       "checkpointCommit": "39601f6a892061f74eefc0ce3171a1dbb81e998a",
-      "nextAction": "实现与验证完成；提交交接证据后普通push并核对远端SHA，再结束T33。",
+      "nextAction": "本轮完成并普通推送至指定GitHub main，远端SHA已核对；后续按T10/T11/T13正式审看、实体设备/体验者与既有性能缺口，T14/P1独立保留。",
       "blocker": null,
       "verification": [
         "源码284c518/39601f6：543单元、类型、145模块构建/17个ES5 chunks、81PNG+字库摘要/字集、四版内容通过。",
         "主布局720/720、短窗口60/60、WebKit60/60；短卡后开发/生产×三内核×18宽度×2页216/216，1024/390目检通过。",
         "主功能60/60及WOFF2阻断回退2/2；最终成果字体首轮38/40，确定离页时序及低负载字体/保存失败8/8，40项最新观察通过。",
         "最终包四条件原生禁缓存：首页画面/字体/启幕最慢6.4816秒，点击后首段4.2717秒，5548934字节；约15秒目标通过。",
-        "审看册264项结构与当前快照通过，review全部pending；Firefox本机运行库启动失败未记通过，设备/真人/性能缺口单列。"
+        "审看册264项结构与当前快照通过，review全部pending；Firefox本机运行库启动失败未记通过，设备/真人/性能缺口单列。",
+        "发布检查点cfb7fbd0ab69601f20c28c3378d653b5cd388552已普通push到git@github.com:herspacefly/ZeroCup.git；HTTP/1.1每命令HTTPS映射，origin配置保持SSH，ls-remote核对一致，无强推。"
       ],
       "phase": "G3"
     }

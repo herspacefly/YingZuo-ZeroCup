@@ -1,6 +1,6 @@
 # T33 当前交接（2026-10-25）
 
-本轮响应式与常规楷体实现及功能验证完成，Git发布待远端核验。接续87cc50f；主实现284c518fa6787652b936d897c0209118c97cccb5，最终应用源码39601f6a892061f74eefc0ce3171a1dbb81e998a，main。生产入口SHA-256 753279acb561083433bfd2c2b1f722630b9cb21a6c397eefcf5d6eb147c1c00d；Node24.18.1/npm12.0.2。5173开发服务和最终dist保留。先读[验收](acceptance/t33.md)、[机器汇总](evidence/t33/acceptance.json)及[方案](plans/2026-10-25-responsive-kai.md)。
+本轮响应式与常规楷体实现、功能验证及指定GitHub发布完成。接续87cc50f；主实现284c518fa6787652b936d897c0209118c97cccb5，最终应用源码39601f6a892061f74eefc0ce3171a1dbb81e998a，main。生产入口SHA-256 753279acb561083433bfd2c2b1f722630b9cb21a6c397eefcf5d6eb147c1c00d；Node24.18.1/npm12.0.2。5173开发服务和最终dist保留。先读[验收](acceptance/t33.md)、[机器汇总](evidence/t33/acceptance.json)及[方案](plans/2026-10-25-responsive-kai.md)。
 
 ## 当前改动
 
@@ -22,7 +22,7 @@
 
 用户START_HERE、锁文件、原始故事JSON/美术/音频、历史工作树保留；两份未跟踪DOCX/PPTX未读写/暂存/提交。回归重写的10张历史PNG已恢复原blob，本轮必要证据独立t33；一次性字体/渲染诊断图已清理，字库原文件保留在忽略缓存供复现。没有再次清除用户实际历史。
 
-已核对origin为git@github.com:herspacefly/ZeroCup.git。SSH22/443连接重置，HTTP/1.1 HTTPS读取成功且远端main为本地祖先；采用每命令URL映射，不改变仓库远端配置，不强推。推送与远端SHA核对结果在发布后补记。
+已核对origin为git@github.com:herspacefly/ZeroCup.git。SSH22/443连接重置，HTTP/1.1 HTTPS读取成功且远端main为本地祖先；采用每命令URL映射，不改变仓库远端配置，不强推。发布检查点cfb7fbd0ab69601f20c28c3378d653b5cd388552已普通push并经ls-remote核对远端main完全一致；本文件的后续状态收尾提交一并同步。T33 done，无待进行的本轮实现。
 
 以下为历史交接，不覆盖T33。
 
