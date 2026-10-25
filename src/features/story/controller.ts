@@ -263,7 +263,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     }catch(error){if(live){closeScope(live);if(live!==display)live.stage.dispose();live=null;}mountError=errorText(error);message=`片段未能准备：${mountError}`;ctx.notify(message);renderUI();}
   }
   function renderUI(){
-    if(disposed)return;const rt=live,node=rt?.entry.node,hasStory=!!state?.project?.story;
+    if(disposed)return;const rt=live,node=rt?.entry.node,hasStory=!!state?.project?.story;stageSlot.parentElement?.classList.toggle('story-awaiting',!hasStory);
     legacyNote.hidden=!state?.project?.story||state.project.story.definitionVersion>=3;legacyNote.textContent='你正在接续先前版本的演出，仍按当时的台词与编排继续。';
     const destination=node?.next&&'default'in node.next?definitionFor(state?.project?.story).nodes.find(n=>n.id===(node.next as {default:string}).default):null;nextNode.hidden=!hasStory||node?.kind==='terminal';nextNode.disabled=blocked()||!rt?.ready||!!rt.resolution||!!rt.completed||!destination||node?.id==='craft';nextNode.textContent=node?.kind==='choice'?'请先选择去向':node?.id==='craft'?'请先确认这身行装':destination?'跳过本段，进入《'+destination.title+'》':'下一片段';
     start.hidden=hasStory;start.disabled=blocked();skip.hidden=node?.id!=='intro';skip.disabled=blocked()||!rt?.ready;
