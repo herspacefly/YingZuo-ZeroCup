@@ -9,6 +9,7 @@ import { projectLocalPoint } from '../../src/domain/projection';
 import { bindReferencePropGrips } from '../../scripts/art/reference-puppets.mjs';
 
 const chenxiang=assetCatalog.puppets.find(p=>p.id==='chenxiang-v1')!;
+const guardian=assetCatalog.puppets.find(p=>p.id==='guardian-v1')!;
 const stage={backgroundId:'plain-v1' as const,lampX:0,puppetDistance:.2};
 describe('held props',()=>{
   it('holds the measured lower axe shaft at the palm through raised, lowered and mirrored poses',()=>{
@@ -35,6 +36,37 @@ describe('held props',()=>{
     bindReferencePropGrips(generated);
     expect(axe.pivot).toEqual(chenxiang.attachments.find(a=>a.id==='axe')!.pivot);
     expect(axe.anchor).toEqual(chenxiang.attachments.find(a=>a.id==='axe')!.anchor);
+  });
+  it('holds the measured lower staff shaft at the palm through the guardian gestures in both facings',()=>{
+    const staff=guardian.attachments.find(a=>a.id==='staff')!;
+    const image=assetCatalog.manifest.assets.find(a=>a.id===staff.assetId)!;
+    const host=guardian.parts.find(p=>p.partId===staff.partId)!;
+    const shaft={x:staff.bounds.minX+80/image.width*(staff.bounds.maxX-staff.bounds.minX),
+      y:staff.bounds.maxY-420/image.height*(staff.bounds.maxY-staff.bounds.minY)};
+    expect(staff.pivot[0]).toBeCloseTo(shaft.x,12);expect(staff.pivot[1]).toBeCloseTo(shaft.y,12);
+    for(const facing of [1,-1] as const)for(const [shoulder,elbow]of [[0,0],[.3,0],[.55,.3],[1.4,1.35],[-.8,.2]]){
+      const pose={...defaultPose(),facing};pose.joints.rightShoulder=shoulder!;pose.joints.rightElbow=elbow!;
+      const held=attachmentTransform(guardian,pose,staff);
+      const grip=projectLocalPoint(transformPoint(shaft,held),pose,stage);
+      const palm=projectLocalPoint(transformPoint({x:staff.anchor[0],y:staff.anchor[1]},partTransform(guardian,pose,host)),pose,stage);
+      expect(grip.x).toBeCloseTo(palm.x,12);expect(grip.y).toBeCloseTo(palm.y,12);
+      expect(held.angle-partTransform(guardian,pose,host).angle).toBeCloseTo(-1.05+Math.max(-.6,Math.min(.6,.38*shoulder!-.18*elbow!)),12);
+      expect(constrainPoseToStage(pose,guardian,stage,['staff']).fits).toBe(true);
+    }
+  });
+  it('restores the measured staff grip and wrist model when its reference template is regenerated',()=>{
+    const generated=structuredClone(guardian),staff=generated.attachments.find(a=>a.id==='staff')!;
+    staff.pivot=[0,0];staff.anchor=[0,0];delete staff.gripMotion;
+    bindReferencePropGrips(generated);
+    expect(staff).toEqual(guardian.attachments.find(a=>a.id==='staff'));
+  });
+  it('keeps the legacy axe wrist model equivalent to the shared held-prop model',()=>{
+    const prop=structuredClone(chenxiang.attachments.find(a=>a.id==='axe')!);
+    for(const facing of [1,-1] as const)for(const [shoulder,elbow]of [[0,0],[1.4,1.35],[-.8,.2],[.8,2.4]]){
+      const pose={...defaultPose(),facing};pose.joints.rightShoulder=shoulder!;pose.joints.rightElbow=elbow!;
+      prop.gripMotion='axe-wrist-v1';const legacy=attachmentTransform(chenxiang,pose,prop);
+      prop.gripMotion='held-wrist-v1';expect(attachmentTransform(chenxiang,pose,prop)).toEqual(legacy);
+    }
   });
   it('keeps the hanging ring at its moving palm while gravity stays down, including nonzero image pivots',()=>{
     const lantern=structuredClone(chenxiang.attachments.find(a=>a.id==='lantern')!);
@@ -85,6 +117,12 @@ describe('held props',()=>{
   it('rejects unknown attachment orientation instead of silently changing the transform contract',()=>{
     const catalog=structuredClone(assetCatalog);
     Object.assign(catalog.puppets[0]!.attachments[0]!,{orientation:'screen'});
+    expect(validateAssetCatalog(catalog).join(';')).toContain('attachment transform');
+  });
+  it('accepts both supported wrist models and rejects unknown motion models',()=>{
+    expect(validateAssetCatalog(assetCatalog)).toEqual([]);
+    const catalog=structuredClone(assetCatalog);
+    Object.assign(catalog.puppets[0]!.attachments[0]!,{gripMotion:'unbounded-wrist'});
     expect(validateAssetCatalog(catalog).join(';')).toContain('attachment transform');
   });
 });

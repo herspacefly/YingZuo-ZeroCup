@@ -65,7 +65,7 @@ export function attachmentTransform(template: PuppetTemplate, pose: Pose, attach
   // Suspended props keep their image-up direction while the grip follows the hand.
   // Pose.facing is applied at the actor root; it does not reverse gravity.
   // Limited wrist release pivots about the measured fingers, preserving IK and the grip.
-  const wrist = attachment.gripMotion === 'axe-wrist-v1'
+  const wrist = attachment.gripMotion === 'axe-wrist-v1' || attachment.gripMotion === 'held-wrist-v1'
     ? clamp(.38 * pose.joints.rightShoulder - .18 * pose.joints.rightElbow, -.6, .6, 0) : 0;
   const angle = (attachment.orientation === 'upright' ? 0 : host.angle) + attachment.bindAngleRad + wrist;
   const pivot = transformPoint({ x: -attachment.pivot[0], y: -attachment.pivot[1] }, { ...anchor, angle });

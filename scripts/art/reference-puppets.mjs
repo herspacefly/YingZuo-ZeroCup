@@ -72,7 +72,8 @@ export const referencePropGrips={
     // The finger hooks the ring's left rim; its body hangs just outside the sleeve.
     lantern:{sourcePoint:[522,284],pivot:[-.01,0],bindAngleRad:0,orientation:'upright'},
   },
-  'guardian-v1':{staff:{sourcePoint:[1481,201],bindAngleRad:-1.05,orientation:'follow-host'}},
+  // Pixel (80,420) is on the staff's lower straight shaft, clear of the tassels.
+  'guardian-v1':{staff:{sourcePoint:[1481,201],pivot:[0,-.1425],bindAngleRad:-1.05,orientation:'follow-host',gripMotion:'held-wrist-v1'}},
 };
 export function bindReferencePropGrips(template){
   for(const attachment of template.attachments){
