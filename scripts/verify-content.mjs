@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { validateStoryDefinition } from '../src/content/story-contract.ts';
 import { validateMuseumContent } from '../src/content/museum-contract.ts';
-import { STORY_NODE_IDS, EXPANDED_STORY_NODE_IDS, JOINT_IDS } from '../src/domain/limits.ts';
+import { STORY_NODE_IDS, EXPANDED_STORY_NODE_IDS, CHOICE_STORY_NODE_IDS, JOINT_IDS } from '../src/domain/limits.ts';
 import { releaseProblems } from './review-gate.mjs';
 import { musicProblems } from './verify-music.mjs';
 const root=new URL('../',import.meta.url);
@@ -12,7 +12,7 @@ const definition=json('src/content/stories/reunion-v1.json');
 const refs={nodeIds:STORY_NODE_IDS,jointIds:JOINT_IDS,
   sourceIds:json('src/content/sources.json').sources.map(s=>s.id),assetIds:json('src/content/manifest.json').assets.map(a=>a.id),
   puppets:['chenxiang-v1','mother-v1','guardian-v1'].map(id=>json(`src/content/puppets/${id}.json`)),scenes:json('src/content/scenes.json').scenes};
-const errors=[...validateStoryDefinition(json('src/content/stories/reunion-v4.json'),{...refs,nodeIds:EXPANDED_STORY_NODE_IDS}),...validateMuseumMedia(json('src/content/museum-media.json')),...validateStoryDefinition(json('src/content/stories/reunion-v3.json'),{...refs,nodeIds:EXPANDED_STORY_NODE_IDS}),...validateStoryDefinition(json('src/content/stories/reunion-v2.json'),{...refs,nodeIds:EXPANDED_STORY_NODE_IDS}),...validateStoryDefinition(definition,refs),...validateMuseumContent(json('src/content/exhibits.json'),json('src/content/facts.json'),json('src/content/sources.json')),...musicProblems()];
+const errors=[...validateStoryDefinition(json('src/content/stories/reunion-v5.json'),{...refs,nodeIds:CHOICE_STORY_NODE_IDS}),...validateStoryDefinition(json('src/content/stories/reunion-v4.json'),{...refs,nodeIds:EXPANDED_STORY_NODE_IDS}),...validateMuseumMedia(json('src/content/museum-media.json')),...validateStoryDefinition(json('src/content/stories/reunion-v3.json'),{...refs,nodeIds:EXPANDED_STORY_NODE_IDS}),...validateStoryDefinition(json('src/content/stories/reunion-v2.json'),{...refs,nodeIds:EXPANDED_STORY_NODE_IDS}),...validateStoryDefinition(definition,refs),...validateMuseumContent(json('src/content/exhibits.json'),json('src/content/facts.json'),json('src/content/sources.json')),...musicProblems()];
 if(errors.length){console.error(errors.join('\n'));process.exitCode=1;}
 else if(process.argv.includes('--release')){const issues=releaseProblems('content');if(issues.length){console.error(`NOT_READY: ${issues.length} author review/rights items pending:\n${issues.slice(0,8).join('\n')}`);process.exitCode=2;}else console.log('PASS: story/exhibit/fact/sound contracts and current author review evidence agree.');}
-else console.log(`PASS: v1 18 nodes/two paths and v2/v3/v4 each 36 nodes/ten 21-node paths, roles/poses/layers, timing and asset references; five sections/seven exhibits, Unicode copy lengths, cultural/model/original facts and checked source mappings; ${fileURLToPath(new URL('src/content/stories/reunion-v1.json',root))}. Formal content/asset review remains for T10.`);
+else console.log(`PASS: v1 18 nodes/two paths and v2/v3/v4 each 36 nodes/ten 21-node paths; v5 38 nodes/sixteen 23-node paths, roles/poses/layers, timing and asset references; five sections/seven exhibits, Unicode copy lengths, cultural/model/original facts and checked source mappings; ${fileURLToPath(new URL('src/content/stories/reunion-v1.json',root))}. Formal content/asset review remains for T10.`);

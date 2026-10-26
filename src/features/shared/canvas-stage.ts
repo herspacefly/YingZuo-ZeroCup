@@ -32,7 +32,7 @@ export function editorFrame(project: ProjectV1, duet = false, showRods = false):
 export function storyFrame(project: ProjectV1): CanvasFrame | null {
   if(!project.story)return null;
   const story=project.story,node=currentStoryNode(definitionFor(story),story),cast=story.castSnapshot;
-  const costumeTreatment=story.definitionVersion===4?'original-texture' as const:'legacy-motif' as const;
+  const costumeTreatment=story.definitionVersion>=4?'original-texture' as const:'legacy-motif' as const;
   const actors=node.actors.map((id):RenderActor=>{
     const pose=node.entryPoses[id]!;
     if(id==='chenxiang')return {costumeTreatment,actorId:id,templateId:'chenxiang-v1',appearance:cast?.appearance??project.appearance,pose};

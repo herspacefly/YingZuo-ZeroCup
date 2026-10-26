@@ -12,12 +12,12 @@ export function validateStoryDefinition(definition: StoryDefinition,refs: StoryR
   const errors:string[]=[];const check=(ok: unknown,message: string)=>{if(!ok)errors.push(message);};
   const finite=(v: number,min=0,max=Number.MAX_SAFE_INTEGER)=>typeof v==='number' && Number.isFinite(v) && v>=min && v<=max;
   const same=(a: readonly string[],b: readonly string[])=>[...a].sort().join(',')===[...b].sort().join(',');
-  const expanded=definition.definitionVersion!==1;
+  const expanded=definition.definitionVersion!==1,choiceDriven=definition.definitionVersion===5;
   try {
-    check(definition.storyId==='reunion' && [1,2,3,4].includes(definition.definitionVersion) && definition.assetVersion===1 && definition.startNodeId==='intro','story identity/version');
+    check(definition.storyId==='reunion' && [1,2,3,4,5].includes(definition.definitionVersion) && definition.assetVersion===1 && definition.startNodeId==='intro','story identity/version');
     check(!!definition.title && !!definition.adaptationCredit,'adaptation credit missing');
     check(definition.subtitleTimebase==='full-target-ms','subtitle timebase must be explicit');
-    check(same(definition.nodes.map(n=>n.id),refs.nodeIds),`exact ${expanded?36:18} story nodes required`);
+    check(same(definition.nodes.map(n=>n.id),refs.nodeIds),`exact ${choiceDriven?38:expanded?36:18} story nodes required`);
     const expected:Record<string,string|Record<string,string>|null>={intro:'craft',craft:'memory-wave','memory-wave':'memory-separate','memory-separate':'road',road:'training',training:'guardian',guardian:'approach-choice','approach-choice':{'call-first':'call-light','split-first':'split-axe'},'call-light':'call-response','call-response':'call-split','call-split':'reunion-reach','split-axe':'split-search','split-search':'split-response','split-response':'reunion-reach','reunion-reach':'reunion-hold','reunion-hold':'curtain',curtain:'completed',completed:null};
     const kinds:Record<string,string>={intro:'cinematic',craft:'interaction','memory-wave':'interaction','memory-separate':'cinematic',road:'interaction',training:'cinematic',guardian:'interaction','approach-choice':'choice','call-light':'interaction','call-response':'cinematic','call-split':'interaction','split-axe':'interaction','split-search':'interaction','split-response':'cinematic','reunion-reach':'interaction','reunion-hold':'cinematic',curtain:'curtain',completed:'terminal'};
     const completionKinds:Record<string,string>={craft:'craft','memory-wave':'wave',road:'road',guardian:'block','call-light':'light','call-split':'axe','split-axe':'axe','split-search':'light','reunion-reach':'reach','approach-choice':'choice',completed:'terminal'};
@@ -30,17 +30,19 @@ export function validateStoryDefinition(definition: StoryDefinition,refs: StoryR
       check(same(definition.endings?.map(item=>item.id)??[],['home','light','road','waiting','sacrifice']),'five explicit endings required');
       for(const ending of definition.endings??[])check(!!ending.title&&!!ending.summary&&!!ending.choiceLabel&&definition.nodes.some(n=>n.id===ending.holdNodeId)&&definition.nodes.some(n=>n.id===ending.epilogueNodeId),`ending metadata ${ending.id}`);
     }
+    if(choiceDriven){Object.assign(expected,{'road-rest':'journey-choice','journey-choice':'training','guardian-parley':'mountain-pact-choice','mountain-pact-choice':'approach-choice'});Object.assign(kinds,{'journey-choice':'choice','mountain-pact-choice':'choice'});Object.assign(completionKinds,{'journey-choice':'choice','mountain-pact-choice':'choice'});}
     for(const node of definition.nodes) {
       const id=node.id;
       check(node.kind===kinds[id] && node.completion.kind===(completionKinds[id]??'scene'),`node kind/completion ${id}`);
       check(!!node.title && !!node.lead && node.contentKind==='original-adaptation' && Number.isInteger(node.act) && finite(node.act,0,4),`node prose/act ${id}`);
       const edge=expected[id],wanted=typeof edge==='string'?{default:edge}:edge;
       check(JSON.stringify(node.next)===JSON.stringify(wanted),`story edge ${id}`);
-      const actions=node.kind==='terminal'?['SET_MODE']:['SET_MODE',node.kind==='choice'?(id==='ending-choice'?'CHOOSE_ENDING':'CHOOSE'):node.kind==='interaction'?'COMPLETE_INTERACTION':'COMPLETE_SCENE'];
+      const choiceAction=choiceDriven?(id==='journey-choice'?'CHOOSE_JOURNEY':id==='mountain-pact-choice'?'CHOOSE_PACT':id==='ending-choice'?'CHOOSE_FINAL_ACTION':'CHOOSE'):(id==='ending-choice'?'CHOOSE_ENDING':'CHOOSE');
+      const actions=node.kind==='terminal'?['SET_MODE']:['SET_MODE',node.kind==='choice'?choiceAction:node.kind==='interaction'?'COMPLETE_INTERACTION':'COMPLETE_SCENE'];
       check(same(node.allowedActions,actions),`allowed actions ${id}`);
       check(node.actors.length<=2 && new Set(node.actors).size===node.actors.length && node.actors.includes('chenxiang') && node.actors.every(actor=>['chenxiang','mother','guardian'].includes(actor)),`actor whitelist/count ${id}`);
       const withMother=['intro','memory-wave','memory-separate','call-light','call-response','split-search','split-response','reunion-reach','reunion-hold','curtain','completed','memory-words','mountain-listen','ending-choice'].includes(id)||id.startsWith('ending-');
-      check(same(node.actors,withMother?['chenxiang','mother']:['guardian','guardian-parley'].includes(id)?['chenxiang','guardian']:['chenxiang']),`story cast ${id}`);
+      check(same(node.actors,withMother?['chenxiang','mother']:['guardian','guardian-parley','mountain-pact-choice'].includes(id)?['chenxiang','guardian']:['chenxiang']),`story cast ${id}`);
       check(same(Object.keys(node.entryPoses),node.actors),`entry actors/poses ${id}`);
       const expectedApproach=id.startsWith('call-')?'call-first':id.startsWith('split-')?'split-first':null;
       check(node.prerequisites.approach===expectedApproach && node.prerequisites.frozenCast===!['intro','craft'].includes(id),`prerequisites ${id}`);
@@ -56,7 +58,7 @@ export function validateStoryDefinition(definition: StoryDefinition,refs: StoryR
         }
       }
       const attachmentKeys=node.entryAttachments.map(a=>`${a.actorId}/${a.attachmentId}`);
-      const expectedAttachments=['guardian','guardian-parley'].includes(id)?['guardian/staff']:['training','call-split','split-axe','ending-sacrifice-axe'].includes(id)?['chenxiang/axe']:['ending-light-hold','ending-light-epilogue'].includes(id)?['mother/lantern']:['call-light','split-search','ending-light-place','ending-waiting-light','ending-waiting-hold','ending-waiting-epilogue'].includes(id)?['chenxiang/lantern']:[];
+      const expectedAttachments=['guardian','guardian-parley','mountain-pact-choice'].includes(id)?['guardian/staff']:['training','call-split','split-axe','ending-sacrifice-axe'].includes(id)?['chenxiang/axe']:['ending-light-hold','ending-light-epilogue'].includes(id)?['mother/lantern']:['call-light','split-search','ending-light-place','ending-waiting-light','ending-waiting-hold','ending-waiting-epilogue'].includes(id)?['chenxiang/lantern']:[];
       check(same(attachmentKeys,expectedAttachments),`story attachments ${id}`);
       for(const attachment of node.entryAttachments) {
         const template=refs.puppets.find(t=>t.id===`${attachment.actorId}-v1`),prop=template?.attachments.find(p=>p.id===attachment.attachmentId);
@@ -95,7 +97,7 @@ export function validateStoryDefinition(definition: StoryDefinition,refs: StoryR
       const c=node.completion;
       if('target' in c)check(finite(c.target.x,0,1) && finite(c.target.y,0,1) && finite(c.target.width,Number.EPSILON,1-c.target.x) && finite(c.target.height,Number.EPSILON,1-c.target.y),`normalized target ${id}`);
       if('overlapRatio' in c)check(c.overlapRatio===.35 && finite(c.holdMs,0,2000),`overlap threshold ${id}`);
-      if(c.kind==='light'){check(c.holdMs===600,`light hold ${id}`);check(definition.definitionVersion===4?c.region==='lantern':c.region===undefined,`versioned light region ${id}`);}
+      if(c.kind==='light'){check(c.holdMs===600,`light hold ${id}`);check(definition.definitionVersion>=4?c.region==='lantern':c.region===undefined,`versioned light region ${id}`);}
       if(c.kind==='axe')check(c.holdMs===500 && c.raisedAngleRange.length===2 && c.landedAngleRange.length===2 && c.raisedAngleRange.every(v=>finite(v,-1.4,1.8)) && c.landedAngleRange.every(v=>finite(v,-1.4,1.8)) && c.raisedAngleRange[0]<c.raisedAngleRange[1] && c.landedAngleRange[0]<c.landedAngleRange[1],`axe hold/angles ${id}`);
       if(c.kind==='reach')check(c.maxDistanceRatio===.04 && c.maxSnapRatio===.02,`reach/snap thresholds ${id}`);
       if(c.kind==='scene')check(c.activation===(['reunion-hold','ending-light-hold','ending-road-hold','ending-waiting-hold','ending-sacrifice-hold'].includes(id)?'user':'automatic') && c.skippable===(id==='intro'),`scene activation ${id}`);
@@ -112,9 +114,9 @@ export function validateStoryDefinition(definition: StoryDefinition,refs: StoryR
         if(node.next===null){check(node.id==='completed',`premature terminal ${id}`);break;}
         id='default' in node.next?node.next.default:node.id==='ending-choice'?(node.next as Record<string,string>)[ending]!:(node.next as Record<string,string>)[approach]!;
       }
-      check(seen.size===(expanded?21:15) && seen.has('curtain') && (expanded?seen.has('ending-choice')&&seen.has(definition.endings!.find(item=>item.id===ending)!.epilogueNodeId):seen.has('reunion-reach')),`complete path ${approach}/${ending}`);
+      check(seen.size===(choiceDriven?23:expanded?21:15) && seen.has('curtain') && (expanded?seen.has('ending-choice')&&seen.has(definition.endings!.find(item=>item.id===ending)!.epilogueNodeId):seen.has('reunion-reach')),`complete path ${approach}/${ending}`);
     }
-    check(reachable.size===(expanded?36:18),'unreachable story nodes');
+    check(reachable.size===(choiceDriven?38:expanded?36:18),'unreachable story nodes');
   } catch(error){errors.push(`malformed story config: ${error instanceof Error?error.message:String(error)}`);}
   return errors;
 }

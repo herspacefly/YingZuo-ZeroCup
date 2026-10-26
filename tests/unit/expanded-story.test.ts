@@ -50,7 +50,7 @@ describe('expanded story, real scene consumers and version boundaries',()=>{
    expect(reduceStory(q,{...guard,action:'CHOOSE_ENDING',ending:'home'},{paused:true,elapsedMs:0,now:NOW},expandedDefinition)).toBeNull();
    expect(()=>validateProject({...q,story:{...q.story,nodeId:'ending-road-hold'}})).toThrow();
    expect(()=>validateProject({...q,story:{...q.story,ending:null}})).toThrow();
-   expect(()=>validateProject({...q,story:{...q.story,definitionVersion:5}})).toThrowError(expect.objectContaining({code:'unsupported-version'}));
+   expect(()=>validateProject({...q,story:{...q.story,definitionVersion:6}})).toThrowError(expect.objectContaining({code:'unsupported-version'}));
  });
  it('keeps v1 unchanged and accepts the existing three-ending v2 records',()=>{
    const old=at('completed');expect(definitionFor(old.story).definitionVersion).toBe(1);expect(createReunionArtifact(old).summary.id).toMatch(/:reunion$/);expect(parseProjectJSON(serializeProject(old))).toEqual(old);

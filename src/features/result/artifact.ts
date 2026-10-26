@@ -22,7 +22,7 @@ export function createReunionArtifact(project: ProjectV1): ReunionArtifact {
   const hold=summary.definitionVersion!==1?definition.endings!.find(e=>e.id===summary.ending)!.epilogueNodeId:'reunion-hold';
   const node = definition.nodes.find(item => item.id === hold)!;
   const cast = summary.castSnapshot;
-  const costumeTreatment=summary.definitionVersion===4?'original-texture' as const:'legacy-motif' as const;
+  const costumeTreatment=summary.definitionVersion>=4?'original-texture' as const:'legacy-motif' as const;
   const frame = stagePlayFrame(node, prepareFrame({
     actors: [
       { costumeTreatment,actorId: 'chenxiang', templateId: 'chenxiang-v1', appearance: copy(cast.appearance), pose: copy(node.entryPoses.chenxiang!) },

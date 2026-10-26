@@ -13,6 +13,7 @@ export const EXPANDED_STORY_NODE_IDS = [...LEGACY_STORY_NODE_IDS,'memory-words',
   'ending-home-epilogue','ending-light-place','ending-light-hold','ending-light-epilogue',
   'ending-road-walk','ending-road-hold','ending-road-epilogue','ending-waiting-light','ending-waiting-hold','ending-waiting-epilogue','ending-sacrifice-axe','ending-sacrifice-hold','ending-sacrifice-epilogue'] as const;
 export const EXHIBIT_IDS = ['E01', 'E02', 'E03', 'E04', 'E05', 'E06', 'E07', 'E08'] as const;
+export const CHOICE_STORY_NODE_IDS = [...EXPANDED_STORY_NODE_IDS,'journey-choice','mountain-pact-choice'] as const;
 export const PROJECT_ROUTES = ['/', '/craft', '/light', '/story', '/museum', '/result', '/practice', '/about'] as const;
 // Reserved stable IDs. T07 must keep their meaning or version/migrate persisted data.
 export const PRESET_IDS = ['wave-v1', 'walk-v1', 'bow-v1', 'raise-axe-v1', 'reach-v1'] as const;

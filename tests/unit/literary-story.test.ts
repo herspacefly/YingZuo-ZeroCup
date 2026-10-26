@@ -52,13 +52,13 @@ describe.each([literaryDefinition,lamplitDefinition])('v$definitionVersion narra
       expect(() => validateProject(wrong)).toThrow();
     });
   }
-  it('preserves actual v1/v2 consumers and protects a genuinely unknown v5', () => {
+  it('preserves actual v1/v2 consumers and protects a genuinely unknown v6', () => {
     for (const project of [at('completed'), expandedAt('completed')]) {
       expect(definitionFor(validateProject(project).story).definitionVersion).toBe(project.story!.definitionVersion);
       expect(createReunionReplay(project).segments.length).toBe(project.story!.definitionVersion === 1 ? 14 : 20);
     }
-    const future = structuredClone(expandedAt('completed')); Reflect.set(future.story!, 'definitionVersion', 5);
+    const future = structuredClone(expandedAt('completed')); Reflect.set(future.story!, 'definitionVersion', 6);
     expect(() => validateProject(future)).toThrowError(expect.objectContaining({ code: 'unsupported-version' }));
-    expect(definitionFor(null).definitionVersion).toBe(4);
+    expect(definitionFor(null).definitionVersion).toBe(5);
   });
 });

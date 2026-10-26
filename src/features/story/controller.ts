@@ -1,6 +1,8 @@
 import { confirmCraft } from '../../app/craft-commands';
 import { createInteractionClip } from '../../story/interaction-clip';
 import {createPlaybackContinuity} from '../../story/playback-continuity';
+import {resolveEnding} from '../../domain/story-choices';
+import {v5ChoiceOptions} from '../../content/choice-options';
 import { createAnimationClock } from '../../app/animation-clock';
 import { submitScopedSceneCommand } from '../../app/story-scene-commands';
 import type { SceneCommand,SceneObservation } from '../../app/story-scene-commands';
@@ -14,7 +16,7 @@ import type { RodId } from '../../domain/rod-input';
 import { cueSeekTime } from '../../story/cue-seek';
 import type { CueSeek } from '../../story/cue-seek';
 import { storyEntry } from '../../domain/story';
-import type { Pose,ProjectV1,StageConfig } from '../../domain/types';
+import type { Pose,ProjectV1,StageConfig,StoryVersion } from '../../domain/types';
 import type { CanvasFrame } from '../../renderers/canvas/types';
 import { createSceneDirector } from '../../story/director';
 import { createNodeScope } from '../../story/node-scope';
@@ -37,7 +39,7 @@ type Assistance={elapsed:number;base:Pose;stage:Pick<StageConfig,'lampX'|'puppet
 type Runtime={projectId:string;entry:ReturnType<typeof storyEntry>;scene:Director;scope:ReturnType<typeof createNodeScope>;
   stage:ReturnType<typeof canvasStage>;clock:ReturnType<typeof createAnimationClock>;shade:HTMLDivElement;
   controls:ReturnType<typeof mountStoryRodControls>|null;interaction:ReturnType<typeof createNodeInteraction>;
-  sample:ReturnType<Director['sample']>;version:1|2|3|4;clip:ReturnType<typeof createInteractionClip>|null;elapsed:number;playing:boolean;ready:boolean;requested:boolean;mode:'full'|'guided';
+  sample:ReturnType<Director['sample']>;version:StoryVersion;clip:ReturnType<typeof createInteractionClip>|null;elapsed:number;playing:boolean;ready:boolean;requested:boolean;mode:'full'|'guided';
   pose:Pose;light:Pick<StageConfig,'lampX'|'puppetDistance'>;operated:boolean;handOperated:boolean;reading:InteractionReading|null;
   assistance:Assistance|null;resolution:Resolution|null;completed:ReadyCommand|null};
 let generation=0;
@@ -91,8 +93,12 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   inputHost.className='story-inputs';note.id='story-help';modeLabel.appendChild(mode);append(transport,play,pause,reset,nextNode,showcaseSkip,showcaseAgain);
   append(panel,runtime,title,lead,legacyNote,shot,cueHost,start,skip,craft,confirm,choices,modeLabel,transport,soundPanel,finish,assist,note,inputHost,retry,result,link('先去展馆走走 →','#/museum'));
   let live:Runtime|null=null,display:Runtime|null=null,state:StoreState|null=null,key='',identity='',disposed=false,mountError='',holding:CanvasFrame|null=null;
-  let message='已恢复，暂停接续。',guideSuspended=false;
+  let message='已恢复当前片段，正在准备幕面。',guideSuspended=false;
   const continuity=createPlaybackContinuity();
+  let pageActive=!document.hidden&&document.hasFocus();
+  life.on(window,'blur',()=>{pageActive=false;continuity.stop();});
+  life.on(window,'focus',()=>{pageActive=!document.hidden;});
+  life.on(document,'visibilitychange',()=>{pageActive=!document.hidden&&document.hasFocus();if(!pageActive)continuity.stop();});
   const measureCaptions=()=>{stageSlot.parentElement?.style.setProperty('--caption-height',`${captionDock.getBoundingClientRect().height}px`);};
   const captionResize=typeof ResizeObserver==='function'?new ResizeObserver(measureCaptions):null;captionResize?.observe(captionDock);life.on(window,'resize',measureCaptions);
   const position=(rt:Runtime)=>({projectId:rt.projectId,runId:rt.entry.guard.runId,revision:rt.entry.guard.expectedRevision,nodeId:rt.entry.node.id});
@@ -119,10 +125,13 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   }
   function resumeNext(){
     const rt=live;if(!rt||ctx.guide||guideSuspended||blocked()||!rt.ready)return;
+    if(!pageActive||document.hidden){continuity.stop();return;}
     if(rt.entry.node.id==='craft'||rt.entry.node.kind==='terminal'||rt.entry.node.kind==='choice'&&rt.version<3){continuity.consume(position(rt));return;}
     if(canPlay(rt)&&continuity.consume(position(rt)))playRuntime(rt);
   }
-  function playRuntime(rt:Runtime){
+  function playRuntime(rt:Runtime,explicit=false){
+    if(explicit)pageActive=!document.hidden&&document.hasFocus();
+    if(!pageActive||document.hidden)return;
     if(!canPlay(rt))return;
     guideSuspended=false;
     if(!ctx.guide)continuity.start(position(rt));rt.playing=true;
@@ -132,7 +141,11 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   function handoff(rt:Runtime,command:SceneCommand){
     if(ctx.guide||command.action==='SET_MODE')return;
     const exits=rt.entry.node.next as Record<string,string>|null;
-    const destination=exits?.[command.action==='CHOOSE'?command.approach:command.action==='CHOOSE_ENDING'?command.ending:'default'];
+    const story=state?.project?.story;
+    const ending=command.action==='CHOOSE_FINAL_ACTION'&&story?.choices&&story.approach?resolveEnding(story.choices.journeyIntent!,story.choices.mountainPact!,story.approach,command.finalAction):null;
+    const destination=exits?.[command.action==='CHOOSE'?command.approach:command.action==='CHOOSE_ENDING'?command.ending:ending??'default'];
+    // A deliberate choice/skip also starts the following chapter after a prior pause.
+    if(command.action.startsWith('CHOOSE')||command.action==='SKIP_NODE'||command.action==='COMPLETE_SCENE'&&command.source==='user'||command.action==='COMPLETE_INTERACTION'&&rt.entry.node.id==='craft'){pageActive=!document.hidden&&document.hasFocus();if(pageActive)continuity.start(position(rt));}
     if(destination)continuity.handoff(position(rt),destination);
   }
   function renderDisplayed(){
@@ -243,7 +256,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     }
     renderUI();return true;
   }
-  function mount(project:ProjectV1){
+  function mount(project:ProjectV1,entering=false){
     const spatialPreference=identity===`${project.projectId}:${project.story!.runId}`?display?.stage.spatialPreference():undefined;
     if(live){closeScope(live);if(live!==display)live.stage.dispose();}live=null;mountError='';
     const nextIdentity=`${project.projectId}:${project.story!.runId}`;
@@ -259,9 +272,9 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
         interaction:createNodeInteraction(entry.node),pose:clone(entry.node.entryPoses.chenxiang!),light:{lampX:entry.node.entryStage.lampX,puppetDistance:entry.node.entryStage.puppetDistance},operated:false,handOperated:false,reading:null,assistance:null,resolution:null,completed:null};
       rt.clock=createAnimationClock({request:callback=>window.requestAnimationFrame(callback),cancel:id=>window.cancelAnimationFrame(id),now:()=>performance.now()},delta=>tick(rt,delta),
         fault=>stop(rt,fault.reason==='gap'?'页面停顿较久，已暂停；继续时不补算这段时间。':`片段已停止：${errorText(fault.error)}`),stage.frameObserver);
-      if(!ctx.guide&&ctx.consumeOpening?.(project.story!.runId))continuity.resumeHere(position(rt));
+      if(!ctx.guide&&entering&&pageActive&&!document.hidden&&!['error','conflict','recovery','unsupported','closed'].includes(state?.status??''))continuity.resumeHere(position(rt));
       else if(!continuity.active(position(rt)))continuity.stop();
-      live=rt;message='已恢复，暂停接续。';nodeScope.own(()=>rt.clock.dispose());
+      live=rt;message='已恢复当前片段，正在准备幕面。';nodeScope.own(()=>rt.clock.dispose());
       nodeScope.listen(window,'blur',()=>stop(rt,'已切换窗口，片段暂停。'));
       nodeScope.listen(document,'visibilitychange',()=>{if(document.hidden)stop(rt,'页面已隐藏，片段暂停。');});
       nodeScope.own(stage.subscribe(status=>{
@@ -298,7 +311,8 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     start.hidden=hasStory;start.disabled=blocked();skip.hidden=node?.id!=='intro';skip.disabled=blocked()||!rt?.ready;
     craft.hidden=node?.id!=='craft'||display!==rt;confirm.hidden=craft.hidden||(rt?.version??0)<3;confirm.disabled=blocked()||!rt?.ready||!!rt.requested;result.hidden=!['curtain','completed'].includes(node?.id??'');modeLabel.hidden=!rt;transport.hidden=!rt||(node?.kind==='choice'&&(rt?.version??0)<3)||node?.kind==='terminal'||node?.id==='craft';
     const endings=definitionFor(state?.project?.story).endings;
-    choices.hidden=node?.kind!=='choice';call.hidden=split.hidden=node?.id!=='approach-choice';for(const [id,button] of endingButtons){const label=endings?.find(end=>end.id===id)?.choiceLabel;if(label&&button.textContent!==label)button.textContent=label;button.hidden=node?.id!=='ending-choice';button.disabled=blocked()||!rt?.ready||!!rt.requested||((rt?.version??0)>=3&&rt.elapsed<rt.scene.durationMs);}call.disabled=split.disabled=blocked()||!rt?.ready||!!rt.requested||((rt?.version??0)>=3&&rt.elapsed<rt.scene.durationMs);
+    choices.hidden=node?.kind!=='choice';call.hidden=split.hidden=node?.id!=='approach-choice';for(const [id,button] of endingButtons){const label=endings?.find(end=>end.id===id)?.choiceLabel;if(label&&button.textContent!==label)button.textContent=label;button.hidden=node?.id!=='ending-choice'||rt?.version===5;button.disabled=blocked()||!rt?.ready||!!rt.requested||((rt?.version??0)>=3&&rt.elapsed<rt.scene.durationMs);}call.disabled=split.disabled=blocked()||!rt?.ready||!!rt.requested||((rt?.version??0)>=3&&rt.elapsed<rt.scene.durationMs);
+    for(const option of v5ChoiceOptions(state?.project?.story)){const button=v5Buttons.get(option.id)!;button.hidden=rt?.version!==5||node?.id!==option.nodeId;button.textContent=option.label;button.disabled=blocked()||!rt?.ready||!!rt.requested||rt.elapsed<rt.scene.durationMs;}
     play.disabled=!rt||!canPlay(rt)||rt.playing;pause.disabled=!rt?.playing&&!continuity.pending();reset.disabled=!rt||blocked();
     soundToggle.disabled=!rt||blocked()||['unavailable','disposed'].includes(soundState);
     showcaseSkip.hidden=showcaseAgain.hidden=!rt?.resolution||!rt.clip;showcaseSkip.disabled=showcaseAgain.disabled=blocked();
@@ -315,8 +329,8 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     note.textContent=!rt?'确认开演后，才会为本场留下独立的演出身份；直接打开页面不会替你开始。':node?.id==='craft'?'确认已经准备好的造型，便为本场冻结行装；也可回到制偶页调整。':
       node?.kind==='choice'?(rt.version>=3&&rt.elapsed<rt.scene.durationMs?'先听这段对白；说完以后，再亲自选择这一场的去向。':'请亲自选择这一场的去向。操作失误和使用协助不会替你决定结局。'):
       rt.version>=3&&interactive(rt)&&rt.elapsed<rt.scene.durationMs?'先听这一段故事，随后会展开握柄与操偶控件。也可展开本段完整台词阅读。':
-      rt.resolution&&rt.clip?'这一段已达标，握柄已收起。可暂停、跳过放映或从头再看；放映结束后只保存一次。':interactive(rt)?`${tips[node!.id]??(node!.completion.kind==='axe'?'抬起右手，稳住半秒，再亲手落斧。':node!.completion.kind==='light'?'举起灯笼，移动身躯与灯位，让灯火照进金色区域。':'用方向键移身，走进金色区域后停留。')} 金色是目标区域，白线是当前观察范围。暂停不累计动作时间；刷新会从本段开头的静止画面重新开始。`:
-      `尚未播放时是本段开头的静止画面；继续片段后，字幕与场面一起走。${reduced?'已启用减少动态。':''}声音可选，静音也保留全部字幕与操作。`;
+      rt.resolution&&rt.clip?'这一段已达标，握柄已收起。可暂停、跳过放映或从头再看；放映结束后只保存一次。':interactive(rt)?`${tips[node!.id]??(node!.completion.kind==='axe'?'抬起右手，稳住半秒，再亲手落斧。':node!.completion.kind==='light'?'举起灯笼，移动身躯与灯位，让灯火照进金色区域。':'用方向键移身，走进金色区域后停留。')} 金色是目标区域，白线是当前观察范围。暂停不累计动作时间；刷新后会从本段开头自动开演。`:
+      `每次进入剧场会自动开演，暂停后可继续片段。${reduced?'已启用减少动态。':''}声音可选，静音也保留全部字幕与操作。`;
     if(display)renderSubtitles(display);
     if(!hasStory){title.textContent='还没有开始这一场';lead.textContent=note.textContent;shot.textContent='';subtitles.update([],[],'empty');}rt?.controls?.render();
   }
@@ -331,7 +345,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   life.on(nextNode,'click',()=>{const rt=live;if(!rt||blocked()||!rt.ready||rt.requested||rt.resolution||rt.completed||rt.entry.node.kind==='choice'||rt.entry.node.id==='craft')return;stop(rt,'正在进入下一片段。',true);submit(rt,{command:{...rt.entry.guard,action:'SKIP_NODE',source:'user'},facts:facts(rt)});});
   life.on(start,'click',()=>ctx.start('full'));
   life.on(soundToggle,'click',()=>{if(ctx.audio?.effectsEnabled()??soundState==='enabled')sound.mute();else void sound.enable();});
-  life.on(play,'click',()=>{if(live)playRuntime(live);});
+  life.on(play,'click',()=>{if(live)playRuntime(live,true);});
   life.on(pause,'click',()=>{if(live)stop(live,'片段已暂停；继续时从此处接续，连续动作重新计时。');});
   life.on(reset,'click',()=>{if(!blocked()&&state?.project?.story){continuity.stop();mount(state.project);}});
   life.on(retry,'click',()=>{if(blocked())return;if(mountError&&state?.project?.story)mount(state.project);else live?.stage.retry();});
@@ -341,6 +355,8 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     void ctx.durable(()=>submitScopedSceneCommand(ctx.store,rt.scope,{...rt.entry.guard,action:'SET_MODE',mode:selected},facts(rt)));});
   life.on(finish,'click',()=>{const rt=live;if(rt?.completed)submit(rt,{command:rt.completed.command,facts:{...rt.completed.facts,now:new Date().toISOString()}});});
   const endingButtons=new Map<string,HTMLButtonElement>();
+  const v5Buttons=new Map<string,HTMLButtonElement>();
+  for(const option of v5ChoiceOptions(null)){const button=element('button','button secondary',option.label);button.type='button';button.id='story-choice-'+option.id;button.hidden=true;choices.appendChild(button);v5Buttons.set(option.id,button);life.on(button,'click',()=>{const rt=live;if(!rt||blocked()||!rt.ready||rt.requested||rt.version!==5||rt.entry.node.id!==option.nodeId||rt.elapsed<rt.scene.durationMs)return;submit(rt,{command:{...rt.entry.guard,...option.payload} as SceneCommand,facts:facts(rt)});});}
   for(const end of definitionFor(null).endings!){const button=element('button','button secondary',end.choiceLabel);button.type='button';button.id='story-ending-'+end.id;choices.appendChild(button);endingButtons.set(end.id,button);life.on(button,'click',()=>{const rt=live;if(!rt||blocked()||!rt.ready||rt.entry.node.id!=='ending-choice')return;submit(rt,{command:{...rt.entry.guard,action:'CHOOSE_ENDING',ending:end.id},facts:facts(rt)});});}
   for(const [button,approach]of [[call,'call-first'],[split,'split-first']] as const)life.on(button,'click',()=>{
     const rt=live;if(!rt||blocked()||!rt.ready||rt.entry.node.kind!=='choice')return;
@@ -359,7 +375,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
       const hadPending=state?.hasPending;state=next;const project=next.project,story=project?.story,nextKey=story?`${project!.projectId}:${story.runId}:${story.revision}:${story.nodeId}`:'';
       if(['error','conflict','recovery','unsupported','closed'].includes(next.status)){continuity.stop();guideSuspended=false;}
       if(hadPending&&!next.hasPending&&nextKey===key&&live?.requested){live.requested=false;message='已取消未保存的切幕，保留当前片段；可重新确认或重开。';}
-      if(nextKey!==key){key=nextKey;if(project&&story)mount(project);else {holding=null;identity='';clearRuntimes();}}
+      if(nextKey!==key){const entering=!key;key=nextKey;if(project&&story)mount(project,entering);else {holding=null;identity='';clearRuntimes();}}
       if(live&&blocked()&&live.playing)stop(live,'正在处理作品，片段已暂停。');renderUI();resumeNext();
     },
     dispose(){if(disposed)return;disposed=true;continuity.stop();soundDisposed=true;unsubscribeSound();if(!ctx.audio)sound.dispose();life.dispose();captionResize?.disconnect();removeNode(captionDock);if(media){if(media.removeEventListener)media.removeEventListener('change',motionChanged);else media.removeListener(motionChanged);}subtitles.dispose();clearRuntimes();holding=null;},

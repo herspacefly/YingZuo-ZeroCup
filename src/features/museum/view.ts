@@ -108,7 +108,7 @@ export const mountMuseum:PageFactory=(host,ctx)=>{
     update(state){
       if(disposed)return;const project=state.project,cast=project?.story?.castSnapshot;
       returnLink.href=continueHash(project);returnLink.textContent=project?.story?'回到这一场 →':'从这里去看一场 →';
-      context.textContent=cast?`本场影偶 · ${paletteLabel(cast.appearance.paletteId)}。数字示意只在此处生效，回去仍从原段暂停接续。`:
+      context.textContent=cast?`本场影偶 · ${paletteLabel(cast.appearance.paletteId)}。数字示意只在此处生效，回到剧场后从原段起点自动开演。`:
         '展品使用示例影偶，随时可以试一试。无需开演或集齐展签，试验不会替你开始或完成故事。';
       for(const [id,label]of seenLabels)label.textContent=project?.museum.visitedExhibitIds.includes(id as MuseumExhibit['id'])?'来过':'';
       if(selected){

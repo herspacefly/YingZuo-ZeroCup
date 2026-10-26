@@ -4,6 +4,8 @@ import type { StoreState,SaveResult } from '../../app/store';
 import { newIdentifier } from '../../app/identity';
 import { startStory,submitStoryCommand } from '../../app/story-commands';
 import { definitionFor } from '../../content/reunion';
+import {v5ChoiceOptions} from '../../content/choice-options';
+import {choiceSummary} from '../../domain/story-choices';
 import { reunionSummary,storyEntry,storyGuard } from '../../domain/story';
 import type { StoryCommand,StoryNode,StoryPayload } from '../../domain/story-types';
 import { ProjectStorage } from '../../persistence/storage';
@@ -16,6 +18,7 @@ status.dataset.entry=import.meta.env.LEGACY?'legacy':'modern';
 let store:ProjectStore|null=null,disposed=false,paused=true,elapsed=0,lastTime=0,generation=0,key='',node:StoryNode|null=null;
 let clock:ReturnType<typeof setTimeout>|undefined,downloadCleanup=()=>undefined as void;
 const endingButtons=definitionFor(null).endings!.map(end=>{const b=document.createElement('button');b.textContent=end.choiceLabel;b.id='text-ending-'+end.id;b.hidden=true;el('story-choose-split').parentElement!.appendChild(b);return {b,end};});
+const choiceButtons=v5ChoiceOptions(null).map(option=>{const b=document.createElement('button');b.textContent=option.label;b.id='text-choice-'+option.id;b.hidden=true;el('story-choose-split').parentElement!.appendChild(b);return {b,option};});
 const cleanups:(()=>void)[]=[];
 function on(target:EventTarget,event:string,listener:EventListener){target.addEventListener(event,listener);cleanups.push(()=>target.removeEventListener(event,listener));}
 function stopClock(){clearTimeout(clock);clock=undefined;paused=true;}
@@ -43,7 +46,8 @@ function render(state:StoreState) {
   for(const id of ['story-craft','story-preset','story-assist','story-choose-call','story-choose-split','story-complete']){el(id).hidden=true;button(id,true);}
   const timing=story?.mode==='guided'?node?.guidedTiming:node?.fullTiming,waiting=(story?.definitionVersion??0)>=3&&elapsed<(timing?.minDurationMs??0);
   const endings=definitionFor(story).endings;
-  for(const {b,end} of endingButtons){const label=endings?.find(item=>item.id===end.id)?.choiceLabel;if(label&&b.textContent!==label)b.textContent=label;b.hidden=node?.id!=='ending-choice';b.disabled=blocked||!!waiting;}
+  for(const {b,end} of endingButtons){const label=endings?.find(item=>item.id===end.id)?.choiceLabel;if(label&&b.textContent!==label)b.textContent=label;b.hidden=node?.id!=='ending-choice'||story?.definitionVersion===5;b.disabled=blocked||!!waiting;}
+  const options=v5ChoiceOptions(story);for(const {b,option}of choiceButtons){b.hidden=story?.definitionVersion!==5||node?.id!==option.nodeId;b.disabled=blocked||!!waiting;b.textContent=options.find(item=>item.id===option.id)!.label;}
   if(node){
     if(node.id==='craft')for(const id of ['story-craft','story-preset']){el(id).hidden=false;button(id,blocked||!!waiting);}
     else if(node.kind==='interaction'){el('story-assist').hidden=false;button('story-assist',blocked||paused||!!waiting);}
@@ -56,7 +60,7 @@ function render(state:StoreState) {
     }
   }
   const result=project?reunionSummary(project):null;
-  el('result-summary').textContent=result?`同一份演出成果：${result.id}；完成时间 ${result.completedAt}；路线 ${result.approach==='call-first'?'先举灯呼唤':'先挥斧开山'}。${story?.nodeId==='curtain'?'终章已保存，谢幕尚未结束。':'本场已谢幕。'}`:'';
+  el('result-summary').textContent=result?`同一份演出成果：${result.id}；完成时间 ${result.completedAt}；路线 ${result.approach==='call-first'?'先举灯呼唤':'先挥斧开山'}。${story?.definitionVersion===5?choiceSummary(story).map(item=>item.label+'：'+item.value).join('；')+'。':''}${story?.nodeId==='curtain'?'终章已保存，谢幕尚未结束。':'本场已谢幕。'}`:'';
   button('story-export',!store?.getExportProject());button('story-retry',state.status==='saving'||(!state.hasPending&&!['error','memory','unsaved'].includes(state.status)));
   button('story-cancel',state.status==='saving'||!state.hasPending);button('story-memory',state.status==='saving'||state.pendingKind!=='save');button('story-new',blocked);
 }
@@ -95,6 +99,7 @@ async function mount(){
     on(el('story-choose-call'),'click',()=>send({action:'CHOOSE',approach:'call-first'}));
     on(el('story-choose-split'),'click',()=>send({action:'CHOOSE',approach:'split-first'}));
     for(const {b,end} of endingButtons)on(b,'click',()=>send({action:'CHOOSE_ENDING',ending:end.id}));
+    for(const {b,option}of choiceButtons)on(b,'click',()=>send(option.payload));
     on(el('story-complete'),'click',()=>send({action:'COMPLETE_SCENE',source:node?.completion.kind==='scene'&&node.completion.activation==='user'?'user':node?.id==='curtain'?'assistance':'script'}));
     on(mode,'change',()=>{if(store?.getState().project?.story)send({action:'SET_MODE',mode:mode.value as 'full'|'guided'});});
     on(el('story-retry'),'click',()=>{void run(()=>store!.retryPending());});

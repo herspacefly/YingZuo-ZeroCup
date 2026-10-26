@@ -7,8 +7,8 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T36_verified",
-  "activeTaskId": null,
+  "stage": "T37_in_progress",
+  "activeTaskId": "T37",
   "lastVerifiedCommit": "465b8c4c471bb736f6b2e15515fc0b8ea0eb4596",
   "features": {
     "singlePuppetRecording": "planned_optional",
@@ -1702,6 +1702,40 @@
         "宽窄主矩阵40/40；右肩肘选杆同步、旧IE方向键名与配色修正后10/10定向回归，截图稳定补验2/2；44唯一用例最新观察通过。",
         "E01实体0.22且源彩影保持不透明，普通调灯页1；E03三杆真鼠标拖动/按钮/方向键/取消/离页、E04两射线/固定截面/影宽数学关系与存档不污染通过。",
         "五档宽度×8主要页面及受影响活动稳定布局通过；8张当前宽窄图与只读代码/目检完成；12张历史回归图恢复。"
+      ],
+      "phase": "G3"
+    },
+    {
+      "id": "T37",
+      "title": "四次累计选择、持杖动态与入场自动开演",
+      "priority": "P0",
+      "status": "in_progress",
+      "dependsOn": [
+        "T36"
+      ],
+      "owner": "codex-root",
+      "branch": "codex/t37-theatre-choices",
+      "touchFiles": [
+        "src/domain/",
+        "src/content/",
+        "src/features/story/",
+        "src/features/result/",
+        "src/story/",
+        "src/app/",
+        "tests/",
+        "scripts/",
+        "docs/"
+      ],
+      "acceptanceRefs": [
+        "T37"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "600单元、五版内容/81图/类型构建已通过；浏览器84项主矩阵进行中，之后补旧版连续播放/教学及视觉复核。",
+      "blocker": null,
+      "verification": [
+        "2026-10-26: 600/600 unit cases passed, including 16 choice combinations x full/guided, checkpoint JSON roundtrips, drawable scenes, derived endings and replay.",
+        "2026-10-26: 157-module production build/typecheck, five story contracts and 81 original PNG/font checks passed.",
+        "2026-10-26: initial corrected browser smoke 8/8 across wide/narrow passed; full 84-case matrix still running, not yet accepted."
       ],
       "phase": "G3"
     }

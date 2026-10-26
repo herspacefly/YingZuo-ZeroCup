@@ -98,7 +98,7 @@ export class ProjectStore {
       this.recovery = await this.storage.load();
       if (this.recovery.kind === 'ready') {
         this.accept(this.recovery.project!);
-        this.message = this.project!.story ? '已恢复剧情检查点；从当前短节点起点暂停接续。' : '已恢复编辑草稿，尚未开演。';
+        this.message = this.project!.story ? '已恢复剧情检查点；进入剧场后从当前短节点起点接续。' : '已恢复编辑草稿，尚未开演。';
       } else if (this.recovery.kind === 'empty') {
         this.project = createProject(this.environment.createId(), this.environment.writerId, this.environment.now());
         this.dirty = true;

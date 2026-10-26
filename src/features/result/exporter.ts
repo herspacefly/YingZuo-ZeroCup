@@ -1,5 +1,6 @@
 import { definitionFor } from '../../content/reunion';
 import { assetCatalog } from '../../content/catalog';
+import {choiceSummary} from '../../domain/story-choices';
 import { mountCanvasRenderer } from '../../renderers/canvas/renderer';
 import type { ReunionArtifact } from './artifact';
 import { KAI_FONT_FAMILY,loadKaiFont } from '../shared/typography';
@@ -51,7 +52,7 @@ export function mountReunionExporter(host: HTMLElement, artifact: ReunionArtifac
     const ctx = canvas.getContext('2d');
     if (!ctx) throw new Error('此浏览器无法绘制团圆留影，仍可保存可恢复的作品文件。');
     const summary = snapshot.summary, appearance = summary.castSnapshot.appearance;
-    const pattern = summary.definitionVersion===4?'精细原画':assetCatalog.patterns.patterns.find(item => item.id === appearance.patternId)!.label;
+    const pattern = summary.definitionVersion>=4?'精细原画':assetCatalog.patterns.patterns.find(item => item.id === appearance.patternId)!.label;
     const palette = assetCatalog.palettes.palettes.find(item => item.id === appearance.paletteId)!.label;
     const route = summary.approach === 'call-first' ? '先呼唤，再开山' : '先开山，再寻光';
     ctx.fillStyle = '#f2e5c9'; ctx.fillRect(0, 0, 1600, 1200);
@@ -63,9 +64,18 @@ export function mountReunionExporter(host: HTMLElement, artifact: ReunionArtifac
     ctx.drawImage(image, 200, 180, 1200, 900);
     ctx.font = '22px '+KAI_FONT_FAMILY;
     const marker = summary.runId.length > 20 ? `…${summary.runId.slice(-20)}` : summary.runId;
-    ctx.fillText(`成果 ${marker}:${summary.ending??'reunion'}　·　完成（UTC）${summary.completedAt}`, 800, 1120);
-    ctx.font = '21px '+KAI_FONT_FAMILY;
-    ctx.fillText('影作 · 一幕团圆', 800, 1158);
+    if(summary.definitionVersion===5){
+      const decisions=choiceSummary(summary);
+      ctx.font='20px '+KAI_FONT_FAMILY;
+      ctx.fillText(decisions.slice(0,2).map(item=>item.label+'：'+item.value).join('　·　'),800,1108);
+      ctx.fillText(decisions.slice(2).map(item=>item.label+'：'+item.value).join('　·　'),800,1136);
+      ctx.font='18px '+KAI_FONT_FAMILY;
+      ctx.fillText(`影作 · 成果 ${marker}:${summary.ending}　·　完成（UTC）${summary.completedAt}`,800,1164);
+    }else{
+      ctx.fillText(`成果 ${marker}:${summary.ending??'reunion'}　·　完成（UTC）${summary.completedAt}`, 800, 1120);
+      ctx.font = '21px '+KAI_FONT_FAMILY;
+      ctx.fillText('影作 · 一幕团圆', 800, 1158);
+    }
   }
 
   try {

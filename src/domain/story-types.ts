@@ -1,7 +1,7 @@
-import type { Approach, EndingId, Pose, StoryNodeId, StageConfig } from './types';
+import type { Approach, EndingId, FinalAction, JourneyIntent, MountainPact, Pose, StoryNodeId, StageConfig, StoryVersion } from './types';
 
 export type ActorId = 'chenxiang' | 'mother' | 'guardian';
-export type StoryAction = 'SKIP_NODE' | 'CHOOSE' | 'CHOOSE_ENDING' | 'COMPLETE_INTERACTION' | 'COMPLETE_SCENE' | 'SET_MODE';
+export type StoryAction = 'SKIP_NODE' | 'CHOOSE' | 'CHOOSE_ENDING' | 'CHOOSE_JOURNEY' | 'CHOOSE_PACT' | 'CHOOSE_FINAL_ACTION' | 'COMPLETE_INTERACTION' | 'COMPLETE_SCENE' | 'SET_MODE';
 export type Completion =
   | { kind: 'scene'; activation: 'automatic' | 'user'; skippable: boolean }
   | { kind: 'craft' }
@@ -26,7 +26,7 @@ export interface StoryNode {
   assetIds: string[]; sourceIds: string[]; contentKind: 'original-adaptation';
 }
 export interface StoryDefinition {
-  storyId: 'reunion'; definitionVersion: 1 | 2 | 3 | 4; assetVersion: 1; startNodeId: 'intro';
+  storyId: 'reunion'; definitionVersion: StoryVersion; assetVersion: 1; startNodeId: 'intro';
   title: string; adaptationCredit: string; nodes: StoryNode[];
   subtitleTimebase: 'full-target-ms';
   endings?: {id:EndingId;title:string;choiceLabel:string;summary:string;holdNodeId:StoryNodeId;epilogueNodeId:StoryNodeId}[];
@@ -41,6 +41,9 @@ export type StoryPayload =
   | {action:'SKIP_NODE';source:'user'}
   | { action: 'CHOOSE'; approach: Approach }
   | { action: 'CHOOSE_ENDING'; ending: EndingId }
+  | { action: 'CHOOSE_JOURNEY'; journeyIntent: JourneyIntent }
+  | { action: 'CHOOSE_PACT'; mountainPact: MountainPact }
+  | { action: 'CHOOSE_FINAL_ACTION'; finalAction: FinalAction }
   | { action: 'SET_MODE'; mode: 'full' | 'guided' }
   | { action: 'COMPLETE_INTERACTION'; source: 'user'; evidence: InteractionEvidence }
   | { action: 'COMPLETE_INTERACTION'; source: 'assistance' }

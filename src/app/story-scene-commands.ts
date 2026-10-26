@@ -1,13 +1,14 @@
 import { currentStoryNode, reduceStory, StoryCommandError } from '../domain/story';
 import type { InteractionEvidence,StoryGuard } from '../domain/story-types';
 import { definitionFor } from '../content/reunion';
-import type { EndingId } from '../domain/types';
+import type { EndingId, JourneyIntent, MountainPact, FinalAction } from '../domain/types';
 import type { ProjectStore } from './store';
 
 export type SceneCommand=StoryGuard&({action:'SKIP_NODE';source:'user'}|{action:'COMPLETE_SCENE';source:'script'}|
   {action:'COMPLETE_SCENE';source:'user';skipped?:true}|{action:'SET_MODE';mode:'full'|'guided'}|
   {action:'CHOOSE';approach:'call-first'|'split-first'}|
   {action:'CHOOSE_ENDING';ending:EndingId}|
+  {action:'CHOOSE_JOURNEY';journeyIntent:JourneyIntent}|{action:'CHOOSE_PACT';mountainPact:MountainPact}|{action:'CHOOSE_FINAL_ACTION';finalAction:FinalAction}|
   {action:'COMPLETE_INTERACTION';source:'user';evidence:InteractionEvidence}|
   {action:'COMPLETE_INTERACTION';source:'assistance'});
 export interface SceneObservation {token:string;paused:boolean;elapsedMs:number;now:string;assistanceElapsedMs?:number}

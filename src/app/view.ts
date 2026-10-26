@@ -12,7 +12,6 @@ export interface PageContext {
   run(job: () => Promise<unknown>): Promise<void>;
   edit(command: EditorCommand): void;
   start(mode: 'full' | 'guided'): void;
-  consumeOpening?(runId:string):boolean;
   skipIntro(): void;
   notify(text: string): void;
   musicSample?(sample: StageSoundSample | null): void;

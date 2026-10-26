@@ -1,5 +1,7 @@
 # 连续演出、景片与引导契约（T34）
 
+T37已由作者明确变更入场播放规则，当前以[自动开演v2](automatic-performance-v2.md)为准；下文首播与刷新暂停部分保留为历史，景片/字幕/引导条款继续有效。
+
 2026-10-25。补充director-v1、presentation-guidance-v1、canvas-v1/three-v1。外层ProjectV1与四版故事JSON不变。
 
 ## 同页连续播放

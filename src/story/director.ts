@@ -49,7 +49,7 @@ export function createSceneDirector(project: ProjectV1, entry: ReturnType<typeof
   }
   const node = clone(entry.node), mode = story.mode;
   const appearance = clone(story.castSnapshot?.appearance ?? project.appearance);
-  const costumeTreatment=story.definitionVersion===4?'original-texture' as const:'legacy-motif' as const;
+  const costumeTreatment=story.definitionVersion>=4?'original-texture' as const:'legacy-motif' as const;
   const sharedMotif = story.castSnapshot?.sharedMotif ?? appearance.patternId;
   const durationMs = (mode === 'full' ? node.fullTiming : node.guidedTiming).targetMs;
   const allCues = subtitlesForMode(node, mode);
@@ -147,7 +147,7 @@ export function createSceneDirector(project: ProjectV1, entry: ReturnType<typeof
         case 'call-response':
           respond(between(fullTime, 0, 3000));
           stage.lampX += .1 * Math.sin(Math.PI * progress);
-          shotLabel = story.definitionVersion===4?'山中回应 · 灯火相认':'山中回应 · 袖口共纹';
+          shotLabel = story.definitionVersion>=4?'山中回应 · 灯火相认':'山中回应 · 袖口共纹';
           break;
         case 'split-response':
           respond(between(fullTime, 0, 3000));

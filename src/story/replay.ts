@@ -1,5 +1,7 @@
 import { definitionFor } from '../content/reunion';
 import { subtitlesForMode } from '../content/story-contract';
+import {presentChoiceDialogue} from '../content/choice-dialogue';
+import {choiceSummary} from '../domain/story-choices';
 import { reunionSummary, storyGuard } from '../domain/story';
 import type { StoryNode } from '../domain/story-types';
 import type { ProjectV1, StoryNodeId } from '../domain/types';
@@ -42,7 +44,7 @@ export function createReunionReplay(project: ProjectV1) {
     let node = definition.nodes.find(item => item.id === id);
     if(node && id==='curtain' && story.definitionVersion!==1){const end=definition.endings!.find(e=>e.id===story.ending)!;const pose=definition.nodes.find(n=>n.id===end.epilogueNodeId)!;node={...node,entryPoses:copy(pose.entryPoses),entryStage:copy(pose.entryStage),entrySceneLayers:copy(pose.entrySceneLayers),entryAttachments:copy(pose.entryAttachments),assetIds:[...new Set([...node.assetIds,...pose.assetIds])],prerequisites:{...node.prerequisites,ending:story.ending}};}
     if (!node) throw new RangeError('重演剧本缺少当前片段。');
-    nodes.push(node);
+    node=presentChoiceDialogue(node,story);nodes.push(node);
     if (id === 'curtain') break;
     if (!node.next) throw new RangeError('重演剧本尚未到达谢幕。');
     id = 'default' in node.next ? node.next.default : (node.next as Record<string,StoryNodeId>)[node.id==='ending-choice'?summary.ending!:summary.approach]!;
@@ -76,7 +78,9 @@ export function createReunionReplay(project: ProjectV1) {
         ? Math.max(0, Math.min(director.durationMs, elapsedMs)) : 0;
       const progress = director.durationMs > 0 ? elapsed / director.durationMs : 1;
       const sampled = scene.clip.sample(progress, elapsed, reducedMotion);
-      const label = node.id === 'craft' ? '制偶回看 · 本场冻结造型' : node.id === 'approach-choice'
+      const decisionIndex=node.id==='journey-choice'?0:node.id==='mountain-pact-choice'?1:node.id==='ending-choice'?3:-1;
+      const decision=story.definitionVersion===5&&decisionIndex>=0?choiceSummary(story)[decisionIndex]:null;
+      const label = decision?`本场决定 · ${decision.value}`:node.id === 'craft' ? '制偶回看 · 本场冻结造型' : node.id === 'approach-choice'
         ? summary.approach === 'call-first' ? '本场路线 · 先呼唤母亲' : '本场路线 · 先劈开山石' : sampled.shotLabel;
       return { frame: sampled.frame, cues: copy(sampled.cues), allCues: copy(scene.allCues),seekCues:subtitlesForMode(node,story.mode), lightLevel: sampled.lightLevel,
         shotLabel: label, ended: elapsed >= director.durationMs };

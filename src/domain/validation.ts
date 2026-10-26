@@ -1,6 +1,7 @@
-import { ASSISTABLE_NODES, BACKGROUND_IDS, EXHIBIT_IDS, EXPANDED_STORY_NODE_IDS, JOINT_IDS, MAX_JOINT_ANGLE, MAX_PROJECT_BYTES,
+import { ASSISTABLE_NODES, BACKGROUND_IDS, EXHIBIT_IDS, EXPANDED_STORY_NODE_IDS, CHOICE_STORY_NODE_IDS, JOINT_IDS, MAX_JOINT_ANGLE, MAX_PROJECT_BYTES,
   MAX_TITLE_CODEPOINTS, PALETTE_IDS, PATTERN_IDS, PRESET_IDS, PROJECT_ROUTES, STORY_NODE_IDS, utf8Bytes } from './limits';
-import type { EndingId, ProjectV1 } from './types';
+import type { EndingId, ProjectV1, StoryVersion, StoryChoices, Approach } from './types';
+import { resolveEnding } from './story-choices';
 import { ENDING_IDS, storyPath, storyPrefix } from './story-path';
 
 export class ProjectValidationError extends Error {
@@ -75,13 +76,14 @@ function pose(value: unknown, path: string) {
   JOINT_IDS.forEach(key => number(joints[key], -MAX_JOINT_ANGLE, MAX_JOINT_ANGLE, `${path}.joints.${key}`));
 }
 function story(value: unknown) {
-  const expanded=[2,3,4].includes(ownValue(value,'definitionVersion') as number);
+  const choiceDriven=ownValue(value,'definitionVersion')===5;
+  const expanded=[2,3,4,5].includes(ownValue(value,'definitionVersion') as number);
   const s = record(value, ['storyId', 'definitionVersion', 'runId', 'revision', 'mode', 'nodeId', 'approach',
-    'approachSource', 'castSnapshot', 'assistedNodeIds', 'presetAppearanceUsed', 'completedAt',...(expanded?['ending','endingSource']:[]),...(ownValue(value,'skippedNodeIds')!==undefined?['skippedNodeIds']:[])], 'story');
+    'approachSource', 'castSnapshot', 'assistedNodeIds', 'presetAppearanceUsed', 'completedAt',...(expanded?['ending','endingSource']:[]),...(choiceDriven?['choices']:[]),...(ownValue(value,'skippedNodeIds')!==undefined?['skippedNodeIds']:[])], 'story');
   if(!expanded)version(s.definitionVersion, 1, 'story.definitionVersion');
   choice(s.storyId, ['reunion'], 'story.storyId'); id(s.runId, 'story.runId');
   number(s.revision, 0, Number.MAX_SAFE_INTEGER, 'story.revision', true);
-  choice(s.mode, ['full', 'guided'], 'story.mode'); choice(s.nodeId, expanded?EXPANDED_STORY_NODE_IDS:STORY_NODE_IDS, 'story.nodeId');
+  choice(s.mode, ['full', 'guided'], 'story.mode'); choice(s.nodeId, choiceDriven?CHOICE_STORY_NODE_IDS:expanded?EXPANDED_STORY_NODE_IDS:STORY_NODE_IDS, 'story.nodeId');
   choice(s.approach, [null, 'call-first', 'split-first'], 'story.approach');
   choice(s.approachSource, [null, 'user'], 'story.approachSource'); bool(s.presetAppearanceUsed, 'story.presetAppearanceUsed');
   if (s.castSnapshot !== null) {
@@ -91,8 +93,8 @@ function story(value: unknown) {
     choice(cast.guardianPaletteId, ['guardian-v1'], 'castSnapshot.guardianPaletteId');
     if (cast.sharedMotif !== (cast.appearance as Record<string, unknown>).patternId) invalid('castSnapshot.sharedMotif', '必须与冻结纹样一致');
   } else if (s.nodeId !== 'intro' && s.nodeId !== 'craft') invalid('story.castSnapshot', '开演后必须有冻结角色');
-  if(expanded){choice(s.ending,[null,...ENDING_IDS],'story.ending');choice(s.endingSource,[null,'user'],'story.endingSource');}
-  const prefix=storyPrefix(s.definitionVersion as 1|2|3|4),path=storyPath(s.definitionVersion as 1|2|3|4,s.approach as 'call-first'|'split-first'|null,expanded?s.ending as EndingId|null:null);
+  if(expanded){choice(s.ending,[null,...ENDING_IDS],'story.ending');choice(s.endingSource,[null,choiceDriven?'choices':'user'],'story.endingSource');}
+  const prefix=storyPrefix(s.definitionVersion as StoryVersion),path=storyPath(s.definitionVersion as StoryVersion,s.approach as Approach|null,expanded?s.ending as EndingId|null:null);
   const index = path.indexOf(s.nodeId as typeof path[number]);
   if (index < 0) invalid('story.nodeId', '节点与所选路径不一致');
   if (index < prefix.length) {
@@ -101,7 +103,19 @@ function story(value: unknown) {
   if(expanded){
     const choiceIndex=path.indexOf('ending-choice');
     if(index<=choiceIndex){if(s.ending!==null||s.endingSource!==null)invalid('story.ending','终章抉择前不能已有结局');}
-    else if(s.ending===null||s.endingSource!=='user')invalid('story.ending','终章必须保留明确用户选择');
+    else if(s.ending===null||s.endingSource!==(choiceDriven?'choices':'user'))invalid('story.ending','终章必须保留本场决定的来源');
+  }
+  if(choiceDriven){
+    const decisions=record(s.choices,['journeyIntent','mountainPact','finalAction'],'story.choices');
+    choice(decisions.journeyIntent,[null,'home','open-road'],'story.choices.journeyIntent');
+    choice(decisions.mountainPact,[null,'shared','self'],'story.choices.mountainPact');
+    choice(decisions.finalAction,[null,'wait','fulfill'],'story.choices.finalAction');
+    for(const [key,nodeId]of [['journeyIntent','journey-choice'],['mountainPact','mountain-pact-choice'],['finalAction','ending-choice']] as const){
+      const passed=index>path.indexOf(nodeId);
+      if(passed?decisions[key]===null:decisions[key]!==null)invalid('story.choices.'+key,'选择必须与当前检查点一致');
+    }
+    const chosen=decisions as unknown as StoryChoices;
+    if(s.ending!==null&&s.ending!==resolveEnding(chosen.journeyIntent!,chosen.mountainPact!,s.approach as Approach,chosen.finalAction!))invalid('story.ending','终章与本场四次决定不一致');
   }
   const assisted = list(s.assistedNodeIds, expanded?EXPANDED_STORY_NODE_IDS.length:STORY_NODE_IDS.length, 'story.assistedNodeIds');
   for (const node of assisted) {
@@ -109,7 +123,7 @@ function story(value: unknown) {
     const assistedIndex = path.indexOf(node as typeof path[number]);
     if (assistedIndex < 0 || assistedIndex >= index) invalid('story.assistedNodeIds', '只能包含本路径已完成且可协助的节点');
   }
-  if(s.skippedNodeIds!==undefined){for(const skipped of list(s.skippedNodeIds,EXPANDED_STORY_NODE_IDS.length,'story.skippedNodeIds')){const i=path.indexOf(skipped as typeof path[number]);if(i<0||i>=index||['craft','approach-choice','ending-choice','completed'].includes(String(skipped))||assisted.includes(skipped))invalid('story.skippedNodeIds','只能记录本路径已明确跳过的普通片段');}}
+  if(s.skippedNodeIds!==undefined){for(const skipped of list(s.skippedNodeIds,CHOICE_STORY_NODE_IDS.length,'story.skippedNodeIds')){const i=path.indexOf(skipped as typeof path[number]);if(i<0||i>=index||['craft','journey-choice','mountain-pact-choice','approach-choice','ending-choice','completed'].includes(String(skipped))||assisted.includes(skipped))invalid('story.skippedNodeIds','只能记录本路径已明确跳过的普通片段');}}
   if (s.nodeId === 'curtain' || s.nodeId === 'completed') date(s.completedAt, 'story.completedAt');
   else if (s.completedAt !== null) invalid('story.completedAt', '只在进入谢幕时生成完成时间');
 }
@@ -161,7 +175,7 @@ export function validateProject(input: unknown): ProjectV1 {
     for (const key of ['schemaVersion', 'assetVersion']) detectFutureVersion(ownValue(input, key), key);
     const s = ownValue(input, 'story');
     const storyVersion=ownValue(s,'definitionVersion');
-    if(storyVersion!==2&&storyVersion!==3&&storyVersion!==4)detectFutureVersion(storyVersion, 'story.definitionVersion');
+    if(storyVersion!==2&&storyVersion!==3&&storyVersion!==4&&storyVersion!==5)detectFutureVersion(storyVersion, 'story.definitionVersion');
     detectFutureVersion(ownValue(ownValue(s, 'castSnapshot'), 'assetVersion'), 'castSnapshot.assetVersion');
   }
   assertPlainData(input);
