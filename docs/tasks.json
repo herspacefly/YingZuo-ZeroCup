@@ -7,9 +7,9 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T36_in_progress",
-  "activeTaskId": "T36",
-  "lastVerifiedCommit": "525c27a7d966ba506d5bcdb4fab7d0e93b88ac03",
+  "stage": "T36_verified",
+  "activeTaskId": null,
+  "lastVerifiedCommit": "465b8c4c471bb736f6b2e15515fc0b8ea0eb4596",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -1676,7 +1676,7 @@
       "id": "T36",
       "title": "展项差异化、独立几何光学图与导航标题",
       "priority": "P0",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "T35"
       ],
@@ -1694,10 +1694,15 @@
       "acceptanceRefs": [
         "T36"
       ],
-      "checkpointCommit": null,
-      "nextAction": "E01仅淡化本体；E03直接牵杆与局部姿态，E04恢复独立几何图；标题并入页签栏后验证。",
+      "checkpointCommit": "465b8c4c471bb736f6b2e15515fc0b8ea0eb4596",
+      "nextAction": "三项调整及相关展项差异化完成，见docs/acceptance/t36.md；正式审看、实体设备/体验/既有性能与交付继续既有任务。",
       "blocker": null,
-      "verification": [],
+      "verification": [
+        "49文件558单元、类型/153模块构建、17个ES5 chunks/七入口、81PNG/1401字符字体、四版内容/37任务通过。",
+        "宽窄主矩阵40/40；右肩肘选杆同步、旧IE方向键名与配色修正后10/10定向回归，截图稳定补验2/2；44唯一用例最新观察通过。",
+        "E01实体0.22且源彩影保持不透明，普通调灯页1；E03三杆真鼠标拖动/按钮/方向键/取消/离页、E04两射线/固定截面/影宽数学关系与存档不污染通过。",
+        "五档宽度×8主要页面及受影响活动稳定布局通过；8张当前宽窄图与只读代码/目检完成；12张历史回归图恢复。"
+      ],
       "phase": "G3"
     }
   ],
