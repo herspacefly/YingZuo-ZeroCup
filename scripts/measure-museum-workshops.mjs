@@ -16,7 +16,7 @@ try{
   await page.locator('.lamp-spatial-host .three-stage[data-state=ready]').waitFor({timeout:45000});
   await page.waitForFunction(()=>document.documentElement.getAttribute('data-intro')==='done'&&(!document.fonts||document.fonts.status==='loaded'));
   rows.push({width,network:slow?'5Mbps-150ms':'local',readyMs:await page.evaluate(()=>performance.now()),imageBytes:await page.evaluate(()=>performance.getEntriesByType('resource').filter(e=>/\.(png|webp|jpg|woff2?)(\?|$)/.test(e.name)).reduce((n,e)=>n+e.transferSize,0))});
-  if(!slow)await page.screenshot({path:`docs/evidence/t35/site-positioning-${width}.png`});
+  if(!slow)await page.screenshot({path:`docs/evidence/t35/site-positioning-${width}.png`,clip:{x:0,y:0,width,height:Math.ceil(await page.locator('.site-header').evaluate(el=>el.getBoundingClientRect().bottom))}});
   await context.close();
  }
 }finally{await browser?.close();await new Promise(resolve=>server.httpServer.close(resolve));}
