@@ -1,0 +1,15 @@
+{
+  "total": 600,
+  "passed": 599,
+  "failed": 1,
+  "failures": [
+    {
+      "file": "tests/unit/project.test.ts",
+      "title": "DATA-01/02/05 ProjectV1 serialization distinguishes unknown definition versions from corrupt data",
+      "messages": [
+        "AssertionError: expected error to match asymmetric matcher\n    at C:/Users/zhang/.codex/worktrees/t37-theatre-choices/ZeroCup/tests/unit/project.test.ts:38:38\n    at file:///C:/Users/zhang/.codex/worktrees/t37-theatre-choices/ZeroCup/node_modules/vitest/dist/chunks/run.Cm2sd7-x.js:2881:79\n    at file:///C:/Users/zhang/.codex/worktrees/t37-theatre-choices/ZeroCup/node_modules/vitest/dist/chunks/run.Cm2sd7-x.js:1632:35\n    at file:///C:/Users/zhang/.codex/worktrees/t37-theatre-choices/ZeroCup/node_modules/vitest/dist/chunks/run.Cm2sd7-x.js:2794:26\n    at file:///C:/Users/zhang/.codex/worktrees/t37-theatre-choices/ZeroCup/node_modules/vitest/dist/chunks/run.Cm2sd7-x.js:3334:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/Users/zhang/.codex/worktrees/t37-theatre-choices/ZeroCup/node_modules/vitest/dist/chunks/run.Cm2sd7-x.js:3329:10)\n    at file:///C:/Users/zhang/.codex/worktrees/t37-theatre-choices/ZeroCup/node_modules/vitest/dist/chunks/run.Cm2sd7-x.js:3314:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/Users/zhang/.codex/worktrees/t37-theatre-choices/ZeroCup/node_modules/vitest/dist/chunks/run.Cm2sd7-x.js:3272:10)"
+      ]
+    }
+  ],
+  "resolution": "Old unknown-version fixture was changed from 5 to 6 after adding supported v5. Final 600/600 report is unit-final.json."
+}

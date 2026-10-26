@@ -7,9 +7,9 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T37_in_progress",
-  "activeTaskId": "T37",
-  "lastVerifiedCommit": "465b8c4c471bb736f6b2e15515fc0b8ea0eb4596",
+  "stage": "T37_verified",
+  "activeTaskId": null,
+  "lastVerifiedCommit": "84772176d49644e97c30cf5e755e94d8890e6d38",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -1709,7 +1709,7 @@
       "id": "T37",
       "title": "四次累计选择、持杖动态与入场自动开演",
       "priority": "P0",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "T36"
       ],
@@ -1724,18 +1724,21 @@
         "src/app/",
         "tests/",
         "scripts/",
-        "docs/"
+        "docs/",
+        "AGENTS.md",
+        "public/assets/typography/"
       ],
       "acceptanceRefs": [
         "T37"
       ],
-      "checkpointCommit": null,
-      "nextAction": "600单元、五版内容/81图/类型构建已通过；浏览器84项主矩阵进行中，之后补旧版连续播放/教学及视觉复核。",
+      "checkpointCommit": "84772176d49644e97c30cf5e755e94d8890e6d38",
+      "nextAction": "三项改动及功能验收完成，见docs/acceptance/t37.md；已有场次按原版，四次选择需归档重开。正式审看/设备/体验/性能与交付继续原任务。",
       "blocker": null,
       "verification": [
-        "2026-10-26: 600/600 unit cases passed, including 16 choice combinations x full/guided, checkpoint JSON roundtrips, drawable scenes, derived endings and replay.",
-        "2026-10-26: 157-module production build/typecheck, five story contracts and 81 original PNG/font checks passed.",
-        "2026-10-26: initial corrected browser smoke 8/8 across wide/narrow passed; full 84-case matrix still running, not yet accepted."
+        "50文件600/600单元；五版内容/38节点16组合、类型/157模块构建、17ES5 chunks/七入口、81PNG/1405字楷体与38任务通过。",
+        "新主矩阵宽窄84/84一次通过；旧版/教学首轮26/30，明确旧测试自动操偶教学与暂停基线后4条复验通过，含重拍的最后6/6。114唯一用例最新观察通过，不是默认全套一次全绿。",
+        "四次选择及同事务派生/JSON恢复/结果重演、刷新返回自动播、主动暂停/模式/失败/迟到资源、后台初始化与教学归还意图已验；8张稳定原生截图及独立只读审查通过。",
+        "旧v1-v4、原人物场景/音频、用户DOCX/PPTX及25历史工作树保留；主目录核对无配音冲突。实际设备/IE/原生全长/听感与既有正式审看缺口保留。"
       ],
       "phase": "G3"
     }

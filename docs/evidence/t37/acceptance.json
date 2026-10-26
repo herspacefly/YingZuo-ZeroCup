@@ -1,0 +1,877 @@
+{
+  "task": "T37",
+  "sourceCommit": "84772176d49644e97c30cf5e755e94d8890e6d38",
+  "baseCommit": "2297061a8b5300a474e71ca83b03034dcb788346",
+  "clientDate": "2026-10-26",
+  "unit": {
+    "files": 50,
+    "total": 600,
+    "passed": 600,
+    "report": "unit-final.json"
+  },
+  "browser": {
+    "unique": 114,
+    "latestPassed": 114,
+    "latestFailures": [],
+    "main": {
+      "passed": 84,
+      "failed": 0,
+      "report": "browser-main.json"
+    },
+    "compatibility": {
+      "initialPassed": 26,
+      "initialFailed": 4,
+      "report": "browser-compatibility.json",
+      "followupPassed": 6,
+      "followupReport": "browser-guide-and-stills.json"
+    },
+    "tests": [
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/shared/call-first/fulfill/guided: four decisions produce home",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "new opening, refresh and museum return play automatically; same-page pause/reset/mode stay paused",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "a document hidden before initialization stays paused until a fresh visible entry",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "v5 guardian staff and result decisions have native wide/narrow visual evidence",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-guide-and-stills.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/shared/call-first/fulfill/guided: four decisions produce home",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "new opening, refresh and museum return play automatically; same-page pause/reset/mode stay paused",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "a document hidden before initialization stays paused until a fresh visible entry",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "v5 guardian staff and result decisions have native wide/narrow visual evidence",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-guide-and-stills.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/shared/call-first/wait/full: four decisions produce waiting",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/shared/call-first/wait/guided: four decisions produce waiting",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/shared/call-first/fulfill/full: four decisions produce home",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/shared/call-first/wait/full: four decisions produce waiting",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/shared/call-first/wait/guided: four decisions produce waiting",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/shared/call-first/fulfill/full: four decisions produce light",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/shared/call-first/fulfill/guided: four decisions produce light",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/shared/split-first/wait/full: four decisions produce waiting",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/shared/split-first/wait/guided: four decisions produce waiting",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/shared/split-first/fulfill/full: four decisions produce road",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/shared/split-first/fulfill/guided: four decisions produce road",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/shared/split-first/wait/full: four decisions produce waiting",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/shared/split-first/wait/guided: four decisions produce waiting",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/shared/split-first/fulfill/full: four decisions produce road",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/shared/split-first/fulfill/guided: four decisions produce road",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/self/call-first/wait/full: four decisions produce waiting",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/self/call-first/wait/guided: four decisions produce waiting",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/self/call-first/fulfill/full: four decisions produce sacrifice",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/self/call-first/fulfill/guided: four decisions produce sacrifice",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/self/call-first/wait/full: four decisions produce waiting",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/self/call-first/wait/guided: four decisions produce waiting",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/self/call-first/fulfill/full: four decisions produce sacrifice",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/self/call-first/fulfill/guided: four decisions produce sacrifice",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/self/split-first/wait/full: four decisions produce waiting",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/self/split-first/wait/guided: four decisions produce waiting",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/self/split-first/fulfill/full: four decisions produce sacrifice",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/self/split-first/fulfill/guided: four decisions produce sacrifice",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/self/split-first/wait/full: four decisions produce waiting",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/self/split-first/wait/guided: four decisions produce waiting",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/self/split-first/fulfill/full: four decisions produce sacrifice",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/self/split-first/fulfill/guided: four decisions produce sacrifice",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "choice after an explicit pause starts its successor without a play click",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "save failure retry stays paused, while refresh grants a fresh entry",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "blur while entry resources load revokes autoplay and late resources cannot revive it",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "restored v1 uses its own story and enters automatically",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "restored v2 uses its own story and enters automatically",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "restored v3 uses its own story and enters automatically",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "restored v4 uses its own story and enters automatically",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/shared/call-first/wait/full: four decisions produce waiting",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/shared/call-first/wait/guided: four decisions produce waiting",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/shared/call-first/fulfill/full: four decisions produce home",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/shared/call-first/wait/full: four decisions produce waiting",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/shared/call-first/wait/guided: four decisions produce waiting",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/shared/call-first/fulfill/full: four decisions produce light",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/shared/call-first/fulfill/guided: four decisions produce light",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/shared/split-first/wait/full: four decisions produce waiting",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/shared/split-first/wait/guided: four decisions produce waiting",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/shared/split-first/fulfill/full: four decisions produce road",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/shared/split-first/fulfill/guided: four decisions produce road",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/shared/split-first/wait/full: four decisions produce waiting",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/shared/split-first/wait/guided: four decisions produce waiting",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/shared/split-first/fulfill/full: four decisions produce road",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/shared/split-first/fulfill/guided: four decisions produce road",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/self/call-first/wait/full: four decisions produce waiting",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/self/call-first/wait/guided: four decisions produce waiting",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/self/call-first/fulfill/full: four decisions produce sacrifice",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/self/call-first/fulfill/guided: four decisions produce sacrifice",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/self/call-first/wait/full: four decisions produce waiting",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/self/call-first/wait/guided: four decisions produce waiting",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/self/call-first/fulfill/full: four decisions produce sacrifice",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/self/call-first/fulfill/guided: four decisions produce sacrifice",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/self/split-first/wait/full: four decisions produce waiting",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/self/split-first/wait/guided: four decisions produce waiting",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/self/split-first/fulfill/full: four decisions produce sacrifice",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "home/self/split-first/fulfill/guided: four decisions produce sacrifice",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/self/split-first/wait/full: four decisions produce waiting",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/self/split-first/wait/guided: four decisions produce waiting",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/self/split-first/fulfill/full: four decisions produce sacrifice",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "open-road/self/split-first/fulfill/guided: four decisions produce sacrifice",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "choice after an explicit pause starts its successor without a play click",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "save failure retry stays paused, while refresh grants a fresh entry",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "blur while entry resources load revokes autoplay and late resources cannot revive it",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "restored v1 uses its own story and enters automatically",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "restored v2 uses its own story and enters automatically",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "restored v3 uses its own story and enters automatically",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "choice-theatre.spec.ts",
+        "title": "restored v4 uses its own story and enters automatically",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-main.json"
+      },
+      {
+        "file": "continuous-stage.spec.ts",
+        "title": "one opening click starts intro; costume confirmation carries playback into the first act",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "continuous-stage.spec.ts",
+        "title": "normal cuts continue; same-page pause stays paused and a fresh entry autoplays",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "continuous-stage.spec.ts",
+        "title": "explicit assistance after pausing starts a fresh continuous handoff",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "continuous-stage.spec.ts",
+        "title": "choice remains explicit, then home begins without another play click",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "continuous-stage.spec.ts",
+        "title": "choice remains explicit, then light begins without another play click",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "continuous-stage.spec.ts",
+        "title": "choice remains explicit, then road begins without another play click",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "continuous-stage.spec.ts",
+        "title": "choice remains explicit, then waiting begins without another play click",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "continuous-stage.spec.ts",
+        "title": "choice remains explicit, then sacrifice begins without another play click",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "continuous-stage.spec.ts",
+        "title": "save failure and explicit retry never revive the former playback intent",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "continuous-stage.spec.ts",
+        "title": "blur during next actor loading cancels the one-use handoff",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "continuous-stage.spec.ts",
+        "title": "one opening click starts intro; costume confirmation carries playback into the first act",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "continuous-stage.spec.ts",
+        "title": "normal cuts continue; same-page pause stays paused and a fresh entry autoplays",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "continuous-stage.spec.ts",
+        "title": "explicit assistance after pausing starts a fresh continuous handoff",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "continuous-stage.spec.ts",
+        "title": "choice remains explicit, then home begins without another play click",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "continuous-stage.spec.ts",
+        "title": "choice remains explicit, then light begins without another play click",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "continuous-stage.spec.ts",
+        "title": "choice remains explicit, then road begins without another play click",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "continuous-stage.spec.ts",
+        "title": "choice remains explicit, then waiting begins without another play click",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "continuous-stage.spec.ts",
+        "title": "choice remains explicit, then sacrifice begins without another play click",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "continuous-stage.spec.ts",
+        "title": "save failure and explicit retry never revive the former playback intent",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "continuous-stage.spec.ts",
+        "title": "blur during next actor loading cancels the one-use handoff",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "guide-lifecycle.spec.ts",
+        "title": "v1 silent node guide stays on its checkpoint, restores scroll and cancels on blur",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-guide-and-stills.json"
+      },
+      {
+        "file": "guide-lifecycle.spec.ts",
+        "title": "v2 silent node guide stays on its checkpoint, restores scroll and cancels on blur",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-guide-and-stills.json"
+      },
+      {
+        "file": "guide-lifecycle.spec.ts",
+        "title": "legacy entry remains usable with modern DOM methods and WebGL absent",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "guide-lifecycle.spec.ts",
+        "title": "v1 silent node guide stays on its checkpoint, restores scroll and cancels on blur",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-guide-and-stills.json"
+      },
+      {
+        "file": "guide-lifecycle.spec.ts",
+        "title": "v2 silent node guide stays on its checkpoint, restores scroll and cancels on blur",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-guide-and-stills.json"
+      },
+      {
+        "file": "guide-lifecycle.spec.ts",
+        "title": "legacy entry remains usable with modern DOM methods and WebGL absent",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "presentation-guidance.spec.ts",
+        "title": "story rehearsal restores its checkpoint and explicit skip retries only once",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "presentation-guidance.spec.ts",
+        "title": "real hand and keyboard rehearsal restores the running story clock without task evidence",
+        "project": "desktop-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "presentation-guidance.spec.ts",
+        "title": "story rehearsal restores its checkpoint and explicit skip retries only once",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      },
+      {
+        "file": "presentation-guidance.spec.ts",
+        "title": "real hand and keyboard rehearsal restores the running story clock without task evidence",
+        "project": "mobile-chromium",
+        "status": "passed",
+        "report": "browser-compatibility.json"
+      }
+    ]
+  },
+  "checks": {
+    "typecheck": "passed",
+    "build": {
+      "modules": 157,
+      "indexSha256": "036105c4c6cfbb89261c0c0dc81252a195437b1940e76d067213bed52fb57121"
+    },
+    "assets": {
+      "originalPNG": 81,
+      "kaiCharacters": 1405,
+      "status": "passed"
+    },
+    "content": {
+      "versions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "v5Nodes": 38,
+      "combinations": 16,
+      "nodesPerPath": 23,
+      "status": "passed"
+    },
+    "legacy": {
+      "chunks": 17,
+      "entries": 7,
+      "status": "passed",
+      "actualIE": "not executed"
+    }
+  },
+  "preserved": {
+    "oldStories": "v1-v4 unchanged from base",
+    "art": "original game PNG unchanged",
+    "audio": "unchanged",
+    "documents": "DOCX/PPTX not read, modified, staged or committed",
+    "originalWorktrees": 25,
+    "mainAtLastConflictCheck": "2297061"
+  },
+  "limits": [
+    "Not the default whole browser suite.",
+    "Controlled RAF proves progression, not native whole-show duration or physical FPS.",
+    "Existing T10/T11/T13/T14/P1 review/device/experience/delivery gaps remain."
+  ],
+  "review": {
+    "code": "Independent read-only audit found background-init autoplay race; fixed and browser-covered.",
+    "visual": "8 stable wide/narrow staff/action/spatial/result stills inspected. Mobile result recaptured after curtain completion."
+  }
+}
