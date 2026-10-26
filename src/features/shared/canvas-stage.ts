@@ -42,7 +42,7 @@ export function storyFrame(project: ProjectV1): CanvasFrame | null {
   return {actors,stage:node.entryStage,sceneLayers:node.entrySceneLayers,attachments:node.entryAttachments};
 }
 
-export function canvasStage(caption: string) {
+export function canvasStage(caption: string,options:{spatial?:boolean}={}) {
   const figure=element('figure','stage-figure'),screen=element('div','canvas-stage-screen'),status=element('p','canvas-stage-status'),retry=element('button','button secondary','重试幕面');
   status.setAttribute('role','status'); retry.hidden=true;
   const foot=element('figcaption','stage-caption'); append(foot,element('p','',caption),status,retry); append(figure,screen,foot);
@@ -65,13 +65,13 @@ export function canvasStage(caption: string) {
     spatial?.update(last,update.state);
     if(changed)listeners.forEach(listener=>listener(update));
   });
-  spatial=mountSpatialStage(figure,renderer.canvas);
-  const performance=mountStagePerformance(foot,enabled=>{spatial!.setLightweight(enabled);renderer.setLightweight(enabled);});
+  if(options.spatial!==false)spatial=mountSpatialStage(figure,renderer.canvas);
+  const performance=mountStagePerformance(foot,enabled=>{spatial?.setLightweight(enabled);renderer.setLightweight(enabled);});
   life.on(retry,'click',()=>{if(last)void renderer.update(last);});
   return {
     figure,canvas:renderer.canvas,screen,cables,frameObserver:performance.observer,
-    spatialPreference:()=>spatial!.preference(),
-    restoreSpatial:(preference:import('./spatial-stage').SpatialPreference|undefined)=>spatial!.restorePreference(preference),
+    spatialPreference:()=>spatial?.preference(),
+    restoreSpatial:(preference:import('./spatial-stage').SpatialPreference|undefined)=>spatial?.restorePreference(preference),
     resize:()=>renderer.resize(),
     retry(){if(!disposed&&last)void renderer.update(last);},
     getStatus:()=>({...currentStatus}),
@@ -80,12 +80,12 @@ export function canvasStage(caption: string) {
       if(disposed)return;
       let frame:CanvasFrame|null;
       try {frame=typeof input==='function'?input():input;}
-      catch(error) {signature='';last=null;renderer.reset();spatial.update(null,'error');figure.hidden=false;renderer.canvas.hidden=true;status.setAttribute('data-state','error');status.textContent=error instanceof Error?error.message:String(error);retry.hidden=true;currentStatus={state:'error',message:status.textContent};listeners.forEach(listener=>listener(currentStatus));return;}
+      catch(error) {signature='';last=null;renderer.reset();spatial?.update(null,'error');figure.hidden=false;renderer.canvas.hidden=true;status.setAttribute('data-state','error');status.textContent=error instanceof Error?error.message:String(error);retry.hidden=true;currentStatus={state:'error',message:status.textContent};listeners.forEach(listener=>listener(currentStatus));return;}
       if(frame)frame={...frame,cableMotion:motion.sample()};
       const next=JSON.stringify(frame); if(signature===next)return; signature=next;last=frame;
       figure.hidden=!frame;
-      if(frame)void renderer.update(frame);else {renderer.reset();spatial.update(null,'loading');currentStatus={state:'loading',message:'幕面已清空。'};listeners.forEach(listener=>listener(currentStatus));}
+      if(frame)void renderer.update(frame);else {renderer.reset();spatial?.update(null,'loading');currentStatus={state:'loading',message:'幕面已清空。'};listeners.forEach(listener=>listener(currentStatus));}
     },
-    dispose() { disposed=true;motion.clear();last=null;signature='';listeners.clear();life.dispose();performance.dispose();spatial.dispose();renderer.pause();renderer.dispose(); },
+    dispose() { disposed=true;motion.clear();last=null;signature='';listeners.clear();life.dispose();performance.dispose();spatial?.dispose();renderer.pause();renderer.dispose(); },
   };
 }

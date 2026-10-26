@@ -22,13 +22,13 @@ export function mountLightDiagram() {
   function label(text: string, x: number, y: number) {
     const node = document.createElementNS(NS, 'text'); node.textContent = text; node.setAttribute('x', String(x)); node.setAttribute('y', String(y)); svg.appendChild(node); return node;
   }
-  const rays = [line('#a26a42', 1.5), line('#a26a42', 1.5)]; rays.forEach(ray => ray.setAttribute('data-light-ray', ''));
-  const curtain = line('currentColor', 2), shadow = line('#b83b30', 7), section = line('#314c58', 7);
+  const rays = [line('#d4ad6d', 1.5), line('#a26a42', 1.5)]; rays.forEach(ray => ray.setAttribute('data-light-ray', ''));
+  const curtain = line('currentColor', 2), shadow = line('#ee8d77', 7), section = line('#80bdcf', 7);
   shadow.setAttribute('data-reference-shadow', ''); section.setAttribute('data-reference-section', '');
   curtain.setAttribute('x1', '335'); curtain.setAttribute('x2', '335'); curtain.setAttribute('y1', '35'); curtain.setAttribute('y2', '255');
   const lamp = document.createElementNS(NS, 'circle'); lamp.setAttribute('r', '6'); lamp.setAttribute('fill', '#d7a253'); lamp.setAttribute('stroke', 'currentColor'); svg.appendChild(lamp);
   const lampLabel = label('灯', 45, 40), sectionLabel = label('偶', 0, 70); label('幕', 345, 40);
-  label('深度 1.20', 16, 285); label('幕深度 0', 300, 285);
+  const depthLabel=label('灯距 1.20', 16, 285); label('幕深度 0', 300, 285);
   const depth = line('currentColor', 1); depth.setAttribute('x1', '45'); depth.setAttribute('x2', '335'); depth.setAttribute('y1', '267'); depth.setAttribute('y2', '267');
   const caption = element('figcaption'), width = element('p', 'quiet-note'), note = element('p', 'quiet-note', '几何示意：蓝线是固定宽 0.40 示意单位的参考截面，红线是它的影宽；实际影偶轮廓见幕面。');
   width.id = 'museum-reference-shadow-width'; append(caption, width, note); append(figure, heading); figure.appendChild(svg); figure.appendChild(caption);
@@ -38,6 +38,7 @@ export function mountLightDiagram() {
     update(stage: StageConfig) {
       if (disposed) return;
       const { lampX, lampDepth } = projectionParameters(stage);
+      depthLabel.textContent=`灯距 ${lampDepth.toFixed(2)}`;
       const distance = Number.isFinite(stage.puppetDistance) ? Math.max(.05, Math.min(.4, stage.puppetDistance)) : .2;
       const sectionX = 335 - distance / lampDepth * 290, lampY = 145 - lampX * 105;
       const endpoints = [-.2, .2].map(x => projectPoint({ x, y: 0 }, stage));

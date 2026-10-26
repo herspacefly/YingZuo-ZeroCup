@@ -41,7 +41,7 @@ export function mountMuseumLamp(host:HTMLElement){
         if(update.state==='error'||update.state==='lost'){fail(update.message);return;}
         status.textContent=update.state==='ready'?'三维灯影已就绪 · 拖动金色灯具试一试。':update.message;
       });
-      if(disposed||token!==generation){next.dispose();return;}spatial=next;loading=false;next.setView('lamp-workshop');await next.update(frame);
+      if(disposed||token!==generation){next.dispose();return;}spatial=next;loading=false;next.setView('lamp-workshop');next.setLampPuppetOpacity(.22);await next.update(frame);
     }catch(error){if(!disposed&&token===generation)fail('三维灯影暂未就绪：'+(error instanceof Error?error.message:String(error)));}
   }
   function render(){if(disposed)return;const p=projectionParameters(frame.stage);x.value=String(frame.stage.lampX);depth.min=String(minimumLampDepth(frame.stage));depth.value=String(p.lampDepth);xo.textContent=frame.stage.lampX.toFixed(2);dpo.textContent=p.lampDepth.toFixed(2);reading.textContent=`影偶固定 · 影子倍率 ${p.magnification.toFixed(2)}×。向左挪灯，影子向右；灯靠近影偶，影子变大。`;void renderer.update(frame);}

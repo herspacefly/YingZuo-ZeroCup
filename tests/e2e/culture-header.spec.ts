@@ -5,7 +5,7 @@ test('culture identity and all main pages adapt at five browser widths',async({p
   await page.setViewportSize({width,height:900});
   for(const path of ['/','/craft','/light','/practice','/story','/result','/about','/museum']){
    await page.evaluate(path=>{location.hash='#'+path;},path);await expect(page.locator('#app-view')).toHaveAttribute('data-route',path);await expect(page.locator('#app-view h1')).toBeVisible();await page.evaluate(async()=>{await document.fonts?.ready;await new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve())));});
-   await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await expect(page.locator('.site-positioning')).toContainText('皮影艺术 · 数字文化馆');
+   await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await expect(page.locator('.site-positioning')).toContainText('皮影艺术 数字文化馆');
   }
  }
 });

@@ -7,8 +7,8 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T35_verified",
-  "activeTaskId": null,
+  "stage": "T36_in_progress",
+  "activeTaskId": "T36",
   "lastVerifiedCommit": "525c27a7d966ba506d5bcdb4fab7d0e93b88ac03",
   "features": {
     "singlePuppetRecording": "planned_optional",
@@ -1670,6 +1670,34 @@
         "原生新上下文/禁缓存，E01宽窄×本地/5Mbps150ms各一次符合15秒目标，数值与最终源码/包摘要见docs/evidence/t35/loading.json；不替代物理设备/FPS验收。",
         "10张当前截图与独立只读目检；六张历史回归PNG恢复，原素材和音频、START_HERE及历史工作树保留。"
       ],
+      "phase": "G3"
+    },
+    {
+      "id": "T36",
+      "title": "展项差异化、独立几何光学图与导航标题",
+      "priority": "P0",
+      "status": "in_progress",
+      "dependsOn": [
+        "T35"
+      ],
+      "owner": "codex-root",
+      "branch": "main",
+      "touchFiles": [
+        "src/features/museum/",
+        "src/renderers/three/renderer.ts",
+        "src/styles/",
+        "index.html",
+        "src/content/",
+        "tests/",
+        "docs/"
+      ],
+      "acceptanceRefs": [
+        "T36"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "E01仅淡化本体；E03直接牵杆与局部姿态，E04恢复独立几何图；标题并入页签栏后验证。",
+      "blocker": null,
+      "verification": [],
       "phase": "G3"
     }
   ],

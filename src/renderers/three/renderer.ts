@@ -43,6 +43,7 @@ export function mountThreeStage(host: HTMLElement, source: HTMLCanvasElement, op
   let disposed = false, lost = false, ready = false, view: StageView = 'workshop', currentScope = '', resourceGeneration = 0, frameGeneration = 0;
   const scenery=new Map<string,THREE.Mesh<THREE.PlaneGeometry,THREE.MeshLambertMaterial|THREE.MeshBasicMaterial>>();
   let focusActor='chenxiang',yaw=0,pitch=0,zoom=1;
+  let lampPuppetOpacity=1;
   let warm:THREE.PointLight, linen:THREE.Mesh<THREE.PlaneGeometry,THREE.MeshBasicMaterial>;
   let latest: CanvasFrame | null = null, pending: Promise<void> | null = null, sourceTexture: THREE.CanvasTexture;
   let curtain: THREE.Mesh<THREE.PlaneGeometry, THREE.MeshBasicMaterial>, lamp: THREE.Group;
@@ -164,7 +165,7 @@ export function mountThreeStage(host: HTMLElement, source: HTMLCanvasElement, op
       const planeOrder=actorSceneOrder(frame,assetCatalog,actor.actorId),actorIndex=frame.actors.indexOf(actor);
       item.group.position.set(root.x, root.y, scenePlaneDepth(planeOrder,frame.stage.puppetDistance));
       item.group.scale.set(actor.pose.scale * actor.pose.facing, actor.pose.scale, 1);
-      const opacity = frame.actorOpacity?.[actor.actorId] ?? 1;
+      const opacity = (frame.actorOpacity?.[actor.actorId] ?? 1)*(view==='lamp-workshop'?lampPuppetOpacity:1);
       for (const entry of item.parts) {
         const part = entry.attachment ? template.attachments.find(part => part.id === entry.partId)! : template.parts.find(part => part.partId === entry.partId)!;
         const transform = entry.attachment ? attachmentTransform(template, actor.pose, part as PuppetTemplate['attachments'][number]) : partTransform(template, actor.pose, part as PuppetTemplate['parts'][number]);
@@ -184,6 +185,7 @@ export function mountThreeStage(host: HTMLElement, source: HTMLCanvasElement, op
     canvas.setAttribute('data-actors', frame.actors.map(actor => actor.actorId).join(','));
     const lampScreen=new THREE.Vector3(frame.stage.lampX,0,-projectionParameters(frame.stage).lampDepth).project(camera);canvas.setAttribute('data-lamp-screen-x',String((lampScreen.x+1)/2));canvas.setAttribute('data-lamp-screen-y',String((1-lampScreen.y)/2));
     canvas.setAttribute('data-lamp-depth',String(projectionParameters(frame.stage).lampDepth));canvas.setAttribute('data-lamp-x', String(frame.stage.lampX)); canvas.setAttribute('data-puppet-distance', String(frame.stage.puppetDistance));
+    canvas.setAttribute('data-puppet-opacity',String(view==='lamp-workshop'?lampPuppetOpacity:1));
   }
   function copySource() {
     if (!source.width || !source.height) throw new Error('二维幕面尚未就绪，空间展示未绘制。');
@@ -317,5 +319,6 @@ export function mountThreeStage(host: HTMLElement, source: HTMLCanvasElement, op
     if(view!=='lamp-workshop'||!ready||!latest)return null;const point=lampPlanePoint(clientX,clientY);
     return point&&raycaster.intersectObject(lamp,true).length?{x:point.x-latest.stage.lampX,depth:point.depth-projectionParameters(latest.stage).lampDepth}:null;
   }
-  return { canvas, update, setView, observe, resize, dispose, pickLamp, lampPlanePoint };
+  function setLampPuppetOpacity(value:number){if(disposed)return;lampPuppetOpacity=Number.isFinite(value)?Math.max(.1,Math.min(1,value)):1;render();}
+  return { canvas, update, setView, observe, resize, dispose, pickLamp, lampPlanePoint, setLampPuppetOpacity };
 }

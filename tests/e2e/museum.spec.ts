@@ -13,7 +13,7 @@ async function shot(page:Page,name:string){for(const card of await page.locator(
 async function noWebgl(page:Page){await page.addInitScript(()=>Object.defineProperty(window,'WebGL2RenderingContext',{value:undefined,configurable:true}));}
 
 test('seven public exhibits, clear site identity, no personal labels, and real sources first',async({page})=>{
- await page.goto('/#/museum');await saved(page);await expect(page.locator('.site-positioning')).toContainText('皮影艺术 · 数字文化馆');await expect(page.locator('[data-exhibit]')).toHaveCount(7);await expect(page.locator('.museum-section')).toHaveCount(5);
+ await page.goto('/#/museum');await saved(page);await expect(page.locator('.site-positioning')).toContainText('皮影艺术 数字文化馆');await expect(page.locator('[data-exhibit]')).toHaveCount(7);await expect(page.locator('.museum-section')).toHaveCount(5);
  for(const e of exhibits.exhibits){await go(page,e.id);await expect(page.locator('#app-view')).not.toContainText(/零组|SpaceFly|张宇翔/);const first=page.locator('.museum-photo-card').first();await expect(first).toContainText('公开资料');expect(await first.evaluate(el=>!!(el.compareDocumentPosition(document.getElementById('museum-display')!)&Node.DOCUMENT_POSITION_FOLLOWING))).toBe(true);}
  await page.goto('/#/museum/E08');await saved(page);await expect(page.locator('[data-exhibit=E08]')).toHaveCount(0);await expect(page.locator('#app-view h1')).toHaveText('一张皮，一束光，千年戏。');await page.goto('/credits.html');await expect(page.locator('body')).not.toContainText(/零组|SpaceFly|张宇翔/);
 });
@@ -24,11 +24,11 @@ test('museum native three-dimensional lamp drag changes light and keeps the pupp
 });
 
 test('no WebGL keeps lamp sliders and buttons operable without any saved pose or lamp edits',async({page})=>{
- await noWebgl(page);await open(page,'E01');await expect(page.locator('.lamp-shadow-host')).toBeVisible();const before=await raw(page);await page.locator('#museum-lamp').focus();await page.keyboard.press('End');await expect(page.locator('#museum-lamp')).toHaveValue('0.8');await page.getByRole('button',{name:'灯靠近影偶',exact:true}).click();await expect(page.locator('#museum-lamp-depth')).toHaveValue('1.1');await go(page,'E04');await change(page,'#museum-lamp-depth','.7');await expect(page.locator('#museum-demo-reading')).toContainText('1.40');invariant(await raw(page),before);
+ await noWebgl(page);await open(page,'E01');await expect(page.locator('.lamp-shadow-host')).toBeVisible();const before=await raw(page);await page.locator('#museum-lamp').focus();await page.keyboard.press('End');await expect(page.locator('#museum-lamp')).toHaveValue('0.8');await page.getByRole('button',{name:'灯靠近影偶',exact:true}).click();await expect(page.locator('#museum-lamp-depth')).toHaveValue('1.1');await go(page,'E04');await change(page,'#museum-distance','.4');await expect(page.locator('#museum-demo-reading')).toContainText('1.50');invariant(await raw(page),before);
 });
 
 test('lamp context loss releases the renderer and permits a real retry',async({page})=>{
- test.setTimeout(60000);await open(page,'E04');const space=page.locator('.lamp-spatial-host .three-stage');await expect(space).toHaveAttribute('data-state','ready',{timeout:25000});await space.evaluate(el=>el.dispatchEvent(new Event('webglcontextlost',{cancelable:true})));await expect(page.locator('.lamp-shadow-host')).toBeVisible();await page.getByRole('button',{name:'重试三维灯影',exact:true}).click();await expect(space).toHaveAttribute('data-state','ready',{timeout:25000});
+ test.setTimeout(60000);await open(page,'E01');const space=page.locator('.lamp-spatial-host .three-stage');await expect(space).toHaveAttribute('data-state','ready',{timeout:25000});await space.evaluate(el=>el.dispatchEvent(new Event('webglcontextlost',{cancelable:true})));await expect(page.locator('.lamp-shadow-host')).toBeVisible();await page.getByRole('button',{name:'重试三维灯影',exact:true}).click();await expect(space).toHaveAttribute('data-state','ready',{timeout:25000});
 });
 
 test('carve by mouse and buttons, compare actual holes, reset without costume changes',async({page})=>{
@@ -55,7 +55,7 @@ test('old E08 visits restore without reinstating an empty exhibit or losing reco
 });
 
 test('repeated route exit disposes old lamp canvas and local listeners',async({page})=>{
- await noWebgl(page);await open(page,'E01');const before=await raw(page);for(let i=0;i<4;i++){await go(page,'E04');const old=await page.locator('.shadow-stage').elementHandle();await go(page,'E02');expect(await old!.evaluate((e:HTMLCanvasElement)=>[e.isConnected,e.width,e.height])).toEqual([false,0,0]);await go(page,'E05');await page.getByRole('button',{name:'看回应',exact:true}).click();}await go(page,'E03');invariant(await raw(page),before);
+ await noWebgl(page);await open(page,'E01');const before=await raw(page);for(let i=0;i<4;i++){await go(page,'E01');const old=await page.locator('.shadow-stage').elementHandle();await go(page,'E02');expect(await old!.evaluate((e:HTMLCanvasElement)=>[e.isConnected,e.width,e.height])).toEqual([false,0,0]);await go(page,'E05');await page.getByRole('button',{name:'看回应',exact:true}).click();}await go(page,'E03');invariant(await raw(page),before);
 });
 
 test('museum experiments fit five responsive widths without long side cards or overflow',async({page})=>{
@@ -67,7 +67,7 @@ test('lamp asset failure retries and clears the repaired error message',async({p
 });
 
 test('three module failure keeps controls usable and can retry after the failure',async({page})=>{
- test.setTimeout(45000);let broken=true;await page.route(/\/assets\/renderer-[^/]+\.js$/,route=>broken?route.abort():route.continue());await open(page,'E04');await expect(page.locator('.lamp-status')).toContainText('三维灯影暂未就绪');await page.getByRole('button',{name:'灯向右',exact:true}).click();await expect(page.locator('#museum-lamp')).toHaveValue('0.1');broken=false;await page.getByRole('button',{name:'重试三维灯影',exact:true}).click();await expect(page.locator('.lamp-spatial-host .three-stage')).toHaveAttribute('data-state','ready',{timeout:20000});
+ test.setTimeout(45000);let broken=true;await page.route(/\/assets\/renderer-[^/]+\.js$/,route=>broken?route.abort():route.continue());await open(page,'E01');await expect(page.locator('.lamp-status')).toContainText('三维灯影暂未就绪');await page.getByRole('button',{name:'灯向右',exact:true}).click();await expect(page.locator('#museum-lamp')).toHaveValue('0.1');broken=false;await page.getByRole('button',{name:'重试三维灯影',exact:true}).click();await expect(page.locator('.lamp-spatial-host .three-stage')).toHaveAttribute('data-state','ready',{timeout:20000});
 });
 
 test('ensemble waits for imagery, pauses on blur, and can resume after recovery',async({page})=>{
