@@ -1,0 +1,112 @@
+{
+  "date": "2026-10-26",
+  "sourceCommit": "525c27a7d966ba506d5bcdb4fab7d0e93b88ac03",
+  "node": "24.18.1",
+  "npm": "12.0.2",
+  "checks": {
+    "typecheck": "passed",
+    "buildModules": 150,
+    "legacyChunks": 17,
+    "entryPages": 7,
+    "unitFiles": 49,
+    "unitCases": 558,
+    "originalPNGs": 81,
+    "kaiCharacters": 1401,
+    "exhibits": 7,
+    "museumImages": 16,
+    "externalImages": 12,
+    "imagePlacements": 17,
+    "tasks": 36
+  },
+  "browser": {
+    "stages": [
+      {
+        "file": "browser-final.json",
+        "passed": 28,
+        "failed": 0
+      },
+      {
+        "file": "browser-regression.json",
+        "passed": 17,
+        "failed": 1
+      },
+      {
+        "file": "browser-layout-recheck.json",
+        "passed": 6,
+        "failed": 0
+      },
+      {
+        "file": "browser-cue-final.json",
+        "passed": 6,
+        "failed": 0
+      }
+    ],
+    "uniqueCases": 40,
+    "latestPassed": 40,
+    "note": "Staged observations; not one final whole default suite. One 30s screenshot regression timeout passed unchanged with one worker."
+  },
+  "loading": {
+    "recordedAt": "2026-10-26T03:04:27.664Z",
+    "sourceCommit": "525c27a7d966ba506d5bcdb4fab7d0e93b88ac03",
+    "indexSha256": "8845753b014d056de7a60c809e88844f1c472ca714cc5e223b14e0b342c851f1",
+    "definition": "One native direct E01 navigation per condition, fresh temporary browser context and disabled cache; ready Three lamp scene plus fonts and opening. Software GPU, not physical-device FPS.",
+    "targetMs": 15000,
+    "rows": [
+      {
+        "width": 1440,
+        "network": "local",
+        "readyMs": 2828,
+        "imageBytes": 1908433
+      },
+      {
+        "width": 1440,
+        "network": "5Mbps-150ms",
+        "readyMs": 4812.199999988079,
+        "imageBytes": 1908433
+      },
+      {
+        "width": 390,
+        "network": "local",
+        "readyMs": 2794.5,
+        "imageBytes": 1908433
+      },
+      {
+        "width": 390,
+        "network": "5Mbps-150ms",
+        "readyMs": 4726.79999999702,
+        "imageBytes": 1908433
+      }
+    ],
+    "allWithinTarget": true
+  },
+  "review": {
+    "items": 260,
+    "snapshot": "b90f747a0bc30202f174db569c80444ec945cde913073be7635079d5e8ecb641",
+    "status": "pending"
+  },
+  "captures": [
+    "carving-desktop-chromium.png",
+    "carving-mobile-chromium.png",
+    "ensemble-desktop-chromium.png",
+    "ensemble-mobile-chromium.png",
+    "joints-desktop-chromium.png",
+    "joints-mobile-chromium.png",
+    "lamp-desktop-chromium.png",
+    "lamp-mobile-chromium.png",
+    "site-positioning-1440.png",
+    "site-positioning-390.png"
+  ],
+  "preserved": [
+    "START_HERE.md",
+    "original story JSON",
+    "original art/audio",
+    "historical worktrees",
+    "untracked DOCX/PPTX"
+  ],
+  "remaining": [
+    "T10 formal content/art/culture/rights review",
+    "T11/T13 physical devices, actual users, full duration/listening and existing software-GPU performance",
+    "T14 delivery",
+    "P1 optional recording/sharing"
+  ]
+}
