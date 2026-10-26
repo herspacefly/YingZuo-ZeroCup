@@ -43,5 +43,12 @@
       "path": "src/content/puppets/guardian-v1.json",
       "sha256": "1b2fe4f5f60c711e6a65886028610661af1f6af230f540c0f4be64960843a336"
     }
-  ]
+  ],
+  "mainRebuild": {
+    "commit": "7d7605b3d038efb119c5923950486998902570ad",
+    "indexSha256": "badd2d740e9a1ee990e77a3a95888fe3adebcc8f8bba4c118fbc63f9bfaa8a00",
+    "identicalScriptAndStyleFiles": 38,
+    "htmlPagesEqualIgnoringEmptyLinesAndCR": 7,
+    "note": "Checkout CR/blank-line differences occur in HTML; compiled application chunks are byte-identical to the browser-verified worktree."
+  }
 }
