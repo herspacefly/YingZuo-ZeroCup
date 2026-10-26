@@ -40,7 +40,7 @@ test('direct routes, museum children, back and refresh preserve the confirmed pe
   }
   await saved(page); const before = await stored(page);
   expect(before.story).toEqual(fixture.story); expect(before.projectId).toBe(fixture.projectId);
-  expect([...before.museum.visitedExhibitIds].sort()).toEqual(['E01','E02','E03','E04','E05','E06','E07','E08']); expect(before.lastRoute).toBe('/museum');
+  expect([...before.museum.visitedExhibitIds].sort()).toEqual(['E01','E02','E03','E04','E05','E06','E07']); expect(before.lastRoute).toBe('/museum');
   await page.goBack(); await expect(page).toHaveURL(/#\/museum\/E07$/);
   await page.reload(); await saved(page); expect((await stored(page)).story).toEqual(fixture.story);
   expect(errors).toEqual([]);

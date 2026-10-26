@@ -3,7 +3,7 @@ const expected: Record<string, { section: string; demo: string }> = {
   E01: { section: '一张皮', demo: 'layers' }, E02: { section: '一道刻', demo: 'carving' },
   E03: { section: '一道刻', demo: 'joints' }, E04: { section: '一束光', demo: 'light' },
   E05: { section: '一双手', demo: 'ensemble' }, E06: { section: '一出戏', demo: 'adaptation' },
-  E07: { section: '一出戏', demo: 'regions' }, E08: { section: '一双手', demo: 'credits' },
+  E07: { section: '一出戏', demo: 'regions' },
 };
 type RecordValue = Record<string, unknown>;
 const record = (v: unknown): v is RecordValue => typeof v === 'object' && v !== null && !Array.isArray(v);
@@ -66,16 +66,15 @@ export function validateMuseumContent(exhibits: unknown, facts: unknown, sources
     check(prose(exhibit.summary, 40, 70), `museum summary 40-70 Unicode codepoints ${id}`);
     check(prose(exhibit.detail, 120, 180), `museum detail 120-180 Unicode codepoints ${id}`);
     check(prose(exhibit.alt, 8, 180), `museum alternative text ${id}`);
-    const sourceIds = references(exhibit.sourceIds, `museum exhibit sources ${id}`, sourceMap, id === 'E08' ? 0 : 1);
+    const sourceIds = references(exhibit.sourceIds, `museum exhibit sources ${id}`, sourceMap, 1);
     const factIds = references(exhibit.factIds, `museum exhibit facts ${id}`, factMap, 1, 10);
     for (const factId of factIds) {
       usedFacts.add(factId);
       const fact = factMap.get(factId);
       if (fact && strings(fact.sourceIds)) check(fact.sourceIds.every(sourceId => sourceIds.includes(sourceId)), `museum fact/source mapping ${id}/${factId}`);
     }
-    if (id === 'E08') check(sourceIds.length === 0 && factIds.every(factId => factMap.get(factId)?.kind !== 'culture'), 'museum E08 credit uses project records only');
     if (!Array.isArray(exhibit.panels)) { check(false, `museum panels required ${id}`); continue; }
-    const minPanels = id === 'E05' ? 4 : ['E06', 'E07'].includes(id) ? 3 : id === 'E08' ? 2 : 0;
+    const minPanels = id === 'E05' ? 4 : ['E06', 'E07'].includes(id) ? 3 : 0;
     check(exhibit.panels.length >= minPanels && exhibit.panels.length <= 6 && (id !== 'E07' || exhibit.panels.length === 3), `museum panel count ${id}`);
     const panelTitles = new Set<string>();
     for (const panel of exhibit.panels) {
@@ -86,7 +85,7 @@ export function validateMuseumContent(exhibits: unknown, facts: unknown, sources
       check(ids.every(sourceId => sourceIds.includes(sourceId)), `museum panel/source mapping ${id}`);
     }
   }
-  check(seen.size === 8 && Object.keys(expected).every(id => seen.has(id)) && exhibitRows.length === 8, 'museum exact E01-E08 required');
+  check(seen.size === 7 && Object.keys(expected).every(id => seen.has(id)) && exhibitRows.length === 7, 'museum exact E01-E07 required');
   check([...factMap.keys()].every(id => usedFacts.has(id)), 'museum unreferenced facts');
   return errors;
 }

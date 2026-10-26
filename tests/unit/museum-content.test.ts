@@ -7,7 +7,7 @@ import { validateMuseumContent } from '../../src/content/museum-contract';
 
 const copy = <T>(value: T): T => JSON.parse(JSON.stringify(value)) as T;
 describe('T18 museum content and evidence boundary', () => {
-  it('provides the five-section/eight-exhibit consumer contract with checked references', () => {
+  it('provides the five-section/seven-exhibit consumer contract with checked references', () => {
     expect(validateMuseumContent(exhibits, facts, sources)).toEqual([]);
     expect(museumExhibits).toEqual(exhibits.exhibits);
     expect(museumFacts).toEqual(facts.facts);
@@ -23,7 +23,7 @@ describe('T18 museum content and evidence boundary', () => {
   it('rejects duplicate, missing, unknown and mismatched exhibit identities', () => {
     for (const mutate of [
       (value: typeof exhibits) => { value.exhibits.pop(); },
-      (value: typeof exhibits) => { value.exhibits[7]!.id = 'E01'; },
+      (value: typeof exhibits) => { value.exhibits[6]!.id = 'E01'; },
       (value: typeof exhibits) => { value.exhibits[0]!.id = 'E09'; },
       (value: typeof exhibits) => { value.exhibits[0]!.section = '一出戏'; },
       (value: typeof exhibits) => { value.exhibits[0]!.demo = 'audio'; },
@@ -50,7 +50,7 @@ describe('T18 museum content and evidence boundary', () => {
     value.exhibits[0]!.factIds.push('culture-invented');
     value.exhibits[2]!.sourceIds = ['C6'];
     value.exhibits[6]!.panels[0]!.sourceIds = ['C3'];
-    value.exhibits[7]!.factIds = ['original-credit'];
+    value.exhibits[6]!.factIds = ['original-regions'];
     const errors = validateMuseumContent(value, facts, sources);
     expect(errors.some(error => error.includes('unknown reference'))).toBe(true);
     expect(errors.some(error => error.includes('fact/source mapping'))).toBe(true);
@@ -71,12 +71,10 @@ describe('T18 museum content and evidence boundary', () => {
     expect(validateMuseumContent(exhibits, value, sources).some(error => error.includes('external backing'))).toBe(true);
     const mislabeled = copy(facts); mislabeled.facts[0]!.kind = 'original'; mislabeled.facts[0]!.sourceIds = [];
     expect(validateMuseumContent(exhibits, mislabeled, sources).some(error => error.includes('identity/kind boundary'))).toBe(true);
-    const credit = museumExhibits.find(exhibit => exhibit.id === 'E08')!;
-    expect(credit.sourceIds).toEqual([]);
-    expect(credit.panels[0]!.text).toContain('张宇翔（SpaceFly）');
+    expect(museumExhibits.some(exhibit=>exhibit.id==='E08')).toBe(false);
   });
   it('requires collaboration, adaptation, regional and credit panels instead of empty displays', () => {
-    for (const id of ['E05', 'E06', 'E07', 'E08']) {
+    for (const id of ['E05', 'E06', 'E07']) {
       const value = copy(exhibits); value.exhibits.find(exhibit => exhibit.id === id)!.panels = [];
       expect(validateMuseumContent(value, facts, sources).some(error => error.includes(`panel count ${id}`))).toBe(true);
     }

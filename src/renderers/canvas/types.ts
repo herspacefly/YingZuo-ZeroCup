@@ -7,6 +7,8 @@ export interface CanvasFrame {
   actors: RenderActor[];
   /** Actor-only transparent projection, used as an independent curtain shadow. */
   shadowOnly?: boolean;
+  /** Transparent color projection for the museum's material experiment. */
+  shadowColor?: 'original';
   cableMotion?: import('../../domain/cables').CablePresentation;
   stage: StageConfig;
   sceneLayers?: { id: string; x: number; y: number; opacity: number }[];

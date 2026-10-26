@@ -1,31 +1,43 @@
+import { createAnimationClock } from '../../app/animation-clock';
 import { assetCatalog } from '../../content/catalog';
 import { sampleAction } from '../../domain/actions';
+import { defaultPose } from '../../domain/defaults';
 import type { ProjectV1 } from '../../domain/types';
 import { canvasStage } from '../shared/canvas-stage';
 import { append, element, scope } from '../shared/dom';
 import { museumPreviewFrame } from './demo-geometry';
+import { defaultEnsembleScore, ENSEMBLE_DURATION, ENSEMBLE_ROLES, sampleEnsemble, type EnsembleRole } from './ensemble-model';
 
-/** Two explicit stills of the existing wave, so the collaboration diagram needs no second clock. */
+/** A single disposable clock coordinates four visible responsibilities. No story evidence. */
 export function mountMuseumEnsemble(host:HTMLElement){
-  const life=scope(),layout=element('div','workspace'),panel=element('div','control-panel');
-  const stage=canvasStage('同一次招手的两个动作时刻 · 本作数字操偶示意，当前为静音。');
-  const toggle=element('button','button secondary','看抬手的时刻'),reading=element('p','selection-summary');
-  toggle.id='museum-wave-toggle';toggle.type='button';toggle.setAttribute('aria-pressed','false');reading.id='museum-wave-reading';reading.setAttribute('role','status');
-  append(panel,element('h2','','从同一个招手，看配合。'),toggle,reading,element('p','quiet-note','点按切换静止画面。沿下方四种职责，看幕前动作与幕后的配合。'));append(layout,stage.figure,panel);host.appendChild(layout);
-  let project:ProjectV1|null=null,identity='',raised=false,disposed=false;
+  const life=scope(),root=element('section','museum-ensemble');root.id='museum-ensemble-root';
+  const head=element('header');append(head,element('span','eyebrow','幕后合奏 / 把一声呼唤接住'),element('h3','','你来调度，这一场怎样配合？'),element('p','','先合演一次，再关掉一项职责或把它延后：同一句话、同一双手，配合不同，观众看见的故事也会不同。'));
+  const stage=canvasStage('看动作、台词、金色节拍与灯光怎样一起抵达。'),screen=element('div','ensemble-screen'),cue=element('p','ensemble-cue'),beat=element('div','ensemble-beat','拍');cue.id='museum-wave-reading';cue.setAttribute('aria-live','off');beat.setAttribute('aria-label','金色圆环显示节拍');append(screen,stage.figure,cue,beat);
+  const transport=element('section','surface-card ensemble-transport'),play=element('button','button primary','一起合演'),pause=element('button','button secondary','暂停'),reset=element('button','button secondary','回到开场'),sync=element('button','button secondary','一键合拍'),stagger=element('button','button secondary','试试错拍');play.id='museum-ensemble-play';pause.id='museum-ensemble-pause';
+  const progress=element('progress');progress.max=ENSEMBLE_DURATION;progress.setAttribute('aria-label','合演进度');const reading=element('p','selection-summary');reading.id='museum-ensemble-reading';reading.setAttribute('role','status');append(transport,play,pause,reset,sync,stagger,progress,reading);
+  const tracks=element('div','ensemble-tracks'),cards=new Map<EnsembleRole,HTMLElement>(),checks=new Map<EnsembleRole,HTMLInputElement>(),delays=new Map<EnsembleRole,HTMLSelectElement>();
+  const labels:Record<EnsembleRole,[string,string]>={puppet:['操偶','让沉香伸手，母亲回应。'],voice:['唱念','让一句呼唤有来有往。'],beat:['节拍','用金色落拍为动作留出节奏。'],light:['灯光','把母亲从暗处带到眼前。']};
+  const strip=element('div','ensemble-status-strip'),badges=new Map<EnsembleRole,HTMLElement>();strip.setAttribute('aria-label','幕上四项职责状态');for(const role of ENSEMBLE_ROLES){const badge=element('span','',labels[role][0]+' · 待起');badges.set(role,badge);strip.appendChild(badge);}screen.insertBefore(strip,stage.figure);
+  let project:ProjectV1|null=null,identity='',disposed=false,stageReady=false,score=defaultEnsembleScore(),elapsed=0,playing=false;
+  const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)'),motionOff=()=>!!reduced?.matches||document.documentElement.getAttribute('data-motion')==='reduced';
+  function stop(message?:string){playing=false;clock.stop();pause.disabled=true;if(message)reading.textContent=message;}
+  const text=(node:HTMLElement,value:string)=>{if(node.textContent!==value)node.textContent=value;};
   function render(){
-    if(disposed)return;
-    stage.update(()=>{
-      const frame=museumPreviewFrame(project),actor=frame.actors[0]!,template=assetCatalog.puppets.find(item=>item.id===actor.templateId)!;
-      const action=sampleAction('wave-v1',actor.pose,raised?600:0,template,frame.stage);
-      if(!action.fits)throw new Error('招手示例暂时超出幕面，请重试。');
-      return {...frame,actors:[{...actor,pose:action.pose}],showRods:true};
-    });
-    toggle.setAttribute('aria-pressed',String(raised));toggle.textContent=raised?'看抬手前的时刻':'看抬手的时刻';reading.textContent=raised?'右臂抬起，手杆与关节一起改变。':'抬手之前，影偶与操纵杆保持静止。';
+    if(disposed)return;const sample=sampleEnsemble(score,elapsed),frame=museumPreviewFrame(project),hero=frame.actors[0]!,motherTemplate=assetCatalog.puppets.find(p=>p.id==='mother-v1')!,heroTemplate=assetCatalog.puppets.find(p=>p.id===hero.templateId)!;
+    const first={...defaultPose(),x:.3,y:.6,scale:.68},second={...defaultPose(),x:.72,y:.6,scale:.65,facing:-1 as const};
+    const h=sampleAction('reach-v1',first,sample.poseTime,heroTemplate,frame.stage),m=sampleAction('reach-v1',second,Math.max(0,sample.poseTime-250),motherTemplate,frame.stage);
+    stage.update(()=>{if(!h.fits||!m.fits)throw new Error('合演站位暂未就绪，请回到开场重试。');return {...frame,actors:[{...hero,pose:h.pose},{actorId:'mother',templateId:'mother-v1',paletteId:'mother-v1',sharedMotif:'flower-v1',costumeTreatment:'original-texture',pose:m.pose}],actorOpacity:{mother:sample.lit?1:.18},showRods:true};});
+    text(cue,sample.caption||'〔唱念未到 · 只看手，能读懂他们要说什么吗？〕');beat.classList.toggle('is-beating',sample.beat);beat.hidden=!score.beat.enabled;
+    for(const role of ENSEMBLE_ROLES){const active=sample.active.includes(role),badge=badges.get(role)!;badge.classList.toggle('is-active',active);text(badge,labels[role][0]+(score[role].enabled?(active?' · 已入':' · 待起'):' · 缺席'));cards.get(role)!.classList.toggle('is-active',active);checks.get(role)!.checked=score[role].enabled;delays.get(role)!.value=String(score[role].delay);}
+    progress.value=elapsed;pause.disabled=!playing;text(play,elapsed>=ENSEMBLE_DURATION?'再合演一次':elapsed>0?'继续合演':'一起合演');
+    const missing=ENSEMBLE_ROLES.filter(role=>!score[role].enabled).map(role=>labels[role][0]);text(reading,elapsed>=ENSEMBLE_DURATION?(missing.length?'少了'+missing.join('、')+'：试着补上它，再看同一段怎样变化。':new Set(ENSEMBLE_ROLES.map(role=>score[role].delay)).size>1?'四种职责都在，却没有同时接住这一拍。点“一键合拍”再比较。':'这一拍接住了：手伸出、话回应、节奏落下，灯也照见了彼此。'):playing?'合演中 · 留意幕上方四项职责亮起的先后。':'四种职责都可以单独开关、调整先后，再播放比较。');
   }
-  life.on(toggle,'click',()=>{raised=!raised;render();});render();
-  return {
-    update(next:ProjectV1|null){if(disposed)return;const key=JSON.stringify([next?.projectId,next?.story?.runId,next?.story?.castSnapshot?.appearance]);if(key===identity)return;identity=key;project=next;raised=false;render();},
-    dispose(){if(disposed)return;disposed=true;life.dispose();stage.dispose();},
-  };
+  const clock=createAnimationClock({request:cb=>window.requestAnimationFrame(cb),cancel:id=>window.cancelAnimationFrame(id),now:()=>performance.now()},delta=>{elapsed=Math.min(ENSEMBLE_DURATION,elapsed+delta);if(elapsed>=ENSEMBLE_DURATION)playing=false;render();return playing;},()=>stop('合演已暂停，点击继续即可。'),stage.frameObserver);
+  for(const role of ENSEMBLE_ROLES){const card=element('section','surface-card ensemble-track'),label=element('label','ensemble-enable'),input=element('input'),select=element('select'),timing=element('label','ensemble-timing','进入时机');input.type='checkbox';input.checked=true;input.setAttribute('aria-label',`加入${labels[role][0]}`);select.setAttribute('aria-label',`${labels[role][0]}进入时机`);for(const [value,text]of [[0,'同一拍'],[500,'晚半拍'],[1000,'晚一拍']]as const){const option=element('option','',text);option.value=String(value);select.appendChild(option);}append(label,input,element('strong','',labels[role][0]));timing.appendChild(select);append(card,label,element('p','',labels[role][1]),timing);cards.set(role,card);checks.set(role,input);delays.set(role,select);tracks.appendChild(card);life.on(input,'change',()=>{stop();score[role].enabled=input.checked;elapsed=0;render();});life.on(select,'change',()=>{stop();score[role].delay=Number(select.value);elapsed=0;render();});}
+  const stills=element('div','ensemble-stills');stills.setAttribute('role','group');stills.setAttribute('aria-label','逐幅观察合演');for(const [time,text]of [[0,'看开场'],[1600,'看起拍'],[3200,'看回应'],[6400,'看落幕']]as const){const b=element('button','button secondary',text);life.on(b,'click',()=>{if(!stageReady)return;stop();elapsed=time;render();});stills.appendChild(b);}
+  append(transport,stills,element('p','quiet-note','逐幅观察也能体验全部配合。这里用可见的节拍排演，不规定真实班社的人数。'));append(root,head,screen,transport,tracks);host.appendChild(root);
+  life.on(play,'click',()=>{if(disposed||!stageReady)return;if(elapsed>=ENSEMBLE_DURATION)elapsed=0;if(motionOff()){elapsed=elapsed<1600?1600:elapsed<3200?3200:6400;render();return;}playing=true;render();clock.start();});life.on(pause,'click',()=>{stop();render();});life.on(reset,'click',()=>{stop();elapsed=0;render();});life.on(sync,'click',()=>{stop();score=defaultEnsembleScore();elapsed=0;render();});life.on(stagger,'click',()=>{stop();score=defaultEnsembleScore();score.voice.delay=500;score.light.delay=1000;elapsed=0;render();});life.on(window,'blur',()=>{if(playing)stop('离开窗口，合演已暂停。');});life.on(document,'visibilitychange',()=>{if(document.hidden&&playing)stop('页面暂不可见，合演已暂停。');});
+  const motionObserver=typeof MutationObserver==='function'?new MutationObserver(()=>{if(motionOff()&&playing){stop();render();}}):null;motionObserver?.observe(document.documentElement,{attributes:true,attributeFilter:['data-motion']});const changed=()=>{if(motionOff()&&playing){stop();render();}};reduced?.addEventListener?.('change',changed);render();
+  const unsubscribe=stage.subscribe(result=>{stageReady=result.state==='ready';play.disabled=!stageReady;for(const button of Array.from(stills.querySelectorAll('button')))button.disabled=!stageReady;if(!stageReady&&playing)stop('幕面尚未就绪，合演已暂停。');});
+  return {update(next:ProjectV1|null){const key=JSON.stringify(next?.story?.castSnapshot?.appearance??null);if(key===identity)return;identity=key;project=next;render();},dispose(){if(disposed)return;disposed=true;unsubscribe();clock.dispose();motionObserver?.disconnect();reduced?.removeEventListener?.('change',changed);life.dispose();stage.dispose();if(root.parentNode)root.parentNode.removeChild(root);}};
 }

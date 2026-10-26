@@ -7,8 +7,8 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T34_verified",
-  "activeTaskId": null,
+  "stage": "T35_in_progress",
+  "activeTaskId": "T35",
   "lastVerifiedCommit": "2c9682581559b71c0e5c4551f7f5b8a752831d60",
   "features": {
     "singlePuppetRecording": "planned_optional",
@@ -1635,6 +1635,35 @@
         "只读审看册264项结构与快照753ba32f9e9d9e25507bbd0bf1f44d7c49fb4709c97326b5db55e6660da8c139通过；不提升正式审看或设备/体验状态。",
         "2026-10-26发布检查点7f5db23d0b6bf8a8c86e2c3c50b267e0be48f9ed已普通SSH push，GitHub远端main精确核对一致；HTTPS失败诊断不当作发布成功，SSH结果独立验证。"
       ],
+      "phase": "G3"
+    },
+    {
+      "id": "T35",
+      "title": "展馆灯影、镂刻与幕后合奏体验及文化馆定位",
+      "priority": "P0",
+      "status": "in_progress",
+      "dependsOn": [
+        "T34"
+      ],
+      "owner": "codex-root",
+      "branch": "main",
+      "touchFiles": [
+        "src/features/museum/",
+        "src/content/",
+        "src/features/",
+        "src/styles/",
+        "index.html",
+        "scripts/",
+        "tests/",
+        "docs/"
+      ],
+      "acceptanceRefs": [
+        "T35"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "实现展馆本地灯影工坊、独立刻刀透光台及四轨合奏；拆E03长卡，撤下E08并保留旧记录兼容；清理署名、补定位，再验证。",
+      "blocker": null,
+      "verification": [],
       "phase": "G3"
     }
   ],

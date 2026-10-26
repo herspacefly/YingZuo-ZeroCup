@@ -75,7 +75,7 @@ export const mountResult:PageFactory=(host,ctx)=>{
         ['亲手完成的片段',path.filter(node=>!result.assistedNodeIds.includes(node.id)&&!result.skippedNodeIds.includes(node.id)).map(node=>node.title).join('、')||'本场操作片段均采用明确协助'],
         ['主动跳过的片段',result.skippedNodeIds.length?result.skippedNodeIds.map(nodeId=>definitionFor(state.project?.story).nodes.find(node=>node.id===nodeId)!.title).join('、'):'未主动跳过'],
         ['使用协助的片段',result.assistedNodeIds.length?result.assistedNodeIds.map(nodeId=>definitionFor(state.project?.story).nodes.find(node=>node.id===nodeId)!.title).join('、'):'未记录协助'],
-        ['终章完成时间',new Date(result.completedAt).toLocaleString()],['谢幕',state.project?.story?.nodeId==='completed'?'已经看完':'团圆已保存，谢幕尚未结束'],['创作署名','零组 · 张宇翔（SpaceFly）'],
+        ['终章完成时间',new Date(result.completedAt).toLocaleString()],['谢幕',state.project?.story?.nodeId==='completed'?'已经看完':'团圆已保存，谢幕尚未结束'],
       ]:[['当前进度',state.project?.story?definitionFor(state.project?.story).nodes.find(node=>node.id===state.project!.story!.nodeId)!.title:'尚未开演']];
       for(const [label,value]of rows){const index=!result||['角色','衣饰','配色','造型来源'].includes(label)?0:['终章完成时间','谢幕','创作署名'].includes(label)?2:1;append(detailGroups[index]!.list,element('dt','',label),element('dd','',value));}
       id.textContent=result?'本场成果 · '+result.id:'';

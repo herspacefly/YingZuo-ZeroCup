@@ -76,14 +76,14 @@ for(const mode of ['full','guided'] as const)for(const approach of ['call-first'
   await ready(page,'completed');const completed=await stored(page);expect(completed.story).toMatchObject({runId,approach,mode,nodeId:'completed',castSnapshot:cast});expect(completed.story!.completedAt).not.toBeNull();
   expect(seen).toEqual(['intro','craft','memory-wave','memory-words','memory-separate','road','road-rest','training','guardian','guardian-parley','approach-choice',...(approach==='call-first'?['call-light','call-response','call-split']:['split-axe','split-search','split-response']),'mountain-listen','ending-choice','reunion-reach','reunion-hold','ending-home-epilogue','curtain','completed']);
   await page.reload();await ready(page,'completed');expect((await stored(page)).story).toEqual(completed.story);
-  await page.evaluate(()=>{location.hash='#/museum';});await expect(page.locator('.museum-section')).toHaveCount(5);await expect(page.locator('[data-exhibit]')).toHaveCount(8);await layout(page);
+  await page.evaluate(()=>{location.hash='#/museum';});await expect(page.locator('.museum-section')).toHaveCount(5);await expect(page.locator('[data-exhibit]')).toHaveCount(7);await layout(page);
   for(const item of museum.exhibits){
     await page.evaluate(id=>{location.hash='#/museum/'+id;},item.id);await expect(page.locator('#app-view h1')).toHaveText(item.title);await page.locator('#exhibit-reading-toggle').click();await expect(page.locator('.exhibit-detail-copy')).toHaveText(item.detail);
     for(const sourceId of item.sourceIds)await expect(page.locator('#exhibit-reading .source-list')).toContainText(sourceId);
     await page.locator('img').evaluateAll(images=>images.forEach(image=>{(image as HTMLImageElement).loading='eager';}));await expect.poll(()=>page.locator('img').evaluateAll(images=>images.every(image=>(image as HTMLImageElement).complete&&(image as HTMLImageElement).naturalWidth>0))).toBe(true);await layout(page);
   }
   await saved(page);expect((await stored(page)).story).toEqual(completed.story);expect((await stored(page)).museum.visitedExhibitIds.length).toBe(8);
-  await page.evaluate(()=>{location.hash='#/result';});await expect(page.locator('#result-png')).toBeEnabled();await layout(page);await expect(page.locator('.programme-list')).toContainText('张宇翔（SpaceFly）');
+  await page.evaluate(()=>{location.hash='#/result';});await expect(page.locator('#result-png')).toBeEnabled();await layout(page);await expect(page.locator('.programme-list')).not.toContainText('SpaceFly');
   const pngWait=page.waitForEvent('download');await page.locator('#result-png').click();const png=await bytes(await pngWait);expect(png.subarray(0,8)).toEqual(Buffer.from([137,80,78,71,13,10,26,10]));expect([png.readUInt32BE(16),png.readUInt32BE(20)]).toEqual([1600,1200]);
   const jsonWait=page.waitForEvent('download');await page.locator('#result-json').click();const exported=JSON.parse((await bytes(await jsonWait)).toString('utf8'));expect(exported).toEqual(await stored(page));
   expect(productExternal).toEqual([]);expect(failures).toEqual([]);expect(errors).toEqual([]);expect(responses).toContain('/audio/jinghu-instrumental.mp3');expect(responses).toContain('/audio/jingju-curtain.mp3');expect(responses.some(p=>/\/assets\/renderer-.*\.js$/.test(p))).toBe(!forced2D);

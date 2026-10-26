@@ -11,6 +11,7 @@ export function prepareFrame(input: CanvasFrame, catalog: AssetCatalog): CanvasF
   if (!scene || !number(input.stage.lampX,-.8,.8) || !number(input.stage.puppetDistance,.05,.4)) throw new Error('灯位或舞台配置超出范围。');
   if (input.stage.lampGeometry && (input.stage.lampGeometry.version !== 1 || !number(input.stage.lampGeometry.depth, Math.max(.6,Math.round(3*input.stage.puppetDistance*1e6)/1e6),2.4))) throw new Error('灯距配置无效。');
   if(input.shadowOnly!==undefined&&typeof input.shadowOnly!=='boolean')throw new Error('幕影模式无效。');
+  if(input.shadowColor!==undefined&&(input.shadowColor!=='original'||!input.shadowOnly))throw new Error('彩色幕影模式无效。');
   if(input.cableMotion&&(!['body','leftHand','rightHand','leftFoot','rightFoot'].includes(input.cableMotion.source)||!number(input.cableMotion.bend,-.035,.035)))throw new Error('操偶柔线数据无效。');
   const ids = new Set<string>();
   const actors = input.actors.map(actor => {
@@ -58,6 +59,7 @@ export function prepareFrame(input: CanvasFrame, catalog: AssetCatalog): CanvasF
   return JSON.parse(JSON.stringify({ actors, stage:input.stage, sceneLayers, attachments:input.attachments ?? [], showRods:!!input.showRods,
     ...(input.spatial?{spatial:input.spatial}:{}),
     ...(input.shadowOnly ? {shadowOnly:true} : {}),
+    ...(input.shadowColor ? {shadowColor:input.shadowColor} : {}),
     ...(input.cableMotion?{cableMotion:input.cableMotion}:{}),
     ...(input.actorOpacity===undefined?{}:{actorOpacity}),...(input.actorSceneOrder===undefined?{}:{actorSceneOrder}) })) as CanvasFrame;
 }

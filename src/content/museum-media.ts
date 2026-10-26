@@ -57,7 +57,7 @@ export function validateMuseumMedia(input: unknown): string[] {
   const seen = new Set<string>(), used = new Set<string>(); let placements = 0;
   for (const row of input.exhibits) {
     if (!object(row) || !text(row.exhibitId)) { check(false, 'museum media: exhibit identity required'); continue; }
-    check(/^E0[1-8]$/.test(row.exhibitId) && !seen.has(row.exhibitId), `museum media: exhibit whitelist/duplicate ${row.exhibitId}`); seen.add(row.exhibitId);
+    check(/^E0[1-7]$/.test(row.exhibitId) && !seen.has(row.exhibitId), `museum media: exhibit whitelist/duplicate ${row.exhibitId}`); seen.add(row.exhibitId);
     check(text(row.lead) && text(row.observation), `museum media: exhibit copy ${row.exhibitId}`);
     if (texts(row.mediaIds)) {
       check(row.mediaIds.length >= 2 && row.mediaIds.length <= 3 && unique(row.mediaIds) && row.mediaIds.every(id => media.has(id)), `museum media: 2-3 known images ${row.exhibitId}`);
@@ -66,9 +66,8 @@ export function validateMuseumMedia(input: unknown): string[] {
     if (!Array.isArray(row.paragraphs)) { check(false, `museum media: paragraphs ${row.exhibitId}`); continue; }
     check(row.paragraphs.length >= 2 && row.paragraphs.length <= 4, `museum media: paragraph count ${row.exhibitId}`);
     for (const paragraph of row.paragraphs) check(object(paragraph) && text(paragraph.title) && text(paragraph.text) && texts(paragraph.sourceIds) && unique(paragraph.sourceIds) && paragraph.sourceIds.every(id => sources.has(id)), `museum media: paragraph/source ${row.exhibitId}`);
-    if (row.exhibitId === 'E08' && texts(row.mediaIds)) check(row.mediaIds.every(id => media.get(id)?.kind === 'original'), 'museum media: E08 project credits use original images');
   }
-  check(seen.size === 8 && placements >= 16 && placements <= 24, 'museum media: eight exhibits and 16-24 placements required');
+  check(seen.size === 7 && placements >= 16 && placements <= 24, 'museum media: seven exhibits and 16-24 placements required');
   check(used.size === media.size, 'museum media: unused image records');
   check([...used].filter(id => media.get(id)?.kind === 'external').length >= 12, 'museum media: at least 12 distinct external images required');
   check(Array.isArray(input.unavailable) && input.unavailable.every(row => object(row) && https(row.url) && text(row.note)), 'museum media: unavailable source notes required');

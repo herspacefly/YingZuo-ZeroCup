@@ -65,7 +65,7 @@ export function mountReunionExporter(host: HTMLElement, artifact: ReunionArtifac
     const marker = summary.runId.length > 20 ? `…${summary.runId.slice(-20)}` : summary.runId;
     ctx.fillText(`成果 ${marker}:${summary.ending??'reunion'}　·　完成（UTC）${summary.completedAt}`, 800, 1120);
     ctx.font = '21px '+KAI_FONT_FAMILY;
-    ctx.fillText('零组 · 张宇翔（SpaceFly）　｜　影作 · 一幕团圆', 800, 1158);
+    ctx.fillText('影作 · 一幕团圆', 800, 1158);
   }
 
   try {

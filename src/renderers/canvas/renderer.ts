@@ -63,7 +63,7 @@ export function mountCanvasRenderer(host: HTMLElement, catalog: AssetCatalog, on
         ctx.save();ctx.beginPath();ctx.rect(v.x,v.y,v.width,v.height);ctx.clip();
         ctx.translate(v.x+v.width/2,v.y+v.height/2);ctx.scale(v.scale,-v.scale);
         for(const actor of frame.actors)drawActor(actor,catalog.puppets.find(item=>item.id===actor.templateId)!);
-        ctx.restore();ctx.save();ctx.globalCompositeOperation='source-in';ctx.fillStyle='rgba(61,34,26,.83)';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.restore();
+        ctx.restore();if(frame.shadowColor!=='original'){ctx.save();ctx.globalCompositeOperation='source-in';ctx.fillStyle='rgba(61,34,26,.83)';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.restore();}
         draws++;canvas.setAttribute('data-draws',String(draws));canvas.setAttribute('data-shadow-only','true');canvas.setAttribute('data-actors',frame.actors.map(actor=>actor.actorId).join(','));status('ready','独立幕影已就绪 · 拖动幕后的灯，观察影子偏移与放大');return;
       }
       canvas.removeAttribute('data-shadow-only');

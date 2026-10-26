@@ -34,7 +34,7 @@ test('four actual WebGL views share the same two-role Canvas and leave the perfo
     await spatial(page).locator(`button[data-view="${view}"]`).click();await expect(gpu(page)).toHaveAttribute('data-view',view);await expect(spatial(page).locator(`button[data-view="${view}"]`)).toHaveAttribute('aria-pressed','true');images.push(await gpu(page).screenshot());expect(await hash(page)).toBe(before);
     if(view==='front'||view==='backstage')await spatial(page).screenshot({path:`docs/evidence/t06-${view}-${info.project.name.startsWith('mobile')?'mobile':'desktop'}.png`});
   }
-  expect(new Set(images.map(value=>value.toString('base64'))).size).toBe(4);await expect(spatial(page).locator('.spatial-exhibit-link')).toHaveCount(8);await spatial(page).locator('.spatial-exhibit-link').first().click();await expect(page).toHaveURL(/#\/museum\/E01$/);await saved(page);invariant(await stored(page),fixture);
+  expect(new Set(images.map(value=>value.toString('base64'))).size).toBe(4);await expect(spatial(page).locator('.spatial-exhibit-link')).toHaveCount(7);await spatial(page).locator('.spatial-exhibit-link').first().click();await expect(page).toHaveURL(/#\/museum\/E01$/);await saved(page);invariant(await stored(page),fixture);
 });
 
 test('carving, colors and lamp changes update the real spatial resources from the same frame',async({page})=>{
