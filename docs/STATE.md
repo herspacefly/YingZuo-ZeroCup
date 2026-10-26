@@ -12,6 +12,8 @@
 
 保留用户START_HERE、全部历史工作树、原故事/美术/音频；DOCX/PPTX未读写/暂存/提交。六张回归覆盖的T06/T09历史PNG恢复原blob；本轮证据独立t35，冗余中间正向报告及空测试状态已清理。GitHub使用既有origin/main，本轮提交详情以Git日志与实际推送回执核对。
 
+本轮源码与验收检查点a72d37b5be32ab288c9a1c12010c1f4ba3d41c1f已普通SSH推送至既有origin/main，ls-remote精确核对一致；origin配置保持git@github.com:herspacefly/ZeroCup.git。README与本发布记录收尾提交随后同步。
+
 以下为历史交接，不覆盖T35。
 
 # T34 当前交接（2026-10-25）
