@@ -31,7 +31,8 @@ describe('v5 measured voice arrangement',()=>{
         for(let i=0;i<cues.length;i++){
           expect(voice[i]!.startMs).toBe(cues[i]!.startMs);
           expect(voice[i]!.endMs).toBe(cues[i]!.endMs);
-          expect(voice[i]!.clip.src).toMatch(/^\/audio\/voice-v5\/[a-f0-9]+\.mp3$/);
+          expect(voice[i]!.clip.src).toMatch(/^\.\/audio\/voice-v5\/[a-f0-9]+\.mp3$/);
+          expect(new URL(voice[i]!.clip.src,'https://example.com/ZeroCup/index.html').pathname).toMatch(/^\/ZeroCup\/audio\/voice-v5\//);
           expect(cues[i]!.endMs-cues[i]!.startMs).toBeGreaterThanOrEqual(voice[i]!.clip.durationMs+399);
           if(i)expect(cues[i]!.startMs).toBeCloseTo(cues[i-1]!.endMs,5);
         }

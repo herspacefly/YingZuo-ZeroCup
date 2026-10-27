@@ -57,9 +57,10 @@ async function ready(p:Page,id:StoryNodeId){await expect(runtime(p)).toHaveAttri
 const media=(p:Page)=>p.evaluate(()=>Reflect.get(window,'__voiceMedia')() as MediaState[]);
 const voices=(p:Page)=>media(p).then(items=>items.filter(item=>item.src?.includes('/audio/voice-v5/')));
 async function active(p:Page,src?:string){
- try{await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>(!src||item.src===src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);}
+ const matches=(actual:string|null)=>!src||actual?.replace(/^\.\//,'/')===src.replace(/^\.\//,'/');
+ try{await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>matches(item.src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);}
  catch(error){throw new Error(JSON.stringify({expectedSrc:src,media:await media(p),runtime:await runtime(p).getAttribute('data-state'),message:await runtime(p).textContent()}),{cause:error});}
- return (await voices(p)).find(item=>(!src||item.src===src)&&!item.paused)!;
+ return (await voices(p)).find(item=>matches(item.src)&&!item.paused)!;
 }
 async function start(p:Page,id:StoryNodeId='intro'){
  await ready(p,id);await runtime(p).click();
@@ -174,6 +175,17 @@ test('restored v1 through v4 do not request new v5 speech assets',async({page})=
   await expect(page.locator('#story-voice-toggle')).toBeHidden();expect((await stored(page)).story!.definitionVersion).toBe(version);
  }
  expect(requests).toEqual([]);
+});
+
+test('speech follows the document base when deployed under a subdirectory',async({page})=>{
+ await instrument(page);await seed(page,choiceAt('intro'));
+ const nested:string[]=[];page.on('request',request=>{if(new URL(request.url()).pathname.startsWith('/nested/audio/voice-v5/'))nested.push(request.url());});
+ await page.route('**/nested/**',async route=>{
+  const url=new URL(route.request().url());url.pathname=url.pathname.replace(/^\/nested\//,'/');
+  const response=await route.fetch({url:url.href});await route.fulfill({response});
+ });
+ await page.goto('/nested/#/story');await start(page);
+ expect(nested.length).toBeGreaterThan(0);
 });
 
 // The existing choice-theatre matrix covers every four-decision path in both

@@ -62,7 +62,9 @@ export function voiceCuesForNode(node:StoryNode,mode:Mode,version:StoryVersion):
     const clip=clips.get(`${cue.speaker}\u0000${cue.text}`);
     if(!clip)throw new RangeError(`台词缺少配音：${node.id}/${cue.speaker}`);
     if(clip.durationMs>cue.endMs-cue.startMs+1)throw new RangeError(`配音超出台词时段：${node.id}/${clip.id}`);
-    return {startMs:cue.startMs,endMs:cue.endMs,clip:{id:clip.id,src:clip.src,durationMs:clip.durationMs}};
+    // Catalog paths identify public files; playback follows the document's
+    // directory, matching Vite's relative base on subdirectory deployments.
+    return {startMs:cue.startMs,endMs:cue.endMs,clip:{id:clip.id,src:`.${clip.src}`,durationMs:clip.durationMs}};
   });
 }
 
