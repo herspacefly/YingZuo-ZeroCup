@@ -7,8 +7,8 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T38_in_progress",
-  "activeTaskId": "T38",
+  "stage": "T40_in_progress",
+  "activeTaskId": "T40",
   "lastVerifiedCommit": "ba8d65caef3145473c6e802de77682aeb0426431",
   "features": {
     "singlePuppetRecording": "planned_optional",
@@ -1821,6 +1821,42 @@
         "两次普通git push到新origin成功，两次Actions构建/生产包12项/部署通过；第二次仅触发自定义工作流，用户已确认Source=GitHub Actions。",
         "公开首页HTTP200且加载编译入口；独立浏览器宽窄6/6功能检查通过，包括照片/字体/灯箱/原生配音/JSON下载/保存刷新和三维二维切换。",
         "公网首轮完整3/6，照片与幕面超出本地等待预算，零HTTP失败；分开公网预算并按实际就绪复验6/6，不声称15秒加载或物理设备/人耳验收。"
+      ],
+      "phase": "G3"
+    },
+    {
+      "id": "T40",
+      "title": "制偶入口新场版本与中文配音修复",
+      "priority": "P0",
+      "status": "in_progress",
+      "dependsOn": [
+        "T37",
+        "T39"
+      ],
+      "owner": "codex-root",
+      "branch": "main",
+      "touchFiles": [
+        "src/app/craft-commands.ts",
+        "src/app/story-commands.ts",
+        "src/content/reunion.ts",
+        "src/features/story/controller.ts",
+        "tests/",
+        "docs/",
+        "README.md",
+        "START_HERE.md",
+        "AGENTS.md"
+      ],
+      "acceptanceRefs": [
+        "T40"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "普通push部署并定向验证公开站点的四种制偶开演、原生配音和旧场归档保护。",
+      "blocker": null,
+      "verification": [
+        "旧生产包4种制偶开演组合全部复现definitionVersion=4，没有v5配音入口。",
+        "统一当前版本来源，已有旧场仍保留原版；旧场提示及归档链接实际可用。",
+        "52文件630单元、类型/161模块构建、17ES5块七入口、81PNG、五版内容/41任务、354配音源/dist及1216编排通过。",
+        "根/项目子目录×宽窄32/32通过，含16种制偶开演原生配音、4种旧场归档保护与既有12项部署检查。"
       ],
       "phase": "G3"
     }

@@ -4,6 +4,8 @@
 
 ## 固定上下文
 
+- 2026-10-27追加T40：修复制偶页confirmCraft直接开演硬编码v4、没有中文配音的遗漏。所有新场入口共用src/content/reunion.ts的CURRENT_STORY_VERSION；已有v1—v4不自动迁移，剧场提示可导出后到制偶页归档重开。完整／导览、当前造型／默认影偶和归档保护需实际回归。见`docs/plans/2026-10-27-craft-voice-entry.md`，配音文件与时钟不改。
+
 - 2026-10-27作者追加T39：远程仓库改名为`herspacefly/YingZuo-ZeroCup`，origin使用`git@github.com:herspacefly/YingZuo-ZeroCup.git`，本地目录不搬迁。main普通git push触发Actions检查、构建并部署dist，公开地址`https://herspacefly.github.io/YingZuo-ZeroCup/`；保留相对base并验证根／子目录资源。Pages后台点击由作者自行操作，当前不使用computer use。执行`docs/plans/2026-10-27-pages-deployment.md`，上线不代表T10/T11/T13/T14或T38听感验收通过。
 
 - 2026-10-27作者追加T38：仅v5增加旁白Yunyang、沉香Yunxia、母亲Xiaoxiao、二郎神Yunjian中文本地配音；保留自然语速与服务原始MP3，按实测时长扩展完整/导览、合法派生台词与五终章、成果重演。配音开关独立于音乐，沿用唯一时钟，谢幕对白后再唱；旧v1—v4与存档结构不变。见`docs/plans/2026-10-27-theatre-voice.md`，机器播放检查与人耳听感分别验收；T38仍由账本记录实际状态。

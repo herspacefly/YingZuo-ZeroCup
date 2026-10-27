@@ -1,3 +1,9 @@
+# T40 当前交接（2026-10-27）
+
+已修复制偶入口confirmCraft硬编码v4导致新场没有配音的问题，所有新场共用CURRENT_STORY_VERSION；旧场不自动迁移，增加说明及制偶归档入口。旧包四种开演均复现v4，修复后630单元/类型/构建/ES5/资源/内容/配音及41任务通过，根/子目录宽窄32/32通过，见[验收](acceptance/t40.md)。T40仍in_progress，下一步普通push并核对公开部署与实际入口配音。未修改声音播放器/音频/时钟，T38听感及原其他缺口保留。
+
+以下为历史交接。
+
 # T39 当前交接（2026-10-27）
 
 T39已完成。实现7a6b560，最终部署测试检查点 **ba8d65caef3145473c6e802de77682aeb0426431**，main；origin为git@github.com:herspacefly/YingZuo-ZeroCup.git，main跟踪origin/main。两次普通git push已触发Actions安装、检查、构建和dist发布，后一次仅触发新工作流；Pages来源已由用户确认切换为GitHub Actions。公开站点 https://herspacefly.github.io/YingZuo-ZeroCup/ HTTP200，编译入口及字体/照片/原生配音/保存刷新/导出/三维二维宽窄6/6通过，根／子目录宽窄12项在本地和CI通过。628单元、构建、ES5、资源、五版内容、配音和40任务通过。首轮测试问题与公网等待波动保留证据，不把最终功能通过当15秒性能或真实IE/设备/人耳验收。见[验收](acceptance/t39.md)、[机器汇总](evidence/t39/acceptance.json)、[部署记录](evidence/t39/deployment.json)。未使用computer use继续操作；T38人工听感、T10正式审看及T11/T13/T14/P1仍按原状态，活动任务回到T38。本地目录及历史工作树保留，DOCX/PPTX未读改提交。

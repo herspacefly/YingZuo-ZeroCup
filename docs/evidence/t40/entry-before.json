@@ -1,0 +1,458 @@
+{
+  "config": {
+    "argv": [
+      "E:\\Software_after2026\\nodejs\\node.exe",
+      "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "-c",
+      "playwright.pages.config.ts",
+      "--project=root-desktop",
+      "--grep",
+      "craft entry"
+    ],
+    "configFile": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\playwright.pages.config.ts",
+    "rootDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/deployment",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "root-desktop",
+        "name": "root-desktop",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/deployment",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "root-mobile",
+        "name": "root-mobile",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/deployment",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "pages-desktop",
+        "name": "pages-desktop",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/deployment",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "pages-mobile",
+        "name": "pages-mobile",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/deployment",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "root-desktop",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "trace": "retain-on-failure",
+          "reducedMotion": "reduce",
+          "launchOptions": {
+            "args": [
+              "--enable-unsafe-swiftshader"
+            ]
+          },
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium",
+          "baseURL": "http://127.0.0.1:4175/"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "root-desktop"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/t40/entry-before.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "pages.spec.ts",
+      "file": "pages.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "craft entry starts voiced v5: full, current appearance",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root-desktop",
+              "projectName": "root-desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1257,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatchObject\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"definitionVersion\": 5,\u001b[39m\n\u001b[31m+   \"definitionVersion\": 4,\u001b[39m\n\u001b[2m    \"mode\": \"full\",\u001b[22m\n\u001b[2m    \"presetAppearanceUsed\": false,\u001b[22m\n\u001b[2m  }\u001b[22m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatchObject\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"definitionVersion\": 5,\u001b[39m\n\u001b[31m+   \"definitionVersion\": 4,\u001b[39m\n\u001b[2m    \"mode\": \"full\",\u001b[22m\n\u001b[2m    \"presetAppearanceUsed\": false,\u001b[22m\n\u001b[2m  }\u001b[22m\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts:114:19",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                      "column": 19,
+                      "line": 114
+                    },
+                    "snippet": "  112 |       } finally { db.close(); }\n  113 |     });\n> 114 |     expect(story).toMatchObject({ definitionVersion: 5, mode, presetAppearanceUsed: preset });\n      |                   ^\n  115 |     await expect(page.locator('#story-voice-toggle')).toBeVisible();\n  116 |     await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state', 'ready', { timeout: readyTimeout });\n  117 |     await page.locator('#story-runtime').click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                        "column": 19,
+                        "line": 114
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatchObject\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"definitionVersion\": 5,\u001b[39m\n\u001b[31m+   \"definitionVersion\": 4,\u001b[39m\n\u001b[2m    \"mode\": \"full\",\u001b[22m\n\u001b[2m    \"presetAppearanceUsed\": false,\u001b[22m\n\u001b[2m  }\u001b[22m\n\n  112 |       } finally { db.close(); }\n  113 |     });\n> 114 |     expect(story).toMatchObject({ definitionVersion: 5, mode, presetAppearanceUsed: preset });\n      |                   ^\n  115 |     await expect(page.locator('#story-voice-toggle')).toBeVisible();\n  116 |     await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state', 'ready', { timeout: readyTimeout });\n  117 |     await page.locator('#story-runtime').click();\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts:114:19"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T09:16:02.473Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\pages-craft-entry-starts-voiced-v5-full-current-appearance-root-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\pages-craft-entry-starts-voiced-v5-full-current-appearance-root-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                    "column": 19,
+                    "line": 114
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-d0b4ed6b748894293671",
+          "file": "pages.spec.ts",
+          "line": 94,
+          "column": 3
+        },
+        {
+          "title": "craft entry starts voiced v5: full, preset appearance",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root-desktop",
+              "projectName": "root-desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1031,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatchObject\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"definitionVersion\": 5,\u001b[39m\n\u001b[31m+   \"definitionVersion\": 4,\u001b[39m\n\u001b[2m    \"mode\": \"full\",\u001b[22m\n\u001b[2m    \"presetAppearanceUsed\": true,\u001b[22m\n\u001b[2m  }\u001b[22m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatchObject\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"definitionVersion\": 5,\u001b[39m\n\u001b[31m+   \"definitionVersion\": 4,\u001b[39m\n\u001b[2m    \"mode\": \"full\",\u001b[22m\n\u001b[2m    \"presetAppearanceUsed\": true,\u001b[22m\n\u001b[2m  }\u001b[22m\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts:114:19",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                      "column": 19,
+                      "line": 114
+                    },
+                    "snippet": "  112 |       } finally { db.close(); }\n  113 |     });\n> 114 |     expect(story).toMatchObject({ definitionVersion: 5, mode, presetAppearanceUsed: preset });\n      |                   ^\n  115 |     await expect(page.locator('#story-voice-toggle')).toBeVisible();\n  116 |     await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state', 'ready', { timeout: readyTimeout });\n  117 |     await page.locator('#story-runtime').click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                        "column": 19,
+                        "line": 114
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatchObject\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"definitionVersion\": 5,\u001b[39m\n\u001b[31m+   \"definitionVersion\": 4,\u001b[39m\n\u001b[2m    \"mode\": \"full\",\u001b[22m\n\u001b[2m    \"presetAppearanceUsed\": true,\u001b[22m\n\u001b[2m  }\u001b[22m\n\n  112 |       } finally { db.close(); }\n  113 |     });\n> 114 |     expect(story).toMatchObject({ definitionVersion: 5, mode, presetAppearanceUsed: preset });\n      |                   ^\n  115 |     await expect(page.locator('#story-voice-toggle')).toBeVisible();\n  116 |     await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state', 'ready', { timeout: readyTimeout });\n  117 |     await page.locator('#story-runtime').click();\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts:114:19"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T09:16:04.498Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\pages-craft-entry-starts-voiced-v5-full-preset-appearance-root-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\pages-craft-entry-starts-voiced-v5-full-preset-appearance-root-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                    "column": 19,
+                    "line": 114
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-85c7987f683a9c8e7155",
+          "file": "pages.spec.ts",
+          "line": 94,
+          "column": 3
+        },
+        {
+          "title": "craft entry starts voiced v5: guided, current appearance",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root-desktop",
+              "projectName": "root-desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 946,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatchObject\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"definitionVersion\": 5,\u001b[39m\n\u001b[31m+   \"definitionVersion\": 4,\u001b[39m\n\u001b[2m    \"mode\": \"guided\",\u001b[22m\n\u001b[2m    \"presetAppearanceUsed\": false,\u001b[22m\n\u001b[2m  }\u001b[22m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatchObject\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"definitionVersion\": 5,\u001b[39m\n\u001b[31m+   \"definitionVersion\": 4,\u001b[39m\n\u001b[2m    \"mode\": \"guided\",\u001b[22m\n\u001b[2m    \"presetAppearanceUsed\": false,\u001b[22m\n\u001b[2m  }\u001b[22m\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts:114:19",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                      "column": 19,
+                      "line": 114
+                    },
+                    "snippet": "  112 |       } finally { db.close(); }\n  113 |     });\n> 114 |     expect(story).toMatchObject({ definitionVersion: 5, mode, presetAppearanceUsed: preset });\n      |                   ^\n  115 |     await expect(page.locator('#story-voice-toggle')).toBeVisible();\n  116 |     await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state', 'ready', { timeout: readyTimeout });\n  117 |     await page.locator('#story-runtime').click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                        "column": 19,
+                        "line": 114
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatchObject\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"definitionVersion\": 5,\u001b[39m\n\u001b[31m+   \"definitionVersion\": 4,\u001b[39m\n\u001b[2m    \"mode\": \"guided\",\u001b[22m\n\u001b[2m    \"presetAppearanceUsed\": false,\u001b[22m\n\u001b[2m  }\u001b[22m\n\n  112 |       } finally { db.close(); }\n  113 |     });\n> 114 |     expect(story).toMatchObject({ definitionVersion: 5, mode, presetAppearanceUsed: preset });\n      |                   ^\n  115 |     await expect(page.locator('#story-voice-toggle')).toBeVisible();\n  116 |     await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state', 'ready', { timeout: readyTimeout });\n  117 |     await page.locator('#story-runtime').click();\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts:114:19"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T09:16:06.218Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\pages-craft-entry-starts-voiced-v5-guided-current-appearance-root-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\pages-craft-entry-starts-voiced-v5-guided-current-appearance-root-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                    "column": 19,
+                    "line": 114
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-ef7bf875872b92392b70",
+          "file": "pages.spec.ts",
+          "line": 94,
+          "column": 3
+        },
+        {
+          "title": "craft entry starts voiced v5: guided, preset appearance",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root-desktop",
+              "projectName": "root-desktop",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1128,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatchObject\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"definitionVersion\": 5,\u001b[39m\n\u001b[31m+   \"definitionVersion\": 4,\u001b[39m\n\u001b[2m    \"mode\": \"guided\",\u001b[22m\n\u001b[2m    \"presetAppearanceUsed\": true,\u001b[22m\n\u001b[2m  }\u001b[22m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatchObject\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"definitionVersion\": 5,\u001b[39m\n\u001b[31m+   \"definitionVersion\": 4,\u001b[39m\n\u001b[2m    \"mode\": \"guided\",\u001b[22m\n\u001b[2m    \"presetAppearanceUsed\": true,\u001b[22m\n\u001b[2m  }\u001b[22m\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts:114:19",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                      "column": 19,
+                      "line": 114
+                    },
+                    "snippet": "  112 |       } finally { db.close(); }\n  113 |     });\n> 114 |     expect(story).toMatchObject({ definitionVersion: 5, mode, presetAppearanceUsed: preset });\n      |                   ^\n  115 |     await expect(page.locator('#story-voice-toggle')).toBeVisible();\n  116 |     await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state', 'ready', { timeout: readyTimeout });\n  117 |     await page.locator('#story-runtime').click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                        "column": 19,
+                        "line": 114
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatchObject\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"definitionVersion\": 5,\u001b[39m\n\u001b[31m+   \"definitionVersion\": 4,\u001b[39m\n\u001b[2m    \"mode\": \"guided\",\u001b[22m\n\u001b[2m    \"presetAppearanceUsed\": true,\u001b[22m\n\u001b[2m  }\u001b[22m\n\n  112 |       } finally { db.close(); }\n  113 |     });\n> 114 |     expect(story).toMatchObject({ definitionVersion: 5, mode, presetAppearanceUsed: preset });\n      |                   ^\n  115 |     await expect(page.locator('#story-voice-toggle')).toBeVisible();\n  116 |     await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state', 'ready', { timeout: readyTimeout });\n  117 |     await page.locator('#story-runtime').click();\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts:114:19"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T09:16:07.793Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\pages-craft-entry-starts-voiced-v5-guided-preset-appearance-root-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\pages-craft-entry-starts-voiced-v5-guided-preset-appearance-root-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                    "column": 19,
+                    "line": 114
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-74ca79ffc07cb067d96a",
+          "file": "pages.spec.ts",
+          "line": 94,
+          "column": 3
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-27T09:16:00.179Z",
+    "duration": 9935.66,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

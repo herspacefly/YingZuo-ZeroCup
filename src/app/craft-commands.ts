@@ -1,6 +1,6 @@
 import { beginStory, reduceStory, storyGuard } from '../domain/story';
 import type { StoryGuard } from '../domain/story-types';
-import { definitionFor } from '../content/reunion';
+import { CURRENT_STORY_VERSION, definitionFor } from '../content/reunion';
 import type { ProjectStore, SaveResult } from './store';
 
 export interface CraftConfirmation {
@@ -12,7 +12,7 @@ export function confirmCraft(store:ProjectStore,options:CraftConfirmation) {
   return store.commit(project=>{
     const current=project.story;
     if(request.guard ? !current||current.runId!==request.guard.runId||current.revision!==request.guard.expectedRevision||current.nodeId!==request.guard.expectedNodeId : !!current)return null;
-    let candidate=current?project:beginStory(project,request.runId,request.mode,4)!;
+    let candidate=current?project:beginStory(project,request.runId,request.mode,CURRENT_STORY_VERSION)!;
     const definition=definitionFor(candidate.story);
     const context={paused:true,elapsedMs:0,now:request.now};
     if(candidate.story!.nodeId==='intro')candidate=reduceStory(candidate,{...storyGuard(candidate.story!),action:'COMPLETE_SCENE',source:'user',skipped:true},context,definition)!;

@@ -20,13 +20,22 @@ describe('craft confirmation and archived rehearsal through Store/IDB',()=>{
     const {store,storage}=await open(),revision=store.getState().project!.saveRevision;
     await Promise.all([store.edit({type:'PATTERN',patternId:'flower-v1'}),store.edit({type:'CARVE_NEXT'}),store.edit({type:'COLOR_SLOT',slot:'hem',colorIndex:4}),confirmCraft(store,options)]);
     const project=decodeStoredProject((await storage.readRaw()).draft);
-    expect(project.story).toMatchObject({runId:'new-craft-run',nodeId:'memory-wave',revision:2,presetAppearanceUsed:false});
+    expect(project.story).toMatchObject({definitionVersion:5,runId:'new-craft-run',nodeId:'memory-wave',revision:2,presetAppearanceUsed:false,choices:{journeyIntent:null,mountainPact:null,finalAction:null}});
     expect(project.story!.castSnapshot!.appearance).toEqual(project.appearance);expect(project.story!.castSnapshot!.sharedMotif).toBe('flower-v1');expect(project.appearance.colorSlots.hem).toBe(4);expect(project.appearance.carvedSegments).toEqual([true,false,false]);
     expect(project.saveRevision).toBe(revision+1);expect(decodeStoredProject((await storage.readRaw()).backup).story).toBeNull();
   });
   it('explicit intro skip keeps the existing run identity and guided mode',async()=>{
     const {store}=await open(at('intro','call-first','guided')),story=store.getState().project!.story!;
     await confirmCraft(store,{...options,guard:storyGuard(story)});expect(store.getState().project!.story).toMatchObject({runId:story.runId,mode:'guided',nodeId:'memory-wave',revision:2});
+  });
+  it.each(['full','guided'] as const)('direct %s preset opening uses the voiced edition while an existing v4 remains v4',async mode=>{
+    const fresh=await open();await confirmCraft(fresh.store,{...options,mode,presetAppearanceUsed:true});
+    expect(fresh.store.getState().project!.story).toMatchObject({definitionVersion:5,mode,nodeId:'memory-wave',presetAppearanceUsed:true,choices:{journeyIntent:null,mountainPact:null,finalAction:null}});
+    const legacy=at('intro');legacy.story!.definitionVersion=4;legacy.story!.ending=null;legacy.story!.endingSource=null;
+    const seeded=await open(legacy),before=seeded.store.getState().project!.story!;
+    await confirmCraft(seeded.store,{...options,guard:storyGuard(before)});
+    expect(seeded.store.getState().project!.story).toMatchObject({definitionVersion:4,runId:before.runId,nodeId:'memory-wave'});
+    expect(seeded.store.getState().project!.story!.choices).toBeUndefined();
   });
   it('craft confirmation is guarded and repeated clicks cannot refreeze or save twice',async()=>{
     const {store}=await open(at('craft')),story=store.getState().project!.story!,request={...options,guard:storyGuard(story)},before=store.getState().project!.saveRevision;

@@ -25,7 +25,7 @@ describe('STORY-07 guarded commands through the real Store/IDB boundary',()=>{
   it('serializes repeated start and choice commands into one saved identity and one decision',async()=>{
     const {store,storage}=await open();
     await Promise.all([startStory(store,'run-first','full'),startStory(store,'run-duplicate','guided')]);
-    expect(store.getState().project!.story).toMatchObject({runId:'run-first',mode:'full',nodeId:'intro'});
+    expect(store.getState().project!.story).toMatchObject({definitionVersion:5,runId:'run-first',mode:'full',nodeId:'intro',choices:{journeyIntent:null,mountainPact:null,finalAction:null}});
     const choice=at('approach-choice');const seeded=await open(choice),cmd=commandFor(seeded.store.getState().project!,'split-first');
     const before=seeded.store.getState().project!.saveRevision;
     await Promise.all([submitStoryCommand(seeded.store,cmd,context),submitStoryCommand(seeded.store,cmd,context)]);

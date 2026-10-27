@@ -66,7 +66,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   const life=scope(),title=element('h2'),lead=element('p'),runtime=element('p','story-runtime'),shot=element('p','eyebrow'),cueHost=element('div','subtitles');
   const captionDock=element('aside','story-caption-dock');captionDock.setAttribute('aria-label','当前台词');captionDock.appendChild(element('span','caption-label','幕上此刻'));
   stageSlot.parentElement?.insertAdjacentElement('beforebegin',captionDock);
-  const legacyNote=element('p','quiet-note','你正在继续先前的团圆剧本。五终章新剧本可从制偶页归档重开。');legacyNote.hidden=true;legacyNote.appendChild(link(' 去制偶页 →','#/craft'));
+  const legacyNote=element('p','quiet-note','本场沿用先前剧本，未接入中文配音。可先导出作品，再到制偶页归档重开。');legacyNote.id='story-version-note';legacyNote.hidden=true;legacyNote.appendChild(link(' 去制偶页 →','#/craft'));
   runtime.id='story-runtime';runtime.setAttribute('role','status');shot.id='story-shot';
   const subtitles=mountSubtitles(cueHost,seek,captionDock),start=element('button','button primary','确认开始这一场'),skip=element('button','button secondary','先为他备好行装');
   const play=element('button','button primary','继续片段'),pause=element('button','button secondary','暂停'),reset=element('button','button secondary','重开片段（暂停）');
@@ -310,7 +310,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   function renderUI(){
     if(disposed)return;const rt=live,node=rt?.entry.node,hasStory=!!state?.project?.story;stageSlot.parentElement?.classList.toggle('story-awaiting',!hasStory);
     captionDock.hidden=!hasStory||node?.id==='craft'||node?.kind==='terminal';
-    legacyNote.hidden=!state?.project?.story||state.project.story.definitionVersion>=3;legacyNote.textContent='你正在接续先前版本的演出，仍按当时的台词与编排继续。';
+    legacyNote.hidden=!state?.project?.story||state.project.story.definitionVersion===5;
     const destination=node?.next&&'default'in node.next?definitionFor(state?.project?.story).nodes.find(n=>n.id===(node.next as {default:string}).default):null;nextNode.hidden=!hasStory||node?.kind==='terminal';nextNode.disabled=blocked()||!rt?.ready||!!rt.resolution||!!rt.completed||!destination||node?.id==='craft';nextNode.textContent=node?.kind==='choice'?'请先选择去向':node?.id==='craft'?'请先确认这身行装':destination?'跳过本段，进入《'+destination.title+'》':'下一片段';
     start.hidden=hasStory;start.disabled=blocked();skip.hidden=node?.id!=='intro';skip.disabled=blocked()||!rt?.ready;
     craft.hidden=node?.id!=='craft'||display!==rt;confirm.hidden=craft.hidden||(rt?.version??0)<3;confirm.disabled=blocked()||!rt?.ready||!!rt.requested;result.hidden=!['curtain','completed'].includes(node?.id??'');modeLabel.hidden=!rt;transport.hidden=!rt||(node?.kind==='choice'&&(rt?.version??0)<3)||node?.kind==='terminal'||node?.id==='craft'&&rt?.version!==5;

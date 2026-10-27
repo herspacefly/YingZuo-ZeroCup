@@ -1,10 +1,10 @@
 import { beginStory, reduceStory } from '../domain/story';
 import type { StoryCommand, StoryContext } from '../domain/story-types';
-import { definitionFor } from '../content/reunion';
+import { CURRENT_STORY_VERSION, definitionFor } from '../content/reunion';
 import type { ProjectStore } from './store';
 
 export function startStory(store: ProjectStore,runId: string,mode: 'full'|'guided') {
-  return store.commit(project=>beginStory(project,runId,mode,5));
+  return store.commit(project=>beginStory(project,runId,mode,CURRENT_STORY_VERSION));
 }
 export function submitStoryCommand(store: ProjectStore,command: StoryCommand,context: StoryContext) {
   // Snapshot the external command/context once. Retries use Store.pending, not this reducer.

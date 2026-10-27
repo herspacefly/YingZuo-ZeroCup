@@ -4,6 +4,8 @@
 
 远程仓库现为`git@github.com:herspacefly/YingZuo-ZeroCup.git`，公开地址 <https://herspacefly.github.io/YingZuo-ZeroCup/>；本地目录名称不变。main跟踪origin/main，每次git push后由[Pages工作流](.github/workflows/pages.yml)检查、构建并部署dist，后台Source应选择GitHub Actions。配置和验证范围见[T39方案](docs/plans/2026-10-27-pages-deployment.md)，部署与正式艺术／听感／设备验收分开记录。
 
+T40修复制偶入口曾误建v4导致无配音的遗漏，所有新场入口共用当前剧本版本。修复前已创建的旧场继续原版，剧场显示说明与制偶归档入口，不自动迁移进度；需要配音时可导出后明确归档重开。验收与发布状态见[T40记录](docs/acceptance/t40.md)。
+
 ## 当前实现
 
 推荐体验：故事缘起 → 为沉香制偶 → 调灯 → 练习 → 正式演出 → 留影成果 → 五区七展签。展馆可直接进入，无需通关。沉香是唯一可定制和操控角色，母亲、二郎神用脚本有限动作，同屏最多两角色；Canvas 2D完整覆盖故事与展馆，Three.js增强空间与材料。

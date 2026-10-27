@@ -10,8 +10,10 @@ export const expandedDefinition=expanded as unknown as StoryDefinition;
 export const literaryDefinition=literary as unknown as StoryDefinition;
 export const lamplitDefinition=lamplit as unknown as StoryDefinition;
 export const choiceDefinition=choices as unknown as StoryDefinition;
+/** All new-performance entry points must select the same authored edition. */
+export const CURRENT_STORY_VERSION = choiceDefinition.definitionVersion;
 export function definitionFor(story:Pick<StoryProgress,'definitionVersion'>|null|undefined):StoryDefinition{
-  if(!story||story.definitionVersion===5)return choiceDefinition;
+  if(!story||story.definitionVersion===CURRENT_STORY_VERSION)return choiceDefinition;
   if(story.definitionVersion===4)return lamplitDefinition;
   if(story.definitionVersion===3)return literaryDefinition;
   if(story.definitionVersion===2)return expandedDefinition;
