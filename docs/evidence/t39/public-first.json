@@ -1,0 +1,498 @@
+{
+  "config": {
+    "argv": [
+      "E:\\Software_after2026\\nodejs\\node.exe",
+      "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "-c",
+      "playwright.pages.config.ts"
+    ],
+    "configFile": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\playwright.pages.config.ts",
+    "rootDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/deployment",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "published-desktop",
+        "name": "published-desktop",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/deployment",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "published-mobile",
+        "name": "published-mobile",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/deployment",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "published-desktop",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 180000,
+        "use": {
+          "trace": "retain-on-failure",
+          "reducedMotion": "reduce",
+          "launchOptions": {
+            "args": [
+              "--enable-unsafe-swiftshader"
+            ]
+          },
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium",
+          "baseURL": "https://herspacefly.github.io/YingZuo-ZeroCup/"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "published-desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "published-mobile",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 180000,
+        "use": {
+          "trace": "retain-on-failure",
+          "reducedMotion": "reduce",
+          "launchOptions": {
+            "args": [
+              "--enable-unsafe-swiftshader"
+            ]
+          },
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium",
+          "baseURL": "https://herspacefly.github.io/YingZuo-ZeroCup/"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "published-mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/t39/public-browser.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "pages.spec.ts",
+      "file": "pages.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "production entry, fonts, museum thumbnails and enlarged photos stay within the deployment directory",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "published-desktop",
+              "projectName": "published-desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 35117,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts:32:94",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                      "column": 94,
+                      "line": 32
+                    },
+                    "snippet": "  30 |   const cover = page.locator('.museum-hero img');\n  31 |   await expect(cover).toBeVisible();\n> 32 |   await expect.poll(() => cover.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);\n     |                                                                                              ^\n  33 |   await page.goto(baseURL! + '#/museum/E07', { waitUntil: 'domcontentloaded' });\n  34 |   const opener = page.locator('#museum-gallery .museum-photo-enlarge').first();\n  35 |   await opener.click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                        "column": 94,
+                        "line": 32
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  30 |   const cover = page.locator('.museum-hero img');\n  31 |   await expect(cover).toBeVisible();\n> 32 |   await expect.poll(() => cover.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);\n     |                                                                                              ^\n  33 |   await page.goto(baseURL! + '#/museum/E07', { waitUntil: 'domcontentloaded' });\n  34 |   const opener = page.locator('#museum-gallery .museum-photo-enlarge').first();\n  35 |   await opener.click();\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts:32:94"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T08:34:15.330Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\pages-production-entry-fon-d6e62-in-the-deployment-directory-published-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\pages-production-entry-fon-d6e62-in-the-deployment-directory-published-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                    "column": 94,
+                    "line": 32
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-9492cdc88c5ef9b72680",
+          "file": "pages.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "saved colors, JSON export and native v5 voice work after a project-directory refresh",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "published-desktop",
+              "projectName": "published-desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 33631,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.canvas-stage-status').first()\nExpected: \u001b[32m\"ready\"\u001b[39m\nReceived: \u001b[31m\"loading\"\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.canvas-stage-status').first() with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for locator('.canvas-stage-status').first()\u001b[22m\n\u001b[2m    43 × locator resolved to <p role=\"status\" data-state=\"loading\" class=\"canvas-stage-status\">正在准备影偶与幕面…</p>\u001b[22m\n\u001b[2m       - unexpected value \"loading\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.canvas-stage-status').first()\nExpected: \u001b[32m\"ready\"\u001b[39m\nReceived: \u001b[31m\"loading\"\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.canvas-stage-status').first() with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for locator('.canvas-stage-status').first()\u001b[22m\n\u001b[2m    43 × locator resolved to <p role=\"status\" data-state=\"loading\" class=\"canvas-stage-status\">正在准备影偶与幕面…</p>\u001b[22m\n\u001b[2m       - unexpected value \"loading\"\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts:49:62",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                      "column": 62,
+                      "line": 49
+                    },
+                    "snippet": "  47 |   const problems = observe(page, baseURL!);\n  48 |   await page.goto(baseURL! + '#/craft', { waitUntil: 'domcontentloaded' });\n> 49 |   await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state', 'ready', { timeout: 20000 });\n     |                                                              ^\n  50 |   await expect(page.locator('#craft-palette')).toBeEnabled();\n  51 |   await page.locator('#craft-palette').selectOption('indigo-v1');\n  52 |   await page.locator('#craft-apply-palette').click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                        "column": 62,
+                        "line": 49
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.canvas-stage-status').first()\nExpected: \u001b[32m\"ready\"\u001b[39m\nReceived: \u001b[31m\"loading\"\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.canvas-stage-status').first() with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for locator('.canvas-stage-status').first()\u001b[22m\n\u001b[2m    43 × locator resolved to <p role=\"status\" data-state=\"loading\" class=\"canvas-stage-status\">正在准备影偶与幕面…</p>\u001b[22m\n\u001b[2m       - unexpected value \"loading\"\u001b[22m\n\n\n  47 |   const problems = observe(page, baseURL!);\n  48 |   await page.goto(baseURL! + '#/craft', { waitUntil: 'domcontentloaded' });\n> 49 |   await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state', 'ready', { timeout: 20000 });\n     |                                                              ^\n  50 |   await expect(page.locator('#craft-palette')).toBeEnabled();\n  51 |   await page.locator('#craft-palette').selectOption('indigo-v1');\n  52 |   await page.locator('#craft-apply-palette').click();\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts:49:62"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T08:34:51.852Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\pages-saved-colors-JSON-ex-c6ad9-a-project-directory-refresh-published-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\pages-saved-colors-JSON-ex-c6ad9-a-project-directory-refresh-published-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                    "column": 62,
+                    "line": 49
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-14db039670e392cb9994",
+          "file": "pages.spec.ts",
+          "line": 46,
+          "column": 1
+        },
+        {
+          "title": "lamp workshop loads its lazy Three module and keeps a working two-dimensional alternative",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "published-desktop",
+              "projectName": "published-desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20887,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T08:35:26.603Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-78018fa3c1712e263f3c",
+          "file": "pages.spec.ts",
+          "line": 78,
+          "column": 1
+        },
+        {
+          "title": "production entry, fonts, museum thumbnails and enlarged photos stay within the deployment directory",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "published-mobile",
+              "projectName": "published-mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 21176,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T08:35:48.707Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-3eb401b680489d3c71b7",
+          "file": "pages.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "saved colors, JSON export and native v5 voice work after a project-directory refresh",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "published-mobile",
+              "projectName": "published-mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 30770,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.canvas-stage-status').first()\nExpected: \u001b[32m\"ready\"\u001b[39m\nReceived: \u001b[31m\"loading\"\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.canvas-stage-status').first() with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for locator('.canvas-stage-status').first()\u001b[22m\n\u001b[2m    43 × locator resolved to <p role=\"status\" data-state=\"loading\" class=\"canvas-stage-status\">正在准备影偶与幕面…</p>\u001b[22m\n\u001b[2m       - unexpected value \"loading\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.canvas-stage-status').first()\nExpected: \u001b[32m\"ready\"\u001b[39m\nReceived: \u001b[31m\"loading\"\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.canvas-stage-status').first() with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for locator('.canvas-stage-status').first()\u001b[22m\n\u001b[2m    43 × locator resolved to <p role=\"status\" data-state=\"loading\" class=\"canvas-stage-status\">正在准备影偶与幕面…</p>\u001b[22m\n\u001b[2m       - unexpected value \"loading\"\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts:49:62",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                      "column": 62,
+                      "line": 49
+                    },
+                    "snippet": "  47 |   const problems = observe(page, baseURL!);\n  48 |   await page.goto(baseURL! + '#/craft', { waitUntil: 'domcontentloaded' });\n> 49 |   await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state', 'ready', { timeout: 20000 });\n     |                                                              ^\n  50 |   await expect(page.locator('#craft-palette')).toBeEnabled();\n  51 |   await page.locator('#craft-palette').selectOption('indigo-v1');\n  52 |   await page.locator('#craft-apply-palette').click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                        "column": 62,
+                        "line": 49
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.canvas-stage-status').first()\nExpected: \u001b[32m\"ready\"\u001b[39m\nReceived: \u001b[31m\"loading\"\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.canvas-stage-status').first() with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for locator('.canvas-stage-status').first()\u001b[22m\n\u001b[2m    43 × locator resolved to <p role=\"status\" data-state=\"loading\" class=\"canvas-stage-status\">正在准备影偶与幕面…</p>\u001b[22m\n\u001b[2m       - unexpected value \"loading\"\u001b[22m\n\n\n  47 |   const problems = observe(page, baseURL!);\n  48 |   await page.goto(baseURL! + '#/craft', { waitUntil: 'domcontentloaded' });\n> 49 |   await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state', 'ready', { timeout: 20000 });\n     |                                                              ^\n  50 |   await expect(page.locator('#craft-palette')).toBeEnabled();\n  51 |   await page.locator('#craft-palette').selectOption('indigo-v1');\n  52 |   await page.locator('#craft-apply-palette').click();\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts:49:62"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T08:36:10.113Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\pages-saved-colors-JSON-ex-c6ad9-a-project-directory-refresh-published-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\pages-saved-colors-JSON-ex-c6ad9-a-project-directory-refresh-published-mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                    "column": 62,
+                    "line": 49
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-25cadf481d46aaca8278",
+          "file": "pages.spec.ts",
+          "line": 46,
+          "column": 1
+        },
+        {
+          "title": "lamp workshop loads its lazy Three module and keeps a working two-dimensional alternative",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "published-mobile",
+              "projectName": "published-mobile",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4498,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T08:36:41.741Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-7b4fe79da8c167915061",
+          "file": "pages.spec.ts",
+          "line": 78,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-27T08:34:14.722Z",
+    "duration": 152170.872,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

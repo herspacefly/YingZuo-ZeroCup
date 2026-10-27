@@ -13,7 +13,9 @@ export default defineConfig({
   fullyParallel: false,
   workers: 1,
   retries: 0,
-  timeout: 60000,
+  // Published checks traverse several cold CDN pages; this is not a load-time SLA.
+  timeout: published ? 180000 : 60000,
+  expect: { timeout: published ? 30000 : 5000 },
   reporter: process.env.YINGZUO_PAGES_REPORT
     ? [['list'], ['json', { outputFile: process.env.YINGZUO_PAGES_REPORT }]] : 'list',
   use: { trace: 'retain-on-failure', reducedMotion: 'reduce', launchOptions: { args: ['--enable-unsafe-swiftshader'] } },
