@@ -81,7 +81,11 @@ test('four cast voices load and play real MP3s with native media events',async({
   const node=definition.nodes.find(node=>node.id===id)!;
   for(const speaker of speakers){
    const index=node.guidedSubtitles!.findIndex(cue=>cue.speaker===speaker),cue=node.guidedSubtitles![index]!;
+   // This case isolates each cast recording; live seek continuity has its own
+   // test below. Render a paused cue before starting its native media clock.
+   if(await page.locator('#story-pause').isEnabled())await page.locator('#story-pause').press('Enter');
    await page.locator('.subtitle-directory button').nth(index).click();
+   await page.locator('#story-play').click();
    const clip=catalog().lines.find(line=>line.speaker===speaker&&line.text===cue.text)!;
    expect(clip).toBeTruthy();const spoken=await active(page,clip.src);
    expect(spoken.playingEvents).toBeLessThan(6); // no playing/seek feedback loop
