@@ -1,0 +1,550 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-27T03:51:28.964Z",
+  "task": "T38",
+  "status": "in_progress",
+  "baselineCommit": "319ad937f9a3369009467ed18cfd33413ba7afa7",
+  "sourceCheckpoint": "cb2f73b6db92b532e615c55d9ef905037a9f6586",
+  "lastApplicationChange": "a12652f7758584c1fb0af75b1db83c986cb39e94",
+  "implementation": "delivered",
+  "functionalValidation": "passed_with_explicit_scope",
+  "listeningAcceptance": "pending_documented_human_review",
+  "unit": {
+    "files": 52,
+    "passed": 627
+  },
+  "checks": {
+    "typecheck": "passed",
+    "build": {
+      "modules": 161,
+      "status": "passed"
+    },
+    "legacy": {
+      "chunks": 17,
+      "entries": 7,
+      "status": "passed",
+      "actualIE": "not_tested"
+    },
+    "assets": {
+      "png": 81,
+      "status": "passed"
+    },
+    "content": {
+      "versions": 5,
+      "v5Combinations": 16,
+      "status": "passed"
+    },
+    "museum": {
+      "exhibits": 7,
+      "placements": 17,
+      "originalImages": 12,
+      "status": "passed"
+    },
+    "state": {
+      "tasks": 39,
+      "status": "passed"
+    }
+  },
+  "voice": {
+    "schemaVersion": 1,
+    "clips": 354,
+    "bytes": 18304560,
+    "audioDurationMs": 3050760,
+    "scheduleChecks": 1216,
+    "choiceCombinations": 16,
+    "modes": 2,
+    "decodedThisRun": true,
+    "catalogSha256": "6205deb992929cff7aab8719cbc545f4027fcc67db819116ac190e05d453d6eb",
+    "errors": []
+  },
+  "distVoice": {
+    "schemaVersion": 1,
+    "clips": 354,
+    "bytes": 18304560,
+    "audioDurationMs": 3050760,
+    "scheduleChecks": 1216,
+    "choiceCombinations": 16,
+    "modes": 2,
+    "checkedTrees": [
+      "public",
+      "dist"
+    ],
+    "decodedThisRun": false,
+    "catalogSha256": "6205deb992929cff7aab8719cbc545f4027fcc67db819116ac190e05d453d6eb",
+    "errors": []
+  },
+  "cleanCheckoutResume": {
+    "status": "passed",
+    "method": "Temporarily removed ignored result checkpoint; resumed all 354 from committed catalog without synthesis; recompiled catalog was byte-identical; temporary backup removed."
+  },
+  "browser": {
+    "uniqueLatestPassed": 76,
+    "defaultSuiteRun": false,
+    "singleGreenBatch": false,
+    "choiceMatrix": {
+      "desktop": 41,
+      "mobileControls": 9,
+      "paths": 16,
+      "modes": 2,
+      "usesPublicSubtitleSeekAndControlledDirectorClock": true
+    },
+    "native": {
+      "uniqueLatestPassed": 26,
+      "firstFinalBatch": {
+        "passed": 25,
+        "failed": 1,
+        "total": 26
+      },
+      "castRecheck": {
+        "passed": 2,
+        "total": 2
+      },
+      "usesRealHTMLAudioElement": true,
+      "mp3Rate": 1,
+      "reducedMotion": true,
+      "replayNormalMotion": true,
+      "curtainUsesControlledDirectorClock": true
+    },
+    "reports": [
+      {
+        "file": "native-first.json",
+        "startTime": "2026-10-27T02:56:35.950Z",
+        "duration": 202292.049,
+        "expected": 9,
+        "skipped": 0,
+        "unexpected": 9,
+        "flaky": 0
+      },
+      {
+        "file": "native-second.json",
+        "startTime": "2026-10-27T03:02:55.544Z",
+        "duration": 336478.658,
+        "expected": 12,
+        "skipped": 0,
+        "unexpected": 10,
+        "flaky": 0
+      },
+      {
+        "file": "native-no-trace.json",
+        "startTime": "2026-10-27T03:08:48.913Z",
+        "duration": 261887.11599999998,
+        "expected": 17,
+        "skipped": 0,
+        "unexpected": 5,
+        "flaky": 0
+      },
+      {
+        "file": "native-final.json",
+        "startTime": "2026-10-27T03:13:48.429Z",
+        "duration": 141013.625,
+        "expected": 20,
+        "skipped": 0,
+        "unexpected": 4,
+        "flaky": 0
+      },
+      {
+        "file": "isolation-curtain.json",
+        "startTime": "2026-10-27T03:16:48.028Z",
+        "duration": 22390.842,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      {
+        "file": "choices-desktop.json",
+        "startTime": "2026-10-27T03:22:26.710Z",
+        "duration": 903699.648,
+        "expected": 41,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      {
+        "file": "native-final-all.json",
+        "startTime": "2026-10-27T03:40:33.148Z",
+        "duration": 119425.377,
+        "expected": 25,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      {
+        "file": "cast-recheck.json",
+        "startTime": "2026-10-27T03:42:48.968Z",
+        "duration": 14874.992,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      {
+        "file": "choices-mobile-controls.json",
+        "startTime": "2026-10-27T03:44:39.059Z",
+        "duration": 33340.922999999995,
+        "expected": 9,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    ],
+    "latestCases": {
+      "choice-theatre.spec.ts|home/shared/call-first/wait/full: four decisions produce waiting|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|home/shared/call-first/wait/guided: four decisions produce waiting|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|home/shared/call-first/fulfill/full: four decisions produce home|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|home/shared/call-first/fulfill/guided: four decisions produce home|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|open-road/shared/call-first/wait/full: four decisions produce waiting|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|open-road/shared/call-first/wait/guided: four decisions produce waiting|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|open-road/shared/call-first/fulfill/full: four decisions produce light|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|open-road/shared/call-first/fulfill/guided: four decisions produce light|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|home/shared/split-first/wait/full: four decisions produce waiting|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|home/shared/split-first/wait/guided: four decisions produce waiting|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|home/shared/split-first/fulfill/full: four decisions produce road|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|home/shared/split-first/fulfill/guided: four decisions produce road|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|open-road/shared/split-first/wait/full: four decisions produce waiting|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|open-road/shared/split-first/wait/guided: four decisions produce waiting|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|open-road/shared/split-first/fulfill/full: four decisions produce road|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|open-road/shared/split-first/fulfill/guided: four decisions produce road|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|home/self/call-first/wait/full: four decisions produce waiting|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|home/self/call-first/wait/guided: four decisions produce waiting|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|home/self/call-first/fulfill/full: four decisions produce sacrifice|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|home/self/call-first/fulfill/guided: four decisions produce sacrifice|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|open-road/self/call-first/wait/full: four decisions produce waiting|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|open-road/self/call-first/wait/guided: four decisions produce waiting|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|open-road/self/call-first/fulfill/full: four decisions produce sacrifice|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|open-road/self/call-first/fulfill/guided: four decisions produce sacrifice|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|home/self/split-first/wait/full: four decisions produce waiting|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|home/self/split-first/wait/guided: four decisions produce waiting|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|home/self/split-first/fulfill/full: four decisions produce sacrifice|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|home/self/split-first/fulfill/guided: four decisions produce sacrifice|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|open-road/self/split-first/wait/full: four decisions produce waiting|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|open-road/self/split-first/wait/guided: four decisions produce waiting|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|open-road/self/split-first/fulfill/full: four decisions produce sacrifice|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|open-road/self/split-first/fulfill/guided: four decisions produce sacrifice|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|new opening, refresh and museum return play automatically; same-page pause/reset/mode stay paused|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|choice after an explicit pause starts its successor without a play click|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|save failure retry stays paused, while refresh grants a fresh entry|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|blur while entry resources load revokes autoplay and late resources cannot revive it|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|a document hidden before initialization stays paused until a fresh visible entry|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|restored v1 uses its own story and enters automatically|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|restored v2 uses its own story and enters automatically|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|restored v3 uses its own story and enters automatically|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|restored v4 uses its own story and enters automatically|desktop-chromium": {
+        "file": "choices-desktop.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|new opening, refresh and museum return play automatically; same-page pause/reset/mode stay paused|mobile-chromium": {
+        "file": "choices-mobile-controls.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|choice after an explicit pause starts its successor without a play click|mobile-chromium": {
+        "file": "choices-mobile-controls.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|save failure retry stays paused, while refresh grants a fresh entry|mobile-chromium": {
+        "file": "choices-mobile-controls.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|blur while entry resources load revokes autoplay and late resources cannot revive it|mobile-chromium": {
+        "file": "choices-mobile-controls.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|a document hidden before initialization stays paused until a fresh visible entry|mobile-chromium": {
+        "file": "choices-mobile-controls.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|restored v1 uses its own story and enters automatically|mobile-chromium": {
+        "file": "choices-mobile-controls.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|restored v2 uses its own story and enters automatically|mobile-chromium": {
+        "file": "choices-mobile-controls.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|restored v3 uses its own story and enters automatically|mobile-chromium": {
+        "file": "choices-mobile-controls.json",
+        "status": "passed"
+      },
+      "choice-theatre.spec.ts|restored v4 uses its own story and enters automatically|mobile-chromium": {
+        "file": "choices-mobile-controls.json",
+        "status": "passed"
+      },
+      "story-voice-isolation.spec.ts|v5 rehearsal is silent and storage failure cancels the formal voice channel|desktop-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice-isolation.spec.ts|v5 rehearsal is silent and storage failure cancels the formal voice channel|mobile-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|four cast voices load and play real MP3s with native media events|desktop-chromium": {
+        "file": "cast-recheck.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|pause, resume and subtitle seek follow the director without overlapping speech|desktop-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|voice and music intents are independent, survive routes, and default on after refresh|desktop-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|blocked speech reports its state without frame retries and the retry button unlocks it|desktop-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|a failed speech resource reports failure and succeeds after explicit retry|desktop-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|blur, hidden documents and route exits stop speech and focus cannot revive it|desktop-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|curtain reserves the original vocal recording until all spoken cues finish|desktop-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|result replay speaks the selected variant, seeks and closes without writing the completed run|desktop-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|restored v1 through v4 do not request new v5 speech assets|desktop-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|speech follows the document base when deployed under a subdirectory|desktop-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|full: all five ending epilogues play their matching local speech|desktop-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|guided: all five ending epilogues play their matching local speech|desktop-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|four cast voices load and play real MP3s with native media events|mobile-chromium": {
+        "file": "cast-recheck.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|pause, resume and subtitle seek follow the director without overlapping speech|mobile-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|voice and music intents are independent, survive routes, and default on after refresh|mobile-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|blocked speech reports its state without frame retries and the retry button unlocks it|mobile-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|a failed speech resource reports failure and succeeds after explicit retry|mobile-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|blur, hidden documents and route exits stop speech and focus cannot revive it|mobile-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|curtain reserves the original vocal recording until all spoken cues finish|mobile-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|result replay speaks the selected variant, seeks and closes without writing the completed run|mobile-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|restored v1 through v4 do not request new v5 speech assets|mobile-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|speech follows the document base when deployed under a subdirectory|mobile-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|full: all five ending epilogues play their matching local speech|mobile-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|guided: all five ending epilogues play their matching local speech|mobile-chromium": {
+        "file": "native-final-all.json",
+        "status": "passed"
+      }
+    },
+    "scopeNotes": [
+      "Matrix and native tests validate different scopes. Controlled matrix does not prove natural-duration playback or listening quality.",
+      "Desktop cast check hit existing 250ms director-gap protection during live guardian transition. Cast-only procedure now pauses before each cue seek; separate live-seek case remains.",
+      "Early normal-motion/headless tracing caused director gap pauses. Protection unchanged and original resources retained.",
+      "Browser tests do not substitute for physical devices, IE, or human listening."
+    ]
+  },
+  "listeningReview": {
+    "file": "listen.html",
+    "items": 38,
+    "castSamples": 4,
+    "longest": 1,
+    "derivedRecalls": 4,
+    "endingEpilogueLines": 29,
+    "userFeedback": [
+      "保持当前声线与自然语速",
+      "暂无修改意见，继续验证"
+    ],
+    "feedbackIsNotFullListeningProof": true,
+    "pronunciation": "docs/content/voice-v5-pronunciation.md"
+  },
+  "naturalGuided": {
+    "status": "running",
+    "notCountedAsPassed": true
+  },
+  "screenshots": [
+    "theatre-desktop.png",
+    "theatre-mobile.png"
+  ],
+  "preserved": {
+    "baseline": "319ad937f9a3369009467ed18cfd33413ba7afa7",
+    "paths": [
+      "public/assets",
+      "public/audio/jinghu-instrumental.mp3",
+      "public/audio/jingju-curtain.mp3",
+      "src/content/stories",
+      "package-lock.json"
+    ],
+    "gitDiffEmpty": true,
+    "docxAndPptx": "not_read_modified_or_staged",
+    "historicalWorktrees": 25
+  },
+  "managedWorktrees": {
+    "timing": "archived_recoverably",
+    "e2e": "archived_recoverably",
+    "player": "clean; dependency junction removed; archive rejected twice because another active task still references checkout; retained"
+  },
+  "preview": "http://127.0.0.1:4173/",
+  "pushed": false,
+  "remaining": [
+    "Document human listening of the longest line, derived recalls, five ending epilogues, pronunciations, and actual-device mix through the provided review page.",
+    "Keep T38 in_progress until listening acceptance is evidenced; do not promote existing formal-review/IE/physical-device tasks."
+  ]
+}

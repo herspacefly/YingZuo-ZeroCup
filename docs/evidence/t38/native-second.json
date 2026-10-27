@@ -1,0 +1,1275 @@
+{
+  "config": {
+    "argv": [
+      "E:\\Software_after2026\\nodejs\\node.exe",
+      "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/story-voice.spec.ts",
+      "--workers=1"
+    ],
+    "configFile": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\playwright.config.ts",
+    "rootDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop-chromium",
+        "name": "desktop-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop-chromium"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile-chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/t38/native-second.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview -- --port 4173 --strictPort",
+      "url": "http://127.0.0.1:4173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "story-voice.spec.ts",
+      "file": "story-voice.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "four cast voices load and play real MP3s with native media events",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 9553,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:57:173)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:81:36",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                      "column": 173,
+                      "line": 57
+                    },
+                    "snippet": "  55 | const voices=(p:Page)=>media(p).then(items=>items.filter(item=>item.src?.includes('/audio/voice-v5/')));\n  56 | async function active(p:Page,src?:string){\n> 57 |  await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>(!src||item.src===src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);\n     |                                                                                                                                                                             ^\n  58 |  return (await voices(p)).find(item=>(!src||item.src===src)&&!item.paused)!;\n  59 | }\n  60 | async function start(p:Page,id:StoryNodeId='intro'){"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                        "column": 173,
+                        "line": 57
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  55 | const voices=(p:Page)=>media(p).then(items=>items.filter(item=>item.src?.includes('/audio/voice-v5/')));\n  56 | async function active(p:Page,src?:string){\n> 57 |  await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>(!src||item.src===src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);\n     |                                                                                                                                                                             ^\n  58 |  return (await voices(p)).find(item=>(!src||item.src===src)&&!item.paused)!;\n  59 | }\n  60 | async function start(p:Page,id:StoryNodeId='intro'){\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:57:173)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:81:36"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T03:02:58.816Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-four-cast-voic-83576-3s-with-native-media-events-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-four-cast-voic-83576-3s-with-native-media-events-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                    "column": 173,
+                    "line": 57
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-57dedef7d6d81cf21301",
+          "file": "story-voice.spec.ts",
+          "line": 72,
+          "column": 1
+        },
+        {
+          "title": "pause, resume and subtitle seek follow the director without overlapping speech",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 9689,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:57:173)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:92:50",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                      "column": 173,
+                      "line": 57
+                    },
+                    "snippet": "  55 | const voices=(p:Page)=>media(p).then(items=>items.filter(item=>item.src?.includes('/audio/voice-v5/')));\n  56 | async function active(p:Page,src?:string){\n> 57 |  await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>(!src||item.src===src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);\n     |                                                                                                                                                                             ^\n  58 |  return (await voices(p)).find(item=>(!src||item.src===src)&&!item.paused)!;\n  59 | }\n  60 | async function start(p:Page,id:StoryNodeId='intro'){"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                        "column": 173,
+                        "line": 57
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  55 | const voices=(p:Page)=>media(p).then(items=>items.filter(item=>item.src?.includes('/audio/voice-v5/')));\n  56 | async function active(p:Page,src?:string){\n> 57 |  await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>(!src||item.src===src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);\n     |                                                                                                                                                                             ^\n  58 |  return (await voices(p)).find(item=>(!src||item.src===src)&&!item.paused)!;\n  59 | }\n  60 | async function start(p:Page,id:StoryNodeId='intro'){\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:57:173)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:92:50"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T03:03:10.759Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-pause-resume-a-79a75--without-overlapping-speech-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-pause-resume-a-79a75--without-overlapping-speech-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                    "column": 173,
+                    "line": 57
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-104ef64356da202dccd0",
+          "file": "story-voice.spec.ts",
+          "line": 86,
+          "column": 1
+        },
+        {
+          "title": "voice and music intents are independent, survive routes, and default on after refresh",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10655,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T03:03:22.757Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-2566d6156b3a79b699f8",
+          "file": "story-voice.spec.ts",
+          "line": 99,
+          "column": 1
+        },
+        {
+          "title": "blocked speech reports its state without frame retries and the retry button unlocks it",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 8594,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:57:173)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:114:125",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                      "column": 173,
+                      "line": 57
+                    },
+                    "snippet": "  55 | const voices=(p:Page)=>media(p).then(items=>items.filter(item=>item.src?.includes('/audio/voice-v5/')));\n  56 | async function active(p:Page,src?:string){\n> 57 |  await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>(!src||item.src===src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);\n     |                                                                                                                                                                             ^\n  58 |  return (await voices(p)).find(item=>(!src||item.src===src)&&!item.paused)!;\n  59 | }\n  60 | async function start(p:Page,id:StoryNodeId='intro'){"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                        "column": 173,
+                        "line": 57
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  55 | const voices=(p:Page)=>media(p).then(items=>items.filter(item=>item.src?.includes('/audio/voice-v5/')));\n  56 | async function active(p:Page,src?:string){\n> 57 |  await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>(!src||item.src===src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);\n     |                                                                                                                                                                             ^\n  58 |  return (await voices(p)).find(item=>(!src||item.src===src)&&!item.paused)!;\n  59 | }\n  60 | async function start(p:Page,id:StoryNodeId='intro'){\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:57:173)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:114:125"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T03:03:33.749Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-blocked-speech-945db-the-retry-button-unlocks-it-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-blocked-speech-945db-the-retry-button-unlocks-it-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                    "column": 173,
+                    "line": 57
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-ec5738e5db94f1652ab3",
+          "file": "story-voice.spec.ts",
+          "line": 107,
+          "column": 1
+        },
+        {
+          "title": "a failed speech resource reports failure and succeeds after explicit retry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2913,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T03:03:44.546Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-42cd6e860ff8fb3f91b4",
+          "file": "story-voice.spec.ts",
+          "line": 117,
+          "column": 1
+        },
+        {
+          "title": "blur, hidden documents and route exits stop speech and focus cannot revive it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6780,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T03:03:47.685Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-f7ee69c96ca2e4c7b429",
+          "file": "story-voice.spec.ts",
+          "line": 123,
+          "column": 1
+        },
+        {
+          "title": "curtain reserves the original vocal recording until all spoken cues finish",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 10503,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:57:173)\n    at start (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:63:8)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:135:84",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                      "column": 173,
+                      "line": 57
+                    },
+                    "snippet": "  55 | const voices=(p:Page)=>media(p).then(items=>items.filter(item=>item.src?.includes('/audio/voice-v5/')));\n  56 | async function active(p:Page,src?:string){\n> 57 |  await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>(!src||item.src===src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);\n     |                                                                                                                                                                             ^\n  58 |  return (await voices(p)).find(item=>(!src||item.src===src)&&!item.paused)!;\n  59 | }\n  60 | async function start(p:Page,id:StoryNodeId='intro'){"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                        "column": 173,
+                        "line": 57
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  55 | const voices=(p:Page)=>media(p).then(items=>items.filter(item=>item.src?.includes('/audio/voice-v5/')));\n  56 | async function active(p:Page,src?:string){\n> 57 |  await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>(!src||item.src===src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);\n     |                                                                                                                                                                             ^\n  58 |  return (await voices(p)).find(item=>(!src||item.src===src)&&!item.paused)!;\n  59 | }\n  60 | async function start(p:Page,id:StoryNodeId='intro'){\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:57:173)\n    at start (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:63:8)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:135:84"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T03:03:54.515Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-curtain-reserv-6131b-ntil-all-spoken-cues-finish-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-curtain-reserv-6131b-ntil-all-spoken-cues-finish-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                    "column": 173,
+                    "line": 57
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-8ef048c7975142c5836f",
+          "file": "story-voice.spec.ts",
+          "line": 133,
+          "column": 1
+        },
+        {
+          "title": "result replay speaks the selected variant, seeks and closes without writing the completed run",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 66195,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                        "column": 38,
+                        "line": 151
+                      },
+                      "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#replay-pause')\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" id=\"replay-pause\" class=\"button secondary\">暂停重演</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    85 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not enabled\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n\n  149 |  await expect(page.locator('#result-replay-player .canvas-stage-status')).toHaveAttribute('data-state','ready');\n  150 |  await expect(page.locator('#result-replay-player .subtitle-directory')).toContainText('永久化山');await page.locator('#replay-play').click();await active(page);\n> 151 |  await page.locator('#replay-pause').click();await expect(page.locator('#replay-voice-status')).toHaveAttribute('data-playing','false');\n      |                                      ^\n  152 |  await page.locator('#result-replay-player .subtitle-directory button').nth(1).click();await page.locator('#replay-play').click();await active(page);\n  153 |  await page.locator('#result-replay').click();expect((await voices(page)).every(item=>item.paused)).toBe(true);expect((await stored(page)).story).toEqual(before.story);\n  154 | });\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:151:38"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T03:04:07.030Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-result-replay--b77f2-t-writing-the-completed-run-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-result-replay--b77f2-t-writing-the-completed-run-desktop-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-4d798a794e57b86c0211",
+          "file": "story-voice.spec.ts",
+          "line": 143,
+          "column": 1
+        },
+        {
+          "title": "restored v1 through v4 do not request new v5 speech assets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18188,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T03:05:16.469Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-4aeaf17bd25798e4a9f9",
+          "file": "story-voice.spec.ts",
+          "line": 156,
+          "column": 1
+        },
+        {
+          "title": "full: all five ending epilogues play their matching local speech",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 22428,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:57:173)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:177:35",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                      "column": 173,
+                      "line": 57
+                    },
+                    "snippet": "  55 | const voices=(p:Page)=>media(p).then(items=>items.filter(item=>item.src?.includes('/audio/voice-v5/')));\n  56 | async function active(p:Page,src?:string){\n> 57 |  await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>(!src||item.src===src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);\n     |                                                                                                                                                                             ^\n  58 |  return (await voices(p)).find(item=>(!src||item.src===src)&&!item.paused)!;\n  59 | }\n  60 | async function start(p:Page,id:StoryNodeId='intro'){"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                        "column": 173,
+                        "line": 57
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  55 | const voices=(p:Page)=>media(p).then(items=>items.filter(item=>item.src?.includes('/audio/voice-v5/')));\n  56 | async function active(p:Page,src?:string){\n> 57 |  await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>(!src||item.src===src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);\n     |                                                                                                                                                                             ^\n  58 |  return (await voices(p)).find(item=>(!src||item.src===src)&&!item.paused)!;\n  59 | }\n  60 | async function start(p:Page,id:StoryNodeId='intro'){\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:57:173)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:177:35"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T03:05:34.918Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-full-all-five--daa15-their-matching-local-speech-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-full-all-five--daa15-their-matching-local-speech-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                    "column": 173,
+                    "line": 57
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-16c25be5098287c714e8",
+          "file": "story-voice.spec.ts",
+          "line": 168,
+          "column": 46
+        },
+        {
+          "title": "guided: all five ending epilogues play their matching local speech",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 10808,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:57:173)\n    at start (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:63:8)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:173:45",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                      "column": 173,
+                      "line": 57
+                    },
+                    "snippet": "  55 | const voices=(p:Page)=>media(p).then(items=>items.filter(item=>item.src?.includes('/audio/voice-v5/')));\n  56 | async function active(p:Page,src?:string){\n> 57 |  await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>(!src||item.src===src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);\n     |                                                                                                                                                                             ^\n  58 |  return (await voices(p)).find(item=>(!src||item.src===src)&&!item.paused)!;\n  59 | }\n  60 | async function start(p:Page,id:StoryNodeId='intro'){"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                        "column": 173,
+                        "line": 57
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  55 | const voices=(p:Page)=>media(p).then(items=>items.filter(item=>item.src?.includes('/audio/voice-v5/')));\n  56 | async function active(p:Page,src?:string){\n> 57 |  await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>(!src||item.src===src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);\n     |                                                                                                                                                                             ^\n  58 |  return (await voices(p)).find(item=>(!src||item.src===src)&&!item.paused)!;\n  59 | }\n  60 | async function start(p:Page,id:StoryNodeId='intro'){\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:57:173)\n    at start (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:63:8)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:173:45"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T03:05:59.681Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-guided-all-fiv-ddf2b-their-matching-local-speech-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-guided-all-fiv-ddf2b-their-matching-local-speech-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                    "column": 173,
+                    "line": 57
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-82b6d0b3878466ec49b9",
+          "file": "story-voice.spec.ts",
+          "line": 168,
+          "column": 46
+        },
+        {
+          "title": "four cast voices load and play real MP3s with native media events",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 19284,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:57:173)\n    at start (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:63:8)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:75:33",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                      "column": 173,
+                      "line": 57
+                    },
+                    "snippet": "  55 | const voices=(p:Page)=>media(p).then(items=>items.filter(item=>item.src?.includes('/audio/voice-v5/')));\n  56 | async function active(p:Page,src?:string){\n> 57 |  await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>(!src||item.src===src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);\n     |                                                                                                                                                                             ^\n  58 |  return (await voices(p)).find(item=>(!src||item.src===src)&&!item.paused)!;\n  59 | }\n  60 | async function start(p:Page,id:StoryNodeId='intro'){"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                        "column": 173,
+                        "line": 57
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  55 | const voices=(p:Page)=>media(p).then(items=>items.filter(item=>item.src?.includes('/audio/voice-v5/')));\n  56 | async function active(p:Page,src?:string){\n> 57 |  await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>(!src||item.src===src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);\n     |                                                                                                                                                                             ^\n  58 |  return (await voices(p)).find(item=>(!src||item.src===src)&&!item.paused)!;\n  59 | }\n  60 | async function start(p:Page,id:StoryNodeId='intro'){\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:57:173)\n    at start (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:63:8)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:75:33"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T03:06:12.844Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-four-cast-voic-83576-3s-with-native-media-events-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-four-cast-voic-83576-3s-with-native-media-events-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                    "column": 173,
+                    "line": 57
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-22b8708f8469ce7ee952",
+          "file": "story-voice.spec.ts",
+          "line": 72,
+          "column": 1
+        },
+        {
+          "title": "pause, resume and subtitle seek follow the director without overlapping speech",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4469,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T03:06:35.721Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-0ead764fa01bfe56291d",
+          "file": "story-voice.spec.ts",
+          "line": 86,
+          "column": 1
+        },
+        {
+          "title": "voice and music intents are independent, survive routes, and default on after refresh",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 17435,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T03:06:40.514Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-ad41147fce9b2e5b41a7",
+          "file": "story-voice.spec.ts",
+          "line": 99,
+          "column": 1
+        },
+        {
+          "title": "blocked speech reports its state without frame retries and the retry button unlocks it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6419,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T03:06:58.049Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-0e6e97454ace5d706a57",
+          "file": "story-voice.spec.ts",
+          "line": 107,
+          "column": 1
+        },
+        {
+          "title": "a failed speech resource reports failure and succeeds after explicit retry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6285,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T03:07:04.557Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-f538d4afb44d89ccc35d",
+          "file": "story-voice.spec.ts",
+          "line": 117,
+          "column": 1
+        },
+        {
+          "title": "blur, hidden documents and route exits stop speech and focus cannot revive it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3088,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T03:07:10.887Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-1aef3483ff826b184240",
+          "file": "story-voice.spec.ts",
+          "line": 123,
+          "column": 1
+        },
+        {
+          "title": "curtain reserves the original vocal recording until all spoken cues finish",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 11410,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:139:147",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                      "column": 147,
+                      "line": 139
+                    },
+                    "snippet": "  137 |  const dialogueEnd=catalog().timings.curtain!.guided.reduce((sum,slot)=>sum+slot,0);\n  138 |  await page.evaluate(ms=>Reflect.get(window,'__voiceAdvance')(ms),dialogueEnd+100);\n> 139 |  await expect.poll(async()=>(await media(page)).some(item=>item.src?.endsWith('jingju-curtain.mp3')&&!item.paused&&item.ready>=2&&item.time>.05)).toBe(true);\n      |                                                                                                                                                   ^\n  140 |  expect((await voices(page)).every(item=>item.paused)).toBe(true);\n  141 | });\n  142 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                        "column": 147,
+                        "line": 139
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  137 |  const dialogueEnd=catalog().timings.curtain!.guided.reduce((sum,slot)=>sum+slot,0);\n  138 |  await page.evaluate(ms=>Reflect.get(window,'__voiceAdvance')(ms),dialogueEnd+100);\n> 139 |  await expect.poll(async()=>(await media(page)).some(item=>item.src?.endsWith('jingju-curtain.mp3')&&!item.paused&&item.ready>=2&&item.time>.05)).toBe(true);\n      |                                                                                                                                                   ^\n  140 |  expect((await voices(page)).every(item=>item.paused)).toBe(true);\n  141 | });\n  142 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:139:147"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T03:07:14.030Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-curtain-reserv-6131b-ntil-all-spoken-cues-finish-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-curtain-reserv-6131b-ntil-all-spoken-cues-finish-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                    "column": 147,
+                    "line": 139
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-8aeaa4cca5b5e25e6da9",
+          "file": "story-voice.spec.ts",
+          "line": 133,
+          "column": 1
+        },
+        {
+          "title": "result replay speaks the selected variant, seeks and closes without writing the completed run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5672,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T03:07:28.291Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-5b494e4764a6b0215681",
+          "file": "story-voice.spec.ts",
+          "line": 143,
+          "column": 1
+        },
+        {
+          "title": "restored v1 through v4 do not request new v5 speech assets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16222,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T03:07:34.163Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-71fa76ce70ecf726ddc9",
+          "file": "story-voice.spec.ts",
+          "line": 156,
+          "column": 1
+        },
+        {
+          "title": "full: all five ending epilogues play their matching local speech",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16866,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T03:07:50.448Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-a7ca6af1f6c08beafa06",
+          "file": "story-voice.spec.ts",
+          "line": 168,
+          "column": 46
+        },
+        {
+          "title": "guided: all five ending epilogues play their matching local speech",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 21977,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:57:173)\n    at start (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:63:8)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:173:45",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                      "column": 173,
+                      "line": 57
+                    },
+                    "snippet": "  55 | const voices=(p:Page)=>media(p).then(items=>items.filter(item=>item.src?.includes('/audio/voice-v5/')));\n  56 | async function active(p:Page,src?:string){\n> 57 |  try{await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>(!src||item.src===src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);}\n     |                                                                                                                                                                             ^\n  58 |  catch(error){throw new Error(JSON.stringify({expectedSrc:src,media:await media(p),runtime:await runtime(p).getAttribute('data-state'),message:await runtime(p).textContent()}),{cause:error});}\n  59 |  return (await voices(p)).find(item=>(!src||item.src===src)&&!item.paused)!;\n  60 | }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                        "column": 173,
+                        "line": 57
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  55 | const voices=(p:Page)=>media(p).then(items=>items.filter(item=>item.src?.includes('/audio/voice-v5/')));\n  56 | async function active(p:Page,src?:string){\n> 57 |  try{await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>(!src||item.src===src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);}\n     |                                                                                                                                                                             ^\n  58 |  catch(error){throw new Error(JSON.stringify({expectedSrc:src,media:await media(p),runtime:await runtime(p).getAttribute('data-state'),message:await runtime(p).textContent()}),{cause:error});}\n  59 |  return (await voices(p)).find(item=>(!src||item.src===src)&&!item.paused)!;\n  60 | }\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:57:173)\n    at start (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:63:8)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:173:45"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T03:08:07.377Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-guided-all-fiv-ddf2b-their-matching-local-speech-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-guided-all-fiv-ddf2b-their-matching-local-speech-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                    "column": 173,
+                    "line": 57
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-3b49e80620955c42f5f6",
+          "file": "story-voice.spec.ts",
+          "line": 168,
+          "column": 46
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-27T03:02:55.544Z",
+    "duration": 336478.658,
+    "expected": 12,
+    "skipped": 0,
+    "unexpected": 10,
+    "flaky": 0
+  }
+}

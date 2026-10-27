@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-26",
+  "updatedAt": "2026-10-27",
   "projectName": "影作·一幕团圆",
   "projectRoot": ".",
   "competitionGroup": "零组",
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T37_verified",
-  "activeTaskId": null,
-  "lastVerifiedCommit": "84772176d49644e97c30cf5e755e94d8890e6d38",
+  "stage": "T38_in_progress",
+  "activeTaskId": "T38",
+  "lastVerifiedCommit": "cb2f73b6db92b532e615c55d9ef905037a9f6586",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -1739,6 +1739,49 @@
         "新主矩阵宽窄84/84一次通过；旧版/教学首轮26/30，明确旧测试自动操偶教学与暂停基线后4条复验通过，含重拍的最后6/6。114唯一用例最新观察通过，不是默认全套一次全绿。",
         "四次选择及同事务派生/JSON恢复/结果重演、刷新返回自动播、主动暂停/模式/失败/迟到资源、后台初始化与教学归还意图已验；8张稳定原生截图及独立只读审查通过。",
         "旧v1-v4、原人物场景/音频、用户DOCX/PPTX及25历史工作树保留；主目录核对无配音冲突。实际设备/IE/原生全长/听感与既有正式审看缺口保留。"
+      ],
+      "phase": "G3"
+    },
+    {
+      "id": "T38",
+      "title": "v5中文分角色台词配音与统一时间编排",
+      "priority": "P0",
+      "status": "in_progress",
+      "dependsOn": [
+        "T37"
+      ],
+      "owner": "codex-root",
+      "branch": "main",
+      "touchFiles": [
+        "src/audio/",
+        "src/content/",
+        "src/domain/story.ts",
+        "src/story/",
+        "src/features/story/",
+        "src/features/result/",
+        "src/app/",
+        "public/audio/voice-v5/",
+        "scripts/",
+        "tests/",
+        "docs/",
+        "credits.html",
+        "AGENTS.md",
+        "package.json",
+        "src/features/credits/"
+      ],
+      "acceptanceRefs": [
+        "T38"
+      ],
+      "checkpointCommit": "cb2f73b6db92b532e615c55d9ef905037a9f6586",
+      "nextAction": "接线及功能验证已交付，补记最长对白、派生选择回顾、五终章、读音和实际设备混音的听感验收后再标done；自然时钟导览整场补验正在运行，见docs/acceptance/t38.md及机器汇总。",
+      "blocker": null,
+      "verification": [
+        "354条原始MP3已生成，18,304,560字节；完整/导览及实际选择派生对白全部登记。",
+        "354 MP3独立全量解码/摘要和16组合×38节点×2节奏=1216编排检查通过。",
+        "52文件627单元、类型/161模块构建、17 ES5 chunks/七入口、81PNG、五版内容及七件展馆资料检查通过。",
+        "浏览器76个唯一用例最新观察通过：桌面选择矩阵41/41，窄屏控制9/9；最终原生26项首轮25/26，逐角色暂停定位后宽窄2/2复验通过，保留全部早轮失败，不称默认全套一次全绿。",
+        "真实MP3/原生媒体覆盖四角色、暂停定位、播放受阻/404重试、混音、教学/保存阻塞、五终章、只读重演及子目录；全新检出清单断点恢复354条通过，源/dist逐字节一致。",
+        "作者确认保持沉香/母亲当前声线与自然语速，对试听页暂无修改意见；不将反馈扩写为完整人工听审。"
       ],
       "phase": "G3"
     }
