@@ -162,3 +162,20 @@ test('restored v1 through v4 do not request new v5 speech assets',async({page})=
  }
  expect(requests).toEqual([]);
 });
+
+// The existing choice-theatre matrix covers every four-decision path in both
+// modes. These native-media checks add each ending's actual spoken source.
+for(const mode of ['full','guided'] as const)test(`${mode}: all five ending epilogues play their matching local speech`,async({page})=>{
+ test.setTimeout(120000);await instrument(page);
+ for(const ending of ['home','light','road','waiting','sacrifice'] as const){
+  const chosen=CHOICE_RUNS.find(candidate=>candidate.ending===ending)!;
+  const id=`ending-${ending}-epilogue` as StoryNodeId;
+  await seed(page,choiceAt(id,chosen,mode));await start(page,id);
+  const node=definition.nodes.find(candidate=>candidate.id===id)!;
+  const cue=(mode==='full'?node.subtitles:node.guidedSubtitles!)[0]!;
+  const clip=catalog().lines.find(line=>line.speaker===cue.speaker&&line.text===cue.text)!;
+  expect(clip).toBeTruthy();await active(page,clip.src);
+  await expect(voiceStatus(page)).toHaveAttribute('data-playing','true');
+  expect((await stored(page)).story).toMatchObject({definitionVersion:5,mode,ending,choices:{journeyIntent:chosen.journeyIntent,mountainPact:chosen.mountainPact,finalAction:chosen.finalAction}});
+ }
+});
