@@ -39,6 +39,19 @@ v5使用354条预生成的本地原始MP3，覆盖完整／导览、合法选择
 
 ## 本地启动与生产预览
 
+仓库已改名为[herspacefly/YingZuo-ZeroCup](https://github.com/herspacefly/YingZuo-ZeroCup)，公开网站为 <https://herspacefly.github.io/YingZuo-ZeroCup/>。本地目录仍可保留原来的`ZeroCup`名称，不需要重新克隆或移动工程。
+
+已有检出只需将远程与跟踪关系更新一次：
+
+```powershell
+git remote set-url origin git@github.com:herspacefly/YingZuo-ZeroCup.git
+git branch --set-upstream-to=origin/main main
+```
+
+GitHub的Settings → Pages → Build and deployment → Source选择 **GitHub Actions**。仓库内`.github/workflows/pages.yml`会在每次main普通push后安装、检查、构建并发布`dist/`，也可从Actions手动运行；不要再发布源码根目录或选择Jekyll模板。日常按原习惯修改、提交、`git push`即可；公开网站在工作流部署成功后更新，进度见[部署工作流](https://github.com/herspacefly/YingZuo-ZeroCup/actions/workflows/pages.yml)。
+
+Vite使用相对base，展馆照片也按部署base解析，同一生产包可用于根路径和项目子目录。公开域名与localhost的浏览器存储互不共享，需要接续本地作品时先导出JSON，再在公开网站导入；服务器不会上传或同步本机IndexedDB。
+
 使用Node.js **24.x**与npm **12.x**，最近验收环境为Node v24.18.1、npm12.0.2，依赖以`package-lock.json`固定。
 
 ```powershell
@@ -113,6 +126,8 @@ npm run test:e2e
 ```
 
 默认配置覆盖1440×900和模拟手机390×844，失败诊断写入`test-results/`，不是实体手机或IE证明。额外尺寸、减少动态／禁WebGL及断外网整场使用`npx playwright test -c playwright.environment.config.ts`单独运行；受控导演时间不证明自然全长或实际FPS。性能和加载测量应单独执行并保存新文件，避免覆盖历史证据，入口与范围见[验收准备表](docs/acceptance/t11-readiness.md)。
+
+Pages生产包回归单独运行`npx playwright test -c playwright.pages.config.ts`，使用4175／4176端口验证根路径、`/YingZuo-ZeroCup/`、宽窄屏、展馆照片／灯箱、原生配音、保存刷新和JSON导出。设置`YINGZUO_PAGES_URL`为公开网站完整地址可复用线上检查；此时不启动本地服务，使用独立浏览器测试上下文，不操作个人浏览器。
 
 最近T38功能检查点为`5eea7a479a3e60522427d0c2e6c9fbd9cac4cbd5`：52文件628单元、类型／161模块构建、17个ES5块／七入口、资源／五版内容／展馆／39任务检查通过；354条配音全量解码和源／产物一致性通过。78个唯一浏览器用例最新观察通过，最终原生媒体矩阵28/28，不能称默认全套一次全绿。自然导览62/62人声触发原生结束事件。以上均为已存档证据，本次说明同步不代表重新执行这些检查，详见[验收](docs/acceptance/t38.md)与[机器汇总](docs/evidence/t38/acceptance.json)。
 

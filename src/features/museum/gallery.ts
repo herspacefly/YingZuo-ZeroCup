@@ -4,6 +4,8 @@ import type { MuseumMedia } from '../../content/museum-media';
 import { append, element, link, scope } from '../shared/dom';
 
 export const museumMedia = parseMuseumMedia(document);
+/** Manifest paths identify public files; resolve them beneath this deployment. */
+export const museumImageUrl = (media: Pick<MuseumMedia, 'localPath'>): string => `${import.meta.env.BASE_URL}${media.localPath.replace(/^\/+/, '')}`;
 export function museumCover(exhibitId: string): MuseumMedia | undefined {
   const ids = museumMedia.exhibits.find(row => row.exhibitId === exhibitId)?.mediaIds ?? [];
   return museumMedia.media.find(row => ids.includes(row.id) && row.kind === 'external') ?? museumMedia.media.find(row => row.id === ids[0]);
@@ -25,8 +27,8 @@ function imageView(media: MuseumMedia, eager = false) {
   let attempts = 0;
   life.on(image, 'error', () => { image.hidden = true; status.hidden = false; status.textContent = '这幅图片暂时未能载入。可以重试，图注与原页面仍可阅读。'; retry.hidden = false; });
   life.on(image, 'load', () => { image.hidden = false; status.hidden = true; retry.hidden = true; });
-  life.on(retry, 'click', () => { image.hidden = false; status.hidden = false; status.textContent = '正在重新载入图片…'; retry.hidden = true; attempts += 1; image.src = `${media.localPath}?retry=${attempts}`; });
-  image.src = media.localPath; append(box, image, status, retry);
+  life.on(retry, 'click', () => { image.hidden = false; status.hidden = false; status.textContent = '正在重新载入图片…'; retry.hidden = true; attempts += 1; image.src = `${museumImageUrl(media)}?retry=${attempts}`; });
+  image.src = museumImageUrl(media); append(box, image, status, retry);
   return { box, image, dispose: () => { life.dispose(); image.removeAttribute('src'); } };
 }
 

@@ -6,7 +6,7 @@ import sources from '../../content/sources.json';
 import type { PageFactory } from '../../app/view';
 import { mountMuseumDemo } from './demos';
 import { mountMuseumEnsemble } from './ensemble';
-import { mountMuseumGallery, museumCover, museumMedia } from './gallery';
+import { mountMuseumGallery, museumCover, museumMedia, museumImageUrl } from './gallery';
 import '../../styles/museum-gallery.css';
 
 const factLabels={culture:'工艺与剧目资料',model:'交互示意',original:'本作原创'};
@@ -36,7 +36,7 @@ export const mountMuseum:PageFactory=(host,ctx)=>{
     append(host,path);
     const hero=element('section','museum-hero'),copy=element('div','museum-hero-copy'),photo=element('figure','museum-hero-photo');
     const cover=museumMedia.media.find(item=>item.kind==='external'&&item.region.includes('唐山'))??museumMedia.media.find(item=>item.kind==='external')!;
-    const image=element('img');image.src=cover.localPath;image.alt=cover.alt;image.width=cover.width;image.height=cover.height;image.decoding='async';
+    const image=element('img');image.src=museumImageUrl(cover);image.alt=cover.alt;image.width=cover.width;image.height=cover.height;image.decoding='async';
     const fallback=element('p','museum-hero-fallback','照片暂未载入，可从下方展区继续阅读。');fallback.hidden=true;life.on(image,'error',()=>{image.hidden=true;fallback.hidden=false;});
     const caption=element('figcaption');append(caption,element('span','',`${cover.region} · ${cover.originalCaption}`));
     if(cover.sourcePage){const source=link('资料出处 ↗',cover.sourcePage);source.target='_blank';source.rel='noopener noreferrer';caption.appendChild(source);}
@@ -96,7 +96,7 @@ export const mountMuseum:PageFactory=(host,ctx)=>{
       const a=link('',`#/museum/${exhibit.id}`,'exhibit-link'),copy=element('span','exhibit-copy'),seen=element('span','museum-seen');
       a.setAttribute('data-exhibit',exhibit.id);if(selected?.id===exhibit.id)a.setAttribute('aria-current','page');
       const cover=museumCover(exhibit.id);
-      if(cover){const image=element('img','exhibit-thumbnail');image.alt='';image.loading='lazy';image.decoding='async';image.width=66;image.height=82;image.src=cover.localPath;life.on(image,'error',()=>{image.hidden=true;});a.appendChild(image);}
+      if(cover){const image=element('img','exhibit-thumbnail');image.alt='';image.loading='lazy';image.decoding='async';image.width=66;image.height=82;image.src=museumImageUrl(cover);life.on(image,'error',()=>{image.hidden=true;});a.appendChild(image);}
       append(copy,element('span','exhibit-title',exhibit.title),element('span','exhibit-question',exhibit.question));seenLabels.set(exhibit.id,seen);
       append(a,element('span','exhibit-id',exhibit.id),copy,seen,element('span','exhibit-arrow','↗'));list.appendChild(a);
     }

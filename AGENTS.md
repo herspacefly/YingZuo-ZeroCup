@@ -4,6 +4,8 @@
 
 ## 固定上下文
 
+- 2026-10-27作者追加T39：远程仓库改名为`herspacefly/YingZuo-ZeroCup`，origin使用`git@github.com:herspacefly/YingZuo-ZeroCup.git`，本地目录不搬迁。main普通git push触发Actions检查、构建并部署dist，公开地址`https://herspacefly.github.io/YingZuo-ZeroCup/`；保留相对base并验证根／子目录资源。Pages后台点击由作者自行操作，当前不使用computer use。执行`docs/plans/2026-10-27-pages-deployment.md`，上线不代表T10/T11/T13/T14或T38听感验收通过。
+
 - 2026-10-27作者追加T38：仅v5增加旁白Yunyang、沉香Yunxia、母亲Xiaoxiao、二郎神Yunjian中文本地配音；保留自然语速与服务原始MP3，按实测时长扩展完整/导览、合法派生台词与五终章、成果重演。配音开关独立于音乐，沿用唯一时钟，谢幕对白后再唱；旧v1—v4与存档结构不变。见`docs/plans/2026-10-27-theatre-voice.md`，机器播放检查与人耳听感分别验收；T38仍由账本记录实际状态。
 
 - 2026-10-26作者追加T37：新开演v5为四次累计选择决定五终章，保留旧v1—v4；二郎神杖按斧的下段握持与受限手腕标准；可见剧场首次进入、刷新、返回与切章自动开演。同页主动暂停/重开/切节奏、失焦/错误撤销播放，回焦不复活。见`docs/plans/2026-10-26-theatre-choices-and-autoplay.md`及`docs/contracts/story-v5.md`。本条替代T34的刷新/返回默认暂停规则，配音冲突时暂停报告。

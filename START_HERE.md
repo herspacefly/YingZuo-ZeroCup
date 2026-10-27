@@ -2,6 +2,8 @@
 
 更新：2026-10-27。本队参加2026年零杯**零组**，主题为“匠心传成，非遗焕新”，比赛信息以开幕式PPT为准。作品据传统故事《劈山救母》原创交互改编，以互动皮影戏与数字展馆为核心，旧单偶工坊不是当前范围。
 
+远程仓库现为`git@github.com:herspacefly/YingZuo-ZeroCup.git`，公开地址 <https://herspacefly.github.io/YingZuo-ZeroCup/>；本地目录名称不变。main跟踪origin/main，每次git push后由[Pages工作流](.github/workflows/pages.yml)检查、构建并部署dist，后台Source应选择GitHub Actions。配置和验证范围见[T39方案](docs/plans/2026-10-27-pages-deployment.md)，部署与正式艺术／听感／设备验收分开记录。
+
 ## 当前实现
 
 推荐体验：故事缘起 → 为沉香制偶 → 调灯 → 练习 → 正式演出 → 留影成果 → 五区七展签。展馆可直接进入，无需通关。沉香是唯一可定制和操控角色，母亲、二郎神用脚本有限动作，同屏最多两角色；Canvas 2D完整覆盖故事与展馆，Three.js增强空间与材料。

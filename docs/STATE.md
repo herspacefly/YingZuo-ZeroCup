@@ -1,3 +1,9 @@
+# T39 当前交接（2026-10-27）
+
+接续main@dff1544；origin已更新YingZuo-ZeroCup，main跟踪origin/main。本轮按用户要求设置Actions构建发布dist并修复展馆图片子目录路径，后台点击由用户自行完成，当前不使用computer use。类型/628单元/构建/ES5/资源/五版内容/配音与40任务检查通过，生产包根／子目录宽窄12/12通过；远程部署与公开网站待核，T39仍in_progress。先读[验收](acceptance/t39.md)及[方案](plans/2026-10-27-pages-deployment.md)。T38听感与原有正式审看、设备、性能和交付状态不提升。
+
+以下为历史交接。
+
 # T38 当前交接（2026-10-27）
 
 v5中文分角色配音制作、接线与功能核验已交付；T38仍为in_progress，待听感验收补证。接续main@319ad93，已核验实现/测试检查点 **5eea7a479a3e60522427d0c2e6c9fbd9cac4cbd5**，最后应用代码变更5eea7a479a3e60522427d0c2e6c9fbd9cac4cbd5；Node24.18.1/npm12.0.2。先读[验收](acceptance/t38.md)、[机器汇总](evidence/t38/acceptance.json)、[方案](plans/2026-10-27-theatre-voice.md)及[试听页](evidence/t38/listen.html)。生产预览http://127.0.0.1:4173/与最终dist保留，未推送。

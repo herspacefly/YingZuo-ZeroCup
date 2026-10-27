@@ -7,8 +7,8 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T38_in_progress",
-  "activeTaskId": "T38",
+  "stage": "T39_in_progress",
+  "activeTaskId": "T39",
   "lastVerifiedCommit": "5eea7a479a3e60522427d0c2e6c9fbd9cac4cbd5",
   "features": {
     "singlePuppetRecording": "planned_optional",
@@ -1783,6 +1783,41 @@
         "真实MP3/原生媒体覆盖四角色、暂停定位、播放受阻/资源失败重试、混音、教学/保存阻塞、五终章、只读重演及子目录；全新检出清单断点恢复354条通过，源/dist逐字节一致。",
         "自然导览首轮揭示标称时长到点停声问题，已修正；最终自然时钟导览572.451秒走完23节点/四选择/谢幕，62/62句原生ended、零音频错误，记录一次停顿保护并显式恢复。该观察不替代人耳听感或完整模式自然全长。",
         "作者确认保持沉香/母亲当前声线与自然语速，对试听页暂无修改意见；不将反馈扩写为完整人工听审。"
+      ],
+      "phase": "G3"
+    },
+    {
+      "id": "T39",
+      "title": "仓库改名与GitHub Pages连续部署",
+      "priority": "P0",
+      "status": "in_progress",
+      "dependsOn": [
+        "T36",
+        "T37"
+      ],
+      "owner": "codex-root",
+      "branch": "main",
+      "touchFiles": [
+        ".github/workflows/pages.yml",
+        "src/features/museum/",
+        "playwright.pages.config.ts",
+        "tests/deployment/",
+        "docs/",
+        "README.md",
+        "START_HERE.md",
+        "AGENTS.md"
+      ],
+      "acceptanceRefs": [
+        "T39"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "普通提交并直接git push，核对远程Actions及公开网站；Pages后台Source由用户切换GitHub Actions。",
+      "blocker": null,
+      "verification": [
+        "origin改为新SSH地址，main继续跟踪origin/main；本地目录及历史工作树保留。",
+        "52文件628单元、类型/161模块构建、17ES5块七入口、81PNG/五版内容/七展签/40任务通过。",
+        "354配音源/dist摘要及1216编排通过；本轮未重复FFmpeg解码。",
+        "根路径/项目子目录×宽窄最终12/12通过；首轮8/12因新灯影测试选择器错误，保留报告并修正测试后复验，产品灯影代码未改。"
       ],
       "phase": "G3"
     }

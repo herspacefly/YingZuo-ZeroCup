@@ -1,0 +1,713 @@
+{
+  "config": {
+    "argv": [
+      "E:\\Software_after2026\\nodejs\\node.exe",
+      "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "-c",
+      "playwright.pages.config.ts"
+    ],
+    "configFile": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\playwright.pages.config.ts",
+    "rootDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/deployment",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "root-desktop",
+        "name": "root-desktop",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/deployment",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "root-mobile",
+        "name": "root-mobile",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/deployment",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "pages-desktop",
+        "name": "pages-desktop",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/deployment",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "pages-mobile",
+        "name": "pages-mobile",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/deployment",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "root-desktop",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "trace": "retain-on-failure",
+          "reducedMotion": "reduce",
+          "launchOptions": {
+            "args": [
+              "--enable-unsafe-swiftshader"
+            ]
+          },
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium",
+          "baseURL": "http://127.0.0.1:4175/"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "root-desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "root-mobile",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "trace": "retain-on-failure",
+          "reducedMotion": "reduce",
+          "launchOptions": {
+            "args": [
+              "--enable-unsafe-swiftshader"
+            ]
+          },
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium",
+          "baseURL": "http://127.0.0.1:4175/"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "root-mobile"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "pages-desktop",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "trace": "retain-on-failure",
+          "reducedMotion": "reduce",
+          "launchOptions": {
+            "args": [
+              "--enable-unsafe-swiftshader"
+            ]
+          },
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium",
+          "baseURL": "http://127.0.0.1:4176/YingZuo-ZeroCup/"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "pages-desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "pages-mobile",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "trace": "retain-on-failure",
+          "reducedMotion": "reduce",
+          "launchOptions": {
+            "args": [
+              "--enable-unsafe-swiftshader"
+            ]
+          },
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium",
+          "baseURL": "http://127.0.0.1:4176/YingZuo-ZeroCup/"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "pages-mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/t39/local-browser.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "pages.spec.ts",
+      "file": "pages.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "production entry, fonts, museum thumbnails and enlarged photos stay within the deployment directory",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root-desktop",
+              "projectName": "root-desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1071,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T08:25:10.340Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-74b6a998a53b8cdc1fe1",
+          "file": "pages.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "saved colors, JSON export and native v5 voice work after a project-directory refresh",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root-desktop",
+              "projectName": "root-desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3508,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T08:25:11.527Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-d0ca410d8c75998a11d9",
+          "file": "pages.spec.ts",
+          "line": 46,
+          "column": 1
+        },
+        {
+          "title": "lamp workshop loads its lazy Three module and keeps a working two-dimensional alternative",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root-desktop",
+              "projectName": "root-desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1184,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T08:25:15.052Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-62e63e0597e775dc6330",
+          "file": "pages.spec.ts",
+          "line": 78,
+          "column": 1
+        },
+        {
+          "title": "production entry, fonts, museum thumbnails and enlarged photos stay within the deployment directory",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root-mobile",
+              "projectName": "root-mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1049,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T08:25:16.789Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-427ba46e7cd95282cfe1",
+          "file": "pages.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "saved colors, JSON export and native v5 voice work after a project-directory refresh",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root-mobile",
+              "projectName": "root-mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3268,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T08:25:17.953Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-2b5e0684c885d05c42ba",
+          "file": "pages.spec.ts",
+          "line": 46,
+          "column": 1
+        },
+        {
+          "title": "lamp workshop loads its lazy Three module and keeps a working two-dimensional alternative",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "root-mobile",
+              "projectName": "root-mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1622,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T08:25:21.247Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-043fbe93514a799cfee0",
+          "file": "pages.spec.ts",
+          "line": 78,
+          "column": 1
+        },
+        {
+          "title": "production entry, fonts, museum thumbnails and enlarged photos stay within the deployment directory",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pages-desktop",
+              "projectName": "pages-desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1442,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T08:25:23.509Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-9ed185ffb14c833c82f2",
+          "file": "pages.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "saved colors, JSON export and native v5 voice work after a project-directory refresh",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pages-desktop",
+              "projectName": "pages-desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4424,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T08:25:25.083Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-385af4c5756c8745b14d",
+          "file": "pages.spec.ts",
+          "line": 46,
+          "column": 1
+        },
+        {
+          "title": "lamp workshop loads its lazy Three module and keeps a working two-dimensional alternative",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pages-desktop",
+              "projectName": "pages-desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1425,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T08:25:29.521Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-addfd6ebde322a0bea92",
+          "file": "pages.spec.ts",
+          "line": 78,
+          "column": 1
+        },
+        {
+          "title": "production entry, fonts, museum thumbnails and enlarged photos stay within the deployment directory",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pages-mobile",
+              "projectName": "pages-mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3342,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T08:25:31.484Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-e1f6bc13501eacc9fc16",
+          "file": "pages.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "saved colors, JSON export and native v5 voice work after a project-directory refresh",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pages-mobile",
+              "projectName": "pages-mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 13493,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T08:25:34.967Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-a11497e8864a7e4b8bc3",
+          "file": "pages.spec.ts",
+          "line": 46,
+          "column": 1
+        },
+        {
+          "title": "lamp workshop loads its lazy Three module and keeps a working two-dimensional alternative",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "pages-mobile",
+              "projectName": "pages-mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4308,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T08:25:48.500Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-81344953365ebcd4a074",
+          "file": "pages.spec.ts",
+          "line": 78,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-27T08:25:08.112Z",
+    "duration": 46082.460999999996,
+    "expected": 12,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
