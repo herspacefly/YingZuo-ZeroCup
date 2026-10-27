@@ -3,6 +3,7 @@ import { defaultAppearance } from './defaults';
 import type { ProjectV1, StoryProgress, StoryVersion } from './types';
 import { resolveEnding } from './story-choices';
 import { presentChoiceDialogue } from '../content/choice-dialogue';
+import { arrangeVoiceNode } from '../content/voice-arrangement';
 import type { Completion, InteractionEvidence, StoryCommand, StoryContext, StoryDefinition, StoryGuard, StoryNode } from './story-types';
 import { ENDING_IDS } from './story-path';
 
@@ -27,11 +28,11 @@ export function currentStoryNode(definition: StoryDefinition,story: StoryProgres
   if(story.definitionVersion!==1&&story.ending&&['curtain','completed'].includes(story.nodeId)){
     const ending=definition.endings?.find(item=>item.id===story.ending),presentation=definition.nodes.find(n=>n.id===ending?.epilogueNodeId);
     requireFact(presentation,'剧本缺少本场终章构图。');
-    return {...node!,prerequisites:{...node!.prerequisites,ending:story.ending},actors:presentation!.actors,entryPoses:presentation!.entryPoses,entryStage:presentation!.entryStage,
+    return arrangeVoiceNode({...node!,prerequisites:{...node!.prerequisites,ending:story.ending},actors:presentation!.actors,entryPoses:presentation!.entryPoses,entryStage:presentation!.entryStage,
       entrySceneLayers:presentation!.entrySceneLayers,entryAttachments:presentation!.entryAttachments,
-      assetIds:[...new Set([...node!.assetIds,...presentation!.assetIds])]};
+      assetIds:[...new Set([...node!.assetIds,...presentation!.assetIds])]},story.definitionVersion);
   }
-  return presentChoiceDialogue(node!,story);
+  return arrangeVoiceNode(presentChoiceDialogue(node!,story),story.definitionVersion);
 }
 function evidencePasses(completion: Completion,evidence: InteractionEvidence): boolean {
   if(completion.kind!==evidence.kind)return false;

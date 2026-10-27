@@ -1,6 +1,8 @@
 import { definitionFor } from '../content/reunion';
 import { subtitlesForMode } from '../content/story-contract';
 import {presentChoiceDialogue} from '../content/choice-dialogue';
+import {arrangeVoiceNode,voiceCuesForNode} from '../content/voice-arrangement';
+import type {VoiceCue} from '../content/voice-arrangement';
 import {choiceSummary} from '../domain/story-choices';
 import { reunionSummary, storyGuard } from '../domain/story';
 import type { StoryNode } from '../domain/story-types';
@@ -20,6 +22,7 @@ export interface ReunionReplaySample {
   cues: StoryNode['subtitles'];
   allCues: StoryNode['subtitles'];
   seekCues: StoryNode['subtitles'];
+  voiceCues: readonly VoiceCue[];
   lightLevel: number;
   shotLabel: string;
   ended: boolean;
@@ -44,7 +47,7 @@ export function createReunionReplay(project: ProjectV1) {
     let node = definition.nodes.find(item => item.id === id);
     if(node && id==='curtain' && story.definitionVersion!==1){const end=definition.endings!.find(e=>e.id===story.ending)!;const pose=definition.nodes.find(n=>n.id===end.epilogueNodeId)!;node={...node,entryPoses:copy(pose.entryPoses),entryStage:copy(pose.entryStage),entrySceneLayers:copy(pose.entrySceneLayers),entryAttachments:copy(pose.entryAttachments),assetIds:[...new Set([...node.assetIds,...pose.assetIds])],prerequisites:{...node.prerequisites,ending:story.ending}};}
     if (!node) throw new RangeError('重演剧本缺少当前片段。');
-    node=presentChoiceDialogue(node,story);nodes.push(node);
+    node=arrangeVoiceNode(presentChoiceDialogue(node,story),story.definitionVersion);nodes.push(node);
     if (id === 'curtain') break;
     if (!node.next) throw new RangeError('重演剧本尚未到达谢幕。');
     id = 'default' in node.next ? node.next.default : (node.next as Record<string,StoryNodeId>)[node.id==='ending-choice'?summary.ending!:summary.approach]!;
@@ -82,7 +85,7 @@ export function createReunionReplay(project: ProjectV1) {
       const decision=story.definitionVersion===5&&decisionIndex>=0?choiceSummary(story)[decisionIndex]:null;
       const label = decision?`本场决定 · ${decision.value}`:node.id === 'craft' ? '制偶回看 · 本场冻结造型' : node.id === 'approach-choice'
         ? summary.approach === 'call-first' ? '本场路线 · 先呼唤母亲' : '本场路线 · 先劈开山石' : sampled.shotLabel;
-      return { frame: sampled.frame, cues: copy(sampled.cues), allCues: copy(scene.allCues),seekCues:subtitlesForMode(node,story.mode), lightLevel: sampled.lightLevel,
+      return { frame: sampled.frame, cues: copy(sampled.cues), allCues: copy(scene.allCues),seekCues:subtitlesForMode(node,story.mode),voiceCues:voiceCuesForNode(node,story.mode,story.definitionVersion), lightLevel: sampled.lightLevel,
         shotLabel: label, ended: elapsed >= director.durationMs };
     },
   };

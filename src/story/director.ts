@@ -2,6 +2,7 @@ import { spatialPresentation } from './spatial-presentation';
 import { assetCatalog } from '../content/catalog';
 import type { PuppetTemplate, RenderActor } from '../content/asset-types';
 import { subtitlesForMode } from '../content/story-contract';
+import { arrangeVoiceNode, authoredVoiceNode, voiceVisualTime } from '../content/voice-arrangement';
 import { actionDefinitions, sampleAction } from '../domain/actions';
 import { constrainPoseToStage } from '../domain/pose';
 import type { storyEntry } from '../domain/story';
@@ -47,7 +48,7 @@ export function createSceneDirector(project: ProjectV1, entry: ReturnType<typeof
     entry.guard.expectedNodeId !== story.nodeId || entry.node.id !== story.nodeId) {
     throw new RangeError('导演入口与当前剧情检查点不一致。');
   }
-  const node = clone(entry.node), mode = story.mode;
+  const node = clone(arrangeVoiceNode(entry.node,story.definitionVersion)), mode = story.mode;
   const appearance = clone(story.castSnapshot?.appearance ?? project.appearance);
   const costumeTreatment=story.definitionVersion>=4?'original-texture' as const:'legacy-motif' as const;
   const sharedMotif = story.castSnapshot?.sharedMotif ?? appearance.patternId;
@@ -71,12 +72,13 @@ export function createSceneDirector(project: ProjectV1, entry: ReturnType<typeof
       // Subtitles use the real mode time, even when motion is sampled as still storyboards.
       const cues = allCues.filter(cue => cue.startMs <= elapsed &&
         (elapsed < cue.endMs || elapsed === durationMs && cue.endMs === durationMs));
-      const beats=(visualBeats[node.id]??node.subtitles.map(cue=>cue.startMs)).map(time=>node.fullTiming.targetMs?time/node.fullTiming.targetMs*durationMs:0);
-      const stillTime = reducedMotion && elapsed < durationMs
-        ? beats.filter(time=>time<=elapsed).reduce((time,beat)=>Math.max(time,beat),0)
-        : elapsed;
-      const fullTime = durationMs > 0 ? stillTime / durationMs * node.fullTiming.targetMs : 0;
-      const progress = durationMs > 0 ? stillTime / durationMs : 0;
+      const visualNode=story.definitionVersion===5?authoredVoiceNode(node.id):node;
+      const visualElapsed=story.definitionVersion===5?voiceVisualTime(node.id,mode,elapsed):durationMs>0?elapsed/durationMs*node.fullTiming.targetMs:0;
+      const beats=visualBeats[node.id]??visualNode.subtitles.map(cue=>cue.startMs);
+      const fullTime = reducedMotion && elapsed < durationMs && visualElapsed < visualNode.fullTiming.targetMs
+        ? beats.filter(time=>time<=visualElapsed).reduce((time,beat)=>Math.max(time,beat),0)
+        : visualElapsed;
+      const progress = visualNode.fullTiming.targetMs>0?fullTime/visualNode.fullTiming.targetMs:0;
       const stage = clone(node.entryStage);
       const layers = clone(node.entrySceneLayers);
       let lightLevel = 1, showRods = false, shotLabel = node.title;
