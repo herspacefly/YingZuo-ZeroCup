@@ -53,7 +53,7 @@ export const mountResult:PageFactory=(host,ctx)=>{
   life.on(replayButton,'click',()=>{
     if(replayButton.disabled||!project)return;
     if(replay){closeReplay();return;}
-    try{replay=mountReunionReplay(replaySlot,project);replay.setBlocked(blocked);replayButton.textContent='收起编排重演';replayButton.setAttribute('aria-expanded','true');}
+    try{replay=mountReunionReplay(replaySlot,project,ctx.audio);replay.setBlocked(blocked);replayButton.textContent='收起编排重演';replayButton.setAttribute('aria-expanded','true');}
     catch(error){clear(replaySlot);operation.textContent='重演未启动：'+message(error);}
   });
   return {

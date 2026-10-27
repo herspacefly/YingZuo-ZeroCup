@@ -18,7 +18,8 @@
     "verify:assets": "node scripts/verify-assets.mjs",
     "verify:content": "node scripts/verify-content.mjs",
     "verify:legacy": "node scripts/verify-legacy.mjs",
-    "verify:museum": "node scripts/verify-museum-media.mjs"
+    "verify:museum": "node scripts/verify-museum-media.mjs",
+    "verify:voice": "node scripts/verify-voice.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.64.1",

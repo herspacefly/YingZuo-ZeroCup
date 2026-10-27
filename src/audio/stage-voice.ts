@@ -90,7 +90,9 @@ export function createStageVoice(onStatus: (status: StageVoiceStatus) => void, o
       on('loadedmetadata', () => { if (matches(item)) try { align(item, true); } catch (error) { fail(error); } else silenceLate(item); });
       on('playing', () => {
         if (!wants(item)) { silenceLate(item); return; }
-        try { align(item, true); report('enabled', true, '中文配音播放中。'); } catch (error) { fail(error); }
+        // A seek itself emits another native playing event. Only correct real
+        // drift here; forcing currentTime would create a seek/playing loop.
+        try { align(item); report('enabled', true, '中文配音播放中。'); } catch (error) { fail(error); }
       });
       on('waiting', () => { if (wants(item)) report('loading', false, '正在载入中文配音；字幕和画面继续。'); });
       on('pause', () => { if (matches(item)) report(enabled ? 'enabled' : 'muted', false, enabled ? '中文配音已暂停。' : '中文配音已关闭。'); });

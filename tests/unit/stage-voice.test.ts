@@ -62,6 +62,15 @@ describe('clock-following local dialogue audio', () => {
     voice.update(sample(550, true)); expect(players).toHaveLength(1); expect(item.calls.plays).toBe(2); expect(item.media.currentTime).toBe(.55);
     voice.dispose();
   });
+  it('does not seek again on playing after a native seek, and explicit seek can replay an ended cue', async () => {
+    const { voice, players } = setup(); voice.update(sample(350)); await voice.enable();
+    const item=players[0]!,seeks=item.calls.seeks;
+    item.emit('playing');item.emit('waiting');item.emit('playing');
+    expect(item.calls.seeks).toBe(seeks);
+    item.emit('ended');voice.seek(sample(350));
+    expect(players).toHaveLength(2);expect(players[1]!.media.currentTime).toBe(.35);
+    expect(players[1]!.audible).toBe(true);voice.dispose();
+  });
   it('stops at clip duration, leaves the subtitle tail silent, and selects the next speaker only on the director cue', async () => {
     const { voice, players } = setup(); voice.update(sample()); await voice.enable(); const first = players[0]!;
     voice.update(sample(1200)); expect(first.audible).toBe(false); expect(first.media.src).toBe('');

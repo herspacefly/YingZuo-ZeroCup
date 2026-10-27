@@ -63,6 +63,10 @@ let lastPointerActivation=-Infinity;
 const pointerActivation=typeof window.PointerEvent==='function'?'pointerup':'touchend';
 const unlockAudio=(event:Event)=>{
   if(!event.isTrusted)return;
+  // These controls own their retry/mute decision in the same trusted click.
+  // An earlier capture-phase retry would change the state before that decision.
+  let voiceTarget=event.target as HTMLElement|null;
+  while(voiceTarget&&voiceTarget!==document.body){if(/^(story|replay)-voice-toggle$/.test(voiceTarget.id))return;voiceTarget=voiceTarget.parentElement;}
   if(event instanceof KeyboardEvent&&(event.ctrlKey||event.metaKey||event.altKey||['Shift','Control','Alt','Meta','Escape','Tab'].includes(event.key)))return;
   const now=performance.now();
   if(event.type==='click'&&now-lastPointerActivation<500)return;

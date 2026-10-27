@@ -1,3 +1,5 @@
+import type { StageAudioSession } from '../../audio/stage-session';
+import { mountVoiceControls } from '../shared/voice-controls';
 import { createAnimationClock } from '../../app/animation-clock';
 import type { ProjectV1 } from '../../domain/types';
 import type { CueSeek } from '../../story/cue-seek';
@@ -7,7 +9,7 @@ import { append,element,scope } from '../shared/dom';
 import { mountSubtitles } from '../story/subtitles';
 
 /** Read-only player. It owns one clock and has no Store or story-command reference. */
-export function mountReunionReplay(host:HTMLElement,project:ProjectV1){
+export function mountReunionReplay(host:HTMLElement,project:ProjectV1,audio?:StageAudioSession){
   const life=scope(),replay=createReunionReplay(project),root=element('section','result-replay');root.id='result-replay-player';
   const title=element('h2','','按本场编排再演'),intro=element('p','quiet-note','重看已选路线与终章。播放、暂停或定位片段，都不会改变原场进度。');
   const stage=canvasStage('重看这一场；这里的播放不会改变你的演出。'),panel=element('div','control-panel'),layout=element('div','workspace');
@@ -20,6 +22,7 @@ export function mountReunionReplay(host:HTMLElement,project:ProjectV1){
   for(const [button,id]of [[play,'play'],[pause,'pause'],[reset,'reset'],[previous,'previous'],[next,'next'],[step,'step']] as const){button.type='button';button.id=`replay-${id}`;transport.appendChild(button);}
   const motionNote=element('p','quiet-note');append(panel,chooseLabel,status,shot,cueHost,transport,motionNote);append(layout,stage.figure,panel);append(root,title,intro,layout);host.appendChild(root);
   let disposed=false,index=0,elapsed=0,playing=false,blocked=false,ready=false,message='已就绪后可播放；默认暂停。';
+  const voiceControls=mountVoiceControls(panel,audio,'replay');voiceControls.setVisible(project.story?.definitionVersion===5);
   let captionSample:ReturnType<typeof replay.sample>|null=null;
   const media=window.matchMedia?.('(prefers-reduced-motion: reduce)');let reduced=media?.matches??false;
   const clock=createAnimationClock({request:cb=>requestAnimationFrame(cb),cancel:id=>cancelAnimationFrame(id),now:()=>performance.now()},delta=>{
@@ -34,19 +37,20 @@ export function mountReunionReplay(host:HTMLElement,project:ProjectV1){
     status.textContent=`片段 ${index+1}/${replay.segments.length} · ${(elapsed/1000).toFixed(1)} 秒 · ${playing?'播放中':'已暂停'}。${message}`;
     if(captionSample)subtitles.update(captionSample.cues,captionSample.allCues,String(index),{mode:project.story!.mode,cues:captionSample.seekCues,elapsedMs:elapsed,enabled:!blocked&&ready});
   }
-  function stop(text?:string){playing=false;clock.stop();if(text)message=text;controls();}
+  function stop(text?:string){playing=false;clock.stop();syncVoice();if(text)message=text;controls();}
+  function syncVoice(){const segment=replay.segments[index];if(project.story?.definitionVersion!==5||!captionSample||!segment)return;audio?.setVoice({token:`replay:${project.projectId}:${project.story.runId}:${index}`,elapsedMs:elapsed,playing:playing&&ready&&!blocked,cues:captionSample.voiceCues},{nodeId:segment.id,mode:project.story.mode,definitionVersion:5,elapsedMs:elapsed,playing:playing&&ready&&!blocked});}
   function draw(){
     if(disposed)return;
-    try{const sample=replay.sample(index,elapsed,reduced);captionSample=sample;stage.update(sample.frame);shot.textContent=sample.shotLabel;stage.screen.style.opacity=String(sample.lightLevel);controls();}
+    try{const sample=replay.sample(index,elapsed,reduced);captionSample=sample;stage.update(sample.frame);shot.textContent=sample.shotLabel;stage.screen.style.opacity=String(sample.lightLevel);syncVoice();controls();}
     catch(error){stop(`无法显示这段编排：${error instanceof Error?error.message:String(error)}`);}
   }
   function seek(request:CueSeek){
     if(disposed||blocked||!ready||request.nodeToken!==String(index)||request.mode!==project.story!.mode||!Number.isInteger(request.cueIndex)||request.cueIndex<0)return;
     const cue=replay.sample(index,elapsed,reduced).seekCues[request.cueIndex];if(!cue)return;
-    const resume=playing;clock.stop();elapsed=cue.startMs;message='已定位本段台词；这次操作不会写入作品。';draw();
-    playing=resume&&!blocked&&ready;controls();if(playing)clock.start();
+    const resume=playing;playing=false;clock.stop();audio?.voice.seek(null);elapsed=cue.startMs;message='已定位本段台词；这次操作不会写入作品。';draw();
+    playing=resume&&!blocked&&ready;syncVoice();controls();if(playing)clock.start();
   }
-  function select(value:number){stop('切换片段，暂停查看。');index=value;elapsed=0;choose.value=String(index);draw();}
+  function select(value:number){stop('切换片段，暂停查看。');audio?.voice.seek(null);index=value;elapsed=0;choose.value=String(index);draw();}
   function advance(delta:number){
     elapsed=Math.min(elapsed+delta,replay.segments[index]!.durationMs);
     if(elapsed>=replay.segments[index]!.durationMs){
@@ -60,7 +64,7 @@ export function mountReunionReplay(host:HTMLElement,project:ProjectV1){
     if(!ready)stop(status.state==='error'?'幕面准备失败，可用“重试幕面”重新载入。':'正在准备下一段幕面，请就绪后继续播放。');
     else{if(message==='正在准备下一段幕面，请就绪后继续播放。'||message==='幕面准备失败，可用“重试幕面”重新载入。')message='幕面已就绪，暂停查看。';controls();}
   });
-  life.on(play,'click',()=>{if(play.disabled||disposed)return;playing=true;message='';clock.start();controls();});
+  life.on(play,'click',()=>{if(play.disabled||disposed)return;playing=true;message='';syncVoice();audio?.unlock();clock.start();controls();});
   life.on(pause,'click',()=>stop('由你暂停。'));
   life.on(reset,'click',()=>select(0));life.on(previous,'click',()=>{if(index>0&&!blocked)select(index-1);});life.on(next,'click',()=>{if(index<replay.segments.length-1&&!blocked)select(index+1);});
   life.on(choose,'change',()=>{const value=Number(choose.value);if(!blocked&&Number.isInteger(value)&&value>=0&&value<replay.segments.length)select(value);});
@@ -69,5 +73,5 @@ export function mountReunionReplay(host:HTMLElement,project:ProjectV1){
   const motion=()=>{reduced=media?.matches??false;stop('动态偏好改变，暂停查看。');draw();};
   if(media?.addEventListener)media.addEventListener('change',motion);else media?.addListener?.(motion);
   draw();
-  return {setBlocked(value:boolean){blocked=value;if(value)stop('请先处理当前作品操作。');else controls();},dispose(){if(disposed)return;disposed=true;clock.dispose();unsubscribe();life.dispose();subtitles.dispose();if(media?.removeEventListener)media.removeEventListener('change',motion);else media?.removeListener?.(motion);stage.dispose();if(root.parentNode)root.parentNode.removeChild(root);}};
+  return {setBlocked(value:boolean){blocked=value;if(value)stop('请先处理当前作品操作。');else controls();},dispose(){if(disposed)return;disposed=true;audio?.setVoice(null);voiceControls.dispose();clock.dispose();unsubscribe();life.dispose();subtitles.dispose();if(media?.removeEventListener)media.removeEventListener('change',motion);else media?.removeListener?.(motion);stage.dispose();if(root.parentNode)root.parentNode.removeChild(root);}};
 }

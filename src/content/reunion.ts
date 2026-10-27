@@ -2,7 +2,7 @@ import json from './stories/reunion-v1.json';
 import expanded from './stories/reunion-v2.json';
 import literary from './stories/reunion-v3.json';
 import lamplit from './stories/reunion-v4.json';
-import choices from './stories/reunion-v5.json';
+import choices from './stories/reunion-v5.json' with {type:'json'};
 import type { StoryDefinition } from '../domain/story-types';
 import type { StoryProgress } from '../domain/types';
 export const reunionDefinition = json as unknown as StoryDefinition;

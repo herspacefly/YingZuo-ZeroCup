@@ -8,6 +8,9 @@ import {CHOICE_RUNS} from '../helpers/choice-cases';
 import type {ChoiceRun} from '../helpers/choice-cases';
 
 test.setTimeout(60000);
+// Keep native media and real elapsed time while the software-rendered browser
+// uses the supported still-storyboard preference. Motion/path tests run apart.
+test.beforeEach(async({page})=>{await page.emulateMedia({reducedMotion:'reduce'});});
 type Clip={src:string;speaker:string;text:string};
 type Catalog={lines:Clip[];timings:Record<string,{full:number[];guided:number[]}>};
 const catalog=()=>JSON.parse(readFileSync(new URL('../../src/content/voice-v5.json',import.meta.url),'utf8')) as Catalog;
@@ -54,7 +57,8 @@ async function ready(p:Page,id:StoryNodeId){await expect(runtime(p)).toHaveAttri
 const media=(p:Page)=>p.evaluate(()=>Reflect.get(window,'__voiceMedia')() as MediaState[]);
 const voices=(p:Page)=>media(p).then(items=>items.filter(item=>item.src?.includes('/audio/voice-v5/')));
 async function active(p:Page,src?:string){
- await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>(!src||item.src===src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);
+ try{await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>(!src||item.src===src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);}
+ catch(error){throw new Error(JSON.stringify({expectedSrc:src,media:await media(p),runtime:await runtime(p).getAttribute('data-state'),message:await runtime(p).textContent()}),{cause:error});}
  return (await voices(p)).find(item=>(!src||item.src===src)&&!item.paused)!;
 }
 async function start(p:Page,id:StoryNodeId='intro'){
@@ -141,6 +145,7 @@ test('curtain reserves the original vocal recording until all spoken cues finish
 });
 
 test('result replay speaks the selected variant, seeks and closes without writing the completed run',async({page})=>{
+ await page.emulateMedia({reducedMotion:'no-preference'});
  await instrument(page);const chosen=CHOICE_RUNS.find(r=>r.journeyIntent==='open-road'&&r.mountainPact==='self'&&r.approach==='split-first'&&r.finalAction==='fulfill')!;
  await seed(page,choiceAt('completed',chosen),'/result');await expect(page.locator('.reunion-artifact')).toHaveAttribute('data-state','ready',{timeout:15000});const before=await stored(page);
  await page.locator('#result-replay').click();await expect(page.locator('#result-replay-player .canvas-stage-status')).toHaveAttribute('data-state','ready');
@@ -148,7 +153,7 @@ test('result replay speaks the selected variant, seeks and closes without writin
  const option=page.locator('#replay-segment option').filter({hasText:mountainTitle});await page.locator('#replay-segment').selectOption((await option.getAttribute('value'))!);
  await expect(page.locator('#result-replay-player .canvas-stage-status')).toHaveAttribute('data-state','ready');
  await expect(page.locator('#result-replay-player .subtitle-directory')).toContainText('永久化山');await page.locator('#replay-play').click();await active(page);
- await page.locator('#replay-pause').click();await expect(page.locator('#replay-voice-status')).toHaveAttribute('data-playing','false');
+ await page.locator('#replay-pause').focus();await page.keyboard.press('Enter');await expect(page.locator('#replay-voice-status')).toHaveAttribute('data-playing','false');
  await page.locator('#result-replay-player .subtitle-directory button').nth(1).click();await page.locator('#replay-play').click();await active(page);
  await page.locator('#result-replay').click();expect((await voices(page)).every(item=>item.paused)).toBe(true);expect((await stored(page)).story).toEqual(before.story);
 });

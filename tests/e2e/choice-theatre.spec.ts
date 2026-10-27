@@ -3,6 +3,8 @@ import type {Page} from '@playwright/test';
 import type {ProjectV1,StoryNodeId} from '../../src/domain/types';
 import choiceDefinition from '../../src/content/stories/reunion-v5.json' with {type:'json'};
 import fixture from '../fixtures/project-v1.json' with {type:'json'};
+import {arrangeVoiceNode} from '../../src/content/voice-arrangement';
+import type {StoryNode} from '../../src/domain/story-types';
 import {CHOICE_RUNS} from '../helpers/choice-cases';
 import type {ChoiceRun} from '../helpers/choice-cases';
 function choiceAt(id:StoryNodeId,run:ChoiceRun=CHOICE_RUNS[1]!,mode:'full'|'guided'='guided'):ProjectV1 {
@@ -26,7 +28,7 @@ async function clock(p:Page){await p.addInitScript(()=>{let now=0,id=0;const cal
 const advance=(p:Page,ms:number)=>p.evaluate(ms=>Reflect.get(window,'__choiceAdvance')(ms),ms);
 async function seed(p:Page,project:ProjectV1){await p.goto('/study.html');await p.evaluate(async value=>{const db=await new Promise<IDBDatabase>((yes,no)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>yes(r.result);r.onerror=()=>no(r.error);});await new Promise<void>((yes,no)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>yes();tx.onabort=()=>no(tx.error);});db.close();},project);await p.goto('/#/story');}
 async function ready(p:Page,id:string,state:'paused'|'playing'='playing'){await expect(runtime(p)).toHaveAttribute('data-node',id);await expect(p.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready',{timeout:15000});await expect(runtime(p)).toHaveAttribute('data-state',state);}
-const duration=(id:StoryNodeId,mode:'full'|'guided')=>choiceDefinition.nodes.find(n=>n.id===id)![mode==='full'?'fullTiming':'guidedTiming'].targetMs;
+const duration=(id:StoryNodeId,mode:'full'|'guided')=>arrangeVoiceNode(choiceDefinition.nodes.find(n=>n.id===id)! as unknown as StoryNode,5)[mode==='full'?'fullTiming':'guidedTiming'].targetMs;
 const chosenButton=(id:string,r:ChoiceRun)=>id==='journey-choice'?'#story-choice-journey-'+r.journeyIntent:id==='mountain-pact-choice'?'#story-choice-pact-'+r.mountainPact:id==='approach-choice'?'#story-'+r.approach:'#story-choice-final-'+r.finalAction;
 async function saved(p:Page){return p.evaluate(async()=>{const db=await new Promise<IDBDatabase>((yes,no)=>{const r=indexedDB.open('yingzuo-v1',1);r.onsuccess=()=>yes(r.result);r.onerror=()=>no(r.error);});const text=await new Promise<string>((yes,no)=>{const r=db.transaction('snapshots','readonly').objectStore('snapshots').get('draft');r.onsuccess=()=>yes(r.result as string);r.onerror=()=>no(r.error);});db.close();return JSON.parse(text) as ProjectV1;});}
 
