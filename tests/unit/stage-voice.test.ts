@@ -71,12 +71,24 @@ describe('clock-following local dialogue audio', () => {
     expect(players).toHaveLength(2);expect(players[1]!.media.currentTime).toBe(.35);
     expect(players[1]!.audible).toBe(true);voice.dispose();
   });
-  it('stops at clip duration, leaves the subtitle tail silent, and selects the next speaker only on the director cue', async () => {
+  it('lets a started native tail finish in the reserved pause without seeking past its duration', async () => {
     const { voice, players } = setup(); voice.update(sample()); await voice.enable(); const first = players[0]!;
-    voice.update(sample(1200)); expect(first.audible).toBe(false); expect(first.media.src).toBe('');
-    voice.update(sample(1450)); expect(players).toHaveLength(1);
+    first.emit('playing');first.media.currentTime=1.1;const seeks=first.calls.seeks;
+    voice.update(sample(1200)); expect(first.audible).toBe(true); expect(first.media.src).toBe('/voice/one.mp3');
+    voice.update(sample(1300,false));expect(first.audible).toBe(false);
+    voice.update(sample(1300));expect(first.audible).toBe(true);expect(first.media.currentTime).toBe(1.1);expect(first.calls.seeks).toBe(seeks);
+    first.emit('ended');expect(voice.getStatus().playing).toBe(false);
+    voice.update(sample(1450)); expect(players).toHaveLength(1);expect(first.media.src).toBe('');
     voice.update(sample(1500)); expect(players).toHaveLength(2); expect(players[1]!.media.src).toBe('/voice/two.mp3');
     voice.dispose();
+  });
+  it('does not start or revive unstarted late media in the reserved pause, and retires tails at the next cue', async () => {
+    const gate=deferred(),{voice,players}=setup(gate);voice.update(sample());const attempt=voice.enable();
+    voice.update(sample(1250));gate.resolve();expect(await attempt).toBe(false);expect(players[0]!.audible).toBe(false);
+    voice.update(sample(1400));expect(players).toHaveLength(1);
+    voice.update(sample(1500));const second=players[1]!;second.emit('playing');second.media.currentTime=1.2;
+    voice.update(sample(2850));expect(second.audible).toBe(true);
+    voice.update(sample(3000));expect(second.audible).toBe(false);expect(second.media.src).toBe('');voice.dispose();
   });
   it('never replays an ended line and never advances or changes the supplied cue list', async () => {
     const { voice, players } = setup(), input = sample(200); voice.update(input); await voice.enable(); players[0]!.emit('ended');

@@ -22,7 +22,7 @@ export interface VoiceMedia {
 export interface StageVoiceOptions { createAudio?: (() => VoiceMedia | null) | null }
 interface Player {
   media: VoiceMedia; token: string; cueIndex: number; cue: VoiceCue;
-  retired: boolean; requested: boolean; finished: boolean; revision: number;
+  retired: boolean; requested: boolean; started: boolean; finished: boolean; revision: number;
   pending: Promise<boolean> | null;
   listeners: { type: MediaEvent; listener: () => void }[];
 }
@@ -41,8 +41,15 @@ export function createStageVoice(onStatus: (status: StageVoiceStatus) => void, o
   }
   function selected() {
     if (!sample || !Number.isFinite(sample.elapsedMs)) return null;
-    const index = sample.cues.findIndex(cue => Number.isFinite(cue.startMs) && Number.isFinite(cue.endMs) &&
-      cue.startMs <= sample!.elapsedMs && sample!.elapsedMs < Math.min(cue.endMs, cue.startMs + cue.clip.durationMs));
+    const index = sample.cues.findIndex((cue, cueIndex) => {
+      if (!Number.isFinite(cue.startMs) || !Number.isFinite(cue.endMs) ||
+        sample!.elapsedMs < cue.startMs || sample!.elapsedMs >= cue.endMs) return false;
+      if (sample!.elapsedMs < cue.startMs + cue.clip.durationMs) return true;
+      // Native output can trail the director slightly. An already started line
+      // may finish in its reserved pause; never start an expired line there.
+      return !!player && !player.retired && player.started && !player.finished &&
+        player.token === sample!.token && player.cueIndex === cueIndex && player.cue.clip.id === cue.clip.id;
+    });
     return index < 0 ? null : { index, cue: sample.cues[index]! };
   }
   function matches(item: Player) {
@@ -71,6 +78,8 @@ export function createStageVoice(onStatus: (status: StageVoiceStatus) => void, o
   function align(item: Player, force = false) {
     if (!matches(item) || item.media.readyState < 1) return;
     const offset = Math.max(0, (sample!.elapsedMs - item.cue.startMs) / 1000);
+    // Keep the remaining native tail while the director is in the quiet pad.
+    if (offset >= item.cue.clip.durationMs / 1000) return;
     if (force || !Number.isFinite(item.media.currentTime) || Math.abs(item.media.currentTime - offset) > .25) item.media.currentTime = offset;
   }
   function silenceLate(item: Player) {
@@ -82,7 +91,7 @@ export function createStageVoice(onStatus: (status: StageVoiceStatus) => void, o
     let media: VoiceMedia | null;
     try { media = factory(); } catch (error) { fail(error); return null; }
     if (!media) { enabled = false; report('unavailable', false, '当前浏览器未提供中文配音播放器。'); return null; }
-    const item: Player = { media, token: sample.token, cueIndex, cue, retired: false, requested: false, finished: false, revision: 0, pending: null, listeners: [] };
+    const item: Player = { media, token: sample.token, cueIndex, cue, retired: false, requested: false, started: false, finished: false, revision: 0, pending: null, listeners: [] };
     player = item;
     function on(type: MediaEvent, listener: () => void) { item.listeners.push({ type, listener }); media!.addEventListener(type, listener); }
     try {
@@ -90,6 +99,7 @@ export function createStageVoice(onStatus: (status: StageVoiceStatus) => void, o
       on('loadedmetadata', () => { if (matches(item)) try { align(item, true); } catch (error) { fail(error); } else silenceLate(item); });
       on('playing', () => {
         if (!wants(item)) { silenceLate(item); return; }
+        item.started = true;
         // A seek itself emits another native playing event. Only correct real
         // drift here; forcing currentTime would create a seek/playing loop.
         try { align(item); report('enabled', true, '中文配音播放中。'); } catch (error) { fail(error); }

@@ -14,7 +14,7 @@ test.beforeEach(async({page})=>{await page.emulateMedia({reducedMotion:'reduce'}
 type Clip={src:string;speaker:string;text:string};
 type Catalog={lines:Clip[];timings:Record<string,{full:number[];guided:number[]}>};
 const catalog=()=>JSON.parse(readFileSync(new URL('../../src/content/voice-v5.json',import.meta.url),'utf8')) as Catalog;
-type MediaState={src:string|null;paused:boolean;time:number;ready:number;volume:number;playingEvents:number};
+type MediaState={src:string|null;lastSrc:string;paused:boolean;time:number;ready:number;volume:number;playingEvents:number;endedEvents:number};
 const runtime=(p:Page)=>p.locator('#story-runtime');
 const voiceStatus=(p:Page)=>p.locator('#story-voice-status');
 const run=CHOICE_RUNS[1]!;
@@ -36,12 +36,12 @@ function choiceAt(id:StoryNodeId,choice:ChoiceRun=run,mode:'full'|'guided'='guid
  if(project.story!.nodeId!==id)throw Error('Unreachable v5 fixture '+id);return project;
 }
 async function instrument(p:Page){await p.addInitScript(()=>{
- const Native=window.Audio,items:{media:HTMLAudioElement;playingEvents:number}[]=[];
+ const Native=window.Audio,items:{media:HTMLAudioElement;lastSrc:string;playingEvents:number;endedEvents:number}[]=[];
  class TrackedAudio extends Native{
-  constructor(src?:string){super(src);const item={media:this,playingEvents:0};items.push(item);this.addEventListener('playing',()=>item.playingEvents++);}
+  constructor(src?:string){super(src);const item={media:this,lastSrc:src??'',playingEvents:0,endedEvents:0};items.push(item);this.addEventListener('playing',()=>{item.playingEvents++;item.lastSrc=this.getAttribute('src')??item.lastSrc;});this.addEventListener('ended',()=>item.endedEvents++);}
  }
  Object.defineProperty(window,'Audio',{configurable:true,value:TrackedAudio});
- Reflect.set(window,'__voiceMedia',()=>items.map(item=>({src:item.media.getAttribute('src'),paused:item.media.paused,time:item.media.currentTime,ready:item.media.readyState,volume:item.media.volume,playingEvents:item.playingEvents})));
+ Reflect.set(window,'__voiceMedia',()=>items.map(item=>({src:item.media.getAttribute('src'),lastSrc:item.lastSrc,paused:item.media.paused,time:item.media.currentTime,ready:item.media.readyState,volume:item.media.volume,playingEvents:item.playingEvents,endedEvents:item.endedEvents})));
 });}
 async function seed(p:Page,project:ProjectV1,route='/story'){
  await p.goto('/study.html');await p.evaluate(async value=>{
@@ -106,6 +106,13 @@ test('pause, resume and subtitle seek follow the director without overlapping sp
  const cue=definition.nodes.find(n=>n.id==='memory-words')!.guidedSubtitles![1]!;
  await active(page,catalog().lines.find(line=>line.speaker===cue.speaker&&line.text===cue.text)!.src);
  expect((await voices(page)).filter(item=>!item.paused)).toHaveLength(1);
+});
+
+test('a naturally played sentence reaches native ended before its reserved pause expires',async({page})=>{
+ await instrument(page);await seed(page,choiceAt('intro'));await start(page);
+ const first=(await voices(page)).find(item=>!item.paused)!;
+ await expect.poll(async()=>(await media(page)).some(item=>item.lastSrc===first.lastSrc&&item.endedEvents===1),{timeout:15000}).toBe(true);
+ expect((await media(page)).find(item=>item.lastSrc===first.lastSrc)!.playingEvents).toBeLessThan(6);
 });
 
 test('voice and music intents are independent, survive routes, and default on after refresh',async({page})=>{
