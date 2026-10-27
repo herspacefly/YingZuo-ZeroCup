@@ -59,6 +59,16 @@ function setup(gates: ReturnType<typeof deferred>[] = []) {
 const flush = async () => { await Promise.resolve(); await Promise.resolve(); await Promise.resolve(); };
 
 describe('opt-in local stage music lifecycle', () => {
+  it('ducks only the output gain without changing preference, playback, position or authored track volume', async () => {
+    const { music, players } = setup(); music.setGain(.2); music.update({ trackId: 'instrumental', playing: true }); await music.enable();
+    const first = players[0]!; first.media.currentTime = 11;
+    expect(first.media.volume).toBe(.05); expect(first.calls.play).toBe(1);
+    music.setGain(1); expect(first.media.volume).toBe(.25); expect(first.media.currentTime).toBe(11); expect(first.calls.play).toBe(1);
+    music.setGain(.25); music.update({ trackId: 'curtain', playing: true }); expect(players[1]!.media.volume).toBe(.1);
+    expect(tracks[0]!.volume).toBe(.25); expect(tracks[1]!.volume).toBe(.4);
+    music.setGain(0); expect(players[1]!.media.volume).toBe(0); music.setGain(Number.NaN); expect(players[1]!.media.volume).toBe(.4);
+    music.mute(); music.setGain(.2); expect(players[1]!.audible).toBe(false); music.dispose(); music.setGain(1);
+  });
   it('reports browser autoplay refusal as blocked and retains no playing resource',async()=>{
     const gate=deferred(),{music,statuses,players}=setup([gate]);
     music.update({trackId:'instrumental',playing:true});const attempt=music.enable();

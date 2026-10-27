@@ -52,7 +52,7 @@ export function createStageMusic(onStatus: (status: MusicStatus) => void, option
   const tracks = new Map(options.tracks.map(track => [track.id, track]));
   let sample: MusicSample = { trackId: null, playing: false };
   let active: Player | null = null;
-  let enabled = false, disposed = false;
+  let enabled = false, disposed = false, gain = 1;
   let state: MusicStatus['state'] = factory ? 'muted' : 'unavailable';
 
   function report(next: MusicStatus['state'], message: string) {
@@ -124,7 +124,7 @@ export function createStageMusic(onStatus: (status: MusicStatus) => void, option
       media.addEventListener('error', player.onError);
       media.preload = 'none';
       media.loop = track.loop;
-      media.volume = Number.isFinite(track.volume) ? Math.max(0, Math.min(1, track.volume)) : .3;
+      media.volume = (Number.isFinite(track.volume) ? Math.max(0, Math.min(1, track.volume)) : .3) * gain;
       media.src = track.src;
     } catch (error) { fail(error); return null; }
     return active === player && !player.retired ? player : null;
@@ -211,6 +211,12 @@ export function createStageMusic(onStatus: (status: MusicStatus) => void, option
     else report(enabled ? 'enabled' : state === 'unavailable' ? 'unavailable' : 'muted', enabled ? '音乐已开启；等待下一段演出。' : '音乐已重开，保持静音。');
   }
 
+  function setGain(factor: number) {
+    if (disposed) return;
+    gain = Number.isFinite(factor) ? Math.max(0, Math.min(1, factor)) : 1;
+    if (active) try { active.media.volume = (Number.isFinite(active.track.volume) ? Math.max(0, Math.min(1, active.track.volume)) : .3) * gain; } catch (error) { fail(error); }
+  }
+
   function dispose() {
     if (disposed) return;
     disposed = true; enabled = false;
@@ -220,5 +226,5 @@ export function createStageMusic(onStatus: (status: MusicStatus) => void, option
   }
 
   report(state, factory ? '默认静音。可选择开启音乐。' : '当前浏览器不支持音频文件播放。');
-  return { enable, mute, update, reset, dispose };
+  return { enable, mute, update, reset, setGain, dispose };
 }
