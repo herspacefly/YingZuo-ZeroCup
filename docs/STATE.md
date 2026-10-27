@@ -1,6 +1,6 @@
 # T39 当前交接（2026-10-27）
 
-接续main@dff1544；origin已更新YingZuo-ZeroCup，main跟踪origin/main。本轮按用户要求设置Actions构建发布dist并修复展馆图片子目录路径，后台点击由用户自行完成，当前不使用computer use。类型/628单元/构建/ES5/资源/五版内容/配音与40任务检查通过，生产包根／子目录宽窄12/12通过；远程部署与公开网站待核，T39仍in_progress。先读[验收](acceptance/t39.md)及[方案](plans/2026-10-27-pages-deployment.md)。T38听感与原有正式审看、设备、性能和交付状态不提升。
+T39已完成。实现7a6b560，最终部署测试检查点 **ba8d65caef3145473c6e802de77682aeb0426431**，main；origin为git@github.com:herspacefly/YingZuo-ZeroCup.git，main跟踪origin/main。两次普通git push已触发Actions安装、检查、构建和dist发布，后一次仅触发新工作流；Pages来源已由用户确认切换为GitHub Actions。公开站点 https://herspacefly.github.io/YingZuo-ZeroCup/ HTTP200，编译入口及字体/照片/原生配音/保存刷新/导出/三维二维宽窄6/6通过，根／子目录宽窄12项在本地和CI通过。628单元、构建、ES5、资源、五版内容、配音和40任务通过。首轮测试问题与公网等待波动保留证据，不把最终功能通过当15秒性能或真实IE/设备/人耳验收。见[验收](acceptance/t39.md)、[机器汇总](evidence/t39/acceptance.json)、[部署记录](evidence/t39/deployment.json)。未使用computer use继续操作；T38人工听感、T10正式审看及T11/T13/T14/P1仍按原状态，活动任务回到T38。本地目录及历史工作树保留，DOCX/PPTX未读改提交。
 
 以下为历史交接。
 

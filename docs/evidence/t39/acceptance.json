@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-27",
+  "baseline": "dff1544929337228cbcefeac052c9d53f15584be",
+  "source": {
+    "src/features/museum/gallery.ts": "6df676888a9ad40151769ab1be2e1bd04376011d18bd13dca4d48ad54b142b9f",
+    "src/features/museum/view.ts": "c0fd7db175d65a781ee6db4e536454ef588a8831942d29ef0b7f5fddb90dd3fe",
+    "vite.config.ts": "d9bf5dd2e5e0398597f392f2cb7b67f16f5d9c0f1924cbe258549283735aff4f",
+    ".github/workflows/pages.yml": "d2dee042ec4379c115064511e083ba7582220e0e95a142295c104cff74a72f47",
+    "playwright.pages.config.ts": "695f02279e51ddbdcd4829fc1db26aa2d3fc5ff5377db1e2bd7b2e9c8670eedb",
+    "tests/deployment/pages.spec.ts": "7b9f11ba67751e4b6e56ebc4092e8a7976077df0339f6e78cda51dcdeadb196c",
+    "dist/index.html": "31e4dc5f2fc3619ef7104b063123b92ffdec4ff9bb223bc3d23e4614a9562211"
+  },
+  "localBrowser": {
+    "startTime": "2026-10-27T08:25:08.112Z",
+    "duration": 46082.460999999996,
+    "expected": 12,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "unit": {
+    "files": 52,
+    "passed": 628
+  },
+  "buildModules": 161,
+  "legacyChunks": 17,
+  "voiceClips": 354,
+  "voiceScheduleChecks": 1216,
+  "pagesSource": "GitHub Actions; user confirmed",
+  "remoteDeployment": "success: runs 40473656099 and 40475107374",
+  "physicalDevicesTested": false,
+  "publicBrowser": {
+    "startTime": "2026-10-27T08:37:22.261Z",
+    "duration": 181258.80899999998,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0,
+    "url": "https://herspacefly.github.io/YingZuo-ZeroCup/",
+    "notes": "Functional checks use explicit readiness, public-only internet wait budgets and domcontentloaded navigation; not a 15-second performance pass."
+  },
+  "applicationCommit": "7a6b56018445a077c6aef34063c852d05f278887",
+  "finalVerificationCommit": "ba8d65caef3145473c6e802de77682aeb0426431",
+  "sourceScope": "Initial local build fingerprint; final test-runner source recorded separately below.",
+  "finalTestSource": {
+    "playwright.pages.config.ts": "ed481e46f76197f1e3a1fe660d42c23d20b5f8523de0545a9a437cc88f330d5d",
+    "tests/deployment/pages.spec.ts": "f99a69c00e80b37d596e847fec105c9938d55106e72fafd73e849a1b0139acad"
+  },
+  "taskStatus": "done"
+}

@@ -52,6 +52,8 @@ GitHub的Settings → Pages → Build and deployment → Source选择 **GitHub A
 
 Vite使用相对base，展馆照片也按部署base解析，同一生产包可用于根路径和项目子目录。公开域名与localhost的浏览器存储互不共享，需要接续本地作品时先导出JSON，再在公开网站导入；服务器不会上传或同步本机IndexedDB。
 
+T39已实测普通push触发构建部署，公开首页HTTP200，根／子目录宽窄12项及公开站点宽窄6项功能检查通过，详见[部署验收](docs/acceptance/t39.md)。公网冷加载存在等待波动，功能检查与15秒性能目标、真实设备及听感验收分别记录。
+
 使用Node.js **24.x**与npm **12.x**，最近验收环境为Node v24.18.1、npm12.0.2，依赖以`package-lock.json`固定。
 
 ```powershell
@@ -129,7 +131,7 @@ npm run test:e2e
 
 Pages生产包回归单独运行`npx playwright test -c playwright.pages.config.ts`，使用4175／4176端口验证根路径、`/YingZuo-ZeroCup/`、宽窄屏、展馆照片／灯箱、原生配音、保存刷新和JSON导出。设置`YINGZUO_PAGES_URL`为公开网站完整地址可复用线上检查；此时不启动本地服务，使用独立浏览器测试上下文，不操作个人浏览器。
 
-最近T38功能检查点为`5eea7a479a3e60522427d0c2e6c9fbd9cac4cbd5`：52文件628单元、类型／161模块构建、17个ES5块／七入口、资源／五版内容／展馆／39任务检查通过；354条配音全量解码和源／产物一致性通过。78个唯一浏览器用例最新观察通过，最终原生媒体矩阵28/28，不能称默认全套一次全绿。自然导览62/62人声触发原生结束事件。以上均为已存档证据，本次说明同步不代表重新执行这些检查，详见[验收](docs/acceptance/t38.md)与[机器汇总](docs/evidence/t38/acceptance.json)。
+T38功能检查点为`5eea7a479a3e60522427d0c2e6c9fbd9cac4cbd5`：52文件628单元、类型／161模块构建、17个ES5块／七入口、资源／五版内容／展馆／当时39任务检查通过；354条配音全量解码和源／产物一致性通过。78个唯一浏览器用例最新观察通过，最终原生媒体矩阵28/28，不能称默认全套一次全绿。自然导览62/62人声触发原生结束事件。以上是T38存档证据，T39部署回归另列，不能据此声称重跑了78项配音用例，详见[验收](docs/acceptance/t38.md)与[机器汇总](docs/evidence/t38/acceptance.json)。
 
 - **T38仍进行中**：38条[试听校对页](docs/evidence/t38/listen.html)、[读音清单](docs/content/voice-v5-pronunciation.md)已备，待补全长、读音、语气及实际设备混音的人工听感记录。
 - **T10仍进行中**：艺术、文化和素材使用范围待正式审看；外部照片复用许可仍未知，两首音乐公开许可只覆盖对应曲目。现有T10生成器覆盖v1—v4，尚未自动纳入v5／新配音，审看册也已过期，见[审看说明](docs/reviews/README.md)。
