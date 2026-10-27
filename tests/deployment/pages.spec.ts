@@ -116,9 +116,8 @@ for (const mode of ['full', 'guided'] as const) for (const preset of [false, tru
     expect(story).toMatchObject({ definitionVersion: 5, mode, presetAppearanceUsed: preset });
     await expect(page.locator('#story-voice-toggle')).toBeVisible();
     await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state', 'ready', { timeout: readyTimeout });
-    await page.locator('#story-runtime').click();
-    if (await page.locator('#story-play').isEnabled()) await page.locator('#story-play').click();
-    if (await page.locator('#story-voice-toggle').textContent() === '重试中文配音') await page.locator('#story-voice-toggle').click();
+    // The actual craft confirmation must be enough; do not mask an entry bug
+    // with extra play, stage or voice-retry gestures in this regression.
     await expect(page.locator('#story-voice-status')).toHaveAttribute('data-playing', 'true', { timeout: readyTimeout });
     expect(problems).toEqual([]);
   });

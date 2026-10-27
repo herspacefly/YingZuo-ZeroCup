@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-27",
+  "applicationCommit": "83dcbf934f56fa87b17e04bf711bfc48789714ed",
+  "strictTestSha256": "7a93e2be23f5387ba7615606f0232a4bd1f554b598e7b6251e4fc6da6502caf2",
+  "initialDeployment": {
+    "runId": 40480137161,
+    "conclusion": "success",
+    "unit": 630,
+    "productionBrowser": 32
+  },
+  "public": {
+    "first": {
+      "passed": 8,
+      "failed": 2,
+      "report": "public-first.json"
+    },
+    "targetedRecheck": {
+      "passed": 2,
+      "failed": 0,
+      "report": "public-recheck.json"
+    },
+    "uniqueLatestPassed": 10,
+    "extraUnlockClicks": false,
+    "failures": "Craft image readiness and pending MP3 requests exceeded 60s; no HTTP error response. Same code and wait budget recheck passed."
+  },
+  "limits": [
+    "Not a public load-time performance pass",
+    "Not human listening or physical-device acceptance"
+  ]
+}

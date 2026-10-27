@@ -7,9 +7,9 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T40_in_progress",
-  "activeTaskId": "T40",
-  "lastVerifiedCommit": "ba8d65caef3145473c6e802de77682aeb0426431",
+  "stage": "T38_in_progress",
+  "activeTaskId": "T38",
+  "lastVerifiedCommit": "83dcbf934f56fa87b17e04bf711bfc48789714ed",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -1828,7 +1828,7 @@
       "id": "T40",
       "title": "制偶入口新场版本与中文配音修复",
       "priority": "P0",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "T37",
         "T39"
@@ -1849,14 +1849,16 @@
       "acceptanceRefs": [
         "T40"
       ],
-      "checkpointCommit": null,
-      "nextAction": "普通push部署并定向验证公开站点的四种制偶开演、原生配音和旧场归档保护。",
+      "checkpointCommit": "83dcbf934f56fa87b17e04bf711bfc48789714ed",
+      "nextAction": "修复已推送并由Actions发布；修复前误建的v4需由用户明确归档重开才进入配音v5。T38人工听感继续原任务。",
       "blocker": null,
       "verification": [
         "旧生产包4种制偶开演组合全部复现definitionVersion=4，没有v5配音入口。",
         "统一当前版本来源，已有旧场仍保留原版；旧场提示及归档链接实际可用。",
         "52文件630单元、类型/161模块构建、17ES5块七入口、81PNG、五版内容/41任务、354配音源/dist及1216编排通过。",
-        "根/项目子目录×宽窄32/32通过，含16种制偶开演原生配音、4种旧场归档保护与既有12项部署检查。"
+        "根/项目子目录×宽窄32/32通过，含16种制偶开演原生配音、4种旧场归档保护与既有12项部署检查。",
+        "实现83dcbf9已普通push，Actions 40480137161构建/32项浏览器/部署success；公开站点已加载新编译入口。",
+        "收紧新入口测试为实际开演一次点击、不补点播放/配音重试；公开宽窄首轮8/10，图片就绪与MP3挂起超时2项在相同代码/预算定向复验2/2通过，10个唯一用例最新观察通过，首轮失败完整保留。"
       ],
       "phase": "G3"
     }

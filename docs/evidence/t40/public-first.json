@@ -1,0 +1,601 @@
+{
+  "config": {
+    "argv": [
+      "E:\\Software_after2026\\nodejs\\node.exe",
+      "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "-c",
+      "playwright.pages.config.ts",
+      "--grep",
+      "craft entry|old craft"
+    ],
+    "configFile": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\playwright.pages.config.ts",
+    "rootDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/deployment",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "published-desktop",
+        "name": "published-desktop",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/deployment",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "published-mobile",
+        "name": "published-mobile",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/deployment",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "published-desktop",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 180000,
+        "use": {
+          "trace": "retain-on-failure",
+          "reducedMotion": "reduce",
+          "launchOptions": {
+            "args": [
+              "--enable-unsafe-swiftshader"
+            ]
+          },
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium",
+          "baseURL": "https://herspacefly.github.io/YingZuo-ZeroCup/"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "published-desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "published-mobile",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 180000,
+        "use": {
+          "trace": "retain-on-failure",
+          "reducedMotion": "reduce",
+          "launchOptions": {
+            "args": [
+              "--enable-unsafe-swiftshader"
+            ]
+          },
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium",
+          "baseURL": "https://herspacefly.github.io/YingZuo-ZeroCup/"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "published-mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/t40/public-browser.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "pages.spec.ts",
+      "file": "pages.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "craft entry starts voiced v5: full, current appearance",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "published-desktop",
+              "projectName": "published-desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5980,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T09:24:25.324Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-c929c054733e2b4d684a",
+          "file": "pages.spec.ts",
+          "line": 96,
+          "column": 3
+        },
+        {
+          "title": "craft entry starts voiced v5: full, preset appearance",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "published-desktop",
+              "projectName": "published-desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 70841,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.canvas-stage-status').first()\nExpected: \u001b[32m\"ready\"\u001b[39m\nReceived: \u001b[31m\"loading\"\u001b[39m\nTimeout:  60000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.canvas-stage-status').first() with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for locator('.canvas-stage-status').first()\u001b[22m\n\u001b[2m    121 × locator resolved to <p role=\"status\" data-state=\"loading\" class=\"canvas-stage-status\">正在准备影偶与幕面…</p>\u001b[22m\n\u001b[2m        - unexpected value \"loading\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.canvas-stage-status').first()\nExpected: \u001b[32m\"ready\"\u001b[39m\nReceived: \u001b[31m\"loading\"\u001b[39m\nTimeout:  60000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.canvas-stage-status').first() with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for locator('.canvas-stage-status').first()\u001b[22m\n\u001b[2m    121 × locator resolved to <p role=\"status\" data-state=\"loading\" class=\"canvas-stage-status\">正在准备影偶与幕面…</p>\u001b[22m\n\u001b[2m        - unexpected value \"loading\"\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts:100:64",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                      "column": 64,
+                      "line": 100
+                    },
+                    "snippet": "   98 |     const readyTimeout = process.env.YINGZUO_PAGES_URL ? 60000 : 20000;\n   99 |     await page.goto(baseURL! + '#/craft', { waitUntil: 'domcontentloaded' });\n> 100 |     await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state', 'ready', { timeout: readyTimeout });\n      |                                                                ^\n  101 |     await page.locator('#craft-mode').selectOption(mode);\n  102 |     await page.locator(preset ? '#craft-preset' : '#craft-confirm').click();\n  103 |     await expect(page.locator('#story-runtime')).toHaveAttribute('data-node', 'memory-wave');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                        "column": 64,
+                        "line": 100
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.canvas-stage-status').first()\nExpected: \u001b[32m\"ready\"\u001b[39m\nReceived: \u001b[31m\"loading\"\u001b[39m\nTimeout:  60000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.canvas-stage-status').first() with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for locator('.canvas-stage-status').first()\u001b[22m\n\u001b[2m    121 × locator resolved to <p role=\"status\" data-state=\"loading\" class=\"canvas-stage-status\">正在准备影偶与幕面…</p>\u001b[22m\n\u001b[2m        - unexpected value \"loading\"\u001b[22m\n\n\n   98 |     const readyTimeout = process.env.YINGZUO_PAGES_URL ? 60000 : 20000;\n   99 |     await page.goto(baseURL! + '#/craft', { waitUntil: 'domcontentloaded' });\n> 100 |     await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state', 'ready', { timeout: readyTimeout });\n      |                                                                ^\n  101 |     await page.locator('#craft-mode').selectOption(mode);\n  102 |     await page.locator(preset ? '#craft-preset' : '#craft-confirm').click();\n  103 |     await expect(page.locator('#story-runtime')).toHaveAttribute('data-node', 'memory-wave');\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts:100:64"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T09:24:31.418Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\pages-craft-entry-starts-voiced-v5-full-preset-appearance-published-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\pages-craft-entry-starts-voiced-v5-full-preset-appearance-published-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                    "column": 64,
+                    "line": 100
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-d624a2468a938d8ed995",
+          "file": "pages.spec.ts",
+          "line": 96,
+          "column": 3
+        },
+        {
+          "title": "craft entry starts voiced v5: guided, current appearance",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "published-desktop",
+              "projectName": "published-desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 147533,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#story-voice-status')\nExpected: \u001b[32m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nTimeout:  60000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#story-voice-status') with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for locator('#story-voice-status')\u001b[22m\n\u001b[2m    2 × locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"enabled\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"enabled\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m    10 × unexpected value \"false\"\u001b[22m\n\u001b[2m       - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m    83 × unexpected value \"false\"\u001b[22m\n\u001b[2m       - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"enabled\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m    - unexpected value \"false\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#story-voice-status')\nExpected: \u001b[32m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nTimeout:  60000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#story-voice-status') with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for locator('#story-voice-status')\u001b[22m\n\u001b[2m    2 × locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"enabled\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"enabled\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m    10 × unexpected value \"false\"\u001b[22m\n\u001b[2m       - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m    83 × unexpected value \"false\"\u001b[22m\n\u001b[2m       - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"enabled\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m    - unexpected value \"false\"\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts:121:55",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                      "column": 55,
+                      "line": 121
+                    },
+                    "snippet": "  119 |     // The actual craft confirmation must be enough; do not mask an entry bug\n  120 |     // with extra play, stage or voice-retry gestures in this regression.\n> 121 |     await expect(page.locator('#story-voice-status')).toHaveAttribute('data-playing', 'true', { timeout: readyTimeout });\n      |                                                       ^\n  122 |     expect(problems).toEqual([]);\n  123 |   });\n  124 | }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                        "column": 55,
+                        "line": 121
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#story-voice-status')\nExpected: \u001b[32m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nTimeout:  60000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#story-voice-status') with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for locator('#story-voice-status')\u001b[22m\n\u001b[2m    2 × locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m      - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"enabled\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\u001b[2m    - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"enabled\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m    10 × unexpected value \"false\"\u001b[22m\n\u001b[2m       - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"loading\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m    83 × unexpected value \"false\"\u001b[22m\n\u001b[2m       - locator resolved to <p role=\"status\" class=\"quiet-note\" data-state=\"enabled\" data-playing=\"false\" id=\"story-voice-status\"></p>\u001b[22m\n\u001b[2m    - unexpected value \"false\"\u001b[22m\n\n\n  119 |     // The actual craft confirmation must be enough; do not mask an entry bug\n  120 |     // with extra play, stage or voice-retry gestures in this regression.\n> 121 |     await expect(page.locator('#story-voice-status')).toHaveAttribute('data-playing', 'true', { timeout: readyTimeout });\n      |                                                       ^\n  122 |     expect(problems).toEqual([]);\n  123 |   });\n  124 | }\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts:121:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T09:25:42.842Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\pages-craft-entry-starts-voiced-v5-guided-current-appearance-published-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\pages-craft-entry-starts-voiced-v5-guided-current-appearance-published-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\deployment\\pages.spec.ts",
+                    "column": 55,
+                    "line": 121
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-8f3d016f422a237da6cd",
+          "file": "pages.spec.ts",
+          "line": 96,
+          "column": 3
+        },
+        {
+          "title": "craft entry starts voiced v5: guided, preset appearance",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "published-desktop",
+              "projectName": "published-desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10056,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T09:28:12.490Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-6b612d897fa0370b58c2",
+          "file": "pages.spec.ts",
+          "line": 96,
+          "column": 3
+        },
+        {
+          "title": "old craft performances stay intact and explicitly archiving opens a voiced new edition",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "published-desktop",
+              "projectName": "published-desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3033,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T09:28:22.693Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-3cf467a66aa421e642cc",
+          "file": "pages.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "craft entry starts voiced v5: full, current appearance",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "published-mobile",
+              "projectName": "published-mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3089,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T09:28:26.408Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-d24cbc8c2e8fcae1ae44",
+          "file": "pages.spec.ts",
+          "line": 96,
+          "column": 3
+        },
+        {
+          "title": "craft entry starts voiced v5: full, preset appearance",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "published-mobile",
+              "projectName": "published-mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 90686,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T09:28:29.654Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-6c27388fa89931cf8497",
+          "file": "pages.spec.ts",
+          "line": 96,
+          "column": 3
+        },
+        {
+          "title": "craft entry starts voiced v5: guided, current appearance",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "published-mobile",
+              "projectName": "published-mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3522,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T09:30:00.362Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-819e392c3c384cef2052",
+          "file": "pages.spec.ts",
+          "line": 96,
+          "column": 3
+        },
+        {
+          "title": "craft entry starts voiced v5: guided, preset appearance",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "published-mobile",
+              "projectName": "published-mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 84137,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T09:30:03.902Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-3ab9582c7942bef9cb04",
+          "file": "pages.spec.ts",
+          "line": 96,
+          "column": 3
+        },
+        {
+          "title": "old craft performances stay intact and explicitly archiving opens a voiced new edition",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "published-mobile",
+              "projectName": "published-mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2845,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T09:31:28.056Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb6bb2ed574bebb3c58-898973c0cbc7a36783f4",
+          "file": "pages.spec.ts",
+          "line": 126,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-27T09:24:24.844Z",
+    "duration": 426237.52900000004,
+    "expected": 8,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}
