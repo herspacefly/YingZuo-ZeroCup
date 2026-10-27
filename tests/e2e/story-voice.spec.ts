@@ -82,14 +82,17 @@ test('four cast voices load and play real MP3s with native media events',async({
    const index=node.guidedSubtitles!.findIndex(cue=>cue.speaker===speaker),cue=node.guidedSubtitles![index]!;
    await page.locator('.subtitle-directory button').nth(index).click();
    const clip=catalog().lines.find(line=>line.speaker===speaker&&line.text===cue.text)!;
-   expect(clip).toBeTruthy();await active(page,clip.src);
+   expect(clip).toBeTruthy();const spoken=await active(page,clip.src);
+   expect(spoken.playingEvents).toBeLessThan(6); // no playing/seek feedback loop
   }
  }
 });
 
 test('pause, resume and subtitle seek follow the director without overlapping speech',async({page})=>{
  await instrument(page);await seed(page,choiceAt('memory-words'));await start(page,'memory-words');
+ expect((await media(page)).find(item=>item.src?.endsWith('jinghu-instrumental.mp3'))!.volume).toBeCloseTo(.055,3);
  await page.locator('#story-pause').click();await expect(voiceStatus(page)).toHaveAttribute('data-playing','false');
+ expect((await media(page)).find(item=>item.src?.endsWith('jinghu-instrumental.mp3'))!.volume).toBeCloseTo(.22,3);
  const before=(await voices(page)).find(item=>item.src)!.time;
  // This wait observes a native media clock, not a simulated animation delay.
  await page.waitForTimeout(250);expect(Math.abs((await voices(page)).find(item=>item.src)!.time-before)).toBeLessThan(.05);
@@ -136,7 +139,12 @@ test('blur, hidden documents and route exits stop speech and focus cannot revive
 
 test('curtain reserves the original vocal recording until all spoken cues finish',async({page})=>{
  // Controlled director time proves track selection only; Audio itself remains native.
- await instrument(page);await fakeClock(page);await seed(page,choiceAt('curtain'));await start(page,'curtain');
+ await instrument(page);await fakeClock(page);await seed(page,choiceAt('curtain'));await ready(page,'curtain');
+ await expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');await runtime(page).click();
+ if(await runtime(page).getAttribute('data-state')==='paused')await page.locator('#story-play').click();
+ // Let the controlled director deliver a post-route-save sample, as a real RAF
+ // does after the audio session cancels playback during the initial ROUTE write.
+ await page.evaluate(()=>Reflect.get(window,'__voiceAdvance')(100));await active(page);
  expect((await media(page)).some(item=>item.src?.endsWith('jingju-curtain.mp3')&&!item.paused)).toBe(false);
  const dialogueEnd=catalog().timings.curtain!.guided.reduce((sum,slot)=>sum+slot,0);
  await page.evaluate(ms=>Reflect.get(window,'__voiceAdvance')(ms),dialogueEnd+100);

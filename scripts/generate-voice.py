@@ -2,16 +2,24 @@
 Run prepare-voice.mjs first. No runtime API keys or network service are needed by the site.
 """
 import asyncio, hashlib, json, os, pathlib, subprocess, sys
+from importlib.metadata import version
 import edge_tts
 
 ROOT=pathlib.Path(__file__).resolve().parent.parent
 REQUEST=json.loads((ROOT/'.preflight/t38-voice-request.json').read_text(encoding='utf-8'))
+if version('edge-tts') != REQUEST['engineVersion']:
+    raise RuntimeError(f"Install edge-tts=={REQUEST['engineVersion']} before generating; refusing inaccurate provenance")
 CHECKPOINT=ROOT/'.preflight/t38-voice-results.json'
 CATALOG=ROOT/'src/content/voice-v5.json'
 RESULTS=json.loads(CHECKPOINT.read_text(encoding='utf-8')) if CHECKPOINT.exists() else ({l['id']:l for l in json.loads(CATALOG.read_text(encoding='utf-8'))['lines']} if CATALOG.exists() else {})
 LINES=REQUEST['lines'][:4] if '--samples' in sys.argv else REQUEST['lines']
 SEM=asyncio.Semaphore(3)
 FAILURES=[]
+
+def checkpoint():
+    temp=CHECKPOINT.with_suffix('.tmp')
+    temp.write_text(json.dumps(RESULTS,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    os.replace(temp,CHECKPOINT)
 
 def measure(p):
     subprocess.run(['ffmpeg','-v','error','-i',str(p),'-f','null','-'],check=True,capture_output=True,timeout=30)
@@ -24,6 +32,7 @@ async def generate(line):
         old=RESULTS.get(line['id'])
         if old and dest.exists() and all(old.get(k)==line[k] for k in ['text','voice','rate','pitch']) and hashlib.sha256(dest.read_bytes()).hexdigest()==old.get('sha256'):
             return
+        RESULTS.pop(line['id'],None)
         dest.parent.mkdir(parents=True,exist_ok=True)
         temp=dest.with_suffix('.part.mp3')
         for attempt in range(3):
@@ -35,9 +44,7 @@ async def generate(line):
                 data=temp.read_bytes()
                 os.replace(temp,dest)
                 RESULTS[line['id']]={**line,'durationMs':duration,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()}
-                checkpoint_temp=CHECKPOINT.with_suffix('.tmp')
-                checkpoint_temp.write_text(json.dumps(RESULTS,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-                os.replace(checkpoint_temp,CHECKPOINT)
+                checkpoint()
                 print(f"OK {len(RESULTS)}/{len(REQUEST['lines'])} {line['speaker']} {line['id']} {duration}ms",flush=True)
                 return
             except Exception as error:
@@ -48,6 +55,9 @@ async def generate(line):
 
 async def main():
     await asyncio.gather(*(generate(line) for line in LINES))
+    # A clean checkout can resume solely from the committed catalog. Persist that
+    # validated cache even when no new line was synthesized, so --compile works.
+    checkpoint()
     print(json.dumps({'requested':len(LINES),'completed':len(RESULTS),'failed':FAILURES}),flush=True)
     if FAILURES: sys.exit(1)
 

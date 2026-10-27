@@ -10,13 +10,19 @@ const read=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
 const digest=b=>crypto.createHash('sha256').update(b).digest('hex');
 const catalog=read('src/content/voice-v5.json'),definition=read('src/content/stories/reunion-v5.json');
 const errors=[],check=(ok,message)=>{if(!ok)errors.push(message);};
+const checkedTrees=['public',...(process.argv.includes('--dist')?['dist']:[])];
 const ids=new Set();let scheduleChecks=0;
 for(const line of catalog.lines){
  check(!ids.has(line.id),`duplicate ${line.id}`);ids.add(line.id);
- check(line.voice===catalog.voices[line.speaker]?.voice,`wrong voice ${line.id}`);
+ const cast=catalog.voices[line.speaker];
+ check(line.voice===cast?.voice&&line.rate===cast?.rate&&line.pitch===cast?.pitch,`wrong voice parameters ${line.id}`);
+ check(line.id===digest(JSON.stringify([line.speaker,line.text,cast])).slice(0,24),`wrong text identity ${line.id}`);
  check(line.src===`/audio/voice-v5/${line.id}.mp3`&&/^[a-f0-9]{24}$/.test(line.id),`unsafe path ${line.id}`);
- const p=path.join(root,'public',line.src);check(fs.existsSync(p),`missing ${line.id}`);if(!fs.existsSync(p))continue;
- const bytes=fs.readFileSync(p);check(bytes.length===line.bytes&&digest(bytes)===line.sha256,`stale bytes ${line.id}`);
+ for(const tree of checkedTrees){
+  const file=path.join(root,tree,line.src);check(fs.existsSync(file),`missing ${tree}/${line.id}`);
+  if(fs.existsSync(file)){const bytes=fs.readFileSync(file);check(bytes.length===line.bytes&&digest(bytes)===line.sha256,`stale bytes ${tree}/${line.id}`);}
+ }
+ const p=path.join(root,'public',line.src);if(!fs.existsSync(p))continue;
  check(Number.isFinite(line.durationMs)&&line.durationMs>0,`invalid duration ${line.id}`);
  if(process.argv.includes('--decode')){
   try{execFileSync('ffmpeg',['-v','error','-i',p,'-f','null','-'],{stdio:'pipe',timeout:30000});}catch{errors.push(`decode failure ${line.id}`);}
@@ -33,6 +39,6 @@ for(const journeyIntent of ['home','open-road'])for(const mountainPact of ['shar
   scheduleChecks++;
  }
 }
-const report={schemaVersion:1,clips:catalog.lines.length,bytes:catalog.lines.reduce((sum,l)=>sum+l.bytes,0),audioDurationMs:catalog.lines.reduce((sum,l)=>sum+l.durationMs,0),scheduleChecks,choiceCombinations:16,modes:2,decodedThisRun:process.argv.includes('--decode'),catalogSha256:digest(fs.readFileSync(path.join(root,'src/content/voice-v5.json'))),errors};
+const report={schemaVersion:1,clips:catalog.lines.length,bytes:catalog.lines.reduce((sum,l)=>sum+l.bytes,0),audioDurationMs:catalog.lines.reduce((sum,l)=>sum+l.durationMs,0),scheduleChecks,choiceCombinations:16,modes:2,checkedTrees,decodedThisRun:process.argv.includes('--decode'),catalogSha256:digest(fs.readFileSync(path.join(root,'src/content/voice-v5.json'))),errors};
 const flag=process.argv.indexOf('--report');if(flag>=0){const dest=path.resolve(root,process.argv[flag+1]);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.writeFileSync(dest,JSON.stringify(report,null,2)+'\n');}
 console.log(JSON.stringify(report));if(errors.length)process.exitCode=1;

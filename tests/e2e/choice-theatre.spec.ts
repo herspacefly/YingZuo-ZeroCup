@@ -29,6 +29,17 @@ const advance=(p:Page,ms:number)=>p.evaluate(ms=>Reflect.get(window,'__choiceAdv
 async function seed(p:Page,project:ProjectV1){await p.goto('/study.html');await p.evaluate(async value=>{const db=await new Promise<IDBDatabase>((yes,no)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>yes(r.result);r.onerror=()=>no(r.error);});await new Promise<void>((yes,no)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>yes();tx.onabort=()=>no(tx.error);});db.close();},project);await p.goto('/#/story');}
 async function ready(p:Page,id:string,state:'paused'|'playing'='playing'){await expect(runtime(p)).toHaveAttribute('data-node',id);await expect(p.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready',{timeout:15000});await expect(runtime(p)).toHaveAttribute('data-state',state);}
 const duration=(id:StoryNodeId,mode:'full'|'guided')=>arrangeVoiceNode(choiceDefinition.nodes.find(n=>n.id===id)! as unknown as StoryNode,5)[mode==='full'?'fullTiming':'guidedTiming'].targetMs;
+// This matrix checks decisions and guarded progression; real MP3 playback is
+// covered separately. Use the public subtitle locator to reach each final cue,
+// then let the same director clock finish its remaining measured slot.
+async function finishDialogue(p:Page,id:StoryNodeId,mode:'full'|'guided'){
+ const node=arrangeVoiceNode(choiceDefinition.nodes.find(n=>n.id===id)! as unknown as StoryNode,5);
+ const cues=mode==='full'?node.subtitles:node.guidedSubtitles??node.subtitles;
+ const ratio=mode==='full'?1:node.guidedTiming.targetMs/node.fullTiming.targetMs;
+ const start=(cues[cues.length-1]?.startMs??0)*ratio;
+ if(start>0)await p.locator('.subtitle-directory button').last().click();
+ await advance(p,duration(id,mode)-start+200);
+}
 const chosenButton=(id:string,r:ChoiceRun)=>id==='journey-choice'?'#story-choice-journey-'+r.journeyIntent:id==='mountain-pact-choice'?'#story-choice-pact-'+r.mountainPact:id==='approach-choice'?'#story-'+r.approach:'#story-choice-final-'+r.finalAction;
 async function saved(p:Page){return p.evaluate(async()=>{const db=await new Promise<IDBDatabase>((yes,no)=>{const r=indexedDB.open('yingzuo-v1',1);r.onsuccess=()=>yes(r.result);r.onerror=()=>no(r.error);});const text=await new Promise<string>((yes,no)=>{const r=db.transaction('snapshots','readonly').objectStore('snapshots').get('draft');r.onsuccess=()=>yes(r.result as string);r.onerror=()=>no(r.error);});db.close();return JSON.parse(text) as ProjectV1;});}
 
@@ -39,7 +50,7 @@ for(const run of CHOICE_RUNS)for(const mode of ['full','guided'] as const)test(`
   if(id==='completed')break;
   if(id==='craft'){await ready(page,id,'paused');await page.locator('#story-confirm-craft').click();}
   else{
-   await ready(page,id);await advance(page,duration(id,mode)+200);
+   await ready(page,id);await finishDialogue(page,id,mode);
    if(node.kind==='choice'){choices++;await ready(page,id,'paused');const button=page.locator(chosenButton(id,run));await expect(button).toBeEnabled();await button.click();}
    else if(node.kind==='interaction'){await page.locator('#story-assist').click();await advance(page,20000);}
    else if(node.completion.kind==='scene'&&node.completion.activation==='user')await page.locator('#story-finish').click();
