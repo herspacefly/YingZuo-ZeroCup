@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "recordedAt": "2026-10-27T03:51:28.964Z",
+  "recordedAt": "2026-10-27T07:27:41.486Z",
   "task": "T38",
   "status": "in_progress",
   "baselineCommit": "319ad937f9a3369009467ed18cfd33413ba7afa7",
-  "sourceCheckpoint": "cb2f73b6db92b532e615c55d9ef905037a9f6586",
-  "lastApplicationChange": "a12652f7758584c1fb0af75b1db83c986cb39e94",
+  "sourceCheckpoint": "5eea7a479a3e60522427d0c2e6c9fbd9cac4cbd5",
+  "lastApplicationChange": "5eea7a479a3e60522427d0c2e6c9fbd9cac4cbd5",
   "implementation": "delivered",
   "functionalValidation": "passed_with_explicit_scope",
   "listeningAcceptance": "pending_documented_human_review",
   "unit": {
     "files": 52,
-    "passed": 627
+    "passed": 628
   },
   "checks": {
     "typecheck": "passed",
@@ -78,7 +78,7 @@
     "method": "Temporarily removed ignored result checkpoint; resumed all 354 from committed catalog without synthesis; recompiled catalog was byte-identical; temporary backup removed."
   },
   "browser": {
-    "uniqueLatestPassed": 76,
+    "uniqueLatestPassed": 78,
     "defaultSuiteRun": false,
     "singleGreenBatch": false,
     "choiceMatrix": {
@@ -89,7 +89,7 @@
       "usesPublicSubtitleSeekAndControlledDirectorClock": true
     },
     "native": {
-      "uniqueLatestPassed": 26,
+      "uniqueLatestPassed": 28,
       "firstFinalBatch": {
         "passed": 25,
         "failed": 1,
@@ -103,7 +103,12 @@
       "mp3Rate": 1,
       "reducedMotion": true,
       "replayNormalMotion": true,
-      "curtainUsesControlledDirectorClock": true
+      "curtainUsesControlledDirectorClock": true,
+      "tailFixFinalBatch": {
+        "passed": 28,
+        "total": 28,
+        "file": "native-tail-final.json"
+      }
     },
     "reports": [
       {
@@ -183,6 +188,15 @@
         "startTime": "2026-10-27T03:44:39.059Z",
         "duration": 33340.922999999995,
         "expected": 9,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      {
+        "file": "native-tail-final.json",
+        "startTime": "2026-10-27T07:13:34.819Z",
+        "duration": 133450.55099999998,
+        "expected": 28,
         "skipped": 0,
         "unexpected": 0,
         "flaky": 0
@@ -390,107 +404,115 @@
         "status": "passed"
       },
       "story-voice-isolation.spec.ts|v5 rehearsal is silent and storage failure cancels the formal voice channel|desktop-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice-isolation.spec.ts|v5 rehearsal is silent and storage failure cancels the formal voice channel|mobile-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|four cast voices load and play real MP3s with native media events|desktop-chromium": {
-        "file": "cast-recheck.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|pause, resume and subtitle seek follow the director without overlapping speech|desktop-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|voice and music intents are independent, survive routes, and default on after refresh|desktop-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|blocked speech reports its state without frame retries and the retry button unlocks it|desktop-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|a failed speech resource reports failure and succeeds after explicit retry|desktop-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|blur, hidden documents and route exits stop speech and focus cannot revive it|desktop-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|curtain reserves the original vocal recording until all spoken cues finish|desktop-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|result replay speaks the selected variant, seeks and closes without writing the completed run|desktop-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|restored v1 through v4 do not request new v5 speech assets|desktop-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|speech follows the document base when deployed under a subdirectory|desktop-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|full: all five ending epilogues play their matching local speech|desktop-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|guided: all five ending epilogues play their matching local speech|desktop-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|four cast voices load and play real MP3s with native media events|mobile-chromium": {
-        "file": "cast-recheck.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|pause, resume and subtitle seek follow the director without overlapping speech|mobile-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|voice and music intents are independent, survive routes, and default on after refresh|mobile-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|blocked speech reports its state without frame retries and the retry button unlocks it|mobile-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|a failed speech resource reports failure and succeeds after explicit retry|mobile-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|blur, hidden documents and route exits stop speech and focus cannot revive it|mobile-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|curtain reserves the original vocal recording until all spoken cues finish|mobile-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|result replay speaks the selected variant, seeks and closes without writing the completed run|mobile-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|restored v1 through v4 do not request new v5 speech assets|mobile-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|speech follows the document base when deployed under a subdirectory|mobile-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|full: all five ending epilogues play their matching local speech|mobile-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
         "status": "passed"
       },
       "story-voice.spec.ts|guided: all five ending epilogues play their matching local speech|mobile-chromium": {
-        "file": "native-final-all.json",
+        "file": "native-tail-final.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|a naturally played sentence reaches native ended before its reserved pause expires|desktop-chromium": {
+        "file": "native-tail-final.json",
+        "status": "passed"
+      },
+      "story-voice.spec.ts|a naturally played sentence reaches native ended before its reserved pause expires|mobile-chromium": {
+        "file": "native-tail-final.json",
         "status": "passed"
       }
     },
@@ -498,7 +520,9 @@
       "Matrix and native tests validate different scopes. Controlled matrix does not prove natural-duration playback or listening quality.",
       "Desktop cast check hit existing 250ms director-gap protection during live guardian transition. Cast-only procedure now pauses before each cue seek; separate live-seek case remains.",
       "Early normal-motion/headless tracing caused director gap pauses. Protection unchanged and original resources retained.",
-      "Browser tests do not substitute for physical devices, IE, or human listening."
+      "Browser tests do not substitute for physical devices, IE, or human listening.",
+      "The first natural guided run reached completed with 62 native playing events but no native ended events. Review found clip-duration retirement could trim a delayed native tail. The player now allows an already started line to finish within its preallocated pause, still bounded by the director cue; expired unstarted lines stay silent. A new native-ended regression and all 28 native cases pass on the rebuilt bundle.",
+      "The final natural guided observation is separate from the 78 Playwright cases; 572451ms, 23 nodes, four choices, 62/62 speech elements reached native ended, zero voice errors. One director-gap pause was recorded and explicitly resumed."
     ]
   },
   "listeningReview": {
@@ -516,8 +540,35 @@
     "pronunciation": "docs/content/voice-v5-pronunciation.md"
   },
   "naturalGuided": {
-    "status": "running",
-    "notCountedAsPassed": true
+    "status": "passed",
+    "file": "natural-guided.json",
+    "wallMs": 572451,
+    "nodeCount": 23,
+    "choiceCount": 4,
+    "voiceMediaCount": 62,
+    "voicePlayingEvents": 65,
+    "voiceEndedEvents": 62,
+    "voiceCompletedMedia": 62,
+    "voicePlayedMedia": 62,
+    "voiceErrors": 0,
+    "curtainVocalPlayingEvents": 1,
+    "curtainVocalMaxTime": 39.863856,
+    "allPlaybackRatesOne": true,
+    "unexpectedPauses": 1,
+    "ending": "home",
+    "completedAt": "2026-10-27T07:24:52.938Z",
+    "unexpectedPauseReasons": [
+      "页面停顿较久，已暂停；继续时不补算这段时间。"
+    ],
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "humanListeningVerified": false,
+    "usesNativeRaf": true,
+    "usesNativePerformanceNow": true,
+    "subtitleSeeking": false,
+    "nodeSkipping": false,
+    "reducedMotion": "reduce",
+    "scope": "One home ending guided path, normal assistance and explicit choices. One existing director-gap protection pause was explicitly resumed. Every one of 62 played speech elements emitted native ended. Full-mode natural real-time run and human hearing were not performed."
   },
   "screenshots": [
     "theatre-desktop.png",
@@ -546,5 +597,23 @@
   "remaining": [
     "Document human listening of the longest line, derived recalls, five ending epilogues, pronunciations, and actual-device mix through the provided review page.",
     "Keep T38 in_progress until listening acceptance is evidenced; do not promote existing formal-review/IE/physical-device tasks."
-  ]
+  ],
+  "naturalGuidedInitial": {
+    "file": "natural-guided-first.json",
+    "originalResult": "passed",
+    "wallMs": 574378,
+    "nodeCount": 23,
+    "choiceCount": 4,
+    "voiceMediaCount": 62,
+    "voicePlayingEvents": 62,
+    "voiceEndedEvents": 0,
+    "voiceErrors": 0,
+    "curtainVocalPlayingEvents": 1,
+    "curtainVocalMaxTime": 39.782993,
+    "allPlaybackRatesOne": true,
+    "unexpectedPauses": 0,
+    "ending": "home",
+    "completedAt": "2026-10-27T04:00:19.349Z",
+    "interpretation": "State progression completed, but native tail completion was not proved. This report revealed the tail-retirement defect; do not count as complete speech acceptance."
+  }
 }

@@ -65,7 +65,7 @@ try{
   if(snapshot.nodeId!==currentNode){
    if(activeNode){activeNode.endWallMs=elapsed();activeNode.observedDurationMs=activeNode.endWallMs-activeNode.startWallMs;}
    currentNode=snapshot.nodeId;activeNode={nodeId:currentNode,startWallMs:elapsed(),lastElapsedMs:snapshot.elapsedMs};report.nodes.push(activeNode);lastElapsed=snapshot.elapsedMs;lastMoving=Date.now();
-   console.log(JSON.stringify({event:'node',wallSeconds:Math.round(elapsed()/1000),nodeId:currentNode}),null,0);checkpoint();
+   console.log(JSON.stringify({event:'node',wallSeconds:Math.round(elapsed()/1000),nodeId:currentNode}));checkpoint();
   }
   if(activeNode)activeNode.lastElapsedMs=snapshot.elapsedMs;
   const transition=JSON.stringify([snapshot.nodeId,snapshot.phase,snapshot.message]);

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "recordedAt": "2026-10-27T03:41:29.648Z",
-  "sourceCommit": "cb2f73b6db92b532e615c55d9ef905037a9f6586",
+  "recordedAt": "2026-10-27T07:17:50.700Z",
+  "sourceCommit": "5eea7a479a3e60522427d0c2e6c9fbd9cac4cbd5",
   "baselineCommit": "319ad937f9a3369009467ed18cfd33413ba7afa7",
   "node": "v24.18.1",
   "npm": "12.0.2",
@@ -14,7 +14,7 @@
   ],
   "preservedDiff": "",
   "source": {
-    "src/audio/stage-voice.ts": "f79ece591cf9408ad63751e04f0f3aa6967f8698ddd2dc01008f729aac00ddcd",
+    "src/audio/stage-voice.ts": "8adbb69d25232074969215e7821180c65c38c807dacaf5506708b57ced976cb7",
     "src/audio/stage-session.ts": "32c71123ebe02c3852676351effd3d4deee42b949b5a7be6c8e7ed604e5b9954",
     "src/audio/stage-music.ts": "cdbd3df149c970cebd29ea2858b07a0166a79f574aa6728828b4a0641877e92b",
     "src/content/voice-arrangement.ts": "51a572fa5603d8d650379134ffbdfe784b88a91de3ad7ca472ebb2487f3b5d40",
@@ -48,9 +48,9 @@
     "dist/assets/dom-legacy-CNQWDEE6.js": "d48583d5b5a3f2875f68f08f1a0f0dd902ad8c21463524df848a3e1cc2d419f1",
     "dist/assets/identity-NbzIRwTg.js": "71c2e1dfd364291fc525a5e7bc2a2da4e436b89645742a6e70de37c29fd89dee",
     "dist/assets/identity-legacy-BBZqlOBF.js": "97b09c3d7a02dd3bc16e391173846b36441b51f242f8b6ef6415ba2c690d83cd",
-    "dist/assets/main-Bia1yC2q.js": "df0d1a55dff7ca88308d8a993c3eaef3cb697b2072a8fa7ed8f6a8285bc596e7",
+    "dist/assets/main-C29ry7pv.js": "4fb43da2fa7bfb28d97e449ca65b244a38591e1dbee9652ce9eea2def8473b39",
     "dist/assets/main-T6V9gkon.css": "940f19ec5bb4303bc2b5c5a806cef632c97e10b684b39ef6b4f4d770031f6b40",
-    "dist/assets/main-legacy-DFq1P5J8.js": "f71c9bbbcb2738680555b62e0783ba8b856ed3f9cd478e081e51cb362ea1ff6a",
+    "dist/assets/main-legacy-DJnqtZio.js": "da9d523a0a5cd924fa6a006c6fcf19cb8e203c1850cc0649bbebdde4dd554912",
     "dist/assets/modulepreload-polyfill-YP0FEG5d.js": "31191979ee8bf30912f8bb8eae8348182f37e999c8deb54095682926b9435fe3",
     "dist/assets/modulepreload-polyfill-legacy-CnvmjJHj.js": "8136c685d8528739fcd4db3716b8aa635eb875096f3f48a9e9e1a5acae7c066b",
     "dist/assets/polyfills-legacy-egavuY3n.js": "faa41e13ca0f7b1275ef13c97bc04ba5c18d09576aed6276d806353190d0c259",
@@ -61,8 +61,8 @@
     "dist/assets/project-C_0wRIs_.css": "c769290e3bd1a9dd3ad2a0c9a452c5df2b0496f38ac0052abe058e2972c2d501",
     "dist/assets/project-F9tjG_hr.js": "a9561c431eb7c3be91ad88fab4f07c0eff5d9ce7b262ad296a6c89ba65b46d6f",
     "dist/assets/project-legacy-BhTvswVb.js": "cd6160f3e3e013dfdffe40a1d315391f0d7090e81c78bf721a1f2341b8e21aa9",
-    "dist/assets/renderer-QAkeftKl.js": "bd3bb117bd0d332a7eeaf850dd2b6d5f9c05d87696e279f428bfcd8a41df0de2",
-    "dist/assets/renderer-legacy-CSj3__Fa.js": "a487ab3e8eb0d99db716418526c24a5969ed0e5781a4abbd1c06ce656a5ab8f5",
+    "dist/assets/renderer-D-QZv2hF.js": "cd6b8216af7fb2f48a65be14978e4940758bedf129720d1df1bbb86428d46f1b",
+    "dist/assets/renderer-legacy-rYVxfLX7.js": "370007eb4623015c372aadb984b92de50f1d3d9bef9b5fe0e72b0b921c52464a",
     "dist/assets/sources-BDttUePd.js": "381c6dd07f1abd45ade67e192568b74340a4054b99f0791613cfb79a1eb91939",
     "dist/assets/sources-legacy-DsZIeiL4.js": "249c0d1364a69eae646421574aac93d216227bfac2bc69a0a80886711278f9bc",
     "dist/assets/story-YwBMaqWb.js": "5a1543d3815ea77bc1160996143ecf5384ad5ceda23a40305e9f82e6fbca89da",
@@ -71,12 +71,12 @@
     "dist/assets/study-DgMxdagl.js": "69456bbe3b5731aa6a06981ee1c67545a4face1b345f8a1006be97551b73c933",
     "dist/assets/study-legacy-C_4Nm6Lp.js": "7c28f68adb4c008ecf5145b1b0797a0eeab40ad49809c6ff836422971d9bb748",
     "dist/credits.html": "eb11885b8114501da074b9229dc40a497719619c0bf187e9cf4eb8681e50e044",
-    "dist/index.html": "db872030bbddeb52cf63dabeede4cb3e46f98371c71dfebb0658f3b6af8aea04",
+    "dist/index.html": "25a5f3feca22e2a8dd8e0da0a0a71e1d82caaead33a23362a9eb85fb5625082e",
     "dist/probe.html": "7ab9053efb0284274ac2e32a733913d2bad7d03b59d348d34d548d30faef06cd",
     "dist/project.html": "08ce6e35d7fd66e964311202a9b4c073af7bccc53be24454b3dc195ed26d366b",
     "dist/story.html": "ddd01f353bf469960821e75532ef2eca4051af323cda24463e90ca2d50abf335",
     "dist/study.html": "556c068bc2fd7f26c741b96550f2518e9389a7439032cb147f065b023f1f3605"
   },
-  "lastApplicationChange": "a12652f7758584c1fb0af75b1db83c986cb39e94",
-  "note": "Later checkpoint commits only refine tests/listening review; production application hashes unchanged."
+  "lastApplicationChange": "5eea7a479a3e60522427d0c2e6c9fbd9cac4cbd5",
+  "note": "Final application change preserves native speech tails inside reserved pauses; fingerprint taken after the final production rebuild."
 }

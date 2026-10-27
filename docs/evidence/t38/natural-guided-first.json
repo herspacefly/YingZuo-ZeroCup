@@ -1,0 +1,4559 @@
+{
+  "kind": "natural-clock-guided-v5",
+  "startedAt": "2026-10-27T03:51:41.635Z",
+  "origin": "http://127.0.0.1:4173",
+  "indexSha256": "db872030bbddeb52cf63dabeede4cb3e46f98371c71dfebb0658f3b6af8aea04",
+  "voiceCatalogSha256": "6205deb992929cff7aab8719cbc545f4027fcc67db819116ac190e05d453d6eb",
+  "constraints": {
+    "nativeRaf": true,
+    "nativePerformanceNow": true,
+    "nativeAudio": true,
+    "playbackRate": 1,
+    "subtitleSeeking": false,
+    "nodeSkipping": false,
+    "mode": "guided",
+    "reducedMotion": "reduce",
+    "humanListeningVerified": false
+  },
+  "plannedChoices": {
+    "journeyIntent": "home",
+    "mountainPact": "shared",
+    "approach": "call-first",
+    "finalAction": "fulfill",
+    "ending": "home"
+  },
+  "actions": [
+    {
+      "wallMs": 443,
+      "nodeId": "intro",
+      "id": "story-runtime",
+      "kind": "initial-user-audio-unlock"
+    },
+    {
+      "wallMs": 22021,
+      "nodeId": "craft",
+      "elapsedMs": 0,
+      "id": "story-confirm-craft",
+      "kind": "craft-confirmation",
+      "message": "幕面已就绪。"
+    },
+    {
+      "wallMs": 42220,
+      "nodeId": "memory-wave",
+      "elapsedMs": 18634,
+      "id": "story-assist",
+      "kind": "normal-assistance",
+      "message": "对白说完了。现在接过影偶，完成下面的动作。"
+    },
+    {
+      "wallMs": 116508,
+      "nodeId": "road",
+      "elapsedMs": 21539,
+      "id": "story-assist",
+      "kind": "normal-assistance",
+      "message": "对白说完了。现在接过影偶，完成下面的动作。"
+    },
+    {
+      "wallMs": 175717,
+      "nodeId": "journey-choice",
+      "elapsedMs": 25375,
+      "id": "story-choice-journey-home",
+      "kind": "explicit-choice",
+      "message": "对白已说完，这一幕的去向由你决定。"
+    },
+    {
+      "wallMs": 217986,
+      "nodeId": "guardian",
+      "elapsedMs": 19986,
+      "id": "story-assist",
+      "kind": "normal-assistance",
+      "message": "对白说完了。现在接过影偶，完成下面的动作。"
+    },
+    {
+      "wallMs": 277102,
+      "nodeId": "mountain-pact-choice",
+      "elapsedMs": 27563,
+      "id": "story-choice-pact-shared",
+      "kind": "explicit-choice",
+      "message": "对白已说完，这一幕的去向由你决定。"
+    },
+    {
+      "wallMs": 306406,
+      "nodeId": "approach-choice",
+      "elapsedMs": 27951,
+      "id": "story-call-first",
+      "kind": "explicit-choice",
+      "message": "对白已说完，这一幕的去向由你决定。"
+    },
+    {
+      "wallMs": 326050,
+      "nodeId": "call-light",
+      "elapsedMs": 18239,
+      "id": "story-assist",
+      "kind": "normal-assistance",
+      "message": "对白说完了。现在接过影偶，完成下面的动作。"
+    },
+    {
+      "wallMs": 376603,
+      "nodeId": "call-split",
+      "elapsedMs": 19177,
+      "id": "story-assist",
+      "kind": "normal-assistance",
+      "message": "对白说完了。现在接过影偶，完成下面的动作。"
+    },
+    {
+      "wallMs": 446517,
+      "nodeId": "ending-choice",
+      "elapsedMs": 30269,
+      "id": "story-choice-final-fulfill",
+      "kind": "explicit-choice",
+      "message": "对白已说完，这一幕的去向由你决定。"
+    },
+    {
+      "wallMs": 467893,
+      "nodeId": "reunion-reach",
+      "elapsedMs": 20224,
+      "id": "story-assist",
+      "kind": "normal-assistance",
+      "message": "对白说完了。现在接过影偶，完成下面的动作。"
+    },
+    {
+      "wallMs": 498852,
+      "nodeId": "reunion-hold",
+      "elapsedMs": 20004,
+      "id": "story-finish",
+      "kind": "hold-confirmation",
+      "message": "让这一刻安静停留。准备好了，再由你进入下一段。"
+    }
+  ],
+  "nodes": [
+    {
+      "nodeId": "intro",
+      "startWallMs": 451,
+      "lastElapsedMs": 20331,
+      "endWallMs": 21521,
+      "observedDurationMs": 21070
+    },
+    {
+      "nodeId": "craft",
+      "startWallMs": 21552,
+      "lastElapsedMs": 0,
+      "endWallMs": 22671,
+      "observedDurationMs": 1119
+    },
+    {
+      "nodeId": "memory-wave",
+      "startWallMs": 22671,
+      "lastElapsedMs": 27367,
+      "endWallMs": 51421,
+      "observedDurationMs": 28750
+    },
+    {
+      "nodeId": "memory-words",
+      "startWallMs": 51421,
+      "lastElapsedMs": 20083,
+      "endWallMs": 73530,
+      "observedDurationMs": 22109
+    },
+    {
+      "nodeId": "memory-separate",
+      "startWallMs": 73530,
+      "lastElapsedMs": 19264,
+      "endWallMs": 93844,
+      "observedDurationMs": 20314
+    },
+    {
+      "nodeId": "road",
+      "startWallMs": 93844,
+      "lastElapsedMs": 31539,
+      "endWallMs": 126765,
+      "observedDurationMs": 32921
+    },
+    {
+      "nodeId": "road-rest",
+      "startWallMs": 126765,
+      "lastElapsedMs": 21632,
+      "endWallMs": 149652,
+      "observedDurationMs": 22887
+    },
+    {
+      "nodeId": "journey-choice",
+      "startWallMs": 149652,
+      "lastElapsedMs": 25375,
+      "endWallMs": 176267,
+      "observedDurationMs": 26615
+    },
+    {
+      "nodeId": "training",
+      "startWallMs": 176267,
+      "lastElapsedMs": 20062,
+      "endWallMs": 197021,
+      "observedDurationMs": 20754
+    },
+    {
+      "nodeId": "guardian",
+      "startWallMs": 197021,
+      "lastElapsedMs": 29986,
+      "endWallMs": 228415,
+      "observedDurationMs": 31394
+    },
+    {
+      "nodeId": "guardian-parley",
+      "startWallMs": 228415,
+      "lastElapsedMs": 19956,
+      "endWallMs": 249012,
+      "observedDurationMs": 20597
+    },
+    {
+      "nodeId": "mountain-pact-choice",
+      "startWallMs": 249012,
+      "lastElapsedMs": 27563,
+      "endWallMs": 277732,
+      "observedDurationMs": 28720
+    },
+    {
+      "nodeId": "approach-choice",
+      "startWallMs": 277732,
+      "lastElapsedMs": 27951,
+      "endWallMs": 306975,
+      "observedDurationMs": 29243
+    },
+    {
+      "nodeId": "call-light",
+      "startWallMs": 306975,
+      "lastElapsedMs": 28338,
+      "endWallMs": 336378,
+      "observedDurationMs": 29403
+    },
+    {
+      "nodeId": "call-response",
+      "startWallMs": 336378,
+      "lastElapsedMs": 18961,
+      "endWallMs": 357005,
+      "observedDurationMs": 20627
+    },
+    {
+      "nodeId": "call-split",
+      "startWallMs": 357005,
+      "lastElapsedMs": 30093,
+      "endWallMs": 387998,
+      "observedDurationMs": 30993
+    },
+    {
+      "nodeId": "mountain-listen",
+      "startWallMs": 387998,
+      "lastElapsedMs": 26125,
+      "endWallMs": 415151,
+      "observedDurationMs": 27153
+    },
+    {
+      "nodeId": "ending-choice",
+      "startWallMs": 415151,
+      "lastElapsedMs": 30269,
+      "endWallMs": 447267,
+      "observedDurationMs": 32116
+    },
+    {
+      "nodeId": "reunion-reach",
+      "startWallMs": 447267,
+      "lastElapsedMs": 30140,
+      "endWallMs": 478313,
+      "observedDurationMs": 31046
+    },
+    {
+      "nodeId": "reunion-hold",
+      "startWallMs": 478313,
+      "lastElapsedMs": 20004,
+      "endWallMs": 499240,
+      "observedDurationMs": 20927
+    },
+    {
+      "nodeId": "ending-home-epilogue",
+      "startWallMs": 499240,
+      "lastElapsedMs": 18021,
+      "endWallMs": 518412,
+      "observedDurationMs": 19172
+    },
+    {
+      "nodeId": "curtain",
+      "startWallMs": 518412,
+      "lastElapsedMs": 54162,
+      "endWallMs": 574304,
+      "observedDurationMs": 55892
+    },
+    {
+      "nodeId": "completed",
+      "startWallMs": 574304,
+      "lastElapsedMs": 0,
+      "endWallMs": 574379,
+      "observedDurationMs": 75
+    }
+  ],
+  "runtimeTransitions": [
+    {
+      "wallMs": 451,
+      "nodeId": "intro",
+      "phase": "loading",
+      "elapsedMs": 0,
+      "message": "正在准备当前片段…",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 874,
+      "nodeId": "intro",
+      "phase": "playing",
+      "elapsedMs": 49,
+      "message": "正在播放当前片段，后续片段会自动接续。",
+      "voiceState": "loading",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 21521,
+      "nodeId": "craft",
+      "phase": "loading",
+      "elapsedMs": 0,
+      "message": "正在准备下一段，保留上一幕画面与台词。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 22021,
+      "nodeId": "craft",
+      "phase": "paused",
+      "elapsedMs": 0,
+      "message": "幕面已就绪。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 22671,
+      "nodeId": "memory-wave",
+      "phase": "loading",
+      "elapsedMs": 0,
+      "message": "正在准备下一段，保留上一幕画面与台词。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 23533,
+      "nodeId": "memory-wave",
+      "phase": "playing",
+      "elapsedMs": 17,
+      "message": "先听这一段故事；对白结束后，握柄会出现，再由你接过影偶。",
+      "voiceState": "loading",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 42220,
+      "nodeId": "memory-wave",
+      "phase": "playing",
+      "elapsedMs": 18634,
+      "message": "对白说完了。现在接过影偶，完成下面的动作。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 42792,
+      "nodeId": "memory-wave",
+      "phase": "playing",
+      "elapsedMs": 19201,
+      "message": "与你协作演这一段；完成后节目单会记录本段协助。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 45500,
+      "nodeId": "memory-wave",
+      "phase": "playing",
+      "elapsedMs": 21917,
+      "message": "达标已确认。收杆定场后，为你放映这一段的编排动作。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 51421,
+      "nodeId": "memory-words",
+      "phase": "loading",
+      "elapsedMs": 0,
+      "message": "正在准备下一段，保留上一幕画面与台词。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 53256,
+      "nodeId": "memory-words",
+      "phase": "playing",
+      "elapsedMs": 183,
+      "message": "正在播放当前片段，后续片段会自动接续。",
+      "voiceState": "enabled",
+      "voicePlaying": "true"
+    },
+    {
+      "wallMs": 73530,
+      "nodeId": "memory-separate",
+      "phase": "loading",
+      "elapsedMs": 0,
+      "message": "正在准备下一段，保留上一幕画面与台词。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 74365,
+      "nodeId": "memory-separate",
+      "phase": "playing",
+      "elapsedMs": 165,
+      "message": "正在播放当前片段，后续片段会自动接续。",
+      "voiceState": "enabled",
+      "voicePlaying": "true"
+    },
+    {
+      "wallMs": 93844,
+      "nodeId": "road",
+      "phase": "loading",
+      "elapsedMs": 0,
+      "message": "正在准备下一段，保留上一幕画面与台词。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 95657,
+      "nodeId": "road",
+      "phase": "playing",
+      "elapsedMs": 824,
+      "message": "先听这一段故事；对白结束后，握柄会出现，再由你接过影偶。",
+      "voiceState": "enabled",
+      "voicePlaying": "true"
+    },
+    {
+      "wallMs": 116508,
+      "nodeId": "road",
+      "phase": "playing",
+      "elapsedMs": 21539,
+      "message": "对白说完了。现在接过影偶，完成下面的动作。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 117091,
+      "nodeId": "road",
+      "phase": "playing",
+      "elapsedMs": 22256,
+      "message": "与你协作演这一段；完成后节目单会记录本段协助。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 120134,
+      "nodeId": "road",
+      "phase": "playing",
+      "elapsedMs": 25173,
+      "message": "达标已确认。收杆定场后，为你放映这一段的编排动作。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 126765,
+      "nodeId": "road-rest",
+      "phase": "loading",
+      "elapsedMs": 0,
+      "message": "正在准备下一段，保留上一幕画面与台词。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 127666,
+      "nodeId": "road-rest",
+      "phase": "playing",
+      "elapsedMs": 50,
+      "message": "正在播放当前片段，后续片段会自动接续。",
+      "voiceState": "loading",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 149652,
+      "nodeId": "journey-choice",
+      "phase": "loading",
+      "elapsedMs": 0,
+      "message": "正在准备下一段，保留上一幕画面与台词。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 150060,
+      "nodeId": "journey-choice",
+      "phase": "playing",
+      "elapsedMs": 26,
+      "message": "正在播放当前片段，后续片段会自动接续。",
+      "voiceState": "loading",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 175717,
+      "nodeId": "journey-choice",
+      "phase": "paused",
+      "elapsedMs": 25375,
+      "message": "对白已说完，这一幕的去向由你决定。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 176267,
+      "nodeId": "training",
+      "phase": "loading",
+      "elapsedMs": 0,
+      "message": "正在准备下一段，保留上一幕画面与台词。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 176647,
+      "nodeId": "training",
+      "phase": "playing",
+      "elapsedMs": 46,
+      "message": "正在播放当前片段，后续片段会自动接续。",
+      "voiceState": "loading",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 197021,
+      "nodeId": "guardian",
+      "phase": "loading",
+      "elapsedMs": 0,
+      "message": "正在准备下一段，保留上一幕画面与台词。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 198177,
+      "nodeId": "guardian",
+      "phase": "playing",
+      "elapsedMs": 187,
+      "message": "先听这一段故事；对白结束后，握柄会出现，再由你接过影偶。",
+      "voiceState": "enabled",
+      "voicePlaying": "true"
+    },
+    {
+      "wallMs": 217986,
+      "nodeId": "guardian",
+      "phase": "playing",
+      "elapsedMs": 19986,
+      "message": "对白说完了。现在接过影偶，完成下面的动作。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 218756,
+      "nodeId": "guardian",
+      "phase": "playing",
+      "elapsedMs": 20603,
+      "message": "与你协作演这一段；完成后节目单会记录本段协助。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 221498,
+      "nodeId": "guardian",
+      "phase": "playing",
+      "elapsedMs": 23503,
+      "message": "达标已确认。收杆定场后，为你放映这一段的编排动作。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 228010,
+      "nodeId": "guardian",
+      "phase": "saving",
+      "elapsedMs": 29986,
+      "message": "检查点尚未保存；画面保留在当前段。请在作品工具中重试、取消或选择仅在本页继续。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 228415,
+      "nodeId": "guardian-parley",
+      "phase": "loading",
+      "elapsedMs": 0,
+      "message": "正在准备下一段，保留上一幕画面与台词。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 228759,
+      "nodeId": "guardian-parley",
+      "phase": "playing",
+      "elapsedMs": 240,
+      "message": "正在播放当前片段，后续片段会自动接续。",
+      "voiceState": "enabled",
+      "voicePlaying": "true"
+    },
+    {
+      "wallMs": 249012,
+      "nodeId": "mountain-pact-choice",
+      "phase": "loading",
+      "elapsedMs": 0,
+      "message": "正在准备下一段，保留上一幕画面与台词。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 249496,
+      "nodeId": "mountain-pact-choice",
+      "phase": "playing",
+      "elapsedMs": 30,
+      "message": "正在播放当前片段，后续片段会自动接续。",
+      "voiceState": "loading",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 277102,
+      "nodeId": "mountain-pact-choice",
+      "phase": "paused",
+      "elapsedMs": 27563,
+      "message": "对白已说完，这一幕的去向由你决定。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 277732,
+      "nodeId": "approach-choice",
+      "phase": "loading",
+      "elapsedMs": 0,
+      "message": "正在准备下一段，保留上一幕画面与台词。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 278440,
+      "nodeId": "approach-choice",
+      "phase": "playing",
+      "elapsedMs": 85,
+      "message": "正在播放当前片段，后续片段会自动接续。",
+      "voiceState": "loading",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 306406,
+      "nodeId": "approach-choice",
+      "phase": "paused",
+      "elapsedMs": 27951,
+      "message": "对白已说完，这一幕的去向由你决定。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 306975,
+      "nodeId": "call-light",
+      "phase": "loading",
+      "elapsedMs": 0,
+      "message": "正在准备下一段，保留上一幕画面与台词。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 307732,
+      "nodeId": "call-light",
+      "phase": "playing",
+      "elapsedMs": 23,
+      "message": "先听这一段故事；对白结束后，握柄会出现，再由你接过影偶。",
+      "voiceState": "loading",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 326049,
+      "nodeId": "call-light",
+      "phase": "playing",
+      "elapsedMs": 18239,
+      "message": "对白说完了。现在接过影偶，完成下面的动作。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 326598,
+      "nodeId": "call-light",
+      "phase": "playing",
+      "elapsedMs": 18989,
+      "message": "与你协作演这一段；完成后节目单会记录本段协助。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 329445,
+      "nodeId": "call-light",
+      "phase": "playing",
+      "elapsedMs": 21839,
+      "message": "达标已确认。收杆定场后，为你放映这一段的编排动作。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 336378,
+      "nodeId": "call-response",
+      "phase": "loading",
+      "elapsedMs": 0,
+      "message": "正在准备下一段，保留上一幕画面与台词。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 337311,
+      "nodeId": "call-response",
+      "phase": "playing",
+      "elapsedMs": 28,
+      "message": "正在播放当前片段，后续片段会自动接续。",
+      "voiceState": "loading",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 357005,
+      "nodeId": "call-split",
+      "phase": "loading",
+      "elapsedMs": 0,
+      "message": "正在准备下一段，保留上一幕画面与台词。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 357554,
+      "nodeId": "call-split",
+      "phase": "playing",
+      "elapsedMs": 78,
+      "message": "先听这一段故事；对白结束后，握柄会出现，再由你接过影偶。",
+      "voiceState": "loading",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 376603,
+      "nodeId": "call-split",
+      "phase": "playing",
+      "elapsedMs": 19177,
+      "message": "对白说完了。现在接过影偶，完成下面的动作。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 377180,
+      "nodeId": "call-split",
+      "phase": "playing",
+      "elapsedMs": 19710,
+      "message": "与你协作演这一段；完成后节目单会记录本段协助。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 379926,
+      "nodeId": "call-split",
+      "phase": "playing",
+      "elapsedMs": 22510,
+      "message": "达标已确认。收杆定场后，为你放映这一段的编排动作。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 387584,
+      "nodeId": "call-split",
+      "phase": "saving",
+      "elapsedMs": 30093,
+      "message": "检查点尚未保存；画面保留在当前段。请在作品工具中重试、取消或选择仅在本页继续。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 387998,
+      "nodeId": "mountain-listen",
+      "phase": "loading",
+      "elapsedMs": 0,
+      "message": "正在准备下一段，保留上一幕画面与台词。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 388627,
+      "nodeId": "mountain-listen",
+      "phase": "playing",
+      "elapsedMs": 9,
+      "message": "正在播放当前片段，后续片段会自动接续。",
+      "voiceState": "loading",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 415151,
+      "nodeId": "ending-choice",
+      "phase": "loading",
+      "elapsedMs": 0,
+      "message": "正在准备下一段，保留上一幕画面与台词。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 416153,
+      "nodeId": "ending-choice",
+      "phase": "playing",
+      "elapsedMs": 187,
+      "message": "正在播放当前片段，后续片段会自动接续。",
+      "voiceState": "enabled",
+      "voicePlaying": "true"
+    },
+    {
+      "wallMs": 446517,
+      "nodeId": "ending-choice",
+      "phase": "paused",
+      "elapsedMs": 30269,
+      "message": "对白已说完，这一幕的去向由你决定。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 447267,
+      "nodeId": "reunion-reach",
+      "phase": "loading",
+      "elapsedMs": 0,
+      "message": "正在准备下一段，保留上一幕画面与台词。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 447790,
+      "nodeId": "reunion-reach",
+      "phase": "playing",
+      "elapsedMs": 74,
+      "message": "先听这一段故事；对白结束后，握柄会出现，再由你接过影偶。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 467893,
+      "nodeId": "reunion-reach",
+      "phase": "playing",
+      "elapsedMs": 20224,
+      "message": "对白说完了。现在接过影偶，完成下面的动作。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 468438,
+      "nodeId": "reunion-reach",
+      "phase": "playing",
+      "elapsedMs": 20757,
+      "message": "与你协作演这一段；完成后节目单会记录本段协助。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 471462,
+      "nodeId": "reunion-reach",
+      "phase": "playing",
+      "elapsedMs": 23740,
+      "message": "达标已确认。收杆定场后，为你放映这一段的编排动作。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 478313,
+      "nodeId": "reunion-hold",
+      "phase": "loading",
+      "elapsedMs": 0,
+      "message": "正在准备下一段，保留上一幕画面与台词。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 478860,
+      "nodeId": "reunion-hold",
+      "phase": "playing",
+      "elapsedMs": 22,
+      "message": "正在播放当前片段，后续片段会自动接续。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 498852,
+      "nodeId": "reunion-hold",
+      "phase": "paused",
+      "elapsedMs": 20004,
+      "message": "让这一刻安静停留。准备好了，再由你进入下一段。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 499240,
+      "nodeId": "ending-home-epilogue",
+      "phase": "playing",
+      "elapsedMs": 21,
+      "message": "正在播放当前片段，后续片段会自动接续。",
+      "voiceState": "loading",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 518412,
+      "nodeId": "curtain",
+      "phase": "loading",
+      "elapsedMs": 0,
+      "message": "正在准备下一段，保留上一幕画面与台词。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 519893,
+      "nodeId": "curtain",
+      "phase": "playing",
+      "elapsedMs": 165,
+      "message": "正在播放当前片段，后续片段会自动接续。",
+      "voiceState": "loading",
+      "voicePlaying": "false"
+    },
+    {
+      "wallMs": 574303,
+      "nodeId": "completed",
+      "phase": "loading",
+      "elapsedMs": 0,
+      "message": "正在准备下一段，保留上一幕画面与台词。",
+      "voiceState": "enabled",
+      "voicePlaying": "false"
+    }
+  ],
+  "unexpectedPauses": [],
+  "pageErrors": [],
+  "requestFailures": [],
+  "result": "passed",
+  "browserVersion": "156.0.8078.4",
+  "performanceStartAt": "2026-10-27T03:51:42.050Z",
+  "latest": {
+    "wallMs": 574303,
+    "nodeId": "completed",
+    "phase": "loading",
+    "elapsedMs": 0,
+    "message": "正在准备下一段，保留上一幕画面与台词。",
+    "voiceState": "enabled",
+    "voicePlaying": "false"
+  },
+  "media": {
+    "nativeNow": 574148.8000000119,
+    "timeOrigin": 1793073102052.5,
+    "audio": [
+      {
+        "id": 0,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/4e32d977bdab8c8cdbb55634.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 7.047185,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 1,
+        "source": "http://127.0.0.1:4173/audio/jinghu-instrumental.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 96,
+        "readyState": 0,
+        "playingCount": 22,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 2,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/0f73d23acee654e1461c301c.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 5.515024,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 3,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/1de29eded9315c81c0b0ca0e.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 5.578352,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 4,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/07396b1e911ae12271d81557.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 4.40117,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 5,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/ecdd3f678ce257d58dba5d63.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 6.068783,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 6,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/1e602caf36eeb79cd022d56c.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 4.81564,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 7,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/61e9f4da6ee192437d23151e.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 6.525993,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 8,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/220a90c57742c0b1696594db.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 5.055277,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 9,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/fae5ecada5ea52d3707dc62d.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 4.499275,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 10,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/f614bcffd7e263d57035df6a.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 8.084474,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 11,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/3a8556ca5a61ac3158f105d9.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 5.772571,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 12,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/d6153fc4e5e72e20275e744f.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 3.423097,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 13,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/8eed14123098440417fd1823.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 9.056422,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 14,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/7695d4e5318cc2f7341b6ec4.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 5.798902,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 15,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/a6d007ff5c69e42cc0e6564b.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 4.456474,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 16,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/e72eb9e4eedcec651f9d03a6.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 9.062697,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 17,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/c4f3f29c2a032ad3457dd1fc.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 4.990865,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 18,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/8353d8bc0bc9da7d2441f831.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 5.972544,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 19,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/3bf6834a6aadd24167f67adc.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 9.309266,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 20,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/3d8327af5089020ab680108b.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 8.51005,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 21,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/7615376e42982a65d660e8ae.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 5.416781,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 22,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/43d72a0e878b63fc3e2f4bf1.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 8.097805,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 23,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/af4a7fe3a748c5046c5ea4ef.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 5.489021,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 24,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/26d5e126b8062739f89c1a23.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 2.893523,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 25,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/2081e861b2166e6915fb77a9.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 7.052916,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 26,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/e3eebb280048be6a9e1b655b.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 6.401288,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 27,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/067afee2d491cc80f9f12b79.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 4.330698,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 28,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/fb9f5ee789b740d373ee9911.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 4.651749,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 29,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/bfca50bf4a8371a165fb0e2e.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 7.479698,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 30,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/2f18b64937fe280a04926df3.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 3.817985,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 31,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/3b04c7cc477a39544d11fe2f.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 11.041863,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 32,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/489e0b205952aa6098ec5db7.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 6.077954,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 33,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/c9e052c2c948504122dff162.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 8.179613,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 34,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/9a5b7faf3aa53afc4272f65d.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 8.12384,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 35,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/dba9c26ddb95eea5bc3001ee.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 10.574118,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 36,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/03911ec1f112e0038a457946.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 7.518107,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 37,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/8cb7166fd4a2b9ca612004cd.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 9.100781,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 38,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/a7027d6eac30c6654b98e636.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 4.188499,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 39,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/50394fedf6f38aae30d80b19.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 2.850346,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 40,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/1c5b5e50fbd34efcb7beea32.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 5.970471,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 41,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/28b4f498276239f6e04f4c04.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 7.554521,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 42,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/72a3866dd039544341d5946f.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 3.639495,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 43,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/875275e57dc116fc99622b6b.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 5.718707,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 44,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/aea7fc6b0321393d3ada6d1d.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 6.069891,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 45,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/38024e4cfeaffeda69a5c892.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 4.098529,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 46,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/ebf5a9b91dee67edbd4c23c2.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 5.791018,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 47,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/3e8c8da46259ab797a69e611.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 11.069912,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 48,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/c93b1f54dd603a857e18178b.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 4.248741,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 49,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/911793a4e78e3c3e9eb0ac43.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 7.410914,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 50,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/ed9240a5d1304320dd8cadf3.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 11.249487,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 51,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/d8599d1ddaeaea51f6704ab5.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 9.5109,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 52,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/abd9e1330fe27e234f94d6f9.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 5.759077,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 53,
+        "source": "http://127.0.0.1:4173/audio/jinghu-instrumental.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 28.103162,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 54,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/68d8af2445a0b21aa3c6ca66.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 6.019425,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 55,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/f3714b651d3f3e653e3a5dce.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 2.507823,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 56,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/a73feb74e30af34f67f1bd70.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 5.600035,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 57,
+        "source": "http://127.0.0.1:4173/audio/jinghu-instrumental.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 50.065619,
+        "readyState": 0,
+        "playingCount": 3,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 58,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/67ed6b9dad0f676fd1a2faa7.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 5.655877,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 59,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/5e690d6a201fa94f836a97ea.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 3.617695,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 60,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/9a0f28e0138d3bf8038c24ee.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 6.727673,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 61,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/2dd9c14c003e0aa83cd7979e.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 4.03076,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 62,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/4fb729816a11a3c085b82bf6.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 4.275058,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 63,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/d197bfec7f20ff02e6003c47.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 6.190959,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 64,
+        "source": "http://127.0.0.1:4173/audio/voice-v5/0b0e9cd40d76d27fdf07fc4c.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 6.756293,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      },
+      {
+        "id": 65,
+        "source": "http://127.0.0.1:4173/audio/jingju-curtain.mp3",
+        "currentSource": null,
+        "paused": true,
+        "time": 0,
+        "maxTime": 39.782993,
+        "readyState": 0,
+        "playingCount": 1,
+        "endedCount": 0,
+        "errorCount": 0,
+        "rates": [
+          1
+        ]
+      }
+    ],
+    "events": [
+      {
+        "nativeMs": 869.6000000238419,
+        "type": "waiting",
+        "mediaId": 0,
+        "source": "./audio/voice-v5/4e32d977bdab8c8cdbb55634.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "intro",
+        "error": null
+      },
+      {
+        "nativeMs": 870.2000000178814,
+        "type": "waiting",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "intro",
+        "error": null
+      },
+      {
+        "nativeMs": 870.2000000178814,
+        "type": "pause",
+        "mediaId": 0,
+        "source": "./audio/voice-v5/4e32d977bdab8c8cdbb55634.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "intro",
+        "error": null
+      },
+      {
+        "nativeMs": 871.4000000059605,
+        "type": "pause",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "intro",
+        "error": null
+      },
+      {
+        "nativeMs": 871.5,
+        "type": "waiting",
+        "mediaId": 0,
+        "source": "./audio/voice-v5/4e32d977bdab8c8cdbb55634.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "intro",
+        "error": null
+      },
+      {
+        "nativeMs": 872.1000000238419,
+        "type": "waiting",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "intro",
+        "error": null
+      },
+      {
+        "nativeMs": 885.6000000238419,
+        "type": "loadedmetadata",
+        "mediaId": 0,
+        "source": "./audio/voice-v5/4e32d977bdab8c8cdbb55634.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "intro",
+        "error": null
+      },
+      {
+        "nativeMs": 885.8000000119209,
+        "type": "loadedmetadata",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "intro",
+        "error": null
+      },
+      {
+        "nativeMs": 901.5,
+        "type": "playing",
+        "mediaId": 0,
+        "source": "./audio/voice-v5/4e32d977bdab8c8cdbb55634.mp3",
+        "time": 0.065198,
+        "rate": 1,
+        "nodeId": "intro",
+        "error": null
+      },
+      {
+        "nativeMs": 907.7000000178814,
+        "type": "playing",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "intro",
+        "error": null
+      },
+      {
+        "nativeMs": 9143.200000017881,
+        "type": "waiting",
+        "mediaId": 2,
+        "source": "./audio/voice-v5/0f73d23acee654e1461c301c.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "intro",
+        "error": null
+      },
+      {
+        "nativeMs": 9206.100000023842,
+        "type": "loadedmetadata",
+        "mediaId": 2,
+        "source": "./audio/voice-v5/0f73d23acee654e1461c301c.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "intro",
+        "error": null
+      },
+      {
+        "nativeMs": 9221.700000017881,
+        "type": "playing",
+        "mediaId": 2,
+        "source": "./audio/voice-v5/0f73d23acee654e1461c301c.mp3",
+        "time": 0.088699,
+        "rate": 1,
+        "nodeId": "intro",
+        "error": null
+      },
+      {
+        "nativeMs": 15191.40000000596,
+        "type": "waiting",
+        "mediaId": 3,
+        "source": "./audio/voice-v5/1de29eded9315c81c0b0ca0e.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "intro",
+        "error": null
+      },
+      {
+        "nativeMs": 15204.700000017881,
+        "type": "loadedmetadata",
+        "mediaId": 3,
+        "source": "./audio/voice-v5/1de29eded9315c81c0b0ca0e.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "intro",
+        "error": null
+      },
+      {
+        "nativeMs": 15218.5,
+        "type": "playing",
+        "mediaId": 3,
+        "source": "./audio/voice-v5/1de29eded9315c81c0b0ca0e.mp3",
+        "time": 0.024399,
+        "rate": 1,
+        "nodeId": "intro",
+        "error": null
+      },
+      {
+        "nativeMs": 21377.90000000596,
+        "type": "pause",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 20.366564,
+        "rate": 1,
+        "nodeId": "intro",
+        "error": null
+      },
+      {
+        "nativeMs": 23517,
+        "type": "waiting",
+        "mediaId": 4,
+        "source": "./audio/voice-v5/07396b1e911ae12271d81557.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "memory-wave",
+        "error": null
+      },
+      {
+        "nativeMs": 23517.100000023842,
+        "type": "playing",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 20.42066,
+        "rate": 1,
+        "nodeId": "memory-wave",
+        "error": null
+      },
+      {
+        "nativeMs": 23556.100000023842,
+        "type": "loadedmetadata",
+        "mediaId": 4,
+        "source": "./audio/voice-v5/07396b1e911ae12271d81557.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "memory-wave",
+        "error": null
+      },
+      {
+        "nativeMs": 23569,
+        "type": "playing",
+        "mediaId": 4,
+        "source": "./audio/voice-v5/07396b1e911ae12271d81557.mp3",
+        "time": 0.067099,
+        "rate": 1,
+        "nodeId": "memory-wave",
+        "error": null
+      },
+      {
+        "nativeMs": 28519.40000000596,
+        "type": "waiting",
+        "mediaId": 5,
+        "source": "./audio/voice-v5/ecdd3f678ce257d58dba5d63.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "memory-wave",
+        "error": null
+      },
+      {
+        "nativeMs": 28575.30000001192,
+        "type": "loadedmetadata",
+        "mediaId": 5,
+        "source": "./audio/voice-v5/ecdd3f678ce257d58dba5d63.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "memory-wave",
+        "error": null
+      },
+      {
+        "nativeMs": 28639.80000001192,
+        "type": "playing",
+        "mediaId": 5,
+        "source": "./audio/voice-v5/ecdd3f678ce257d58dba5d63.mp3",
+        "time": 0.051236,
+        "rate": 1,
+        "nodeId": "memory-wave",
+        "error": null
+      },
+      {
+        "nativeMs": 35626.80000001192,
+        "type": "waiting",
+        "mediaId": 6,
+        "source": "./audio/voice-v5/1e602caf36eeb79cd022d56c.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "memory-wave",
+        "error": null
+      },
+      {
+        "nativeMs": 35652.40000000596,
+        "type": "loadedmetadata",
+        "mediaId": 6,
+        "source": "./audio/voice-v5/1e602caf36eeb79cd022d56c.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "memory-wave",
+        "error": null
+      },
+      {
+        "nativeMs": 35675.10000002384,
+        "type": "playing",
+        "mediaId": 6,
+        "source": "./audio/voice-v5/1e602caf36eeb79cd022d56c.mp3",
+        "time": 0.026999,
+        "rate": 1,
+        "nodeId": "memory-wave",
+        "error": null
+      },
+      {
+        "nativeMs": 41951.60000002384,
+        "type": "pause",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 38.785095,
+        "rate": 1,
+        "nodeId": "memory-wave",
+        "error": null
+      },
+      {
+        "nativeMs": 41967.30000001192,
+        "type": "playing",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 38.835539,
+        "rate": 1,
+        "nodeId": "memory-wave",
+        "error": null
+      },
+      {
+        "nativeMs": 51119,
+        "type": "pause",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 47.901405,
+        "rate": 1,
+        "nodeId": "memory-wave",
+        "error": null
+      },
+      {
+        "nativeMs": 53090.60000002384,
+        "type": "waiting",
+        "mediaId": 7,
+        "source": "./audio/voice-v5/61e9f4da6ee192437d23151e.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "memory-words",
+        "error": null
+      },
+      {
+        "nativeMs": 53090.70000001788,
+        "type": "playing",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 47.970917,
+        "rate": 1,
+        "nodeId": "memory-words",
+        "error": null
+      },
+      {
+        "nativeMs": 53142.30000001192,
+        "type": "loadedmetadata",
+        "mediaId": 7,
+        "source": "./audio/voice-v5/61e9f4da6ee192437d23151e.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "memory-words",
+        "error": null
+      },
+      {
+        "nativeMs": 53151.30000001192,
+        "type": "playing",
+        "mediaId": 7,
+        "source": "./audio/voice-v5/61e9f4da6ee192437d23151e.mp3",
+        "time": 0.087581,
+        "rate": 1,
+        "nodeId": "memory-words",
+        "error": null
+      },
+      {
+        "nativeMs": 61488.10000002384,
+        "type": "waiting",
+        "mediaId": 8,
+        "source": "./audio/voice-v5/220a90c57742c0b1696594db.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "memory-words",
+        "error": null
+      },
+      {
+        "nativeMs": 61525,
+        "type": "loadedmetadata",
+        "mediaId": 8,
+        "source": "./audio/voice-v5/220a90c57742c0b1696594db.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "memory-words",
+        "error": null
+      },
+      {
+        "nativeMs": 61550,
+        "type": "playing",
+        "mediaId": 8,
+        "source": "./audio/voice-v5/220a90c57742c0b1696594db.mp3",
+        "time": 0.043699,
+        "rate": 1,
+        "nodeId": "memory-words",
+        "error": null
+      },
+      {
+        "nativeMs": 68140.5,
+        "type": "waiting",
+        "mediaId": 9,
+        "source": "./audio/voice-v5/fae5ecada5ea52d3707dc62d.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "memory-words",
+        "error": null
+      },
+      {
+        "nativeMs": 68153.60000002384,
+        "type": "loadedmetadata",
+        "mediaId": 9,
+        "source": "./audio/voice-v5/fae5ecada5ea52d3707dc62d.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "memory-words",
+        "error": null
+      },
+      {
+        "nativeMs": 68169.80000001192,
+        "type": "playing",
+        "mediaId": 9,
+        "source": "./audio/voice-v5/fae5ecada5ea52d3707dc62d.mp3",
+        "time": 0.026399,
+        "rate": 1,
+        "nodeId": "memory-words",
+        "error": null
+      },
+      {
+        "nativeMs": 73425.60000002384,
+        "type": "pause",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 68.276073,
+        "rate": 1,
+        "nodeId": "memory-words",
+        "error": null
+      },
+      {
+        "nativeMs": 74260.40000000596,
+        "type": "waiting",
+        "mediaId": 10,
+        "source": "./audio/voice-v5/f614bcffd7e263d57035df6a.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "memory-separate",
+        "error": null
+      },
+      {
+        "nativeMs": 74260.40000000596,
+        "type": "playing",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 68.356104,
+        "rate": 1,
+        "nodeId": "memory-separate",
+        "error": null
+      },
+      {
+        "nativeMs": 74297.60000002384,
+        "type": "loadedmetadata",
+        "mediaId": 10,
+        "source": "./audio/voice-v5/f614bcffd7e263d57035df6a.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "memory-separate",
+        "error": null
+      },
+      {
+        "nativeMs": 74305.90000000596,
+        "type": "playing",
+        "mediaId": 10,
+        "source": "./audio/voice-v5/f614bcffd7e263d57035df6a.mp3",
+        "time": 0.0981,
+        "rate": 1,
+        "nodeId": "memory-separate",
+        "error": null
+      },
+      {
+        "nativeMs": 82855.10000002384,
+        "type": "waiting",
+        "mediaId": 11,
+        "source": "./audio/voice-v5/3a8556ca5a61ac3158f105d9.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "memory-separate",
+        "error": null
+      },
+      {
+        "nativeMs": 82878.20000001788,
+        "type": "loadedmetadata",
+        "mediaId": 11,
+        "source": "./audio/voice-v5/3a8556ca5a61ac3158f105d9.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "memory-separate",
+        "error": null
+      },
+      {
+        "nativeMs": 82901.40000000596,
+        "type": "playing",
+        "mediaId": 11,
+        "source": "./audio/voice-v5/3a8556ca5a61ac3158f105d9.mp3",
+        "time": 0.0251,
+        "rate": 1,
+        "nodeId": "memory-separate",
+        "error": null
+      },
+      {
+        "nativeMs": 89299,
+        "type": "waiting",
+        "mediaId": 12,
+        "source": "./audio/voice-v5/d6153fc4e5e72e20275e744f.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "memory-separate",
+        "error": null
+      },
+      {
+        "nativeMs": 89331,
+        "type": "loadedmetadata",
+        "mediaId": 12,
+        "source": "./audio/voice-v5/d6153fc4e5e72e20275e744f.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "memory-separate",
+        "error": null
+      },
+      {
+        "nativeMs": 89361.20000001788,
+        "type": "playing",
+        "mediaId": 12,
+        "source": "./audio/voice-v5/d6153fc4e5e72e20275e744f.mp3",
+        "time": 0.0435,
+        "rate": 1,
+        "nodeId": "memory-separate",
+        "error": null
+      },
+      {
+        "nativeMs": 93547.40000000596,
+        "type": "pause",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 87.605107,
+        "rate": 1,
+        "nodeId": "memory-separate",
+        "error": null
+      },
+      {
+        "nativeMs": 94998.20000001788,
+        "type": "waiting",
+        "mediaId": 13,
+        "source": "./audio/voice-v5/8eed14123098440417fd1823.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "road",
+        "error": null
+      },
+      {
+        "nativeMs": 94998.30000001192,
+        "type": "playing",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 87.82369,
+        "rate": 1,
+        "nodeId": "road",
+        "error": null
+      },
+      {
+        "nativeMs": 95197.20000001788,
+        "type": "loadedmetadata",
+        "mediaId": 13,
+        "source": "./audio/voice-v5/8eed14123098440417fd1823.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "road",
+        "error": null
+      },
+      {
+        "nativeMs": 95221.40000000596,
+        "type": "playing",
+        "mediaId": 13,
+        "source": "./audio/voice-v5/8eed14123098440417fd1823.mp3",
+        "time": 0.373699,
+        "rate": 1,
+        "nodeId": "road",
+        "error": null
+      },
+      {
+        "nativeMs": 103195,
+        "type": "waiting",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "road",
+        "error": null
+      },
+      {
+        "nativeMs": 103219.80000001192,
+        "type": "playing",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 0.01233,
+        "rate": 1,
+        "nodeId": "road",
+        "error": null
+      },
+      {
+        "nativeMs": 104611.80000001192,
+        "type": "waiting",
+        "mediaId": 14,
+        "source": "./audio/voice-v5/7695d4e5318cc2f7341b6ec4.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "road",
+        "error": null
+      },
+      {
+        "nativeMs": 104648.5,
+        "type": "loadedmetadata",
+        "mediaId": 14,
+        "source": "./audio/voice-v5/7695d4e5318cc2f7341b6ec4.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "road",
+        "error": null
+      },
+      {
+        "nativeMs": 104666.10000002384,
+        "type": "playing",
+        "mediaId": 14,
+        "source": "./audio/voice-v5/7695d4e5318cc2f7341b6ec4.mp3",
+        "time": 0.055899,
+        "rate": 1,
+        "nodeId": "road",
+        "error": null
+      },
+      {
+        "nativeMs": 111155.60000002384,
+        "type": "waiting",
+        "mediaId": 15,
+        "source": "./audio/voice-v5/a6d007ff5c69e42cc0e6564b.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "road",
+        "error": null
+      },
+      {
+        "nativeMs": 111189.70000001788,
+        "type": "loadedmetadata",
+        "mediaId": 15,
+        "source": "./audio/voice-v5/a6d007ff5c69e42cc0e6564b.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "road",
+        "error": null
+      },
+      {
+        "nativeMs": 111212.40000000596,
+        "type": "playing",
+        "mediaId": 15,
+        "source": "./audio/voice-v5/a6d007ff5c69e42cc0e6564b.mp3",
+        "time": 0.044999,
+        "rate": 1,
+        "nodeId": "road",
+        "error": null
+      },
+      {
+        "nativeMs": 126547,
+        "type": "pause",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 23.285527,
+        "rate": 1,
+        "nodeId": "road",
+        "error": null
+      },
+      {
+        "nativeMs": 127506.70000001788,
+        "type": "waiting",
+        "mediaId": 16,
+        "source": "./audio/voice-v5/e72eb9e4eedcec651f9d03a6.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "road-rest",
+        "error": null
+      },
+      {
+        "nativeMs": 127506.80000001192,
+        "type": "playing",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 23.367023,
+        "rate": 1,
+        "nodeId": "road-rest",
+        "error": null
+      },
+      {
+        "nativeMs": 127605,
+        "type": "loadedmetadata",
+        "mediaId": 16,
+        "source": "./audio/voice-v5/e72eb9e4eedcec651f9d03a6.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "road-rest",
+        "error": null
+      },
+      {
+        "nativeMs": 127626.20000001788,
+        "type": "playing",
+        "mediaId": 16,
+        "source": "./audio/voice-v5/e72eb9e4eedcec651f9d03a6.mp3",
+        "time": 0.116599,
+        "rate": 1,
+        "nodeId": "road-rest",
+        "error": null
+      },
+      {
+        "nativeMs": 137101.10000002384,
+        "type": "waiting",
+        "mediaId": 17,
+        "source": "./audio/voice-v5/c4f3f29c2a032ad3457dd1fc.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "road-rest",
+        "error": null
+      },
+      {
+        "nativeMs": 137172.80000001192,
+        "type": "loadedmetadata",
+        "mediaId": 17,
+        "source": "./audio/voice-v5/c4f3f29c2a032ad3457dd1fc.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "road-rest",
+        "error": null
+      },
+      {
+        "nativeMs": 137200.10000002384,
+        "type": "playing",
+        "mediaId": 17,
+        "source": "./audio/voice-v5/c4f3f29c2a032ad3457dd1fc.mp3",
+        "time": 0.107499,
+        "rate": 1,
+        "nodeId": "road-rest",
+        "error": null
+      },
+      {
+        "nativeMs": 142712.20000001788,
+        "type": "waiting",
+        "mediaId": 18,
+        "source": "./audio/voice-v5/8353d8bc0bc9da7d2441f831.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "road-rest",
+        "error": null
+      },
+      {
+        "nativeMs": 142730.20000001788,
+        "type": "loadedmetadata",
+        "mediaId": 18,
+        "source": "./audio/voice-v5/8353d8bc0bc9da7d2441f831.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "road-rest",
+        "error": null
+      },
+      {
+        "nativeMs": 142752.80000001192,
+        "type": "playing",
+        "mediaId": 18,
+        "source": "./audio/voice-v5/8353d8bc0bc9da7d2441f831.mp3",
+        "time": 0.017999,
+        "rate": 1,
+        "nodeId": "road-rest",
+        "error": null
+      },
+      {
+        "nativeMs": 149202.30000001192,
+        "type": "pause",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 45.034285,
+        "rate": 1,
+        "nodeId": "road-rest",
+        "error": null
+      },
+      {
+        "nativeMs": 150012.5,
+        "type": "waiting",
+        "mediaId": 19,
+        "source": "./audio/voice-v5/3bf6834a6aadd24167f67adc.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "journey-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 150012.60000002384,
+        "type": "playing",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 45.104675,
+        "rate": 1,
+        "nodeId": "journey-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 150057.70000001788,
+        "type": "loadedmetadata",
+        "mediaId": 19,
+        "source": "./audio/voice-v5/3bf6834a6aadd24167f67adc.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "journey-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 150067,
+        "type": "playing",
+        "mediaId": 19,
+        "source": "./audio/voice-v5/3bf6834a6aadd24167f67adc.mp3",
+        "time": 0.076299,
+        "rate": 1,
+        "nodeId": "journey-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 160055,
+        "type": "waiting",
+        "mediaId": 20,
+        "source": "./audio/voice-v5/3d8327af5089020ab680108b.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "journey-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 160084.70000001788,
+        "type": "loadedmetadata",
+        "mediaId": 20,
+        "source": "./audio/voice-v5/3d8327af5089020ab680108b.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "journey-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 160108.10000002384,
+        "type": "playing",
+        "mediaId": 20,
+        "source": "./audio/voice-v5/3d8327af5089020ab680108b.mp3",
+        "time": 0.037877,
+        "rate": 1,
+        "nodeId": "journey-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 169092.10000002384,
+        "type": "waiting",
+        "mediaId": 21,
+        "source": "./audio/voice-v5/7615376e42982a65d660e8ae.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "journey-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 169117,
+        "type": "loadedmetadata",
+        "mediaId": 21,
+        "source": "./audio/voice-v5/7615376e42982a65d660e8ae.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "journey-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 169132,
+        "type": "playing",
+        "mediaId": 21,
+        "source": "./audio/voice-v5/7615376e42982a65d660e8ae.mp3",
+        "time": 0.0302,
+        "rate": 1,
+        "nodeId": "journey-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 175359.30000001192,
+        "type": "pause",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 70.439479,
+        "rate": 1,
+        "nodeId": "journey-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 176594.60000002384,
+        "type": "waiting",
+        "mediaId": 22,
+        "source": "./audio/voice-v5/43d72a0e878b63fc3e2f4bf1.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "training",
+        "error": null
+      },
+      {
+        "nativeMs": 176594.70000001788,
+        "type": "playing",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 70.497702,
+        "rate": 1,
+        "nodeId": "training",
+        "error": null
+      },
+      {
+        "nativeMs": 176628.10000002384,
+        "type": "loadedmetadata",
+        "mediaId": 22,
+        "source": "./audio/voice-v5/43d72a0e878b63fc3e2f4bf1.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "training",
+        "error": null
+      },
+      {
+        "nativeMs": 176650.5,
+        "type": "playing",
+        "mediaId": 22,
+        "source": "./audio/voice-v5/43d72a0e878b63fc3e2f4bf1.mp3",
+        "time": 0.062899,
+        "rate": 1,
+        "nodeId": "training",
+        "error": null
+      },
+      {
+        "nativeMs": 186565.80000001192,
+        "type": "waiting",
+        "mediaId": 23,
+        "source": "./audio/voice-v5/af4a7fe3a748c5046c5ea4ef.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "training",
+        "error": null
+      },
+      {
+        "nativeMs": 186597,
+        "type": "loadedmetadata",
+        "mediaId": 23,
+        "source": "./audio/voice-v5/af4a7fe3a748c5046c5ea4ef.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "training",
+        "error": null
+      },
+      {
+        "nativeMs": 186613.5,
+        "type": "playing",
+        "mediaId": 23,
+        "source": "./audio/voice-v5/af4a7fe3a748c5046c5ea4ef.mp3",
+        "time": 0.045799,
+        "rate": 1,
+        "nodeId": "training",
+        "error": null
+      },
+      {
+        "nativeMs": 193227.30000001192,
+        "type": "waiting",
+        "mediaId": 24,
+        "source": "./audio/voice-v5/26d5e126b8062739f89c1a23.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "training",
+        "error": null
+      },
+      {
+        "nativeMs": 193241.30000001192,
+        "type": "loadedmetadata",
+        "mediaId": 24,
+        "source": "./audio/voice-v5/26d5e126b8062739f89c1a23.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "training",
+        "error": null
+      },
+      {
+        "nativeMs": 193249.30000001192,
+        "type": "playing",
+        "mediaId": 24,
+        "source": "./audio/voice-v5/26d5e126b8062739f89c1a23.mp3",
+        "time": 0.0286,
+        "rate": 1,
+        "nodeId": "training",
+        "error": null
+      },
+      {
+        "nativeMs": 196825.20000001788,
+        "type": "pause",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 90.688058,
+        "rate": 1,
+        "nodeId": "training",
+        "error": null
+      },
+      {
+        "nativeMs": 197999.60000002384,
+        "type": "waiting",
+        "mediaId": 25,
+        "source": "./audio/voice-v5/2081e861b2166e6915fb77a9.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "guardian",
+        "error": null
+      },
+      {
+        "nativeMs": 197999.70000001788,
+        "type": "playing",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 90.750412,
+        "rate": 1,
+        "nodeId": "guardian",
+        "error": null
+      },
+      {
+        "nativeMs": 198115.80000001192,
+        "type": "loadedmetadata",
+        "mediaId": 25,
+        "source": "./audio/voice-v5/2081e861b2166e6915fb77a9.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "guardian",
+        "error": null
+      },
+      {
+        "nativeMs": 198131.30000001192,
+        "type": "playing",
+        "mediaId": 25,
+        "source": "./audio/voice-v5/2081e861b2166e6915fb77a9.mp3",
+        "time": 0.137099,
+        "rate": 1,
+        "nodeId": "guardian",
+        "error": null
+      },
+      {
+        "nativeMs": 203273.80000001192,
+        "type": "waiting",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "guardian",
+        "error": null
+      },
+      {
+        "nativeMs": 203275.40000000596,
+        "type": "playing",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "guardian",
+        "error": null
+      },
+      {
+        "nativeMs": 205710.90000000596,
+        "type": "waiting",
+        "mediaId": 26,
+        "source": "./audio/voice-v5/e3eebb280048be6a9e1b655b.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "guardian",
+        "error": null
+      },
+      {
+        "nativeMs": 205746.20000001788,
+        "type": "loadedmetadata",
+        "mediaId": 26,
+        "source": "./audio/voice-v5/e3eebb280048be6a9e1b655b.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "guardian",
+        "error": null
+      },
+      {
+        "nativeMs": 205809.30000001192,
+        "type": "playing",
+        "mediaId": 26,
+        "source": "./audio/voice-v5/e3eebb280048be6a9e1b655b.mp3",
+        "time": 0.044234,
+        "rate": 1,
+        "nodeId": "guardian",
+        "error": null
+      },
+      {
+        "nativeMs": 212866.90000000596,
+        "type": "waiting",
+        "mediaId": 27,
+        "source": "./audio/voice-v5/067afee2d491cc80f9f12b79.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "guardian",
+        "error": null
+      },
+      {
+        "nativeMs": 212896.80000001192,
+        "type": "loadedmetadata",
+        "mediaId": 27,
+        "source": "./audio/voice-v5/067afee2d491cc80f9f12b79.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "guardian",
+        "error": null
+      },
+      {
+        "nativeMs": 212921.60000002384,
+        "type": "playing",
+        "mediaId": 27,
+        "source": "./audio/voice-v5/067afee2d491cc80f9f12b79.mp3",
+        "time": 0.048599,
+        "rate": 1,
+        "nodeId": "guardian",
+        "error": null
+      },
+      {
+        "nativeMs": 227960.5,
+        "type": "pause",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 24.624286,
+        "rate": 1,
+        "nodeId": "guardian",
+        "error": null
+      },
+      {
+        "nativeMs": 228593.70000001788,
+        "type": "waiting",
+        "mediaId": 28,
+        "source": "./audio/voice-v5/fb9f5ee789b740d373ee9911.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "guardian-parley",
+        "error": null
+      },
+      {
+        "nativeMs": 228593.80000001192,
+        "type": "playing",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 24.741517,
+        "rate": 1,
+        "nodeId": "guardian-parley",
+        "error": null
+      },
+      {
+        "nativeMs": 228629.80000001192,
+        "type": "loadedmetadata",
+        "mediaId": 28,
+        "source": "./audio/voice-v5/fb9f5ee789b740d373ee9911.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "guardian-parley",
+        "error": null
+      },
+      {
+        "nativeMs": 228656.40000000596,
+        "type": "playing",
+        "mediaId": 28,
+        "source": "./audio/voice-v5/fb9f5ee789b740d373ee9911.mp3",
+        "time": 0.123399,
+        "rate": 1,
+        "nodeId": "guardian-parley",
+        "error": null
+      },
+      {
+        "nativeMs": 234076.30000001192,
+        "type": "waiting",
+        "mediaId": 29,
+        "source": "./audio/voice-v5/bfca50bf4a8371a165fb0e2e.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "guardian-parley",
+        "error": null
+      },
+      {
+        "nativeMs": 234093.40000000596,
+        "type": "loadedmetadata",
+        "mediaId": 29,
+        "source": "./audio/voice-v5/bfca50bf4a8371a165fb0e2e.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "guardian-parley",
+        "error": null
+      },
+      {
+        "nativeMs": 234109.5,
+        "type": "playing",
+        "mediaId": 29,
+        "source": "./audio/voice-v5/bfca50bf4a8371a165fb0e2e.mp3",
+        "time": 0.017499,
+        "rate": 1,
+        "nodeId": "guardian-parley",
+        "error": null
+      },
+      {
+        "nativeMs": 243210.80000001192,
+        "type": "waiting",
+        "mediaId": 30,
+        "source": "./audio/voice-v5/2f18b64937fe280a04926df3.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "guardian-parley",
+        "error": null
+      },
+      {
+        "nativeMs": 243228.30000001192,
+        "type": "loadedmetadata",
+        "mediaId": 30,
+        "source": "./audio/voice-v5/2f18b64937fe280a04926df3.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "guardian-parley",
+        "error": null
+      },
+      {
+        "nativeMs": 243241.70000001788,
+        "type": "playing",
+        "mediaId": 30,
+        "source": "./audio/voice-v5/2f18b64937fe280a04926df3.mp3",
+        "time": 0.032499,
+        "rate": 1,
+        "nodeId": "guardian-parley",
+        "error": null
+      },
+      {
+        "nativeMs": 248509.20000001788,
+        "type": "pause",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 44.629644,
+        "rate": 1,
+        "nodeId": "guardian-parley",
+        "error": null
+      },
+      {
+        "nativeMs": 249468.30000001192,
+        "type": "waiting",
+        "mediaId": 31,
+        "source": "./audio/voice-v5/3b04c7cc477a39544d11fe2f.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "mountain-pact-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 249468.40000000596,
+        "type": "playing",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 44.693681,
+        "rate": 1,
+        "nodeId": "mountain-pact-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 249501.30000001192,
+        "type": "loadedmetadata",
+        "mediaId": 31,
+        "source": "./audio/voice-v5/3b04c7cc477a39544d11fe2f.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "mountain-pact-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 249518.40000000596,
+        "type": "playing",
+        "mediaId": 31,
+        "source": "./audio/voice-v5/3b04c7cc477a39544d11fe2f.mp3",
+        "time": 0.080399,
+        "rate": 1,
+        "nodeId": "mountain-pact-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 261177.10000002384,
+        "type": "waiting",
+        "mediaId": 32,
+        "source": "./audio/voice-v5/489e0b205952aa6098ec5db7.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "mountain-pact-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 261208.80000001192,
+        "type": "loadedmetadata",
+        "mediaId": 32,
+        "source": "./audio/voice-v5/489e0b205952aa6098ec5db7.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "mountain-pact-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 261299.60000002384,
+        "type": "playing",
+        "mediaId": 32,
+        "source": "./audio/voice-v5/489e0b205952aa6098ec5db7.mp3",
+        "time": 0.044599,
+        "rate": 1,
+        "nodeId": "mountain-pact-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 268069.10000002384,
+        "type": "waiting",
+        "mediaId": 33,
+        "source": "./audio/voice-v5/c9e052c2c948504122dff162.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "mountain-pact-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 268104.5,
+        "type": "loadedmetadata",
+        "mediaId": 33,
+        "source": "./audio/voice-v5/c9e052c2c948504122dff162.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "mountain-pact-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 268121.90000000596,
+        "type": "playing",
+        "mediaId": 33,
+        "source": "./audio/voice-v5/c9e052c2c948504122dff162.mp3",
+        "time": 0.030999,
+        "rate": 1,
+        "nodeId": "mountain-pact-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 276979.7000000179,
+        "type": "pause",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 72.197508,
+        "rate": 1,
+        "nodeId": "mountain-pact-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 278230.7000000179,
+        "type": "waiting",
+        "mediaId": 34,
+        "source": "./audio/voice-v5/9a5b7faf3aa53afc4272f65d.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "approach-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 278230.90000000596,
+        "type": "playing",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 72.327737,
+        "rate": 1,
+        "nodeId": "approach-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 278331.7000000179,
+        "type": "loadedmetadata",
+        "mediaId": 34,
+        "source": "./audio/voice-v5/9a5b7faf3aa53afc4272f65d.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "approach-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 278409.3000000119,
+        "type": "playing",
+        "mediaId": 34,
+        "source": "./audio/voice-v5/9a5b7faf3aa53afc4272f65d.mp3",
+        "time": 0.169582,
+        "rate": 1,
+        "nodeId": "approach-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 286874.2000000179,
+        "type": "waiting",
+        "mediaId": 35,
+        "source": "./audio/voice-v5/dba9c26ddb95eea5bc3001ee.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "approach-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 286905.5,
+        "type": "loadedmetadata",
+        "mediaId": 35,
+        "source": "./audio/voice-v5/dba9c26ddb95eea5bc3001ee.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "approach-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 286914.90000000596,
+        "type": "playing",
+        "mediaId": 35,
+        "source": "./audio/voice-v5/dba9c26ddb95eea5bc3001ee.mp3",
+        "time": 0.04,
+        "rate": 1,
+        "nodeId": "approach-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 298113.10000002384,
+        "type": "waiting",
+        "mediaId": 36,
+        "source": "./audio/voice-v5/03911ec1f112e0038a457946.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "approach-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 298130.40000000596,
+        "type": "loadedmetadata",
+        "mediaId": 36,
+        "source": "./audio/voice-v5/03911ec1f112e0038a457946.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "approach-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 298143.60000002384,
+        "type": "playing",
+        "mediaId": 36,
+        "source": "./audio/voice-v5/03911ec1f112e0038a457946.mp3",
+        "time": 0.0322,
+        "rate": 1,
+        "nodeId": "approach-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 301908.60000002384,
+        "type": "waiting",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "approach-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 301910,
+        "type": "playing",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "approach-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 306107.2000000179,
+        "type": "pause",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 4.123029,
+        "rate": 1,
+        "nodeId": "approach-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 307610.60000002384,
+        "type": "waiting",
+        "mediaId": 37,
+        "source": "./audio/voice-v5/8cb7166fd4a2b9ca612004cd.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "call-light",
+        "error": null
+      },
+      {
+        "nativeMs": 307610.7000000179,
+        "type": "playing",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 4.176948,
+        "rate": 1,
+        "nodeId": "call-light",
+        "error": null
+      },
+      {
+        "nativeMs": 307726.7000000179,
+        "type": "loadedmetadata",
+        "mediaId": 37,
+        "source": "./audio/voice-v5/8cb7166fd4a2b9ca612004cd.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "call-light",
+        "error": null
+      },
+      {
+        "nativeMs": 307735.60000002384,
+        "type": "playing",
+        "mediaId": 37,
+        "source": "./audio/voice-v5/8cb7166fd4a2b9ca612004cd.mp3",
+        "time": 0.156099,
+        "rate": 1,
+        "nodeId": "call-light",
+        "error": null
+      },
+      {
+        "nativeMs": 317316.8000000119,
+        "type": "waiting",
+        "mediaId": 38,
+        "source": "./audio/voice-v5/a7027d6eac30c6654b98e636.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "call-light",
+        "error": null
+      },
+      {
+        "nativeMs": 317368.7000000179,
+        "type": "loadedmetadata",
+        "mediaId": 38,
+        "source": "./audio/voice-v5/a7027d6eac30c6654b98e636.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "call-light",
+        "error": null
+      },
+      {
+        "nativeMs": 317471.90000000596,
+        "type": "playing",
+        "mediaId": 38,
+        "source": "./audio/voice-v5/a7027d6eac30c6654b98e636.mp3",
+        "time": 0.054779,
+        "rate": 1,
+        "nodeId": "call-light",
+        "error": null
+      },
+      {
+        "nativeMs": 322125.3000000119,
+        "type": "waiting",
+        "mediaId": 39,
+        "source": "./audio/voice-v5/50394fedf6f38aae30d80b19.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "call-light",
+        "error": null
+      },
+      {
+        "nativeMs": 322141.10000002384,
+        "type": "loadedmetadata",
+        "mediaId": 39,
+        "source": "./audio/voice-v5/50394fedf6f38aae30d80b19.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "call-light",
+        "error": null
+      },
+      {
+        "nativeMs": 322157.90000000596,
+        "type": "playing",
+        "mediaId": 39,
+        "source": "./audio/voice-v5/50394fedf6f38aae30d80b19.mp3",
+        "time": 0.018199,
+        "rate": 1,
+        "nodeId": "call-light",
+        "error": null
+      },
+      {
+        "nativeMs": 336063,
+        "type": "pause",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 32.564085,
+        "rate": 1,
+        "nodeId": "call-light",
+        "error": null
+      },
+      {
+        "nativeMs": 337244.7000000179,
+        "type": "waiting",
+        "mediaId": 40,
+        "source": "./audio/voice-v5/1c5b5e50fbd34efcb7beea32.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "call-response",
+        "error": null
+      },
+      {
+        "nativeMs": 337244.7000000179,
+        "type": "playing",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 32.628761,
+        "rate": 1,
+        "nodeId": "call-response",
+        "error": null
+      },
+      {
+        "nativeMs": 337291.5,
+        "type": "loadedmetadata",
+        "mediaId": 40,
+        "source": "./audio/voice-v5/1c5b5e50fbd34efcb7beea32.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "call-response",
+        "error": null
+      },
+      {
+        "nativeMs": 337309.5,
+        "type": "playing",
+        "mediaId": 40,
+        "source": "./audio/voice-v5/1c5b5e50fbd34efcb7beea32.mp3",
+        "time": 0.078099,
+        "rate": 1,
+        "nodeId": "call-response",
+        "error": null
+      },
+      {
+        "nativeMs": 343903,
+        "type": "waiting",
+        "mediaId": 41,
+        "source": "./audio/voice-v5/28b4f498276239f6e04f4c04.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "call-response",
+        "error": null
+      },
+      {
+        "nativeMs": 343930.8000000119,
+        "type": "loadedmetadata",
+        "mediaId": 41,
+        "source": "./audio/voice-v5/28b4f498276239f6e04f4c04.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "call-response",
+        "error": null
+      },
+      {
+        "nativeMs": 343946.60000002384,
+        "type": "playing",
+        "mediaId": 41,
+        "source": "./audio/voice-v5/28b4f498276239f6e04f4c04.mp3",
+        "time": 0.047199,
+        "rate": 1,
+        "nodeId": "call-response",
+        "error": null
+      },
+      {
+        "nativeMs": 352092.5,
+        "type": "waiting",
+        "mediaId": 42,
+        "source": "./audio/voice-v5/72a3866dd039544341d5946f.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "call-response",
+        "error": null
+      },
+      {
+        "nativeMs": 352112.3000000119,
+        "type": "loadedmetadata",
+        "mediaId": 42,
+        "source": "./audio/voice-v5/72a3866dd039544341d5946f.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "call-response",
+        "error": null
+      },
+      {
+        "nativeMs": 352124.8000000119,
+        "type": "playing",
+        "mediaId": 42,
+        "source": "./audio/voice-v5/72a3866dd039544341d5946f.mp3",
+        "time": 0.030199,
+        "rate": 1,
+        "nodeId": "call-response",
+        "error": null
+      },
+      {
+        "nativeMs": 356353.3000000119,
+        "type": "pause",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 51.677861,
+        "rate": 1,
+        "nodeId": "call-response",
+        "error": null
+      },
+      {
+        "nativeMs": 357495,
+        "type": "waiting",
+        "mediaId": 43,
+        "source": "./audio/voice-v5/875275e57dc116fc99622b6b.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "call-split",
+        "error": null
+      },
+      {
+        "nativeMs": 357495.10000002384,
+        "type": "playing",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 51.828373,
+        "rate": 1,
+        "nodeId": "call-split",
+        "error": null
+      },
+      {
+        "nativeMs": 357525.90000000596,
+        "type": "loadedmetadata",
+        "mediaId": 43,
+        "source": "./audio/voice-v5/875275e57dc116fc99622b6b.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "call-split",
+        "error": null
+      },
+      {
+        "nativeMs": 357539.90000000596,
+        "type": "playing",
+        "mediaId": 43,
+        "source": "./audio/voice-v5/875275e57dc116fc99622b6b.mp3",
+        "time": 0.127699,
+        "rate": 1,
+        "nodeId": "call-split",
+        "error": null
+      },
+      {
+        "nativeMs": 363802.5,
+        "type": "waiting",
+        "mediaId": 44,
+        "source": "./audio/voice-v5/aea7fc6b0321393d3ada6d1d.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "call-split",
+        "error": null
+      },
+      {
+        "nativeMs": 363814.8000000119,
+        "type": "loadedmetadata",
+        "mediaId": 44,
+        "source": "./audio/voice-v5/aea7fc6b0321393d3ada6d1d.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "call-split",
+        "error": null
+      },
+      {
+        "nativeMs": 363829.8000000119,
+        "type": "playing",
+        "mediaId": 44,
+        "source": "./audio/voice-v5/aea7fc6b0321393d3ada6d1d.mp3",
+        "time": 0.003499,
+        "rate": 1,
+        "nodeId": "call-split",
+        "error": null
+      },
+      {
+        "nativeMs": 371341,
+        "type": "waiting",
+        "mediaId": 45,
+        "source": "./audio/voice-v5/38024e4cfeaffeda69a5c892.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "call-split",
+        "error": null
+      },
+      {
+        "nativeMs": 371364.2000000179,
+        "type": "loadedmetadata",
+        "mediaId": 45,
+        "source": "./audio/voice-v5/38024e4cfeaffeda69a5c892.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "call-split",
+        "error": null
+      },
+      {
+        "nativeMs": 371392.2000000179,
+        "type": "playing",
+        "mediaId": 45,
+        "source": "./audio/voice-v5/38024e4cfeaffeda69a5c892.mp3",
+        "time": 0.033714,
+        "rate": 1,
+        "nodeId": "call-split",
+        "error": null
+      },
+      {
+        "nativeMs": 387492.90000000596,
+        "type": "pause",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 81.794143,
+        "rate": 1,
+        "nodeId": "call-split",
+        "error": null
+      },
+      {
+        "nativeMs": 388469.90000000596,
+        "type": "waiting",
+        "mediaId": 46,
+        "source": "./audio/voice-v5/ebf5a9b91dee67edbd4c23c2.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "mountain-listen",
+        "error": null
+      },
+      {
+        "nativeMs": 388470,
+        "type": "playing",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 81.846603,
+        "rate": 1,
+        "nodeId": "mountain-listen",
+        "error": null
+      },
+      {
+        "nativeMs": 388506.8000000119,
+        "type": "loadedmetadata",
+        "mediaId": 46,
+        "source": "./audio/voice-v5/ebf5a9b91dee67edbd4c23c2.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "mountain-listen",
+        "error": null
+      },
+      {
+        "nativeMs": 388519,
+        "type": "playing",
+        "mediaId": 46,
+        "source": "./audio/voice-v5/ebf5a9b91dee67edbd4c23c2.mp3",
+        "time": 0.076099,
+        "rate": 1,
+        "nodeId": "mountain-listen",
+        "error": null
+      },
+      {
+        "nativeMs": 396591.7000000179,
+        "type": "waiting",
+        "mediaId": 47,
+        "source": "./audio/voice-v5/3e8c8da46259ab797a69e611.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "mountain-listen",
+        "error": null
+      },
+      {
+        "nativeMs": 396724.3000000119,
+        "type": "loadedmetadata",
+        "mediaId": 47,
+        "source": "./audio/voice-v5/3e8c8da46259ab797a69e611.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "mountain-listen",
+        "error": null
+      },
+      {
+        "nativeMs": 396746.7000000179,
+        "type": "playing",
+        "mediaId": 47,
+        "source": "./audio/voice-v5/3e8c8da46259ab797a69e611.mp3",
+        "time": 0.140499,
+        "rate": 1,
+        "nodeId": "mountain-listen",
+        "error": null
+      },
+      {
+        "nativeMs": 402659,
+        "type": "waiting",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "mountain-listen",
+        "error": null
+      },
+      {
+        "nativeMs": 402661.2000000179,
+        "type": "playing",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "mountain-listen",
+        "error": null
+      },
+      {
+        "nativeMs": 408299.5,
+        "type": "waiting",
+        "mediaId": 48,
+        "source": "./audio/voice-v5/c93b1f54dd603a857e18178b.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "mountain-listen",
+        "error": null
+      },
+      {
+        "nativeMs": 408410.3000000119,
+        "type": "loadedmetadata",
+        "mediaId": 48,
+        "source": "./audio/voice-v5/c93b1f54dd603a857e18178b.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "mountain-listen",
+        "error": null
+      },
+      {
+        "nativeMs": 408507.40000000596,
+        "type": "playing",
+        "mediaId": 48,
+        "source": "./audio/voice-v5/c93b1f54dd603a857e18178b.mp3",
+        "time": 0.102699,
+        "rate": 1,
+        "nodeId": "mountain-listen",
+        "error": null
+      },
+      {
+        "nativeMs": 414940.7000000179,
+        "type": "pause",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 12.155932,
+        "rate": 1,
+        "nodeId": "mountain-listen",
+        "error": null
+      },
+      {
+        "nativeMs": 415946.60000002384,
+        "type": "waiting",
+        "mediaId": 49,
+        "source": "./audio/voice-v5/911793a4e78e3c3e9eb0ac43.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "ending-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 415946.8000000119,
+        "type": "playing",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 12.220106,
+        "rate": 1,
+        "nodeId": "ending-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 415992.10000002384,
+        "type": "loadedmetadata",
+        "mediaId": 49,
+        "source": "./audio/voice-v5/911793a4e78e3c3e9eb0ac43.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "ending-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 416008,
+        "type": "playing",
+        "mediaId": 49,
+        "source": "./audio/voice-v5/911793a4e78e3c3e9eb0ac43.mp3",
+        "time": 0.070199,
+        "rate": 1,
+        "nodeId": "ending-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 424228,
+        "type": "waiting",
+        "mediaId": 50,
+        "source": "./audio/voice-v5/ed9240a5d1304320dd8cadf3.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "ending-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 424259.3000000119,
+        "type": "loadedmetadata",
+        "mediaId": 50,
+        "source": "./audio/voice-v5/ed9240a5d1304320dd8cadf3.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "ending-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 424273.90000000596,
+        "type": "playing",
+        "mediaId": 50,
+        "source": "./audio/voice-v5/ed9240a5d1304320dd8cadf3.mp3",
+        "time": 0.064599,
+        "rate": 1,
+        "nodeId": "ending-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 436143.8000000119,
+        "type": "waiting",
+        "mediaId": 51,
+        "source": "./audio/voice-v5/d8599d1ddaeaea51f6704ab5.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "ending-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 436172.2000000179,
+        "type": "loadedmetadata",
+        "mediaId": 51,
+        "source": "./audio/voice-v5/d8599d1ddaeaea51f6704ab5.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "ending-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 436224,
+        "type": "playing",
+        "mediaId": 51,
+        "source": "./audio/voice-v5/d8599d1ddaeaea51f6704ab5.mp3",
+        "time": 0.036799,
+        "rate": 1,
+        "nodeId": "ending-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 446196.5,
+        "type": "pause",
+        "mediaId": 1,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 42.440416,
+        "rate": 1,
+        "nodeId": "ending-choice",
+        "error": null
+      },
+      {
+        "nativeMs": 449624.2000000179,
+        "type": "waiting",
+        "mediaId": 52,
+        "source": "./audio/voice-v5/abd9e1330fe27e234f94d6f9.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "reunion-reach",
+        "error": null
+      },
+      {
+        "nativeMs": 449625,
+        "type": "waiting",
+        "mediaId": 53,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "reunion-reach",
+        "error": null
+      },
+      {
+        "nativeMs": 449644.3000000119,
+        "type": "loadedmetadata",
+        "mediaId": 52,
+        "source": "./audio/voice-v5/abd9e1330fe27e234f94d6f9.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "reunion-reach",
+        "error": null
+      },
+      {
+        "nativeMs": 449644.40000000596,
+        "type": "loadedmetadata",
+        "mediaId": 53,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "reunion-reach",
+        "error": null
+      },
+      {
+        "nativeMs": 449687.60000002384,
+        "type": "playing",
+        "mediaId": 52,
+        "source": "./audio/voice-v5/abd9e1330fe27e234f94d6f9.mp3",
+        "time": 0.024399,
+        "rate": 1,
+        "nodeId": "reunion-reach",
+        "error": null
+      },
+      {
+        "nativeMs": 449694.60000002384,
+        "type": "playing",
+        "mediaId": 53,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "reunion-reach",
+        "error": null
+      },
+      {
+        "nativeMs": 456406.3000000119,
+        "type": "waiting",
+        "mediaId": 54,
+        "source": "./audio/voice-v5/68d8af2445a0b21aa3c6ca66.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "reunion-reach",
+        "error": null
+      },
+      {
+        "nativeMs": 456422.8000000119,
+        "type": "loadedmetadata",
+        "mediaId": 54,
+        "source": "./audio/voice-v5/68d8af2445a0b21aa3c6ca66.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "reunion-reach",
+        "error": null
+      },
+      {
+        "nativeMs": 456437.40000000596,
+        "type": "playing",
+        "mediaId": 54,
+        "source": "./audio/voice-v5/68d8af2445a0b21aa3c6ca66.mp3",
+        "time": 0.020399,
+        "rate": 1,
+        "nodeId": "reunion-reach",
+        "error": null
+      },
+      {
+        "nativeMs": 464085.3000000119,
+        "type": "waiting",
+        "mediaId": 55,
+        "source": "./audio/voice-v5/f3714b651d3f3e653e3a5dce.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "reunion-reach",
+        "error": null
+      },
+      {
+        "nativeMs": 464106.2000000179,
+        "type": "loadedmetadata",
+        "mediaId": 55,
+        "source": "./audio/voice-v5/f3714b651d3f3e653e3a5dce.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "reunion-reach",
+        "error": null
+      },
+      {
+        "nativeMs": 464119.5,
+        "type": "playing",
+        "mediaId": 55,
+        "source": "./audio/voice-v5/f3714b651d3f3e653e3a5dce.mp3",
+        "time": 0.031499,
+        "rate": 1,
+        "nodeId": "reunion-reach",
+        "error": null
+      },
+      {
+        "nativeMs": 477857.5,
+        "type": "pause",
+        "mediaId": 53,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 28.103162,
+        "rate": 1,
+        "nodeId": "reunion-reach",
+        "error": null
+      },
+      {
+        "nativeMs": 480794.10000002384,
+        "type": "waiting",
+        "mediaId": 56,
+        "source": "./audio/voice-v5/a73feb74e30af34f67f1bd70.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "reunion-hold",
+        "error": null
+      },
+      {
+        "nativeMs": 480796.60000002384,
+        "type": "waiting",
+        "mediaId": 57,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "reunion-hold",
+        "error": null
+      },
+      {
+        "nativeMs": 480908.3000000119,
+        "type": "loadedmetadata",
+        "mediaId": 56,
+        "source": "./audio/voice-v5/a73feb74e30af34f67f1bd70.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "reunion-hold",
+        "error": null
+      },
+      {
+        "nativeMs": 480910.90000000596,
+        "type": "loadedmetadata",
+        "mediaId": 57,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "reunion-hold",
+        "error": null
+      },
+      {
+        "nativeMs": 480939.60000002384,
+        "type": "playing",
+        "mediaId": 57,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "reunion-hold",
+        "error": null
+      },
+      {
+        "nativeMs": 480940.3000000119,
+        "type": "playing",
+        "mediaId": 56,
+        "source": "./audio/voice-v5/a73feb74e30af34f67f1bd70.mp3",
+        "time": 0.104999,
+        "rate": 1,
+        "nodeId": "reunion-hold",
+        "error": null
+      },
+      {
+        "nativeMs": 487754.60000002384,
+        "type": "waiting",
+        "mediaId": 58,
+        "source": "./audio/voice-v5/67ed6b9dad0f676fd1a2faa7.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "reunion-hold",
+        "error": null
+      },
+      {
+        "nativeMs": 487770.8000000119,
+        "type": "loadedmetadata",
+        "mediaId": 58,
+        "source": "./audio/voice-v5/67ed6b9dad0f676fd1a2faa7.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "reunion-hold",
+        "error": null
+      },
+      {
+        "nativeMs": 487789.3000000119,
+        "type": "playing",
+        "mediaId": 58,
+        "source": "./audio/voice-v5/67ed6b9dad0f676fd1a2faa7.mp3",
+        "time": 0.019999,
+        "rate": 1,
+        "nodeId": "reunion-hold",
+        "error": null
+      },
+      {
+        "nativeMs": 494154.60000002384,
+        "type": "waiting",
+        "mediaId": 59,
+        "source": "./audio/voice-v5/5e690d6a201fa94f836a97ea.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "reunion-hold",
+        "error": null
+      },
+      {
+        "nativeMs": 494215.3000000119,
+        "type": "loadedmetadata",
+        "mediaId": 59,
+        "source": "./audio/voice-v5/5e690d6a201fa94f836a97ea.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "reunion-hold",
+        "error": null
+      },
+      {
+        "nativeMs": 494223.7000000179,
+        "type": "playing",
+        "mediaId": 59,
+        "source": "./audio/voice-v5/5e690d6a201fa94f836a97ea.mp3",
+        "time": 0.081799,
+        "rate": 1,
+        "nodeId": "reunion-hold",
+        "error": null
+      },
+      {
+        "nativeMs": 498800.7000000179,
+        "type": "pause",
+        "mediaId": 57,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 17.727928,
+        "rate": 1,
+        "nodeId": "reunion-hold",
+        "error": null
+      },
+      {
+        "nativeMs": 499225,
+        "type": "waiting",
+        "mediaId": 60,
+        "source": "./audio/voice-v5/9a0f28e0138d3bf8038c24ee.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "ending-home-epilogue",
+        "error": null
+      },
+      {
+        "nativeMs": 499225,
+        "type": "playing",
+        "mediaId": 57,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 17.804194,
+        "rate": 1,
+        "nodeId": "ending-home-epilogue",
+        "error": null
+      },
+      {
+        "nativeMs": 499236.2000000179,
+        "type": "loadedmetadata",
+        "mediaId": 60,
+        "source": "./audio/voice-v5/9a0f28e0138d3bf8038c24ee.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "ending-home-epilogue",
+        "error": null
+      },
+      {
+        "nativeMs": 499252.90000000596,
+        "type": "playing",
+        "mediaId": 60,
+        "source": "./audio/voice-v5/9a0f28e0138d3bf8038c24ee.mp3",
+        "time": 0.037799,
+        "rate": 1,
+        "nodeId": "ending-home-epilogue",
+        "error": null
+      },
+      {
+        "nativeMs": 506703.90000000596,
+        "type": "waiting",
+        "mediaId": 61,
+        "source": "./audio/voice-v5/2dd9c14c003e0aa83cd7979e.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "ending-home-epilogue",
+        "error": null
+      },
+      {
+        "nativeMs": 506741.10000002384,
+        "type": "loadedmetadata",
+        "mediaId": 61,
+        "source": "./audio/voice-v5/2dd9c14c003e0aa83cd7979e.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "ending-home-epilogue",
+        "error": null
+      },
+      {
+        "nativeMs": 506754.90000000596,
+        "type": "playing",
+        "mediaId": 61,
+        "source": "./audio/voice-v5/2dd9c14c003e0aa83cd7979e.mp3",
+        "time": 0.0375,
+        "rate": 1,
+        "nodeId": "ending-home-epilogue",
+        "error": null
+      },
+      {
+        "nativeMs": 511737.2000000179,
+        "type": "waiting",
+        "mediaId": 62,
+        "source": "./audio/voice-v5/4fb729816a11a3c085b82bf6.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "ending-home-epilogue",
+        "error": null
+      },
+      {
+        "nativeMs": 511754.40000000596,
+        "type": "loadedmetadata",
+        "mediaId": 62,
+        "source": "./audio/voice-v5/4fb729816a11a3c085b82bf6.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "ending-home-epilogue",
+        "error": null
+      },
+      {
+        "nativeMs": 511772.5,
+        "type": "playing",
+        "mediaId": 62,
+        "source": "./audio/voice-v5/4fb729816a11a3c085b82bf6.mp3",
+        "time": 0.022,
+        "rate": 1,
+        "nodeId": "ending-home-epilogue",
+        "error": null
+      },
+      {
+        "nativeMs": 517340.40000000596,
+        "type": "pause",
+        "mediaId": 57,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 35.854437,
+        "rate": 1,
+        "nodeId": "ending-home-epilogue",
+        "error": null
+      },
+      {
+        "nativeMs": 519784.3000000119,
+        "type": "waiting",
+        "mediaId": 63,
+        "source": "./audio/voice-v5/d197bfec7f20ff02e6003c47.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "curtain",
+        "error": null
+      },
+      {
+        "nativeMs": 519784.40000000596,
+        "type": "playing",
+        "mediaId": 57,
+        "source": "./audio/jinghu-instrumental.mp3",
+        "time": 36.085807,
+        "rate": 1,
+        "nodeId": "curtain",
+        "error": null
+      },
+      {
+        "nativeMs": 519839.5,
+        "type": "loadedmetadata",
+        "mediaId": 63,
+        "source": "./audio/voice-v5/d197bfec7f20ff02e6003c47.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "curtain",
+        "error": null
+      },
+      {
+        "nativeMs": 519860.8000000119,
+        "type": "playing",
+        "mediaId": 63,
+        "source": "./audio/voice-v5/d197bfec7f20ff02e6003c47.mp3",
+        "time": 0.248508,
+        "rate": 1,
+        "nodeId": "curtain",
+        "error": null
+      },
+      {
+        "nativeMs": 526534.400000006,
+        "type": "waiting",
+        "mediaId": 64,
+        "source": "./audio/voice-v5/0b0e9cd40d76d27fdf07fc4c.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "curtain",
+        "error": null
+      },
+      {
+        "nativeMs": 526645.8000000119,
+        "type": "loadedmetadata",
+        "mediaId": 64,
+        "source": "./audio/voice-v5/0b0e9cd40d76d27fdf07fc4c.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "curtain",
+        "error": null
+      },
+      {
+        "nativeMs": 526684.8000000119,
+        "type": "playing",
+        "mediaId": 64,
+        "source": "./audio/voice-v5/0b0e9cd40d76d27fdf07fc4c.mp3",
+        "time": 0.1529,
+        "rate": 1,
+        "nodeId": "curtain",
+        "error": null
+      },
+      {
+        "nativeMs": 534067.7000000179,
+        "type": "waiting",
+        "mediaId": 65,
+        "source": "./audio/jingju-curtain.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "curtain",
+        "error": null
+      },
+      {
+        "nativeMs": 534124.8000000119,
+        "type": "loadedmetadata",
+        "mediaId": 65,
+        "source": "./audio/jingju-curtain.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "curtain",
+        "error": null
+      },
+      {
+        "nativeMs": 534158.900000006,
+        "type": "playing",
+        "mediaId": 65,
+        "source": "./audio/jingju-curtain.mp3",
+        "time": 0,
+        "rate": 1,
+        "nodeId": "curtain",
+        "error": null
+      },
+      {
+        "nativeMs": 573998.3000000119,
+        "type": "pause",
+        "mediaId": 65,
+        "source": "./audio/jingju-curtain.mp3",
+        "time": 39.782993,
+        "rate": 1,
+        "nodeId": "curtain",
+        "error": null
+      }
+    ]
+  },
+  "savedProject": {
+    "schemaVersion": 1,
+    "assetVersion": 1,
+    "appVersion": "0.0.1",
+    "projectId": "fixture-project-1",
+    "title": "灯下等你",
+    "savedAt": "2026-10-27T04:01:16.056Z",
+    "saveRevision": 25,
+    "writerId": "writer-a1781fb45d72b9ea116fc04fc595c31a",
+    "appearance": {
+      "templateId": "chenxiang-v1",
+      "patternId": "wave-v1",
+      "paletteId": "indigo-v1",
+      "colorSlots": {
+        "body": 0,
+        "sleeve": 1,
+        "hem": 2
+      },
+      "carvedSegments": [
+        true,
+        true,
+        false
+      ]
+    },
+    "stage": {
+      "backgroundId": "plain-v1",
+      "lampX": 0.1,
+      "puppetDistance": 0.2
+    },
+    "pose": {
+      "x": 0.5,
+      "y": 0.55,
+      "scale": 0.8,
+      "facing": 1,
+      "joints": {
+        "head": 0,
+        "leftShoulder": 0,
+        "leftElbow": 0,
+        "rightShoulder": 0,
+        "rightElbow": 0,
+        "leftHip": 0,
+        "leftKnee": 0,
+        "rightHip": 0,
+        "rightKnee": 0
+      }
+    },
+    "story": {
+      "storyId": "reunion",
+      "definitionVersion": 5,
+      "runId": "natural-guided-1793073101934",
+      "revision": 22,
+      "mode": "guided",
+      "nodeId": "completed",
+      "approach": "call-first",
+      "approachSource": "user",
+      "castSnapshot": {
+        "appearance": {
+          "templateId": "chenxiang-v1",
+          "patternId": "wave-v1",
+          "paletteId": "indigo-v1",
+          "colorSlots": {
+            "body": 0,
+            "sleeve": 1,
+            "hem": 2
+          },
+          "carvedSegments": [
+            true,
+            true,
+            false
+          ]
+        },
+        "sharedMotif": "wave-v1",
+        "motherPaletteId": "mother-v1",
+        "guardianPaletteId": "guardian-v1",
+        "assetVersion": 1
+      },
+      "assistedNodeIds": [
+        "memory-wave",
+        "road",
+        "guardian",
+        "call-light",
+        "call-split",
+        "reunion-reach"
+      ],
+      "presetAppearanceUsed": false,
+      "completedAt": "2026-10-27T04:00:19.349Z",
+      "ending": "home",
+      "endingSource": "choices",
+      "choices": {
+        "journeyIntent": "home",
+        "mountainPact": "shared",
+        "finalAction": "fulfill"
+      }
+    },
+    "museum": {
+      "visitedExhibitIds": [
+        "E01",
+        "E04"
+      ]
+    },
+    "performance": null,
+    "partialRecording": null,
+    "lastRoute": "/story"
+  },
+  "summary": {
+    "wallMs": 574378,
+    "nodeCount": 23,
+    "choiceCount": 4,
+    "voiceMediaCount": 62,
+    "voicePlayingEvents": 62,
+    "voiceEndedEvents": 0,
+    "voiceErrors": 0,
+    "curtainVocalPlayingEvents": 1,
+    "curtainVocalMaxTime": 39.782993,
+    "allPlaybackRatesOne": true,
+    "unexpectedPauses": 0,
+    "ending": "home",
+    "completedAt": "2026-10-27T04:00:19.349Z"
+  },
+  "finishedAt": "2026-10-27T04:01:16.429Z",
+  "totalWallMs": 574379
+}
