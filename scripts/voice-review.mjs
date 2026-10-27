@@ -7,9 +7,10 @@ const catalog=JSON.parse(readFileSync(join(root,'src/content/voice-v5.json'),'ut
 const story=JSON.parse(readFileSync(join(root,'src/content/stories/reunion-v5.json'),'utf8'));
 const names={narrator:'旁白',chenxiang:'沉香',mother:'母亲',guardian:'二郎神'};
 const find=cue=>catalog.lines.find(line=>line.speaker===cue.speaker&&line.text===cue.text);
+const recalls=[['你在途中说要','共同稳住'],['你在途中说要','独自承山'],['你曾决定','共同稳住'],['你曾决定','独自承山']].map(([start,pact])=>
+  catalog.lines.find(line=>line.speaker==='narrator'&&line.text.startsWith(start)&&line.text.includes(pact)));
 const groups=[{title:'四角色代表短样',lines:Object.keys(names).map(speaker=>catalog.lines.find(line=>line.speaker===speaker))},
-  {title:'最长对白与选择回顾',lines:[...catalog.lines].sort((a,b)=>b.durationMs-a.durationMs).slice(0,1).concat(
-    catalog.lines.filter(line=>line.speaker==='narrator'&&line.text.startsWith('走到这里，')).slice(0,2))},
+  {title:'最长对白与选择回顾',lines:[...catalog.lines].sort((a,b)=>b.durationMs-a.durationMs).slice(0,1).concat(recalls)},
   ...story.nodes.filter(node=>node.id.endsWith('-epilogue')).map(node=>({title:node.title,lines:node.subtitles.map(find)}))];
 const escape=text=>text.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const html=`<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>T38 中文配音试听</title>
