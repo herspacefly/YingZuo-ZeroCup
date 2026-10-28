@@ -1,0 +1,773 @@
+{
+  "config": {
+    "argv": [
+      "E:\\Software_after2026\\nodejs\\node.exe",
+      "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/theatre-horizontal.spec.ts",
+      "tests/e2e/choice-theatre.spec.ts",
+      "tests/e2e/result.spec.ts",
+      "--workers=2",
+      "--max-failures=4",
+      "--grep",
+      "original height|paused caption|home/shared/call-first/fulfill/guided|home/shared/split-first/fulfill/guided|Canvas failure keeps programme|late PNG encoding after exit|legacy product exports PNG",
+      "--output=test-results/t43-recheck"
+    ],
+    "configFile": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\playwright.config.ts",
+    "rootDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 4,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results/t43-recheck",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "desktop-chromium",
+        "name": "desktop-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results/t43-recheck",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t43-recheck",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "desktop-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop-chromium"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t43-recheck",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "mobile-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile-chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/t43/browser-recheck.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 2,
+    "webServer": {
+      "command": "npm run preview -- --port 4173 --strictPort",
+      "url": "http://127.0.0.1:4173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "choice-theatre.spec.ts",
+      "file": "choice-theatre.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "home/shared/call-first/fulfill/guided: four decisions produce home",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18177,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T01:00:52.403Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "abb3adba3674290ca57d-6476f940104731c10e93",
+          "file": "choice-theatre.spec.ts",
+          "line": 46,
+          "column": 75
+        },
+        {
+          "title": "home/shared/split-first/fulfill/guided: four decisions produce road",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 17715,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T01:00:52.418Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "abb3adba3674290ca57d-2232c1156b52a0f2656f",
+          "file": "choice-theatre.spec.ts",
+          "line": 46,
+          "column": 75
+        },
+        {
+          "title": "home/shared/call-first/fulfill/guided: four decisions produce home",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16179,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T01:01:17.328Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "abb3adba3674290ca57d-14dc920c5de8d1f891f3",
+          "file": "choice-theatre.spec.ts",
+          "line": 46,
+          "column": 75
+        },
+        {
+          "title": "home/shared/split-first/fulfill/guided: four decisions produce road",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 15797,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T01:01:18.565Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "abb3adba3674290ca57d-6e796248f17378719982",
+          "file": "choice-theatre.spec.ts",
+          "line": 46,
+          "column": 75
+        }
+      ]
+    },
+    {
+      "title": "result.spec.ts",
+      "file": "result.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "late PNG encoding after exit cannot download or replace the new page",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2030,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T01:01:10.395Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-13012da4d144d1f8e95c",
+          "file": "result.spec.ts",
+          "line": 103,
+          "column": 1
+        },
+        {
+          "title": "Canvas failure keeps programme, JSON and replay transcript without reporting a successful image",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2181,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T01:01:10.862Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-307a5976beabb814fc30",
+          "file": "result.spec.ts",
+          "line": 108,
+          "column": 1
+        },
+        {
+          "title": "legacy product exports PNG and plays a read-only frozen scene through the same modules",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3390,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T01:01:12.441Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-91cd55ff7bbb9a699f3f",
+          "file": "result.spec.ts",
+          "line": 146,
+          "column": 1
+        },
+        {
+          "title": "late PNG encoding after exit cannot download or replace the new page",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1316,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T01:01:33.665Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-cdb1e502176fca8fd61a",
+          "file": "result.spec.ts",
+          "line": 103,
+          "column": 1
+        },
+        {
+          "title": "Canvas failure keeps programme, JSON and replay transcript without reporting a successful image",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1827,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T01:01:34.632Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-48a16c87e2268395f553",
+          "file": "result.spec.ts",
+          "line": 108,
+          "column": 1
+        },
+        {
+          "title": "legacy product exports PNG and plays a read-only frozen scene through the same modules",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3068,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T01:01:35.002Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d13223ca323c2a4d4461-7377b4fafe4bfcb09c03",
+          "file": "result.spec.ts",
+          "line": 146,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "theatre-horizontal.spec.ts",
+      "file": "theatre-horizontal.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "wide curtain retains its original height while only background painting expands horizontally",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3103,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m902\u001b[39m\nReceived: \u001b[31m768\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m902\u001b[39m\nReceived: \u001b[31m768\u001b[39m\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts:47:111",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts",
+                      "column": 111,
+                      "line": 47
+                    },
+                    "snippet": "  45 |   if(!isMobile){expect(g.panel.x-g.screen.right).toBeCloseTo(24,0);expect(g.screen.width/g.screen.height).toBeGreaterThan(1.5);}\n  46 |   const probe=await page.evaluate(()=>Reflect.get(window,'__horizontalProbe')() as {draws:{width:number;height:number;canvasWidth:number;canvasHeight:number}[];scales:number[][]});\n> 47 |   expect(probe.draws.length).toBeGreaterThan(0);const background=probe.draws.at(-1)!;expect(background.width).toBe(background.canvasWidth);expect(background.height).toBe(background.canvasHeight);\n     |                                                                                                               ^\n  48 |   expect(probe.scales.length).toBeGreaterThan(0);expect(probe.scales.every(([x,y])=>Math.abs(Math.abs(x!)-Math.abs(y!))<1e-6)).toBe(true);\n  49 |   expect(g.canvas.width/g.canvas.height).toBeCloseTo(g.backing.width/g.backing.height,2);\n  50 |   await page.locator('.guide-complete').waitFor({state:'hidden',timeout:6000});"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts",
+                        "column": 111,
+                        "line": 47
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m902\u001b[39m\nReceived: \u001b[31m768\u001b[39m\n\n  45 |   if(!isMobile){expect(g.panel.x-g.screen.right).toBeCloseTo(24,0);expect(g.screen.width/g.screen.height).toBeGreaterThan(1.5);}\n  46 |   const probe=await page.evaluate(()=>Reflect.get(window,'__horizontalProbe')() as {draws:{width:number;height:number;canvasWidth:number;canvasHeight:number}[];scales:number[][]});\n> 47 |   expect(probe.draws.length).toBeGreaterThan(0);const background=probe.draws.at(-1)!;expect(background.width).toBe(background.canvasWidth);expect(background.height).toBe(background.canvasHeight);\n     |                                                                                                               ^\n  48 |   expect(probe.scales.length).toBeGreaterThan(0);expect(probe.scales.every(([x,y])=>Math.abs(Math.abs(x!)-Math.abs(y!))<1e-6)).toBe(true);\n  49 |   expect(g.canvas.width/g.canvas.height).toBeCloseTo(g.backing.width/g.backing.height,2);\n  50 |   await page.locator('.guide-complete').waitFor({state:'hidden',timeout:6000});\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts:47:111"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T01:01:13.111Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t43-recheck\\theatre-horizontal-wide-cu-266fe-inting-expands-horizontally-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t43-recheck\\theatre-horizontal-wide-cu-266fe-inting-expands-horizontally-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts",
+                    "column": 111,
+                    "line": 47
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "32f3468984f7be0fbc7b-99261b65783e6129800b",
+          "file": "theatre-horizontal.spec.ts",
+          "line": 40,
+          "column": 1
+        },
+        {
+          "title": "paused caption resizing redraws the curtain and repositions input geometry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1807,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T01:01:15.864Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "32f3468984f7be0fbc7b-f514dd78aa04ff4e916d",
+          "file": "theatre-horizontal.spec.ts",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "wide curtain retains its original height while only background painting expands horizontally",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 1993,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m408\u001b[39m\nReceived: \u001b[31m384\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m408\u001b[39m\nReceived: \u001b[31m384\u001b[39m\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts:47:166",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts",
+                      "column": 166,
+                      "line": 47
+                    },
+                    "snippet": "  45 |   if(!isMobile){expect(g.panel.x-g.screen.right).toBeCloseTo(24,0);expect(g.screen.width/g.screen.height).toBeGreaterThan(1.5);}\n  46 |   const probe=await page.evaluate(()=>Reflect.get(window,'__horizontalProbe')() as {draws:{width:number;height:number;canvasWidth:number;canvasHeight:number}[];scales:number[][]});\n> 47 |   expect(probe.draws.length).toBeGreaterThan(0);const background=probe.draws.at(-1)!;expect(background.width).toBe(background.canvasWidth);expect(background.height).toBe(background.canvasHeight);\n     |                                                                                                                                                                      ^\n  48 |   expect(probe.scales.length).toBeGreaterThan(0);expect(probe.scales.every(([x,y])=>Math.abs(Math.abs(x!)-Math.abs(y!))<1e-6)).toBe(true);\n  49 |   expect(g.canvas.width/g.canvas.height).toBeCloseTo(g.backing.width/g.backing.height,2);\n  50 |   await page.locator('.guide-complete').waitFor({state:'hidden',timeout:6000});"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts",
+                        "column": 166,
+                        "line": 47
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m408\u001b[39m\nReceived: \u001b[31m384\u001b[39m\n\n  45 |   if(!isMobile){expect(g.panel.x-g.screen.right).toBeCloseTo(24,0);expect(g.screen.width/g.screen.height).toBeGreaterThan(1.5);}\n  46 |   const probe=await page.evaluate(()=>Reflect.get(window,'__horizontalProbe')() as {draws:{width:number;height:number;canvasWidth:number;canvasHeight:number}[];scales:number[][]});\n> 47 |   expect(probe.draws.length).toBeGreaterThan(0);const background=probe.draws.at(-1)!;expect(background.width).toBe(background.canvasWidth);expect(background.height).toBe(background.canvasHeight);\n     |                                                                                                                                                                      ^\n  48 |   expect(probe.scales.length).toBeGreaterThan(0);expect(probe.scales.every(([x,y])=>Math.abs(Math.abs(x!)-Math.abs(y!))<1e-6)).toBe(true);\n  49 |   expect(g.canvas.width/g.canvas.height).toBeCloseTo(g.backing.width/g.backing.height,2);\n  50 |   await page.locator('.guide-complete').waitFor({state:'hidden',timeout:6000});\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts:47:166"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T01:01:36.496Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t43-recheck\\theatre-horizontal-wide-cu-266fe-inting-expands-horizontally-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t43-recheck\\theatre-horizontal-wide-cu-266fe-inting-expands-horizontally-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts",
+                    "column": 166,
+                    "line": 47
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "32f3468984f7be0fbc7b-6232adeed88e74a6868c",
+          "file": "theatre-horizontal.spec.ts",
+          "line": 40,
+          "column": 1
+        },
+        {
+          "title": "paused caption resizing redraws the curtain and repositions input geometry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Desktop height cap follows the caption; narrow screens retain their normal ratio.",
+                  "location": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts",
+                    "line": 65,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 130,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T01:01:38.104Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Desktop height cap follows the caption; narrow screens retain their normal ratio.",
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts",
+                        "line": 65,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "32f3468984f7be0fbc7b-3c4cc53238be32c31504",
+          "file": "theatre-horizontal.spec.ts",
+          "line": 64,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-28T01:00:50.523Z",
+    "duration": 48961.699,
+    "expected": 11,
+    "skipped": 1,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

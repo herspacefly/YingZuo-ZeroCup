@@ -269,7 +269,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     try{
       const entry=storyEntry(project,definitionFor(project.story),++generation),scene=createSceneDirector(project,entry),initialSample=scene.sample(0,undefined,reduced);
       sound.reset(entry.node.id);ctx.musicSample?.({nodeId:entry.node.id,mode:project.story!.mode,definitionVersion:project.story!.definitionVersion,elapsedMs:0,playing:false});
-      const stage=canvasStage('先听这一段，再接过操偶。'),nodeScope=createNodeScope(entry.token,error=>ctx.notify(`片段清理失败：${errorText(error)}`));
+      const stage=canvasStage('先听这一段，再接过操偶。',{backgroundFit:'stretch'}),nodeScope=createNodeScope(entry.token,error=>ctx.notify(`片段清理失败：${errorText(error)}`));
       stage.restoreSpatial(spatialPreference);
       const shade=element('div','story-scene-shade');shade.setAttribute('aria-hidden','true');stage.screen.appendChild(shade);
       const rt:Runtime={projectId:project.projectId,entry,scene,version:project.story!.definitionVersion,clip:project.story!.definitionVersion>=3&&entry.node.kind==='interaction'&&entry.node.id!=='craft'?createInteractionClip(entry.node,scene):null,scope:nodeScope,stage,shade,voiceCues:voiceCuesForNode(entry.node,project.story!.mode,project.story!.definitionVersion),sample:initialSample,elapsed:0,playing:false,ready:false,requested:false,mode:project.story!.mode,clock:null!,controls:null,

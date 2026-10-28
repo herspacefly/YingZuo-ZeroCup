@@ -1,0 +1,291 @@
+{
+  "config": {
+    "argv": [
+      "E:\\Software_after2026\\nodejs\\node.exe",
+      "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/theatre-horizontal.spec.ts",
+      "--project=desktop-chromium",
+      "--workers=1",
+      "--grep",
+      "combined edges|original height",
+      "--output=test-results/t43-red"
+    ],
+    "configFile": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\playwright.config.ts",
+    "rootDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results/t43-red",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop-chromium",
+        "name": "desktop-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results/t43-red",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t43-red",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop-chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/t43/red.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview -- --port 4173 --strictPort",
+      "url": "http://127.0.0.1:4173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "theatre-horizontal.spec.ts",
+      "file": "theatre-horizontal.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "home background card aligns with the combined edges of the two feature cards",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1254,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeCloseTo\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m, \u001b[22mprecision\u001b[2m)\u001b[22m\n\nExpected: \u001b[32m52\u001b[39m\nReceived: \u001b[31m240\u001b[39m\n\nExpected precision:    0\nExpected difference: < \u001b[32m0.5\u001b[39m\nReceived difference:   \u001b[31m188\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeCloseTo\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m, \u001b[22mprecision\u001b[2m)\u001b[22m\n\nExpected: \u001b[32m52\u001b[39m\nReceived: \u001b[31m240\u001b[39m\n\nExpected precision:    0\nExpected difference: < \u001b[32m0.5\u001b[39m\nReceived difference:   \u001b[31m188\u001b[39m\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts:34:27",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts",
+                      "column": 27,
+                      "line": 34
+                    },
+                    "snippet": "  32 |   await page.goto('/');await expect(page.locator('.story-background')).toBeVisible();\n  33 |   const boxes=await page.evaluate(()=>{const rect=(s:string)=>{const r=document.querySelector(s)!.getBoundingClientRect();return{left:r.left,right:r.right,width:r.width};};return{card:rect('.story-background'),features:rect('.home-features'),overflow:document.documentElement.scrollWidth-innerWidth};});\n> 34 |   expect(boxes.card.left).toBeCloseTo(boxes.features.left,0);expect(boxes.card.right).toBeCloseTo(boxes.features.right,0);expect(boxes.overflow).toBeLessThanOrEqual(1);\n     |                           ^\n  35 |   await page.locator('.home-features').evaluate(e=>e.scrollIntoView({block:'end'}));await page.screenshot({path:test.info().outputPath('home-aligned.png')});\n  36 | });\n  37 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts",
+                        "column": 27,
+                        "line": 34
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeCloseTo\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m, \u001b[22mprecision\u001b[2m)\u001b[22m\n\nExpected: \u001b[32m52\u001b[39m\nReceived: \u001b[31m240\u001b[39m\n\nExpected precision:    0\nExpected difference: < \u001b[32m0.5\u001b[39m\nReceived difference:   \u001b[31m188\u001b[39m\n\n  32 |   await page.goto('/');await expect(page.locator('.story-background')).toBeVisible();\n  33 |   const boxes=await page.evaluate(()=>{const rect=(s:string)=>{const r=document.querySelector(s)!.getBoundingClientRect();return{left:r.left,right:r.right,width:r.width};};return{card:rect('.story-background'),features:rect('.home-features'),overflow:document.documentElement.scrollWidth-innerWidth};});\n> 34 |   expect(boxes.card.left).toBeCloseTo(boxes.features.left,0);expect(boxes.card.right).toBeCloseTo(boxes.features.right,0);expect(boxes.overflow).toBeLessThanOrEqual(1);\n     |                           ^\n  35 |   await page.locator('.home-features').evaluate(e=>e.scrollIntoView({block:'end'}));await page.screenshot({path:test.info().outputPath('home-aligned.png')});\n  36 | });\n  37 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts:34:27"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T00:57:36.203Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t43-red\\theatre-horizontal-home-ba-035ad-es-of-the-two-feature-cards-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t43-red\\theatre-horizontal-home-ba-035ad-es-of-the-two-feature-cards-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts",
+                    "column": 27,
+                    "line": 34
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "32f3468984f7be0fbc7b-cdc9fa77820a7e364159",
+          "file": "theatre-horizontal.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "wide curtain retains its original height while only background painting expands horizontally",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6925,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m1\u001b[39m\nReceived:   \u001b[31m115.96875\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m1\u001b[39m\nReceived:   \u001b[31m115.96875\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts:41:163",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts",
+                      "column": 163,
+                      "line": 41
+                    },
+                    "snippet": "  39 |   if(!isMobile)await page.setViewportSize({width:1366,height:768});await instrument(page);await seed(page);\n  40 |   if(await page.locator('#story-pause').isEnabled())await page.locator('#story-pause').click();\n> 41 |   if(!isMobile)await expect.poll(async()=>{const g=await geometry(page);return Math.abs(g.screen.height-Math.min(g.slot.width*.75+20,768-g.caption.height-70));}).toBeLessThan(1);\n     |                                                                                                                                                                   ^\n  42 |   const g=await geometry(page);expect(g.screen.x).toBe(g.slot.x);expect(g.screen.width).toBe(g.slot.width);expect(g.overflow).toBeLessThanOrEqual(1);\n  43 |   if(!isMobile){expect(g.panel.x-g.screen.right).toBeCloseTo(24,0);expect(g.screen.width/g.screen.height).toBeGreaterThan(1.5);}\n  44 |   const probe=await page.evaluate(()=>Reflect.get(window,'__horizontalProbe')() as {draws:{width:number;height:number;canvasWidth:number;canvasHeight:number}[];scales:number[][]});"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts",
+                        "column": 163,
+                        "line": 41
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m1\u001b[39m\nReceived:   \u001b[31m115.96875\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  39 |   if(!isMobile)await page.setViewportSize({width:1366,height:768});await instrument(page);await seed(page);\n  40 |   if(await page.locator('#story-pause').isEnabled())await page.locator('#story-pause').click();\n> 41 |   if(!isMobile)await expect.poll(async()=>{const g=await geometry(page);return Math.abs(g.screen.height-Math.min(g.slot.width*.75+20,768-g.caption.height-70));}).toBeLessThan(1);\n     |                                                                                                                                                                   ^\n  42 |   const g=await geometry(page);expect(g.screen.x).toBe(g.slot.x);expect(g.screen.width).toBe(g.slot.width);expect(g.overflow).toBeLessThanOrEqual(1);\n  43 |   if(!isMobile){expect(g.panel.x-g.screen.right).toBeCloseTo(24,0);expect(g.screen.width/g.screen.height).toBeGreaterThan(1.5);}\n  44 |   const probe=await page.evaluate(()=>Reflect.get(window,'__horizontalProbe')() as {draws:{width:number;height:number;canvasWidth:number;canvasHeight:number}[];scales:number[][]});\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts:41:163"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T00:57:38.322Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t43-red\\theatre-horizontal-wide-cu-266fe-inting-expands-horizontally-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t43-red\\theatre-horizontal-wide-cu-266fe-inting-expands-horizontally-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts",
+                    "column": 163,
+                    "line": 41
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "32f3468984f7be0fbc7b-99261b65783e6129800b",
+          "file": "theatre-horizontal.spec.ts",
+          "line": 38,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-28T00:57:34.623Z",
+    "duration": 11877.384,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

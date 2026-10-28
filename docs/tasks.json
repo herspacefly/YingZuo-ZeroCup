@@ -1932,6 +1932,41 @@
         "公开站点HTTP200并加载main-DECFyccy.js，包含新音乐重试标签；390/1366/1440三个窗口实际确认首页卡片宽度、剧场左界/24px栏距和零横向溢出。"
       ],
       "phase": "G3"
+    },
+    {
+      "id": "T43",
+      "title": "背景仅横向拉伸与首页白卡外边界对齐",
+      "priority": "P0",
+      "status": "done",
+      "dependsOn": [
+        "T42"
+      ],
+      "owner": "codex-root",
+      "branch": "main",
+      "touchFiles": [
+        "src/styles/presentation.css",
+        "src/renderers/canvas/renderer.ts",
+        "src/features/shared/canvas-stage.ts",
+        "src/features/story/controller.ts",
+        "tests/e2e/theatre-horizontal.spec.ts",
+        "docs/",
+        "START_HERE.md"
+      ],
+      "acceptanceRefs": [
+        "T43"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "本地实现与验收完成，待提交推送并核对Actions和公开站点；T38真实听感及原正式设备/内容验收保持原任务。",
+      "blocker": null,
+      "verification": [
+        "用户明确只拉宽背景、人物保持比例；首页白卡对齐两张上方卡片合计外边界，替代T42的960px居中/整体放大解释。",
+        "新增两项回归在T42产物上先失败；632单元、类型、160模块构建及17 ES5块七入口通过。",
+        "最终专用宽窄浏览器7通过/1桌面专用条件跳过，实际Canvas背景铺满横向宽度、人物等比、原生操偶拖动、暂停字幕变高后Canvas与操作几何同步及离页清理通过。",
+        "另选取v5两条导览结局与成果延迟导出/失败反馈/旧版重演宽窄10项通过；该轮早于最终背景纵向边界细化，专用回归在最终产物上重跑通过。",
+        "最终生产六尺寸390/1180/1181/1366/1440/1920实测首页左右界等齐，1366幕面922x595.53、1440幕面996x725.33，左界不变与24px栏距，零溢出/页面错误；宽窄截图已目检。",
+        "首轮失败记录保留；修正背景探针的图像识别、暂停时隐藏控件断言和拖动测试时钟隔离后复验通过；不称初次全套全绿。"
+      ],
+      "phase": "G3"
     }
   ],
   "originalWorkspace": "D:/.MyLearning/VSCodeProject/ZeroCup",

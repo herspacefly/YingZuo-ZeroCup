@@ -8,7 +8,7 @@
 .hero-stage .stage-frame>*:not(.stage-poem){display:none}.hero-stage .stage-poem{top:19%;left:8%;right:8%;font-size:clamp(56px,6vw,88px);line-height:1.4;color:#73331f;text-shadow:0 2px #fff3}.hero-stage .stage-caption{text-align:center;margin:12px 0 0}
 .hero-title{font-size:clamp(36px,3.4vw,55px)}.hero-lead{margin:20px 0}.opening-actions{margin:20px 0 8px}
 .home-features{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:26px 0}.home-features>.story-strip,.home-features>.museum-invitation{margin:0;padding:28px;border:1px solid #715638;border-radius:20px;background:#282117}.home-features h2{font-size:30px}.home-features .act-list{margin:0;padding:0}.home-features .act-list li{flex-basis:44%;padding:8px}.home-features .act-number{font-size:26px;margin:0}
-.story-background{max-width:960px;width:100%;margin:32px auto}.story-background-grid>article{padding:20px;border:1px solid #c4aa7e;border-radius:15px;background:#fff9ea}.story-background-grid{gap:18px}
+.story-background{max-width:none;width:100%;margin:32px 0}.story-background-grid>article{padding:20px;border:1px solid #c4aa7e;border-radius:15px;background:#fff9ea}.story-background-grid{gap:18px}
 .workspace{gap:24px}.workspace .stage-column{width:calc(100% - 340px);min-width:0}.workspace .stage-column>.stage-figure{width:100%;padding:0;position:static}.workspace .control-panel{width:316px;flex-shrink:0}.pose-panel{margin-top:20px}.pose-groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.pose-group h3{font-size:21px;color:#e3b46c}.pose-panel legend{font-size:24px}.pose-panel .range-control{margin-bottom:8px}
 .practice-workspace .stage-figure{position:static!important}.practice-workspace .control-panel{display:flex;flex-direction:column;gap:16px;background:none;border:0;padding:0;box-shadow:none}.practice-workspace .control-panel>label,.practice-workspace .practice-transport,.practice-workspace .journey-next,.practice-runtime{padding:18px;margin:0;border:1px solid #715638;border-radius:16px;background:#292117}.practice-workspace .control-panel>.pending-note{margin:0;padding:12px}
 .craft-workspace .control-panel{background:none;border:0;padding:0;box-shadow:none}.craft-workspace .control-panel>fieldset,.craft-confirmation{padding:22px;border:1px solid #715638;border-radius:18px;background:#292117}.craft-confirmation{margin-top:18px}.craft-confirmation>*:last-child{margin-bottom:0}
@@ -66,5 +66,11 @@
 .story-caption-dock{position:sticky;top:10px;z-index:40;padding:16px 24px;margin:12px 0 24px;border:1px solid #d8b577;border-left:5px solid #bc4939;border-radius:18px;background:#f5e8cd;color:#352318;box-shadow:0 10px 30px #0005;scroll-margin-top:16px}
 .caption-label{display:block;font-size:13px;letter-spacing:.18em;color:#8a4a2b;margin-bottom:4px}.story-caption-dock .current-subtitles{min-height:0;font-size:clamp(22px,1.85vw,29px);line-height:1.6;font-weight:400}.story-caption-dock p{margin:0}.story-caption-dock [data-speaker=chenxiang]{color:#6e251d}.story-caption-dock [data-speaker=mother]{color:#31594b}.story-caption-dock .subtitle-silence{font-size:20px;color:#6c553c}
 .story-workspace>.story-stage-slot{top:calc(var(--caption-height,120px) + 28px)}
+/* Keep the pre-widening height. The empty spacer retains the former 75% padding
+   size, including 15px from the two 10px frame borders, while max-height clips it. */
+@media(min-width:1181px) and (min-height:700px){
+ .story-workspace:not(.story-awaiting) .canvas-stage-screen{height:auto;padding-top:0;max-height:calc(100vh - var(--caption-height,120px) - 70px)}
+ .story-workspace:not(.story-awaiting) .canvas-stage-screen::before{content:"";display:block;padding-top:calc(75% + 15px)}
+}
 .text-link+.journey-recommended{margin-left:24px;margin-top:16px}.result-programme>.button{margin-right:20px;margin-top:10px}
 @media(max-width:600px){.story-caption-dock{top:6px;margin:8px 0 18px;padding:12px 16px}.story-caption-dock .current-subtitles{font-size:22px;line-height:1.55}.text-link+.journey-recommended{display:flex;width:fit-content;max-width:100%;margin-left:0;margin-top:20px}}

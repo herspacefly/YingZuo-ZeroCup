@@ -42,7 +42,7 @@ export function storyFrame(project: ProjectV1): CanvasFrame | null {
   return {actors,stage:node.entryStage,sceneLayers:node.entrySceneLayers,attachments:node.entryAttachments};
 }
 
-export function canvasStage(caption: string,options:{spatial?:boolean}={}) {
+export function canvasStage(caption: string,options:{spatial?:boolean;backgroundFit?:'stretch'}={}) {
   const figure=element('figure','stage-figure'),screen=element('div','canvas-stage-screen'),status=element('p','canvas-stage-status'),retry=element('button','button secondary','重试幕面');
   status.setAttribute('role','status'); retry.hidden=true;
   const foot=element('figcaption','stage-caption'); append(foot,element('p','',caption),status,retry); append(figure,screen,foot);
@@ -64,8 +64,14 @@ export function canvasStage(caption: string,options:{spatial?:boolean}={}) {
     // Spatial content follows every drawn pose; status subscribers follow transitions.
     spatial?.update(last,update.state);
     if(changed)listeners.forEach(listener=>listener(update));
-  });
+  },options);
   if(options.spatial!==false)spatial=mountSpatialStage(figure,renderer.canvas);
+  // A wrapped caption changes the desktop height cap even while paused.
+  // Resize both the backing canvas and the subscribers' input overlays together.
+  const screenResize=options.backgroundFit==='stretch'&&typeof ResizeObserver==='function'?new ResizeObserver(()=>{
+    if(disposed)return;renderer.resize();listeners.forEach(listener=>listener({...currentStatus}));
+  }):null;
+  screenResize?.observe(screen);
   const performance=mountStagePerformance(foot,enabled=>{spatial?.setLightweight(enabled);renderer.setLightweight(enabled);});
   life.on(retry,'click',()=>{if(last)void renderer.update(last);});
   return {
@@ -86,6 +92,6 @@ export function canvasStage(caption: string,options:{spatial?:boolean}={}) {
       figure.hidden=!frame;
       if(frame)void renderer.update(frame);else {renderer.reset();spatial?.update(null,'loading');currentStatus={state:'loading',message:'幕面已清空。'};listeners.forEach(listener=>listener(currentStatus));}
     },
-    dispose() { disposed=true;motion.clear();last=null;signature='';listeners.clear();life.dispose();performance.dispose();spatial?.dispose();renderer.pause();renderer.dispose(); },
+    dispose() { disposed=true;screenResize?.disconnect();motion.clear();last=null;signature='';listeners.clear();life.dispose();performance.dispose();spatial?.dispose();renderer.pause();renderer.dispose(); },
   };
 }

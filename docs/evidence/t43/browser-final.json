@@ -1,0 +1,537 @@
+{
+  "config": {
+    "argv": [
+      "E:\\Software_after2026\\nodejs\\node.exe",
+      "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/theatre-horizontal.spec.ts",
+      "--workers=2",
+      "--output=test-results/t43-final"
+    ],
+    "configFile": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\playwright.config.ts",
+    "rootDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results/t43-final",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "desktop-chromium",
+        "name": "desktop-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results/t43-final",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t43-final",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "desktop-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop-chromium"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t43-final",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "mobile-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile-chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/t43/browser-final.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 2,
+    "webServer": {
+      "command": "npm run preview -- --port 4173 --strictPort",
+      "url": "http://127.0.0.1:4173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "theatre-horizontal.spec.ts",
+      "file": "theatre-horizontal.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "home background card aligns with the combined edges of the two feature cards",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1696,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T01:04:13.449Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "home-edges",
+                      "contentType": "application/json",
+                      "body": "eyJjYXJkIjp7ImxlZnQiOjUyLCJyaWdodCI6MTM4OCwid2lkdGgiOjEzMzZ9LCJmZWF0dXJlcyI6eyJsZWZ0Ijo1MiwicmlnaHQiOjEzODgsIndpZHRoIjoxMzM2fSwib3ZlcmZsb3ciOjB9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "32f3468984f7be0fbc7b-cdc9fa77820a7e364159",
+          "file": "theatre-horizontal.spec.ts",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "wide curtain retains its original height while only background painting expands horizontally",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2340,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T01:04:13.450Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "background-and-actor-scale",
+                      "contentType": "application/json",
+                      "body": "eyJnZW9tZXRyeSI6eyJzY3JlZW4iOnsieCI6NTIsInkiOjY0LjY4NzUsIndpZHRoIjo5MjIsImhlaWdodCI6NTk1LjUzMTI1LCJyaWdodCI6OTc0fSwic2xvdCI6eyJ4Ijo1MiwieSI6NjQuNjg3NSwid2lkdGgiOjkyMiwiaGVpZ2h0Ijo4MjkuNSwicmlnaHQiOjk3NH0sInBhbmVsIjp7IngiOjk5OCwieSI6LTUyNC4xODc1LCJ3aWR0aCI6MzE2LCJoZWlnaHQiOjE0MTguMzc1LCJyaWdodCI6MTMxNH0sImNhcHRpb24iOnsieCI6NTIsInkiOjEwLCJ3aWR0aCI6MTI2MiwiaGVpZ2h0IjoxMDIuNDY4NzUsInJpZ2h0IjoxMzE0fSwiY2FudmFzIjp7IngiOjYyLCJ5Ijo3NC42ODc1LCJ3aWR0aCI6OTAyLCJoZWlnaHQiOjU3NS41MzEyNSwicmlnaHQiOjk2NH0sImJhY2tpbmciOnsid2lkdGgiOjkwMiwiaGVpZ2h0Ijo1NzZ9LCJvdmVyZmxvdyI6MH0sImJhY2tncm91bmQiOnsid2lkdGgiOjkwMiwiaGVpZ2h0Ijo1NzYsImNhbnZhc1dpZHRoIjo5MDIsImNhbnZhc0hlaWdodCI6NTc2fSwic2NhbGVzIjpbWzM4NCwtMzg0XSxbMC45NiwwLjk2XSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzM4NCwtMzg0XSxbLTAuOTYsMC45Nl0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzM4NCwtMzg0XSxbMC45NiwwLjk2XSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzM4NCwtMzg0XSxbLTAuOTYsMC45Nl0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzM4NCwtMzg0XSxbMC45NiwwLjk2XSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzM4NCwtMzg0XSxbLTAuOTYsMC45Nl0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzM4NCwtMzg0XSxbMC45NiwwLjk2XSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzM4NCwtMzg0XSxbLTAuOTYsMC45Nl0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzM4NCwtMzg0XSxbMC45NiwwLjk2XSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzM4NCwtMzg0XSxbLTAuOTYsMC45Nl0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV1dfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "32f3468984f7be0fbc7b-99261b65783e6129800b",
+          "file": "theatre-horizontal.spec.ts",
+          "line": 43,
+          "column": 1
+        },
+        {
+          "title": "stretched background retains real rod dragging and the saved checkpoint",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 10728,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.01\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.01\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts:63:84",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts",
+                      "column": 84,
+                      "line": 63
+                    },
+                    "snippet": "  61 |   const shoulder=page.locator('#story-rod-rightShoulder'),before=Number(await shoulder.inputValue());await handle.scrollIntoViewIfNeeded();\n  62 |   const box=(await handle.boundingBox())!;await page.mouse.move(box.x+box.width/2,box.y+box.height/2);await page.mouse.down();await page.mouse.move(box.x+box.width/2+30,box.y+box.height/2-35,{steps:5});await page.mouse.up();\n> 63 |   await expect.poll(async()=>Math.abs(Number(await shoulder.inputValue())-before)).toBeGreaterThan(.01);\n     |                                                                                    ^\n  64 |   await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','memory-wave');\n  65 |   expect(await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth)).toBeLessThanOrEqual(1);\n  66 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts",
+                        "column": 84,
+                        "line": 63
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.01\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  61 |   const shoulder=page.locator('#story-rod-rightShoulder'),before=Number(await shoulder.inputValue());await handle.scrollIntoViewIfNeeded();\n  62 |   const box=(await handle.boundingBox())!;await page.mouse.move(box.x+box.width/2,box.y+box.height/2);await page.mouse.down();await page.mouse.move(box.x+box.width/2+30,box.y+box.height/2-35,{steps:5});await page.mouse.up();\n> 63 |   await expect.poll(async()=>Math.abs(Number(await shoulder.inputValue())-before)).toBeGreaterThan(.01);\n     |                                                                                    ^\n  64 |   await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','memory-wave');\n  65 |   expect(await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth)).toBeLessThanOrEqual(1);\n  66 | });\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts:63:84"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T01:04:15.295Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t43-final\\theatre-horizontal-stretch-61dcf-ng-and-the-saved-checkpoint-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t43-final\\theatre-horizontal-stretch-61dcf-ng-and-the-saved-checkpoint-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts",
+                    "column": 84,
+                    "line": 63
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "32f3468984f7be0fbc7b-c210fae022eb6eca5f41",
+          "file": "theatre-horizontal.spec.ts",
+          "line": 58,
+          "column": 1
+        },
+        {
+          "title": "paused caption resizing redraws the curtain and repositions input geometry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3855,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T01:04:15.938Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "32f3468984f7be0fbc7b-f514dd78aa04ff4e916d",
+          "file": "theatre-horizontal.spec.ts",
+          "line": 68,
+          "column": 1
+        },
+        {
+          "title": "home background card aligns with the combined edges of the two feature cards",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2341,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T01:04:20.593Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "home-edges",
+                      "contentType": "application/json",
+                      "body": "eyJjYXJkIjp7ImxlZnQiOjIwLCJyaWdodCI6MzcwLCJ3aWR0aCI6MzUwfSwiZmVhdHVyZXMiOnsibGVmdCI6MjAsInJpZ2h0IjozNzAsIndpZHRoIjozNTB9LCJvdmVyZmxvdyI6MH0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "32f3468984f7be0fbc7b-ff4b2931ed9ee140face",
+          "file": "theatre-horizontal.spec.ts",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "wide curtain retains its original height while only background painting expands horizontally",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4367,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T01:04:23.126Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "background-and-actor-scale",
+                      "contentType": "application/json",
+                      "body": "eyJnZW9tZXRyeSI6eyJzY3JlZW4iOnsieCI6MjAsInkiOi05NjAuMTg3NSwid2lkdGgiOjM1MCwiaGVpZ2h0IjoyODIuNSwicmlnaHQiOjM3MH0sInNsb3QiOnsieCI6MjAsInkiOi05NjAuMTg3NSwid2lkdGgiOjM1MCwiaGVpZ2h0Ijo1MTYuNDY4NzUsInJpZ2h0IjozNzB9LCJwYW5lbCI6eyJ4IjoyMCwieSI6LTQyMS43MTg3NSwid2lkdGgiOjM1MCwiaGVpZ2h0IjoxMzk4LjIzNDM3NSwicmlnaHQiOjM3MH0sImNhcHRpb24iOnsieCI6MjAsInkiOjYsIndpZHRoIjozNTAsImhlaWdodCI6MTU2LjMyODEyNSwicmlnaHQiOjM3MH0sImNhbnZhcyI6eyJ4IjozMCwieSI6LTk1MC4xODc1LCJ3aWR0aCI6MzMwLCJoZWlnaHQiOjI2Mi41LCJyaWdodCI6MzYwfSwiYmFja2luZyI6eyJ3aWR0aCI6NTEyLCJoZWlnaHQiOjQwOH0sIm92ZXJmbG93IjowfSwiYmFja2dyb3VuZCI6eyJ3aWR0aCI6NTEyLCJoZWlnaHQiOjM4NCwiY2FudmFzV2lkdGgiOjUxMiwiY2FudmFzSGVpZ2h0Ijo0MDh9LCJzY2FsZXMiOltbMjU2LC0yNTZdLFswLjk2LDAuOTZdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMjU2LC0yNTZdLFstMC45NiwwLjk2XSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMjU2LC0yNTZdLFswLjk2LDAuOTZdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMjU2LC0yNTZdLFstMC45NiwwLjk2XSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMjU2LC0yNTZdLFswLjk2LDAuOTZdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMjU2LC0yNTZdLFstMC45NiwwLjk2XSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMjU2LC0yNTZdLFswLjk2LDAuOTZdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMjU2LC0yNTZdLFstMC45NiwwLjk2XSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMjU2LC0yNTZdLFswLjk2LDAuOTZdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMjU2LC0yNTZdLFstMC45NiwwLjk2XSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXV19"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "32f3468984f7be0fbc7b-6232adeed88e74a6868c",
+          "file": "theatre-horizontal.spec.ts",
+          "line": 43,
+          "column": 1
+        },
+        {
+          "title": "stretched background retains real rod dragging and the saved checkpoint",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3151,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T01:04:27.693Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "32f3468984f7be0fbc7b-e12396d47132ad66032d",
+          "file": "theatre-horizontal.spec.ts",
+          "line": 58,
+          "column": 1
+        },
+        {
+          "title": "paused caption resizing redraws the curtain and repositions input geometry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Desktop height cap follows the caption; narrow screens retain their normal ratio.",
+                  "location": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts",
+                    "line": 69,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "skipped",
+                  "duration": 177,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-28T01:04:27.518Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Desktop height cap follows the caption; narrow screens retain their normal ratio.",
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts",
+                        "line": 69,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "32f3468984f7be0fbc7b-3c4cc53238be32c31504",
+          "file": "theatre-horizontal.spec.ts",
+          "line": 68,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-28T01:04:10.736Z",
+    "duration": 21448.510000000002,
+    "expected": 6,
+    "skipped": 1,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

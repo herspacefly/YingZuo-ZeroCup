@@ -11,7 +11,7 @@ import { BackdropCache } from './backdrop-cache';
 import type { CanvasFrame, CanvasStatus } from './types';
 
 /** Event-driven renderer: update/resize draw once; the future director owns the only clock. */
-export function mountCanvasRenderer(host: HTMLElement, catalog: AssetCatalog, onStatus: (status: CanvasStatus) => void) {
+export function mountCanvasRenderer(host: HTMLElement, catalog: AssetCatalog, onStatus: (status: CanvasStatus) => void, options:{backgroundFit?:'stretch'}={}) {
   const canvas=document.createElement('canvas'); canvas.className='shadow-stage'; canvas.setAttribute('role','img');
   canvas.setAttribute('aria-label','皮影舞台'); host.appendChild(canvas);
   const assets=new TextureCache(catalog.manifest), compositor=new PartCompositor(assets,catalog),backdrop=new BackdropCache();
@@ -72,17 +72,20 @@ export function mountCanvasRenderer(host: HTMLElement, catalog: AssetCatalog, on
         return {...layer,x:override?.x??layer.x,y:override?.y??layer.y,opacity:override?.opacity??layer.opacity};
       }).sort((a,b)=>a.order-b.order);
       const behind=layers.filter(item=>item.order<catalog.scenes.actorOrder);
-      const key=JSON.stringify([canvas.width,canvas.height,scene.id,scene.background,frame.stage.lampX,behind.map(layer=>[layer.id,layer.assetId,layer.x,layer.y,layer.opacity])]);
+      // Decorative backdrops may fill a wider curtain. Actors, foreground planes
+      // and pointer targets retain the same uniform 4:3 world projection.
+      const background=options.backgroundFit==='stretch'?{x:0,y:v.y,width:canvas.width,height:v.height}:v;
+      const key=JSON.stringify([canvas.width,canvas.height,options.backgroundFit,scene.id,scene.background,frame.stage.lampX,behind.map(layer=>[layer.id,layer.assetId,layer.x,layer.y,layer.opacity])]);
       backdrop.draw(ctx,key,canvas.width,canvas.height,target=>{
         target.save();
         try{
           target.setTransform(1,0,0,1,0,0);target.globalAlpha=1;
           target.fillStyle='#17130f';target.fillRect(0,0,canvas.width,canvas.height);
-          target.beginPath();target.rect(v.x,v.y,v.width,v.height);target.clip();
-          target.fillStyle=scene.background;target.fillRect(v.x,v.y,v.width,v.height);
-          const glow=target.createRadialGradient(v.x+v.width*(.5+frame!.stage.lampX*.15),v.y+v.height*.4,0,v.x+v.width*.5,v.y+v.height*.5,v.width*.8);
-          glow.addColorStop(0,'rgba(255,236,187,.28)');glow.addColorStop(1,'rgba(120,78,36,.12)');target.fillStyle=glow;target.fillRect(v.x,v.y,v.width,v.height);
-          for(const layer of behind){target.globalAlpha=layer.opacity;target.drawImage(assets.get(layer.assetId),v.x+layer.x*v.width,v.y+layer.y*v.height,v.width,v.height);}
+          target.beginPath();target.rect(background.x,background.y,background.width,background.height);target.clip();
+          target.fillStyle=scene.background;target.fillRect(background.x,background.y,background.width,background.height);
+          const glow=target.createRadialGradient(background.x+background.width*(.5+frame!.stage.lampX*.15),background.y+background.height*.4,0,background.x+background.width*.5,background.y+background.height*.5,background.width*.8);
+          glow.addColorStop(0,'rgba(255,236,187,.28)');glow.addColorStop(1,'rgba(120,78,36,.12)');target.fillStyle=glow;target.fillRect(background.x,background.y,background.width,background.height);
+          for(const layer of behind){target.globalAlpha=layer.opacity;target.drawImage(assets.get(layer.assetId),background.x+layer.x*background.width,background.y+layer.y*background.height,background.width,background.height);}
         }finally{target.restore();}
       });
       // The cached opaque buffer already contains its viewport edge coverage.
