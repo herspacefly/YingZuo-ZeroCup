@@ -9,7 +9,7 @@
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
   "stage": "T38_in_progress",
   "activeTaskId": "T38",
-  "lastVerifiedCommit": "d1a9d4cb3db19e684ffa79320e13752213420340",
+  "lastVerifiedCommit": "ff3aef7028726307f87c228dc005cd8f0953fd67",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -1955,8 +1955,8 @@
       "acceptanceRefs": [
         "T43"
       ],
-      "checkpointCommit": null,
-      "nextAction": "本地实现与验收完成，待提交推送并核对Actions和公开站点；T38真实听感及原正式设备/内容验收保持原任务。",
+      "checkpointCommit": "ff3aef7028726307f87c228dc005cd8f0953fd67",
+      "nextAction": "ff3aef7已推送部署，Actions 40613518311构建/部署成功，公开三尺寸实测通过；发布记录追加为文档提交。活动任务仍为T38，下一步补真实听感。",
       "blocker": null,
       "verification": [
         "用户明确只拉宽背景、人物保持比例；首页白卡对齐两张上方卡片合计外边界，替代T42的960px居中/整体放大解释。",
@@ -1964,7 +1964,8 @@
         "最终专用宽窄浏览器7通过/1桌面专用条件跳过，实际Canvas背景铺满横向宽度、人物等比、原生操偶拖动、暂停字幕变高后Canvas与操作几何同步及离页清理通过。",
         "另选取v5两条导览结局与成果延迟导出/失败反馈/旧版重演宽窄10项通过；该轮早于最终背景纵向边界细化，专用回归在最终产物上重跑通过。",
         "最终生产六尺寸390/1180/1181/1366/1440/1920实测首页左右界等齐，1366幕面922x595.53、1440幕面996x725.33，左界不变与24px栏距，零溢出/页面错误；宽窄截图已目检。",
-        "首轮失败记录保留；修正背景探针的图像识别、暂停时隐藏控件断言和拖动测试时钟隔离后复验通过；不称初次全套全绿。"
+        "首轮失败记录保留；修正背景探针的图像识别、暂停时隐藏控件断言和拖动测试时钟隔离后复验通过；不称初次全套全绿。",
+        "实现ff3aef7已普通push；Actions 40613518311的632单元、44任务/资源/内容/配音/160模块构建/17 ES5块及根与子目录宽窄32项检查和部署success。公开390/1366/1440三档HTTP200，加载main-CXtzb1Ei.js，首页等齐、幕面原高度与24px栏距通过。"
       ],
       "phase": "G3"
     }
