@@ -1,0 +1,114 @@
+{
+  "date": "2026-10-28",
+  "checkpointCommit": null,
+  "committed": false,
+  "pushed": false,
+  "deployed": false,
+  "checks": {
+    "build": "passed: typecheck and 160 modules",
+    "legacy": "passed: 17 chunks, 7 entries",
+    "state": "passed: 43 tasks",
+    "layout": {
+      "viewports": [
+        {
+          "width": 320,
+          "height": 740
+        },
+        {
+          "width": 390,
+          "height": 844
+        },
+        {
+          "width": 980,
+          "height": 900
+        },
+        {
+          "width": 1180,
+          "height": 900
+        },
+        {
+          "width": 1181,
+          "height": 900
+        },
+        {
+          "width": 1366,
+          "height": 768
+        },
+        {
+          "width": 1440,
+          "height": 900
+        },
+        {
+          "width": 1920,
+          "height": 1080
+        }
+      ],
+      "modes": [
+        "dev",
+        "production"
+      ],
+      "passed": 16,
+      "failed": 0,
+      "homeAndCurtainGeometryConsistent": true,
+      "readerWidthAndPositionConsistent": true,
+      "noHorizontalOverflow": true,
+      "canvasBackingRatioConsistent": true
+    }
+  },
+  "changes": [
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "homeBefore": 1262,
+      "homeAfter": 960,
+      "curtainBefore": 767.359375,
+      "curtainAfter": 922,
+      "gapBefore": 178.640625,
+      "gapAfter": 24,
+      "leftBefore": 52,
+      "leftAfter": 52
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "homeBefore": 1336,
+      "homeAfter": 960,
+      "curtainBefore": 940.421875,
+      "curtainAfter": 996,
+      "gapBefore": 79.578125,
+      "gapAfter": 24,
+      "leftBefore": 52,
+      "leftAfter": 52
+    },
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "homeBefore": 1336,
+      "homeAfter": 960,
+      "curtainBefore": 996,
+      "curtainAfter": 996,
+      "gapBefore": 24,
+      "gapAfter": 24,
+      "leftBefore": 292,
+      "leftAfter": 292
+    }
+  ],
+  "sourceSHA256": {
+    "src/styles/presentation.css": "b22d68ca6d1bdf5321c1ef5469256bc740de72035ffd16de8f5cacf19b78d372",
+    "src/styles/site.css": "a52bdd60f5e00b96f7aa136ba3d639799bed28fc066318146ef794fda2749ff6",
+    "src/features/shared/journey.ts": "282987b1d334f9fcfdcbdb5436e22ad3761bacb188ffcaa956d5c90b63bc3e4d"
+  },
+  "notes": [
+    "Historical home card max-width 960px restored.",
+    "Reader heights depend on live audio/runtime messages; geometry comparison uses reader width and position.",
+    "Initial independent journey.css import produced different dev/production card spacing; first-dev.json/first-production.json retained.",
+    "No new unit tests or full functional e2e rerun for this reversible style change.",
+    "Physical device and IE runtime acceptance not performed."
+  ]
+}

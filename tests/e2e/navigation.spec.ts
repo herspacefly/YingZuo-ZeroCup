@@ -66,11 +66,15 @@ test('explicit guided opening and intro skip persist once, and ten remounts cann
 
 test('craft saves the current editor while leaving frozen cast and decision intact', async ({ page }) => {
   await seed(page, fixture); await page.goto('/#/craft'); await saved(page);
-  await page.getByLabel('衣上的纹样').selectOption('flower-v1'); await page.getByLabel('这一套颜色').selectOption('woodland-v1');
+  await page.getByLabel('这一套颜色').selectOption('woodland-v1');
+  await page.getByRole('button', { name: '分别给衣身、袖、下摆着色', exact: true }).click();
+  await page.getByLabel('衣身颜色', { exact: true }).selectOption('2');
   await page.getByRole('button', { name: '保存这身行装', exact: true }).click(); await saved(page);
-  const project = await stored(page); expect(project.appearance).toMatchObject({ patternId: 'flower-v1', paletteId: 'woodland-v1' }); expect(project.story).toEqual(fixture.story);
+  const project = await stored(page); expect(project.appearance).toMatchObject({ patternId: fixture.appearance.patternId, paletteId: 'woodland-v1', colorSlots: { body: 2 } }); expect(project.story).toEqual(fixture.story);
   await hash(page, '/museum/E03'); await hash(page, '/craft'); await page.reload(); await saved(page);
-  await expect(page.getByLabel('衣上的纹样')).toHaveValue('flower-v1'); await expect(page.getByLabel('这一套颜色')).toHaveValue('woodland-v1');
+  await expect(page.getByLabel('这一套颜色')).toHaveValue('woodland-v1');
+  await page.getByRole('button', { name: '分别给衣身、袖、下摆着色', exact: true }).click();
+  await expect(page.getByLabel('衣身颜色', { exact: true })).toHaveValue('2');
 });
 
 test('a failed opening stays on the old page, exports its candidate and retries the identical run', async ({ page }) => {
@@ -87,11 +91,11 @@ test('a failed opening stays on the old page, exports its candidate and retries 
 test('denied storage keeps an editable export and an explicit memory-only opening', async ({ page }) => {
   await page.addInitScript(() => Object.defineProperty(window, 'indexedDB', { get() { throw new DOMException('Denied for test', 'SecurityError'); } }));
   await page.goto('/#/craft'); await expect(page.locator('#save-state')).toHaveAttribute('data-state', 'error');
-  await page.getByLabel('衣上的纹样').selectOption('wave-v1'); await hash(page, '/story');
+  await page.getByLabel('这一套颜色').selectOption('indigo-v1'); await hash(page, '/story');
   await page.getByRole('button', { name: '确认开始这一场', exact: true }).click(); await expect(page.locator('#cancel-pending')).toBeVisible();
   await page.getByRole('button', { name: '仅在本页继续（未保存）', exact: true }).click(); await expect(page.locator('#save-state')).toHaveAttribute('data-state', 'memory');
   const downloading = page.waitForEvent('download'); await page.getByRole('button', { name: '导出当前作品', exact: true }).click(); const project = await downloadJSON(await downloading);
-  expect(project.story.nodeId).toBe('intro'); expect(project.appearance.patternId).toBe('wave-v1'); expect(project.saveRevision).toBe(0);
+  expect(project.story.nodeId).toBe('intro'); expect(project.appearance.paletteId).toBe('indigo-v1'); expect(project.saveRevision).toBe(0);
 });
 
 test('archive/import use the shared serial entry, and cancel preserves the existing project', async ({ page }) => {
@@ -113,7 +117,10 @@ test('workbench recovery can be explicitly reread without leaving the product st
   const lab = await context.newPage(); await lab.goto('/project.html');
   await lab.getByRole('button', { name: '恢复已读取的有效备份', exact: true }).click(); await expect(lab.locator('#project-status')).toHaveAttribute('data-state', 'saved'); await lab.close();
   await page.getByRole('button', { name: '处理完成，重新读取本机作品', exact: true }).click(); await saved(page);
-  expect((await stored(page)).story).toEqual(fixture.story); await expect(page.locator('#app-view')).toContainText('暂停接续');
+  expect((await stored(page)).story).toEqual(fixture.story);
+  await expect(page.locator('#story-runtime')).toHaveAttribute('data-node', fixture.story.nodeId);
+  await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state', 'ready');
+  await expect(page.locator('#story-runtime')).toHaveAttribute('data-state', 'playing');
 });
 
 test('a real curtain checkpoint produces the actual programme and prepared reunion image', async ({ page }) => {
@@ -143,10 +150,11 @@ test('alias redirects once, keyboard skip does not change route and mobile menu 
 
 test('legacy product entry uses the same project and can save an editor change in Chromium', async ({ page }) => {
   const errors: string[] = []; page.on('pageerror', e => errors.push(e.message));
+  await seed(page, fixture);
   await page.route('http://127.0.0.1:4173/', async route => { const response = await route.fetch(); const html = (await response.text()).replace(/<script\b[^>]*type="module"[^>]*>[\s\S]*?<\/script>/g, '').replace(/\snomodule\b/g, ''); await route.fulfill({ response, body: html }); });
   await page.goto('/#/craft'); await expect(page.locator('#app-runtime')).toHaveAttribute('data-entry', 'legacy'); await saved(page);
-  await page.getByLabel('衣上的纹样').selectOption('wave-v1'); await page.getByRole('button', { name: '保存这身行装', exact: true }).click(); await saved(page);
-  expect((await stored(page)).appearance.patternId).toBe('wave-v1'); expect(errors).toEqual([]);
+  await page.getByLabel('这一套颜色').selectOption('indigo-v1'); await page.getByRole('button', { name: '保存这身行装', exact: true }).click(); await saved(page);
+  const project = await stored(page); expect(project.appearance.paletteId).toBe('indigo-v1'); expect(project.story).toEqual(fixture.story); expect(errors).toEqual([]);
 });
 
 test('static product introduction remains readable without JavaScript', async ({ browser }) => {

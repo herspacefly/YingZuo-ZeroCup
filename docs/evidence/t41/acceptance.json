@@ -1,0 +1,415 @@
+{
+  "date": "2026-10-27",
+  "basisCommit": "7440170bc0896f1b5d1e017aff3013cdda5671d8",
+  "checkpointCommit": null,
+  "committed": false,
+  "pushed": false,
+  "deployed": false,
+  "node": "v24.18.1",
+  "npm": "12.0.2",
+  "verification": {
+    "unit": {
+      "files": 52,
+      "passed": 632,
+      "failed": 0
+    },
+    "typecheck": "passed",
+    "build": {
+      "state": "passed",
+      "modules": 161,
+      "notes": "Existing large-chunk warnings retained"
+    },
+    "legacy": {
+      "state": "passed",
+      "chunks": 17,
+      "pages": 7
+    },
+    "content": "passed",
+    "state": {
+      "state": "passed",
+      "tasks": 42
+    },
+    "browser": {
+      "red": {
+        "startTime": "2026-10-27T11:39:15.879Z",
+        "duration": 9758.403,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "first": {
+        "startTime": "2026-10-27T11:40:50.414Z",
+        "duration": 126038.231,
+        "expected": 46,
+        "skipped": 0,
+        "unexpected": 4,
+        "flaky": 0
+      },
+      "recheck": {
+        "startTime": "2026-10-27T12:56:42.625Z",
+        "duration": 13560.265,
+        "expected": 10,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "uniqueLatestPassed": 56,
+      "latest": [
+        {
+          "file": "navigation.spec.ts",
+          "title": "direct routes, museum children, back and refresh preserve the confirmed performance",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "URLs cannot start a story or manufacture a completed result",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "explicit guided opening and intro skip persist once, and ten remounts cannot repeat the command",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "craft saves the current editor while leaving frozen cast and decision intact",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "a failed opening stays on the old page, exports its candidate and retries the identical run",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "denied storage keeps an editable export and an explicit memory-only opening",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "archive/import use the shared serial entry, and cancel preserves the existing project",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "workbench recovery can be explicitly reread without leaving the product stuck",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "a real curtain checkpoint produces the actual programme and prepared reunion image",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "future records remain protected while the museum is readable",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "corrupt records remain protected while the museum is readable",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "alias redirects once, keyboard skip does not change route and mobile menu has real focus targets",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "legacy product entry uses the same project and can save an editor change in Chromium",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "static product introduction remains readable without JavaScript",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "direct routes, museum children, back and refresh preserve the confirmed performance",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "URLs cannot start a story or manufacture a completed result",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "explicit guided opening and intro skip persist once, and ten remounts cannot repeat the command",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "craft saves the current editor while leaving frozen cast and decision intact",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "a failed opening stays on the old page, exports its candidate and retries the identical run",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "denied storage keeps an editable export and an explicit memory-only opening",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "archive/import use the shared serial entry, and cancel preserves the existing project",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "workbench recovery can be explicitly reread without leaving the product stuck",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "a real curtain checkpoint produces the actual programme and prepared reunion image",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "future records remain protected while the museum is readable",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "corrupt records remain protected while the museum is readable",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "alias redirects once, keyboard skip does not change route and mobile menu has real focus targets",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "legacy product entry uses the same project and can save an editor change in Chromium",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "navigation.spec.ts",
+          "title": "static product introduction remains readable without JavaScript",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "site-music.spec.ts",
+          "title": "site music defaults on, unlocks on the first ordinary click and retains manual mute across routes",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "site-music.spec.ts",
+          "title": "reunion first two seconds stay quiet and paused story stops the actual music media",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "site-music.spec.ts",
+          "title": "only actual curtain playback selects vocals, pause and mute release the media",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "site-music.spec.ts",
+          "title": "failed audio file reports a real error and the next ordinary gesture retries",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "site-music.spec.ts",
+          "title": "music retry blocked via pointer keeps intent and needs one activation",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "site-music.spec.ts",
+          "title": "music retry blocked via Enter keeps intent and needs one activation",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "site-music.spec.ts",
+          "title": "music retry blocked via Space keeps intent and needs one activation",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "site-music.spec.ts",
+          "title": "music retry resource via pointer keeps intent and needs one activation",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "site-music.spec.ts",
+          "title": "music retry resource via Enter keeps intent and needs one activation",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "site-music.spec.ts",
+          "title": "music retry resource via Space keeps intent and needs one activation",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "site-music.spec.ts",
+          "title": "ten route exits keep one active global player and actual pagehide releases its source",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "site-music.spec.ts",
+          "title": "site music defaults on, unlocks on the first ordinary click and retains manual mute across routes",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "site-music.spec.ts",
+          "title": "reunion first two seconds stay quiet and paused story stops the actual music media",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "site-music.spec.ts",
+          "title": "only actual curtain playback selects vocals, pause and mute release the media",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "site-music.spec.ts",
+          "title": "failed audio file reports a real error and the next ordinary gesture retries",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "site-music.spec.ts",
+          "title": "music retry blocked via pointer keeps intent and needs one activation",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "site-music.spec.ts",
+          "title": "music retry blocked via Enter keeps intent and needs one activation",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "site-music.spec.ts",
+          "title": "music retry blocked via Space keeps intent and needs one activation",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "site-music.spec.ts",
+          "title": "music retry resource via pointer keeps intent and needs one activation",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "site-music.spec.ts",
+          "title": "music retry resource via Enter keeps intent and needs one activation",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "site-music.spec.ts",
+          "title": "music retry resource via Space keeps intent and needs one activation",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "site-music.spec.ts",
+          "title": "ten route exits keep one active global player and actual pagehide releases its source",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "story-voice.spec.ts",
+          "title": "voice and music intents are independent, survive routes, and default on after refresh",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "story-voice.spec.ts",
+          "title": "blocked speech reports its state without frame retries and the retry button unlocks it",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "story-voice.spec.ts",
+          "title": "a failed speech resource reports failure and succeeds after explicit retry",
+          "project": "desktop-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "story-voice.spec.ts",
+          "title": "voice and music intents are independent, survive routes, and default on after refresh",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "story-voice.spec.ts",
+          "title": "blocked speech reports its state without frame retries and the retry button unlocks it",
+          "project": "mobile-chromium",
+          "status": "passed"
+        },
+        {
+          "file": "story-voice.spec.ts",
+          "title": "a failed speech resource reports failure and succeeds after explicit retry",
+          "project": "mobile-chromium",
+          "status": "passed"
+        }
+      ]
+    }
+  },
+  "sourceSHA256": {
+    "src/audio/stage-session.ts": "1777100e996fab357979dfd82dfe7a4af7312a097dca647b07172af57fc45691",
+    "src/app/bootstrap.ts": "124587aa275514aa2f0b99563a6bc550b29dfdd85b925c0423b9fd6edc2ef890",
+    "tests/unit/stage-session.test.ts": "8b388da7e9068411d96bb52192a2a05f26468e964411dcde7f16f175d39caedd",
+    "tests/e2e/navigation.spec.ts": "54721acc495665d694a231f9a7c06569bbb690861f4a320dadb5688e2787edee",
+    "tests/e2e/site-music.spec.ts": "0076dd25f80ecc989d7cf6a7444d2f1b6dd26aff74ff5bf3cb6d7dad78f3172e"
+  },
+  "bundleSHA256": {
+    "dist/assets/main-C3Y-Urcw.js": "39325ab7fa90274f8901286e6cb7821320e2a50b4f80ad72cb84afbf31ce38cd",
+    "dist/assets/main-legacy-BUqA_hgv.js": "203bafc8596b608898e47804f1534af79e7b791987b6edde92bc5a78c43da3bf"
+  },
+  "notRun": [
+    "default entire e2e suite",
+    "public deployment",
+    "physical device/IE checks",
+    "human listening acceptance"
+  ]
+}

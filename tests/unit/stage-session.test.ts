@@ -63,6 +63,37 @@ describe('per-document default-on audio session',()=>{
     expect(session.effectsEnabled()).toBe(true);expect(session.musicEnabled()).toBe(true);
     session.dispose();session.dispose();expect(fixture.closed).toBe(1);
   });
+
+  it('retries blocked music on one toggle without changing intent, then allows manual mute',async()=>{
+    const fixture=setup(true),{session}=fixture;
+    session.setScene(null,false);session.unlock();await flush();
+    expect(fixture.statuses.at(-1)).toMatchObject({status:{state:'blocked'},intent:true});
+    fixture.permit();session.toggleMusic();await flush();
+    expect(fixture.plays).toBe(2);expect(fixture.audible).toBe(true);
+    expect(fixture.statuses.at(-1)).toMatchObject({status:{state:'enabled'},intent:true});
+    session.toggleMusic();session.setScene(null,false);session.unlock();await flush();
+    expect(session.musicEnabled()).toBe(false);expect(fixture.plays).toBe(2);expect(fixture.audible).toBe(false);
+    session.dispose();
+  });
+
+  it('keeps failed music enabled across repeated failed retries and recovers with one toggle',async()=>{
+    let failure=true,plays=0;const statuses:{status:MusicStatus;intent:boolean}[]=[];
+    const session=createStageAudioSession({tracks,effects:{legacy:true},voice:{createAudio:null},
+      onMusic(status,intent){statuses.push({status,intent});},
+      createAudio:()=>({src:'',preload:'',volume:1,loop:false,
+        play(){plays++;return failure?Promise.reject(new Error('decode failed')):Promise.resolve();},
+        pause(){},load(){},removeAttribute(){},addEventListener(){},removeEventListener(){},
+      }),
+    });
+    session.setScene(null,false);session.unlock();await flush();
+    expect(statuses.at(-1)).toMatchObject({status:{state:'error'},intent:true});
+    session.toggleMusic();await flush();
+    expect(plays).toBe(2);expect(statuses.at(-1)).toMatchObject({status:{state:'error'},intent:true});
+    session.setScene(null,false);await flush();expect(plays).toBe(2);
+    failure=false;session.toggleMusic();await flush();
+    expect(plays).toBe(3);expect(statuses.at(-1)).toMatchObject({status:{state:'enabled'},intent:true});
+    session.dispose();
+  });
   it('atomically replaces a reset sample without consuming the new opening cue through the old elapsed time',async()=>{
     const fixture=setup(),{session}=fixture;session.setScene(null,false);session.unlock();await flush();
     session.effects.update({nodeId:'intro',mode:'full',elapsedMs:0,playing:true});

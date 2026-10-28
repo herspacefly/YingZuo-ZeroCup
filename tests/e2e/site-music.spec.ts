@@ -24,14 +24,60 @@ test('site music defaults on, unlocks on the first ordinary click and retains ma
   await page.reload();await expect(page.locator('#site-music-toggle')).toHaveAttribute('aria-pressed','true');
 });
 test('reunion first two seconds stay quiet and paused story stops the actual music media',async({page})=>{
-  await instrument(page);await seed(page,'reunion-hold');expect(await stats(page)).toEqual([]);await page.locator('#story-play').click();await advance(page,1900);expect(await stats(page)).toEqual([]);await advance(page,200);await expect(page.locator('#site-music-status')).toHaveAttribute('data-state','enabled');await expect.poll(async()=>(await stats(page)).length).toBe(1);expect((await stats(page))[0]!.src).toContain('jinghu-instrumental');await page.locator('#story-pause').click();expect((await stats(page))[0]!.paused).toBe(true);
+  await instrument(page);await seed(page,'reunion-hold');
+  await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','playing');expect(await stats(page)).toEqual([]);
+  // The restored story already runs. An ordinary gesture unlocks media without toggling its transport.
+  await page.locator('#story-runtime').click();await advance(page,1900);expect(await stats(page)).toEqual([]);
+  await advance(page,200);await expect(page.locator('#site-music-status')).toHaveAttribute('data-state','enabled');
+  await expect.poll(async()=>(await stats(page)).length).toBe(1);expect((await stats(page))[0]!.src).toContain('jinghu-instrumental');
+  await page.locator('#story-pause').click();expect((await stats(page))[0]!.paused).toBe(true);
 });
 test('only actual curtain playback selects vocals, pause and mute release the media',async({page})=>{
-  await instrument(page);await seed(page,'curtain');expect(await stats(page)).toEqual([]);await page.locator('#story-play').click();await advance(page,100);await expect(page.locator('#site-music-status')).toHaveAttribute('data-state','enabled');expect((await stats(page))[0]!.src).toContain('jingju-curtain.mp3');await expect(page.locator('#site-music-credit')).toHaveCount(0);await page.locator('#story-pause').click();expect((await stats(page))[0]!.paused).toBe(true);await page.locator('#site-music-toggle').click();expect((await stats(page))[0]!.src).toBeNull();
+  await instrument(page);await seed(page,'curtain');
+  await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','playing');await page.locator('#story-runtime').click();
+  await advance(page,100);await expect(page.locator('#site-music-status')).toHaveAttribute('data-state','enabled');
+  expect((await stats(page))[0]!.src).toContain('jingju-curtain.mp3');await expect(page.locator('#site-music-credit')).toHaveCount(0);
+  await page.locator('#story-pause').click();expect((await stats(page))[0]!.paused).toBe(true);
+  await advance(page,1000);expect((await stats(page))[0]!.paused).toBe(true);
+  await page.locator('#site-music-toggle').click();expect((await stats(page))[0]!.src).toBeNull();
 });
 test('failed audio file reports a real error and the next ordinary gesture retries',async({page})=>{
   await instrument(page);let refuse=true;await page.route('**/audio/*.mp3',r=>refuse?r.abort('failed'):r.continue());await page.goto('/#/museum');await page.locator('#app-view h1').click();await expect(page.locator('#site-music-status')).toHaveAttribute('data-state','error');refuse=false;await page.locator('#app-view h1').click();await expect(page.locator('#site-music-status')).toHaveAttribute('data-state','enabled');expect((await stats(page)).filter(p=>p.src)).toHaveLength(1);await page.goto('/study.html');
 });
+
+for(const failure of ['blocked','resource'] as const)for(const input of ['pointer','Enter','Space'] as const){
+  test(`music retry ${failure} via ${input} keeps intent and needs one activation`,async({page,isMobile})=>{
+    await instrument(page);
+    let refuse=true,requests=0;
+    if(failure==='resource')await page.route('**/audio/*.mp3',route=>{requests++;return refuse?route.abort('failed'):route.continue();});
+    else await page.addInitScript(()=>{
+      const native=HTMLMediaElement.prototype.play;Reflect.set(window,'__blockMusic',true);Reflect.set(window,'__musicAttempts',0);
+      HTMLMediaElement.prototype.play=function(){
+        if(this.src.includes('jinghu-instrumental.mp3')){
+          Reflect.set(window,'__musicAttempts',Number(Reflect.get(window,'__musicAttempts'))+1);
+          if(Reflect.get(window,'__blockMusic'))return Promise.reject(new DOMException('Injected music gesture refusal','NotAllowedError'));
+        }
+        return native.call(this);
+      };
+    });
+    await page.goto('/#/museum');await page.locator('#app-view h1').click();
+    const button=page.locator('#site-music-toggle'),status=page.locator('#site-music-status'),state=failure==='blocked'?'blocked':'error';
+    await expect(status).toHaveAttribute('data-state',state);
+    await expect(button).toHaveAttribute('aria-pressed','true');
+    const activate=async()=>{if(input==='pointer'){if(isMobile)await button.tap();else await button.click();}else await button.press(input);};
+    const attempts=()=>failure==='resource'?Promise.resolve(requests):page.evaluate(()=>Number(Reflect.get(window,'__musicAttempts')));
+    const before=await attempts();await activate();
+    await expect.poll(attempts).toBeGreaterThan(before);await expect(status).toHaveAttribute('data-state',state);
+    await expect(button).toHaveText('重试戏曲音乐');await expect(button).toHaveAttribute('aria-pressed','true');
+    refuse=false;await page.evaluate(()=>Reflect.set(window,'__blockMusic',false));
+    await activate();await expect(status).toHaveAttribute('data-state','enabled');
+    await expect(button).toHaveText('关闭戏曲音乐');await expect(button).toHaveAttribute('aria-pressed','true');
+    await expect.poll(async()=>(await stats(page)).some(item=>item.src?.includes('jinghu-instrumental.mp3')&&!item.paused&&item.ready>=2&&item.time>0)).toBe(true);
+    await activate();await expect(button).toHaveAttribute('aria-pressed','false');await expect(status).toHaveAttribute('data-state','muted');
+    await page.evaluate(()=>{location.hash='#/about';});await page.locator('#app-view h1').click();
+    await expect(button).toHaveAttribute('aria-pressed','false');expect((await stats(page)).every(item=>item.src===null)).toBe(true);
+  });
+}
 test('ten route exits keep one active global player and actual pagehide releases its source',async({page})=>{
   await instrument(page);await page.goto('/#/museum');await page.locator('#app-view h1').click();await expect(page.locator('#site-music-status')).toHaveAttribute('data-state','enabled');
   for(let n=0;n<10;n++){const route=n%2?'/museum':'/craft';await page.evaluate(route=>{location.hash='#'+route;},route);await expect(page.locator('#app-view')).toHaveAttribute('data-route',route);}

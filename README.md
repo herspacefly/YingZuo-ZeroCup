@@ -52,6 +52,19 @@ git branch --set-upstream-to=origin/main main
 
 GitHub的Settings → Pages → Build and deployment → Source选择 **GitHub Actions**。仓库内`.github/workflows/pages.yml`会在每次main普通push后安装、检查、构建并发布`dist/`，也可从Actions手动运行；不要再发布源码根目录或选择Jekyll模板。日常按原习惯修改、提交、`git push`即可；公开网站在工作流部署成功后更新，进度见[部署工作流](https://github.com/herspacefly/YingZuo-ZeroCup/actions/workflows/pages.yml)。
 
+日常修改后，在本项目目录、`main` 分支执行：
+
+```powershell
+git status
+npm test
+npm run build
+git add -u
+git commit -m "描述本次修改"
+git push origin main
+```
+
+`git add -u`暂存已经跟踪的文件改动；如有需要发布的新增文件，先用`git add 文件路径`添加。推送后到上面的Actions页面查看最新运行，等构建与部署均成功，再刷新公开网站；不用手动上传`dist/`。
+
 Vite使用相对base，展馆照片也按部署base解析，同一生产包可用于根路径和项目子目录。公开域名与localhost的浏览器存储互不共享，需要接续本地作品时先导出JSON，再在公开网站导入；服务器不会上传或同步本机IndexedDB。
 
 T39已实测普通push触发构建部署，公开首页HTTP200，根／子目录宽窄12项及公开站点宽窄6项功能检查通过，详见[部署验收](docs/acceptance/t39.md)。公网冷加载存在等待波动，功能检查与15秒性能目标、真实设备及听感验收分别记录。

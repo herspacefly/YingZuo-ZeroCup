@@ -45,15 +45,15 @@ let disposed = false, locked = false, current: AppRoute | null = null;
 let musicScene:StageSoundSample|null=null,musicFocused=true;
 const musicButton=get<HTMLButtonElement>('site-music-toggle'),musicStatus=get<HTMLElement>('site-music-status');
 const audio=createStageAudioSession({tracks:musicCatalog.tracks,onMusic(status,enabled){
-  if(disposed)return;musicStatus.textContent=status.state==='blocked'?'点击或按键，让音乐响起。':status.state==='error'||status.state==='unavailable'?'音乐暂未播放，请重试声音开关。':'';get<HTMLElement>('site-music-panel').hidden=!musicStatus.textContent;musicStatus.setAttribute('data-state',status.state);musicStatus.setAttribute('data-track',status.trackId??'');
-  musicButton.textContent=enabled?'关闭戏曲音乐':'开启戏曲音乐';
+  if(disposed)return;musicStatus.textContent=status.state==='blocked'?'点击“重试戏曲音乐”，或点击页面、按键，让音乐响起。':status.state==='error'||status.state==='unavailable'?'音乐暂未播放，请重试声音开关。':'';get<HTMLElement>('site-music-panel').hidden=!musicStatus.textContent;musicStatus.setAttribute('data-state',status.state);musicStatus.setAttribute('data-track',status.trackId??'');
+  musicButton.textContent=enabled&&['blocked','error'].includes(status.state)?'重试戏曲音乐':enabled?'关闭戏曲音乐':'开启戏曲音乐';
   musicButton.setAttribute('aria-pressed',String(enabled));musicButton.disabled=['unavailable','disposed'].includes(status.state);
 }});
 function syncMusic(){
   const state=store?.getState();
   audio.setScene(musicScene,current?.path==='/story',musicFocused&&!document.hidden&&!disposed&&!locked&&!state?.hasPending&&!['saving','closed','conflict','recovery','unsupported'].includes(state?.status??''));
 }
-life.on(musicButton,'click',()=>audio.toggleMusic());
+life.on(musicButton,'click',()=>{audio.toggleMusic();audio.unlock();});
 life.on(window,'blur',()=>{musicFocused=false;syncMusic();});
 life.on(window,'focus',()=>{musicFocused=true;syncMusic();});
 life.on(document,'visibilitychange',()=>{syncMusic();});
@@ -65,8 +65,8 @@ const unlockAudio=(event:Event)=>{
   if(!event.isTrusted)return;
   // These controls own their retry/mute decision in the same trusted click.
   // An earlier capture-phase retry would change the state before that decision.
-  let voiceTarget=event.target as HTMLElement|null;
-  while(voiceTarget&&voiceTarget!==document.body){if(/^(story|replay)-voice-toggle$/.test(voiceTarget.id))return;voiceTarget=voiceTarget.parentElement;}
+  let audioTarget=event.target as HTMLElement|null;
+  while(audioTarget&&audioTarget!==document.body){if(audioTarget.id==='site-music-toggle'||/^(story|replay)-voice-toggle$/.test(audioTarget.id))return;audioTarget=audioTarget.parentElement;}
   if(event instanceof KeyboardEvent&&(event.ctrlKey||event.metaKey||event.altKey||['Shift','Control','Alt','Meta','Escape','Tab'].includes(event.key)))return;
   const now=performance.now();
   if(event.type==='click'&&now-lastPointerActivation<500)return;

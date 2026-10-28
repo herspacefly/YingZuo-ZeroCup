@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-27",
+  "updatedAt": "2026-10-28",
   "projectName": "影作·一幕团圆",
   "projectRoot": ".",
   "competitionGroup": "零组",
@@ -9,7 +9,7 @@
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
   "stage": "T38_in_progress",
   "activeTaskId": "T38",
-  "lastVerifiedCommit": "83dcbf934f56fa87b17e04bf711bfc48789714ed",
+  "lastVerifiedCommit": null,
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -1859,6 +1859,73 @@
         "根/项目子目录×宽窄32/32通过，含16种制偶开演原生配音、4种旧场归档保护与既有12项部署检查。",
         "实现83dcbf9已普通push，Actions 40480137161构建/32项浏览器/部署success；公开站点已加载新编译入口。",
         "收紧新入口测试为实际开演一次点击、不补点播放/配音重试；公开宽窄首轮8/10，图片就绪与MP3挂起超时2项在相同代码/预算定向复验2/2通过，10个唯一用例最新观察通过，首轮失败完整保留。"
+      ],
+      "phase": "G3"
+    },
+    {
+      "id": "T41",
+      "title": "音乐单次重试修复与导航测试基线校正",
+      "priority": "P0",
+      "status": "done",
+      "dependsOn": [
+        "T40"
+      ],
+      "owner": "codex-root",
+      "branch": "main",
+      "touchFiles": [
+        "src/audio/stage-session.ts",
+        "src/app/bootstrap.ts",
+        "tests/unit/stage-session.test.ts",
+        "tests/e2e/site-music.spec.ts",
+        "tests/e2e/navigation.spec.ts",
+        "docs/",
+        "START_HERE.md"
+      ],
+      "acceptanceRefs": [
+        "T41"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "本地修复和相关验证完成，见docs/acceptance/t41.md；未提交或部署。T38听感及原设备/内容验收继续原任务。",
+      "blocker": null,
+      "verification": [
+        "修复前新增2项单元及1项浏览器回归确实失败，排查首轮22/26及所有失败证据保留。",
+        "632单元、类型/161模块构建、17 ES5块七入口、五版内容及42任务账本通过。",
+        "宽窄首轮46/50；新增12项音乐重试及28项导航均通过，4失败为两项旧音乐自动开演基线。",
+        "校正两项音乐测试后，定向复验及配音10/10通过；56唯一浏览器用例最新观察通过，不称一次全套全绿。",
+        "鼠标/模拟触屏/Enter/Space、受阻/资源失败及重复失败后单次恢复、主动静音跨页保持、普通操作解锁及配音独立意图通过。",
+        "存档/剧本/音频/唯一时钟未改，无新提交、无推送部署；T38及真实设备/人耳验收状态保持。"
+      ],
+      "phase": "G3"
+    },
+    {
+      "id": "T42",
+      "title": "恢复首页缘起卡片规格与剧场幕面加宽",
+      "priority": "P0",
+      "status": "done",
+      "dependsOn": [
+        "T41"
+      ],
+      "owner": "codex-root",
+      "branch": "main",
+      "touchFiles": [
+        "src/styles/presentation.css",
+        "src/styles/site.css",
+        "src/features/shared/journey.ts",
+        "docs/",
+        "START_HERE.md"
+      ],
+      "acceptanceRefs": [
+        "T42"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "两处布局及样式加载顺序修复完成，见docs/acceptance/t42.md。T41/T42保留在本地未提交工作区；T38听感及正式设备验收继续原任务。",
+      "blocker": null,
+      "verification": [
+        "历史journey.css的960px居中规格已恢复；1366/1440窗口幕面从767.36/940.42px增至922/996px，左界52px不变，栏距降至24px。",
+        "journey样式纳入site.css固定入口，移除独立导入；首轮dev/production卡片内间距差异修正，原测量保留。",
+        "8尺寸×开发/生产16/16布局检查通过，含320/390窄屏、1180/1181断点、卡片居中、幕面/右栏边界、Canvas比例及零横向溢出/页面错误；截图已目检。",
+        "类型/160模块生产构建、17 ES5块七入口、43任务账本通过；纯样式未新增单元测试或重复整套功能e2e。",
+        "T41音乐修复/存档/剧情/音频保持；未提交、推送或部署，设备/IE/人耳验收原状态保留。"
       ],
       "phase": "G3"
     }

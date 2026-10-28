@@ -75,6 +75,7 @@ export function createStageAudioSession(options: StageAudioSessionOptions) {
   function setActive(value: boolean) { if (active === value) return; active = value; sync(); }
   function toggleMusic() {
     if (disposed) return;
+    if (musicIntent && ['blocked', 'error'].includes(musicState)) { sync(); void music.enable(); return; }
     musicIntent = !musicIntent;
     if (musicIntent) { sync(); void music.enable(); } else music.mute();
   }

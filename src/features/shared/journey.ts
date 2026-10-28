@@ -1,4 +1,3 @@
-import '../../styles/journey.css';
 import type { AppRoute } from '../../app/router';
 import type { StoreState } from '../../app/store';
 import { append, element, link } from './dom';

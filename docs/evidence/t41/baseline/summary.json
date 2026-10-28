@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-27",
+  "commit": "7440170",
+  "source": "Read-only investigation in the preceding turn; not a new run.",
+  "unit": {
+    "files": 52,
+    "passed": 630
+  },
+  "browser": {
+    "command": "npx playwright test tests/e2e/navigation.spec.ts tests/e2e/result.spec.ts --project=desktop-chromium --workers=2 --max-failures=5 --grep-invert 'exports a real frozen|replay is paused'",
+    "passed": 22,
+    "failed": 4,
+    "failures": [
+      {
+        "test": "navigation:67",
+        "reason": "Removed pattern selector"
+      },
+      {
+        "test": "navigation:87",
+        "reason": "Removed pattern selector"
+      },
+      {
+        "test": "navigation:111",
+        "reason": "Outdated paused-resume copy; product auto-starts"
+      },
+      {
+        "test": "navigation:144",
+        "reason": "Removed pattern selector"
+      }
+    ]
+  },
+  "musicReproduction": {
+    "before": {
+      "state": "error",
+      "intent": true
+    },
+    "afterFirstClick": {
+      "state": "muted",
+      "intent": false
+    },
+    "afterSecondClick": {
+      "state": "enabled",
+      "intent": true
+    }
+  }
+}
