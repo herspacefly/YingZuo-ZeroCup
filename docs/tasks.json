@@ -9,7 +9,7 @@
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
   "stage": "T38_in_progress",
   "activeTaskId": "T38",
-  "lastVerifiedCommit": null,
+  "lastVerifiedCommit": "d1a9d4cb3db19e684ffa79320e13752213420340",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -1884,8 +1884,8 @@
       "acceptanceRefs": [
         "T41"
       ],
-      "checkpointCommit": null,
-      "nextAction": "本地修复和相关验证完成，见docs/acceptance/t41.md；未提交或部署。T38听感及原设备/内容验收继续原任务。",
+      "checkpointCommit": "d1a9d4cb3db19e684ffa79320e13752213420340",
+      "nextAction": "实现d1a9d4c已普通push并由Actions发布；发布记录见docs/evidence/t42/deployment.json。T38听感及原正式设备/内容验收继续原任务。",
       "blocker": null,
       "verification": [
         "修复前新增2项单元及1项浏览器回归确实失败，排查首轮22/26及所有失败证据保留。",
@@ -1893,7 +1893,9 @@
         "宽窄首轮46/50；新增12项音乐重试及28项导航均通过，4失败为两项旧音乐自动开演基线。",
         "校正两项音乐测试后，定向复验及配音10/10通过；56唯一浏览器用例最新观察通过，不称一次全套全绿。",
         "鼠标/模拟触屏/Enter/Space、受阻/资源失败及重复失败后单次恢复、主动静音跨页保持、普通操作解锁及配音独立意图通过。",
-        "存档/剧本/音频/唯一时钟未改，无新提交、无推送部署；T38及真实设备/人耳验收状态保持。"
+        "存档/剧本/音频/唯一时钟未改，无新提交、无推送部署；T38及真实设备/人耳验收状态保持。",
+        "2026-10-28：实现d1a9d4c已普通push，Actions 40609381902的632单元、43任务/资源/五版内容/配音/160模块构建/17 ES5块及根与子目录宽窄32项检查、部署均通过。",
+        "公开站点HTTP200并加载main-DECFyccy.js，包含新音乐重试标签；390/1366/1440三个窗口实际确认首页卡片宽度、剧场左界/24px栏距和零横向溢出。"
       ],
       "phase": "G3"
     },
@@ -1917,15 +1919,17 @@
       "acceptanceRefs": [
         "T42"
       ],
-      "checkpointCommit": null,
-      "nextAction": "两处布局及样式加载顺序修复完成，见docs/acceptance/t42.md。T41/T42保留在本地未提交工作区；T38听感及正式设备验收继续原任务。",
+      "checkpointCommit": "d1a9d4cb3db19e684ffa79320e13752213420340",
+      "nextAction": "实现d1a9d4c已普通push并由Actions发布；发布记录见docs/evidence/t42/deployment.json。T38听感及原正式设备/内容验收继续原任务。",
       "blocker": null,
       "verification": [
         "历史journey.css的960px居中规格已恢复；1366/1440窗口幕面从767.36/940.42px增至922/996px，左界52px不变，栏距降至24px。",
         "journey样式纳入site.css固定入口，移除独立导入；首轮dev/production卡片内间距差异修正，原测量保留。",
         "8尺寸×开发/生产16/16布局检查通过，含320/390窄屏、1180/1181断点、卡片居中、幕面/右栏边界、Canvas比例及零横向溢出/页面错误；截图已目检。",
         "类型/160模块生产构建、17 ES5块七入口、43任务账本通过；纯样式未新增单元测试或重复整套功能e2e。",
-        "T41音乐修复/存档/剧情/音频保持；未提交、推送或部署，设备/IE/人耳验收原状态保留。"
+        "T41音乐修复/存档/剧情/音频保持；未提交、推送或部署，设备/IE/人耳验收原状态保留。",
+        "2026-10-28：实现d1a9d4c已普通push，Actions 40609381902的632单元、43任务/资源/五版内容/配音/160模块构建/17 ES5块及根与子目录宽窄32项检查、部署均通过。",
+        "公开站点HTTP200并加载main-DECFyccy.js，包含新音乐重试标签；390/1366/1440三个窗口实际确认首页卡片宽度、剧场左界/24px栏距和零横向溢出。"
       ],
       "phase": "G3"
     }
