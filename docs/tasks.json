@@ -9,7 +9,7 @@
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
   "stage": "T38_in_progress",
   "activeTaskId": "T38",
-  "lastVerifiedCommit": "ff3aef7028726307f87c228dc005cd8f0953fd67",
+  "lastVerifiedCommit": "9b7d99c63b4012b31a1aea9aa703b735c7d1a6ea",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -1989,14 +1989,15 @@
       "acceptanceRefs": [
         "T44"
       ],
-      "checkpointCommit": null,
-      "nextAction": "本地实现与对应检查完成，未提交推送部署；公开仍为T43，活动任务回到T38，详见docs/acceptance/t44.md。",
+      "checkpointCommit": "9b7d99c63b4012b31a1aea9aa703b735c7d1a6ea",
+      "nextAction": "T44已推送部署成功；Actions 41000300372，公开HTTP200及新展馆内容确认。活动任务仍为T38。",
       "blocker": null,
       "verification": [
         "14项相关单元、类型／160模块构建、内容与17 ES5块检查通过。",
         "桌面1440x900和模拟手机390x844共6/6浏览器检查通过，覆盖菜单状态、滚动、切页、历史、主动收起与七展签。",
         "C8同站动态正文接口及C9首页脚本文本可读，已改写两处展签并附来源；hnpsart HTTP502/HTTPS失败，不作事实依据。",
-        "未新增外部图片，许可仍未知；未提交、推送部署或执行实体设备/听感验收。"
+        "未新增外部图片，许可仍未知；未提交、推送部署或执行实体设备/听感验收。",
+        "发布首轮资源检查失败，补6字字体与来源检查规则后9b7d99c云端构建部署success；公开首页与新脚本HTTP200。"
       ],
       "phase": "G3"
     }
