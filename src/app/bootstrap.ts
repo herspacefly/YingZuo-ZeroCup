@@ -180,7 +180,9 @@ async function mount() {
       if (anchor.getAttribute('href') === `#${parsed.route.path}`) anchor.setAttribute('aria-current', 'page');
       else anchor.removeAttribute('aria-current');
     }
-    setMenu(false); document.title = `影作 · ${host.querySelector('h1')?.textContent ?? '一幕团圆'}`;
+    // Keep the user's menu choice across routes, including museum children and
+    // browser back/forward, so returning to the header exposes the same links.
+    document.title = `影作 · ${host.querySelector('h1')?.textContent ?? '一幕团圆'}`;
     notify(parsed.invalid ? '这个地址暂未开放，已回到剧场首页。' : '');
     if (changed) { const title = host.querySelector('h1'); title?.setAttribute('tabindex', '-1'); title?.focus(); window.scrollTo(0, 0); }
     const state = opened.getState();

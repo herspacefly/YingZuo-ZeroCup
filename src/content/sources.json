@@ -177,6 +177,50 @@
       "imageLicense": "unknown",
       "audioLicense": "unknown",
       "usage": "reference-only"
+    },
+    {
+      "id": "C8",
+      "title": "皮影功能 · 审美功能",
+      "publisher": "皮影数字博物馆（中国美术学院站点）",
+      "url": "https://shadow.caa.edu.cn/#/pygn/smgn",
+      "originalUrl": "https://shadow.caa.edu.cn/api/pygn.smgn.json?__language=zh",
+      "publishedAt": null,
+      "checkedAt": "2026-10-30",
+      "accessStatus": "readable",
+      "verificationMethod": "page",
+      "verificationNote": "页面由动态接口载入；沿公开前端的Pygn.js、utils/http.js及config.js定位到同站JSON，HTTP200读取审美功能正文。未使用浏览器或下载图片。",
+      "supportedFacts": [
+        "皮影结合造型、表演、剧本和音乐；造型中线条及人物服饰有识别作用，头茬和身段按人物与剧情组配。"
+      ],
+      "excludedClaims": [
+        "不将这一概述当作全国流派的统一造型标准。"
+      ],
+      "textLicense": "unknown",
+      "imageLicense": "unknown",
+      "audioLicense": "unknown",
+      "usage": "reference-only"
+    },
+    {
+      "id": "C9",
+      "title": "中国西安数字皮影博物馆 · 首页",
+      "publisher": "中国西安数字皮影博物馆有限公司",
+      "url": "http://www.leather-silhouette.com/ydy",
+      "originalUrl": "https://www.leather-silhouette.com/ydy",
+      "publishedAt": null,
+      "checkedAt": "2026-10-30",
+      "accessStatus": "readable",
+      "verificationMethod": "page",
+      "verificationNote": "HTTPS握手失败；HTTP首页200，读取该页明确引用的公开Body.js，解码document.write文本核对导航及首页简介。来源链接使用实际可读的HTTP入口，保留HTTPS地址作为访问记录；未下载图片。",
+      "supportedFacts": [
+        "首页按头插、影身、桌椅、云朵子、皮影布景分类展示，并将影人及场景放回戏中介绍。"
+      ],
+      "excludedClaims": [
+        "未逐件核验藏品断代、作者或图片许可，不据首页简介断言单件年代。"
+      ],
+      "textLicense": "unknown",
+      "imageLicense": "unknown",
+      "audioLicense": "unknown",
+      "usage": "reference-only"
     }
   ]
 }

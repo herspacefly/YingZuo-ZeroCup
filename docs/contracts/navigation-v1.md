@@ -10,6 +10,8 @@ index.html为产品外壳，八个根入口是`#/`、`#/craft`、`#/light`、`#/
 
 createHashRouter通过HashLocationPort读、push、replace与监听；接受回调返回false时恢复已挂载地址。相同地址的后续hashchange不重复挂载，dispose撤销监听。页面内skip-link由应用拦截，只聚焦main，不写导航或进度。
 
+T44（2026-10-30）：手机端菜单由用户显式展开／收起；路由切换、进入展签及浏览器前进后退保留当前选择，回到页首可直接切换入口。首次加载和刷新沿用收起状态；菜单状态仅保留于当前页面外壳，不写作品存档。桌面导航常显。
+
 ## 页面接线与清理
 
 每个PageFactory接收host与PageContext，返回`update(StoreState)`和`dispose()`。根应用只打开一个ProjectStore，持有唯一订阅；页面不能另开存储、直写IDB或自己建立全局订阅。切页先dispose再清空host，之后挂载并更新新页。页面事件通过scope登记并释放。

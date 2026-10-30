@@ -148,6 +148,39 @@ test('alias redirects once, keyboard skip does not change route and mobile menu 
   await page.goBack(); await expect(page).toHaveURL(/#\/practice$/); expect((await stored(page)).story).toBeNull();
 });
 
+test('navigation keeps the opened menu through reading, page switches and browser history', async ({ page }, info) => {
+  await page.goto('/'); await saved(page);
+  const menu = page.locator('#menu-toggle'), nav = page.locator('#primary-nav');
+  const mobile = info.project.name.startsWith('mobile');
+  if (mobile) {
+    await expect(menu).toHaveAttribute('aria-expanded', 'false');
+    await expect(nav).toBeHidden(); await menu.click();
+  }
+  await nav.getByRole('link', { name: '展馆', exact: true }).click();
+  await page.locator('[data-exhibit="E02"]').click();
+  await expect(page).toHaveURL(/#\/museum\/E02$/); await saved(page);
+  await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await expect(nav).toBeVisible();
+  if (mobile) await expect(menu).toHaveAttribute('aria-expanded', 'true');
+  await nav.getByRole('link', { name: '制偶', exact: true }).click();
+  await expect(page).toHaveURL(/#\/craft$/); await saved(page);
+  await page.goBack(); await expect(page).toHaveURL(/#\/museum\/E02$/);
+  await expect(nav).toBeVisible();
+  await page.goForward(); await expect(page).toHaveURL(/#\/craft$/);
+  await expect(nav).toBeVisible();
+  await nav.getByRole('link', { name: '节目单', exact: true }).click();
+  await expect(page).toHaveURL(/#\/result$/); await saved(page);
+  await nav.getByRole('link', { name: '剧场', exact: true }).click();
+  await expect(page).toHaveURL(/#\/$/); await saved(page);
+  if (mobile) {
+    await menu.click(); await expect(nav).toBeHidden();
+    await hash(page, '/about'); await expect(menu).toHaveAttribute('aria-expanded', 'false');
+    await expect(nav).toBeHidden(); await menu.click(); await expect(nav).toBeVisible();
+  }
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
 test('legacy product entry uses the same project and can save an editor change in Chromium', async ({ page }) => {
   const errors: string[] = []; page.on('pageerror', e => errors.push(e.message));
   await seed(page, fixture);

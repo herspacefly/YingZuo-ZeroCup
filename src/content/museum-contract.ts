@@ -29,7 +29,7 @@ export function validateMuseumContent(exhibits: unknown, facts: unknown, sources
     if (!record(source) || !string(source.id)) { check(false, 'museum source: invalid identity'); continue; }
     check(!sourceMap.has(source.id), `museum source duplicate ${source.id}`);
     sourceMap.set(source.id, source);
-    check(string(source.title) && string(source.publisher) && string(source.url) && /^https:\/\//.test(source.url), `museum source metadata ${source.id}`);
+    check(string(source.title) && string(source.publisher) && string(source.url) && /^https?:\/\//.test(source.url), `museum source metadata ${source.id}`);
   }
   const references = (value: unknown, at: string, known: Map<string, unknown>, min = 0, max = 3): string[] => {
     if (!strings(value)) { check(false, `${at}: string references required`); return []; }
