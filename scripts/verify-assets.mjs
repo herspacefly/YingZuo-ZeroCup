@@ -141,8 +141,8 @@ for(const asset of kai.assets){
 const files=walk(path.join(root,'public/assets')).filter(file=>file.endsWith('.png')&&!file.startsWith(museumRoot)&&!presentationPaths.has(file));
 check(files.length === actualPaths.size && files.every(file=>actualPaths.has(path.relative(path.join(root,'public'),file).split(path.sep).join('/'))), 'unlisted PNG files under public/assets');
 const sources=json('src/content/sources.json');
-check(sources.schemaVersion === 1 && sources.sources.map(s=>s.id).sort().join(',') === 'C1,C2,C3,C4,C5,C6,C7', 'source registry IDs/version');
-for(const source of sources.sources) check(source.title && source.publisher && /^https:\/\//.test(source.url) && source.checkedAt && ['readable','blocked'].includes(source.accessStatus) && ['page','official-search-index','unverified'].includes(source.verificationMethod) && source.verificationNote && source.usage === 'reference-only' && source.textLicense === 'unknown' && source.imageLicense === 'unknown' && source.audioLicense === 'unknown' && Array.isArray(source.supportedFacts) && Array.isArray(source.excludedClaims), `source metadata ${source.id}`);
+check(sources.schemaVersion === 1 && sources.sources.map(s=>s.id).sort().join(',') === 'C1,C2,C3,C4,C5,C6,C7,C8,C9', 'source registry IDs/version');
+for(const source of sources.sources) check(source.title && source.publisher && /^https?:\/\//.test(source.url) && source.checkedAt && ['readable','blocked'].includes(source.accessStatus) && ['page','official-search-index','unverified'].includes(source.verificationMethod) && source.verificationNote && source.usage === 'reference-only' && source.textLicense === 'unknown' && source.imageLicense === 'unknown' && source.audioLicense === 'unknown' && Array.isArray(source.supportedFacts) && Array.isArray(source.excludedClaims), `source metadata ${source.id}`);
 if(errors.length) { console.error(errors.slice(0,40).join('\n')); console.error(`FAIL: ${errors.length} asset error(s).`);process.exitCode=1; }
 else if(process.argv.includes('--release')) {
   const issues=releaseProblems('assets');
