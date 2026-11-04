@@ -1,9 +1,9 @@
 import { definitionFor } from '../../content/reunion';
 import { assetCatalog } from '../../content/catalog';
-import {choiceSummary} from '../../domain/story-choices';
 import { mountCanvasRenderer } from '../../renderers/canvas/renderer';
 import type { ReunionArtifact } from './artifact';
 import { KAI_FONT_FAMILY,loadKaiFont } from '../shared/typography';
+import { createResultPresentation, wrapProgrammeText } from './presentation';
 
 export interface ReunionExporter {
   canvas: HTMLCanvasElement;
@@ -55,6 +55,35 @@ export function mountReunionExporter(host: HTMLElement, artifact: ReunionArtifac
     const pattern = summary.definitionVersion>=4?'精细原画':assetCatalog.patterns.patterns.find(item => item.id === appearance.patternId)!.label;
     const palette = assetCatalog.palettes.palettes.find(item => item.id === appearance.paletteId)!.label;
     const route = summary.approach === 'call-first' ? '先呼唤，再开山' : '先开山，再寻光';
+    if(summary.definitionVersion===5){
+      const presentation=createResultPresentation(summary);
+      const wrapped=(text:string,x:number,y:number,maxWidth:number,size:number,lineHeight:number,maxLines:number)=>{
+        let lines:string[]=[];
+        do{ctx.font=`${size}px `+KAI_FONT_FAMILY;lines=wrapProgrammeText(text,maxWidth,value=>ctx.measureText(value).width);if(lines.length<=maxLines||size<=14)break;size--; }while(size>=14);
+        lines.forEach((line,index)=>ctx.fillText(line,x,y+index*lineHeight));
+      };
+      ctx.fillStyle='#f2e5c9';ctx.fillRect(0,0,1600,1200);
+      ctx.strokeStyle=presentation.accent;ctx.lineWidth=3;ctx.strokeRect(28,28,1544,1144);ctx.lineWidth=1;ctx.strokeRect(42,42,1516,1116);
+      ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle=presentation.accent;
+      wrapped('影作 · '+presentation.title,800,88,1120,50,54,1);
+      ctx.fillStyle='#3b281b';wrapped(presentation.summary,800,126,1120,23,27,2);
+      wrapped(`${pattern} / ${palette}　·　${summary.presetAppearanceUsed?'默认造型':'本场制偶造型'}`,800,174,1200,18,22,1);
+      // The scene stays exactly 4:3. Text has its own bands, never over the actors.
+      ctx.strokeStyle=presentation.accent;ctx.strokeRect(278,190,1044,788);ctx.drawImage(image,288,200,1024,768);
+      ctx.fillStyle='#3b281b';wrapped(presentation.explanation,800,1004,1400,21,25,2);
+      ctx.textAlign='left';
+      for(const [index,item]of presentation.decisions.entries()){
+        const x=index%2===0?90:810,y=1044+Math.floor(index/2)*58;
+        ctx.strokeStyle=item.decisive?presentation.accent:'#bba17a';ctx.strokeRect(x,y,700,50);
+        ctx.fillStyle=presentation.accent;ctx.font='16px '+KAI_FONT_FAMILY;ctx.fillText(`${index+1} · ${item.label}${item.decisive?'　· 决定因素':''}`,x+12,y+19);
+        ctx.fillStyle='#3b281b';wrapped(item.value,x+12,y+41,676,20,22,1);
+      }
+      ctx.save();ctx.translate(1430,108);ctx.rotate(-Math.PI/22);ctx.strokeStyle=presentation.accent;ctx.lineWidth=3;
+      ctx.strokeRect(-54,-54,108,108);ctx.lineWidth=1;ctx.strokeRect(-47,-47,94,94);ctx.fillStyle=presentation.accent;ctx.textAlign='center';ctx.font='39px '+KAI_FONT_FAMILY;ctx.fillText(presentation.stamp,0,14);ctx.restore();
+      const marker=summary.runId.length>20?`…${summary.runId.slice(-20)}`:summary.runId;
+      ctx.fillStyle='#5f4934';ctx.textAlign='center';wrapped(`影作 · 成果 ${marker}:${summary.ending}　·　完成（UTC）${summary.completedAt}`,800,1164,1460,16,20,1);
+      return;
+    }
     ctx.fillStyle = '#f2e5c9'; ctx.fillRect(0, 0, 1600, 1200);
     ctx.strokeStyle = '#a26a42'; ctx.lineWidth = 2; ctx.strokeRect(28, 28, 1544, 1144);
     ctx.fillStyle = '#3b281b'; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
@@ -64,18 +93,9 @@ export function mountReunionExporter(host: HTMLElement, artifact: ReunionArtifac
     ctx.drawImage(image, 200, 180, 1200, 900);
     ctx.font = '22px '+KAI_FONT_FAMILY;
     const marker = summary.runId.length > 20 ? `…${summary.runId.slice(-20)}` : summary.runId;
-    if(summary.definitionVersion===5){
-      const decisions=choiceSummary(summary);
-      ctx.font='20px '+KAI_FONT_FAMILY;
-      ctx.fillText(decisions.slice(0,2).map(item=>item.label+'：'+item.value).join('　·　'),800,1108);
-      ctx.fillText(decisions.slice(2).map(item=>item.label+'：'+item.value).join('　·　'),800,1136);
-      ctx.font='18px '+KAI_FONT_FAMILY;
-      ctx.fillText(`影作 · 成果 ${marker}:${summary.ending}　·　完成（UTC）${summary.completedAt}`,800,1164);
-    }else{
-      ctx.fillText(`成果 ${marker}:${summary.ending??'reunion'}　·　完成（UTC）${summary.completedAt}`, 800, 1120);
-      ctx.font = '21px '+KAI_FONT_FAMILY;
-      ctx.fillText('影作 · 一幕团圆', 800, 1158);
-    }
+    ctx.fillText(`成果 ${marker}:${summary.ending??'reunion'}　·　完成（UTC）${summary.completedAt}`, 800, 1120);
+    ctx.font = '21px '+KAI_FONT_FAMILY;
+    ctx.fillText('影作 · 一幕团圆', 800, 1158);
   }
 
   try {

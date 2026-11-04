@@ -1,7 +1,6 @@
 import { append,clear,element,link,scope } from '../shared/dom';
 import { continueHash,heading,paletteLabel,patternLabel } from '../shared/pieces';
 import { reunionSummary } from '../../domain/story';
-import {choiceSummary} from '../../domain/story-choices';
 import { definitionFor, endingFor } from '../../content/reunion';
 import type { PageFactory } from '../../app/view';
 import type { ProjectV1 } from '../../domain/types';
@@ -10,30 +9,34 @@ import { createReunionArtifact } from './artifact';
 import { mountReunionExporter } from './exporter';
 import { downloadResultBlob } from './download';
 import { mountReunionReplay } from './replay-view';
+import { createResultPresentation } from './presentation';
 
 export const mountResult:PageFactory=(host,ctx)=>{
   const life=scope(),head=heading('一幕团圆 / 本场节目单','这一场，还在路上。','终章之后，属于这一场的造型、选择与协作会在这里留下。');host.appendChild(head);
   const layout=element('section','result-layout'),figure=element('figure','result-portrait'),capture=element('div','result-capture'),caption=element('figcaption','stage-caption','留下这一场的终章画面。');
   capture.id='result-capture';append(figure,capture,caption);
   const programme=element('section','programme result-programme'),title=element('h2'),details=element('section','programme-list result-records'),resume=link('回到这一场 →','#/story','button secondary');
+  const programmeHeading=element('div','result-programme-heading'),stamp=element('span','result-stamp'),causal=element('section','result-causal'),explanation=element('p'),decisions=element('ol','result-decisions');
+  stamp.id='result-stamp';causal.id='result-causal';causal.setAttribute('aria-label','本场四次选择与终章');
+  append(programmeHeading,title,stamp);append(causal,element('h3','','这一场，为何走到这里'),explanation,decisions);
   details.setAttribute('aria-label','本场节目单');const detailGroups=['本场行装','操演记录','终章信息'].map(label=>{const card=element('article','surface-card'),head=element('h2','',label),list=element('dl');append(card,head,list);details.appendChild(card);return{card,head,list};});
   const id=element('p','result-identity'),saveState=element('p','quiet-note'),operation=element('p','selection-summary');id.id='result-id';saveState.id='result-save-note';operation.id='result-operation';operation.setAttribute('role','status');
   const actions=element('div','result-actions'),png=element('button','button primary','下载团圆留影 PNG'),json=element('button','button secondary','导出本场 JSON'),retry=element('button','button secondary','重新准备留影'),replayButton=element('button','button secondary','按本场编排再演');
   for(const [button,name]of [[png,'png'],[json,'json'],[retry,'retry'],[replayButton,'replay']] as const){button.type='button';button.id='result-'+name;actions.appendChild(button);}
   replayButton.setAttribute('aria-expanded','false');replayButton.setAttribute('aria-controls','result-replay-slot');
-  append(programme,title,id,saveState,actions,operation,resume,link('下一步，去展馆看这场戏的幕后 →','#/museum','button secondary journey-recommended'));append(layout,figure,programme);host.appendChild(layout);
+  append(programme,programmeHeading,causal,id,saveState,actions,operation,resume,link('下一步，去展馆看这场戏的幕后 →','#/museum','button secondary journey-recommended'));append(layout,figure,programme);host.appendChild(layout);
   const replaySlot=element('div');replaySlot.id='result-replay-slot';host.appendChild(replaySlot);host.appendChild(details);
   let disposed=false,identity='',project:ProjectV1|null=null,exporter:ReturnType<typeof mountReunionExporter>|null=null,replay:ReturnType<typeof mountReunionReplay>|null=null;
   let generation=0,ready=false,encoding=false,blocked=true,failed=false;const downloads=new Set<()=>void>();
   const message=(error:unknown)=>error instanceof Error?error.message:String(error);
   function controls(){png.disabled=blocked||!ready||encoding;json.disabled=blocked||!project;retry.hidden=!failed;retry.disabled=blocked;replayButton.disabled=blocked||!project;}
   function closeReplay(){replay?.dispose();replay=null;clear(replaySlot);replayButton.textContent='按本场编排再演';replayButton.setAttribute('aria-expanded','false');}
-  function disposeArtifact(){generation++;ready=false;encoding=false;failed=false;exporter?.dispose();exporter=null;clear(capture);closeReplay();for(const cleanup of downloads)cleanup();downloads.clear();}
+  function disposeArtifact(){generation++;ready=false;encoding=false;failed=false;stamp.removeAttribute('data-ready');exporter?.dispose();exporter=null;clear(capture);closeReplay();for(const cleanup of downloads)cleanup();downloads.clear();}
   function prepare(){
-    if(!project||disposed)return;generation++;const token=generation;ready=false;encoding=false;failed=false;exporter?.dispose();exporter=null;clear(capture);operation.textContent='正在准备这场团圆留影…';controls();
+    if(!project||disposed)return;generation++;const token=generation;ready=false;encoding=false;failed=false;stamp.removeAttribute('data-ready');exporter?.dispose();exporter=null;clear(capture);operation.textContent='正在准备这场团圆留影…';controls();
     try{
       const next=mountReunionExporter(capture,createReunionArtifact(project));exporter=next;
-      void next.ready.then(()=>{if(disposed||token!==generation)return;ready=true;operation.textContent='留影已就绪，可以带走这一场。';controls();},error=>{if(disposed||token!==generation)return;failed=true;ready=false;operation.textContent='留影暂未就绪：'+message(error);controls();});
+      void next.ready.then(()=>{if(disposed||token!==generation)return;ready=true;stamp.setAttribute('data-ready','true');operation.textContent='留影已就绪，可以带走这一场。';controls();},error=>{if(disposed||token!==generation)return;failed=true;ready=false;operation.textContent='留影暂未就绪：'+message(error);controls();});
     }catch(error){failed=true;operation.textContent='留影准备失败：'+message(error);controls();}
   }
   life.on(retry,'click',()=>{if(!blocked)prepare();});
@@ -63,6 +66,17 @@ export const mountResult:PageFactory=(host,ctx)=>{
       const key=result?JSON.stringify([state.project!.projectId,state.project!.title,state.project!.story!.mode,result]):'';
       if(identity!==key){disposeArtifact();identity=key;project=result?state.project:null;if(project)prepare();else operation.textContent='';}
       project=result?state.project:null;figure.hidden=!result;actions.hidden=!result;id.hidden=!result;saveState.hidden=!result;
+      const presentation=result?createResultPresentation(result):null;stamp.hidden=!result;causal.hidden=!presentation?.decisions.length;
+      clear(decisions);
+      if(presentation){
+        programme.style.setProperty('--ending-accent',presentation.accent);figure.style.setProperty('--ending-accent',presentation.accent);
+        stamp.textContent=presentation.stamp;stamp.setAttribute('aria-label','本场终章印章：'+presentation.stamp);explanation.textContent=presentation.explanation;
+        for(const [index,item]of presentation.decisions.entries()){
+          const choice=element('li',item.decisive?'is-decisive':''),label=element('span','result-decision-label',item.label),value=element('span','result-decision-value',item.value);label.setAttribute('data-index',String(index+1));
+          choice.setAttribute('data-decisive',String(item.decisive));append(choice,label,value);
+          if(item.decisive)choice.appendChild(element('span','result-decision-factor','决定因素'));decisions.appendChild(choice);
+        }
+      }
       head.querySelector('h1')!.textContent=result?'这一回，终于相见。':'这一场，还在路上。';title.textContent=result?'一幕团圆 · 本场已团圆':'先把这一场，慢慢演完。';
       head.querySelector('.page-lead')!.textContent=result?'把母子相见的这一刻，留在同一张幕上。':'团圆之后，属于这一场的造型、选择与协作会在这里留下。';
       resume.href=continueHash(state.project);for(const [index,group] of detailGroups.entries()){clear(group.list);group.card.hidden=!result&&index>0;}detailGroups[0]!.head.textContent=result?'本场行装':'当前进度';
@@ -73,7 +87,6 @@ export const mountResult:PageFactory=(host,ctx)=>{
         ['角色','沉香、母亲（三圣母）；沉香由你操演，母亲与你同台'],
         ['衣饰',result.definitionVersion>=4?'精细原画':patternLabel(result.castSnapshot.appearance.patternId)],['配色',paletteLabel(result.castSnapshot.appearance.paletteId)],
         ['本场终章',ending?.title??'一幕团圆'],['这一次的选择',result.approach==='call-first'?'先举灯呼唤':'先挥斧开山'],['造型来源',result.presetAppearanceUsed?'采用默认影偶':'使用已编辑的造型'],
-        ...(state.project?.story?.definitionVersion===5?choiceSummary(state.project.story).map(item=>[item.label,item.value] as [string,string]):[]),
         ['亲手完成的片段',path.filter(node=>!result.assistedNodeIds.includes(node.id)&&!result.skippedNodeIds.includes(node.id)).map(node=>node.title).join('、')||'本场操作片段均采用明确协助'],
         ['主动跳过的片段',result.skippedNodeIds.length?result.skippedNodeIds.map(nodeId=>definitionFor(state.project?.story).nodes.find(node=>node.id===nodeId)!.title).join('、'):'未主动跳过'],
         ['使用协助的片段',result.assistedNodeIds.length?result.assistedNodeIds.map(nodeId=>definitionFor(state.project?.story).nodes.find(node=>node.id===nodeId)!.title).join('、'):'未记录协助'],

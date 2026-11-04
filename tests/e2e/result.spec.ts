@@ -5,6 +5,8 @@ import type { ProjectV1 } from '../../src/domain/types';
 import fixtureJSON from '../fixtures/project-v1.json' with {type:'json'};
 import future from '../fixtures/unknown-version.json' with {type:'json'};
 import corrupt from '../fixtures/corrupt-project.json' with {type:'json'};
+import {CHOICE_RUNS} from '../helpers/choice-cases';
+import choiceDefinition from '../../src/content/stories/reunion-v5.json' with {type:'json'};
 const fixture=fixtureJSON as ProjectV1;
 const copy=<T>(value:T):T=>JSON.parse(JSON.stringify(value)) as T;
 function completed(approach:'call-first'|'split-first'='call-first',nodeId:'curtain'|'completed'='completed'){
@@ -38,6 +40,44 @@ test('unfinished and protected records never manufacture a reunion or offer resu
     await expect(page.locator('#result-png')).toBeHidden();await expect(page.locator('#result-json')).toBeHidden();await expect(page.locator('#result-replay')).toBeHidden();await expect(page.locator('#result-capture canvas')).toHaveCount(0);
     if(p===future||p===corrupt)expect(JSON.parse(await raw(page))).toEqual(p);else{await saved(page);expect((await stored(page)).story).toEqual((p as ProjectV1).story);}
   }
+});
+
+for(const ending of ['home','light','road','waiting','sacrifice'] as const)test(`v5 ${ending} programme shares causal choices with a static PNG and never waits for its stamp`,async({page},info)=>{
+  const run=CHOICE_RUNS.find(item=>item.ending===ending)!,project=completed();
+  Object.assign(project.story!,{definitionVersion:5,mode:'guided',approach:run.approach,ending,endingSource:'choices',choices:{journeyIntent:run.journeyIntent,mountainPact:run.mountainPact,finalAction:run.finalAction}});
+  const stamp={home:'归家',light:'守灯',road:'同行',waiting:'相守',sacrifice:'化山'}[ending],decisiveCount={home:4,light:4,road:3,waiting:1,sacrifice:2}[ending];
+  const explanation={home:'母子自由地牵手回家',light:'母亲恢复自由后自愿守灯',road:'母亲恢复自由，与你同行认路',waiting:'封印仍未解开',sacrifice:'永久化为山影'}[ending];
+  const values=[run.journeyIntent==='home'?'接母亲回家':'为后来人留路',run.mountainPact==='shared'?'与二郎神共同承山':'独自承山，承担永久化山的代价',run.approach==='call-first'?'先举灯呼唤':'先挥斧开山',run.finalAction==='wait'?'暂缓最后一斧，留灯相守':'兑现此前约定，继续解印'];
+  await page.addInitScript(()=>{
+    Reflect.set(window,'__programmeText',[]);Reflect.set(window,'__programmeScene',[]);
+    const fill=CanvasRenderingContext2D.prototype.fillText,draw=CanvasRenderingContext2D.prototype.drawImage;
+    CanvasRenderingContext2D.prototype.fillText=function(text,x,y,maxWidth){
+      if(this.canvas.classList.contains('reunion-artifact'))Reflect.get(window,'__programmeText').push(text);
+      if(maxWidth===undefined)return fill.call(this,text,x,y);return fill.call(this,text,x,y,maxWidth);
+    };
+    CanvasRenderingContext2D.prototype.drawImage=function(this:CanvasRenderingContext2D,...args:unknown[]){
+      if(this.canvas.classList.contains('reunion-artifact'))Reflect.get(window,'__programmeScene').push(args.slice(1));
+      return Reflect.apply(draw,this,args);
+    } as typeof draw;
+    new MutationObserver(()=>{if(document.head&&!document.getElementById('hold-stamp')){const style=document.createElement('style');style.id='hold-stamp';style.textContent='.result-stamp{animation-play-state:paused!important;animation-delay:-.36s!important}';document.head.appendChild(style);}}).observe(document,{childList:true,subtree:true});
+  });
+  if(ending==='waiting')await page.emulateMedia({reducedMotion:'reduce'});
+  if(ending==='sacrifice'&&info.project.name==='mobile-chromium')await page.setViewportSize({width:320,height:844});
+  await seed(page,project);await page.goto('/#/result');await ready(page);
+  await expect(page.locator('#result-stamp')).toHaveText(stamp);await expect(page.locator('#result-stamp')).toHaveAttribute('data-ready','true');
+  await expect(page.locator('.result-causal>p')).toContainText(explanation);
+  await expect(page.locator('.result-decisions li')).toHaveCount(4);
+  await expect(page.getByText('行路愿望',{exact:true})).toBeVisible();
+  await expect(page.locator('.result-decisions .is-decisive')).toHaveCount(decisiveCount);
+  for(const value of values)await expect(page.locator('.result-decisions')).toContainText(value);
+  const first=await png(page),second=await png(page);expect(first.readUInt32BE(16)).toBe(1600);expect(first.readUInt32BE(20)).toBe(1200);expect(first.equals(second)).toBe(true);
+  const drawing=await page.evaluate(()=>({text:Reflect.get(window,'__programmeText') as string[],scene:Reflect.get(window,'__programmeScene') as number[][]}));
+  expect(drawing.text).toContain(stamp);expect(drawing.text.join('')).toContain(choiceDefinition.endings.find(item=>item.id===ending)!.summary);
+  for(const value of values)expect(drawing.text.join('')).toContain(value);
+  expect(drawing.scene).toContainEqual([288,200,1024,768]);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);invariant(await stored(page),project);
+  await page.screenshot({path:info.outputPath('programme-'+ending+'.png'),fullPage:true});
+  if(ending==='waiting')expect(await page.locator('#result-stamp').evaluate(node=>getComputedStyle(node).animationName)).toBe('none');
 });
 
 for(const approach of ['call-first','split-first'] as const)test(`${approach} exports a real frozen 1600x1200 PNG twice and an unchanged programme`,async({page},info)=>{
