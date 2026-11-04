@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "recordedDate": "2026-11-04",
+  "sourceCommit": "ca4ef8565bbfabc3406ed0b7287666e23831fc9c",
+  "buildSourceCommit": "0a1c5dfcca5f12f75d552d95cea14c31cfe86d91",
+  "applicationTreeUnchangedAfterBuild": true,
+  "environment": {
+    "node": "24.18.1",
+    "npm": "12.0.2"
+  },
+  "unitFiles": 55,
+  "unitPassed": 606,
+  "buildModules": 161,
+  "legacyChunks": 18,
+  "fontGlyphs": 1411,
+  "browserUnique": 110,
+  "browserLatest": {
+    "passed": 110,
+    "failed": 0,
+    "skipped": 0
+  },
+  "runs": [
+    {
+      "report": "voice-browser.json",
+      "stats": {
+        "startTime": "2026-11-04T11:29:57.666Z",
+        "duration": 298467.554,
+        "expected": 36,
+        "skipped": 0,
+        "unexpected": 6,
+        "flaky": 0
+      }
+    },
+    {
+      "report": "voice-recheck.json",
+      "stats": {
+        "startTime": "2026-11-04T11:35:35.946Z",
+        "duration": 33470.952000000005,
+        "expected": 6,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "report": "pages-browser.json",
+      "stats": {
+        "startTime": "2026-11-04T11:36:32.916Z",
+        "duration": 106452.64,
+        "expected": 32,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "report": "core-browser.json",
+      "stats": {
+        "startTime": "2026-11-04T11:39:30.277Z",
+        "duration": 344982.501,
+        "expected": 34,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "report": "core-recheck.json",
+      "stats": {
+        "startTime": "2026-11-04T11:47:09.955Z",
+        "duration": 11419.912999999999,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    }
+  ],
+  "headerWidths": [
+    320,
+    360,
+    390,
+    600,
+    760,
+    1440
+  ],
+  "voice": {
+    "schemaVersion": 1,
+    "clips": 354,
+    "bytes": 18304560,
+    "audioDurationMs": 3050760,
+    "scheduleChecks": 1216,
+    "choiceCombinations": 16,
+    "modes": 2,
+    "checkedTrees": [
+      "public",
+      "dist"
+    ],
+    "decodedThisRun": false,
+    "catalogSha256": "0fd9b87648ac2576806cf5ac9cfed7212de89a5efa9d7e90db2c4c1f843e987f",
+    "errors": []
+  },
+  "assets": {
+    "storyFiles": [
+      "reunion.json"
+    ],
+    "unchangedOriginalVoiceFiles": 354,
+    "publicVoiceFiles": 354,
+    "removedPublicDirectory": true,
+    "removedDistDirectory": true
+  },
+  "firstRunNotes": [
+    "Native voice first run 36/42: two existing long-gap pauses, two same-document navigation expectation errors and two reduced-motion replay setup errors. Exact six rechecks passed; no timing threshold changed.",
+    "Core first run 34/36: tests closed automatically opened save-error tools; conditional-open test fix retained real pending export/retry assertions. Two rechecks passed.",
+    "A dist voice check ran during Vite directory replacement and saw intermediate missing files; serialized verification after build passed all 354 files.",
+    "Pre-integration type/asset checks saw retiring references; final current content, assets, type and ES5 checks passed."
+  ],
+  "notRun": [
+    "human listening acceptance",
+    "physical mobile/Safari/IE runtime",
+    "full natural complete performance",
+    "full unfiltered e2e suite",
+    "public deployment"
+  ],
+  "pushed": false,
+  "cleanup": {
+    "worktrees": "all three archived",
+    "dependencyJunctions": false,
+    "temporaryDiagnosticDeletion": "automatic approval rejected: blocked by policy",
+    "retainedIgnoredPaths": [
+      ".preflight/t46-initial-browser",
+      ".preflight/t46-unit.log",
+      ".preflight/t46-unit-final.log"
+    ],
+    "preview": "running on 127.0.0.1:5173"
+  }
+}

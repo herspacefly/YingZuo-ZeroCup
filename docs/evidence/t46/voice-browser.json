@@ -1,0 +1,1824 @@
+{
+  "config": {
+    "argv": [
+      "E:\\Software_after2026\\nodejs\\node.exe",
+      "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/story-voice.spec.ts",
+      "tests/e2e/story-voice-isolation.spec.ts",
+      "--workers=1"
+    ],
+    "configFile": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\playwright.config.ts",
+    "rootDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop-chromium",
+        "name": "desktop-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop-chromium"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile-chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/t46/voice-browser.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview -- --port 4173 --strictPort",
+      "url": "http://127.0.0.1:4173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "story-voice-isolation.spec.ts",
+      "file": "story-voice-isolation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "v5 rehearsal is silent and storage failure cancels the formal voice channel",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2111,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:29:59.265Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "60f06d77b7363249cf1a-4f345794f2eee483e497",
+          "file": "story-voice-isolation.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "v5 rehearsal is silent and storage failure cancels the formal voice channel",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1978,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:32:31.218Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "60f06d77b7363249cf1a-3322630f80f82d169984",
+          "file": "story-voice-isolation.spec.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "story-voice.spec.ts",
+      "file": "story-voice.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "four cast voices load and play real MP3s with native media events",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 7842,
+                  "error": {
+                    "message": "Error: {\"expectedSrc\":\"/audio/voice/2f18b64937fe280a04926df3.mp3\",\"media\":[{\"src\":null,\"lastSrc\":\"./audio/voice/fb9f5ee789b740d373ee9911.mp3\",\"paused\":true,\"time\":0,\"ready\":0,\"volume\":1,\"playingEvents\":1,\"endedEvents\":0},{\"src\":\"./audio/jinghu-instrumental.mp3\",\"lastSrc\":\"./audio/jinghu-instrumental.mp3\",\"paused\":true,\"time\":0.975238,\"ready\":4,\"volume\":0.22,\"playingEvents\":4,\"endedEvents\":0},{\"src\":null,\"lastSrc\":\"./audio/voice/fb9f5ee789b740d373ee9911.mp3\",\"paused\":true,\"time\":0,\"ready\":0,\"volume\":1,\"playingEvents\":1,\"endedEvents\":0},{\"src\":null,\"lastSrc\":\"./audio/voice/bfca50bf4a8371a165fb0e2e.mp3\",\"paused\":true,\"time\":0,\"ready\":0,\"volume\":1,\"playingEvents\":1,\"endedEvents\":0},{\"src\":\"./audio/voice/2f18b64937fe280a04926df3.mp3\",\"lastSrc\":\"\",\"paused\":true,\"time\":0,\"ready\":4,\"volume\":1,\"playingEvents\":0,\"endedEvents\":0}],\"runtime\":\"paused\",\"message\":\"页面停顿较久，已暂停；继续时不补算这段时间。\"}",
+                    "stack": "Error: {\"expectedSrc\":\"/audio/voice/2f18b64937fe280a04926df3.mp3\",\"media\":[{\"src\":null,\"lastSrc\":\"./audio/voice/fb9f5ee789b740d373ee9911.mp3\",\"paused\":true,\"time\":0,\"ready\":0,\"volume\":1,\"playingEvents\":1,\"endedEvents\":0},{\"src\":\"./audio/jinghu-instrumental.mp3\",\"lastSrc\":\"./audio/jinghu-instrumental.mp3\",\"paused\":true,\"time\":0.975238,\"ready\":4,\"volume\":0.22,\"playingEvents\":4,\"endedEvents\":0},{\"src\":null,\"lastSrc\":\"./audio/voice/fb9f5ee789b740d373ee9911.mp3\",\"paused\":true,\"time\":0,\"ready\":0,\"volume\":1,\"playingEvents\":1,\"endedEvents\":0},{\"src\":null,\"lastSrc\":\"./audio/voice/bfca50bf4a8371a165fb0e2e.mp3\",\"paused\":true,\"time\":0,\"ready\":0,\"volume\":1,\"playingEvents\":1,\"endedEvents\":0},{\"src\":\"./audio/voice/2f18b64937fe280a04926df3.mp3\",\"lastSrc\":\"\",\"paused\":true,\"time\":0,\"ready\":4,\"volume\":1,\"playingEvents\":0,\"endedEvents\":0}],\"runtime\":\"paused\",\"message\":\"页面停顿较久，已暂停；继续时不补算这段时间。\"}\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:62:21)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:90:43",
+                    "cause": {
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                      "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:61:172)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:90:49"
+                    },
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                      "column": 21,
+                      "line": 62
+                    },
+                    "snippet": "  60 |  const matches=(actual:string|null)=>!src||actual?.replace(/^\\.\\//,'/')===src.replace(/^\\.\\//,'/');\n  61 |  try{await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>matches(item.src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);}\n> 62 |  catch(error){throw new Error(JSON.stringify({expectedSrc:src,media:await media(p),runtime:await runtime(p).getAttribute('data-state'),message:await runtime(p).textContent()}),{cause:error});}\n     |                     ^\n  63 |  return (await voices(p)).find(item=>matches(item.src)&&!item.paused)!;\n  64 | }\n  65 | async function start(p:Page,id:StoryNodeId='intro'){"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                        "column": 21,
+                        "line": 62
+                      },
+                      "message": "Error: {\"expectedSrc\":\"/audio/voice/2f18b64937fe280a04926df3.mp3\",\"media\":[{\"src\":null,\"lastSrc\":\"./audio/voice/fb9f5ee789b740d373ee9911.mp3\",\"paused\":true,\"time\":0,\"ready\":0,\"volume\":1,\"playingEvents\":1,\"endedEvents\":0},{\"src\":\"./audio/jinghu-instrumental.mp3\",\"lastSrc\":\"./audio/jinghu-instrumental.mp3\",\"paused\":true,\"time\":0.975238,\"ready\":4,\"volume\":0.22,\"playingEvents\":4,\"endedEvents\":0},{\"src\":null,\"lastSrc\":\"./audio/voice/fb9f5ee789b740d373ee9911.mp3\",\"paused\":true,\"time\":0,\"ready\":0,\"volume\":1,\"playingEvents\":1,\"endedEvents\":0},{\"src\":null,\"lastSrc\":\"./audio/voice/bfca50bf4a8371a165fb0e2e.mp3\",\"paused\":true,\"time\":0,\"ready\":0,\"volume\":1,\"playingEvents\":1,\"endedEvents\":0},{\"src\":\"./audio/voice/2f18b64937fe280a04926df3.mp3\",\"lastSrc\":\"\",\"paused\":true,\"time\":0,\"ready\":4,\"volume\":1,\"playingEvents\":0,\"endedEvents\":0}],\"runtime\":\"paused\",\"message\":\"页面停顿较久，已暂停；继续时不补算这段时间。\"}\n\n  60 |  const matches=(actual:string|null)=>!src||actual?.replace(/^\\.\\//,'/')===src.replace(/^\\.\\//,'/');\n  61 |  try{await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>matches(item.src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);}\n> 62 |  catch(error){throw new Error(JSON.stringify({expectedSrc:src,media:await media(p),runtime:await runtime(p).getAttribute('data-state'),message:await runtime(p).textContent()}),{cause:error});}\n     |                     ^\n  63 |  return (await voices(p)).find(item=>matches(item.src)&&!item.paused)!;\n  64 | }\n  65 | async function start(p:Page,id:StoryNodeId='intro'){\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:62:21)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:90:43\n[cause]: Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:61:172)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:90:49"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:30:01.581Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-four-cast-voic-83576-3s-with-native-media-events-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-four-cast-voic-83576-3s-with-native-media-events-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                    "column": 21,
+                    "line": 62
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-57dedef7d6d81cf21301",
+          "file": "story-voice.spec.ts",
+          "line": 77,
+          "column": 1
+        },
+        {
+          "title": "pause, resume and subtitle seek follow the director without overlapping speech",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1735,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:30:10.330Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-104ef64356da202dccd0",
+          "file": "story-voice.spec.ts",
+          "line": 96,
+          "column": 1
+        },
+        {
+          "title": "a naturally played sentence reaches native ended before its reserved pause expires",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9553,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:30:12.189Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-cb94b3bddd0ffe4d6dff",
+          "file": "story-voice.spec.ts",
+          "line": 111,
+          "column": 1
+        },
+        {
+          "title": "formal re-entry enables voice while music mute stays independent",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4380,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:30:21.762Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-a7322b3e3dd1364321b9",
+          "file": "story-voice.spec.ts",
+          "line": 118,
+          "column": 1
+        },
+        {
+          "title": "blocked speech reports its state without frame retries and the retry button unlocks it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2257,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:30:26.194Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-ec5738e5db94f1652ab3",
+          "file": "story-voice.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "a failed speech resource reports failure and succeeds after explicit retry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1836,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:30:28.495Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-42cd6e860ff8fb3f91b4",
+          "file": "story-voice.spec.ts",
+          "line": 136,
+          "column": 1
+        },
+        {
+          "title": "blur, hidden documents and route exits stop speech and focus cannot revive it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2083,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:30:30.386Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-f7ee69c96ca2e4c7b429",
+          "file": "story-voice.spec.ts",
+          "line": 142,
+          "column": 1
+        },
+        {
+          "title": "curtain reserves the original vocal recording until all spoken cues finish",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1863,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:30:32.511Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-8ef048c7975142c5836f",
+          "file": "story-voice.spec.ts",
+          "line": 152,
+          "column": 1
+        },
+        {
+          "title": "result replay speaks the selected variant, seeks and closes without writing the completed run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4755,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:30:34.430Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-4d798a794e57b86c0211",
+          "file": "story-voice.spec.ts",
+          "line": 167,
+          "column": 1
+        },
+        {
+          "title": "speech follows the document base when deployed under a subdirectory",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3917,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:30:39.231Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-df60d4b1890d22294d89",
+          "file": "story-voice.spec.ts",
+          "line": 181,
+          "column": 1
+        },
+        {
+          "title": "full: all five ending epilogues play their matching local speech",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8178,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:30:43.195Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-16c25be5098287c714e8",
+          "file": "story-voice.spec.ts",
+          "line": 194,
+          "column": 46
+        },
+        {
+          "title": "guided: all five ending epilogues play their matching local speech",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9140,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:30:51.413Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-82b6d0b3878466ec49b9",
+          "file": "story-voice.spec.ts",
+          "line": 194,
+          "column": 46
+        },
+        {
+          "title": "formal voice is enabled on header-tab entry after the previous scene was muted",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2823,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:31:00.591Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-5afd7ae8ec84c66b56a4",
+          "file": "story-voice.spec.ts",
+          "line": 209,
+          "column": 86
+        },
+        {
+          "title": "formal voice is enabled on direct-url entry after the previous scene was muted",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 8927,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#site-music-toggle')\nExpected: \u001b[32m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#site-music-toggle') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#site-music-toggle')\u001b[22m\n\u001b[2m    14 × locator resolved to <button type=\"button\" class=\"music-toggle\" aria-pressed=\"false\" id=\"site-music-toggle\" aria-describedby=\"site-music-status\">开启戏曲音乐</button>\u001b[22m\n\u001b[2m       - unexpected value \"false\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#site-music-toggle')\nExpected: \u001b[32m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#site-music-toggle') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#site-music-toggle')\u001b[22m\n\u001b[2m    14 × locator resolved to <button type=\"button\" class=\"music-toggle\" aria-pressed=\"false\" id=\"site-music-toggle\" aria-describedby=\"site-music-status\">开启戏曲音乐</button>\u001b[22m\n\u001b[2m       - unexpected value \"false\"\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:219:51",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                      "column": 51,
+                      "line": 219
+                    },
+                    "snippet": "  217 |  else {await go(page,'/craft');await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready');await page.locator('#craft-return').click();}\n  218 |  await ready(page,'intro');await expect(page.locator('#story-voice-toggle')).toHaveAttribute('aria-pressed','true');\n> 219 |  await expect(page.locator('#site-music-toggle')).toHaveAttribute('aria-pressed',entry==='refresh'||entry==='direct-url'?'true':'false');\n      |                                                   ^\n  220 |  await start(page);\n  221 | });\n  222 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                        "column": 51,
+                        "line": 219
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#site-music-toggle')\nExpected: \u001b[32m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#site-music-toggle') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#site-music-toggle')\u001b[22m\n\u001b[2m    14 × locator resolved to <button type=\"button\" class=\"music-toggle\" aria-pressed=\"false\" id=\"site-music-toggle\" aria-describedby=\"site-music-status\">开启戏曲音乐</button>\u001b[22m\n\u001b[2m       - unexpected value \"false\"\u001b[22m\n\n\n  217 |  else {await go(page,'/craft');await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready');await page.locator('#craft-return').click();}\n  218 |  await ready(page,'intro');await expect(page.locator('#story-voice-toggle')).toHaveAttribute('aria-pressed','true');\n> 219 |  await expect(page.locator('#site-music-toggle')).toHaveAttribute('aria-pressed',entry==='refresh'||entry==='direct-url'?'true':'false');\n      |                                                   ^\n  220 |  await start(page);\n  221 | });\n  222 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:219:51"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:31:03.457Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-formal-voice-i-f1138-he-previous-scene-was-muted-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-formal-voice-i-f1138-he-previous-scene-was-muted-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                    "column": 51,
+                    "line": 219
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-9ee18c1a235a5d719668",
+          "file": "story-voice.spec.ts",
+          "line": 209,
+          "column": 86
+        },
+        {
+          "title": "formal voice is enabled on refresh entry after the previous scene was muted",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2694,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:31:13.939Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-a34e3ec47a46eb22b7ef",
+          "file": "story-voice.spec.ts",
+          "line": 209,
+          "column": 86
+        },
+        {
+          "title": "formal voice is enabled on practice entry after the previous scene was muted",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3664,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:31:16.818Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-1611c75c6861aafc29fc",
+          "file": "story-voice.spec.ts",
+          "line": 209,
+          "column": 86
+        },
+        {
+          "title": "formal voice is enabled on craft entry after the previous scene was muted",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3878,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:31:20.553Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-124dd1484873ff8741ae",
+          "file": "story-voice.spec.ts",
+          "line": 209,
+          "column": 86
+        },
+        {
+          "title": "quick trial voice mute is released by entering the existing formal performance",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2880,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:31:24.494Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-f45ed8ce25295da2039f",
+          "file": "story-voice.spec.ts",
+          "line": 223,
+          "column": 1
+        },
+        {
+          "title": "result replay mute is released on entering the still-narrated curtain",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 60302,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                        "column": 148,
+                        "line": 235
+                      },
+                      "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nBrowser logs:\n\n[pid=35628][err] [1104/193117.962:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193117.963:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193117.963:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193117.963:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193117.963:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193117.970:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193117.974:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193117.977:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193118.971:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193118.972:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193118.973:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193118.973:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193118.974:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193118.976:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193118.978:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193118.988:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193118.992:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193118.992:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193119.534:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193119.535:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193119.538:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193119.540:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193119.541:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193119.545:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193119.547:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193119.559:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193119.562:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193119.563:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193119.566:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193119.568:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193119.572:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193119.584:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193119.586:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193119.590:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193121.270:INFO:CONSOLE:2] \"The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193121.839:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193121.841:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193121.841:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193121.841:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193121.841:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193121.841:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193121.841:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193121.841:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193121.841:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193121.841:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193121.842:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193121.846:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193121.856:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193121.866:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193121.870:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193121.873:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.219:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.220:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.221:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.222:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.224:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.227:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.228:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.237:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.239:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.240:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.243:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.243:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.246:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.256:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.258:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.260:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.805:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.810:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.812:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.817:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.819:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.827:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.833:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.851:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.857:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.861:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.868:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.869:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.877:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.897:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.911:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193123.915:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193125.254:INFO:CONSOLE:2] \"The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.158:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.159:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.159:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.159:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.159:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.159:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.160:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.160:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.160:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.160:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.163:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.168:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.179:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.191:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.195:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.200:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.942:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.944:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.945:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.946:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.947:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.949:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.951:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.960:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.963:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.965:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.967:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.968:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.973:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.983:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.985:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193126.987:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193128.032:INFO:CONSOLE:2] \"The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193128.532:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193128.532:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193128.532:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193128.534:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193128.534:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193128.534:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193128.534:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193128.534:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193128.534:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193128.534:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193128.534:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193128.534:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193128.537:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193128.550:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193128.554:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193128.557:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193129.208:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193129.209:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193129.210:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193129.210:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193129.212:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193129.214:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193129.216:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193129.223:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193129.225:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193129.226:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193129.228:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193129.229:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193129.232:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193129.243:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193129.245:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628][err] [1104/193129.247:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=35628] <gracefully close start>\nCall log:\n\u001b[2m  - waiting for locator('#replay-play')\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"button\" id=\"replay-play\" class=\"button primary\">播放编排</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    112 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m        - element is not enabled\u001b[22m\n\u001b[2m      - retrying click action\u001b[22m\n\u001b[2m        - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n\n  233 |  await instrument(page);await seed(page,choiceAt('curtain'),'/result');\n  234 |  await expect(page.locator('.reunion-artifact')).toHaveAttribute('data-state','ready');await page.locator('#result-replay').click();\n> 235 |  await expect(page.locator('#result-replay-player .canvas-stage-status')).toHaveAttribute('data-state','ready');await page.locator('#replay-play').click();await active(page);\n      |                                                                                                                                                    ^\n  236 |  await page.locator('#replay-voice-toggle').click();await expect(page.locator('#replay-voice-toggle')).toHaveAttribute('aria-pressed','false');\n  237 |  await go(page,'/story');await ready(page,'curtain');await expect(page.locator('#story-voice-toggle')).toHaveAttribute('aria-pressed','true');await start(page,'curtain');\n  238 | });\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:235:148"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:31:27.425Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-result-replay--824e5--the-still-narrated-curtain-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-result-replay--824e5--the-still-narrated-curtain-desktop-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-60accc180875376d206a",
+          "file": "story-voice.spec.ts",
+          "line": 232,
+          "column": 1
+        },
+        {
+          "title": "same-page mute survives pause, seek and chapter advance until a fresh entry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2184,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:32:28.463Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-642bdcaf721868f62d59",
+          "file": "story-voice.spec.ts",
+          "line": 240,
+          "column": 1
+        },
+        {
+          "title": "four cast voices load and play real MP3s with native media events",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6155,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:32:33.353Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-22b8708f8469ce7ee952",
+          "file": "story-voice.spec.ts",
+          "line": 77,
+          "column": 1
+        },
+        {
+          "title": "pause, resume and subtitle seek follow the director without overlapping speech",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2289,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:32:39.534Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-0ead764fa01bfe56291d",
+          "file": "story-voice.spec.ts",
+          "line": 96,
+          "column": 1
+        },
+        {
+          "title": "a naturally played sentence reaches native ended before its reserved pause expires",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9588,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:32:41.862Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-9a51be07531731761b22",
+          "file": "story-voice.spec.ts",
+          "line": 111,
+          "column": 1
+        },
+        {
+          "title": "formal re-entry enables voice while music mute stays independent",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3060,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:32:51.477Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-9be938b535b6f7e6f6f9",
+          "file": "story-voice.spec.ts",
+          "line": 118,
+          "column": 1
+        },
+        {
+          "title": "blocked speech reports its state without frame retries and the retry button unlocks it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2003,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:32:54.564Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-0e6e97454ace5d706a57",
+          "file": "story-voice.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "a failed speech resource reports failure and succeeds after explicit retry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1690,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:32:56.597Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-f538d4afb44d89ccc35d",
+          "file": "story-voice.spec.ts",
+          "line": 136,
+          "column": 1
+        },
+        {
+          "title": "blur, hidden documents and route exits stop speech and focus cannot revive it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1985,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:32:58.324Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-1aef3483ff826b184240",
+          "file": "story-voice.spec.ts",
+          "line": 142,
+          "column": 1
+        },
+        {
+          "title": "curtain reserves the original vocal recording until all spoken cues finish",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1931,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:33:00.359Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-8aeaa4cca5b5e25e6da9",
+          "file": "story-voice.spec.ts",
+          "line": 152,
+          "column": 1
+        },
+        {
+          "title": "result replay speaks the selected variant, seeks and closes without writing the completed run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3850,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:33:02.328Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-5b494e4764a6b0215681",
+          "file": "story-voice.spec.ts",
+          "line": 167,
+          "column": 1
+        },
+        {
+          "title": "speech follows the document base when deployed under a subdirectory",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2458,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:33:06.205Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-f47a552c30b3f127194b",
+          "file": "story-voice.spec.ts",
+          "line": 181,
+          "column": 1
+        },
+        {
+          "title": "full: all five ending epilogues play their matching local speech",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7990,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:33:08.694Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-a7ca6af1f6c08beafa06",
+          "file": "story-voice.spec.ts",
+          "line": 194,
+          "column": 46
+        },
+        {
+          "title": "guided: all five ending epilogues play their matching local speech",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7001,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:33:16.734Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-3b49e80620955c42f5f6",
+          "file": "story-voice.spec.ts",
+          "line": 194,
+          "column": 46
+        },
+        {
+          "title": "formal voice is enabled on header-tab entry after the previous scene was muted",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2573,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:33:23.771Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-cbe92c25cf4037413207",
+          "file": "story-voice.spec.ts",
+          "line": 209,
+          "column": 86
+        },
+        {
+          "title": "formal voice is enabled on direct-url entry after the previous scene was muted",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 7424,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#site-music-toggle')\nExpected: \u001b[32m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#site-music-toggle') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#site-music-toggle')\u001b[22m\n\u001b[2m    14 × locator resolved to <button type=\"button\" class=\"music-toggle\" aria-pressed=\"false\" id=\"site-music-toggle\" aria-describedby=\"site-music-status\">开启戏曲音乐</button>\u001b[22m\n\u001b[2m       - unexpected value \"false\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#site-music-toggle')\nExpected: \u001b[32m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#site-music-toggle') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#site-music-toggle')\u001b[22m\n\u001b[2m    14 × locator resolved to <button type=\"button\" class=\"music-toggle\" aria-pressed=\"false\" id=\"site-music-toggle\" aria-describedby=\"site-music-status\">开启戏曲音乐</button>\u001b[22m\n\u001b[2m       - unexpected value \"false\"\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:219:51",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                      "column": 51,
+                      "line": 219
+                    },
+                    "snippet": "  217 |  else {await go(page,'/craft');await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready');await page.locator('#craft-return').click();}\n  218 |  await ready(page,'intro');await expect(page.locator('#story-voice-toggle')).toHaveAttribute('aria-pressed','true');\n> 219 |  await expect(page.locator('#site-music-toggle')).toHaveAttribute('aria-pressed',entry==='refresh'||entry==='direct-url'?'true':'false');\n      |                                                   ^\n  220 |  await start(page);\n  221 | });\n  222 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                        "column": 51,
+                        "line": 219
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#site-music-toggle')\nExpected: \u001b[32m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#site-music-toggle') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#site-music-toggle')\u001b[22m\n\u001b[2m    14 × locator resolved to <button type=\"button\" class=\"music-toggle\" aria-pressed=\"false\" id=\"site-music-toggle\" aria-describedby=\"site-music-status\">开启戏曲音乐</button>\u001b[22m\n\u001b[2m       - unexpected value \"false\"\u001b[22m\n\n\n  217 |  else {await go(page,'/craft');await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready');await page.locator('#craft-return').click();}\n  218 |  await ready(page,'intro');await expect(page.locator('#story-voice-toggle')).toHaveAttribute('aria-pressed','true');\n> 219 |  await expect(page.locator('#site-music-toggle')).toHaveAttribute('aria-pressed',entry==='refresh'||entry==='direct-url'?'true':'false');\n      |                                                   ^\n  220 |  await start(page);\n  221 | });\n  222 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:219:51"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:33:26.379Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-formal-voice-i-f1138-he-previous-scene-was-muted-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-formal-voice-i-f1138-he-previous-scene-was-muted-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                    "column": 51,
+                    "line": 219
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-3317bd641720233bca30",
+          "file": "story-voice.spec.ts",
+          "line": 209,
+          "column": 86
+        },
+        {
+          "title": "formal voice is enabled on refresh entry after the previous scene was muted",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2815,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:33:35.011Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-a593d75125f274f301c3",
+          "file": "story-voice.spec.ts",
+          "line": 209,
+          "column": 86
+        },
+        {
+          "title": "formal voice is enabled on practice entry after the previous scene was muted",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2674,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:33:38.016Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-e3d82ee45a73af775c21",
+          "file": "story-voice.spec.ts",
+          "line": 209,
+          "column": 86
+        },
+        {
+          "title": "formal voice is enabled on craft entry after the previous scene was muted",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2683,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:33:40.741Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-9b26bf4b4d89df93c746",
+          "file": "story-voice.spec.ts",
+          "line": 209,
+          "column": 86
+        },
+        {
+          "title": "quick trial voice mute is released by entering the existing formal performance",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6896,
+                  "error": {
+                    "message": "Error: {\"media\":[{\"src\":null,\"lastSrc\":\"\",\"paused\":true,\"time\":0,\"ready\":0,\"volume\":0.22,\"playingEvents\":0,\"endedEvents\":0},{\"src\":null,\"lastSrc\":\"./audio/jinghu-instrumental.mp3\",\"paused\":true,\"time\":0,\"ready\":0,\"volume\":0.22,\"playingEvents\":2,\"endedEvents\":0},{\"src\":\"./audio/voice/4e32d977bdab8c8cdbb55634.mp3\",\"lastSrc\":\"./audio/voice/4e32d977bdab8c8cdbb55634.mp3\",\"paused\":true,\"time\":0.120811,\"ready\":4,\"volume\":1,\"playingEvents\":1,\"endedEvents\":0},{\"src\":\"./audio/jinghu-instrumental.mp3\",\"lastSrc\":\"./audio/jinghu-instrumental.mp3\",\"paused\":true,\"time\":0.124125,\"ready\":4,\"volume\":0.22,\"playingEvents\":2,\"endedEvents\":0}],\"runtime\":\"paused\",\"message\":\"页面停顿较久，已暂停；继续时不补算这段时间。\"}",
+                    "stack": "Error: {\"media\":[{\"src\":null,\"lastSrc\":\"\",\"paused\":true,\"time\":0,\"ready\":0,\"volume\":0.22,\"playingEvents\":0,\"endedEvents\":0},{\"src\":null,\"lastSrc\":\"./audio/jinghu-instrumental.mp3\",\"paused\":true,\"time\":0,\"ready\":0,\"volume\":0.22,\"playingEvents\":2,\"endedEvents\":0},{\"src\":\"./audio/voice/4e32d977bdab8c8cdbb55634.mp3\",\"lastSrc\":\"./audio/voice/4e32d977bdab8c8cdbb55634.mp3\",\"paused\":true,\"time\":0.120811,\"ready\":4,\"volume\":1,\"playingEvents\":1,\"endedEvents\":0},{\"src\":\"./audio/jinghu-instrumental.mp3\",\"lastSrc\":\"./audio/jinghu-instrumental.mp3\",\"paused\":true,\"time\":0.124125,\"ready\":4,\"volume\":0.22,\"playingEvents\":2,\"endedEvents\":0}],\"runtime\":\"paused\",\"message\":\"页面停顿较久，已暂停；继续时不补算这段时间。\"}\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:62:21)\n    at start (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:68:2)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:229:91",
+                    "cause": {
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                      "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:61:172)\n    at start (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:68:8)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:229:91"
+                    },
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                      "column": 21,
+                      "line": 62
+                    },
+                    "snippet": "  60 |  const matches=(actual:string|null)=>!src||actual?.replace(/^\\.\\//,'/')===src.replace(/^\\.\\//,'/');\n  61 |  try{await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>matches(item.src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);}\n> 62 |  catch(error){throw new Error(JSON.stringify({expectedSrc:src,media:await media(p),runtime:await runtime(p).getAttribute('data-state'),message:await runtime(p).textContent()}),{cause:error});}\n     |                     ^\n  63 |  return (await voices(p)).find(item=>matches(item.src)&&!item.paused)!;\n  64 | }\n  65 | async function start(p:Page,id:StoryNodeId='intro'){"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                        "column": 21,
+                        "line": 62
+                      },
+                      "message": "Error: {\"media\":[{\"src\":null,\"lastSrc\":\"\",\"paused\":true,\"time\":0,\"ready\":0,\"volume\":0.22,\"playingEvents\":0,\"endedEvents\":0},{\"src\":null,\"lastSrc\":\"./audio/jinghu-instrumental.mp3\",\"paused\":true,\"time\":0,\"ready\":0,\"volume\":0.22,\"playingEvents\":2,\"endedEvents\":0},{\"src\":\"./audio/voice/4e32d977bdab8c8cdbb55634.mp3\",\"lastSrc\":\"./audio/voice/4e32d977bdab8c8cdbb55634.mp3\",\"paused\":true,\"time\":0.120811,\"ready\":4,\"volume\":1,\"playingEvents\":1,\"endedEvents\":0},{\"src\":\"./audio/jinghu-instrumental.mp3\",\"lastSrc\":\"./audio/jinghu-instrumental.mp3\",\"paused\":true,\"time\":0.124125,\"ready\":4,\"volume\":0.22,\"playingEvents\":2,\"endedEvents\":0}],\"runtime\":\"paused\",\"message\":\"页面停顿较久，已暂停；继续时不补算这段时间。\"}\n\n  60 |  const matches=(actual:string|null)=>!src||actual?.replace(/^\\.\\//,'/')===src.replace(/^\\.\\//,'/');\n  61 |  try{await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>matches(item.src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);}\n> 62 |  catch(error){throw new Error(JSON.stringify({expectedSrc:src,media:await media(p),runtime:await runtime(p).getAttribute('data-state'),message:await runtime(p).textContent()}),{cause:error});}\n     |                     ^\n  63 |  return (await voices(p)).find(item=>matches(item.src)&&!item.paused)!;\n  64 | }\n  65 | async function start(p:Page,id:StoryNodeId='intro'){\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:62:21)\n    at start (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:68:2)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:229:91\n[cause]: Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at active (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:61:172)\n    at start (D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:68:8)\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:229:91"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:33:43.461Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-quick-trial-vo-9709f-existing-formal-performance-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-quick-trial-vo-9709f-existing-formal-performance-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                    "column": 21,
+                    "line": 62
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-0d8e9b7416f3d75d1dfb",
+          "file": "story-voice.spec.ts",
+          "line": 223,
+          "column": 1
+        },
+        {
+          "title": "result replay mute is released on entering the still-narrated curtain",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 60292,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts",
+                        "column": 148,
+                        "line": 235
+                      },
+                      "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nBrowser logs:\n\n<launching> C:\\Users\\zhang\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1248\\chrome-headless-shell-win64\\chrome-headless-shell.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\zhang\\AppData\\Local\\Temp\\playwright_chromiumdev_profile-Mlnjft --remote-debugging-pipe --no-startup-window\n<launched> pid=14084\n[pid=14084][err] [1104/193352.984:INFO:CONSOLE:2] \"The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.424:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.424:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.426:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.426:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.426:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.426:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.432:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.443:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.448:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.452:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.454:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.458:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.468:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.478:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.485:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.485:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.943:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.944:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.945:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.946:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.948:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.950:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.951:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.959:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.961:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.962:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.963:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.965:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.968:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.977:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.979:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084][err] [1104/193353.981:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CflgA45R.js (2)\n[pid=14084] <gracefully close start>\nCall log:\n\u001b[2m  - waiting for locator('#replay-play')\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"button\" id=\"replay-play\" class=\"button primary\">播放编排</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    112 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m        - element is not enabled\u001b[22m\n\u001b[2m      - retrying click action\u001b[22m\n\u001b[2m        - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n\n  233 |  await instrument(page);await seed(page,choiceAt('curtain'),'/result');\n  234 |  await expect(page.locator('.reunion-artifact')).toHaveAttribute('data-state','ready');await page.locator('#result-replay').click();\n> 235 |  await expect(page.locator('#result-replay-player .canvas-stage-status')).toHaveAttribute('data-state','ready');await page.locator('#replay-play').click();await active(page);\n      |                                                                                                                                                    ^\n  236 |  await page.locator('#replay-voice-toggle').click();await expect(page.locator('#replay-voice-toggle')).toHaveAttribute('aria-pressed','false');\n  237 |  await go(page,'/story');await ready(page,'curtain');await expect(page.locator('#story-voice-toggle')).toHaveAttribute('aria-pressed','true');await start(page,'curtain');\n  238 | });\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\story-voice.spec.ts:235:148"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:33:52.137Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-result-replay--824e5--the-still-narrated-curtain-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\story-voice-result-replay--824e5--the-still-narrated-curtain-mobile-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-660e54af4065cb53ffa7",
+          "file": "story-voice.spec.ts",
+          "line": 232,
+          "column": 1
+        },
+        {
+          "title": "same-page mute survives pause, seek and chapter advance until a fresh entry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2231,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T11:34:53.262Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "540ac3b8321ef7891483-bfdd5414c0cb22de5722",
+          "file": "story-voice.spec.ts",
+          "line": 240,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-04T11:29:57.666Z",
+    "duration": 298467.554,
+    "expected": 36,
+    "skipped": 0,
+    "unexpected": 6,
+    "flaky": 0
+  }
+}

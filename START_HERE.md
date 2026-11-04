@@ -36,6 +36,7 @@ T44已在本地完成手机菜单状态保留：展开后切页、浏览展签�
 
 | 当前增量 | 先读 |
 | --- | --- |
+| T46：唯一正式故事、入场配音与窄屏顶部栏 | [现行契约](docs/contracts/story.md)、[T46验收](docs/acceptance/t46.md) |
 | T45：独立试演、访问教学、幕后观察与因果节目单 | [本轮方案](docs/plans/2026-11-04-experience-showcase.md)、[T45验收](docs/acceptance/t45.md) |
 | T35—T36：七展签、独立灯影／莲灯／三杆／几何／合奏、页签栏定位 | [展馆工坊v3](docs/contracts/museum-workshops-v3.md)、[T36验收](docs/acceptance/t36.md) |
 | T37：累计选择、二郎神杖握持、自动开演 | [故事契约](docs/contracts/story.md)、[T37验收](docs/acceptance/t37.md) |
@@ -43,9 +44,9 @@ T44已在本地完成手机菜单状态保留：展开后切页、浏览展签�
 
 ## 已验证范围与下一步
 
-本地最新功能检查点为`901d2c73d3da48de2c79debf581cb2fe407e5051`：672单元、165模块生产构建、18ES5块、素材/内容/配音及168唯一浏览器用例最新166通过/2条件跳过；见[T45汇总](docs/evidence/t45/acceptance.json)。这些是分轮真实观察，不称默认全套一次全绿。
+本地最新应用/测试检查点为`ca4ef8565bbfabc3406ed0b7287666e23831fc9c`：606单元、161模块生产构建、18ES5块、素材/当前内容/配音及110唯一浏览器用例经复验全部通过，六档顶部栏无溢出；见[T46汇总](docs/evidence/t46/acceptance.json)。首轮失败与复验分开保留，未执行未筛选全套e2e；T45此前完整体验检查保留在其验收记录。
 
-账本记录的最近公开发布是T44，应用检查点`9b7d99c63b4012b31a1aea9aa703b735c7d1a6ea`及[Actions 41000300372](https://github.com/herspacefly/YingZuo-ZeroCup/actions/runs/41000300372)。本轮未推送，不把本地T45当成已上线。T43及更早发布证据保留在对应任务验收中。活动任务仍为T38。
+账本记录的最近公开发布是T44，应用检查点`9b7d99c63b4012b31a1aea9aa703b735c7d1a6ea`及[Actions 41000300372](https://github.com/herspacefly/YingZuo-ZeroCup/actions/runs/41000300372)。本轮未推送，不把本地T45/T46当成已上线。T43及更早发布证据保留在对应任务验收中。活动任务仍为T38。
 
 本地阶段T41的56个相关浏览器用例最新观察通过（首轮46/50、定向复验及配音10/10），T42的16组开发/生产布局通过；它们与本轮CI及公开核验分开记录，见[T41验收](docs/acceptance/t41.md)和[T42验收](docs/acceptance/t42.md)。当前本地预览与服务状态以实时检查为准。
 

@@ -7,9 +7,9 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T46_in_progress",
-  "activeTaskId": "T46",
-  "lastVerifiedCommit": "901d2c73d3da48de2c79debf581cb2fe407e5051",
+  "stage": "T46_local_complete",
+  "activeTaskId": "T38",
+  "lastVerifiedCommit": "ca4ef8565bbfabc3406ed0b7287666e23831fc9c",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -2041,7 +2041,7 @@
       "id": "T46",
       "title": "唯一正式剧本、入场中文配音与窄屏顶部栏",
       "priority": "P0",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "T45"
       ],
@@ -2060,10 +2060,16 @@
       "acceptanceRefs": [
         "T46"
       ],
-      "checkpointCommit": null,
-      "nextAction": "移除四份旧剧本和兼容路径，只加载当前剧本；所有正式入口开启配音，缩小窄屏顶部字体，校正契约与验证。",
+      "checkpointCommit": "ca4ef8565bbfabc3406ed0b7287666e23831fc9c",
+      "nextAction": "本地实现、验证与提交已完成，未推送。当前仅唯一正式演出；可访问本地预览。后续回到T38补人耳听感，部署另行执行。",
       "blocker": null,
-      "verification": [],
+      "verification": [
+        "55文件606单元、最新类型检查、161模块生产构建和18ES5块/七入口通过。",
+        "81PNG、38节点/16组合/每路径23节点、七展签、354条原音频字节/1216配音编排、47任务一致性检查通过。",
+        "110唯一浏览器用例最新全部通过：原生声道42、根/子目录32、当前记录/五终章PNG/键盘/保存恢复36；首轮失败与精确复验均保留。",
+        "320/360/390/600/760/1440六档顶部栏无横向溢出，44px目标保留，320/390/1440截图已目检；字体覆盖1411字，无需重制。",
+        "三处工作树已归档、依赖无Junction，主树依赖保持；本地生产预览HTTP200。原人耳/实体设备/IE/正式审看状态不变。 临时诊断删除被自动审批拒绝，已注明并保留忽略文件。"
+      ],
       "phase": "G3"
     }
   ],
