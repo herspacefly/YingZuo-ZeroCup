@@ -1,3 +1,4 @@
+import { storyFeedback } from './feedback';
 import { confirmCraft } from '../../app/craft-commands';
 import { createInteractionClip } from '../../story/interaction-clip';
 import {createPlaybackContinuity} from '../../story/playback-continuity';
@@ -39,7 +40,8 @@ type Director=ReturnType<typeof createSceneDirector>;
 type ReadyCommand={command:SceneCommand;facts:SceneObservation};
 type Resolution={elapsed:number;duration:number;ready:ReadyCommand;departure:CanvasFrame};
 type Assistance={elapsed:number;base:Pose;stage:Pick<StageConfig,'lampX'|'puppetDistance'>;goal:NonNullable<ReturnType<typeof interactionGoal>>};
-type Runtime={projectId:string;entry:ReturnType<typeof storyEntry>;scene:Director;scope:ReturnType<typeof createNodeScope>;
+type FeedbackView={root:HTMLElement;label:HTMLElement;hint:HTMLElement;progress:HTMLElement;fill:HTMLElement;handedOver:boolean};
+type Runtime={feedback:FeedbackView;projectId:string;entry:ReturnType<typeof storyEntry>;scene:Director;scope:ReturnType<typeof createNodeScope>;
   stage:ReturnType<typeof canvasStage>;clock:ReturnType<typeof createAnimationClock>;shade:HTMLDivElement;
   controls:ReturnType<typeof mountStoryRodControls>|null;interaction:ReturnType<typeof createNodeInteraction>;
   voiceCues:readonly VoiceCue[];sample:ReturnType<Director['sample']>;version:StoryVersion;clip:ReturnType<typeof createInteractionClip>|null;elapsed:number;playing:boolean;ready:boolean;requested:boolean;mode:'full'|'guided';
@@ -107,7 +109,8 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   const captionResize=typeof ResizeObserver==='function'?new ResizeObserver(measureCaptions):null;captionResize?.observe(captionDock);life.on(window,'resize',measureCaptions);
   const position=(rt:Runtime)=>({projectId:rt.projectId,runId:rt.entry.guard.runId,revision:rt.entry.guard.expectedRevision,nodeId:rt.entry.node.id});
   const media=window.matchMedia?.('(prefers-reduced-motion: reduce)');let reduced=media?.matches??false;
-  function blocked(){return disposed||!state?.project||state.hasPending||ctx.isBusy()||['loading','closed','conflict','recovery','unsupported'].includes(state.status);}
+  function storeBlocked(){return disposed||!state?.project||state.hasPending||ctx.isBusy()||['loading','closed','conflict','recovery','unsupported'].includes(state.status);}
+  function blocked(){return storeBlocked()||!!live?.stage.isObserving();}
   function current(rt:Runtime){return !disposed&&rt===live&&rt.scope.isCurrent(rt.entry.token);}
   function interactive(rt:Runtime){return rt.entry.node.kind==='interaction'&&rt.entry.node.id!=='craft';}
   function canPlay(rt:Runtime){return current(rt)&&!blocked()&&rt.ready&&!rt.completed&&!rt.requested&&(interactive(rt)||rt.version===5&&rt.entry.node.id==='craft'&&!rt.sample.ended||(['cinematic','curtain',...(rt.version>=3?['choice']:[])].includes(rt.entry.node.kind)&&!rt.sample.ended));}
@@ -269,11 +272,21 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     try{
       const entry=storyEntry(project,definitionFor(project.story),++generation),scene=createSceneDirector(project,entry),initialSample=scene.sample(0,undefined,reduced);
       sound.reset(entry.node.id);ctx.musicSample?.({nodeId:entry.node.id,mode:project.story!.mode,definitionVersion:project.story!.definitionVersion,elapsedMs:0,playing:false});
-      const stage=canvasStage('先听这一段，再接过操偶。',{backgroundFit:'stretch'}),nodeScope=createNodeScope(entry.token,error=>ctx.notify(`片段清理失败：${errorText(error)}`));
-      stage.restoreSpatial(spatialPreference);
+      let activeRuntime:Runtime|null=null;
+      const stage=canvasStage('先听这一段，再接过操偶。',{backgroundFit:'stretch',...(!ctx.guide?{backstage:{
+        beforeOpen(){if(activeRuntime&&current(activeRuntime))stop(activeRuntime,'正在看看幕后。回到幕前后，请点击继续。');},
+        onChange(open:boolean){if(disposed||!activeRuntime||!current(activeRuntime))return;message=open?'正在看看幕后。回到幕前后，请点击继续。':'已回到幕前，点击继续，从这一刻接续。';renderUI();},
+      }}:{})}),nodeScope=createNodeScope(entry.token,error=>ctx.notify(`片段清理失败：${errorText(error)}`));
+      stage.restoreSpatial(spatialPreference?{...spatialPreference,expanded:false}:undefined);
+      const feedbackRoot=element('section','story-feedback'),feedbackLabel=element('strong','story-feedback-label'),feedbackHint=element('p','story-feedback-hint'),feedbackProgress=element('div','story-feedback-progress'),feedbackFill=element('span');
+      feedbackRoot.setAttribute('aria-label','当前操演状态');feedbackLabel.setAttribute('role','status');feedbackLabel.setAttribute('aria-live','polite');feedbackLabel.setAttribute('aria-atomic','true');
+      feedbackProgress.setAttribute('role','progressbar');feedbackProgress.setAttribute('aria-label','稳定动作进度');feedbackProgress.setAttribute('aria-valuemin','0');feedbackProgress.hidden=true;feedbackProgress.appendChild(feedbackFill);
+      append(feedbackRoot,feedbackLabel,feedbackHint,feedbackProgress);stage.figure.insertBefore(feedbackRoot,stage.screen);
+      const feedback:FeedbackView={root:feedbackRoot,label:feedbackLabel,hint:feedbackHint,progress:feedbackProgress,fill:feedbackFill,handedOver:false};
       const shade=element('div','story-scene-shade');shade.setAttribute('aria-hidden','true');stage.screen.appendChild(shade);
-      const rt:Runtime={projectId:project.projectId,entry,scene,version:project.story!.definitionVersion,clip:project.story!.definitionVersion>=3&&entry.node.kind==='interaction'&&entry.node.id!=='craft'?createInteractionClip(entry.node,scene):null,scope:nodeScope,stage,shade,voiceCues:voiceCuesForNode(entry.node,project.story!.mode,project.story!.definitionVersion),sample:initialSample,elapsed:0,playing:false,ready:false,requested:false,mode:project.story!.mode,clock:null!,controls:null,
+      const rt:Runtime={feedback,projectId:project.projectId,entry,scene,version:project.story!.definitionVersion,clip:project.story!.definitionVersion>=3&&entry.node.kind==='interaction'&&entry.node.id!=='craft'?createInteractionClip(entry.node,scene):null,scope:nodeScope,stage,shade,voiceCues:voiceCuesForNode(entry.node,project.story!.mode,project.story!.definitionVersion),sample:initialSample,elapsed:0,playing:false,ready:false,requested:false,mode:project.story!.mode,clock:null!,controls:null,
         interaction:createNodeInteraction(entry.node),pose:clone(entry.node.entryPoses.chenxiang!),light:{lampX:entry.node.entryStage.lampX,puppetDistance:entry.node.entryStage.puppetDistance},operated:false,handOperated:false,reading:null,assistance:null,resolution:null,completed:null};
+      activeRuntime=rt;
       rt.clock=createAnimationClock({request:callback=>window.requestAnimationFrame(callback),cancel:id=>window.cancelAnimationFrame(id),now:()=>performance.now()},delta=>tick(rt,delta),
         fault=>stop(rt,fault.reason==='gap'?'页面停顿较久，已暂停；继续时不补算这段时间。':`片段已停止：${errorText(fault.error)}`),stage.frameObserver);
       if(!ctx.guide&&entering&&pageActive&&!document.hidden&&!['error','conflict','recovery','unsupported','closed'].includes(state?.status??''))continuity.resumeHere(position(rt));
@@ -307,6 +320,19 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
       if(!display){display=rt;stageSlot.appendChild(stage.figure);stage.figure.appendChild(inputHost);renderDisplayed();}sample(rt);
     }catch(error){continuity.stop();if(live){closeScope(live);if(live!==display)live.stage.dispose();live=null;}mountError=errorText(error);message=`片段未能准备：${mountError}`;ctx.notify(message);renderUI();}
   }
+  function renderFeedback(rt:Runtime){
+    const completion=rt.entry.node.completion;
+    const feedback=storyFeedback({hasStory:!!state?.project?.story,error:!!mountError||rt.stage.getStatus().state==='error',blocked:storeBlocked(),ready:rt.ready,
+      observing:rt.stage.isObserving(),playing:rt.playing,interactive:interactive(rt),listening:(rt.version>=3||!interactive(rt))&&rt.elapsed<rt.scene.durationMs,
+      choice:rt.entry.node.kind==='choice',completed:!!rt.completed,resolving:!!rt.resolution,reading:rt.reading,holdMs:'holdMs'in completion?completion.holdMs:null});
+    const view=rt.feedback;view.root.hidden=rt.entry.node.id==='craft'||rt.entry.node.kind==='terminal';
+    if(view.root.getAttribute('data-state')!==feedback.state)view.root.setAttribute('data-state',feedback.state);
+    if(view.label.textContent!==feedback.label)view.label.textContent=feedback.label;
+    if(view.hint.textContent!==feedback.hint)view.hint.textContent=feedback.hint;
+    view.progress.hidden=!feedback.progress;
+    if(feedback.progress){view.progress.setAttribute('aria-valuemax',String(feedback.progress.max));view.progress.setAttribute('aria-valuenow',String(Math.round(feedback.progress.value)));view.fill.style.width=`${feedback.progress.value/feedback.progress.max*100}%`;}
+    if(!view.handedOver&&!ctx.guide&&['ready','holding','lower-axe'].includes(feedback.state)){view.handedOver=true;rt.stage.figure.classList.add('story-handoff');}
+  }
   function renderUI(){
     if(disposed)return;const rt=live,node=rt?.entry.node,hasStory=!!state?.project?.story;stageSlot.parentElement?.classList.toggle('story-awaiting',!hasStory);
     captionDock.hidden=!hasStory||node?.id==='craft'||node?.kind==='terminal';
@@ -326,7 +352,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     retry.hidden=!mountError&&rt?.stage.getStatus().state!=='error';retry.disabled=blocked();
     finish.hidden=!rt?.completed||rt.requested;finish.disabled=blocked()||!rt?.ready;finish.textContent=node?.id==='reunion-hold'&&state?.project?.story?.definitionVersion===1?'谢幕':node?.id.endsWith('-hold')?'读终章后记':'确认进入下一段';
     assist.hidden=!rt||!interactive(rt)||!!rt.completed;assist.disabled=blocked()||!rt?.ready||!!rt?.resolution||!!rt?.assistance||((rt?.version??0)>=3&&rt.elapsed<rt.scene.durationMs);
-    const phase=mountError||rt?.stage.getStatus().state==='error'?'error':blocked()?'saving':rt&&!rt.ready?'loading':rt?.playing?'playing':'paused';
+    const phase=mountError||rt?.stage.getStatus().state==='error'?'error':storeBlocked()?'saving':rt&&!rt.ready?'loading':rt?.playing?'playing':'paused';
     runtime.setAttribute('data-showcase',rt?.resolution&&rt.clip?'playing':rt?.completed&&rt.clip?'complete':'none');runtime.setAttribute('data-showcase-elapsed',String(Math.round(rt?.resolution?.elapsed??0)));runtime.setAttribute('data-state',phase);runtime.setAttribute('data-elapsed',String(Math.round(rt?.elapsed??0)));runtime.setAttribute('data-node',node?.id??'');
     runtime.setAttribute('data-token',rt?.entry.token??'');runtime.setAttribute('data-reduced-motion',String(reduced));runtime.setAttribute('data-coverage',String(rt?.reading?.coverage??0));
     runtime.setAttribute('data-held',String(rt?.reading?.heldMs??0));runtime.setAttribute('data-interaction',rt?.reading?.phase??'waiting');runtime.setAttribute('data-distance',String(rt?.reading?.distanceRatio??1));
@@ -337,6 +363,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
       rt.resolution&&rt.clip?'这一段已达标，握柄已收起。可暂停、跳过放映或从头再看；放映结束后只保存一次。':interactive(rt)?`${tips[node!.id]??(node!.completion.kind==='axe'?'抬起右手，稳住半秒，再亲手落斧。':node!.completion.kind==='light'?'举起灯笼，移动身躯与灯位，让灯火照进金色区域。':'用方向键移身，走进金色区域后停留。')} 金色是目标区域，白线是当前观察范围。暂停不累计动作时间；刷新后会从本段开头自动开演。`:
       `每次进入剧场会自动开演，暂停后可继续片段。${reduced?'已启用减少动态。':''}声音可选，静音也保留全部字幕与操作。`;
     if(display)renderSubtitles(display);
+    if(rt)renderFeedback(rt);
     if(!hasStory){title.textContent='还没有开始这一场';lead.textContent=note.textContent;shot.textContent='';subtitles.update([],[],'empty');}rt?.controls?.render();
   }
   function finishResolution(rt:Runtime){
