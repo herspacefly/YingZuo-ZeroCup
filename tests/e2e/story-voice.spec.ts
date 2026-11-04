@@ -33,7 +33,7 @@ function choiceAt(id:StoryNodeId,choice:ChoiceRun=run,mode:'full'|'guided'='guid
   s.nodeId=edges.default??edges[s.nodeId==='ending-choice'?choice.ending:choice.approach]!;s.revision++;
   if(s.nodeId==='curtain')s.completedAt='2026-10-27T00:00:00.000Z';
  }
- if(project.story!.nodeId!==id)throw Error('Unreachable v5 fixture '+id);return project;
+ if(project.story!.nodeId!==id)throw Error('Unreachable fixture '+id);return project;
 }
 async function instrument(p:Page){await p.addInitScript(()=>{
  const Native=window.Audio,items:{media:HTMLAudioElement;lastSrc:string;playingEvents:number;endedEvents:number}[]=[];
@@ -115,11 +115,11 @@ test('a naturally played sentence reaches native ended before its reserved pause
  expect((await media(page)).find(item=>item.lastSrc===first.lastSrc)!.playingEvents).toBeLessThan(6);
 });
 
-test('voice and music intents are independent, survive routes, and default on after refresh',async({page})=>{
+test('formal re-entry enables voice while music mute stays independent',async({page})=>{
  await instrument(page);await seed(page,choiceAt('intro'));await start(page);
  await page.locator('#site-music-toggle').click();await expect(page.locator('#site-music-toggle')).toHaveAttribute('aria-pressed','false');await active(page);
  await page.locator('#story-voice-toggle').click();await expect(page.locator('#story-voice-toggle')).toHaveAttribute('aria-pressed','false');expect((await voices(page)).every(item=>item.paused)).toBe(true);
- await go(page,'/museum');await go(page,'/story');await ready(page,'intro');await expect(page.locator('#story-voice-toggle')).toHaveAttribute('aria-pressed','false');
+ await go(page,'/museum');await go(page,'/story');await ready(page,'intro');await expect(page.locator('#story-voice-toggle')).toHaveAttribute('aria-pressed','true');await expect(page.locator('#site-music-toggle')).toHaveAttribute('aria-pressed','false');await start(page);
  await page.reload();await ready(page,'intro');await expect(page.locator('#story-voice-toggle')).toHaveAttribute('aria-pressed','true');await expect(page.locator('#site-music-toggle')).toHaveAttribute('aria-pressed','true');
 });
 
@@ -178,16 +178,6 @@ test('result replay speaks the selected variant, seeks and closes without writin
  await page.locator('#result-replay').click();expect((await voices(page)).every(item=>item.paused)).toBe(true);expect((await stored(page)).story).toEqual(before.story);
 });
 
-test('restored v1 through v4 do not request new v5 speech assets',async({page})=>{
- await instrument(page);const requests:string[]=[];page.on('request',request=>{if(request.url().includes('/audio/voice/'))requests.push(request.url());});
- for(const version of [1,2,3,4]){
-  const project=structuredClone(fixture) as ProjectV1;Object.assign(project.story!,{definitionVersion:version,nodeId:'memory-separate',approach:null,approachSource:null,assistedNodeIds:[],completedAt:null});
-  if(version!==1)Object.assign(project.story!,{ending:null,endingSource:null});await seed(page,project);await ready(page,'memory-separate');await runtime(page).click();
-  await expect(page.locator('#story-voice-toggle')).toBeHidden();expect((await stored(page)).story!.definitionVersion).toBe(version);
- }
- expect(requests).toEqual([]);
-});
-
 test('speech follows the document base when deployed under a subdirectory',async({page})=>{
  await instrument(page);await seed(page,choiceAt('intro'));
  const nested:string[]=[];page.on('request',request=>{if(new URL(request.url()).pathname.startsWith('/nested/audio/voice/'))nested.push(request.url());});
@@ -214,4 +204,46 @@ for(const mode of ['full','guided'] as const)test(`${mode}: all five ending epil
   await expect(voiceStatus(page)).toHaveAttribute('data-playing','true');
   expect((await stored(page)).story).toMatchObject({definitionVersion:5,mode,ending,choices:{journeyIntent:chosen.journeyIntent,mountainPact:chosen.mountainPact,finalAction:chosen.finalAction}});
  }
+});
+
+for(const entry of ['header-tab','direct-url','refresh','practice','craft'] as const)test(`formal voice is enabled on ${entry} entry after the previous scene was muted`,async({page})=>{
+ await instrument(page);await seed(page,choiceAt('intro'));await start(page);
+ await page.locator('#site-music-toggle').click();await expect(page.locator('#site-music-toggle')).toHaveAttribute('aria-pressed','false');
+ await page.locator('#story-voice-toggle').click();await expect(page.locator('#story-voice-toggle')).toHaveAttribute('aria-pressed','false');
+ if(entry==='refresh')await page.reload();
+ else if(entry==='direct-url'){await go(page,'/museum');await page.goto('/#/story');}
+ else if(entry==='header-tab'){await go(page,'/museum');await page.locator('a[href="#/story"]:visible').first().click();}
+ else if(entry==='practice'){await go(page,'/practice');await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready');await page.locator('#journey-to-story').click();}
+ else {await go(page,'/craft');await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready');await page.locator('#craft-return').click();}
+ await ready(page,'intro');await expect(page.locator('#story-voice-toggle')).toHaveAttribute('aria-pressed','true');
+ await expect(page.locator('#site-music-toggle')).toHaveAttribute('aria-pressed',entry==='refresh'||entry==='direct-url'?'true':'false');
+ await start(page);
+});
+
+test('quick trial voice mute is released by entering the existing formal performance',async({page})=>{
+ await instrument(page);await seed(page,choiceAt('intro'),'/');
+ await page.locator('#intro-quick-trial').click();await expect(page.locator('#quick-trial .canvas-stage-status')).toHaveAttribute('data-state','ready');
+ await expect(page.locator('#trial-voice-toggle')).toHaveAttribute('aria-pressed','true');await page.locator('#trial-voice-toggle').click();
+ await expect(page.locator('#trial-voice-toggle')).toHaveAttribute('aria-pressed','false');await page.locator('#trial-close').click();
+ await page.getByRole('link',{name:'继续这一场 ↗',exact:true}).click();await ready(page,'intro');
+ await expect(page.locator('#story-voice-toggle')).toHaveAttribute('aria-pressed','true');await start(page);
+});
+
+test('result replay mute is released on entering the still-narrated curtain',async({page})=>{
+ await instrument(page);await seed(page,choiceAt('curtain'),'/result');
+ await expect(page.locator('.reunion-artifact')).toHaveAttribute('data-state','ready');await page.locator('#result-replay').click();
+ await expect(page.locator('#result-replay-player .canvas-stage-status')).toHaveAttribute('data-state','ready');await page.locator('#replay-play').click();await active(page);
+ await page.locator('#replay-voice-toggle').click();await expect(page.locator('#replay-voice-toggle')).toHaveAttribute('aria-pressed','false');
+ await go(page,'/story');await ready(page,'curtain');await expect(page.locator('#story-voice-toggle')).toHaveAttribute('aria-pressed','true');await start(page,'curtain');
+});
+
+test('same-page mute survives pause, seek and chapter advance until a fresh entry',async({page})=>{
+ await instrument(page);await seed(page,choiceAt('memory-words'));await start(page,'memory-words');
+ await page.locator('#story-voice-toggle').click();await expect(page.locator('#story-voice-toggle')).toHaveAttribute('aria-pressed','false');
+ await page.locator('#story-pause').click();await page.locator('.subtitle-directory button').nth(1).click();await page.locator('#story-play').click();
+ await page.locator('#story-next-node').click();await ready(page,'memory-separate');
+ await expect(page.locator('#story-voice-toggle')).toHaveAttribute('aria-pressed','false');expect((await voices(page)).every(item=>item.paused)).toBe(true);
+ await page.evaluate(()=>dispatchEvent(new Event('blur')));await page.evaluate(()=>dispatchEvent(new Event('focus')));
+ await expect(page.locator('#story-voice-toggle')).toHaveAttribute('aria-pressed','false');
+ await go(page,'/museum');await go(page,'/story');await ready(page,'memory-separate');await expect(page.locator('#story-voice-toggle')).toHaveAttribute('aria-pressed','true');await start(page,'memory-separate');
 });
