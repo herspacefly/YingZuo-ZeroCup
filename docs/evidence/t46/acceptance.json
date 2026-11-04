@@ -126,12 +126,13 @@
   "cleanup": {
     "worktrees": "all three archived",
     "dependencyJunctions": false,
-    "temporaryDiagnosticDeletion": "automatic approval rejected: blocked by policy",
+    "temporaryDiagnosticDeletion": "permanent deletion blocked; later user-authorized cleanup moved diagnostics and unused logs/script to Windows Recycle Bin",
     "retainedIgnoredPaths": [
-      ".preflight/t46-initial-browser",
-      ".preflight/t46-unit.log",
-      ".preflight/t46-unit-final.log"
+      ".preflight/t46-preview.log",
+      ".preflight/t46-preview-error.log"
     ],
-    "preview": "running on 127.0.0.1:5173"
+    "preview": "running on 127.0.0.1:5173",
+    "retainedReason": "preview log files are in use",
+    "workspaceBytesRemovedApproximately": 24100000
   }
 }
