@@ -9,7 +9,7 @@
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
   "stage": "T46_local_complete",
   "activeTaskId": "T38",
-  "lastVerifiedCommit": "ca4ef8565bbfabc3406ed0b7287666e23831fc9c",
+  "lastVerifiedCommit": "73853f3063d438f5127c5d77343876ab951cf7a8",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -2026,7 +2026,7 @@
         "T45"
       ],
       "checkpointCommit": "901d2c73d3da48de2c79debf581cb2fe407e5051",
-      "nextAction": "本地功能验收与提交已完成，未推送；可从首页体验快速试演。后续按T38补人耳听感，真实设备/IE及正式内容验收继续原任务。",
+      "nextAction": "已按用户要求推送main并发布；后续补T38人耳听感，实体设备/IE及正式内容审定继续原任务。",
       "blocker": null,
       "verification": [
         "56文件672单元、类型/165模块构建、46任务/81PNG/内容/配音摘要与1216编排/18ES5块通过。",
@@ -2046,7 +2046,7 @@
         "T45"
       ],
       "owner": "codex-root",
-      "branch": "codex/t46-single-story-voice",
+      "branch": "main",
       "touchFiles": [
         "src/",
         "scripts/",
@@ -2061,14 +2061,15 @@
         "T46"
       ],
       "checkpointCommit": "ca4ef8565bbfabc3406ed0b7287666e23831fc9c",
-      "nextAction": "本地实现、验证与提交已完成，未推送。当前仅唯一正式演出；可访问本地预览。后续回到T38补人耳听感，部署另行执行。",
+      "nextAction": "已按用户要求推送main并发布；后续补T38人耳听感，实体设备/IE及正式内容审定继续原任务。",
       "blocker": null,
       "verification": [
         "55文件606单元、最新类型检查、161模块生产构建和18ES5块/七入口通过。",
         "81PNG、38节点/16组合/每路径23节点、七展签、354条原音频字节/1216配音编排、47任务一致性检查通过。",
         "110唯一浏览器用例最新全部通过：原生声道42、根/子目录32、当前记录/五终章PNG/键盘/保存恢复36；首轮失败与精确复验均保留。",
         "320/360/390/600/760/1440六档顶部栏无横向溢出，44px目标保留，320/390/1440截图已目检；字体覆盖1411字，无需重制。",
-        "三处工作树已归档、依赖无Junction，主树依赖保持；本地生产预览HTTP200。原人耳/实体设备/IE/正式审看状态不变。 后续按用户要求将约24MB临时诊断/旧日志/失效脚本移入回收站；占用中的预览日志保留。"
+        "三处工作树已归档、依赖无Junction，主树依赖保持；本地生产预览HTTP200。原人耳/实体设备/IE/正式审看状态不变。 后续按用户要求将约24MB临时诊断/旧日志/失效脚本移入回收站；占用中的预览日志保留。",
+        "用户明确要求后发布73853f3；Actions 41825204798检查/32项浏览器及部署成功，公开首页/脚本/中文MP3均HTTP200，见deployment.json。"
       ],
       "phase": "G3"
     }
