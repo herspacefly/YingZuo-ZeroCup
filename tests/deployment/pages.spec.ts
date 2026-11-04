@@ -16,6 +16,17 @@ function observe(page: Page, baseURL: string) {
   return problems;
 }
 
+test('quick trial lazy scripts, images and native voice stay in the hosting directory',async({page,baseURL})=>{
+  const problems=observe(page,baseURL!);
+  await page.goto(baseURL!);await page.locator('#intro-quick-trial').click();
+  await expect(page.locator('#quick-trial .canvas-stage-status')).toHaveAttribute('data-state','ready',{timeout:20000});
+  if(await page.locator('#trial-play').isEnabled())await page.locator('#trial-play').click();
+  await expect(page.locator('#quick-trial')).toHaveAttribute('data-segment','intro',{timeout:15000});
+  await expect(page.locator('#trial-voice-status')).toHaveAttribute('data-playing','true',{timeout:15000});
+  await page.locator('#trial-close').click();await expect(page.locator('#quick-trial')).toHaveCount(0);
+  expect(problems).toEqual([]);
+});
+
 test('production entry, fonts, museum thumbnails and enlarged photos stay within the deployment directory', async ({ page, request, baseURL }) => {
   const problems = observe(page, baseURL!);
   const entry = await page.goto(baseURL!, { waitUntil: 'domcontentloaded' });

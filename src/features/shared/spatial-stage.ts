@@ -55,7 +55,7 @@ export function mountSpatialStage(figure:HTMLElement,source:HTMLCanvasElement,ba
   function fail(text:string){shutdown();root.setAttribute('data-state','error');status.textContent=`空间观察已回到二维：${text}`;sync();}
   function render(){
     if(disposed||!expanded||!stage||!last||!originReady)return;const token=generation,current=stage;mount.hidden=false;
-    void current.update(last).catch(error=>{if(!disposed&&token===generation)fail(error instanceof Error?error.message:String(error));});
+    void current.update(backstage?{...last,showRods:true}:last).catch(error=>{if(!disposed&&token===generation)fail(error instanceof Error?error.message:String(error));});
   }
   async function open(){
     if(disposed||lightweight||loading||!originReady||!last||!capability().eligible)return;
@@ -77,7 +77,7 @@ export function mountSpatialStage(figure:HTMLElement,source:HTMLCanvasElement,ba
     }catch(error){if(!disposed&&token===generation)fail(moduleLoaded?(error instanceof Error?error.message:String(error)):'空间组件未能载入，请刷新页面再试。当前二维幕面可以继续使用。');}
   }
   function closeObservation(){shutdown();root.setAttribute('data-state','closed');status.textContent=backstage?'已回到幕前，请点击继续。':'已收起空间观察，继续使用二维幕面。';sync();}
-  life.on(toggle,'click',()=>{if(expanded)closeObservation();else void open();});
+  life.on(toggle,'click',()=>{if(expanded)closeObservation();else {if(backstage)view='backstage';void open();}});
   life.on(close,'click',()=>{shutdown();root.setAttribute('data-state','closed');status.textContent='继续使用二维幕面。';sync();toggle.focus();});
   for(const [key,button]of viewButtons)life.on(button,'click',()=>{if(!stage||!originReady)return;view=key;try{stage.setView(key);observe();sync();}catch(error){fail(error instanceof Error?error.message:String(error));}});
   const eligibility=capability();status.textContent=eligibility.eligible?'从幕前走到背面，看灯、薄片与操偶杆。':eligibility.reason;sync();

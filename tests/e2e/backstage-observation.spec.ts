@@ -35,10 +35,14 @@ test('backstage pauses the same instant, preserves source geometry and requires 
   await expect(page.locator('.spatial-primary-mount .three-stage')).toHaveAttribute('data-view','backstage');
   expect(await source.evaluate((c:HTMLCanvasElement)=>[c.width,c.height,c.getBoundingClientRect().width,c.getBoundingClientRect().height])).toEqual(dimensions);
   await expect(page.locator('#story-play')).toBeDisabled();
+  await page.locator('.guide-complete').waitFor({state:'hidden',timeout:6000});
+  await page.locator('.story-stage-slot').screenshot({path:test.info().outputPath('backstage-observation.png')});
   await page.locator('.spatial-more > summary').click();await page.locator('.spatial-primary button[data-view=front]').click();
   await expect(runtime).toHaveAttribute('data-elapsed',elapsed!);expect(await stored(page)).toBe(snapshot);
   await page.getByRole('button',{name:'回到幕前',exact:true}).click();await expect(page.locator('.spatial-primary-mount canvas')).toHaveCount(0);
   await expect(runtime).toHaveAttribute('data-state','paused');await expect(runtime).toHaveAttribute('data-elapsed',elapsed!);
+  await page.getByRole('button',{name:'看看幕后',exact:true}).click();await expect(page.locator('.spatial-primary-mount .three-stage')).toHaveAttribute('data-view','backstage');
+  await page.getByRole('button',{name:'回到幕前',exact:true}).click();
   await page.locator('#story-play').click();await expect(runtime).toHaveAttribute('data-state','playing');
   await page.screenshot({path:test.info().outputPath('backstage-return.png')});
 });

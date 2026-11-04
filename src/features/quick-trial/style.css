@@ -2,3 +2,13 @@
 @media(max-width:760px){.trial-heading{align-items:flex-start;flex-direction:column}.trial-layout{display:flex;flex-direction:column;gap:20px}.trial-layout>.stage-figure,.trial-panel{width:100%}.quick-trial{border-radius:14px}.trial-actions>.button,.trial-finish>.button{flex:1 1 130px}.trial-panel fieldset{padding:12px}}
 .trial-wave-target{position:absolute;pointer-events:none;border:2px solid #f1c36e;background:#efc36e22;border-radius:12px;box-sizing:border-box}.trial-wave-target[hidden]{display:none!important}
 @media(prefers-reduced-motion:reduce){.quick-trial *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* Keep the puppet in sight while narrow-screen visitors reach the lamp/hand controls. */
+.quick-trial .trial-subtitle:empty{display:none}.quick-trial .stage-figure>.quiet-note{display:none}
+.quick-trial .trial-panel fieldset legend{font-size:20px;line-height:1.5}
+@media(max-width:760px){
+ .trial-layout>.stage-figure{display:contents}
+ .quick-trial[data-segment=lamp] .canvas-stage-screen,.quick-trial[data-segment=wave] .canvas-stage-screen{position:sticky;top:8px;z-index:15;width:100%;flex-shrink:0}
+ .quick-trial .spatial-primary{margin-top:0;padding-top:8px}
+ .quick-trial input[type=range],.quick-trial button{scroll-margin-top:290px}
+}

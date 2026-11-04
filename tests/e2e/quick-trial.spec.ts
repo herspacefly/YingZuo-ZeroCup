@@ -42,9 +42,12 @@ test('quick trial keeps the formal draft unchanged, pauses at both operations an
   test.setTimeout(90000); await page.emulateMedia({ reducedMotion: 'reduce' }); await virtualClock(page);
   await page.addInitScript(() => Object.defineProperty(window, 'WebGL2RenderingContext', { value: undefined, configurable: true }));
   const source = await open(page); await advanceToLamp(page);
+  if(await page.locator('#quick-trial .performance-keep').isVisible())await page.locator('#quick-trial .performance-keep').click();
   await page.locator('#quick-trial').screenshot({path:test.info().outputPath('trial-lamp.png')});
   const budget = await page.locator('#quick-trial').getAttribute('data-automatic-ms'); await frames(page, 5000); await expect(page.locator('#quick-trial')).toHaveAttribute('data-automatic-ms', budget!);
-  await page.locator('#trial-lamp-x').focus(); await page.locator('#trial-lamp-x').press('ArrowRight'); await expect(page.locator('#trial-lamp-done')).toBeEnabled(); await page.locator('#trial-lamp-done').click();
+  await page.locator('#trial-lamp-x').focus();
+  if(test.info().project.name.startsWith('mobile')){const screen=(await page.locator('#quick-trial .canvas-stage-screen').boundingBox())!;expect(screen.y).toBeGreaterThanOrEqual(0);expect(screen.y+screen.height).toBeLessThanOrEqual(844);}
+  await page.locator('#trial-lamp-x').press('ArrowRight'); await expect(page.locator('#trial-lamp-done')).toBeEnabled(); await page.locator('#trial-lamp-done').click();
   await continueIfPaused(page); await frames(page, 18396); await expect(page.locator('#quick-trial')).toHaveAttribute('data-state', 'waiting-wave');
   await expect(page.locator('#trial-wave-controls')).toBeVisible(); await expect(page.locator('.trial-wave-target')).toBeVisible(); await page.locator('#trial-assist').click();
   await frames(page, 7000); await continueIfPaused(page); await frames(page, 20235); await frames(page, 5914);
@@ -103,7 +106,7 @@ test('native MP3 trial ends all nine spoken lines before its no-spoiler invitati
   await page.addInitScript(()=>{
     const Original=window.Audio;const ended:string[]=[],errors:string[]=[];
     Reflect.set(window,'__trialNative',{ended,errors});
-    window.Audio=function(src?:string){const audio=new Original(src);audio.addEventListener('ended',()=>{if(audio.src.includes('/audio/voice-v5/'))ended.push(audio.src);});audio.addEventListener('error',()=>{if(audio.src.includes('/audio/voice-v5/'))errors.push(audio.src);});return audio;} as typeof Audio;
+    window.Audio=function(src?:string){const audio=new Original(src);audio.addEventListener('ended',()=>{if(audio.src.includes('/audio/voice-v5/'))ended.push(audio.src);});audio.addEventListener('error',()=>{if(audio.src.includes('/audio/voice-v5/'))errors.push(audio.src);});return audio;} as unknown as typeof Audio;
   });
   await page.goto('/');await expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');const source=await draft(page);
   await page.locator('#intro-quick-trial').click();await expect(page.locator('#quick-trial .canvas-stage-status')).toHaveAttribute('data-state','ready');
