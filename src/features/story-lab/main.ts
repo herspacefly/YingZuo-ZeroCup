@@ -4,7 +4,7 @@ import type { StoreState,SaveResult } from '../../app/store';
 import { newIdentifier } from '../../app/identity';
 import { startStory,submitStoryCommand } from '../../app/story-commands';
 import { definitionFor } from '../../content/reunion';
-import {v5ChoiceOptions} from '../../content/choice-options';
+import {choiceOptions} from '../../content/choice-options';
 import {choiceSummary} from '../../domain/story-choices';
 import { reunionSummary,storyEntry,storyGuard } from '../../domain/story';
 import type { StoryCommand,StoryNode,StoryPayload } from '../../domain/story-types';
@@ -17,8 +17,7 @@ const status=el('story-status'),operation=el('story-operation'),mode=el<HTMLSele
 status.dataset.entry=import.meta.env.LEGACY?'legacy':'modern';
 let store:ProjectStore|null=null,disposed=false,paused=true,elapsed=0,lastTime=0,generation=0,key='',node:StoryNode|null=null;
 let clock:ReturnType<typeof setTimeout>|undefined,downloadCleanup=()=>undefined as void;
-const endingButtons=definitionFor(null).endings!.map(end=>{const b=document.createElement('button');b.textContent=end.choiceLabel;b.id='text-ending-'+end.id;b.hidden=true;el('story-choose-split').parentElement!.appendChild(b);return {b,end};});
-const choiceButtons=v5ChoiceOptions(null).map(option=>{const b=document.createElement('button');b.textContent=option.label;b.id='text-choice-'+option.id;b.hidden=true;el('story-choose-split').parentElement!.appendChild(b);return {b,option};});
+const choiceButtons=choiceOptions(null).map(option=>{const b=document.createElement('button');b.textContent=option.label;b.id='text-choice-'+option.id;b.hidden=true;el('story-choose-split').parentElement!.appendChild(b);return {b,option};});
 const cleanups:(()=>void)[]=[];
 function on(target:EventTarget,event:string,listener:EventListener){target.addEventListener(event,listener);cleanups.push(()=>target.removeEventListener(event,listener));}
 function stopClock(){clearTimeout(clock);clock=undefined;paused=true;}
@@ -35,7 +34,7 @@ function render(state:StoreState) {
   const protectedState=!project || ['conflict','unsupported','recovery','loading','closed'].includes(state.status);
   const blocked=protectedState||state.hasPending||state.status==='saving';
   mode.disabled=blocked||!paused||!!node&&!node.allowedActions.includes('SET_MODE');if(story)mode.value=story.mode;
-  button('story-start',blocked||!!story);button('story-play',blocked||!node||!paused||(node.kind==='terminal'||(node.kind==='choice'&&(story?.definitionVersion??0)<3))||node.id==='craft');button('story-pause',paused||blocked);
+  button('story-start',blocked||!!story);button('story-play',blocked||!node||!paused||node.kind==='terminal'||node.id==='craft');button('story-pause',paused||blocked);
   button('story-skip',blocked||node?.id!=='intro');
   el('story-node').dataset.node=node?.id??'none';el('node-act').textContent=node?`${node.act?`第${node.act}幕`:'序与制偶'} · ${node.id}`:'尚未开演';
   el('node-title').textContent=node?.title??'为这一场留一个起点。';el('node-lead').textContent=node?.lead??'开始后，进度将通过正式事务存档保存。刷新从当前短节点起点暂停接续。';
@@ -44,10 +43,8 @@ function render(state:StoreState) {
   for(const cue of node?.subtitles??[]){const p=document.createElement('p');p.textContent=`${{narrator:'旁白',chenxiang:'沉香',mother:'母亲',guardian:'二郎神'}[cue.speaker]}：${cue.text}`;subtitles.appendChild(p);}
   el('cast-summary').textContent=story?.castSnapshot?`本场冻结：${story.castSnapshot.appearance.patternId} / ${story.castSnapshot.appearance.paletteId}；已记录协助 ${story.assistedNodeIds.length} 段。`:'开演确认前，尚未冻结本场造型。';
   for(const id of ['story-craft','story-preset','story-assist','story-choose-call','story-choose-split','story-complete']){el(id).hidden=true;button(id,true);}
-  const timing=story?.mode==='guided'?node?.guidedTiming:node?.fullTiming,waiting=(story?.definitionVersion??0)>=3&&elapsed<(timing?.minDurationMs??0);
-  const endings=definitionFor(story).endings;
-  for(const {b,end} of endingButtons){const label=endings?.find(item=>item.id===end.id)?.choiceLabel;if(label&&b.textContent!==label)b.textContent=label;b.hidden=node?.id!=='ending-choice'||story?.definitionVersion===5;b.disabled=blocked||!!waiting;}
-  const options=v5ChoiceOptions(story);for(const {b,option}of choiceButtons){b.hidden=story?.definitionVersion!==5||node?.id!==option.nodeId;b.disabled=blocked||!!waiting;b.textContent=options.find(item=>item.id===option.id)!.label;}
+  const timing=story?.mode==='guided'?node?.guidedTiming:node?.fullTiming,waiting=elapsed<(timing?.minDurationMs??0);
+  const options=choiceOptions(story);for(const {b,option}of choiceButtons){b.hidden=node?.id!==option.nodeId;b.disabled=blocked||!!waiting;b.textContent=options.find(item=>item.id===option.id)!.label;}
   if(node){
     if(node.id==='craft')for(const id of ['story-craft','story-preset']){el(id).hidden=false;button(id,blocked||!!waiting);}
     else if(node.kind==='interaction'){el('story-assist').hidden=false;button('story-assist',blocked||paused||!!waiting);}
@@ -56,11 +53,11 @@ function render(state:StoreState) {
       el('story-complete').hidden=false;
       const timing=story?.mode==='guided'?node.guidedTiming:node.fullTiming;
       button('story-complete',blocked||paused||elapsed<timing.minDurationMs);
-      el('story-complete').textContent=node.id==='reunion-hold'&&story?.definitionVersion===1?'谢幕':node.id.endsWith('-hold')?'读终章后记':node.id==='curtain'?'文字协助完成谢幕':'确认片段结束';
+      el('story-complete').textContent=node.id.endsWith('-hold')?'读终章后记':node.id==='curtain'?'文字协助完成谢幕':'确认片段结束';
     }
   }
   const result=project?reunionSummary(project):null;
-  el('result-summary').textContent=result?`同一份演出成果：${result.id}；完成时间 ${result.completedAt}；路线 ${result.approach==='call-first'?'先举灯呼唤':'先挥斧开山'}。${story?.definitionVersion===5?choiceSummary(story).map(item=>item.label+'：'+item.value).join('；')+'。':''}${story?.nodeId==='curtain'?'终章已保存，谢幕尚未结束。':'本场已谢幕。'}`:'';
+  el('result-summary').textContent=result?`同一份演出成果：${result.id}；完成时间 ${result.completedAt}；路线 ${result.approach==='call-first'?'先举灯呼唤':'先挥斧开山'}。${story?choiceSummary(story).map(item=>item.label+'：'+item.value).join('；')+'。':''}${story?.nodeId==='curtain'?'终章已保存，谢幕尚未结束。':'本场已谢幕。'}`:'';
   button('story-export',!store?.getExportProject());button('story-retry',state.status==='saving'||(!state.hasPending&&!['error','memory','unsaved'].includes(state.status)));
   button('story-cancel',state.status==='saving'||!state.hasPending);button('story-memory',state.status==='saving'||state.pendingKind!=='save');button('story-new',blocked);
 }
@@ -98,7 +95,6 @@ async function mount(){
     on(el('story-assist'),'click',()=>send({action:'COMPLETE_INTERACTION',source:'assistance'}));
     on(el('story-choose-call'),'click',()=>send({action:'CHOOSE',approach:'call-first'}));
     on(el('story-choose-split'),'click',()=>send({action:'CHOOSE',approach:'split-first'}));
-    for(const {b,end} of endingButtons)on(b,'click',()=>send({action:'CHOOSE_ENDING',ending:end.id}));
     for(const {b,option}of choiceButtons)on(b,'click',()=>send(option.payload));
     on(el('story-complete'),'click',()=>send({action:'COMPLETE_SCENE',source:node?.completion.kind==='scene'&&node.completion.activation==='user'?'user':node?.id==='curtain'?'assistance':'script'}));
     on(mode,'change',()=>{if(store?.getState().project?.story)send({action:'SET_MODE',mode:mode.value as 'full'|'guided'});});

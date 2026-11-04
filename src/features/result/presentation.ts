@@ -26,7 +26,6 @@ export function createResultPresentation(summary: ReunionArtifact['summary']): R
     ...(summary.ending ? themes[summary.ending] : { stamp: '团圆', accent: '#9f3a2c' }),
     explanation: '', decisions: [],
   };
-  if (summary.definitionVersion !== 5) return result;
   const choices = summary.choices;
   if (!choices?.journeyIntent || !choices.mountainPact || !choices.finalAction ||
     resolveEnding(choices.journeyIntent, choices.mountainPact, summary.approach, choices.finalAction) !== summary.ending) {

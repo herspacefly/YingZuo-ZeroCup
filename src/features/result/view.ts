@@ -1,5 +1,5 @@
 import { append,clear,element,link,scope } from '../shared/dom';
-import { continueHash,heading,paletteLabel,patternLabel } from '../shared/pieces';
+import { continueHash,heading,paletteLabel } from '../shared/pieces';
 import { reunionSummary } from '../../domain/story';
 import { definitionFor, endingFor } from '../../content/reunion';
 import type { PageFactory } from '../../app/view';
@@ -85,7 +85,7 @@ export const mountResult:PageFactory=(host,ctx)=>{
       const path=result?definitionFor(state.project?.story).nodes.filter(node=>node.actors.includes('chenxiang')&&node.kind==='interaction'&&node.id!=='craft'&&(node.prerequisites.approach===null||node.prerequisites.approach===result.approach)&&(!node.prerequisites.ending||node.prerequisites.ending===result.ending)):[];
       const rows:[string,string][]=result?[
         ['角色','沉香、母亲（三圣母）；沉香由你操演，母亲与你同台'],
-        ['衣饰',result.definitionVersion>=4?'精细原画':patternLabel(result.castSnapshot.appearance.patternId)],['配色',paletteLabel(result.castSnapshot.appearance.paletteId)],
+        ['衣饰','精细原画'],['配色',paletteLabel(result.castSnapshot.appearance.paletteId)],
         ['本场终章',ending?.title??'一幕团圆'],['这一次的选择',result.approach==='call-first'?'先举灯呼唤':'先挥斧开山'],['造型来源',result.presetAppearanceUsed?'采用默认影偶':'使用已编辑的造型'],
         ['亲手完成的片段',path.filter(node=>!result.assistedNodeIds.includes(node.id)&&!result.skippedNodeIds.includes(node.id)).map(node=>node.title).join('、')||'本场操作片段均采用明确协助'],
         ['主动跳过的片段',result.skippedNodeIds.length?result.skippedNodeIds.map(nodeId=>definitionFor(state.project?.story).nodes.find(node=>node.id===nodeId)!.title).join('、'):'未主动跳过'],

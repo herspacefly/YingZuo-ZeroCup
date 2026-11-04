@@ -22,7 +22,7 @@ export function mountReunionReplay(host:HTMLElement,project:ProjectV1,audio?:Sta
   for(const [button,id]of [[play,'play'],[pause,'pause'],[reset,'reset'],[previous,'previous'],[next,'next'],[step,'step']] as const){button.type='button';button.id=`replay-${id}`;transport.appendChild(button);}
   const motionNote=element('p','quiet-note');append(panel,chooseLabel,status,shot,cueHost,transport,motionNote);append(layout,stage.figure,panel);append(root,title,intro,layout);host.appendChild(root);
   let disposed=false,index=0,elapsed=0,playing=false,blocked=false,ready=false,message='已就绪后可播放；默认暂停。';
-  const voiceControls=mountVoiceControls(panel,audio,'replay');voiceControls.setVisible(project.story?.definitionVersion===5);
+  const voiceControls=mountVoiceControls(panel,audio,'replay');voiceControls.setVisible(true);
   let captionSample:ReturnType<typeof replay.sample>|null=null;
   const media=window.matchMedia?.('(prefers-reduced-motion: reduce)');let reduced=media?.matches??false;
   const clock=createAnimationClock({request:cb=>requestAnimationFrame(cb),cancel:id=>cancelAnimationFrame(id),now:()=>performance.now()},delta=>{
@@ -38,7 +38,7 @@ export function mountReunionReplay(host:HTMLElement,project:ProjectV1,audio?:Sta
     if(captionSample)subtitles.update(captionSample.cues,captionSample.allCues,String(index),{mode:project.story!.mode,cues:captionSample.seekCues,elapsedMs:elapsed,enabled:!blocked&&ready});
   }
   function stop(text?:string){playing=false;clock.stop();syncVoice();if(text)message=text;controls();}
-  function syncVoice(){const segment=replay.segments[index];if(project.story?.definitionVersion!==5||!captionSample||!segment)return;audio?.setVoice({token:`replay:${project.projectId}:${project.story.runId}:${index}`,elapsedMs:elapsed,playing:playing&&ready&&!blocked,cues:captionSample.voiceCues},{nodeId:segment.id,mode:project.story.mode,definitionVersion:5,elapsedMs:elapsed,playing:playing&&ready&&!blocked});}
+  function syncVoice(){const segment=replay.segments[index];if(!project.story||!captionSample||!segment)return;audio?.setVoice({token:`replay:${project.projectId}:${project.story.runId}:${index}`,elapsedMs:elapsed,playing:playing&&ready&&!blocked,cues:captionSample.voiceCues},{nodeId:segment.id,mode:project.story.mode,definitionVersion:5,elapsedMs:elapsed,playing:playing&&ready&&!blocked});}
   function draw(){
     if(disposed)return;
     try{const sample=replay.sample(index,elapsed,reduced);captionSample=sample;stage.update(sample.frame);shot.textContent=sample.shotLabel;stage.screen.style.opacity=String(sample.lightLevel);syncVoice();controls();}

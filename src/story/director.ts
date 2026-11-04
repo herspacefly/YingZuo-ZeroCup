@@ -50,7 +50,7 @@ export function createSceneDirector(project: ProjectV1, entry: ReturnType<typeof
   }
   const node = clone(arrangeVoiceNode(entry.node,story.definitionVersion)), mode = story.mode;
   const appearance = clone(story.castSnapshot?.appearance ?? project.appearance);
-  const costumeTreatment=story.definitionVersion>=4?'original-texture' as const:'legacy-motif' as const;
+  const costumeTreatment='original-texture' as const;
   const sharedMotif = story.castSnapshot?.sharedMotif ?? appearance.patternId;
   const durationMs = (mode === 'full' ? node.fullTiming : node.guidedTiming).targetMs;
   const allCues = subtitlesForMode(node, mode);
@@ -72,8 +72,8 @@ export function createSceneDirector(project: ProjectV1, entry: ReturnType<typeof
       // Subtitles use the real mode time, even when motion is sampled as still storyboards.
       const cues = allCues.filter(cue => cue.startMs <= elapsed &&
         (elapsed < cue.endMs || elapsed === durationMs && cue.endMs === durationMs));
-      const visualNode=story.definitionVersion===5?authoredVoiceNode(node.id):node;
-      const visualElapsed=story.definitionVersion===5?voiceVisualTime(node.id,mode,elapsed):durationMs>0?elapsed/durationMs*node.fullTiming.targetMs:0;
+      const visualNode=authoredVoiceNode(node.id);
+      const visualElapsed=voiceVisualTime(node.id,mode,elapsed);
       const beats=visualBeats[node.id]??visualNode.subtitles.map(cue=>cue.startMs);
       const fullTime = reducedMotion && elapsed < durationMs && visualElapsed < visualNode.fullTiming.targetMs
         ? beats.filter(time=>time<=visualElapsed).reduce((time,beat)=>Math.max(time,beat),0)
@@ -149,7 +149,7 @@ export function createSceneDirector(project: ProjectV1, entry: ReturnType<typeof
         case 'call-response':
           respond(between(fullTime, 0, 3000));
           stage.lampX += .1 * Math.sin(Math.PI * progress);
-          shotLabel = story.definitionVersion>=4?'山中回应 · 灯火相认':'山中回应 · 袖口共纹';
+          shotLabel = '山中回应 · 灯火相认';
           break;
         case 'split-response':
           respond(between(fullTime, 0, 3000));

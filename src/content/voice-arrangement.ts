@@ -40,7 +40,8 @@ function schedule(id:StoryNode['id'],mode:Mode){
 /** Transient performance copy. The persisted story and all authored JSON remain unchanged.
  * Rebuild from fixed measured slots every time, making JSON-cloned adapted nodes idempotent. */
 export function arrangeVoiceNode(node:StoryNode,version:StoryVersion):StoryNode {
-  if(version!==5||node.kind==='terminal')return node;
+  if(version!==5)throw new RangeError('不支持这份剧本数据，请导出原始数据后重新开演。');
+  if(node.kind==='terminal')return node;
   const full=schedule(node.id,'full'),guided=schedule(node.id,'guided');
   const fullDuration=Math.max(full.durationMs,guided.durationMs);
   if(fullDuration>full.durationMs&&full.slots.length&&node.id!=='curtain')full.slots[full.slots.length-1]!.endMs=fullDuration;
@@ -57,7 +58,7 @@ export function arrangeVoiceNode(node:StoryNode,version:StoryVersion):StoryNode 
 
 /** The voice lookup uses the actual presented text, including choice-derived variants. */
 export function voiceCuesForNode(node:StoryNode,mode:Mode,version:StoryVersion):VoiceCue[]{
-  if(version!==5)return [];
+  if(version!==5)throw new RangeError('不支持这份剧本数据，请导出原始数据后重新开演。');
   return modeCues(arrangeVoiceNode(node,version),mode).map(cue=>{
     const clip=clips.get(`${cue.speaker}\u0000${cue.text}`);
     if(!clip)throw new RangeError(`台词缺少配音：${node.id}/${cue.speaker}`);

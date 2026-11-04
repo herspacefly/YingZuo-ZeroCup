@@ -3,7 +3,7 @@ import type { StoryProgress } from '../domain/types';
 
 /** Recall choices on the authored timebase, without changing checkpoints. */
 export function presentChoiceDialogue(node:StoryNode,story:StoryProgress):StoryNode {
-  if(story.definitionVersion!==5||!story.choices||!['mountain-listen','ending-choice'].includes(node.id))return node;
+  if(!['mountain-listen','ending-choice'].includes(node.id))return node;
   const {journeyIntent,mountainPact}=story.choices;
   if(!journeyIntent||!mountainPact||!story.approach)return node;
   const wish=journeyIntent==='home'?'接母亲回家':'为后来人留路';

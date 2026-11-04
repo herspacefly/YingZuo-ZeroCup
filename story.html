@@ -4,11 +4,11 @@
 <body>
   <header><a href="./">影作·一幕团圆</a><nav aria-label="工程入口"><a href="./assets.html">资产检查</a><a href="./project.html">存档工作台</a></nav></header>
   <main>
-    <p class="eyebrow">T15 / VERSIONED STORY</p><h1>先让这出戏，从头到尾讲通。</h1>
-    <p>据传统故事《劈山救母》原创交互改编。本页检查版本化文字、选择与存档，操作段明确按文字协助记载；正式操偶与三维体验请从首页进入。字幕以完整文本显示。</p>
+    <p class="eyebrow">STORY REHEARSAL / 文字排演</p><h1>先让这出戏，从头到尾讲通。</h1>
+    <p>据传统故事《劈山救母》原创交互改编。本页检查正式剧情文字、四次选择与存档，操作段明确按文字协助记载；正式操偶与三维体验请从首页进入。字幕以完整文本显示。</p>
     <p id="story-status" role="status" data-state="loading">正在读取正式项目；JavaScript不可用时可阅读本页说明。</p><p id="story-operation" role="alert"></p>
     <section class="toolbar" aria-label="排演控制">
-      <label>演出节奏<select id="story-mode"><option value="full">完整版</option><option value="guided">导览版</option></select></label>
+      <label>演出节奏<select id="story-mode"><option value="full">完整演出</option><option value="guided">节选导览</option></select></label>
       <button id="story-start" disabled>开始文字排演</button><button id="story-play" disabled>继续这一小段</button><button id="story-pause" disabled>暂停</button>
       <button id="story-skip" disabled>跳过序幕</button>
     </section>
@@ -24,6 +24,6 @@
       <details><summary>建立新的编辑项目</summary><p>归档当前有效项目后新建；本场的身份不会被复用。重新开始需要再次确认文字排演。</p><label><input id="archive-ack" type="checkbox">允许替换已有的上一项目（可先导出）</label><button id="story-new" disabled>归档并新建项目</button></details>
       <p>损坏、未知版本和多标签冲突可前往<a href="./project.html">存档工作台</a>处理，本页不自动覆盖。</p>
     </section>
-  </main><footer>文字排演检查 · 完整图像、交互与节点场面调度由后续任务接入。</footer>
+  </main><footer>文字排演检查 · 完整画面、中文配音与操偶体验请从首页进入。</footer>
   <script type="module" src="/src/features/story-lab/main.ts"></script>
 </body></html>

@@ -61,7 +61,8 @@ function region(frame: CanvasFrame, kind: RegionKind, lightRegion?: 'lantern'): 
   const actor = frame.actors.find(item => item.actorId === 'chenxiang');
   if (!actor) return null;
   const template = templateFor(actor.templateId)!;
-  if(kind==='light'&&lightRegion==='lantern'){
+  if(kind==='light'){
+    if(lightRegion!=='lantern')return null;
     const lantern=template.attachments.find(item=>item.id==='lantern');
     if(!lantern||!frame.attachments?.some(item=>item.actorId===actor.actorId&&item.attachmentId==='lantern'))return null;
     const transform=attachmentTransform(template,actor.pose,lantern);
@@ -69,20 +70,18 @@ function region(frame: CanvasFrame, kind: RegionKind, lightRegion?: 'lantern'): 
   }
   if (kind === 'road') return projectedPoseBounds(template, actor.pose, frame.stage,
     frame.attachments?.filter(item => item.actorId === actor.actorId).map(item => item.attachmentId) ?? []);
-  const parts = kind === 'light' ? [template.parts.find(part => part.partId === template.motifPlacement?.partId)]
-    : template.parts.filter(part => part.partId === 'rightUpperArm' || part.partId === 'rightForearm');
-  if (parts.some(part => !part) || parts.length !== (kind === 'light' ? 1 : 2)) return null;
+  const parts = template.parts.filter(part => part.partId === 'rightUpperArm' || part.partId === 'rightForearm');
+  if (parts.length !== 2) return null;
   const points: Point[] = [];
   for (const part of parts) {
-    const bounds = kind === 'light' ? template.motifPlacement?.bounds : part!.bounds;
-    if (!bounds) return null;
-    const transform = partTransform(template, actor.pose, part!);
+    const bounds = part.bounds;
+    const transform = partTransform(template, actor.pose, part);
     points.push(...corners(bounds).map(point => projectLocalPoint(transformPoint(point, transform), actor.pose, frame.stage)));
   }
   return boundsOf(points);
 }
 
-/** v4 light tasks observe the held lantern; older scripts keep their original motif region. */
+/** Light tasks observe the held lantern in the current projected frame. */
 export function projectedInteractionRegion(frame: CanvasFrame, kind: RegionKind, lightRegion?: 'lantern'): Bounds | null {
   const prepared = validatedFrame(frame);
   return prepared && ['wave', 'road', 'block', 'light'].includes(kind) ? region(prepared, kind, lightRegion) : null;

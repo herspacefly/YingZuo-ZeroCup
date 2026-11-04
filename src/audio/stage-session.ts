@@ -45,9 +45,9 @@ export function createStageAudioSession(options: StageAudioSessionOptions) {
     if (disposed) return;
     const soundtrack=voiceScene??scene;
     const selected=musicForScene(soundtrack, storyPage||!!voiceScene, active);
-    // v5 reserves a separate tail for the original curtain vocal recording.
+    // The curtain reserves a separate tail for the original vocal recording.
     // It must never sing across the newly spoken dialogue, even when voice is muted.
-    if(soundtrack?.definitionVersion===5&&soundtrack.nodeId==='curtain'&&voiceSample){
+    if(soundtrack?.nodeId==='curtain'&&voiceSample){
       const end=voiceSample.cues.reduce((max,cue)=>Math.max(max,cue.endMs),0);
       if(soundtrack.elapsedMs<end)selected.trackId='instrumental';
     }
@@ -63,6 +63,12 @@ export function createStageAudioSession(options: StageAudioSessionOptions) {
     if (disposed) return;
     if (!sample && scene) engine.update({ ...scene, playing: false });
     active = isActive; scene = sample ? { ...sample } : null; storyPage = isStoryPage; sync();
+  }
+  function enterStory() {
+    if (disposed) return;
+    // A formal page entry starts a new voice intent. Node changes and focus do not.
+    voiceIntent = true;
+    void voiceEngine.enable();
   }
   function unlock() {
     if (disposed || !active) return;
@@ -88,7 +94,7 @@ export function createStageAudioSession(options: StageAudioSessionOptions) {
     if (disposed) return;
     disposed = true;voiceEngine.dispose(); music.dispose(); engine.dispose(); scene = null;voiceSample=null;voiceScene=null;
   }
-  return { effects, voice, setVoice, setScene, setActive, unlock, toggleMusic, toggleVoice, dispose,
+  return { effects, voice, setVoice, setScene, setActive, enterStory, unlock, toggleMusic, toggleVoice, dispose,
     musicEnabled: () => musicIntent, effectsEnabled: () => effectsIntent, voiceEnabled:()=>voiceIntent,
   };
 }
