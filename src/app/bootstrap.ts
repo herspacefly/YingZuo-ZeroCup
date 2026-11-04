@@ -66,7 +66,7 @@ const unlockAudio=(event:Event)=>{
   // These controls own their retry/mute decision in the same trusted click.
   // An earlier capture-phase retry would change the state before that decision.
   let audioTarget=event.target as HTMLElement|null;
-  while(audioTarget&&audioTarget!==document.body){if(audioTarget.id==='site-music-toggle'||/^(story|replay)-voice-toggle$/.test(audioTarget.id))return;audioTarget=audioTarget.parentElement;}
+  while(audioTarget&&audioTarget!==document.body){if(audioTarget.id==='site-music-toggle'||/^(story|replay|trial)-voice-toggle$/.test(audioTarget.id))return;audioTarget=audioTarget.parentElement;}
   if(event instanceof KeyboardEvent&&(event.ctrlKey||event.metaKey||event.altKey||['Shift','Control','Alt','Meta','Escape','Tab'].includes(event.key)))return;
   const now=performance.now();
   if(event.type==='click'&&now-lastPointerActivation<500)return;

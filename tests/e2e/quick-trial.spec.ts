@@ -1,5 +1,7 @@
 import { test, expect } from './formal-fixture';
 import type { Page } from '@playwright/test';
+import fixture from '../fixtures/project-v1.json' with {type:'json'};
+import type {ProjectV1} from '../../src/domain/types';
 
 async function virtualClock(page: Page) {
   await page.addInitScript(() => {
@@ -40,6 +42,7 @@ test('quick trial keeps the formal draft unchanged, pauses at both operations an
   test.setTimeout(90000); await page.emulateMedia({ reducedMotion: 'reduce' }); await virtualClock(page);
   await page.addInitScript(() => Object.defineProperty(window, 'WebGL2RenderingContext', { value: undefined, configurable: true }));
   const source = await open(page); await advanceToLamp(page);
+  await page.locator('#quick-trial').screenshot({path:test.info().outputPath('trial-lamp.png')});
   const budget = await page.locator('#quick-trial').getAttribute('data-automatic-ms'); await frames(page, 5000); await expect(page.locator('#quick-trial')).toHaveAttribute('data-automatic-ms', budget!);
   await page.locator('#trial-lamp-x').focus(); await page.locator('#trial-lamp-x').press('ArrowRight'); await expect(page.locator('#trial-lamp-done')).toBeEnabled(); await page.locator('#trial-lamp-done').click();
   await continueIfPaused(page); await frames(page, 18396); await expect(page.locator('#quick-trial')).toHaveAttribute('data-state', 'waiting-wave');
@@ -61,7 +64,7 @@ test('pause, lost focus, restart and closing leave no active trial clock', async
 
 test('a failed curtain asset reports failure and retries without starting time or changing the draft', async ({ page }) => {
   await virtualClock(page); let fail = true;
-  await page.route('**/assets/puppets/chenxiang-v1/head-mask.png', route => fail ? route.abort() : route.continue());
+  await page.route(/\/assets\/(?:delivery\/chenxiang-v1-head-color\.webp|puppets\/chenxiang-v1\/head-color\.png)$/, route => fail ? route.abort() : route.continue());
   await page.goto('/'); await expect(page.locator('#save-state')).toHaveAttribute('data-state', 'saved'); const source = await draft(page);
   await page.locator('#intro-quick-trial').click(); await expect(page.locator('#quick-trial')).toHaveAttribute('data-state', 'error');
   await expect(page.locator('#trial-status')).toContainText('未能准备好'); await expect(page.locator('#trial-play')).toBeDisabled();
@@ -77,4 +80,42 @@ test('320px trial, keyboard close and repeated entry retain a single usable curt
   await page.locator('#trial-close').focus(); await page.locator('#trial-close').press('Escape'); await expect(page.locator('#quick-trial')).toHaveCount(0);
   await page.locator('#intro-quick-trial').click(); await expect(page.locator('#quick-trial')).toHaveCount(1); await expect(page.locator('#quick-trial canvas.shadow-stage')).toHaveCount(1);
   await page.locator('#trial-close').click(); expect(await page.evaluate(() => Reflect.get(window, '__trialClocks')())).toBe(0);
+});
+
+
+for(const version of [1,2,3,4,5])test(`opening and closing the trial preserves an existing v${version} performance`,async({page})=>{
+  await page.emulateMedia({reducedMotion:'reduce'});await virtualClock(page);
+  await page.goto('/study.html');const project=structuredClone(fixture) as ProjectV1;
+  Object.assign(project.story!,{definitionVersion:version,mode:'guided'});
+  if(version>1)Object.assign(project.story!,{ending:null,endingSource:null});
+  if(version===5)project.story!.choices={journeyIntent:'home',mountainPact:'shared',finalAction:null};
+  await page.evaluate(async project=>{
+    const db=await new Promise<IDBDatabase>((yes,no)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>yes(r.result);r.onerror=()=>no(r.error);});
+    await new Promise<void>((yes,no)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(project),'draft');tx.oncomplete=()=>yes();tx.onabort=()=>no(tx.error);});db.close();
+  },project);
+  const source=await open(page);await frames(page,200);await page.locator('#trial-close').click();expect(await draft(page)).toEqual(source);
+  await expect(page.getByRole('link',{name:'继续这一场 ↗',exact:true})).toBeVisible();
+});
+
+test('native MP3 trial ends all nine spoken lines before its no-spoiler invitation',async({page,isMobile})=>{
+  test.skip(isMobile,'One natural-time desktop media run complements the wide/narrow controlled-clock matrix.');test.setTimeout(240000);
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await page.addInitScript(()=>{
+    const Original=window.Audio;const ended:string[]=[],errors:string[]=[];
+    Reflect.set(window,'__trialNative',{ended,errors});
+    window.Audio=function(src?:string){const audio=new Original(src);audio.addEventListener('ended',()=>{if(audio.src.includes('/audio/voice-v5/'))ended.push(audio.src);});audio.addEventListener('error',()=>{if(audio.src.includes('/audio/voice-v5/'))errors.push(audio.src);});return audio;} as typeof Audio;
+  });
+  await page.goto('/');await expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');const source=await draft(page);
+  await page.locator('#intro-quick-trial').click();await expect(page.locator('#quick-trial .canvas-stage-status')).toHaveAttribute('data-state','ready');
+  let resumed=0;
+  await expect.poll(async()=>{
+    const trial=page.locator('#quick-trial'),state=await trial.getAttribute('data-state');
+    if(state==='waiting-lamp'||state==='waiting-wave')await page.locator('#trial-assist').click();
+    else if(state==='paused'&&await page.locator('#trial-play').isEnabled()){resumed++;await page.locator('#trial-play').click();}
+    return state;
+  },{timeout:210000,intervals:[300]}).toBe('completed');
+  const native=await page.evaluate(()=>Reflect.get(window,'__trialNative') as {ended:string[];errors:string[]});
+  expect(native.errors).toEqual([]);expect(native.ended).toHaveLength(9);expect(new Set(native.ended).size).toBe(9);
+  expect(await draft(page)).toEqual(source);await test.info().attach('native-trial',{body:JSON.stringify({...native,resumed}),contentType:'application/json'});
+  await page.locator('#trial-close').click();
 });

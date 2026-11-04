@@ -34,15 +34,15 @@ export const mountCraft:PageFactory=(host,ctx)=>{
   const swatches=element('div','palette-swatches');swatches.setAttribute('aria-hidden','true');
   const summary=element('p','selection-summary'),save=element('button','button secondary','保存这身行装');summary.id='craft-summary';
   append(field,paletteLabelNode,swatches,apply,colorToggle,colors);append(panel,field,summary,save);
-  const confirmation=element('section','craft-confirmation'),confirmationText=element('p','quiet-note'),mode=element('select');mode.id='craft-mode';
-  for(const [value,label]of [['full','完整演出'],['guided','节选导览']]){const option=element('option','',label);option.value=value!;mode.appendChild(option);}
+  const confirmation=element('section','craft-confirmation'),directEntry=element('details','craft-direct-entry'),directLabel=element('summary','','跳过准备，直接开演'),archiveEntry=element('details','craft-archive-entry'),archiveLabel=element('summary','','归档旧场，重新开演'),confirmationText=element('p','quiet-note'),mode=element('select');mode.id='craft-mode';
+  for(const [value,label]of [['full','完整演出 · 约23分钟，准备与操作另计'],['guided','节选导览 · 约8—10分钟，操作另计']]){const option=element('option','',label);option.value=value!;mode.appendChild(option);}
   const modeLabel=element('label','','新场的节奏');modeLabel.appendChild(mode);
   const play=element('button','button primary','用这身行装开演'),preset=element('button','button secondary','采用默认影偶开演');play.id='craft-confirm';preset.id='craft-preset';
   const restart=element('button','button secondary','归档旧场，用新造型重新开演');restart.id='craft-restart';
   const acknowledgeLabel=element('label','acknowledge'),acknowledge=element('input');acknowledge.type='checkbox';acknowledge.id='craft-archive-ack';append(acknowledgeLabel,acknowledge,element('span','','允许替换已有的上一项目（可先导出）'));
   const back=link('继续本场已冻结的演出 →','#/story');back.id='craft-return';
   const next=element('button','button primary journey-recommended','保存行装，下一步调灯 →');next.id='journey-to-light';const nextBox=element('section','journey-next');append(nextBox,element('p','','第2步 / 制偶：挑好喜欢的颜色，就可以继续调灯。现在只保存编辑稿，正式开演时再确认本场造型。'),next);panel.appendChild(nextBox);
-  append(confirmation,confirmationText,modeLabel,play,preset,back,restart,acknowledgeLabel);panel.appendChild(confirmation);
+  append(directEntry,directLabel,modeLabel,play,preset);append(archiveEntry,archiveLabel,element('p','quiet-note','可先从作品工具导出备份，再确认归档。'),restart,acknowledgeLabel);append(confirmation,confirmationText,back,directEntry,archiveEntry);panel.appendChild(confirmation);
   append(layout,stage.figure,panel);host.appendChild(layout);
   const trial=element('div','craft-trial'),trialHelp=element('p','quiet-note','试提身杆：拖动幕下握柄，或聚焦后用方向键。这里的试提可重置，不改练习台存下的姿态。');
   const trialPad=element('div','direction-pad');trialPad.setAttribute('role','group');trialPad.setAttribute('aria-label','试提身杆逐步操作');
@@ -74,7 +74,7 @@ export const mountCraft:PageFactory=(host,ctx)=>{
     for(const [slot,select]of slots){for(let i=0;i<5;i++)select.options[i]!.textContent=colorNames[selected.colors[i]!]!;select.value=String(draft.appearance.colorSlots[slot]);}
     while(swatches.firstChild)swatches.removeChild(swatches.firstChild);for(const color of selected.colors){const span=element('span','swatch');span.style.backgroundColor=color;swatches.appendChild(span);}
     summary.textContent=`${paletteLabel(palette.value)}。${state.hasPending&&draft.story?.castSnapshot?'待保存的本场造型已冻结；后续修改排队到编辑稿，不改候选演出。':story?.castSnapshot?'这是编辑稿；本场已冻结的造型保持不变。':'保留原画的精细纹理；确认开演前还可以修改配色。'}`;
-    const frozen=!!story?.castSnapshot;nextBox.hidden=!!story;play.className=story?'button primary':'button secondary';
+    const frozen=!!story?.castSnapshot;nextBox.hidden=!!story;play.className='button secondary';back.className='button primary';directEntry.hidden=frozen;archiveEntry.hidden=!frozen;
     modeLabel.hidden=!!story;play.hidden=preset.hidden=frozen;
     back.hidden=!story;restart.hidden=acknowledgeLabel.hidden=!frozen;
     back.textContent=frozen?'继续本场已冻结的演出 →':'回到当前剧情 →';

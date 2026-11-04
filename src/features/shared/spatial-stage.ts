@@ -22,7 +22,7 @@ export function mountSpatialStage(figure:HTMLElement,source:HTMLCanvasElement,ba
   const exhibits=element('nav','spatial-exhibits');exhibits.setAttribute('aria-label','从展台前往展签');exhibits.hidden=true;
   for(const item of museumExhibits)exhibits.appendChild(link(`${item.id} · ${item.title}`,`#/museum/${item.id}`,'spatial-exhibit-link'));
   const inspect=element('div','spatial-inspect'),actorSelect=element('select'),resetView=element('button','button secondary','复位观察'),zoomIn=element('button','button secondary','放大'),zoomOut=element('button','button secondary','缩小');
-  actorSelect.setAttribute('aria-label','近看人物');for(const [id,label]of [['chenxiang','沉香'],['mother','母亲'],['guardian','二郎神']]){const option=element('option','',label);option.value=id!;actorSelect.appendChild(option);}append(inspect,element('p','quiet-note','拖动空间画面改变视角；放大查看刻纹与持物。操偶仍在上方二维幕面完成。'),actorSelect,zoomIn,zoomOut,resetView);
+  actorSelect.setAttribute('aria-label','近看人物');for(const [id,label]of [['chenxiang','沉香'],['mother','母亲'],['guardian','二郎神']]){const option=element('option','',label);option.value=id!;actorSelect.appendChild(option);}append(inspect,element('p','quiet-note',backstage?'拖动空间画面改变视角，放大查看刻纹与持物。返回幕前并继续后可操偶。':'拖动空间画面改变视角；放大查看刻纹与持物。操偶仍在上方二维幕面完成。'),actorSelect,zoomIn,zoomOut,resetView);
   const close=element('button','button secondary spatial-close','只看二维幕面');close.type='button';
   append(panel,mount,controls,inspect,exhibits,element('p','quiet-note','切换机位可以看清幕后的关系；操偶仍在上方幕面完成。'),close);
   if(backstage){

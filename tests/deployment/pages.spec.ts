@@ -98,6 +98,7 @@ for (const mode of ['full', 'guided'] as const) for (const preset of [false, tru
     const readyTimeout = process.env.YINGZUO_PAGES_URL ? 60000 : 20000;
     await page.goto(baseURL! + '#/craft', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state', 'ready', { timeout: readyTimeout });
+    await page.locator('.craft-direct-entry > summary').click();
     await page.locator('#craft-mode').selectOption(mode);
     await page.locator(preset ? '#craft-preset' : '#craft-confirm').click();
     await expect(page.locator('#story-runtime')).toHaveAttribute('data-node', 'memory-wave');
@@ -140,12 +141,15 @@ test('old craft performances stay intact and explicitly archiving opens a voiced
   }, legacy);
   await page.goto(baseURL! + '#/craft', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('#craft-confirm')).toBeEnabled({ timeout: process.env.YINGZUO_PAGES_URL ? 60000 : 20000 });
+  await page.locator('.craft-direct-entry > summary').click();
   await page.locator('#craft-confirm').click();
   await expect(page.locator('#story-version-note')).toContainText('未接入中文配音');
   await expect(page.locator('#story-voice-toggle')).toBeHidden();
   await page.locator('#story-version-note a').click();
+  await page.locator('.craft-archive-entry > summary').click();
   await page.locator('#craft-restart').click();
   await expect(page.locator('#craft-confirm')).toBeEnabled();
+  await page.locator('.craft-direct-entry > summary').click();
   await page.locator('#craft-confirm').click();
   await expect(page.locator('#story-voice-toggle')).toBeVisible();
   await expect(page.locator('#story-version-note')).toBeHidden();
