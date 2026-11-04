@@ -4,4 +4,4 @@
 .site-music .music-credit { flex:1 1 480px; font-size:11px; }
 .site-music a { display:inline-flex; align-items:center; min-height:44px; }
 .music-toggle[aria-pressed="true"] { border-color:#d7a253; color:#efc17e; }
-@media(max-width:760px) { .site-music { padding:10px 20px; } .site-music .music-credit { flex-basis:100%; } .music-toggle { margin:8px 0; } }
+@media(max-width:760px) { .site-music { padding:10px 20px; } .site-music .music-credit { flex-basis:100%; } .music-toggle { margin:0; font-size:14px; padding:8px 10px; } }

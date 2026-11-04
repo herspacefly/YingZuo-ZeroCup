@@ -3,7 +3,7 @@ import type { StoryNodeId, StoryProgress } from '../domain/types';
 
 export interface ChoiceOption {id:string;nodeId:StoryNodeId;label:string;payload:StoryPayload}
 /** The formal stage and text alternative expose the same authored actions. */
-export function v5ChoiceOptions(story:Pick<StoryProgress,'choices'>|null|undefined):ChoiceOption[] {
+export function choiceOptions(story:Pick<StoryProgress,'choices'>|null|undefined):ChoiceOption[] {
   return [
     {id:'journey-home',nodeId:'journey-choice',label:'接母亲回家',payload:{action:'CHOOSE_JOURNEY',journeyIntent:'home'}},
     {id:'journey-open-road',nodeId:'journey-choice',label:'为后来人留路',payload:{action:'CHOOSE_JOURNEY',journeyIntent:'open-road'}},
