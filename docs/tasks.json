@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-04",
   "projectName": "影作·一幕团圆",
   "projectRoot": ".",
   "competitionGroup": "零组",
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T38_in_progress",
-  "activeTaskId": "T38",
+  "stage": "T45_in_progress",
+  "activeTaskId": "T45",
   "lastVerifiedCommit": "9b7d99c63b4012b31a1aea9aa703b735c7d1a6ea",
   "features": {
     "singlePuppetRecording": "planned_optional",
@@ -1999,6 +1999,36 @@
         "未新增外部图片，许可仍未知；未提交、推送部署或执行实体设备/听感验收。",
         "发布首轮资源检查失败，补6字字体与来源检查规则后9b7d99c云端构建部署success；公开首页与新脚本HTTP200。"
       ],
+      "phase": "G3"
+    },
+    {
+      "id": "T45",
+      "title": "上手体验、独立快速试演、幕后观察与终章节目单",
+      "priority": "P0",
+      "status": "in_progress",
+      "dependsOn": [
+        "T44"
+      ],
+      "owner": "codex-root",
+      "branch": "codex/t45-experience-showcase",
+      "touchFiles": [
+        "src/features/",
+        "src/app/bootstrap.ts",
+        "src/styles/",
+        "tests/",
+        "public/assets/typography/",
+        "docs/",
+        "START_HERE.md",
+        "README.md",
+        "AGENTS.md"
+      ],
+      "acceptanceRefs": [
+        "T45"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "独立工作树并行实现快速试演、教学反馈和节目单，集成人完成共享舞台与入口、检查和本地提交。",
+      "blocker": null,
+      "verification": [],
       "phase": "G3"
     }
   ],
