@@ -1,0 +1,1781 @@
+{
+  "config": {
+    "argv": [
+      "E:\\Software_after2026\\nodejs\\node.exe",
+      "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/experience-entry.spec.ts",
+      "tests/e2e/theatre-horizontal.spec.ts",
+      "tests/e2e/navigation.spec.ts",
+      "--workers=2",
+      "--output=test-results/t45-entry-layout"
+    ],
+    "configFile": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\playwright.config.ts",
+    "rootDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results/t45-entry-layout",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "desktop-chromium",
+        "name": "desktop-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/.MyLearning/VSCodeProject/ZeroCup/test-results/t45-entry-layout",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "D:/.MyLearning/VSCodeProject/ZeroCup/tests/e2e",
+        "testIgnore": [
+          "**/environment-preflight.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t45-entry-layout",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "desktop-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop-chromium"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t45-entry-layout",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "mobile-chromium",
+        "testDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "snapshotDir": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e",
+        "testIgnore": "**/environment-preflight.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile-chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/t45/entry-layout.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 2,
+    "webServer": {
+      "command": "npm run preview -- --port 4173 --strictPort",
+      "url": "http://127.0.0.1:4173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "experience-entry.spec.ts",
+      "file": "experience-entry.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "the full journey has one next action and keeps lamp experiments out of the story contract",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 11696,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#story-runtime')\nExpected: \u001b[32m\"intro\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#story-runtime')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#story-runtime')\nExpected: \u001b[32m\"intro\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#story-runtime')\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\experience-entry.spec.ts:15:96",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\experience-entry.spec.ts",
+                      "column": 96,
+                      "line": 15
+                    },
+                    "snippet": "  13 |   await expect(page.locator('.control-panel')).toContainText('正式演出使用各片段的舞台灯位');\n  14 |   await page.locator('#journey-to-practice').click();await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready');\n> 15 |   await page.locator('#journey-to-story').click();await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','intro');\n     |                                                                                                ^\n  16 |   await expect(page.locator('#story-mode')).toHaveValue('full');await expect(page.locator('#story-version-note')).toBeHidden();\n  17 | });\n  18 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\experience-entry.spec.ts",
+                        "column": 96,
+                        "line": 15
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#story-runtime')\nExpected: \u001b[32m\"intro\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#story-runtime')\u001b[22m\n\n\n  13 |   await expect(page.locator('.control-panel')).toContainText('正式演出使用各片段的舞台灯位');\n  14 |   await page.locator('#journey-to-practice').click();await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready');\n> 15 |   await page.locator('#journey-to-story').click();await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','intro');\n     |                                                                                                ^\n  16 |   await expect(page.locator('#story-mode')).toHaveValue('full');await expect(page.locator('#story-version-note')).toBeHidden();\n  17 | });\n  18 |\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\experience-entry.spec.ts:15:96"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:12:51.076Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t45-entry-layout\\experience-entry-the-full--014ab-s-out-of-the-story-contract-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t45-entry-layout\\experience-entry-the-full--014ab-s-out-of-the-story-contract-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\experience-entry.spec.ts",
+                    "column": 96,
+                    "line": 15
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0ecab3098e27adc94396-ea24122dc54d6b31eebc",
+          "file": "experience-entry.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "320px home keeps its three entrances aligned and an existing performance remains the primary action",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3893,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:12:51.112Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0ecab3098e27adc94396-d793ca48de25a9537fa2",
+          "file": "experience-entry.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "the full journey has one next action and keeps lamp experiments out of the story contract",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 13121,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:15:07.851Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0ecab3098e27adc94396-ccbed5c399d0d19beb5e",
+          "file": "experience-entry.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "320px home keeps its three entrances aligned and an existing performance remains the primary action",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 8449,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:15:26.807Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0ecab3098e27adc94396-86b01995b002125ef64a",
+          "file": "experience-entry.spec.ts",
+          "line": 19,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "navigation.spec.ts",
+      "file": "navigation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "direct routes, museum children, back and refresh preserve the confirmed performance",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 12392,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:12:55.643Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-21ca1339d6b2aa004b70",
+          "file": "navigation.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "URLs cannot start a story or manufacture a completed result",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4672,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:13:08.958Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-b13e5349a1ddbf414544",
+          "file": "navigation.spec.ts",
+          "line": 49,
+          "column": 1
+        },
+        {
+          "title": "explicit guided opening and intro skip persist once, and ten remounts cannot repeat the command",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 23233,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:13:08.141Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-9c5bb9d089d7c4cf1a1a",
+          "file": "navigation.spec.ts",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "craft saves the current editor while leaving frozen cast and decision intact",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14308,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:13:14.255Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-eb2dd50ff2aa21fdbfe3",
+          "file": "navigation.spec.ts",
+          "line": 67,
+          "column": 1
+        },
+        {
+          "title": "a failed opening stays on the old page, exports its candidate and retries the identical run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 28036,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:13:29.089Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-3a750efc8037e0bf61f8",
+          "file": "navigation.spec.ts",
+          "line": 80,
+          "column": 1
+        },
+        {
+          "title": "denied storage keeps an editable export and an explicit memory-only opening",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 24165,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:13:31.622Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-afb7d406c8e8279e3d5e",
+          "file": "navigation.spec.ts",
+          "line": 91,
+          "column": 1
+        },
+        {
+          "title": "archive/import use the shared serial entry, and cancel preserves the existing project",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 24977,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:13:56.268Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-6155f300ecee76dca297",
+          "file": "navigation.spec.ts",
+          "line": 101,
+          "column": 1
+        },
+        {
+          "title": "workbench recovery can be explicitly reread without leaving the product stuck",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 30991,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#story-runtime')\nExpected: \u001b[32m\"p\u001b[7mlaying\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"p\u001b[7maused\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#story-runtime')\u001b[22m\n\u001b[2m    12 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-state=\"paused\" data-showcase=\"none\" class=\"story-runtime\" data-node=\"call-light\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:8:call-light:1\">页面停顿较久，已暂停；继续时不补算这段时间。</p>\u001b[22m\n\u001b[2m       - unexpected value \"paused\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#story-runtime')\nExpected: \u001b[32m\"p\u001b[7mlaying\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"p\u001b[7maused\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#story-runtime')\u001b[22m\n\u001b[2m    12 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-state=\"paused\" data-showcase=\"none\" class=\"story-runtime\" data-node=\"call-light\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:8:call-light:1\">页面停顿较久，已暂停；继续时不补算这段时间。</p>\u001b[22m\n\u001b[2m       - unexpected value \"paused\"\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\navigation.spec.ts:123:48",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\navigation.spec.ts",
+                      "column": 48,
+                      "line": 123
+                    },
+                    "snippet": "  121 |   await expect(page.locator('#story-runtime')).toHaveAttribute('data-node', fixture.story.nodeId);\n  122 |   await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state', 'ready');\n> 123 |   await expect(page.locator('#story-runtime')).toHaveAttribute('data-state', 'playing');\n      |                                                ^\n  124 | });\n  125 |\n  126 | test('a real curtain checkpoint produces the actual programme and prepared reunion image', async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\navigation.spec.ts",
+                        "column": 48,
+                        "line": 123
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#story-runtime')\nExpected: \u001b[32m\"p\u001b[7mlaying\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"p\u001b[7maused\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#story-runtime')\u001b[22m\n\u001b[2m    12 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-state=\"paused\" data-showcase=\"none\" class=\"story-runtime\" data-node=\"call-light\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:8:call-light:1\">页面停顿较久，已暂停；继续时不补算这段时间。</p>\u001b[22m\n\u001b[2m       - unexpected value \"paused\"\u001b[22m\n\n\n  121 |   await expect(page.locator('#story-runtime')).toHaveAttribute('data-node', fixture.story.nodeId);\n  122 |   await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state', 'ready');\n> 123 |   await expect(page.locator('#story-runtime')).toHaveAttribute('data-state', 'playing');\n      |                                                ^\n  124 | });\n  125 |\n  126 | test('a real curtain checkpoint produces the actual programme and prepared reunion image', async ({ page }) => {\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\navigation.spec.ts:123:48"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:13:57.536Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t45-entry-layout\\navigation-workbench-recov-3e21f-t-leaving-the-product-stuck-desktop-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t45-entry-layout\\navigation-workbench-recov-3e21f-t-leaving-the-product-stuck-desktop-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\navigation.spec.ts",
+                    "column": 48,
+                    "line": 123
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-b950532dbb115430bbfc",
+          "file": "navigation.spec.ts",
+          "line": 115,
+          "column": 1
+        },
+        {
+          "title": "a real curtain checkpoint produces the actual programme and prepared reunion image",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6600,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:14:21.696Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-9fa39a06e385493d9a88",
+          "file": "navigation.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "future records remain protected while the museum is readable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2180,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:14:28.503Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-08ed18538401cc21c2df",
+          "file": "navigation.spec.ts",
+          "line": 136,
+          "column": 13
+        },
+        {
+          "title": "corrupt records remain protected while the museum is readable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1843,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:14:30.746Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-93fc8f51eabaa3d55f08",
+          "file": "navigation.spec.ts",
+          "line": 136,
+          "column": 13
+        },
+        {
+          "title": "alias redirects once, keyboard skip does not change route and mobile menu has real focus targets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6024,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:14:33.965Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-a15f68faa83921e7ecb5",
+          "file": "navigation.spec.ts",
+          "line": 143,
+          "column": 1
+        },
+        {
+          "title": "navigation keeps the opened menu through reading, page switches and browser history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 9087,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:14:32.684Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-1c6ce4130133bf924eb3",
+          "file": "navigation.spec.ts",
+          "line": 151,
+          "column": 1
+        },
+        {
+          "title": "legacy product entry uses the same project and can save an editor change in Chromium",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7931,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:14:40.497Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-6b130f11236b508b83fb",
+          "file": "navigation.spec.ts",
+          "line": 184,
+          "column": 1
+        },
+        {
+          "title": "static product introduction remains readable without JavaScript",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2570,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:14:41.857Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-0ef6bf688f6a13ae016f",
+          "file": "navigation.spec.ts",
+          "line": 193,
+          "column": 1
+        },
+        {
+          "title": "direct routes, museum children, back and refresh preserve the confirmed performance",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 31418,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:15:22.954Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-fd2fbd1a9aef1f4da9a5",
+          "file": "navigation.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "URLs cannot start a story or manufacture a completed result",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6344,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:15:36.228Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-5c11eb84139ab6506d83",
+          "file": "navigation.spec.ts",
+          "line": 49,
+          "column": 1
+        },
+        {
+          "title": "explicit guided opening and intro skip persist once, and ten remounts cannot repeat the command",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 36849,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:15:42.740Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-e2b8f6c76c5fbb26bb51",
+          "file": "navigation.spec.ts",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "craft saves the current editor while leaving frozen cast and decision intact",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20622,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:15:54.596Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-b972b9d2f6806ed03e97",
+          "file": "navigation.spec.ts",
+          "line": 67,
+          "column": 1
+        },
+        {
+          "title": "a failed opening stays on the old page, exports its candidate and retries the identical run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 13380,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:16:15.478Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-56314852b191126a9c08",
+          "file": "navigation.spec.ts",
+          "line": 80,
+          "column": 1
+        },
+        {
+          "title": "denied storage keeps an editable export and an explicit memory-only opening",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 13853,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:16:19.740Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-7fa63df6aaa3f9b1f49e",
+          "file": "navigation.spec.ts",
+          "line": 91,
+          "column": 1
+        },
+        {
+          "title": "archive/import use the shared serial entry, and cancel preserves the existing project",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10279,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:16:29.088Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-0c803acdf7adfa1a4498",
+          "file": "navigation.spec.ts",
+          "line": 101,
+          "column": 1
+        },
+        {
+          "title": "workbench recovery can be explicitly reread without leaving the product stuck",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 19593,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#story-runtime')\nExpected: \u001b[32m\"p\u001b[7mlaying\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"p\u001b[7maused\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#story-runtime')\u001b[22m\n\u001b[2m    13 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-state=\"paused\" data-showcase=\"none\" class=\"story-runtime\" data-node=\"call-light\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:8:call-light:1\">页面停顿较久，已暂停；继续时不补算这段时间。</p>\u001b[22m\n\u001b[2m       - unexpected value \"paused\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#story-runtime')\nExpected: \u001b[32m\"p\u001b[7mlaying\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"p\u001b[7maused\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#story-runtime')\u001b[22m\n\u001b[2m    13 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-state=\"paused\" data-showcase=\"none\" class=\"story-runtime\" data-node=\"call-light\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:8:call-light:1\">页面停顿较久，已暂停；继续时不补算这段时间。</p>\u001b[22m\n\u001b[2m       - unexpected value \"paused\"\u001b[22m\n\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\navigation.spec.ts:123:48",
+                    "location": {
+                      "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\navigation.spec.ts",
+                      "column": 48,
+                      "line": 123
+                    },
+                    "snippet": "  121 |   await expect(page.locator('#story-runtime')).toHaveAttribute('data-node', fixture.story.nodeId);\n  122 |   await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state', 'ready');\n> 123 |   await expect(page.locator('#story-runtime')).toHaveAttribute('data-state', 'playing');\n      |                                                ^\n  124 | });\n  125 |\n  126 | test('a real curtain checkpoint produces the actual programme and prepared reunion image', async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\navigation.spec.ts",
+                        "column": 48,
+                        "line": 123
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#story-runtime')\nExpected: \u001b[32m\"p\u001b[7mlaying\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"p\u001b[7maused\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#story-runtime')\u001b[22m\n\u001b[2m    13 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-state=\"paused\" data-showcase=\"none\" class=\"story-runtime\" data-node=\"call-light\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:8:call-light:1\">页面停顿较久，已暂停；继续时不补算这段时间。</p>\u001b[22m\n\u001b[2m       - unexpected value \"paused\"\u001b[22m\n\n\n  121 |   await expect(page.locator('#story-runtime')).toHaveAttribute('data-node', fixture.story.nodeId);\n  122 |   await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state', 'ready');\n> 123 |   await expect(page.locator('#story-runtime')).toHaveAttribute('data-state', 'playing');\n      |                                                ^\n  124 | });\n  125 |\n  126 | test('a real curtain checkpoint produces the actual programme and prepared reunion image', async ({ page }) => {\n    at D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\navigation.spec.ts:123:48"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:16:33.856Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t45-entry-layout\\navigation-workbench-recov-3e21f-t-leaving-the-product-stuck-mobile-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\test-results\\t45-entry-layout\\navigation-workbench-recov-3e21f-t-leaving-the-product-stuck-mobile-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\navigation.spec.ts",
+                    "column": 48,
+                    "line": 123
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-6f31680ca370ff48e13e",
+          "file": "navigation.spec.ts",
+          "line": 115,
+          "column": 1
+        },
+        {
+          "title": "a real curtain checkpoint produces the actual programme and prepared reunion image",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7264,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:16:39.674Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-61ccbce7e672f194e282",
+          "file": "navigation.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "future records remain protected while the museum is readable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5826,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:16:47.160Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-30005892fde8d2296a76",
+          "file": "navigation.spec.ts",
+          "line": 136,
+          "column": 13
+        },
+        {
+          "title": "corrupt records remain protected while the museum is readable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2262,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:16:53.149Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-5e1733ab304ffd04d6ac",
+          "file": "navigation.spec.ts",
+          "line": 136,
+          "column": 13
+        },
+        {
+          "title": "alias redirects once, keyboard skip does not change route and mobile menu has real focus targets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4697,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:16:55.495Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-4bd8ed965e6c7cd56355",
+          "file": "navigation.spec.ts",
+          "line": 143,
+          "column": 1
+        },
+        {
+          "title": "navigation keeps the opened menu through reading, page switches and browser history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 18012,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:17:01.048Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-f7439e90118c25529803",
+          "file": "navigation.spec.ts",
+          "line": 151,
+          "column": 1
+        },
+        {
+          "title": "legacy product entry uses the same project and can save an editor change in Chromium",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9238,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:17:00.280Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-1ad94c3426acb439c465",
+          "file": "navigation.spec.ts",
+          "line": 184,
+          "column": 1
+        },
+        {
+          "title": "static product introduction remains readable without JavaScript",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2987,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:17:09.617Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-4c71e8ea24d57cce4042",
+          "file": "navigation.spec.ts",
+          "line": 193,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "theatre-horizontal.spec.ts",
+      "file": "theatre-horizontal.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "home background card aligns with the combined edges of the two feature cards",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3874,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:14:44.755Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "home-edges",
+                      "contentType": "application/json",
+                      "body": "eyJjYXJkIjp7ImxlZnQiOjUyLCJyaWdodCI6MTM4OCwid2lkdGgiOjEzMzZ9LCJmZWF0dXJlcyI6eyJsZWZ0Ijo1MiwicmlnaHQiOjEzODgsIndpZHRoIjoxMzM2fSwib3ZlcmZsb3ciOjB9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "32f3468984f7be0fbc7b-cdc9fa77820a7e364159",
+          "file": "theatre-horizontal.spec.ts",
+          "line": 37,
+          "column": 1
+        },
+        {
+          "title": "wide curtain retains its original height while only background painting expands horizontally",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 12617,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:14:48.633Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "background-and-actor-scale",
+                      "contentType": "application/json",
+                      "body": "eyJnZW9tZXRyeSI6eyJzY3JlZW4iOnsieCI6NTIsInkiOjkyLjA5Mzc1LCJ3aWR0aCI6OTIyLCJoZWlnaHQiOjU5NS41MzEyNSwicmlnaHQiOjk3NH0sInNsb3QiOnsieCI6NTIsInkiOi0xLjIwMzEyNSwid2lkdGgiOjkyMiwiaGVpZ2h0Ijo5MjIuNzk2ODc1LCJyaWdodCI6OTc0fSwicGFuZWwiOnsieCI6OTk4LCJ5IjotNTIyLjY3MTg3NSwid2lkdGgiOjMxNiwiaGVpZ2h0IjoxNDQ0LjI2NTYyNSwicmlnaHQiOjEzMTR9LCJjYXB0aW9uIjp7IngiOjUyLCJ5IjoxMCwid2lkdGgiOjEyNjIsImhlaWdodCI6MTAyLjQ2ODc1LCJyaWdodCI6MTMxNH0sImNhbnZhcyI6eyJ4Ijo2MiwieSI6MTAyLjA5Mzc1LCJ3aWR0aCI6OTAyLCJoZWlnaHQiOjU3NS41MzEyNSwicmlnaHQiOjk2NH0sImJhY2tpbmciOnsid2lkdGgiOjkwMiwiaGVpZ2h0Ijo1NzZ9LCJvdmVyZmxvdyI6MH0sImJhY2tncm91bmQiOnsid2lkdGgiOjkwMiwiaGVpZ2h0Ijo1NzYsImNhbnZhc1dpZHRoIjo5MDIsImNhbnZhc0hlaWdodCI6NTc2fSwic2NhbGVzIjpbWzM4NCwtMzg0XSxbMC45NiwwLjk2XSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzM4NCwtMzg0XSxbLTAuOTYsMC45Nl0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV1dfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "32f3468984f7be0fbc7b-99261b65783e6129800b",
+          "file": "theatre-horizontal.spec.ts",
+          "line": 45,
+          "column": 1
+        },
+        {
+          "title": "stretched background retains real rod dragging and the saved checkpoint",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 11269,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:14:48.961Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "32f3468984f7be0fbc7b-c210fae022eb6eca5f41",
+          "file": "theatre-horizontal.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "paused caption resizing redraws the curtain and repositions input geometry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 10438,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:15:00.384Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "32f3468984f7be0fbc7b-f514dd78aa04ff4e916d",
+          "file": "theatre-horizontal.spec.ts",
+          "line": 73,
+          "column": 1
+        },
+        {
+          "title": "home background card aligns with the combined edges of the two feature cards",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2469,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:17:12.957Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "home-edges",
+                      "contentType": "application/json",
+                      "body": "eyJjYXJkIjp7ImxlZnQiOjIwLCJyaWdodCI6MzcwLCJ3aWR0aCI6MzUwfSwiZmVhdHVyZXMiOnsibGVmdCI6MjAsInJpZ2h0IjozNzAsIndpZHRoIjozNTB9LCJvdmVyZmxvdyI6MH0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "32f3468984f7be0fbc7b-ff4b2931ed9ee140face",
+          "file": "theatre-horizontal.spec.ts",
+          "line": 37,
+          "column": 1
+        },
+        {
+          "title": "wide curtain retains its original height while only background painting expands horizontally",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9240,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:17:15.630Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "background-and-actor-scale",
+                      "contentType": "application/json",
+                      "body": "eyJnZW9tZXRyeSI6eyJzY3JlZW4iOnsieCI6MjAsInkiOi05NTkuODU5Mzc1LCJ3aWR0aCI6MzUwLCJoZWlnaHQiOjI4Mi41LCJyaWdodCI6MzcwfSwic2xvdCI6eyJ4IjoyMCwieSI6LTEwNTMuMTU2MjUsIndpZHRoIjozNTAsImhlaWdodCI6NjA5Ljc2NTYyNSwicmlnaHQiOjM3MH0sInBhbmVsIjp7IngiOjIwLCJ5IjotNDIxLjM5MDYyNSwid2lkdGgiOjM1MCwiaGVpZ2h0IjoxMzU0LjM0Mzc1LCJyaWdodCI6MzcwfSwiY2FwdGlvbiI6eyJ4IjoyMCwieSI6Niwid2lkdGgiOjM1MCwiaGVpZ2h0IjoxNTYuMzI4MTI1LCJyaWdodCI6MzcwfSwiY2FudmFzIjp7IngiOjMwLCJ5IjotOTQ5Ljg1OTM3NSwid2lkdGgiOjMzMCwiaGVpZ2h0IjoyNjIuNSwicmlnaHQiOjM2MH0sImJhY2tpbmciOnsid2lkdGgiOjUxMiwiaGVpZ2h0Ijo0MDh9LCJvdmVyZmxvdyI6MH0sImJhY2tncm91bmQiOnsid2lkdGgiOjUxMiwiaGVpZ2h0IjozODQsImNhbnZhc1dpZHRoIjo1MTIsImNhbnZhc0hlaWdodCI6NDA4fSwic2NhbGVzIjpbWzI1NiwtMjU2XSxbMC45NiwwLjk2XSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzI1NiwtMjU2XSxbLTAuOTYsMC45Nl0sWzEsLTFdLFsxLC0xXSxbMSwtMV0sWzEsLTFdLFsxLC0xXSxbMSwtMV1dfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "32f3468984f7be0fbc7b-6232adeed88e74a6868c",
+          "file": "theatre-horizontal.spec.ts",
+          "line": 45,
+          "column": 1
+        },
+        {
+          "title": "stretched background retains real rod dragging and the saved checkpoint",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3690,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:17:19.863Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "32f3468984f7be0fbc7b-e12396d47132ad66032d",
+          "file": "theatre-horizontal.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "paused caption resizing redraws the curtain and repositions input geometry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Desktop height cap follows the caption; narrow screens retain their normal ratio.",
+                  "location": {
+                    "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts",
+                    "line": 74,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 1,
+                  "status": "skipped",
+                  "duration": 400,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T06:17:23.727Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Desktop height cap follows the caption; narrow screens retain their normal ratio.",
+                      "location": {
+                        "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts",
+                        "line": 74,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "32f3468984f7be0fbc7b-3c4cc53238be32c31504",
+          "file": "theatre-horizontal.spec.ts",
+          "line": 73,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-04T06:12:46.877Z",
+    "duration": 279574.607,
+    "expected": 38,
+    "skipped": 1,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

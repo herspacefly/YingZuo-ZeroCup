@@ -1,6 +1,6 @@
 # 《影作·一幕团圆》开发入口
 
-更新：2026-10-30。本队参加2026年零杯**零组**，主题为“匠心传成，非遗焕新”，比赛信息以开幕式PPT为准。作品据传统故事《劈山救母》原创交互改编，以互动皮影戏与数字展馆为核心，旧单偶工坊不是当前范围。
+更新：2026-11-04。本队参加2026年零杯**零组**，主题为“匠心传成，非遗焕新”，比赛信息以开幕式PPT为准。作品据传统故事《劈山救母》原创交互改编，以互动皮影戏与数字展馆为核心，旧单偶工坊不是当前范围。
 
 远程仓库现为`git@github.com:herspacefly/YingZuo-ZeroCup.git`，公开地址 <https://herspacefly.github.io/YingZuo-ZeroCup/>；本地目录名称不变。main跟踪origin/main，每次git push后由[Pages工作流](.github/workflows/pages.yml)检查、构建并部署dist，后台Source应选择GitHub Actions。配置和验证范围见[T39方案](docs/plans/2026-10-27-pages-deployment.md)，部署与正式艺术／听感／设备验收分开记录。
 
@@ -11,6 +11,8 @@ T41已在本地修复音乐失败后须点两次开关的问题：显示“重�
 T43根据用户截图纠正T42：首页缘起白卡与上方双卡合计外边界对齐；正式幕面保持加宽前高度和左界，仅横向拉宽背景，人物保持原比例，与右侧台词目录保留24px。已随ff3aef7推送部署，见[T43记录](docs/acceptance/t43.md)。T42的960px居中及整体放大是历史误解，不再作为当前规格；它与T41此前随d1a9d4c发布。
 
 ## 当前实现
+
+T45已在本地完成：首页独立90秒无剧透试演、清晰时长与入口、本次访问五类教学、握持/落斧反馈、同屏幕后暂停观察、五终章因果节目单与静态PNG印章。快速试演不改正式作品，刷新会重新提供首次教学；幕后返回同一刻暂停。见[T45验收](docs/acceptance/t45.md)，本轮未推送部署。
 
 T44已在本地完成手机菜单状态保留：展开后切页、浏览展签及前进后退不会自动收起，回到页首可直接选择其他入口。E01／E02已补两处改写资料与来源链接，未新增外站图片。14项相关单元、类型／构建／内容／ES5及宽窄6项浏览器检查通过；已提交并推送上线，见[T44验收](docs/acceptance/t44.md)。公开版本已为T44。
 
@@ -34,13 +36,16 @@ v5已接入354条本地中文MP3：旁白Yunyang、沉香Yunxia、母亲Xiaoxiao
 
 | 当前增量 | 先读 |
 | --- | --- |
+| T45：独立试演、访问教学、幕后观察与因果节目单 | [本轮方案](docs/plans/2026-11-04-experience-showcase.md)、[T45验收](docs/acceptance/t45.md) |
 | T35—T36：七展签、独立灯影／莲灯／三杆／几何／合奏、页签栏定位 | [展馆工坊v3](docs/contracts/museum-workshops-v3.md)、[T36验收](docs/acceptance/t36.md) |
 | T37：v5累计选择、二郎神杖握持、自动开演 | [v5契约](docs/contracts/story-v5.md)、[T37验收](docs/acceptance/t37.md) |
 | T38：分角色配音、时长编排与成果重演 | [配音方案](docs/plans/2026-10-27-theatre-voice.md)、[T38验收](docs/acceptance/t38.md)、[机器汇总](docs/evidence/t38/acceptance.json) |
 
 ## 已验证范围与下一步
 
-最近公开发布的应用实现检查点为`ff3aef7028726307f87c228dc005cd8f0953fd67`：T43已推送发布，[Actions 40613518311](https://github.com/herspacefly/YingZuo-ZeroCup/actions/runs/40613518311)的632单元、44任务/资源/内容/配音、160模块构建/ES5、根与子目录宽窄32项浏览器检查和部署均通过。公开站点390/1366/1440三个窗口实际核对新布局，编译入口main-CXtzb1Ei.js；本地另有专用浏览器7通过/1条件跳过与生产六尺寸布局通过，见[发布记录](docs/evidence/t43/deployment.json)。活动任务仍为T38。
+本地最新功能检查点为`901d2c73d3da48de2c79debf581cb2fe407e5051`：672单元、165模块生产构建、18ES5块、素材/内容/配音及168唯一浏览器用例最新166通过/2条件跳过；见[T45汇总](docs/evidence/t45/acceptance.json)。这些是分轮真实观察，不称默认全套一次全绿。
+
+账本记录的最近公开发布是T44，应用检查点`9b7d99c63b4012b31a1aea9aa703b735c7d1a6ea`及[Actions 41000300372](https://github.com/herspacefly/YingZuo-ZeroCup/actions/runs/41000300372)。本轮未推送，不把本地T45当成已上线。T43及更早发布证据保留在对应任务验收中。活动任务仍为T38。
 
 本地阶段T41的56个相关浏览器用例最新观察通过（首轮46/50、定向复验及配音10/10），T42的16组开发/生产布局通过；它们与本轮CI及公开核验分开记录，见[T41验收](docs/acceptance/t41.md)和[T42验收](docs/acceptance/t42.md)。当前本地预览与服务状态以实时检查为准。
 
@@ -59,6 +64,6 @@ T38历史核验点为`5eea7a479a3e60522427d0c2e6c9fbd9cac4cbd5`，环境Node24.1
 
 ## 新会话接续提示
 
-> 请继续现有《影作·一幕团圆》工程，先读AGENTS.md、START_HERE.md、docs/STATE.md、docs/tasks.json并核对真实Git／工作树／端口，不从零重建，DOCX／PPTX不读改提交。origin现为git@github.com:herspacefly/YingZuo-ZeroCup.git，main普通push后Actions自动构建部署dist；T39已完成；T40已修复制偶新场误建v4而无配音的入口遗漏，核验点83dcbf9已发布，旧场保留原版，需明确归档重开才进入v5。本地目录不搬迁，当前不使用computer use。当前新场v5，四次累计选择派生五终章，旧v1—v4原样恢复；可见剧场首次进入、刷新、返回和正常切章自动从稳定段起点开演，暂停／失焦／错误撤销意图。v5已有354条本地四角色配音、按实测时长适配与只读重演，原图／音乐／唯一时钟和既有存档格式保留，配音不新增存档字段。T38制作与功能核验已交付但仍in_progress，先按38条试听材料补人耳听感，不用机器播放事件代替。T10审看册已过期且生成器尚未纳入v5／新配音；真实IE／实体设备／性能／完整全长／体验及T14／P1仍待完成。只推进当前用户授权的范围，不从“继续”推导正式审定。
+> 请继续现有《影作·一幕团圆》工程，先读AGENTS.md、START_HERE.md、docs/STATE.md、docs/tasks.json并核对真实Git／工作树／端口，不从零重建，DOCX／PPTX不读改提交。origin现为git@github.com:herspacefly/YingZuo-ZeroCup.git，main普通push后Actions自动构建部署dist；T39已完成；T40已修复制偶新场误建v4而无配音的入口遗漏，核验点83dcbf9已发布，旧场保留原版，需明确归档重开才进入v5。本地目录不搬迁，当前不使用computer use。T45已本地交付但未推送，先看其验收：独立试演、本次访问教学、幕后观察返回保持暂停和因果节目单。当前新场v5，四次累计选择派生五终章，旧v1—v4原样恢复；可见剧场首次进入、刷新、返回和正常切章自动从稳定段起点开演，暂停／失焦／错误撤销意图。v5已有354条本地四角色配音、按实测时长适配与只读重演，原图／音乐／唯一时钟和既有存档格式保留，配音不新增存档字段。T38制作与功能核验已交付但仍in_progress，先按38条试听材料补人耳听感，不用机器播放事件代替。T10审看册已过期且生成器尚未纳入v5／新配音；真实IE／实体设备／性能／完整全长／体验及T14／P1仍待完成。只推进当前用户授权的范围，不从“继续”推导正式审定。
 
 T44发布记录：实现`9b7d99c63b4012b31a1aea9aa703b735c7d1a6ea`已推送，Actions [41000300372](https://github.com/herspacefly/YingZuo-ZeroCup/actions/runs/41000300372)构建及部署成功。首轮因字体缺6字与旧来源白名单失败，已补齐本地字体及资源检查规则；最终云端检查通过。公开首页和main-A5Z7KV4Z.js均HTTP200，并确认包含新增展馆卡片。

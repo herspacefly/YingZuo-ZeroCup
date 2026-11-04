@@ -1,0 +1,1310 @@
+{
+  "schemaVersion": 1,
+  "recordedDate": "2026-11-04",
+  "sourceCommit": "901d2c73d3da48de2c79debf581cb2fe407e5051",
+  "environment": {
+    "node": "24.18.1",
+    "npm": "12.0.2"
+  },
+  "unitFiles": 56,
+  "unitPassed": 672,
+  "buildModules": 165,
+  "legacyChunks": 18,
+  "fontGlyphs": 1411,
+  "browserLatest": {
+    "expected": 166,
+    "skipped": 2,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "browserUnique": 168,
+  "runs": [
+    {
+      "report": "first-browser.json",
+      "stats": {
+        "startTime": "2026-11-04T01:13:53.254Z",
+        "duration": 351935.44200000004,
+        "expected": 56,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "report": "focused-browser.json",
+      "stats": {
+        "startTime": "2026-11-04T06:07:42.187Z",
+        "duration": 259850.56900000002,
+        "expected": 39,
+        "skipped": 1,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "report": "entry-layout.json",
+      "stats": {
+        "startTime": "2026-11-04T06:12:46.877Z",
+        "duration": 279574.607,
+        "expected": 38,
+        "skipped": 1,
+        "unexpected": 3,
+        "flaky": 0
+      }
+    },
+    {
+      "report": "deployment-paths.json",
+      "stats": {
+        "startTime": "2026-11-04T06:12:56.233Z",
+        "duration": 341531.2,
+        "expected": 30,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "report": "final-interaction.json",
+      "stats": {
+        "startTime": "2026-11-04T06:24:36.892Z",
+        "duration": 191825.00900000002,
+        "expected": 16,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "report": "final-backstage.json",
+      "stats": {
+        "startTime": "2026-11-04T06:35:22.594Z",
+        "duration": 30353.218999999997,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "report": "final-deployment.json",
+      "stats": {
+        "startTime": "2026-11-04T06:35:56.952Z",
+        "duration": 69836.313,
+        "expected": 12,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    }
+  ],
+  "latestCases": [
+    {
+      "file": "backstage-observation.spec.ts",
+      "title": "backstage pauses the same instant, preserves source geometry and requires explicit resume",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "final-backstage.json"
+    },
+    {
+      "file": "backstage-observation.spec.ts",
+      "title": "closing a pending backstage import rejects its late completion",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "final-interaction.json"
+    },
+    {
+      "file": "backstage-observation.spec.ts",
+      "title": "failed backstage import returns to the operable curtain and can be retried",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "final-interaction.json"
+    },
+    {
+      "file": "backstage-observation.spec.ts",
+      "title": "without WebGL, the formal curtain stays usable and no Three module is requested",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "final-interaction.json"
+    },
+    {
+      "file": "backstage-observation.spec.ts",
+      "title": "backstage pauses the same instant, preserves source geometry and requires explicit resume",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "final-backstage.json"
+    },
+    {
+      "file": "backstage-observation.spec.ts",
+      "title": "closing a pending backstage import rejects its late completion",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "final-interaction.json"
+    },
+    {
+      "file": "backstage-observation.spec.ts",
+      "title": "failed backstage import returns to the operable curtain and can be retried",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "final-interaction.json"
+    },
+    {
+      "file": "backstage-observation.spec.ts",
+      "title": "without WebGL, the formal curtain stays usable and no Three module is requested",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "final-interaction.json"
+    },
+    {
+      "file": "quick-trial.spec.ts",
+      "title": "quick trial keeps the formal draft unchanged, pauses at both operations and ends before the mountain opens",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "final-interaction.json"
+    },
+    {
+      "file": "quick-trial.spec.ts",
+      "title": "pause, lost focus, restart and closing leave no active trial clock",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "quick-trial.spec.ts",
+      "title": "a failed curtain asset reports failure and retries without starting time or changing the draft",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "quick-trial.spec.ts",
+      "title": "320px trial, keyboard close and repeated entry retain a single usable curtain",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "final-interaction.json"
+    },
+    {
+      "file": "quick-trial.spec.ts",
+      "title": "quick trial keeps the formal draft unchanged, pauses at both operations and ends before the mountain opens",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "final-interaction.json"
+    },
+    {
+      "file": "quick-trial.spec.ts",
+      "title": "pause, lost focus, restart and closing leave no active trial clock",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "quick-trial.spec.ts",
+      "title": "a failed curtain asset reports failure and retries without starting time or changing the draft",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "quick-trial.spec.ts",
+      "title": "320px trial, keyboard close and repeated entry retain a single usable curtain",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "final-interaction.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "unfinished and protected records never manufacture a reunion or offer result downloads",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "v5 home programme shares causal choices with a static PNG and never waits for its stamp",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "v5 light programme shares causal choices with a static PNG and never waits for its stamp",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "v5 road programme shares causal choices with a static PNG and never waits for its stamp",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "v5 waiting programme shares causal choices with a static PNG and never waits for its stamp",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "v5 sacrifice programme shares causal choices with a static PNG and never waits for its stamp",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "call-first exports a real frozen 1600x1200 PNG twice and an unchanged programme",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "split-first exports a real frozen 1600x1200 PNG twice and an unchanged programme",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "call-first replay is paused, follows only the saved branch and cannot edit the performance",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "split-first replay is paused, follows only the saved branch and cannot edit the performance",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "SAVE-03 JSON into a fresh browser preserves result identity, frozen PNG and replay decisions",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "reduced motion uses explicit still steps and clears every replay callback on ten route exits",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "a missing required mask fails the image truthfully and retry loads the actual asset",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "PNG encoding rejection and browser refusal report failure, while JSON remains available",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "late PNG encoding after exit cannot download or replace the new page",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "Canvas failure keeps programme, JSON and replay transcript without reporting a successful image",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "legacy PNG encoding fallback produces a real file and all download URLs are released",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "failed autosaving still exports the actual reunited draft and replay never retries disk implicitly",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "late required images after result exit cannot resurrect the capture or its download action",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "a PNG finishing during a pending file import cannot download the previous project",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "legacy product exports PNG and plays a read-only frozen scene through the same modules",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "unfinished and protected records never manufacture a reunion or offer result downloads",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "v5 home programme shares causal choices with a static PNG and never waits for its stamp",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "v5 light programme shares causal choices with a static PNG and never waits for its stamp",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "v5 road programme shares causal choices with a static PNG and never waits for its stamp",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "v5 waiting programme shares causal choices with a static PNG and never waits for its stamp",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "v5 sacrifice programme shares causal choices with a static PNG and never waits for its stamp",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "call-first exports a real frozen 1600x1200 PNG twice and an unchanged programme",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "split-first exports a real frozen 1600x1200 PNG twice and an unchanged programme",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "call-first replay is paused, follows only the saved branch and cannot edit the performance",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "split-first replay is paused, follows only the saved branch and cannot edit the performance",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "SAVE-03 JSON into a fresh browser preserves result identity, frozen PNG and replay decisions",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "reduced motion uses explicit still steps and clears every replay callback on ten route exits",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "a missing required mask fails the image truthfully and retry loads the actual asset",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "PNG encoding rejection and browser refusal report failure, while JSON remains available",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "late PNG encoding after exit cannot download or replace the new page",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "Canvas failure keeps programme, JSON and replay transcript without reporting a successful image",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "legacy PNG encoding fallback produces a real file and all download URLs are released",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "failed autosaving still exports the actual reunited draft and replay never retries disk implicitly",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "late required images after result exit cannot resurrect the capture or its download action",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "a PNG finishing during a pending file import cannot download the previous project",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "result.spec.ts",
+      "title": "legacy product exports PNG and plays a read-only frozen scene through the same modules",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "first-browser.json"
+    },
+    {
+      "file": "guide-lifecycle.spec.ts",
+      "title": "v1 silent node guide stays on its checkpoint, restores scroll and cancels on blur",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "guide-lifecycle.spec.ts",
+      "title": "v2 silent node guide stays on its checkpoint, restores scroll and cancels on blur",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "guide-lifecycle.spec.ts",
+      "title": "legacy entry remains usable with modern DOM methods and WebGL absent",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "guide-lifecycle.spec.ts",
+      "title": "completed and skipped teaching stays remembered during routes, but a reload starts a new visit",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "guide-lifecycle.spec.ts",
+      "title": "an interrupted lesson stays quiet on this page and is offered after returning",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "guide-lifecycle.spec.ts",
+      "title": "v1 silent node guide stays on its checkpoint, restores scroll and cancels on blur",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "guide-lifecycle.spec.ts",
+      "title": "v2 silent node guide stays on its checkpoint, restores scroll and cancels on blur",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "guide-lifecycle.spec.ts",
+      "title": "legacy entry remains usable with modern DOM methods and WebGL absent",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "guide-lifecycle.spec.ts",
+      "title": "completed and skipped teaching stays remembered during routes, but a reload starts a new visit",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "guide-lifecycle.spec.ts",
+      "title": "an interrupted lesson stays quiet on this page and is offered after returning",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "guide-scroll.spec.ts",
+      "title": "guide locks native scrolling and navigation, then restores original overflow and position",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "guide-scroll.spec.ts",
+      "title": "keyboard can reach offscreen rehearsal alternatives and blur releases the lock",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "guide-scroll.spec.ts",
+      "title": "initial positioning failure restores the real page and releases its scroll lock",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "guide-scroll.spec.ts",
+      "title": "guide locks native scrolling and navigation, then restores original overflow and position",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "guide-scroll.spec.ts",
+      "title": "keyboard can reach offscreen rehearsal alternatives and blur releases the lock",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "guide-scroll.spec.ts",
+      "title": "initial positioning failure restores the real page and releases its scroll lock",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "quick-trial.spec.ts",
+      "title": "opening and closing the trial preserves an existing v1 performance",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "quick-trial.spec.ts",
+      "title": "opening and closing the trial preserves an existing v2 performance",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "quick-trial.spec.ts",
+      "title": "opening and closing the trial preserves an existing v3 performance",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "quick-trial.spec.ts",
+      "title": "opening and closing the trial preserves an existing v4 performance",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "quick-trial.spec.ts",
+      "title": "opening and closing the trial preserves an existing v5 performance",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "quick-trial.spec.ts",
+      "title": "native MP3 trial ends all nine spoken lines before its no-spoiler invitation",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "quick-trial.spec.ts",
+      "title": "opening and closing the trial preserves an existing v1 performance",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "quick-trial.spec.ts",
+      "title": "opening and closing the trial preserves an existing v2 performance",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "quick-trial.spec.ts",
+      "title": "opening and closing the trial preserves an existing v3 performance",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "quick-trial.spec.ts",
+      "title": "opening and closing the trial preserves an existing v4 performance",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "quick-trial.spec.ts",
+      "title": "opening and closing the trial preserves an existing v5 performance",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "quick-trial.spec.ts",
+      "title": "native MP3 trial ends all nine spoken lines before its no-spoiler invitation",
+      "project": "mobile-chromium",
+      "status": "skipped",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "story-feedback.spec.ts",
+      "title": "the real axe observer displays holding then lowering and pause clears held progress",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "story-feedback.spec.ts",
+      "title": "v5 dialogue gates the handover and its phase announcement does not change on every frame",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "story-feedback.spec.ts",
+      "title": "the real axe observer displays holding then lowering and pause clears held progress",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "story-feedback.spec.ts",
+      "title": "v5 dialogue gates the handover and its phase announcement does not change on every frame",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "focused-browser.json"
+    },
+    {
+      "file": "experience-entry.spec.ts",
+      "title": "the full journey has one next action and keeps lamp experiments out of the story contract",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "final-interaction.json"
+    },
+    {
+      "file": "experience-entry.spec.ts",
+      "title": "320px home keeps its three entrances aligned and an existing performance remains the primary action",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "experience-entry.spec.ts",
+      "title": "the full journey has one next action and keeps lamp experiments out of the story contract",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "final-interaction.json"
+    },
+    {
+      "file": "experience-entry.spec.ts",
+      "title": "320px home keeps its three entrances aligned and an existing performance remains the primary action",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "direct routes, museum children, back and refresh preserve the confirmed performance",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "URLs cannot start a story or manufacture a completed result",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "explicit guided opening and intro skip persist once, and ten remounts cannot repeat the command",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "craft saves the current editor while leaving frozen cast and decision intact",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "a failed opening stays on the old page, exports its candidate and retries the identical run",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "denied storage keeps an editable export and an explicit memory-only opening",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "archive/import use the shared serial entry, and cancel preserves the existing project",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "workbench recovery can be explicitly reread without leaving the product stuck",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "final-interaction.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "a real curtain checkpoint produces the actual programme and prepared reunion image",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "future records remain protected while the museum is readable",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "corrupt records remain protected while the museum is readable",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "alias redirects once, keyboard skip does not change route and mobile menu has real focus targets",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "navigation keeps the opened menu through reading, page switches and browser history",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "legacy product entry uses the same project and can save an editor change in Chromium",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "static product introduction remains readable without JavaScript",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "direct routes, museum children, back and refresh preserve the confirmed performance",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "URLs cannot start a story or manufacture a completed result",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "explicit guided opening and intro skip persist once, and ten remounts cannot repeat the command",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "craft saves the current editor while leaving frozen cast and decision intact",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "a failed opening stays on the old page, exports its candidate and retries the identical run",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "denied storage keeps an editable export and an explicit memory-only opening",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "archive/import use the shared serial entry, and cancel preserves the existing project",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "workbench recovery can be explicitly reread without leaving the product stuck",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "final-interaction.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "a real curtain checkpoint produces the actual programme and prepared reunion image",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "future records remain protected while the museum is readable",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "corrupt records remain protected while the museum is readable",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "alias redirects once, keyboard skip does not change route and mobile menu has real focus targets",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "navigation keeps the opened menu through reading, page switches and browser history",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "legacy product entry uses the same project and can save an editor change in Chromium",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "navigation.spec.ts",
+      "title": "static product introduction remains readable without JavaScript",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "theatre-horizontal.spec.ts",
+      "title": "home background card aligns with the combined edges of the two feature cards",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "theatre-horizontal.spec.ts",
+      "title": "wide curtain retains its original height while only background painting expands horizontally",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "theatre-horizontal.spec.ts",
+      "title": "stretched background retains real rod dragging and the saved checkpoint",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "theatre-horizontal.spec.ts",
+      "title": "paused caption resizing redraws the curtain and repositions input geometry",
+      "project": "desktop-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "theatre-horizontal.spec.ts",
+      "title": "home background card aligns with the combined edges of the two feature cards",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "theatre-horizontal.spec.ts",
+      "title": "wide curtain retains its original height while only background painting expands horizontally",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "theatre-horizontal.spec.ts",
+      "title": "stretched background retains real rod dragging and the saved checkpoint",
+      "project": "mobile-chromium",
+      "status": "expected",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "theatre-horizontal.spec.ts",
+      "title": "paused caption resizing redraws the curtain and repositions input geometry",
+      "project": "mobile-chromium",
+      "status": "skipped",
+      "report": "entry-layout.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "production entry, fonts, museum thumbnails and enlarged photos stay within the deployment directory",
+      "project": "root-desktop",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "saved colors, JSON export and native v5 voice work after a project-directory refresh",
+      "project": "root-desktop",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "lamp workshop loads its lazy Three module and keeps a working two-dimensional alternative",
+      "project": "root-desktop",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced v5: full, current appearance",
+      "project": "root-desktop",
+      "status": "expected",
+      "report": "final-deployment.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced v5: full, preset appearance",
+      "project": "root-desktop",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced v5: guided, current appearance",
+      "project": "root-desktop",
+      "status": "expected",
+      "report": "final-deployment.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced v5: guided, preset appearance",
+      "project": "root-desktop",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "old craft performances stay intact and explicitly archiving opens a voiced new edition",
+      "project": "root-desktop",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "production entry, fonts, museum thumbnails and enlarged photos stay within the deployment directory",
+      "project": "root-mobile",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "saved colors, JSON export and native v5 voice work after a project-directory refresh",
+      "project": "root-mobile",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "lamp workshop loads its lazy Three module and keeps a working two-dimensional alternative",
+      "project": "root-mobile",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced v5: full, current appearance",
+      "project": "root-mobile",
+      "status": "expected",
+      "report": "final-deployment.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced v5: full, preset appearance",
+      "project": "root-mobile",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced v5: guided, current appearance",
+      "project": "root-mobile",
+      "status": "expected",
+      "report": "final-deployment.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced v5: guided, preset appearance",
+      "project": "root-mobile",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "old craft performances stay intact and explicitly archiving opens a voiced new edition",
+      "project": "root-mobile",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "production entry, fonts, museum thumbnails and enlarged photos stay within the deployment directory",
+      "project": "pages-desktop",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "saved colors, JSON export and native v5 voice work after a project-directory refresh",
+      "project": "pages-desktop",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "lamp workshop loads its lazy Three module and keeps a working two-dimensional alternative",
+      "project": "pages-desktop",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced v5: full, current appearance",
+      "project": "pages-desktop",
+      "status": "expected",
+      "report": "final-deployment.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced v5: full, preset appearance",
+      "project": "pages-desktop",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced v5: guided, current appearance",
+      "project": "pages-desktop",
+      "status": "expected",
+      "report": "final-deployment.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced v5: guided, preset appearance",
+      "project": "pages-desktop",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "old craft performances stay intact and explicitly archiving opens a voiced new edition",
+      "project": "pages-desktop",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "production entry, fonts, museum thumbnails and enlarged photos stay within the deployment directory",
+      "project": "pages-mobile",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "saved colors, JSON export and native v5 voice work after a project-directory refresh",
+      "project": "pages-mobile",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "lamp workshop loads its lazy Three module and keeps a working two-dimensional alternative",
+      "project": "pages-mobile",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced v5: full, current appearance",
+      "project": "pages-mobile",
+      "status": "expected",
+      "report": "final-deployment.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced v5: full, preset appearance",
+      "project": "pages-mobile",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced v5: guided, current appearance",
+      "project": "pages-mobile",
+      "status": "expected",
+      "report": "final-deployment.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced v5: guided, preset appearance",
+      "project": "pages-mobile",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "old craft performances stay intact and explicitly archiving opens a voiced new edition",
+      "project": "pages-mobile",
+      "status": "expected",
+      "report": "deployment-paths.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "quick trial lazy scripts, images and native voice stay in the hosting directory",
+      "project": "root-desktop",
+      "status": "expected",
+      "report": "final-deployment.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "quick trial lazy scripts, images and native voice stay in the hosting directory",
+      "project": "root-mobile",
+      "status": "expected",
+      "report": "final-deployment.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "quick trial lazy scripts, images and native voice stay in the hosting directory",
+      "project": "pages-desktop",
+      "status": "expected",
+      "report": "final-deployment.json"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "quick trial lazy scripts, images and native voice stay in the hosting directory",
+      "project": "pages-mobile",
+      "status": "expected",
+      "report": "final-deployment.json"
+    }
+  ],
+  "nativeTrial": {
+    "ended": [
+      "http://127.0.0.1:4173/audio/voice-v5/4e32d977bdab8c8cdbb55634.mp3",
+      "http://127.0.0.1:4173/audio/voice-v5/0f73d23acee654e1461c301c.mp3",
+      "http://127.0.0.1:4173/audio/voice-v5/1de29eded9315c81c0b0ca0e.mp3",
+      "http://127.0.0.1:4173/audio/voice-v5/07396b1e911ae12271d81557.mp3",
+      "http://127.0.0.1:4173/audio/voice-v5/ecdd3f678ce257d58dba5d63.mp3",
+      "http://127.0.0.1:4173/audio/voice-v5/1e602caf36eeb79cd022d56c.mp3",
+      "http://127.0.0.1:4173/audio/voice-v5/43d72a0e878b63fc3e2f4bf1.mp3",
+      "http://127.0.0.1:4173/audio/voice-v5/af4a7fe3a748c5046c5ea4ef.mp3",
+      "http://127.0.0.1:4173/audio/voice-v5/26d5e126b8062739f89c1a23.mp3"
+    ],
+    "errors": [],
+    "resumed": 2
+  },
+  "checks": [
+    "typecheck",
+    "build",
+    "verify:state",
+    "verify:assets",
+    "verify:content",
+    "verify:voice",
+    "verify:legacy",
+    "git diff --check"
+  ],
+  "notes": [
+    "Latest per-case observations across bounded runs, not one all-green full suite.",
+    "Native trial 96.532s, nine distinct ended events, two explicit resumes, assistance at two waits.",
+    "ES5 and emulated mobile are not IE, physical device or listening acceptance.",
+    "npm ci restored 195 packages with no manifest/lock changes after managed worktree archival followed junctions."
+  ],
+  "productionIndexSha256": "0d7f752fc8a3e036560a151fc427a397dc0734a5bce0b514e835d51aa8633a74"
+}

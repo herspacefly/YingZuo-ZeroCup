@@ -7,9 +7,9 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T45_in_progress",
-  "activeTaskId": "T45",
-  "lastVerifiedCommit": "9b7d99c63b4012b31a1aea9aa703b735c7d1a6ea",
+  "stage": "T38_in_progress",
+  "activeTaskId": "T38",
+  "lastVerifiedCommit": "901d2c73d3da48de2c79debf581cb2fe407e5051",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -2005,7 +2005,7 @@
       "id": "T45",
       "title": "上手体验、独立快速试演、幕后观察与终章节目单",
       "priority": "P0",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "T44"
       ],
@@ -2025,10 +2025,16 @@
       "acceptanceRefs": [
         "T45"
       ],
-      "checkpointCommit": null,
-      "nextAction": "独立工作树并行实现快速试演、教学反馈和节目单，集成人完成共享舞台与入口、检查和本地提交。",
+      "checkpointCommit": "901d2c73d3da48de2c79debf581cb2fe407e5051",
+      "nextAction": "本地功能验收与提交已完成，未推送；可从首页体验快速试演。后续按T38补人耳听感，真实设备/IE及正式内容验收继续原任务。",
       "blocker": null,
-      "verification": [],
+      "verification": [
+        "56文件672单元、类型/165模块构建、46任务/81PNG/内容/配音摘要与1216编排/18ES5块通过。",
+        "168唯一浏览器用例最新观察166通过/2条件跳过，首轮失败与定向复验均保留，不称一次全套全绿。",
+        "自然时钟试演96.532秒，9条不同MP3原生ended、零音频错误；两次资源等待显式继续，两处操作明确代演；不替代人耳听感。",
+        "首页与制偶入口、五类访问教学、握持/落斧、幕后同瞬时/尺寸/重开/失败/无WebGL、五终章PNG与旧版保护、根/子目录宽窄通过。",
+        "本轮三处独立工作树已归档，临时字体环境清理；归档工具误清共享依赖后npm ci从原锁恢复195包并重新构建和验证，源码/锁文件/用户DOCX/PPTX保持。"
+      ],
       "phase": "G3"
     }
   ],

@@ -4,6 +4,8 @@
 
 ## 固定上下文
 
+- 2026-11-04作者追加T45：实施[上手体验与展示亮点](docs/plans/2026-11-04-experience-showcase.md)。首页独立90秒无剧透试演不接正式Store；本次访问五类教学完成/主动跳过后不重复，刷新重置，本条替代T29—T32每次入页教学；正式剧场与试演直接幕后观察先暂停、返回显式继续，保留二维源尺寸；v5五终章因果节目单与PNG共用展示模型。存档/原音频/唯一时钟保留，本轮本地提交不推送。
+
 - 2026-10-27追加T40：修复制偶页confirmCraft直接开演硬编码v4、没有中文配音的遗漏。所有新场入口共用src/content/reunion.ts的CURRENT_STORY_VERSION；已有v1—v4不自动迁移，剧场提示可导出后到制偶页归档重开。完整／导览、当前造型／默认影偶和归档保护需实际回归。见`docs/plans/2026-10-27-craft-voice-entry.md`，配音文件与时钟不改。
 
 - 2026-10-27作者追加T39：远程仓库改名为`herspacefly/YingZuo-ZeroCup`，origin使用`git@github.com:herspacefly/YingZuo-ZeroCup.git`，本地目录不搬迁。main普通git push触发Actions检查、构建并部署dist，公开地址`https://herspacefly.github.io/YingZuo-ZeroCup/`；保留相对base并验证根／子目录资源。Pages后台点击由作者自行操作，当前不使用computer use。执行`docs/plans/2026-10-27-pages-deployment.md`，上线不代表T10/T11/T13/T14或T38听感验收通过。
@@ -20,7 +22,7 @@
 
 - 2026-10-25作者要求修复电脑首页画面挤压、正文/剧情/顶部导航使用常规楷体并核验响应式，完成后push到`git@github.com:herspacefly/ZeroCup.git`；执行T33。站点样式统一从`src/styles/site.css`按顺序导入，避免开发/生产顺序分歧；保留艺术题字，本地常规楷体与OFL清单独立于游戏素材。不要重新加入旧`.opening` flex/48%布局。
 
-- 2026-10-25作者明确实施T29—T32及`docs/plans/2026-10-25-curtain-ink-and-guidance.md`：单次柔幕、宝莲灯意象、本地书法与首页新画、短卡布局、每次入页的隔离试练、显式SKIP_NODE与可选skippedNodeIds。总操作说明/音乐长栏退出主体验，来源集中独立credits.html；v1—v4正文和原二维/三维/素材保留。
+- 2026-10-25作者明确实施T29—T32及`docs/plans/2026-10-25-curtain-ink-and-guidance.md`：单次柔幕、宝莲灯意象、本地书法与首页新画、短卡布局、隔离试练（教学频率已由T45替代）、显式SKIP_NODE与可选skippedNodeIds。总操作说明/音乐长栏退出主体验，来源集中独立credits.html；v1—v4正文和原二维/三维/素材保留。
 
 - 2026-10-24作者明确实施T25—T28及`docs/plans/2026-10-24-v4-light-and-museum.md`：本机历史全清/清理按钮、声音刷新默认开启、v4灯火版去附加衣纹、当前片段台词定位、动态持斧/操作柔线、固定影偶的三维调灯、科普优先展馆与华彩动效。原始资源质量、旧版文件读取、唯一时钟和完整二维继续保留。
 
