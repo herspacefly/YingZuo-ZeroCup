@@ -5,7 +5,6 @@ import { resolveEnding } from './story-choices';
 import { presentChoiceDialogue } from '../content/choice-dialogue';
 import { arrangeVoiceNode } from '../content/voice-arrangement';
 import type { Completion, InteractionEvidence, StoryCommand, StoryContext, StoryDefinition, StoryGuard, StoryNode } from './story-types';
-import { ENDING_IDS } from './story-path';
 
 export class StoryCommandError extends Error {
   constructor(message: string) { super(message);this.name='StoryCommandError'; }
@@ -15,17 +14,16 @@ const finiteRange=(v: number,min=0,max=Number.MAX_SAFE_INTEGER)=>typeof v==='num
 export function storyGuard(story: StoryProgress): StoryGuard {
   return {runId:story.runId,expectedRevision:story.revision,expectedNodeId:story.nodeId};
 }
-export function beginStory(project: ProjectV1,runId: string,mode: StoryProgress['mode'],definitionVersion:StoryVersion=1): ProjectV1 | null {
+export function beginStory(project: ProjectV1,runId: string,mode: StoryProgress['mode'],definitionVersion:StoryVersion=5): ProjectV1 | null {
   const next=validateProject(project);if(next.story)return null;
   next.story={storyId:'reunion',definitionVersion,runId,revision:0,mode,nodeId:'intro',approach:null,approachSource:null,castSnapshot:null,assistedNodeIds:[],presetAppearanceUsed:false,completedAt:null,
-    ...(definitionVersion!==1?{ending:null,endingSource:null}:{}),
-    ...(definitionVersion===5?{choices:{journeyIntent:null,mountainPact:null,finalAction:null}}:{})};
+    ending:null,endingSource:null,choices:{journeyIntent:null,mountainPact:null,finalAction:null}};
   next.lastRoute='/story';return validateProject(next);
 }
 export function currentStoryNode(definition: StoryDefinition,story: StoryProgress): StoryNode {
   requireFact(definition.storyId===story.storyId && definition.definitionVersion===story.definitionVersion,'剧本版本不匹配，未替换当前检查点。');
   const node=definition.nodes.find(n=>n.id===story.nodeId);requireFact(node,'剧本缺少当前节点。');
-  if(story.definitionVersion!==1&&story.ending&&['curtain','completed'].includes(story.nodeId)){
+  if(story.ending&&['curtain','completed'].includes(story.nodeId)){
     const ending=definition.endings?.find(item=>item.id===story.ending),presentation=definition.nodes.find(n=>n.id===ending?.epilogueNodeId);
     requireFact(presentation,'剧本缺少本场终章构图。');
     return arrangeVoiceNode({...node!,prerequisites:{...node!.prerequisites,ending:story.ending},actors:presentation!.actors,entryPoses:presentation!.entryPoses,entryStage:presentation!.entryStage,
@@ -62,7 +60,7 @@ export function reduceStory(project: ProjectV1,command: StoryCommand,context: St
     if(command.mode===story.mode)return null;
     story.mode=command.mode;story.revision++;return validateProject(next);
   }
-  if(story.definitionVersion>=3&&command.action!=='COMPLETE_SCENE'&&command.action!=='SKIP_NODE'&&node.id!=='craft'){const timing=story.mode==='full'?node.fullTiming:node.guidedTiming;requireFact(context.elapsedMs>=timing.minDurationMs,'请先听完这一段对白，再决定或操偶。');}
+  if(command.action!=='COMPLETE_SCENE'&&command.action!=='SKIP_NODE'&&node.id!=='craft'){const timing=story.mode==='full'?node.fullTiming:node.guidedTiming;requireFact(context.elapsedMs>=timing.minDurationMs,'请先听完这一段对白，再决定或操偶。');}
   let destination: string | undefined;
   if(command.action==='CHOOSE') {
     requireFact(node.id==='approach-choice' && node.kind==='choice' && node.completion.kind==='choice' && node.next && !('default' in node.next),'当前没有可选路线。');
@@ -71,7 +69,7 @@ export function reduceStory(project: ProjectV1,command: StoryCommand,context: St
     story.approach=command.approach;story.approachSource='user';
     destination=(node.next as {'call-first':string;'split-first':string})[command.approach];
   } else if(command.action==='CHOOSE_JOURNEY'||command.action==='CHOOSE_PACT'||command.action==='CHOOSE_FINAL_ACTION'){
-    requireFact(story.definitionVersion===5&&story.choices&&node.kind==='choice'&&node.completion.kind==='choice','当前剧本没有这项选择。');
+    requireFact(story.choices&&node.kind==='choice'&&node.completion.kind==='choice','当前剧本没有这项选择。');
     const choices=story.choices!;
     if(command.action==='CHOOSE_JOURNEY'){
       requireFact(node.id==='journey-choice'&&choices.journeyIntent===null,'当前不能重新决定行路愿望。');
@@ -90,13 +88,6 @@ export function reduceStory(project: ProjectV1,command: StoryCommand,context: St
       story.ending=resolveEnding(choices.journeyIntent!,choices.mountainPact!,story.approach!,command.finalAction);story.endingSource='choices';
       destination=(node.next as Record<typeof story.ending,string>)[story.ending];
     }
-  } else if(command.action==='CHOOSE_ENDING'){
-    requireFact(story.definitionVersion!==5,'这一场的终章由四次决定共同写下。');
-    requireFact(story.definitionVersion!==1&&node.id==='ending-choice'&&node.kind==='choice'&&node.completion.kind==='choice'&&node.next&&!('default' in node.next),'当前没有可选终章。');
-    requireFact(ENDING_IDS.includes(command.ending),'请明确选择终章。');
-    requireFact(story.ending===null&&story.endingSource===null,'终章已确认，未重新选择。');
-    story.ending=command.ending;story.endingSource='user';
-    destination=(node.next as Record<typeof command.ending,string>)[command.ending];
   } else {
     requireFact(node.next && 'default' in node.next,'当前节点没有顺序出口。');
     if(command.action==='SKIP_NODE'){
@@ -144,8 +135,8 @@ export function reduceStory(project: ProjectV1,command: StoryCommand,context: St
 export function reunionSummary(project: ProjectV1) {
   const p=validateProject(project),s=p.story;
   if(!s || !['curtain','completed'].includes(s.nodeId) || !s.completedAt || !s.castSnapshot || !s.approach)return null;
-  return {id:s.definitionVersion===1?`${s.runId}:reunion`:`${s.runId}:ending:${s.ending}`,runId:s.runId,definitionVersion:s.definitionVersion,
-    ending:s.definitionVersion!==1?s.ending!:null,completedAt:s.completedAt,approach:s.approach,choices:s.choices,castSnapshot:s.castSnapshot,assistedNodeIds:s.assistedNodeIds,skippedNodeIds:s.skippedNodeIds??[],presetAppearanceUsed:s.presetAppearanceUsed};
+  return {id:`${s.runId}:ending:${s.ending}`,runId:s.runId,definitionVersion:s.definitionVersion,
+    ending:s.ending!,completedAt:s.completedAt,approach:s.approach,choices:s.choices,castSnapshot:s.castSnapshot,assistedNodeIds:s.assistedNodeIds,skippedNodeIds:s.skippedNodeIds??[],presetAppearanceUsed:s.presetAppearanceUsed};
 }
 /** Rebuild only the current short node; caller owns a fresh transient mount generation. */
 export function storyEntry(project: ProjectV1,definition: StoryDefinition,generation: number) {

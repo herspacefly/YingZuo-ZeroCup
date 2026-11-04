@@ -25,7 +25,8 @@ export type StoryNodeId = 'intro' | 'craft' | 'memory-wave' | 'memory-separate' 
   'ending-road-walk' | 'ending-road-hold' | 'ending-road-epilogue' | 'ending-waiting-light' | 'ending-waiting-hold' | 'ending-waiting-epilogue' | 'ending-sacrifice-axe' | 'ending-sacrifice-hold' | 'ending-sacrifice-epilogue';
 export type Approach = 'call-first' | 'split-first';
 export type EndingId = 'home' | 'light' | 'road' | 'waiting' | 'sacrifice';
-export type StoryVersion = 1 | 2 | 3 | 4 | 5;
+/** Persisted identity of the one supported story; not an edition selector. */
+export type StoryVersion = 5;
 export type JourneyIntent = 'home' | 'open-road';
 export type MountainPact = 'shared' | 'self';
 export type FinalAction = 'wait' | 'fulfill';
@@ -42,10 +43,8 @@ export interface StoryProgress {
   approach: Approach | null; approachSource: 'user' | null;
   castSnapshot: CastSnapshot | null; assistedNodeIds: StoryNodeId[]; skippedNodeIds?: StoryNodeId[];
   presetAppearanceUsed: boolean; completedAt: string | null;
-  /** v2-v4 keep user-selected endings; v5 derives its ending from all four choices. */
-  ending?: EndingId | null; endingSource?: 'user' | 'choices' | null;
-  /** Required only for v5; absent in v1-v4, never backfilled into an existing run. */
-  choices?: StoryChoices;
+  ending: EndingId | null; endingSource: 'choices' | null;
+  choices: StoryChoices;
 }
 export type ExhibitId = 'E01' | 'E02' | 'E03' | 'E04' | 'E05' | 'E06' | 'E07' | 'E08';
 export interface RecordingSnapshot {
