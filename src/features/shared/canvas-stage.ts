@@ -42,7 +42,7 @@ export function storyFrame(project: ProjectV1): CanvasFrame | null {
   return {actors,stage:node.entryStage,sceneLayers:node.entrySceneLayers,attachments:node.entryAttachments};
 }
 
-export function canvasStage(caption: string,options:{spatial?:boolean;backgroundFit?:'stretch'}={}) {
+export function canvasStage(caption: string,options:{spatial?:boolean;backgroundFit?:'stretch';backstage?:import('./spatial-stage').BackstageOptions}={}) {
   const figure=element('figure','stage-figure'),screen=element('div','canvas-stage-screen'),status=element('p','canvas-stage-status'),retry=element('button','button secondary','重试幕面');
   status.setAttribute('role','status'); retry.hidden=true;
   const foot=element('figcaption','stage-caption'); append(foot,element('p','',caption),status,retry); append(figure,screen,foot);
@@ -65,7 +65,7 @@ export function canvasStage(caption: string,options:{spatial?:boolean;background
     spatial?.update(last,update.state);
     if(changed)listeners.forEach(listener=>listener(update));
   },options);
-  if(options.spatial!==false)spatial=mountSpatialStage(figure,renderer.canvas);
+  if(options.spatial!==false)spatial=mountSpatialStage(figure,renderer.canvas,options.backstage);
   // A wrapped caption changes the desktop height cap even while paused.
   // Resize both the backing canvas and the subscribers' input overlays together.
   const screenResize=options.backgroundFit==='stretch'&&typeof ResizeObserver==='function'?new ResizeObserver(()=>{
@@ -76,6 +76,9 @@ export function canvasStage(caption: string,options:{spatial?:boolean;background
   life.on(retry,'click',()=>{if(last)void renderer.update(last);});
   return {
     figure,canvas:renderer.canvas,screen,cables,frameObserver:performance.observer,
+    isObserving:()=>spatial?.isObserving()??false,
+    openBackstage:()=>spatial?.openBackstage(),
+    closeBackstage:()=>spatial?.closeBackstage(),
     spatialPreference:()=>spatial?.preference(),
     restoreSpatial:(preference:import('./spatial-stage').SpatialPreference|undefined)=>spatial?.restorePreference(preference),
     resize:()=>renderer.resize(),

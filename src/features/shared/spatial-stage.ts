@@ -6,10 +6,11 @@ import { append,element,link,scope } from './dom';
 
 type SpatialStage=ReturnType<typeof mountThreeStage>;
 export interface SpatialPreference {expanded:boolean;view:StageView;yaw:number;pitch:number;zoom:number;actorId:string}
+export interface BackstageOptions { beforeOpen():void; onChange?(open:boolean):void }
 let serial=0;
 
 /** Optional observation beside the complete 2D controls. No Store, input geometry or clock. */
-export function mountSpatialStage(figure:HTMLElement,source:HTMLCanvasElement){
+export function mountSpatialStage(figure:HTMLElement,source:HTMLCanvasElement,backstage?:BackstageOptions){
   const life=scope(),root=element('section','spatial-stage'),toggle=element('button','button secondary','展开戏台空间'),status=element('p','spatial-status'),panel=element('div','spatial-panel'),mount=element('div','spatial-mount');
   const id=++serial;panel.id='spatial-panel-'+id;toggle.type='button';toggle.classList.add('spatial-toggle');toggle.setAttribute('aria-controls',panel.id);toggle.setAttribute('aria-expanded','false');panel.hidden=true;
   status.setAttribute('role','status');root.setAttribute('data-state','closed');mount.setAttribute('aria-label','同一成影的空间观察');
@@ -24,8 +25,14 @@ export function mountSpatialStage(figure:HTMLElement,source:HTMLCanvasElement){
   actorSelect.setAttribute('aria-label','近看人物');for(const [id,label]of [['chenxiang','沉香'],['mother','母亲'],['guardian','二郎神']]){const option=element('option','',label);option.value=id!;actorSelect.appendChild(option);}append(inspect,element('p','quiet-note','拖动空间画面改变视角；放大查看刻纹与持物。操偶仍在上方二维幕面完成。'),actorSelect,zoomIn,zoomOut,resetView);
   const close=element('button','button secondary spatial-close','只看二维幕面');close.type='button';
   append(panel,mount,controls,inspect,exhibits,element('p','quiet-note','切换机位可以看清幕后的关系；操偶仍在上方幕面完成。'),close);
+  if(backstage){
+    const more=element('details','spatial-more'),summary=element('summary','','更多观察');
+    append(more,summary,controls,inspect,exhibits);append(panel,more);
+    (source.parentElement??figure).appendChild(mount);mount.classList.add('spatial-primary-mount');mount.hidden=true;
+    close.hidden=true;root.classList.add('spatial-primary');
+  }
   append(root,toggle,status,panel);figure.appendChild(root);
-  let disposed=false,expanded=false,loading=false,originReady=false,last:CanvasFrame|null=null,stage:SpatialStage|null=null,generation=0,view:StageView='story',lightweight=false;
+  let disposed=false,expanded=false,loading=false,originReady=false,last:CanvasFrame|null=null,stage:SpatialStage|null=null,generation=0,view:StageView=backstage?'backstage':'story',lightweight=false;
   let yaw=0,pitch=0,zoom=1,drag:{x:number;y:number}|null=null,wanted=false;
   function observe(){stage?.observe(yaw,pitch,zoom,actorSelect.value);}
   life.on(actorSelect,'change',()=>{view='character';stage?.setView(view);observe();sync();});
@@ -41,10 +48,10 @@ export function mountSpatialStage(figure:HTMLElement,source:HTMLCanvasElement){
   }
   function sync(){
     const eligible=capability().eligible;inspect.hidden=!expanded;for(const b of [zoomIn,zoomOut,resetView,actorSelect])b.disabled=!stage;
-    for(const o of Array.from(actorSelect.options)){o.hidden=!last?.actors.some(a=>a.actorId===o.value);o.disabled=o.hidden;}if(last&&!last.actors.some(a=>a.actorId===actorSelect.value)){actorSelect.value=last.actors[0]?.actorId??'chenxiang';observe();}toggle.disabled=!eligible||!originReady||lightweight;toggle.textContent=expanded?'收起空间观察':root.getAttribute('data-state')==='error'?'重试空间观察':'展开戏台空间';toggle.setAttribute('aria-expanded',String(expanded));
+    for(const o of Array.from(actorSelect.options)){o.hidden=!last?.actors.some(a=>a.actorId===o.value);o.disabled=o.hidden;}if(last&&!last.actors.some(a=>a.actorId===actorSelect.value)){actorSelect.value=last.actors[0]?.actorId??'chenxiang';observe();}toggle.disabled=!eligible||!originReady||lightweight;toggle.textContent=backstage?(expanded?'回到幕前':root.getAttribute('data-state')==='error'?'重试幕后观察':'看看幕后'):(expanded?'收起空间观察':root.getAttribute('data-state')==='error'?'重试空间观察':'展开戏台空间');toggle.setAttribute('aria-expanded',String(expanded));
     for(const [key,button]of viewButtons){button.disabled=!stage||!originReady;button.setAttribute('aria-pressed',String(key===view));}exhibits.hidden=view!=='exhibit';
   }
-  function shutdown(){drag=null;wanted=false;generation++;loading=false;stage?.dispose();stage=null;while(mount.firstChild)mount.removeChild(mount.firstChild);expanded=false;panel.hidden=true;}
+  function shutdown(){const wasExpanded=expanded;drag=null;wanted=false;generation++;loading=false;stage?.dispose();stage=null;while(mount.firstChild)mount.removeChild(mount.firstChild);expanded=false;panel.hidden=true;if(backstage){mount.hidden=true;figure.classList.remove('observing-backstage');if(wasExpanded)backstage.onChange?.(false);}}
   function fail(text:string){shutdown();root.setAttribute('data-state','error');status.textContent=`空间观察已回到二维：${text}`;sync();}
   function render(){
     if(disposed||!expanded||!stage||!last||!originReady)return;const token=generation,current=stage;mount.hidden=false;
@@ -52,7 +59,10 @@ export function mountSpatialStage(figure:HTMLElement,source:HTMLCanvasElement){
   }
   async function open(){
     if(disposed||lightweight||loading||!originReady||!last||!capability().eligible)return;
-    const token=++generation;let moduleLoaded=false;expanded=true;loading=true;panel.hidden=false;root.setAttribute('data-state','loading');status.textContent='正在展开这张幕的背面…';sync();
+    backstage?.beforeOpen();
+    if(disposed||!originReady)return;
+    const token=++generation;let moduleLoaded=false;expanded=true;loading=true;panel.hidden=false;
+    if(backstage){mount.hidden=false;figure.classList.add('observing-backstage');backstage.onChange?.(true);}root.setAttribute('data-state','loading');status.textContent='正在展开这张幕的背面…';sync();
     try{
       const module=await import('../../renderers/three/renderer');
       moduleLoaded=true;
@@ -60,17 +70,21 @@ export function mountSpatialStage(figure:HTMLElement,source:HTMLCanvasElement){
       const next=module.mountThreeStage(mount,source,capability().budget,update=>{
         if(disposed||token!==generation)return;
         if(update.state==='error'||update.state==='lost'){fail(update.message);return;}
-        root.setAttribute('data-state',update.state);if(status.textContent!==update.message)status.textContent=update.message;sync();
+        root.setAttribute('data-state',update.state);const text=backstage&&update.state==='ready'?'正在观察同一时刻的灯、影偶与操纵杆。返回幕前后，请点击继续。':update.message;if(status.textContent!==text)status.textContent=text;sync();
       });
       if(disposed||token!==generation){next.dispose();return;}
       stage=next;loading=false;next.setView(view);observe();render();sync();
     }catch(error){if(!disposed&&token===generation)fail(moduleLoaded?(error instanceof Error?error.message:String(error)):'空间组件未能载入，请刷新页面再试。当前二维幕面可以继续使用。');}
   }
-  life.on(toggle,'click',()=>{if(expanded){shutdown();root.setAttribute('data-state','closed');status.textContent='已收起空间观察，继续使用二维幕面。';sync();}else void open();});
+  function closeObservation(){shutdown();root.setAttribute('data-state','closed');status.textContent=backstage?'已回到幕前，请点击继续。':'已收起空间观察，继续使用二维幕面。';sync();}
+  life.on(toggle,'click',()=>{if(expanded)closeObservation();else void open();});
   life.on(close,'click',()=>{shutdown();root.setAttribute('data-state','closed');status.textContent='继续使用二维幕面。';sync();toggle.focus();});
   for(const [key,button]of viewButtons)life.on(button,'click',()=>{if(!stage||!originReady)return;view=key;try{stage.setView(key);observe();sync();}catch(error){fail(error instanceof Error?error.message:String(error));}});
   const eligibility=capability();status.textContent=eligibility.eligible?'从幕前走到背面，看灯、薄片与操偶杆。':eligibility.reason;sync();
   return {
+    isObserving:()=>expanded,
+    openBackstage(){if(disposed)return;view='backstage';void open();},
+    closeBackstage:closeObservation,
     preference():SpatialPreference{return {expanded,view,yaw,pitch,zoom,actorId:actorSelect.value};},
     restorePreference(preference:SpatialPreference|undefined){if(!preference||disposed)return;view=preference.view;yaw=preference.yaw;pitch=preference.pitch;zoom=preference.zoom;actorSelect.value=preference.actorId;wanted=preference.expanded;if(wanted&&originReady){wanted=false;void open();}},
     setLightweight(enabled:boolean){
@@ -86,6 +100,6 @@ export function mountSpatialStage(figure:HTMLElement,source:HTMLCanvasElement){
       if(wanted&&originReady&&!loading&&!expanded){wanted=false;void open();}
       sync();
     },
-    dispose(){if(disposed)return;disposed=true;life.dispose();shutdown();last=null;if(root.parentNode)root.parentNode.removeChild(root);},
+    dispose(){if(disposed)return;disposed=true;life.dispose();shutdown();if(backstage&&mount.parentNode)mount.parentNode.removeChild(mount);last=null;if(root.parentNode)root.parentNode.removeChild(root);},
   };
 }
