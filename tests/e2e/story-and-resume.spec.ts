@@ -28,7 +28,10 @@ test('a failed ending epilogue exports and retries the same completed candidate'
  await clock(page);await seed(page,'ending-home-epilogue');await page.goto('/#/story');await ready(page,'ending-home-epilogue');
  const before=await stored(page);await page.evaluate(()=>{const original=IDBObjectStore.prototype.put;let fail=true;IDBObjectStore.prototype.put=function(value:unknown,key?:IDBValidKey){if(fail&&key==='draft'){fail=false;throw new DOMException('Injected ending save','QuotaExceededError');}return original.call(this,value,key);};});
  await page.locator('#story-play').click();await advance(page,currentDuration('ending-home-epilogue')+100);await expect(page.locator('#save-state')).toHaveAttribute('data-state','error');
- expect((await stored(page)).story).toEqual(before.story);await page.getByRole('button',{name:/我的作品/}).click();const wait=page.waitForEvent('download');await page.locator('#export-project').click();const file=await wait,chunks:Buffer[]=[];for await(const chunk of await file.createReadStream())chunks.push(Buffer.from(chunk));const candidate=JSON.parse(Buffer.concat(chunks).toString('utf8')) as ProjectV1;
+ expect((await stored(page)).story).toEqual(before.story);
+ const tools=page.locator('#open-project-tools');if(await tools.getAttribute('aria-expanded')==='false')await tools.click();
+ await expect(page.locator('#export-project')).toBeVisible();await expect(page.locator('#export-project')).toBeEnabled();
+ const wait=page.waitForEvent('download');await page.locator('#export-project').click();const file=await wait,chunks:Buffer[]=[];for await(const chunk of await file.createReadStream())chunks.push(Buffer.from(chunk));const candidate=JSON.parse(Buffer.concat(chunks).toString('utf8')) as ProjectV1;
  expect(candidate.story).toMatchObject({nodeId:'curtain',ending:'home'});expect(candidate.story!.completedAt).toBeTruthy();
  await page.locator('#retry-save').click();await ready(page,'curtain');expect((await stored(page)).story).toEqual(candidate.story);await page.reload();await ready(page,'curtain');expect((await stored(page)).story).toEqual(candidate.story);
 });
