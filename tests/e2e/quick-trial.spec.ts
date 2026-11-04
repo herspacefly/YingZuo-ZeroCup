@@ -50,13 +50,25 @@ test('quick trial keeps the formal draft unchanged, pauses at both operations an
   await page.locator('#trial-close').click(); await expect(page.locator('#quick-trial')).toHaveCount(0); expect(await draft(page)).toEqual(source);
 });
 
-test('pause, backstage, lost focus, restart and closing leave no active trial clock', async ({ page }) => {
+test('pause, lost focus, restart and closing leave no active trial clock', async ({ page }) => {
   test.setTimeout(60000); await virtualClock(page); const source = await open(page); await frames(page, 200);
   await page.locator('#trial-pause').click(); const position = await page.locator('#quick-trial').getAttribute('data-automatic-ms'); await frames(page, 1000); await expect(page.locator('#quick-trial')).toHaveAttribute('data-automatic-ms', position!);
   await page.locator('#trial-play').click(); await page.evaluate(() => dispatchEvent(new Event('blur'))); await expect(page.locator('#quick-trial')).toHaveAttribute('data-state', 'paused'); await page.evaluate(() => dispatchEvent(new Event('focus'))); await expect(page.locator('#quick-trial')).toHaveAttribute('data-state', 'paused');
   await page.locator('#trial-play').click(); await page.evaluate(() => Reflect.get(window, '__trialFrame')(300)); await expect(page.locator('#trial-status')).toContainText('停顿');
   await page.locator('#trial-restart').click(); await expect(page.locator('#quick-trial')).toHaveAttribute('data-automatic-ms', '0'); await expect(page.locator('#quick-trial')).toHaveAttribute('data-state', 'paused');
   await page.locator('#trial-close').click(); expect(await page.evaluate(() => Reflect.get(window, '__trialClocks')())).toBe(0); expect(await draft(page)).toEqual(source);
+});
+
+test('a failed curtain asset reports failure and retries without starting time or changing the draft', async ({ page }) => {
+  await virtualClock(page); let fail = true;
+  await page.route('**/assets/puppets/chenxiang-v1/head-mask.png', route => fail ? route.abort() : route.continue());
+  await page.goto('/'); await expect(page.locator('#save-state')).toHaveAttribute('data-state', 'saved'); const source = await draft(page);
+  await page.locator('#intro-quick-trial').click(); await expect(page.locator('#quick-trial')).toHaveAttribute('data-state', 'error');
+  await expect(page.locator('#trial-status')).toContainText('未能准备好'); await expect(page.locator('#trial-play')).toBeDisabled();
+  fail = false; await page.locator('#quick-trial .canvas-stage-status+button').click();
+  await expect(page.locator('#quick-trial .canvas-stage-status')).toHaveAttribute('data-state', 'ready'); await expect(page.locator('#quick-trial')).toHaveAttribute('data-state', 'paused');
+  expect(await page.evaluate(() => Reflect.get(window, '__trialClocks')())).toBe(0); expect(await draft(page)).toEqual(source);
+  await page.locator('#trial-close').click();
 });
 
 test('320px trial, keyboard close and repeated entry retain a single usable curtain', async ({ page }) => {

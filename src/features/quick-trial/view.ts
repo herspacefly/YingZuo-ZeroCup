@@ -45,7 +45,7 @@ function buildQuickTrial(host: HTMLElement, options: QuickTrialOptions, rollback
   let frame: CanvasFrame = scenes.sample(timeline.position(), false).frame, lampFrame = scenes.lampFrame(), pose: Pose | null = null;
   let manualMs = 0, operated = false, lampChanged = false, message = '幕面准备好后开始试演。', lastPhase = '', holdMs = 0, voiceTailMs = 0;
   const media = window.matchMedia?.('(prefers-reduced-motion: reduce)'); let reduced = media?.matches ?? false;
-  const backstageOptions = { backstage: { beforeOpen() { pause('已暂停试演，看看灯、偶与幕的关系。'); }, onChange(open: boolean) { if (!open) { message = '已回到同一刻，点击继续试演。'; controls(); } } } };
+  const backstageOptions = { backstage: { beforeOpen() { pause('已暂停试演，看看灯、偶与幕的关系。'); }, onChange(open: boolean) { if (!open) message = '已回到同一刻，点击继续试演。'; controls(); } } };
   const stage = canvasStage('同一盏灯、同一副影偶；试演中的操作只留在这里。', backstageOptions);
   rollback(() => stage.dispose());
   const target = element('div', 'trial-wave-target'); target.setAttribute('aria-hidden', 'true'); stage.screen.appendChild(target);
