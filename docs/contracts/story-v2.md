@@ -1,5 +1,7 @@
 # 扩展剧本与空间分镜契约
 
+> 历史契约，已由T46退役，不对应现有可运行剧本。当前唯一正式演出见[现行契约](story.md)。旧数据仅可导出原始记录并明确重新开始。
+
 v1 contract继续对旧记录生效；definitionVersion 2使用reunion-v2.json，新开演显式传2，不修改v1 JSON。入口currentStoryNode、storyEntry、恢复、成果、展馆、文字协助与重演均选择definitionFor(story)。
 
 - StoryProgress的v2记录严格包含ending和endingSource；选择前两者为null，选择后必须是合法EndingId及user。v1禁止这些字段。选择前的节点不得预填后续选择；节点、路线、终章、已协助节点必须属于同一有效路径。

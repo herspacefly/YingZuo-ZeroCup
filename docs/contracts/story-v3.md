@@ -1,5 +1,7 @@
 # v3叙事、体验顺序与定场放映契约
 
+> 历史契约，已由T46退役，不对应现有可运行剧本。当前唯一正式演出见[现行契约](story.md)。旧数据仅可导出原始记录并明确重新开始。
+
 2026-10-22。接续v1/v2，不改变ProjectV1外层版本。新开演明确传definitionVersion=3，所有消费者经definitionFor选择本场JSON；1/2仍用原文件，4及其他未知版本继续保护。EndingId和十条路径不变。三个角色、只有沉香可控、至多两人同屏继续有效。
 
 v3为36节点、两路线×五终章，每路径21节点。全文4740—4827字符，导览为独立1413—1452字符节选；subtitleTimebase仍为full-target-ms，导览时间映射由subtitlesForMode完成。所有非craft/completed节点minDurationMs=targetMs，字幕从0连续至目标末帧。交互先播对白再开放操偶，选择先播对白再由用户决定；纯reducer也验证这两个门槛。craft确认不等待计时，沿用原冻结事务。全文可展开，导览里也可读本段完整对白。

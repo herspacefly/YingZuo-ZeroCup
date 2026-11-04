@@ -8,9 +8,10 @@
 - 只接受普通 JSON 数据、完整白名单字段及资源 ID。拒绝函数、运行时实例、访问器、隐藏字段、数组附带属性、序列化钩子、循环与非有限数。标题最多 24 个 Unicode 码点；JSON 最多 512 KiB（UTF-8）。存档中的任意用户文字按普通文本显示。
 - `validateProject` 返回独立副本，编辑稿、冻结角色、短片快照与调用者互不引用。已知展品与协助节点列表去重；未知 ID 拒绝。`serializeProject` 在验证后将 Pose 坐标/角度保留六位小数，不改变输入。
 - T03 的关节外层边界为六位小数的 ±π；T01/T04 必须叠加具体模板限制。位置 `[0,1]`、scale `[.6,1]`、灯位 `[-.8,.8]`、偶幕距离 `[.05,.4]` 遵守主方案。
-- 仅格式正确的未知正整数 schema/asset/definition 版本分类为 `unsupported-version`；损坏版本字段为 `invalid`。存储中超限数据也受保护，不能按普通损坏稿自动降级恢复。
+- 仅格式正确的未知正整数 schema/asset 版本，或不等于当前识别值5的剧本标识，分类为 `unsupported-version`；损坏版本字段为 `invalid`。存储中超限数据也受保护，不能按普通损坏稿自动降级恢复。
 - 首个实际存档不提供虚构的 v0/localStorage 迁移；以后改变字段含义必须升级并迁移。
-- `intro/craft` 可无 castSnapshot，其后必须冻结；分支必须与决定匹配，决定来自 user；只有 curtain/completed 保留 completedAt。协助只能记录本路径已完成的互动节点及已看完的协助谢幕，不能把 training 分镜冒称操偶。T15 需复用这些 ID/路径约束。
+- `intro/craft` 可无 castSnapshot，其后必须冻结；分支必须与决定匹配，山前决定来自 user，终章来源固定为 choices；只有 curtain/completed 保留 completedAt。协助只能记录本路径已完成的互动节点及已看完的协助谢幕，不能把 training 分镜冒称操偶。T15 需复用这些 ID/路径约束。
+- 当前故事必须包含四次选择对应的字段，未选择时为null，不能由导入补造；完整规则见[故事契约](story.md)。退役记录只允许导出原始数据和显式重置，不参与恢复、演出或重演。
 - P1 只验证冻结快照的数据结构，不启用录制。完整片段 60—450 帧、partial 0—450 帧，固定 30 Hz、暂停态与时长一致；属于谢幕后的独立练习台。P0 默认两个字段均为 null。
 - T07 基础动作预留 ID：wave-v1 / walk-v1 / bow-v1 / raise-axe-v1 / reach-v1，未知非空 presetId 拒绝。此处没有制作动作或录制器。
 
@@ -52,4 +53,4 @@
 
 待提交时，标题/外观编辑控件从 getExportProject 读取候选及排队编辑，项目身份/剧情摘要仍显示 getState 的实际应用状态；不能每次订阅回调用旧稿回填编辑框，否则会丢掉连续输入。
 
-`project.html` 是数据工程检查工作台，使用上述正式接口。T15已在独立story.html中通过guarded reducer接入文字排演与剧情提交，见story-v1.md；T02/T05/T16/T17再接正式页面和图形交互。文字排演不代表完整SAVE/UI/IE验收。
+`project.html` 是数据工程检查工作台，使用上述正式接口。T15已在独立story.html中通过guarded reducer接入文字排演与剧情提交，见[故事契约](story.md)；T02/T05/T16/T17再接正式页面和图形交互。文字排演不代表完整SAVE/UI/IE验收。
