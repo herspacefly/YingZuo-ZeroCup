@@ -1,17 +1,11 @@
+import {currentProject} from '../helpers/current-project';
 import {test,expect} from './formal-fixture';
 import type { Page } from '@playwright/test';
-import type { ProjectV1 } from '../../src/domain/types';
-import fixture from '../fixtures/project.json' with {type:'json'};
+import type { ProjectV1,StoryNodeId } from '../../src/domain/types';
 
-function at(nodeId:NonNullable<ProjectV1['story']>['nodeId'],mode:'full'|'guided'='full'):ProjectV1{
-  const project=structuredClone(fixture) as ProjectV1,story=project.story!;
-  story.nodeId=nodeId;story.mode=mode;story.revision=nodeId==='intro'?0:8;story.assistedNodeIds=[];
-  if(['intro','craft','memory-wave','memory-separate','road','training','guardian','approach-choice'].includes(nodeId)){story.approach=null;story.approachSource=null;}
-  if(['intro','craft'].includes(nodeId))story.castSnapshot=null;
-  return project;
-}
+function at(nodeId:StoryNodeId,mode:'full'|'guided'='full'):ProjectV1{return currentProject(nodeId,mode);}
+
 const first=(mode:'full'|'guided'='full')=>at('intro',mode);
-
 const node=(page:Page)=>page.locator('#story-runtime');
 const ready=async(page:Page)=>{await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');await expect(node(page)).toHaveAttribute('data-state','paused');};
 async function seed(page:Page,project:ProjectV1){await page.goto('/study.html');await page.evaluate(async value=>{

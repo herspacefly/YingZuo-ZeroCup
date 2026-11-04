@@ -1,14 +1,14 @@
+import {currentProject} from '../helpers/current-project';
 import {test,expect} from './formal-fixture';
 import type {Page} from '@playwright/test';
-import fixture from '../fixtures/project.json' with {type:'json'};
-import type {ProjectV1,StoryNodeId} from '../../src/domain/types';
+import type {StoryNodeId} from '../../src/domain/types';
 async function instrument(page:Page){await page.addInitScript(()=>{
   const Native=window.Audio,players:HTMLAudioElement[]=[];class TrackedAudio extends Native{constructor(src?:string){super(src);players.push(this);}}
   Object.defineProperty(window,'Audio',{configurable:true,value:TrackedAudio});Reflect.set(window,'__music',()=>players.map(p=>({src:p.getAttribute('src'),paused:p.paused,time:p.currentTime,ready:p.readyState})));
   let now=0,id=0;const frames=new Map<number,FrameRequestCallback>();Object.defineProperty(performance,'now',{value:()=>now});window.requestAnimationFrame=cb=>{frames.set(++id,cb);return id;};window.cancelAnimationFrame=id=>{frames.delete(id);};Reflect.set(window,'__musicFrame',(delta:number)=>{now+=delta;const list=[...frames.values()];frames.clear();list.forEach(cb=>cb(now));});
 });}
 const stats=(page:Page)=>page.evaluate(()=>Reflect.get(window,'__music')() as {src:string|null;paused:boolean;time:number;ready:number}[]);
-async function seed(page:Page,node:StoryNodeId){const project=structuredClone(fixture) as ProjectV1,story=project.story!;story.nodeId=node;story.approach='call-first';story.approachSource='user';if(node==='curtain')story.completedAt='2026-10-18T15:00:00.000Z';await page.goto('/study.html');await page.evaluate(async p=>{const db=await new Promise<IDBDatabase>((r,j)=>{const q=indexedDB.open('yingzuo-v1',1);q.onupgradeneeded=()=>q.result.createObjectStore('snapshots');q.onsuccess=()=>r(q.result);q.onerror=()=>j(q.error);});await new Promise<void>((r,j)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(p),'draft');tx.oncomplete=()=>r();tx.onabort=()=>j(tx.error);});db.close();},project);await page.goto('/#/story');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');}
+async function seed(page:Page,node:StoryNodeId){const project=currentProject(node);await page.goto('/study.html');await page.evaluate(async p=>{const db=await new Promise<IDBDatabase>((r,j)=>{const q=indexedDB.open('yingzuo-v1',1);q.onupgradeneeded=()=>q.result.createObjectStore('snapshots');q.onsuccess=()=>r(q.result);q.onerror=()=>j(q.error);});await new Promise<void>((r,j)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(p),'draft');tx.oncomplete=()=>r();tx.onabort=()=>j(tx.error);});db.close();},project);await page.goto('/#/story');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');}
 async function advance(page:Page,ms:number){await page.evaluate(async ms=>{while(ms>0){const d=Math.min(ms,100);Reflect.get(window,'__musicFrame')(d);ms-=d;await Promise.resolve();}},ms);}
 test('site music defaults on, unlocks on the first ordinary click and retains manual mute across routes',async({page})=>{
   await instrument(page);await page.goto('/#/museum');await expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');

@@ -86,12 +86,10 @@ test('320px trial, keyboard close and repeated entry retain a single usable curt
 });
 
 
-for(const version of [1,2,3,4,5])test(`opening and closing the trial preserves an existing v${version} performance`,async({page})=>{
+test('opening and closing the trial preserves the current performance',async({page})=>{
   await page.emulateMedia({reducedMotion:'reduce'});await virtualClock(page);
   await page.goto('/study.html');const project=structuredClone(fixture) as ProjectV1;
-  Object.assign(project.story!,{definitionVersion:version,mode:'guided'});
-  if(version>1)Object.assign(project.story!,{ending:null,endingSource:null});
-  if(version===5)project.story!.choices={journeyIntent:'home',mountainPact:'shared',finalAction:null};
+  project.story!.mode='guided';
   await page.evaluate(async project=>{
     const db=await new Promise<IDBDatabase>((yes,no)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>yes(r.result);r.onerror=()=>no(r.error);});
     await new Promise<void>((yes,no)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(project),'draft');tx.oncomplete=()=>yes();tx.onabort=()=>no(tx.error);});db.close();

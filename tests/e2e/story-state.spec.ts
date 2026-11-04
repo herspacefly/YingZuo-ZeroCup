@@ -1,3 +1,4 @@
+import {currentDuration} from '../helpers/current-project';
 import {test,expect} from './formal-fixture';
 import type { Page,Download } from '@playwright/test';
 import type { ProjectV1 } from '../../src/domain/types';
@@ -25,14 +26,16 @@ async function start(page:Page,mode:'full'|'guided'){
 }
 const interactions=['memory-wave','road','guardian','call-light','call-split','split-axe','split-search','reunion-reach'];
 async function advance(page:Page,approach:'call-first'|'split-first'){
-  const before=await current(page),definition=content.nodes.find(n=>n.id===before)!,mode=await page.locator('#story-mode').inputValue(),minimum=(mode==='full'?definition.fullTiming:definition.guidedTiming).minDurationMs;
+  const before=await current(page),definition=content.nodes.find(n=>n.id===before)!,mode=await page.locator('#story-mode').inputValue(),minimum=currentDuration(before as NonNullable<ProjectV1['story']>['nodeId'],mode as 'full'|'guided');
   if(definition.kind==='choice'||(definition.kind==='interaction'&&before!=='craft')){await page.locator('#story-play').click();await page.clock.runFor(minimum+100);}
   if(before==='intro')await page.locator('#story-skip').click();
   else if(before==='craft')await page.locator('#story-preset').click();
-  else if(before==='ending-choice')await page.locator('#text-ending-home').click();
+  else if(before==='journey-choice')await page.locator('#text-choice-journey-home').click();
+  else if(before==='mountain-pact-choice')await page.locator('#text-choice-pact-shared').click();
+  else if(before==='ending-choice')await page.locator('#text-choice-final-fulfill').click();
   else if(before==='approach-choice')await page.locator(approach==='call-first'?'#story-choose-call':'#story-choose-split').click();
   else if(interactions.includes(before)){await page.locator('#story-assist').click();}
-  else {const definition=content.nodes.find(n=>n.id===before)!;const mode=await page.locator('#story-mode').inputValue();const minimum=(mode==='full'?definition.fullTiming:definition.guidedTiming).minDurationMs;await page.locator('#story-play').click();await page.clock.runFor(minimum+100);await page.locator('#story-complete').click();}
+  else {const mode=await page.locator('#story-mode').inputValue();const minimum=currentDuration(before as NonNullable<ProjectV1['story']>['nodeId'],mode as 'full'|'guided');await page.locator('#story-play').click();await page.clock.runFor(minimum+100);await page.locator('#story-complete').click();}
   await expect(node(page)).not.toHaveAttribute('data-node',before);await saved(page);await expect(page.locator('#node-clock')).toContainText('暂停 · 0.0');
 }
 async function walkTo(page:Page,target:string,approach:'call-first'|'split-first'){
@@ -45,14 +48,14 @@ async function downloadJSON(download:Download):Promise<ProjectV1>{
 }
 for(const mode of ['full','guided'] as const)for(const approach of ['call-first','split-first'] as const){
   test(`${mode}/${approach} uses the real text controls, commits one reunion and completes curtain`,async({page})=>{
-    test.setTimeout(240000);await start(page,mode);await walkTo(page,'reunion-hold',approach);
-    const hold=content.nodes.find(n=>n.id==='reunion-hold')!;const minimum=(mode==='full'?hold.fullTiming:hold.guidedTiming).minDurationMs;
+    test.setTimeout(240000);await start(page,mode);const ending=approach==='call-first'?'home':'road',holdId=ending==='home'?'reunion-hold':'ending-road-hold';await walkTo(page,holdId,approach);
+    const minimum=currentDuration(holdId,mode);
     await page.locator('#story-play').click();await page.clock.runFor(minimum-100);await expect(page.locator('#story-complete')).toBeDisabled();
-    await page.clock.runFor(200);await page.locator('#story-complete').click();await expect(node(page)).toHaveAttribute('data-node','ending-home-epilogue');await advance(page,approach);await expect(node(page)).toHaveAttribute('data-node','curtain');await saved(page);
+    await page.clock.runFor(200);await page.locator('#story-complete').click();await expect(node(page)).toHaveAttribute('data-node','ending-'+ending+'-epilogue');await advance(page,approach);await expect(node(page)).toHaveAttribute('data-node','curtain');await saved(page);
     const reunion=(await stored(page)).story!;expect(reunion.completedAt).not.toBeNull();expect(reunion.assistedNodeIds).not.toContain('training');
     await advance(page,approach);await expect(node(page)).toHaveAttribute('data-node','completed');
     const completed=await stored(page);expect(completed.story).toMatchObject({mode,approach,approachSource:'user',runId:reunion.runId,completedAt:reunion.completedAt});
-    expect(completed.story!.assistedNodeIds).toContain('curtain');await expect(page.locator('#result-summary')).toContainText(`${reunion.runId}:ending:home`);
+    expect(completed.story!.assistedNodeIds).toContain('curtain');await expect(page.locator('#result-summary')).toContainText(`${reunion.runId}:ending:${ending}`);
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   });
 }
@@ -67,8 +70,8 @@ test('refresh retains a confirmed choice, restarts paused and mode changes only 
   await advance(page,'call-first');await expect(node(page)).toHaveAttribute('data-node','call-response');
 });
 test('a failed reunion stays at the old node, exports its exact candidate, and retries without a second result',async({page})=>{
-  test.setTimeout(240000);await start(page,'guided');await walkTo(page,'ending-home-epilogue','split-first');
-  await page.locator('#story-play').click();await page.clock.runFor(content.nodes.find(n=>n.id==='ending-home-epilogue')!.guidedTiming.minDurationMs+100);
+  test.setTimeout(240000);await start(page,'guided');await walkTo(page,'ending-home-epilogue','call-first');
+  await page.locator('#story-play').click();await page.clock.runFor(currentDuration('ending-home-epilogue')+100);
   await page.evaluate(()=>{
     const original=IDBObjectStore.prototype.put;let fail=true;
     IDBObjectStore.prototype.put=function(value:unknown,key?:IDBValidKey){if(fail&&key==='draft'){fail=false;throw new DOMException('Injected full storage','QuotaExceededError');}return original.call(this,value,key);};
@@ -79,7 +82,7 @@ test('a failed reunion stays at the old node, exports its exact candidate, and r
   expect(candidate.story!.nodeId).toBe('curtain');expect(candidate.story!.completedAt).not.toBeNull();
   await page.locator('#story-retry').click();await saved(page);await expect(node(page)).toHaveAttribute('data-node','curtain');
   expect((await stored(page)).story).toEqual(candidate.story);await page.reload();await saved(page);await expect(node(page)).toHaveAttribute('data-node','curtain');
-  await advance(page,'split-first');expect((await stored(page)).story!.completedAt).toBe(candidate.story!.completedAt);
+  await advance(page,'call-first');expect((await stored(page)).story!.completedAt).toBe(candidate.story!.completedAt);
 });
 test('legacy text entry uses the same guarded store in Chromium smoke check',async({page})=>{
   const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));

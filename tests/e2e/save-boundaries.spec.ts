@@ -1,7 +1,7 @@
+import {currentProject} from '../helpers/current-project';
 import {test,expect} from './formal-fixture';
 import type { Page } from '@playwright/test';
 import type { ProjectV1 } from '../../src/domain/types';
-import fixture from '../fixtures/project.json' with { type: 'json' };
 import content from '../../src/content/stories/reunion.json' with { type: 'json' };
 
 type Mode = 'full' | 'guided';
@@ -12,16 +12,7 @@ const saved = (page: Page) => expect(page.locator('#save-state')).toHaveAttribut
 
 test.beforeEach(() => { test.setTimeout(90_000); });
 
-function at(nodeId: NodeId, mode: Mode = 'full'): ProjectV1 {
-  const project = structuredClone(fixture) as ProjectV1;
-  const story = project.story!;
-  story.nodeId = nodeId; story.mode = mode; story.assistedNodeIds = [];
-  if (['intro', 'craft', 'memory-wave', 'memory-separate', 'road', 'training', 'guardian', 'approach-choice'].includes(nodeId)) {
-    story.approach = null; story.approachSource = null;
-  } else if (nodeId.startsWith('split-')) story.approach = 'split-first';
-  if (['intro', 'craft'].includes(nodeId)) story.castSnapshot = null;
-  return project;
-}
+function at(nodeId:NodeId,mode:Mode='full'):ProjectV1{return currentProject(nodeId,mode);}
 
 async function seed(page: Page, project: ProjectV1) {
   // Only fixture setup writes storage directly. Every tested save uses the real product UI.

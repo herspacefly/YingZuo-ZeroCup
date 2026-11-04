@@ -1,10 +1,11 @@
+import {currentProject} from '../helpers/current-project';
 import {test,expect} from './formal-fixture';
 import type { Download,Page } from '@playwright/test';
 import type { ProjectV1 } from '../../src/domain/types';
 import { defaultAppearance } from '../../src/domain/defaults';
 import fixture from '../fixtures/project.json' with {type:'json'};
 const unstarted={...fixture,story:null,appearance:defaultAppearance(),lastRoute:'/craft'};
-const craft={...fixture,story:{...fixture.story,nodeId:'craft',revision:1,approach:null,approachSource:null,castSnapshot:null,assistedNodeIds:[],presetAppearanceUsed:false,completedAt:null},lastRoute:'/craft'};
+const craft={...currentProject('craft'),lastRoute:'/craft'};
 const ready=async(page:Page)=>expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');
 const saved=async(page:Page)=>expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');
 async function seed(page:Page,project:unknown,previous?:unknown){await page.goto('/study.html');await page.evaluate(async({project,previous})=>{

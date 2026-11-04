@@ -54,7 +54,7 @@ test('production entry, fonts, museum thumbnails and enlarged photos stay within
   expect(problems).toEqual([]);
 });
 
-test('saved colors, JSON export and native v5 voice work after a project-directory refresh', async ({ page, baseURL }) => {
+test('saved colors, JSON export and native Chinese voice work after a project-directory refresh', async ({ page, baseURL }) => {
   const problems = observe(page, baseURL!);
   const readyTimeout = process.env.YINGZUO_PAGES_URL ? 60000 : 20000;
   await page.goto(baseURL! + '#/craft', { waitUntil: 'domcontentloaded' });
@@ -102,7 +102,7 @@ test('lamp workshop loads its lazy Three module and keeps a working two-dimensio
 });
 
 for (const mode of ['full', 'guided'] as const) for (const preset of [false, true]) {
-  test(`craft entry starts voiced v5: ${mode}, ${preset ? 'preset' : 'current'} appearance`, async ({ page, baseURL }) => {
+  test(`craft entry starts voiced story: ${mode}, ${preset ? 'preset' : 'current'} appearance`, async ({ page, baseURL }) => {
     const problems = observe(page, baseURL!);
     const readyTimeout = process.env.YINGZUO_PAGES_URL ? 60000 : 20000;
     await page.goto(baseURL! + '#/craft', { waitUntil: 'domcontentloaded' });

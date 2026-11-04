@@ -1,3 +1,4 @@
+import {currentProject} from '../helpers/current-project';
 import { test, expect } from './formal-fixture';
 import type { Page } from '@playwright/test';
 import type { ProjectV1 } from '../../src/domain/types';
@@ -29,7 +30,7 @@ async function shoulder(page:Page,value:number){
 }
 
 test('the real axe observer displays holding then lowering and pause clears held progress',async({page})=>{
-  await page.emulateMedia({reducedMotion:'reduce'});await controlledClock(page);const project=structuredClone(fixture) as ProjectV1;project.story!.nodeId='call-split';await seed(page,project);
+  await page.emulateMedia({reducedMotion:'reduce'});await controlledClock(page);const project=currentProject('call-split');await seed(page,project);
   const feedback=page.locator('.story-feedback');
   await expect(feedback).toHaveAttribute('data-state','ready');await shoulder(page,1.2);await advance(page,300);
   await expect(feedback).toHaveAttribute('data-state','holding');
@@ -41,7 +42,7 @@ test('the real axe observer displays holding then lowering and pause clears held
   await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','call-split');
 });
 
-test('v5 dialogue gates the handover and its phase announcement does not change on every frame',async({page})=>{
+test('dialogue gates the handover and its phase announcement does not change on every frame',async({page})=>{
   await page.emulateMedia({reducedMotion:'reduce'});await controlledClock(page);const project=structuredClone(fixture) as ProjectV1;Object.assign(project.story!,{definitionVersion:5,nodeId:'memory-wave',revision:2,assistedNodeIds:[],mode:'guided',approach:null,approachSource:null,ending:null,endingSource:null,choices:{journeyIntent:null,mountainPact:null,finalAction:null}});await seed(page,project);
   const feedback=page.locator('.story-feedback');await expect(feedback).toHaveAttribute('data-state','listening');
   await expect(page.locator('#story-rod-rightShoulder')).toBeDisabled();

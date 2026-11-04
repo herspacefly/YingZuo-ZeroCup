@@ -1,6 +1,6 @@
+import {currentProject,currentRun} from '../helpers/current-project';
 import {test,expect} from './formal-fixture';
 import type { Download,Page } from '@playwright/test';
-import { mkdir } from 'node:fs/promises';
 import type { ProjectV1 } from '../../src/domain/types';
 import fixtureJSON from '../fixtures/project.json' with {type:'json'};
 import future from '../fixtures/unknown-version.json' with {type:'json'};
@@ -10,8 +10,8 @@ import choiceDefinition from '../../src/content/stories/reunion.json' with {type
 const fixture=fixtureJSON as ProjectV1;
 const copy=<T>(value:T):T=>JSON.parse(JSON.stringify(value)) as T;
 function completed(approach:'call-first'|'split-first'='call-first',nodeId:'curtain'|'completed'='completed'){
-  const p=copy(fixture);p.appearance.patternId='flower-v1';p.stage.lampX=.8;p.pose.x=.1;
-  p.story={...p.story!,nodeId,revision:16,approach,approachSource:'user',completedAt:'2026-10-18T00:00:00.000Z',assistedNodeIds:['road'],presetAppearanceUsed:false};return p;
+  const p=currentProject(nodeId,'full',currentRun(nodeId,approach));p.appearance.patternId='flower-v1';p.stage.lampX=.8;p.pose.x=.1;
+  p.story!.assistedNodeIds=['road'];return p;
 }
 const saved=async(page:Page)=>expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');
 const ready=async(page:Page)=>expect(page.locator('#result-png')).toBeEnabled();
@@ -42,7 +42,7 @@ test('unfinished and protected records never manufacture a reunion or offer resu
   }
 });
 
-for(const ending of ['home','light','road','waiting','sacrifice'] as const)test(`v5 ${ending} programme shares causal choices with a static PNG and never waits for its stamp`,async({page},info)=>{
+for(const ending of ['home','light','road','waiting','sacrifice'] as const)test(`${ending} programme shares causal choices with a static PNG and never waits for its stamp`,async({page})=>{
   const run=CHOICE_RUNS.find(item=>item.ending===ending)!,project=completed();
   Object.assign(project.story!,{definitionVersion:5,mode:'guided',approach:run.approach,ending,endingSource:'choices',choices:{journeyIntent:run.journeyIntent,mountainPact:run.mountainPact,finalAction:run.finalAction}});
   const stamp={home:'归家',light:'守灯',road:'同行',waiting:'相守',sacrifice:'化山'}[ending],decisiveCount={home:4,light:4,road:3,waiting:1,sacrifice:2}[ending];
@@ -62,7 +62,7 @@ for(const ending of ['home','light','road','waiting','sacrifice'] as const)test(
     new MutationObserver(()=>{if(document.head&&!document.getElementById('hold-stamp')){const style=document.createElement('style');style.id='hold-stamp';style.textContent='.result-stamp{animation-play-state:paused!important;animation-delay:-.36s!important}';document.head.appendChild(style);}}).observe(document,{childList:true,subtree:true});
   });
   if(ending==='waiting')await page.emulateMedia({reducedMotion:'reduce'});
-  if(ending==='sacrifice'&&info.project.name==='mobile-chromium')await page.setViewportSize({width:320,height:844});
+  if(ending==='sacrifice'&&test.info().project.name==='mobile-chromium')await page.setViewportSize({width:320,height:844});
   await seed(page,project);await page.goto('/#/result');await ready(page);
   await expect(page.locator('#result-stamp')).toHaveText(stamp);await expect(page.locator('#result-stamp')).toHaveAttribute('data-ready','true');
   await expect(page.locator('.result-causal>p')).toContainText(explanation);
@@ -76,25 +76,25 @@ for(const ending of ['home','light','road','waiting','sacrifice'] as const)test(
   for(const value of values)expect(drawing.text.join('')).toContain(value);
   expect(drawing.scene).toContainEqual([288,200,1024,768]);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);invariant(await stored(page),project);
-  await page.screenshot({path:info.outputPath('programme-'+ending+'.png'),fullPage:true});
+  await page.screenshot({path:test.info().outputPath('programme-'+ending+'.png'),fullPage:true});
   if(ending==='waiting')expect(await page.locator('#result-stamp').evaluate(node=>getComputedStyle(node).animationName)).toBe('none');
 });
 
-for(const approach of ['call-first','split-first'] as const)test(`${approach} exports a real frozen 1600x1200 PNG twice and an unchanged programme`,async({page},info)=>{
+for(const approach of ['call-first','split-first'] as const)test(`${approach} exports a real frozen 1600x1200 PNG twice and an unchanged programme`,async({page})=>{
   const project=completed(approach,approach==='call-first'?'curtain':'completed');await seed(page,project);await page.goto('/#/result');await saved(page);await ready(page);
   await expect(page.locator('.programme-list')).toContainText(approach==='call-first'?'先举灯呼唤':'先挥斧开山');await expect(page.locator('.programme-list')).not.toContainText('SpaceFly');
-  await expect(page.locator('#result-id')).toHaveText('本场成果 · '+project.story!.runId+':reunion');
+  await expect(page.locator('#result-id')).toHaveText('本场成果 · '+project.story!.runId+':ending:'+project.story!.ending);
   const first=await png(page),second=await png(page);expect(first.subarray(0,8)).toEqual(Buffer.from([137,80,78,71,13,10,26,10]));expect(first.readUInt32BE(16)).toBe(1600);expect(first.readUInt32BE(20)).toBe(1200);expect(second.equals(first)).toBe(true);
   const pixels=await page.evaluate(async base64=>{const image=new Image();image.src='data:image/png;base64,'+base64;await new Promise<void>((resolve,reject)=>{image.onload=()=>resolve();image.onerror=()=>reject(new Error('PNG decoding failed'));});const canvas=document.createElement('canvas');canvas.width=image.width;canvas.height=image.height;const ctx=canvas.getContext('2d')!;ctx.drawImage(image,0,0);const values=new Set<number>();const data=ctx.getImageData(0,0,canvas.width,canvas.height).data;for(let i=0;i<data.length;i+=64)values.add(data[i]!<<16|data[i+1]!<<8|data[i+2]!);return values.size;},first.toString('base64'));expect(pixels).toBeGreaterThan(20);
   invariant(await stored(page),project);await expect(page.locator('#result-operation')).toContainText('已向浏览器请求下载 PNG');
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
-  if(approach==='call-first'){await mkdir('docs/evidence',{recursive:true});await page.screenshot({path:`docs/evidence/t09-result-${info.project.name.startsWith('mobile')?'mobile':'desktop'}.png`,fullPage:true});}
+  if(approach==='call-first'){await page.screenshot({path:test.info().outputPath('result.png'),fullPage:true});}
 });
 
-for(const approach of ['call-first','split-first'] as const)test(`${approach} replay is paused, follows only the saved branch and cannot edit the performance`,async({page},info)=>{
+for(const approach of ['call-first','split-first'] as const)test(`${approach} replay is paused, follows only the saved branch and cannot edit the performance`,async({page})=>{
   test.setTimeout(60000);await clock(page);const project=completed(approach);await seed(page,project);await page.goto('/#/result');await ready(page);await openReplay(page);
   await expect(page.locator('#replay-status')).toContainText('已暂停');expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(0);
-  const options=await page.locator('#replay-segment option').allTextContents();expect(options).toHaveLength(14);
+  const options=await page.locator('#replay-segment option').allTextContents();expect(options).toHaveLength(22);
   await page.locator('#replay-segment').selectOption('2');
   await expect(page.locator('#result-replay-player .canvas-stage-status')).toHaveAttribute('data-state','ready',{timeout:15000});await page.locator('#replay-play').click();await frame(page);await frame(page);await expect(page.locator('#replay-status')).toContainText('播放中');
   await page.evaluate(()=>window.dispatchEvent(new Event('blur')));await expect(page.locator('#replay-status')).toContainText('已暂停');expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(0);
@@ -104,8 +104,8 @@ for(const approach of ['call-first','split-first'] as const)test(`${approach} re
   }
   await page.getByRole('button',{name:'展开本段完整台词',exact:true}).click();await expect(page.locator('#result-replay-player #story-transcript')).toBeVisible();
   await saved(page);invariant(await stored(page),project);
-  await page.locator('#replay-reset').click();await expect(page.locator('#replay-status')).toContainText('片段 1/14');
-  if(approach==='call-first')await page.screenshot({path:`docs/evidence/t09-replay-${info.project.name.startsWith('mobile')?'mobile':'desktop'}.png`,fullPage:true});
+  await page.locator('#replay-reset').click();await expect(page.locator('#replay-status')).toContainText('片段 1/22');
+  if(approach==='call-first')await page.screenshot({path:test.info().outputPath('result.png'),fullPage:true});
 });
 
 test('SAVE-03 JSON into a fresh browser preserves result identity, frozen PNG and replay decisions',async({page,browser})=>{
@@ -113,7 +113,7 @@ test('SAVE-03 JSON into a fresh browser preserves result identity, frozen PNG an
   const project=completed('split-first');await seed(page,project);await page.goto('/#/result');await ready(page);const first=await png(page),file=await json(page);invariant(JSON.parse(file.toString('utf8')),project);
   const context=await browser.newContext({viewport:page.viewportSize()!});const other=await context.newPage();
   try{await other.goto('/');await saved(other);await other.getByRole('button',{name:/我的作品/}).click();await other.locator('#import-project').setInputFiles({name:'reunion.json',mimeType:'application/json',buffer:file});await expect.poll(async()=>(await stored(other)).story?.runId).toBe(project.story!.runId);await saved(other);await go(other,'/result');await ready(other);
-    const imported=await stored(other);expect(imported.projectId).not.toBe(project.projectId);invariant(imported,project);await expect(other.locator('#result-id')).toHaveText('本场成果 · '+project.story!.runId+':reunion');expect((await png(other)).equals(first)).toBe(true);await openReplay(other);await expect(other.locator('#replay-status')).toContainText('已暂停');
+    const imported=await stored(other);expect(imported.projectId).not.toBe(project.projectId);invariant(imported,project);await expect(other.locator('#result-id')).toHaveText('本场成果 · '+project.story!.runId+':ending:'+project.story!.ending);expect((await png(other)).equals(first)).toBe(true);await openReplay(other);await expect(other.locator('#replay-status')).toContainText('已暂停');
   }finally{await context.close();}
 });
 
@@ -180,7 +180,7 @@ test('a PNG finishing during a pending file import cannot download the previous 
   await seed(page,completed());await page.goto('/#/result');await ready(page);await page.locator('#result-png').click();await expect.poll(()=>page.evaluate(()=>typeof Reflect.get(window,'__encoded'))).toBe('function');
   const imported=completed('split-first');imported.story!.runId='imported-reunion-run';await page.getByRole('button',{name:/我的作品/}).click();await page.locator('#import-project').setInputFiles({name:'new-run.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(imported))});await expect.poll(()=>page.evaluate(()=>typeof Reflect.get(window,'__finishImport'))).toBe('function');
   await page.evaluate(()=>Reflect.get(window,'__encoded')());await expect(page.locator('#result-operation')).toContainText('作品正在导入或处理');expect(await page.evaluate(()=>Reflect.get(window,'__downloadCount'))).toBe(0);
-  await page.evaluate(()=>Reflect.get(window,'__finishImport')());await expect.poll(async()=>(await stored(page)).story?.runId).toBe(imported.story!.runId);await saved(page);await go(page,'/result');await ready(page);await expect(page.locator('#result-id')).toHaveText('本场成果 · imported-reunion-run:reunion');
+  await page.evaluate(()=>Reflect.get(window,'__finishImport')());await expect.poll(async()=>(await stored(page)).story?.runId).toBe(imported.story!.runId);await saved(page);await go(page,'/result');await ready(page);await expect(page.locator('#result-id')).toHaveText('本场成果 · imported-reunion-run:ending:road');
 });
 
 test('legacy product exports PNG and plays a read-only frozen scene through the same modules',async({page})=>{

@@ -1,14 +1,12 @@
+import {currentProject} from '../helpers/current-project';
 import {test,expect} from './formal-fixture';
 import type {Page} from '@playwright/test';
-import fixture from '../fixtures/project.json' with {type:'json'};
-import type {ProjectV1} from '../../src/domain/types';
+import type {} from '../../src/domain/types';
 
 test.beforeEach(async({page})=>{await page.emulateMedia({reducedMotion:'reduce'});});
 
 async function seed(page:Page,interactive=false){
-  const project=structuredClone(fixture) as ProjectV1;
-  Object.assign(project.story!,{nodeId:interactive?'memory-wave':'memory-words',approach:null,approachSource:null,assistedNodeIds:[],completedAt:null});
-  if(!interactive)Object.assign(project.story!,{definitionVersion:5,mode:'guided',ending:null,endingSource:null,choices:{journeyIntent:null,mountainPact:null,finalAction:null}});
+  const project=currentProject(interactive?'memory-wave':'memory-words');
   await page.goto('/study.html');await page.evaluate(async value=>{
     const db=await new Promise<IDBDatabase>((yes,no)=>{const q=indexedDB.open('yingzuo-v1',1);q.onupgradeneeded=()=>q.result.createObjectStore('snapshots');q.onsuccess=()=>yes(q.result);q.onerror=()=>no(q.error);});
     await new Promise<void>((yes,no)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>yes();tx.onabort=()=>no(tx.error);});db.close();

@@ -1,6 +1,6 @@
 import {test,expect} from '@playwright/test';
 
-test('v5 rehearsal is silent and storage failure cancels the formal voice channel',async({page})=>{
+test('rehearsal is silent and storage failure cancels the formal voice channel',async({page})=>{
  test.setTimeout(60000);await page.emulateMedia({reducedMotion:'reduce'});
  await page.addInitScript(()=>{
   const Native=window.Audio,players:HTMLAudioElement[]=[];

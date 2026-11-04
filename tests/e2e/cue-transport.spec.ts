@@ -1,12 +1,11 @@
+import {currentProject} from '../helpers/current-project';
 import {test,expect} from './formal-fixture';
 import type {Page} from '@playwright/test';
 import content from '../../src/content/stories/reunion.json' with {type:'json'};
-import fixture from '../fixtures/project.json' with {type:'json'};
 import type {ProjectV1} from '../../src/domain/types';
 const node=content.nodes.find(n=>n.id==='memory-wave')!;
-function project(mode:'full'|'guided'='guided'){
-  const p=structuredClone(fixture) as ProjectV1,s=p.story!;s.definitionVersion=5;s.nodeId='memory-wave';s.mode=mode;s.assistedNodeIds=[];s.approach=null;s.approachSource=null;s.ending=null;s.endingSource=null;return p;
-}
+const project=(mode:'full'|'guided'='guided')=>currentProject('memory-wave',mode);
+
 async function seed(page:Page,p:ProjectV1){
   await page.goto('/study.html');await page.evaluate(async value=>{
     const db=await new Promise<IDBDatabase>((resolve,reject)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});
@@ -40,15 +39,15 @@ test('craft keeps original image details and palette, with no added pattern or c
   const before=await page.locator('canvas.shadow-stage').evaluate(c=>(c as HTMLCanvasElement).toDataURL());
   p.appearance.patternId='flower-v1';p.appearance.carvedSegments=[false,false,false];await seed(page,p);await page.goto('/#/craft');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready',{timeout:15000});
   expect(await page.locator('canvas.shadow-stage').evaluate(c=>(c as HTMLCanvasElement).toDataURL())).toBe(before);
-  await page.locator('#craft-palette').selectOption('woodland-v1');await page.locator('#craft-confirm').click();await ready(page);await expect(runtime(page)).toHaveAttribute('data-node','memory-wave');expect((await stored(page)).story).toMatchObject({definitionVersion:4,castSnapshot:{appearance:{paletteId:'woodland-v1'}}});
+  await page.locator('#craft-palette').selectOption('woodland-v1');await page.locator('#craft-confirm').click();await ready(page);await expect(runtime(page)).toHaveAttribute('data-node','memory-wave');expect((await stored(page)).story).toMatchObject({definitionVersion:5,castSnapshot:{appearance:{paletteId:'woodland-v1'}}});
 });
 
-test('fresh guide starts v4 without freezing an unconfirmed costume',async({page})=>{
-  const p=project();p.story=null;await seed(page,p);await page.goto('/');await page.getByRole('button',{name:'节选导览',exact:true}).click();await ready(page);expect((await stored(page)).story).toMatchObject({definitionVersion:4,nodeId:'intro',mode:'guided',castSnapshot:null});
+test('fresh guide starts the narrated story without freezing an unconfirmed costume',async({page})=>{
+  const p=project();p.story=null;await seed(page,p);await page.goto('/');await page.getByRole('button',{name:'节选导览',exact:true}).click();await ready(page);expect((await stored(page)).story).toMatchObject({definitionVersion:5,nodeId:'intro',mode:'guided',castSnapshot:null});
 });
 
 test('paused result replay unlocks its cue directory when the first frame becomes ready',async({page})=>{
-  test.setTimeout(60000);const p=project();Object.assign(p.story!,{nodeId:'completed',approach:'call-first',approachSource:'user',ending:'home',endingSource:'user',completedAt:'2026-10-24T02:00:00.000Z'});
+  test.setTimeout(60000);const p=currentProject('completed');
   await seed(page,p);await page.goto('/#/result');await expect(page.locator('#result-capture canvas.reunion-artifact')).toHaveAttribute('data-state','ready',{timeout:15000});
   const before=(await stored(page)).story;await page.locator('#result-replay').click();const player=page.locator('#result-replay-player');
   await expect(player.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready',{timeout:15000});const cue=player.locator('.subtitle-cue').nth(1);await expect(cue).toBeEnabled();await cue.click();

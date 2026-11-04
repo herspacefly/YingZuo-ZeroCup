@@ -1,10 +1,10 @@
+import {currentProject} from '../helpers/current-project';
 import {test,expect} from './formal-fixture';
 import type {Page} from '@playwright/test';
 import type {ProjectV1,StoryNodeId} from '../../src/domain/types';
-import fixture from '../fixtures/project.json' with {type:'json'};
 const runtime=(page:Page)=>page.locator('#story-runtime'),sound=(page:Page)=>page.locator('#story-sound-status');
 const stats=(page:Page)=>page.evaluate(()=>Reflect.get(window,'__audioStats')() as {created:number;started:number;disconnected:number;closed:number;states:string[]});
-function at(nodeId:StoryNodeId):ProjectV1{const p=structuredClone(fixture) as ProjectV1;p.story!.nodeId=nodeId;p.story!.assistedNodeIds=[];if(nodeId==='intro'){p.story!.revision=0;p.story!.castSnapshot=null;p.story!.approach=null;p.story!.approachSource=null;}if(nodeId==='split-axe')p.story!.approach='split-first';return p;}
+const at=(nodeId:StoryNodeId):ProjectV1=>currentProject(nodeId);
 async function seed(page:Page,value:ProjectV1){await page.goto('/study.html');await page.evaluate(async value=>{const db=await new Promise<IDBDatabase>((resolve,reject)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});await new Promise<void>((resolve,reject)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>resolve();tx.onabort=()=>reject(tx.error);});db.close();},value);}
 async function prepare(page:Page,node:StoryNodeId='intro'){await instrument(page);await seed(page,at(node));await page.goto('/#/story');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready',{timeout:15000});await expect(runtime(page)).toHaveAttribute('data-state','paused');await page.locator('#story-runtime').click();await expect(sound(page)).toHaveAttribute('data-state','enabled');}
 async function go(page:Page,path:string){await page.evaluate(path=>{location.hash='#'+path;},path);await expect(page.locator('#app-view')).toHaveAttribute('data-route',path);}
