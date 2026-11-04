@@ -211,7 +211,7 @@ for(const entry of ['header-tab','direct-url','refresh','practice','craft'] as c
  await page.locator('#site-music-toggle').click();await expect(page.locator('#site-music-toggle')).toHaveAttribute('aria-pressed','false');
  await page.locator('#story-voice-toggle').click();await expect(page.locator('#story-voice-toggle')).toHaveAttribute('aria-pressed','false');
  if(entry==='refresh')await page.reload();
- else if(entry==='direct-url'){await go(page,'/museum');await page.goto('/#/story');}
+ else if(entry==='direct-url'){await go(page,'/museum');await page.goto('/?entry=direct#/story');}
  else if(entry==='header-tab'){await go(page,'/museum');await page.locator('a[href="#/story"]:visible').first().click();}
  else if(entry==='practice'){await go(page,'/practice');await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready');await page.locator('#journey-to-story').click();}
  else {await go(page,'/craft');await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready');await page.locator('#craft-return').click();}
