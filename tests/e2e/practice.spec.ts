@@ -4,7 +4,7 @@ import type { ProjectV1 } from '../../src/domain/types';
 import chenxiang from '../../src/content/puppets/chenxiang-v1.json' with {type:'json'};
 import type { PuppetTemplate } from '../../src/content/asset-types';
 import { projectedPoseBounds } from '../../src/domain/pose';
-import fixture from '../fixtures/project-v1.json' with {type:'json'};
+import fixture from '../fixtures/project.json' with {type:'json'};
 const ready=async(page:Page)=>{await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');await expect(page.locator('#practice-play')).toBeEnabled();};
 const saved=async(page:Page)=>expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');
 async function seed(page:Page){await page.goto('/study.html');await page.evaluate(async project=>{

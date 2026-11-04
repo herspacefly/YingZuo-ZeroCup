@@ -5,27 +5,27 @@ import { createReunionArtifact } from '../../src/features/result/artifact';
 import { prepareFrame } from '../../src/renderers/canvas/frame';
 import { interactionHandPoints } from '../../src/story/node-interaction';
 import { handDistanceRatio } from '../../src/story/interactions';
-import { at } from '../helpers/story';
+import {at} from '../helpers/story';
+import {CHOICE_RUNS,choiceAt} from '../helpers/choice-story';
 
 describe('T09 deterministic completed-run artifact', () => {
   it('rejects every unfinished stage, including the last quiet hold', () => {
     for (const id of ['intro', 'craft', 'memory-wave', 'approach-choice', 'reunion-reach', 'reunion-hold'] as const) {
-      expect(() => createReunionArtifact(at(id))).toThrow('尚未团圆');
+      expect(() => createReunionArtifact(at(id))).toThrow('未到终章');
     }
   });
-  for (const approach of ['call-first', 'split-first'] as const) {
-    it(`${approach}: curtain and completed produce the same legal frozen pair and stable identity`, () => {
-      const curtain = at('curtain', approach), completed = at('completed', approach);
-      const still = createReunionArtifact(curtain), final = createReunionArtifact(completed);
-      expect(still).toEqual(final); expect(still.summary).toEqual(reunionSummary(curtain));
-      expect(still.summary.id).toBe('run-test:reunion'); expect(still.summary.approach).toBe(approach);
-      expect(still.frame.actors.map(actor => actor.actorId)).toEqual(['chenxiang', 'mother']);
-      expect(still.frame.sceneLayers!.find(layer=>layer.id==='mountain-far')!.opacity).toBe(.55);
-      expect(prepareFrame(still.frame, assetCatalog)).toEqual(still.frame);
-      const points = interactionHandPoints(still.frame)!;
-      expect(handDistanceRatio(points.chenxiang, points.mother)).toBeLessThanOrEqual(.04);
-    });
-  }
+  for(const ending of ['home','light','road','waiting','sacrifice'] as const)it(`${ending}: curtain and completed share the real scene and frozen identity`,()=>{
+    const run=CHOICE_RUNS.find(r=>r.ending===ending)!,curtain=choiceAt('curtain',run),completed=choiceAt('completed',run);
+    const still=createReunionArtifact(curtain),final=createReunionArtifact(completed);
+    expect(still).toEqual(final);expect(still.summary).toEqual(reunionSummary(curtain));
+    expect(still.summary.id).toBe(`choice-run:ending:${ending}`);expect(still.summary.approach).toBe(run.approach);
+    expect(prepareFrame(still.frame,assetCatalog)).toEqual(still.frame);
+    expect(still.frame.actors.every(actor=>actor.costumeTreatment==='original-texture')).toBe(true);
+    expect(still.frame.stage).toEqual(createReunionArtifact(completed).frame.stage);
+    if(ending==='home'){
+      const points=interactionHandPoints(still.frame)!;expect(handDistanceRatio(points.chenxiang,points.mother)).toBeLessThanOrEqual(.04);
+    }
+  });
   it('ignores editor changes and route, and copies input, summary and frame separately', () => {
     const project = at('completed'), before = JSON.stringify(project), still = createReunionArtifact(project);
     expect(JSON.stringify(project)).toBe(before);

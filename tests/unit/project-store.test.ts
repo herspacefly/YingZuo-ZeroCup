@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import fixture from '../fixtures/project-v1.json';
+import fixture from '../fixtures/project.json';
 import { createProject } from '../../src/domain/defaults';
 import { serializeProject } from '../../src/domain/migrations';
 import type { ProjectBaseline, ProjectV1 } from '../../src/domain/types';

@@ -1,8 +1,8 @@
 import {test,expect} from './formal-fixture';
 import type { Page } from '@playwright/test';
 import type { ProjectV1 } from '../../src/domain/types';
-import fixture from '../fixtures/project-v1.json' with { type: 'json' };
-import content from '../../src/content/stories/reunion-v1.json' with { type: 'json' };
+import fixture from '../fixtures/project.json' with { type: 'json' };
+import content from '../../src/content/stories/reunion.json' with { type: 'json' };
 
 type Mode = 'full' | 'guided';
 type NodeId = NonNullable<ProjectV1['story']>['nodeId'];

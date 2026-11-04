@@ -2,7 +2,7 @@ import {test,expect} from './formal-fixture';
 import type { Download,Page } from '@playwright/test';
 import type { ProjectV1 } from '../../src/domain/types';
 import { defaultAppearance } from '../../src/domain/defaults';
-import fixture from '../fixtures/project-v1.json' with {type:'json'};
+import fixture from '../fixtures/project.json' with {type:'json'};
 const unstarted={...fixture,story:null,appearance:defaultAppearance(),lastRoute:'/craft'};
 const craft={...fixture,story:{...fixture.story,nodeId:'craft',revision:1,approach:null,approachSource:null,castSnapshot:null,assistedNodeIds:[],presetAppearanceUsed:false,completedAt:null},lastRoute:'/craft'};
 const ready=async(page:Page)=>expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');

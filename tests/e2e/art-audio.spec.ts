@@ -1,7 +1,7 @@
 import {test,expect} from './formal-fixture';
 import type {Page} from '@playwright/test';
 import type {ProjectV1,StoryNodeId} from '../../src/domain/types';
-import fixture from '../fixtures/project-v1.json' with {type:'json'};
+import fixture from '../fixtures/project.json' with {type:'json'};
 const runtime=(page:Page)=>page.locator('#story-runtime'),sound=(page:Page)=>page.locator('#story-sound-status');
 const stats=(page:Page)=>page.evaluate(()=>Reflect.get(window,'__audioStats')() as {created:number;started:number;disconnected:number;closed:number;states:string[]});
 function at(nodeId:StoryNodeId):ProjectV1{const p=structuredClone(fixture) as ProjectV1;p.story!.nodeId=nodeId;p.story!.assistedNodeIds=[];if(nodeId==='intro'){p.story!.revision=0;p.story!.castSnapshot=null;p.story!.approach=null;p.story!.approachSource=null;}if(nodeId==='split-axe')p.story!.approach='split-first';return p;}

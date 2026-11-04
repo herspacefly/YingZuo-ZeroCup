@@ -3,7 +3,7 @@ import {test,expect} from './formal-fixture';
 import type {Page} from '@playwright/test';
 import type {ProjectV1,StoryNodeId} from '../../src/domain/types';
 import definition from '../../src/content/stories/reunion.json' with {type:'json'};
-import fixture from '../fixtures/project-v1.json' with {type:'json'};
+import fixture from '../fixtures/project.json' with {type:'json'};
 import {CHOICE_RUNS} from '../helpers/choice-cases';
 import type {ChoiceRun} from '../helpers/choice-cases';
 

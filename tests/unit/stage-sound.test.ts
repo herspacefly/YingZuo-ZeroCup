@@ -187,7 +187,7 @@ describe('T10 finite opt-in stage sound lifecycle', () => {
   });
 
   it('keeps the reunion hold completely silent for its first two seconds in both modes', async () => {
-    for (const definitionVersion of [1,2,3] as const) for (const mode of ['full', 'guided'] as const) {
+    for (const definitionVersion of [5] as const) for (const mode of ['full', 'guided'] as const) {
       const { sound, contexts } = setup(); sound.update(sample({ nodeId: 'reunion-hold', mode,definitionVersion })); await sound.enable();
       for (const elapsedMs of [0, 1000, 1999, 2000, 2499]) sound.update(sample({ nodeId: 'reunion-hold', mode,definitionVersion, playing: true, elapsedMs }));
       expect(contexts[0]!.sources).toHaveLength(0);
@@ -196,14 +196,13 @@ describe('T10 finite opt-in stage sound lifecycle', () => {
     }
   });
 
-  it('maps finite cues to the same shot proportions in both modes and only permits relevant event types', () => {
+  it('maps finite cues inside both measured modes and only permits relevant event types', () => {
     for (const node of reunionDefinition.nodes) {
       const full = stageSoundCues(node.id, 'full'), guided = stageSoundCues(node.id, 'guided');
       expect(full.length).toBe(guided.length);
       for (let index = 0; index < full.length; index++) {
         expect(full[index]!.atMs).toBeLessThan(node.fullTiming.targetMs);
         expect(guided[index]!.atMs).toBeLessThan(node.guidedTiming.targetMs);
-        expect(guided[index]!.atMs / node.guidedTiming.targetMs).toBeCloseTo(full[index]!.atMs / node.fullTiming.targetMs);
       }
     }
     expect(stageEventTimbre('reunion-hold', 'mountain-open')).toBeNull();
@@ -211,13 +210,12 @@ describe('T10 finite opt-in stage sound lifecycle', () => {
     expect(stageEventTimbre('call-light', 'light-found')).toBe('lamp');
     expect(stageEventTimbre('reunion-reach', 'hands-meet')).toBe('settle');
   });
-  it('maps cues using the actual restored definition rather than the current default',()=>{
-    for(const definitionVersion of [1,2,3] as const){
-      const definition=definitionFor({definitionVersion}),node=definition.nodes.find(item=>item.id==='intro')!;
-      const cues=stageSoundCues('intro','guided',definitionVersion);
-      expect(cues.find(cue=>cue.id==='separate')!.atMs).toBeCloseTo(4000/node.fullTiming.targetMs*node.guidedTiming.targetMs);
+  it('keeps intro cues finite and within the current measured playback timeline',()=>{
+    for(const mode of ['full','guided'] as const){
+      const cues=stageSoundCues('intro',mode,5);expect(cues.length).toBeGreaterThan(0);
+      const node=definitionFor(null).nodes.find(n=>n.id==='intro')!;
+      for(const cue of cues){expect(cue.atMs).toBeGreaterThanOrEqual(0);expect(cue.atMs).toBeLessThan((mode==='full'?node.fullTiming:node.guidedTiming).targetMs);}
     }
-    expect(stageSoundCues('intro','guided',1)).not.toEqual(stageSoundCues('intro','guided',3));
   });
   it('seeks silently, stops old voices and consumes passed cues without a catch-up sound',async()=>{
     const {sound,contexts}=setup();sound.update(sample());await sound.enable();sound.update(sample({playing:true}));

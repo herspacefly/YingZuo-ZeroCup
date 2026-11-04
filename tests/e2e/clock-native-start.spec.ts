@@ -1,6 +1,6 @@
 import {test,expect} from './formal-fixture';
 import type {Page} from '@playwright/test';
-import fixture from '../fixtures/project-v1.json' with {type:'json'};
+import fixture from '../fixtures/project.json' with {type:'json'};
 async function seed(page:Page){await page.goto('/study.html');await page.evaluate(async value=>{
  const db=await new Promise<IDBDatabase>((yes,no)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>yes(r.result);r.onerror=()=>no(r.error);});
  try{await new Promise<void>((yes,no)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>yes();tx.onabort=()=>no(tx.error);});}finally{db.close();}

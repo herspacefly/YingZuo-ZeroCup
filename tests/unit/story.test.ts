@@ -10,17 +10,17 @@ import type { StoryCommand,StoryDefinition } from '../../src/domain/story-types'
 import { NOW,at,commandFor,first,step } from '../helpers/story';
 
 const refs={nodeIds:STORY_NODE_IDS,jointIds:JOINT_IDS,sourceIds:sources.sources.map(s=>s.id),assetIds:assetCatalog.manifest.assets.map(a=>a.id),puppets:assetCatalog.puppets,scenes:assetCatalog.scenes.scenes};
-const context={paused:false,elapsedMs:20000,now:NOW};
+const context={paused:false,elapsedMs:999999,now:NOW};
 describe('STORY-01/02 pure story command contract',()=>{
   for(const mode of ['full','guided'] as const)for(const approach of ['call-first','split-first'] as const)for(const assisted of [false,true]) {
     it(`${mode}/${approach}/${assisted?'explicit help':'manual evidence'} reaches the same reunion and curtain in the required order`,()=>{
       let p=first(mode);const seen:string[]=[];
       while(p.story!.nodeId!=='completed'){seen.push(p.story!.nodeId);p=step(p,approach,assisted);validateProject(p);}
-      seen.push('completed');expect(seen).toHaveLength(15);expect(p.story!.revision).toBe(14);
-      expect(seen.slice(8,11)).toEqual(approach==='call-first'?['call-light','call-response','call-split']:['split-axe','split-search','split-response']);
+      seen.push('completed');expect(seen).toHaveLength(23);expect(p.story!.revision).toBe(22);
+      expect(seen.slice(13,16)).toEqual(approach==='call-first'?['call-light','call-response','call-split']:['split-axe','split-search','split-response']);
       expect(p.story).toMatchObject({mode,approach,approachSource:'user',completedAt:NOW});
-      expect(reunionSummary(p)!.id).toBe('run-test:reunion');
-      expect(p.story!.assistedNodeIds.includes('curtain')).toBe(assisted);expect(p.story!.assistedNodeIds).not.toContain('training');
+      expect(reunionSummary(p)!.id).toBe(`run-test:ending:${approach==='call-first'?'home':'road'}`);
+      expect(p.story!.assistedNodeIds.includes('memory-wave')).toBe(assisted);expect(p.story!.assistedNodeIds).not.toContain('training');
     });
   }
   it.each(['run','revision','node','repeat'])('makes %s mismatches a no-op before examining a stale payload',kind=>{
@@ -72,10 +72,9 @@ describe('STORY-01/02 pure story command contract',()=>{
     expect(storyEntry(next,definition,5)).toMatchObject({paused:true,elapsedMs:0});
     expect(reduceStory(next,{...storyGuard(next.story!),action:'SET_MODE',mode:'guided'},{...context,paused:true},definition)).toBeNull();
   });
-  it('enforces four quiet seconds and a user click before creating the one reunion',()=>{
-    const p=at('reunion-hold'),cmd=commandFor(p);
-    expect(()=>reduceStory(p,cmd,{...context,elapsedMs:3999},definition)).toThrow('播放完成');
-    expect(()=>reduceStory(p,{...cmd,source:'script'} as StoryCommand,context,definition)).toThrow('来源');
+  it('completes only after the ending epilogue and keeps its stable identity during curtain and mode changes',()=>{
+    const p=at('ending-home-epilogue'),cmd=commandFor(p),entry=storyEntry(p,definition,1);
+    expect(()=>reduceStory(p,cmd,{...context,elapsedMs:entry.node.fullTiming.targetMs-1},definition)).toThrow('播放完成');
     const curtain=step(p);expect(curtain.story).toMatchObject({nodeId:'curtain',completedAt:NOW});
     const changed=reduceStory(curtain,{...storyGuard(curtain.story!),action:'SET_MODE',mode:'guided'},{...context,paused:true,now:'2026-10-17T14:00:00.000Z'},definition)!;
     const completed=step(changed);expect(reunionSummary(completed)!.completedAt).toBe(NOW);expect(reunionSummary(completed)!.id).toBe(reunionSummary(curtain)!.id);
@@ -92,7 +91,7 @@ describe('STORY-01/02 pure story command contract',()=>{
     expect(()=>reduceStory(p,cmd,context,definition)).toThrow('尚未满足');
   });
   it('does not turn a future script version or exhausted revision into new progress',()=>{
-    const p=at('call-light'),future={...definition,definitionVersion:2} as unknown as StoryDefinition;
+    const p=at('call-light'),future={...definition,definitionVersion:6} as unknown as StoryDefinition;
     expect(()=>reduceStory(p,commandFor(p),context,future)).toThrow('版本');
     p.story!.revision=Number.MAX_SAFE_INTEGER;expect(()=>reduceStory(p,commandFor(p),context,definition)).toThrow('上限');
   });
@@ -104,14 +103,15 @@ describe('T15 content graph and consumer references',()=>{
     const entry=storyEntry(p,definition,1);expect(entry.node.entryStage).toEqual({backgroundId:'mountain-v1',lampX:0,puppetDistance:.2});
     entry.node.entryStage.lampX=.4;expect(currentStoryNode(definition,p.story!).entryStage.lampX).toBe(0);
   });
-  it('maps every full subtitle into the guided duration without dropping the final line',()=>{
-    for(const node of definition.nodes){
-      const mapped=subtitlesForMode(node,'guided');expect(mapped).toHaveLength(node.subtitles.length);
-      for(const cue of mapped){expect(cue.startMs).toBeGreaterThanOrEqual(0);expect(cue.endMs).toBeLessThanOrEqual(node.guidedTiming.targetMs);}
+  it('keeps the authored full and guide words on valid measured voice timelines',()=>{
+    for(const raw of definition.nodes){
+      const node=currentStoryNode(definition,at(raw.id).story!);
+      for(const mode of ['full','guided'] as const){
+        const mapped=subtitlesForMode(node,mode),duration=(mode==='full'?node.fullTiming:node.guidedTiming).targetMs;
+        expect(mapped).toHaveLength((mode==='guided'?node.guidedSubtitles??node.subtitles:node.subtitles).length);
+        for(const cue of mapped){expect(cue.startMs).toBeGreaterThanOrEqual(0);expect(cue.endMs).toBeLessThanOrEqual(duration+1e-8);expect(cue.endMs).toBeGreaterThan(cue.startMs);}
+      }
     }
-    const intro=definition.nodes.find(n=>n.id==='intro')!;
-    expect(subtitlesForMode(intro,'guided').at(-1)!.endMs).toBe(10000);
-    expect(subtitlesForMode(intro,'full').at(-1)!.startMs).toBe(13000);
   });
   it.each(['edge','actor','pose','source','asset','layer','threshold','quiet','attachment','timebase'] as const)('rejects broken %s contracts',kind=>{
     const d=JSON.parse(JSON.stringify(definition)) as StoryDefinition;

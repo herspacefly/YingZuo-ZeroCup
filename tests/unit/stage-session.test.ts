@@ -33,7 +33,7 @@ describe('per-document default-on audio session',()=>{
     session.setScene(null,false);session.unlock();
     expect(fixture.plays).toBe(1);expect(fixture.resumes).toBe(1);await flush();
     session.toggleMusic();session.effects.mute();expect(fixture.audible).toBe(false);
-    session.setScene({nodeId:'intro',mode:'full',elapsedMs:0,playing:true,definitionVersion:3},true);
+    session.setScene({nodeId:'intro',mode:'full',elapsedMs:0,playing:true,definitionVersion:5},true);
     session.setScene(null,false);session.unlock();
     expect(session.musicEnabled()).toBe(false);expect(session.effectsEnabled()).toBe(false);
     expect(fixture.plays).toBe(1);expect(fixture.resumes).toBe(1);
@@ -44,11 +44,11 @@ describe('per-document default-on audio session',()=>{
     session.setScene(null,false);session.unlock();await flush();
     expect(fixture.statuses.at(-1)).toMatchObject({status:{state:'blocked'},intent:true});
     expect(session.effects.getStatus().state).toBe('blocked');
-    session.setScene({nodeId:'intro',mode:'full',elapsedMs:4100,playing:true,definitionVersion:1},true);
-    session.setScene({nodeId:'intro',mode:'full',elapsedMs:4116,playing:true,definitionVersion:1},true);
+    session.setScene({nodeId:'intro',mode:'full',elapsedMs:4100,playing:true,definitionVersion:5},true);
+    session.setScene({nodeId:'intro',mode:'full',elapsedMs:4116,playing:true,definitionVersion:5},true);
     expect(fixture.plays).toBe(1);expect(fixture.resumes).toBe(1);
     fixture.permit();session.unlock();expect(fixture.plays).toBe(2);expect(fixture.resumes).toBe(2);await flush();
-    session.setScene({nodeId:'intro',mode:'full',elapsedMs:4132,playing:true,definitionVersion:1},true);
+    session.setScene({nodeId:'intro',mode:'full',elapsedMs:4132,playing:true,definitionVersion:5},true);
     expect(fixture.voices).toBe(0);expect(session.effects.getStatus().state).toBe('enabled');
     session.dispose();
   });
@@ -132,7 +132,7 @@ function voiceSession(blocked=false){
   return {session,update,musicPlayers,voicePlayers,statuses,permit(){permitted=true;}};
 }
 
-describe('v5 dialogue and soundtrack session integration',()=>{
+describe('dialogue and soundtrack session integration',()=>{
   it('defaults voice intent on, unlocks synchronously and retains independent voice/music preferences across routes',async()=>{
     const {session,update,musicPlayers,voicePlayers}=voiceSession();
     expect(session.voiceEnabled()).toBe(true);expect(session.musicEnabled()).toBe(true);
@@ -145,6 +145,26 @@ describe('v5 dialogue and soundtrack session integration',()=>{
     expect(session.voiceEnabled()).toBe(true);expect(session.musicEnabled()).toBe(false);expect(voicePlayers[1]!.audible).toBe(true);
     expect(musicPlayers.every(player=>!player.audible)).toBe(true);session.dispose();
     const fresh=voiceSession();expect(fresh.session.voiceEnabled()).toBe(true);fresh.session.dispose();
+  });
+  it('enables Chinese voice at every actual formal entry after a trial or replay mute, independently of music',async()=>{
+    const {session,update,voicePlayers}=voiceSession();
+    for(const preceding of ['quick-trial','result-replay']){
+      update();session.unlock();await flush();session.toggleVoice();
+      expect(session.voiceEnabled(),preceding).toBe(false);
+      session.setVoice(null);session.setScene(null,false);
+      if(session.musicEnabled())session.toggleMusic();
+      session.enterStory();expect(session.voiceEnabled()).toBe(true);expect(session.musicEnabled()).toBe(false);
+      update();await flush();expect(voicePlayers.at(-1)!.audible).toBe(true);
+    }
+    session.dispose();
+  });
+  it('keeps a same-page mute through pause, seek, chapter cuts and focus until another actual entry',async()=>{
+    const {session,update,voicePlayers}=voiceSession();session.enterStory();update();session.unlock();await flush();session.toggleVoice();
+    const count=voicePlayers.length;
+    update(200,false);update(300,true);update(0,true,'curtain');session.setActive(false);session.setActive(true);session.unlock();
+    expect(session.voiceEnabled()).toBe(false);expect(voicePlayers).toHaveLength(count);expect(voicePlayers.every(p=>!p.audible)).toBe(true);
+    session.setVoice(null);session.setScene(null,false);session.enterStory();update();await flush();
+    expect(session.voiceEnabled()).toBe(true);expect(voicePlayers.at(-1)!.audible).toBe(true);session.dispose();
   });
   it('keeps blocked voice intent on, does not retry on frames and retries on a gesture at the current offset',async()=>{
     const {session,update,voicePlayers,permit}=voiceSession(true);update();session.unlock();await flush();

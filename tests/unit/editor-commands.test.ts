@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import fixture from '../fixtures/project-v1.json';
+import fixture from '../fixtures/project.json';
 import { applyEditorCommand } from '../../src/app/commands';
 import type { EditorCommand } from '../../src/app/commands';
 import { ProjectStore } from '../../src/app/store';

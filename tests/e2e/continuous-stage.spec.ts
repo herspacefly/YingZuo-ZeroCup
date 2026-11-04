@@ -1,7 +1,7 @@
 import {test,expect} from './formal-fixture';
 import type {Page} from '@playwright/test';
-import fixture from '../fixtures/project-v1.json' with {type:'json'};
-import definition from '../../src/content/stories/reunion-v4.json' with {type:'json'};
+import fixture from '../fixtures/project.json' with {type:'json'};
+import definition from '../../src/content/stories/reunion.json' with {type:'json'};
 import type {ProjectV1,StoryNodeId,EndingId} from '../../src/domain/types';
 const runtime=(p:Page)=>p.locator('#story-runtime');
 async function clock(p:Page){await p.addInitScript(()=>{let now=0,id=0;const callbacks=new Map<number,FrameRequestCallback>();Object.defineProperty(performance,'now',{value:()=>now});window.requestAnimationFrame=cb=>{callbacks.set(++id,cb);return id;};window.cancelAnimationFrame=id=>callbacks.delete(id);Reflect.set(window,'__advance',async(ms:number)=>{while(ms>0){const dt=Math.min(200,ms);ms-=dt;now+=dt;const batch=[...callbacks.values()];callbacks.clear();batch.forEach(cb=>cb(now));await Promise.resolve();}});});}

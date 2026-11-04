@@ -1,5 +1,5 @@
 import {test,expect} from '@playwright/test';
-import fixture from '../fixtures/project-v1.json' with {type:'json'};
+import fixture from '../fixtures/project.json' with {type:'json'};
 for(const version of [1,2])test(`v${version} silent node guide stays on its checkpoint, restores scroll and cancels on blur`,async({page})=>{
  test.setTimeout(45000);await page.emulateMedia({reducedMotion:'reduce'});await page.addInitScript(()=>{let now=0,id=0;const callbacks=new Map<number,FrameRequestCallback>();Object.defineProperty(performance,'now',{value:()=>now});window.requestAnimationFrame=cb=>{callbacks.set(++id,cb);return id;};window.cancelAnimationFrame=id=>callbacks.delete(id);Reflect.set(window,'__gap',()=>{now+=500;const batch=[...callbacks.values()];callbacks.clear();batch.forEach(cb=>cb(now));});Reflect.set(window,'__advance',async(ms:number)=>{while(ms>0){const dt=Math.min(200,ms);ms-=dt;now+=dt;const batch=[...callbacks.values()];callbacks.clear();batch.forEach(cb=>cb(now));await Promise.resolve();}});});
  await page.goto('/study.html');const p=structuredClone(fixture);Object.assign(p.story!,{definitionVersion:version,nodeId:'call-split'});if(version===2)Object.assign(p.story!,{ending:null,endingSource:null});

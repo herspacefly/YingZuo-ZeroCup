@@ -1,6 +1,6 @@
 import {test,expect} from './formal-fixture';
 import type {Page} from '@playwright/test';
-import fixture from '../fixtures/project-v1.json' with {type:'json'};
+import fixture from '../fixtures/project.json' with {type:'json'};
 
 const ready=(page:Page)=>expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready');
 async function setup(page:Page,blockCache=false){

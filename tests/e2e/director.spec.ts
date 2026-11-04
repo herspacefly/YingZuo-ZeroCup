@@ -1,7 +1,7 @@
 import {test,expect} from './formal-fixture';
 import type { Page } from '@playwright/test';
 import type { ProjectV1 } from '../../src/domain/types';
-import fixture from '../fixtures/project-v1.json' with {type:'json'};
+import fixture from '../fixtures/project.json' with {type:'json'};
 
 function at(nodeId:NonNullable<ProjectV1['story']>['nodeId'],mode:'full'|'guided'='full'):ProjectV1{
   const project=structuredClone(fixture) as ProjectV1,story=project.story!;

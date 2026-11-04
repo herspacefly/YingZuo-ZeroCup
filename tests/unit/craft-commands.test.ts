@@ -28,14 +28,14 @@ describe('craft confirmation and archived rehearsal through Store/IDB',()=>{
     const {store}=await open(at('intro','call-first','guided')),story=store.getState().project!.story!;
     await confirmCraft(store,{...options,guard:storyGuard(story)});expect(store.getState().project!.story).toMatchObject({runId:story.runId,mode:'guided',nodeId:'memory-wave',revision:2});
   });
-  it.each(['full','guided'] as const)('direct %s preset opening uses the voiced edition while an existing v4 remains v4',async mode=>{
+  it.each(['full','guided'] as const)('direct %s preset opening and a resumed current run both freeze a voiced scene',async mode=>{
     const fresh=await open();await confirmCraft(fresh.store,{...options,mode,presetAppearanceUsed:true});
     expect(fresh.store.getState().project!.story).toMatchObject({definitionVersion:5,mode,nodeId:'memory-wave',presetAppearanceUsed:true,choices:{journeyIntent:null,mountainPact:null,finalAction:null}});
-    const legacy=at('intro');legacy.story!.definitionVersion=4;legacy.story!.ending=null;legacy.story!.endingSource=null;
-    const seeded=await open(legacy),before=seeded.store.getState().project!.story!;
+    const resumed=at('intro');
+    const seeded=await open(resumed),before=seeded.store.getState().project!.story!;
     await confirmCraft(seeded.store,{...options,guard:storyGuard(before)});
-    expect(seeded.store.getState().project!.story).toMatchObject({definitionVersion:4,runId:before.runId,nodeId:'memory-wave'});
-    expect(seeded.store.getState().project!.story!.choices).toBeUndefined();
+    expect(seeded.store.getState().project!.story).toMatchObject({definitionVersion:5,runId:before.runId,nodeId:'memory-wave'});
+    expect(seeded.store.getState().project!.story!.choices).toEqual({journeyIntent:null,mountainPact:null,finalAction:null});
   });
   it('craft confirmation is guarded and repeated clicks cannot refreeze or save twice',async()=>{
     const {store}=await open(at('craft')),story=store.getState().project!.story!,request={...options,guard:storyGuard(story)},before=store.getState().project!.saveRevision;

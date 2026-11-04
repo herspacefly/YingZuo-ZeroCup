@@ -1,7 +1,7 @@
 import {test,expect} from './formal-fixture';
 import type { Page,Download } from '@playwright/test';
 import type { ProjectV1 } from '../../src/domain/types';
-import content from '../../src/content/stories/reunion-v3.json' with {type:'json'};
+import content from '../../src/content/stories/reunion.json' with {type:'json'};
 
 const node=(page:Page)=>page.locator('#story-node');
 async function saved(page:Page){await expect(page.locator('#story-status')).toHaveAttribute('data-state','saved');}

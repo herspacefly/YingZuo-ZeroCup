@@ -2,7 +2,7 @@ import {test,expect} from './formal-fixture';
 import type { Page } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 import type { ProjectV1 } from '../../src/domain/types';
-import fixtureJSON from '../fixtures/project-v1.json' with {type:'json'};
+import fixtureJSON from '../fixtures/project.json' with {type:'json'};
 import future from '../fixtures/unknown-version.json' with {type:'json'};
 const fixture=fixtureJSON as ProjectV1;
 const spatial=(page:Page)=>page.locator('.spatial-stage').first();

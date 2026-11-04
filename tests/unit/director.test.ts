@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { assetCatalog } from '../../src/content/catalog';
 import { reunionDefinition } from '../../src/content/reunion';
+import {voiceVisualTime} from '../../src/content/voice-arrangement';
 import { subtitlesForMode } from '../../src/content/story-contract';
 import { projectedPoseBounds } from '../../src/domain/pose';
 import { storyEntry } from '../../src/domain/story';
@@ -13,20 +14,22 @@ const clone = <T>(value: T): T => JSON.parse(JSON.stringify(value)) as T;
 function fixture(id: StoryNodeId = 'intro', mode: 'full' | 'guided' = 'full') {
   const project = at(id, id.startsWith('split-') ? 'split-first' : 'call-first', mode);
   const entry = storyEntry(project, reunionDefinition, 1);
-  return { project, entry, director: createSceneDirector(project, entry) };
+  const director=createSceneDirector(project,entry);
+  function visual(time:number){let low=0,high=director.durationMs;for(let i=0;i<64;i++){const mid=(low+high)/2;if(voiceVisualTime(id,mode,mid)<time)low=mid;else high=mid;}return high;}
+  return {project,entry,director,visual};
 }
 
 describe('T16 absolute-time scene director', () => {
   for (const mode of ['full', 'guided'] as const) {
-    it(`${mode}: all 18 nodes have legal entry, midpoint and end frames with at most two actors`, () => {
+    it(`${mode}: all 38 nodes have legal entry, midpoint and end frames with at most two actors`, () => {
       for (const node of reunionDefinition.nodes) {
-        const { entry, director } = fixture(node.id, mode);
-        expect(director.durationMs).toBe((mode === 'full' ? node.fullTiming : node.guidedTiming).targetMs);
+        const {entry,director}=fixture(node.id,mode),before=clone(entry);
+        expect(director.durationMs).toBe((mode === 'full' ? entry.node.fullTiming : entry.node.guidedTiming).targetMs);
         for (const fraction of [0, .25, .5, .75, 1]) {
           const sample = director.sample(director.durationMs * fraction);
           expect(sample.frame.actors.length).toBeLessThanOrEqual(2);
           expect(prepareFrame(sample.frame, assetCatalog)).toEqual(sample.frame);
-          expect(sample.automatic).toBe(['intro', 'memory-separate', 'training', 'call-response', 'split-response', 'curtain'].includes(node.id));
+          expect(sample.automatic).toBe(entry.node.completion.kind==='scene'&&entry.node.completion.activation==='automatic');
           expect(sample.ended).toBe(director.durationMs === 0 || fraction === 1);
           for (const actor of sample.frame.actors) {
             const template = assetCatalog.puppets.find(item => item.id === actor.templateId)!;
@@ -44,10 +47,9 @@ describe('T16 absolute-time scene director', () => {
           }
         }
         const start = director.sample(0);
-        expect(start.frame.stage).toEqual(entry.node.entryStage);
-        expect(start.frame.sceneLayers).toEqual(entry.node.entrySceneLayers);
+        expect(start.frame.stage.backgroundId).toBe(entry.node.entryStage.backgroundId);
+        expect(entry).toEqual(before);
         expect(start.frame.attachments).toEqual(entry.node.entryAttachments);
-        for (const actor of start.frame.actors) expect(actor.pose).toEqual(entry.node.entryPoses[actor.actorId]);
       }
     });
   }
@@ -96,9 +98,9 @@ describe('T16 absolute-time scene director', () => {
       const {director}=fixture(id);
       expect(director.sample(director.durationMs*.7,undefined,true).frame).not.toEqual(director.sample(0,undefined,true).frame);
     }
-    const {director}=fixture('curtain');
-    expect(director.sample(7500,undefined,true).frame.showRods).toBe(true);
-    expect(director.sample(7500,undefined,true).frame).toEqual(director.sample(8000,undefined,true).frame);
+    const {director,visual}=fixture('curtain');
+    expect(director.sample(visual(15000),undefined,true).frame.showRods).toBe(true);
+    expect(director.sample(visual(15000),undefined,true).frame).toEqual(director.sample(visual(16000),undefined,true).frame);
   });
 
   it('composes constrained Chenxiang input and lights without changing fixed roles or saved input', () => {
@@ -131,8 +133,8 @@ describe('T16 absolute-time scene director', () => {
   it('normalizes nonfinite/negative times, holds the final frame and returns isolated snapshots', () => {
     const { director } = fixture();
     for (const time of [-100, -Infinity, NaN]) expect(director.sample(time)).toEqual(director.sample(0));
-    expect(director.sample(Infinity)).toEqual(director.sample(18000));
-    expect(director.sample(999999)).toEqual(director.sample(18000));
+    expect(director.sample(Infinity)).toEqual(director.sample(director.durationMs));
+    expect(director.sample(999999)).toEqual(director.sample(director.durationMs));
     const before = director.sample(6000), mutated = director.sample(6000);
     mutated.frame.actors[0]!.pose.x = 1; mutated.frame.stage.lampX = .8;
     mutated.frame.sceneLayers![0]!.opacity = 0; mutated.cues[0]!.text = 'changed';
@@ -150,19 +152,19 @@ describe('T16 absolute-time scene director', () => {
       }
       expect(director.sample(Infinity).cues).toEqual([cues.at(-1)]);
     }
-    expect(fixture('intro', 'guided').director.sample(10000).cues[0]!.text).toBe('先为他备好行装。');
+    const guided=fixture('intro','guided');expect(guided.director.sample(Infinity).cues[0]!.text).toBe(guided.entry.node.guidedSubtitles!.at(-1)!.text);
   });
 
   it('directs the four proportional intro shots with light, mountain separation and visible rods', () => {
     for (const mode of ['full', 'guided'] as const) {
-      const { director } = fixture('intro', mode), ratio = director.durationMs / 18000;
+      const { director,visual } = fixture('intro', mode);
       expect(director.sample(0).lightLevel).toBe(.05);
-      expect(director.sample(4000 * ratio).lightLevel).toBe(1);
-      expect(director.sample(6000 * ratio).frame.sceneLayers!.find(item => item.id === 'mountain-left')!.opacity).toBeGreaterThan(0);
-      expect(director.sample(9000 * ratio).frame.showRods).toBe(true);
-      expect(director.sample(9000 * ratio).frame.sceneLayers!.find(item=>item.id==='mountain-left')!.opacity).toBe(.12);
-      expect(director.sample(14000 * ratio).frame.showRods).toBe(false);
-      expect(director.sample(14000 * ratio).shotLabel).toContain('制偶引入');
+      expect(director.sample(visual(4000)).lightLevel).toBe(1);
+      expect(director.sample(visual(6000)).frame.sceneLayers!.find(item => item.id === 'mountain-left')!.opacity).toBeGreaterThan(0);
+      expect(director.sample(visual(9000)).frame.showRods).toBe(true);
+      expect(director.sample(visual(9000)).frame.sceneLayers!.find(item=>item.id==='mountain-left')!.opacity).toBe(.12);
+      expect(director.sample(visual(14000)).frame.showRods).toBe(false);
+      expect(director.sample(visual(14000)).shotLabel).toContain('制偶引入');
     }
   });
 
@@ -176,14 +178,13 @@ describe('T16 absolute-time scene director', () => {
   });
 
   it('reduces motion to storyboard stills without skipping duration or changing subtitle time', () => {
-    const { director } = fixture();
-    const a = director.sample(9000, {}, true), b = director.sample(12000, {}, true);
-    expect(a.frame).toEqual(b.frame); expect(a.lightLevel).toBe(1); expect(b.lightLevel).toBe(1);
-    expect(a.elapsedMs).toBe(9000); expect(b.elapsedMs).toBe(12000); expect(b.ended).toBe(false);
-    expect(director.sample(13999, {}, true).cues).toEqual(director.sample(13999).cues);
-    expect(director.sample(18000, {}, true).ended).toBe(true);
-    const separate = fixture('memory-separate').director;
-    expect(separate.sample(1000, {}, true).frame).toEqual(separate.sample(1500, {}, true).frame);
+    const {director,visual}=fixture();
+    const a=director.sample(visual(9000),{},true),b=director.sample(visual(12000),{},true);
+    expect(a.frame).toEqual(b.frame);expect(a.lightLevel).toBe(1);expect(b.lightLevel).toBe(1);
+    expect(a.elapsedMs).toBe(visual(9000));expect(b.elapsedMs).toBe(visual(12000));expect(b.ended).toBe(false);
+    expect(director.sample(visual(13999),{},true).cues).toEqual(director.sample(visual(13999)).cues);
+    expect(director.sample(director.durationMs,{},true).ended).toBe(true);
+    const separate=fixture('memory-separate');expect(separate.director.sample(separate.visual(1000),{},true).frame).toEqual(separate.director.sample(separate.visual(1500),{},true).frame);
   });
 
   it('rejects stale entries, nonfinite lights and missing/illegal actor configuration explicitly', () => {

@@ -1,5 +1,5 @@
 import {test,expect} from './formal-fixture';
-import fixture from '../fixtures/project-v1.json' with {type:'json'};
+import fixture from '../fixtures/project.json' with {type:'json'};
 
 test.use({reducedMotion:'reduce'});
 test('the full journey has one next action and keeps lamp experiments out of the story contract',async({page})=>{

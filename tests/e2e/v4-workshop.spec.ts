@@ -1,6 +1,6 @@
 import {test,expect} from './formal-fixture';
 import type {Page} from '@playwright/test';
-import fixture from '../fixtures/project-v1.json' with {type:'json'};
+import fixture from '../fixtures/project.json' with {type:'json'};
 import type {ProjectV1} from '../../src/domain/types';
 
 async function stored(page:Page){return page.evaluate(async()=>{

@@ -7,14 +7,14 @@ import {stagePlayFrame} from '../../src/story/play-staging';
 import {createInteractionClip} from '../../src/story/interaction-clip';
 import {actorSceneOrder,prepareFrame,scenePlaneDepth} from '../../src/renderers/canvas/frame';
 import {projectedPoseBounds} from '../../src/domain/pose';
-import {expandedAt} from '../helpers/expanded-story';
+import {CHOICE_RUNS,choiceAt} from '../helpers/choice-story';
 import {at} from '../helpers/story';
 const effects={opening:0,reveal:0,reaction:0,guardianExit:0};
 describe('authored stage planes and safe canonical composition',()=>{
- for(const version of [1,2,3,4] as const)it(`v${version}: all stable scenes and action samples fit the curtain`,()=>{
-  const definition=definitionFor({definitionVersion:version});
+ it('all stable scenes and action samples fit the curtain',()=>{
+  const definition=definitionFor(null);
   for(const node of definition.nodes){
-   const p=version===1?at(node.id,node.prerequisites.approach??'call-first'):expandedAt(node.id,node.prerequisites.approach??'call-first',node.prerequisites.ending??'home');p.story!.definitionVersion=version;
+   const p=at(node.id,node.prerequisites.approach??'call-first');
    const d=createSceneDirector(p,storyEntry(p,definition,1)),clip=node.kind==='interaction'&&node.id!=='craft'?createInteractionClip(node,d):null;
    for(const progress of [0,.25,.5,.75,1]){
     const frame=clip?clip.sample(progress,progress*d.durationMs,false).frame:stagePlayFrame(node,d.sample(progress*d.durationMs).frame,effects);
@@ -30,12 +30,12 @@ describe('authored stage planes and safe canonical composition',()=>{
   expect(()=>prepareFrame({...f,actorSceneOrder:{guardian:30}},assetCatalog)).toThrow('层次');expect(()=>prepareFrame({...f,actorSceneOrder:{chenxiang:Infinity}},assetCatalog)).toThrow('层次');
  });
  it('keeps blocking and canonical axe choreography away from the other actor',()=>{
-  for(const id of ['guardian','ending-sacrifice-axe'] as const){const p=expandedAt(id,'call-first','sacrifice'),definition=definitionFor(p.story),entry=storyEntry(p,definition,1),clip=createInteractionClip(entry.node,createSceneDirector(p,entry));
+  for(const id of ['guardian','ending-sacrifice-axe'] as const){const p=choiceAt(id,CHOICE_RUNS.find(r=>r.ending==='sacrifice')!),definition=definitionFor(p.story),entry=storyEntry(p,definition,1),clip=createInteractionClip(entry.node,createSceneDirector(p,entry));
    for(const progress of [.25,.5,.75,1]){const actors=clip.sample(progress,0,false).frame.actors,chen=actors.find(a=>a.actorId==='chenxiang')!,other=actors.find(a=>a.actorId!=='chenxiang')!;expect(other.pose.x-chen.pose.x).toBeGreaterThan(.2);}
   }
  });
  it('does not close an already opened mountain around the mother during the final axe',()=>{
-  const p=expandedAt('ending-sacrifice-axe','call-first','sacrifice'),definition=definitionFor(p.story),entry=storyEntry(p,definition,1),director=createSceneDirector(p,entry);
+  const p=choiceAt('ending-sacrifice-axe',CHOICE_RUNS.find(r=>r.ending==='sacrifice')!),definition=definitionFor(p.story),entry=storyEntry(p,definition,1),director=createSceneDirector(p,entry);
   for(const opening of [0,.5,1]){const f=stagePlayFrame(entry.node,director.sample(0).frame,{...effects,opening});expect(f.sceneLayers?.find(l=>l.id==='mountain-left')?.x).toBe(-.55);expect(f.sceneLayers?.find(l=>l.id==='mountain-right')?.x).toBe(.55);}
  });
 });

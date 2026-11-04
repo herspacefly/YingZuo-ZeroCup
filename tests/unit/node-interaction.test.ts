@@ -32,20 +32,16 @@ function raisedFixture() {
 const interactionIds = ['memory-wave', 'road', 'guardian', 'call-light', 'call-split', 'split-axe', 'split-search', 'reunion-reach'] as const;
 
 describe('actual projected interaction geometry', () => {
-  it('uses the torso motif placement for light, independently of both arms and motif bitmap choice', () => {
-    const { frame } = fixture('call-light');
-    const region = projectedInteractionRegion(frame, 'light')!;
-    const placement=assetCatalog.puppets.find(t=>t.id==='chenxiang-v1')!.motifPlacement!.bounds;
-    expect(region.maxX - region.minX).toBeCloseTo((placement.maxX-placement.minX) * .8 * 1.2, 12);
-    expect(region.maxY - region.minY).toBeCloseTo((placement.maxY-placement.minY) * .8 * 1.2, 12);
-    const changed = clone(frame), chenxiang = changed.actors.find(actor => actor.actorId === 'chenxiang')!;
-    chenxiang.pose.joints.rightShoulder = 1.2; chenxiang.pose.joints.rightElbow = 1.8;
-    chenxiang.pose.joints.leftShoulder = -1.2;
-    for (const patternId of ['cloud-v1', 'wave-v1', 'flower-v1'] as const) {
-      if (chenxiang.actorId === 'chenxiang') chenxiang.appearance.patternId = patternId;
-      expect(projectedInteractionRegion(changed, 'light')).toEqual(region);
+  it('uses the visible lantern rather than the puppet torso and keeps costume motif data out of the target geometry', () => {
+    const {frame}=fixture('call-light'),region=projectedInteractionRegion(frame,'light','lantern')!;
+    expect(region).not.toBeNull();const changed=clone(frame),chenxiang=changed.actors.find(a=>a.actorId==='chenxiang')!;
+    chenxiang.pose.joints.leftShoulder=-1.2;
+    for(const patternId of ['cloud-v1','wave-v1','flower-v1'] as const){
+      if(chenxiang.actorId==='chenxiang')chenxiang.appearance.patternId=patternId;
+      expect(projectedInteractionRegion(changed,'light','lantern')).toEqual(region);
     }
-    expect(projectedInteractionRegion(changed, 'road')).not.toEqual(projectedInteractionRegion(frame, 'road'));
+    chenxiang.pose.joints.rightShoulder=.6;expect(projectedInteractionRegion(changed,'light','lantern')).not.toEqual(region);
+    changed.attachments=[];expect(projectedInteractionRegion(changed,'light','lantern')).toBeNull();
   });
 
   it('wave and block share only the right upper-arm/forearm union; unrelated limbs do not expand it', () => {
@@ -104,25 +100,17 @@ describe('actual projected interaction geometry', () => {
 });
 
 describe('legal reachability under the final director constraints', () => {
-  it('demonstrates why distance .2 is too small and distance .4 makes both light targets reachable for all three motifs', () => {
-    for (const id of ['call-light', 'split-search'] as const) for (const patternId of ['cloud-v1', 'wave-v1', 'flower-v1'] as const) {
-      const data = reachable(id), region = projectedInteractionRegion(data.frame, 'light')!;
-      const actor = data.frame.actors.find(item => item.actorId === 'chenxiang')!;
-      if (actor.actorId === 'chenxiang') actor.appearance.patternId = patternId;
-      expect(data.goal.pose.scale).toBe(.8); expect(data.goal.stage.puppetDistance).toBe(.4);
-      const target = normalizedTargetBounds(data.node.completion.kind === 'light' ? data.node.completion.target : { x: 0, y: 0, width: 1, height: 1 })!;
-      const placement=assetCatalog.puppets.find(t=>t.id==='chenxiang-v1')!.motifPlacement!.bounds;
-      const areaAtEntryDistance = (placement.maxX-placement.minX) * (placement.maxY-placement.minY) * (.8 * 1.2) ** 2;
-      const targetArea = (target.maxX - target.minX) * (target.maxY - target.minY);
-      expect(areaAtEntryDistance / targetArea).toBeLessThan(.35);
-      expect(targetCoverageRatio(region, target)).toBeCloseTo(areaAtEntryDistance / targetArea * (1.5/1.2)**2, 10);
-      expect(targetCoverageRatio(region, target)).toBeGreaterThanOrEqual(.35);
-      expect(projectedInteractionRegion(data.frame, 'light')).toEqual(region);
-      for (let time = 0; time <= 600; time += 100) data.observer.observe(data.frame, time, false, true);
-      expect(data.observer.observe(data.frame, 600, false, true).evidence).toMatchObject({ kind: 'light', heldMs: 600 });
+  it('reaches both actual lantern targets with a legal pose and stable operation in every costume palette', () => {
+    for(const id of ['call-light','split-search'] as const)for(const paletteId of ['vermilion-v1','indigo-v1','woodland-v1'] as const){
+      const data=reachable(id),actor=data.frame.actors.find(a=>a.actorId==='chenxiang')!;
+      if(actor.actorId==='chenxiang')actor.appearance.paletteId=paletteId;
+      const region=projectedInteractionRegion(data.frame,'light','lantern')!,completion=data.node.completion;
+      if(completion.kind!=='light')throw new Error('fixture');
+      expect(targetCoverageRatio(region,normalizedTargetBounds(completion.target)!)).toBeGreaterThanOrEqual(completion.overlapRatio);
+      for(let time=0;time<=600;time+=100)data.observer.observe(data.frame,time,false,true);
+      expect(data.observer.observe(data.frame,600,false,true).evidence).toMatchObject({kind:'light',heldMs:600});
     }
   });
-
   for (const id of ['memory-wave', 'road', 'guardian'] as const) it(`${id}: a legal manual pose reaches its real region and earns 300 ms`, () => {
     const { node, frame, observer, goal } = reachable(id);
     expect(goal.pose.scale).toBe(.8);
@@ -165,7 +153,7 @@ describe('legal reachability under the final director constraints', () => {
 
   it('solves the real animated mother hand after her response, through the final constrained director frame', () => {
     const data = fixture('reunion-reach');
-    for (const elapsedMs of [500, 1800, 3000, 45000]) {
+    for (const elapsedMs of [500, 1800, 3000, data.director.durationMs]) {
       const before = data.director.sample(elapsedMs).frame;
       const goal = interactionGoal(data.node, before);
       expect(goal).not.toBeNull();
@@ -174,7 +162,7 @@ describe('legal reachability under the final director constraints', () => {
       expect(actual.actors[1]).toEqual(before.actors[1]);
       expect(handDistanceRatio(hands.chenxiang, hands.mother)).toBeLessThanOrEqual(.04);
       expect(createNodeInteraction(data.node).observe(actual, elapsedMs, false, true).evidence).toMatchObject({ kind: 'reach' });
-      if (elapsedMs >= 1800) {
+      if (elapsedMs === data.director.durationMs) {
         expect(before.actors[1]!.pose.joints).toMatchObject({ rightShoulder: 1.05, rightElbow: .5 });
         expect(hands.mother).toEqual(interactionHandPoints(before)!.mother);
       }

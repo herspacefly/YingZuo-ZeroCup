@@ -1,6 +1,6 @@
 import { IDBFactory, IDBObjectStore as FakeObjectStore } from 'fake-indexeddb';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import fixture from '../fixtures/project-v1.json';
+import fixture from '../fixtures/project.json';
 import corrupt from '../fixtures/corrupt-project.json';
 import unknownVersion from '../fixtures/unknown-version.json';
 import { createProject } from '../../src/domain/defaults';

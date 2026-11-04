@@ -1,7 +1,7 @@
 import {test,expect} from './formal-fixture';
 import type {Page} from '@playwright/test';
 import exhibits from '../../src/content/exhibits.json' with {type:'json'};
-import fixture from '../fixtures/project-v1.json' with {type:'json'};
+import fixture from '../fixtures/project.json' with {type:'json'};
 
 const saved=async(page:Page)=>expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');
 async function raw(page:Page){return page.evaluate(async()=>{const db=await new Promise<IDBDatabase>((resolve,reject)=>{const r=indexedDB.open('yingzuo-v1',1);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});const value=await new Promise<string>((resolve,reject)=>{const r=db.transaction('snapshots').objectStore('snapshots').get('draft');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});db.close();return JSON.parse(value);});}

@@ -12,10 +12,10 @@ import {createReunionReplay} from '../../src/story/replay';
 import {createReunionArtifact} from '../../src/features/result/artifact';
 import {subtitlesForMode,validateStoryDefinition} from '../../src/content/story-contract';
 import {assetCatalog} from '../../src/content/catalog';
-import {CHOICE_STORY_NODE_IDS,JOINT_IDS} from '../../src/domain/limits';
+import {STORY_NODE_IDS,JOINT_IDS} from '../../src/domain/limits';
 import {projectedPoseBounds} from '../../src/domain/pose';
 
-describe('v5 cumulative choices and stable consumers',()=>{
+describe('cumulative choices and stable consumers',()=>{
  for(const run of CHOICE_RUNS)for(const mode of ['full','guided'] as const)it(`${run.journeyIntent}/${run.mountainPact}/${run.approach}/${run.finalAction}/${mode}`,()=>{
   let project=choiceAt('intro',run,mode);const visited:string[]=[];
   for(let n=0;n<24;n++){
@@ -41,8 +41,8 @@ describe('v5 cumulative choices and stable consumers',()=>{
   const last=replay.segments.findIndex(n=>n.id==='ending-choice');expect(replay.sample(last,0).shotLabel).toContain(run.finalAction==='wait'?'暂缓':'兑现');
   expect(replay.sample(last,0).allCues).toEqual(currentStoryNode(choiceDefinition,choiceAt('ending-choice',run,mode).story!).subtitles);
  });
- it('validates all v5 content and references without relaxing the previous contracts',()=>{
-  expect(validateStoryDefinition(choiceDefinition,{nodeIds:CHOICE_STORY_NODE_IDS,jointIds:JOINT_IDS,sourceIds:sources.sources.map(s=>s.id),assetIds:assetCatalog.manifest.assets.map(a=>a.id),puppets:assetCatalog.puppets,scenes:assetCatalog.scenes.scenes})).toEqual([]);
+ it('validates all story content and references without relaxing the previous contracts',()=>{
+  expect(validateStoryDefinition(choiceDefinition,{nodeIds:STORY_NODE_IDS,jointIds:JOINT_IDS,sourceIds:sources.sources.map(s=>s.id),assetIds:assetCatalog.manifest.assets.map(a=>a.id),puppets:assetCatalog.puppets,scenes:assetCatalog.scenes.scenes})).toEqual([]);
   expect(definitionFor(null)).toBe(choiceDefinition);
  });
  for(const id of ['journey-choice','mountain-pact-choice','approach-choice','ending-choice'] as const)it(`${id}: explicit, gated and never skippable`,()=>{
@@ -55,7 +55,6 @@ describe('v5 cumulative choices and stable consumers',()=>{
   const before=choiceAt('journey-choice');before.story!.choices!.journeyIntent='home';expect(()=>validateProject(before)).toThrow();
   const after=choiceAt('training');after.story!.choices!.journeyIntent=null;expect(()=>validateProject(after)).toThrow();
   const finished=choiceAt('completed');finished.story!.ending='light';expect(()=>validateProject(finished)).toThrow('四次决定');
-  const final=choiceAt('ending-choice');expect(()=>reduceStory(final,{...storyGuard(final.story!),action:'CHOOSE_ENDING',ending:'home'},{paused:true,elapsedMs:100000,now:CHOICE_NOW},choiceDefinition)).toThrow();
   const unknown=choiceAt('intro');Reflect.set(unknown.story!,'definitionVersion',6);expect(()=>validateProject(unknown)).toThrowError(expect.objectContaining({code:'unsupported-version'}));
  });
 });

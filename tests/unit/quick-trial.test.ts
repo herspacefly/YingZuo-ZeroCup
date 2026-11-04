@@ -27,7 +27,7 @@ describe('isolated quick trial', () => {
       for (const cue of scene.voice) {
         expect(cue.clip.durationMs).toBeLessThanOrEqual(cue.endMs - cue.startMs);
         expect(cue.endMs).toBeLessThanOrEqual(segment.durationMs);
-        expect(cue.clip.src).toMatch(/^\.\/audio\/voice-v5\//);
+        expect(cue.clip.src).toMatch(/^\.\/audio\/voice\//);
       }
     }
     expect(scenes.training.node.guidedSubtitles!.at(-1)!.text).toBe('斧刃停住，华山已在面前。');

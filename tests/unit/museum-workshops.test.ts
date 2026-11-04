@@ -5,7 +5,7 @@ import {museumPreviewFrame} from '../../src/features/museum/demo-geometry';
 import {prepareFrame} from '../../src/renderers/canvas/frame';
 import {assetCatalog} from '../../src/content/catalog';
 import {validateProject} from '../../src/domain/validation';
-import fixture from '../fixtures/project-v1.json';
+import fixture from '../fixtures/project.json';
 
 describe('museum experiments remain isolated and coordinated',()=>{
  it('point/drag duplicates cannot carve twice and invalid targets leave the specimen unchanged',()=>{const cuts=[2,4];expect(cutSample(cuts,2)).toEqual([2,4]);for(const n of [-1,8,NaN,.5])expect(cutSample(cuts,n)).toEqual(cuts);expect(cuts).toEqual([2,4]);});

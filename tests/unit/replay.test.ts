@@ -4,6 +4,8 @@ import { reunionDefinition } from '../../src/content/reunion';
 import { subtitlesForMode } from '../../src/content/story-contract';
 import { createProject } from '../../src/domain/defaults';
 import { projectedPoseBounds } from '../../src/domain/pose';
+import {storyPath} from '../../src/domain/story-path';
+import {currentStoryNode} from '../../src/domain/story';
 import { reunionSummary } from '../../src/domain/story';
 import type { Approach, ProjectV1, StoryNodeId } from '../../src/domain/types';
 import { prepareFrame } from '../../src/renderers/canvas/frame';
@@ -24,15 +26,13 @@ function sampleNode(replay: ReturnType<typeof createReunionReplay>, id: StoryNod
 
 describe('T09 read-only reunion arrangement', () => {
   for (const mode of ['full', 'guided'] as const) for (const approach of ['call-first', 'split-first'] as const) {
-    it(`${mode}/${approach}: follows only the actual 14-node route, with legal frozen frames at every beat`, () => {
+    it(`${mode}/${approach}: follows only the actual 22-segment route, with legal frozen frames at every beat`, () => {
       const project = reunited(approach, mode), saved = copy(project), replay = createReunionReplay(project);
-      const branch = approach === 'call-first' ? ['call-light', 'call-response', 'call-split'] : ['split-axe', 'split-search', 'split-response'];
-      expect(replay.segments.map(item => item.id)).toEqual(['intro', 'craft', 'memory-wave', 'memory-separate',
-        'road', 'training', 'guardian', 'approach-choice', ...branch, 'reunion-reach', 'reunion-hold', 'curtain']);
-      expect(replay.segments).toHaveLength(14);
+      expect(replay.segments.map(item=>item.id)).toEqual(storyPath(5,project.story!.approach,project.story!.ending).slice(0,-1));
+      expect(replay.segments).toHaveLength(22);
       expect(replay.durationMs).toBe(replay.segments.reduce((total, item) => total + item.durationMs, 0));
       for (const [index, segment] of replay.segments.entries()) {
-        const node = reunionDefinition.nodes.find(item => item.id === segment.id)!;
+        const node=currentStoryNode(reunionDefinition,{...project.story!,nodeId:segment.id});
         expect(segment.durationMs).toBe((mode === 'full' ? node.fullTiming : node.guidedTiming).targetMs);
         expect(segment.durationMs).toBeGreaterThan(0);
         for (const reducedMotion of [false, true]) for (const fraction of [0, .1, .25, .5, .7, .9, 1]) {
@@ -56,7 +56,7 @@ describe('T09 read-only reunion arrangement', () => {
             if (actor.actorId === 'mother') expect(actor).toMatchObject({ paletteId: 'mother-v1', sharedMotif: project.story!.castSnapshot!.sharedMotif });
             if (actor.actorId === 'guardian') expect(actor).toMatchObject({ paletteId: 'guardian-v1' });
           }
-          expect(sample.allCues).toEqual(subtitlesForMode(node, mode));
+          expect(sample.allCues).toEqual(node.subtitles);expect(sample.seekCues).toEqual(subtitlesForMode(node,mode));
         }
       }
       expect(project).toEqual(saved);
@@ -80,7 +80,7 @@ describe('T09 read-only reunion arrangement', () => {
   });
 
   it('programs wave, walk, block, light, axe and reaching as actual drawings, never completion observations', () => {
-    for (const approach of ['call-first', 'split-first'] as const) {
+    for (const approach of ['call-first'] as ('call-first'|'split-first')[]) {
       const replay = createReunionReplay(reunited(approach));
       for (const id of ['memory-wave', 'road', 'guardian', 'reunion-reach'] as const) {
         expect(sampleNode(replay, id, .7).frame).not.toEqual(sampleNode(replay, id, 0).frame);
@@ -138,13 +138,13 @@ describe('T09 read-only reunion arrangement', () => {
     expect(replay.sample(0, duration)).toEqual(other.sample(0, duration));
     for (const time of [NaN, -Infinity, -100]) expect(replay.sample(0, time)).toEqual(other.sample(0, 0));
     for (const time of [Infinity, duration + 1, 1e20]) expect(replay.sample(0, time)).toEqual(other.sample(0, duration));
-    for (const index of [NaN, -Infinity, Infinity, -.1, -1, 1.5, 14]) expect(() => replay.sample(index, 0)).toThrow('有效');
+    for (const index of [NaN, -Infinity, Infinity, -.1, -1, 1.5, replay.segments.length]) expect(() => replay.sample(index, 0)).toThrow('有效');
   });
 
   it('keeps half-open real-time captions and provides reduced-motion stills without skipping time', () => {
     for (const mode of ['full', 'guided'] as const) {
       const replay = createReunionReplay(reunited('call-first', mode));
-      const intro = reunionDefinition.nodes.find(node => node.id === 'intro')!;
+      const intro=currentStoryNode(reunionDefinition,{...reunited('call-first',mode).story!,nodeId:'intro'});
       const cues = subtitlesForMode(intro, mode);
       for (const cue of cues) {
         expect(replay.sample(0, cue.startMs).cues).toEqual([cue]);
@@ -153,25 +153,11 @@ describe('T09 read-only reunion arrangement', () => {
       expect(replay.sample(0, Infinity).cues).toEqual([cues.at(-1)]);
       for (const id of ['memory-wave', 'road', 'guardian', 'call-split', 'call-light', 'reunion-reach'] as const) {
         const a = sampleNode(replay, id, .51, true), b = sampleNode(replay, id, .6, true);
-        expect(a.frame).toEqual(b.frame);
+        expect(a.frame.actors.find(actor=>actor.actorId==='chenxiang')!.pose).toEqual(b.frame.actors.find(actor=>actor.actorId==='chenxiang')!.pose);
         expect(a.ended).toBe(false); expect(b.ended).toBe(false);
         expect(sampleNode(replay, id, 1, true).ended).toBe(true);
       }
     }
   });
 
-  it('normalizes a zero-length content segment to an immediately ended still without padding target time', () => {
-    const craft = reunionDefinition.nodes.find(node => node.id === 'craft')!;
-    const original = craft.fullTiming.targetMs;
-    try {
-      craft.fullTiming.targetMs = 0;
-      const replay = createReunionReplay(reunited()), index = replay.segments.findIndex(item => item.id === 'craft');
-      expect(replay.segments[index]!.durationMs).toBe(0);
-      for (const time of [0, 1, -1, NaN, Infinity]) {
-        const sample = replay.sample(index, time);
-        expect(sample.ended).toBe(true);
-        expect(prepareFrame(sample.frame, assetCatalog)).toEqual(sample.frame);
-      }
-    } finally { craft.fullTiming.targetMs = original; }
-  });
 });

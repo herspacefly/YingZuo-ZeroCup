@@ -2,7 +2,7 @@ import {test,expect} from './formal-fixture';
 import type { Download,Page } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 import type { ProjectV1 } from '../../src/domain/types';
-import fixtureJSON from '../fixtures/project-v1.json' with {type:'json'};
+import fixtureJSON from '../fixtures/project.json' with {type:'json'};
 import future from '../fixtures/unknown-version.json' with {type:'json'};
 import corrupt from '../fixtures/corrupt-project.json' with {type:'json'};
 import {CHOICE_RUNS} from '../helpers/choice-cases';

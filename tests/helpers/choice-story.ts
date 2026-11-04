@@ -26,6 +26,6 @@ export function choiceStep(project:ProjectV1,run:ChoiceRun):ProjectV1 {
 export function choiceAt(id:StoryNodeId,run:ChoiceRun=CHOICE_RUNS[1]!,mode:'full'|'guided'='guided'):ProjectV1 {
  let project=beginStory(createProject('choice-project','choice-writer',CHOICE_NOW),'choice-run',mode,5)!;
  for(let n=0;project.story!.nodeId!==id&&n<38;n++)project=choiceStep(project,run);
- if(project.story!.nodeId!==id)throw new Error('Unreachable v5 fixture '+id);
+ if(project.story!.nodeId!==id)throw new Error('Unreachable story fixture '+id);
  return project;
 }

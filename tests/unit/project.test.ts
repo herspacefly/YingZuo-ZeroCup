@@ -1,5 +1,6 @@
+import {at} from '../helpers/story';
 import { describe, expect, it } from 'vitest';
-import fixture from '../fixtures/project-v1.json';
+import fixture from '../fixtures/project.json';
 import { defaultAppearance, defaultPose } from '../../src/domain/defaults';
 import { MAX_PROJECT_BYTES, utf8Bytes } from '../../src/domain/limits';
 import { parseProjectJSON, serializeProject } from '../../src/domain/migrations';
@@ -36,6 +37,10 @@ describe('DATA-01/02/05 ProjectV1 serialization', () => {
   ])('distinguishes unknown %s versions from corrupt data', (_, mutate) => {
     const p = project(); mutate(p);
     expect(() => validateProject(p)).toThrowError(expect.objectContaining({ code: 'unsupported-version' }));
+  });
+  it.each([1,2,3,4,6])('protects a removed or unknown story identity %s as unsupported', version => {
+    const p=project();Reflect.set(p.story!,'definitionVersion',version);
+    expect(()=>validateProject(p)).toThrowError(expect.objectContaining({code:'unsupported-version'}));
   });
   it.each([null, 'damaged', {}, -1])('treats malformed version %j as corruption, not a future version', version => {
     expect(() => validateProject({ ...project(), schemaVersion: version })).toThrowError(expect.objectContaining({ code: 'invalid' }));
@@ -97,18 +102,16 @@ describe('DATA-01/02/05 ProjectV1 serialization', () => {
   ])('rejects inconsistent story %s', (_, mutate) => {
     const p = project(); mutate(p); expect(() => validateProject(p)).toThrow();
   });
-  it('accepts both routes, completed time at curtain and road assistance before training', () => {
-    const p = project(); p.story!.nodeId = 'training'; p.story!.approach = null; p.story!.approachSource = null;
-    expect(validateProject(p).story!.assistedNodeIds).toContain('road');
-    p.story!.nodeId = 'split-search'; p.story!.approach = 'split-first'; p.story!.approachSource = 'user';
-    expect(validateProject(p).story!.nodeId).toBe('split-search');
-    p.story!.nodeId = 'curtain'; p.story!.completedAt = p.savedAt;
-    expect(validateProject(p).story!.completedAt).toBe(p.savedAt);
-    p.story!.nodeId = 'completed'; p.story!.assistedNodeIds.push('curtain');
-    expect(validateProject(p).story!.assistedNodeIds).toContain('curtain');
+  it('accepts both paths and stable completion while rejecting future assistance', () => {
+    for(const approach of ['call-first','split-first'] as const){
+      const p=at('split-search','split-first');expect(validateProject(p).story!.nodeId).toBe('split-search');
+      const done=at('completed',approach);expect(validateProject(done).story!.completedAt).toBeTruthy();
+    }
+    const training=at('training');training.story!.assistedNodeIds.push('road');
+    expect(validateProject(training).story!.assistedNodeIds).toContain('road');
   });
   it('round-trips optional frozen recording data without implementing a recorder', () => {
-    const p = project(); p.story!.nodeId = 'completed'; p.story!.completedAt = p.savedAt;
+    const p = at('completed');
     const recording = { sampleRate: 30 as const, frames: Array.from({ length: 60 }, () => defaultPose()),
       appearance: defaultAppearance(), stage: p.stage, presetId: null };
     p.performance = { ...recording, durationMs: 2000 };

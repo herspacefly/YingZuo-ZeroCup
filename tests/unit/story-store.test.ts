@@ -15,7 +15,7 @@ async function open(seed?:ProjectV1){
   const store=await ProjectStore.open(storage,{writerId:'writer-test',createId:()=> 'project-store',now:()=>wall});stores.push(store);
   return {store,storage,factory,later:()=>{wall='2026-10-17T14:00:00.000Z';}};
 }
-const context={paused:false,elapsedMs:20000,now:NOW};
+const context={paused:false,elapsedMs:999999,now:NOW};
 function failNextDraft(){
   const original=FakeObjectStore.prototype.put;let pending=true;
   vi.spyOn(FakeObjectStore.prototype,'put').mockImplementation(function(this:IDBObjectStore,value,key){if(pending&&key==='draft'){pending=false;throw new DOMException('Quota exceeded','QuotaExceededError');}return original.call(this,value,key);});
@@ -42,14 +42,14 @@ describe('STORY-07 guarded commands through the real Store/IDB boundary',()=>{
     expect(restored.appearance.paletteId).toBe('woodland-v1');expect(restored.story!.castSnapshot!.appearance).toMatchObject({patternId:'flower-v1',paletteId:'indigo-v1'});
   });
   it('keeps failed reunion out of applied/durable state and retries the same candidate time/result',async()=>{
-    const {store,storage,later}=await open(at('reunion-hold')),before=await storage.readRaw();failNextDraft();
+    const {store,storage,later}=await open(at('ending-home-epilogue')),before=await storage.readRaw();failNextDraft();
     expect(await submitStoryCommand(store,commandFor(store.getState().project!),context)).toMatchObject({ok:false});
-    expect(store.getState()).toMatchObject({hasPending:true,project:{story:{nodeId:'reunion-hold',completedAt:null}}});
+    expect(store.getState()).toMatchObject({hasPending:true,project:{story:{nodeId:'ending-home-epilogue',completedAt:null}}});
     expect(await storage.readRaw()).toEqual(before);
     const exported=importProjectJSON(exportProjectJSON(store.getExportProject()!));expect(exported.story).toMatchObject({nodeId:'curtain',completedAt:NOW});
     expect(await submitStoryCommand(store,commandFor(store.getState().project!),context)).toMatchObject({ok:false});
     later();await store.retryPending();const committed=store.getState().project!;
-    expect(reunionSummary(committed)).toMatchObject({id:'run-test:reunion',completedAt:NOW});
+    expect(reunionSummary(committed)).toMatchObject({id:'run-test:ending:home',completedAt:NOW});
     const restored=(await storage.load()).project!;expect(restored.story!.runId).toBe('run-test');
     expect(restored.story!.completedAt).toBe(NOW);expect(restored.story!.nodeId).toBe('curtain');
   });

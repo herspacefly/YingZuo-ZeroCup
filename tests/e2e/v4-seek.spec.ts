@@ -1,11 +1,11 @@
 import {test,expect} from './formal-fixture';
 import type {Page} from '@playwright/test';
-import content from '../../src/content/stories/reunion-v4.json' with {type:'json'};
-import fixture from '../fixtures/project-v1.json' with {type:'json'};
+import content from '../../src/content/stories/reunion.json' with {type:'json'};
+import fixture from '../fixtures/project.json' with {type:'json'};
 import type {ProjectV1} from '../../src/domain/types';
 const node=content.nodes.find(n=>n.id==='memory-wave')!;
 function project(mode:'full'|'guided'='guided'){
-  const p=structuredClone(fixture) as ProjectV1,s=p.story!;s.definitionVersion=4;s.nodeId='memory-wave';s.mode=mode;s.assistedNodeIds=[];s.approach=null;s.approachSource=null;s.ending=null;s.endingSource=null;return p;
+  const p=structuredClone(fixture) as ProjectV1,s=p.story!;s.definitionVersion=5;s.nodeId='memory-wave';s.mode=mode;s.assistedNodeIds=[];s.approach=null;s.approachSource=null;s.ending=null;s.endingSource=null;return p;
 }
 async function seed(page:Page,p:ProjectV1){
   await page.goto('/study.html');await page.evaluate(async value=>{

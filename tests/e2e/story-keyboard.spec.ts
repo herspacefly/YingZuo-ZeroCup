@@ -1,8 +1,8 @@
 import {test,expect} from './formal-fixture';
 import type {Page} from '@playwright/test';
 import type {ProjectV1} from '../../src/domain/types';
-import fixture from '../fixtures/project-v1.json' with {type:'json'};
-import content from '../../src/content/stories/reunion-v1.json' with {type:'json'};
+import fixture from '../fixtures/project.json' with {type:'json'};
+import content from '../../src/content/stories/reunion.json' with {type:'json'};
 
 const runtime=(page:Page)=>page.locator('#story-runtime');
 async function ready(page:Page,id:string){await expect(runtime(page)).toHaveAttribute('data-node',id);await expect(runtime(page)).toHaveAttribute('data-state','paused',{timeout:15000});await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready',{timeout:15000});}

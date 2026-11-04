@@ -2,8 +2,6 @@ import { describe, expect, it } from 'vitest';
 import { createReunionArtifact } from '../../src/features/result/artifact';
 import { createResultPresentation, wrapProgrammeText } from '../../src/features/result/presentation';
 import { CHOICE_RUNS, choiceAt } from '../helpers/choice-story';
-import fixture from '../fixtures/project-v1.json';
-import type { ProjectV1 } from '../../src/domain/types';
 
 describe('read-only result presentation', () => {
   for (const run of CHOICE_RUNS) it(`${run.journeyIntent}/${run.mountainPact}/${run.approach}/${run.finalAction}`, () => {
@@ -25,23 +23,10 @@ describe('read-only result presentation', () => {
     expect(JSON.stringify(project)).toBe(before);
     expect(presentation.summary).toBeTruthy();
   });
-  it('does not invent four choices or a cumulative explanation for a legacy run', () => {
-    const project = JSON.parse(JSON.stringify(fixture)) as ProjectV1;
-    Object.assign(project.story!, { nodeId: 'completed', completedAt: '2026-10-18T00:00:00.000Z' });
-    const result = createResultPresentation(createReunionArtifact(project).summary);
-    expect(result).toMatchObject({ title: '一幕团圆', stamp: '团圆', decisions: [], explanation: '' });
-  });
   it('refuses a mismatched result instead of explaining a fabricated ending', () => {
     const summary = createReunionArtifact(choiceAt('completed', CHOICE_RUNS[1])).summary;
     summary.ending = 'sacrifice';
     expect(() => createResultPresentation(summary)).toThrow('四次选择与终章不一致');
-  });
-  it.each([2, 3, 4] as const)('v%s retains its authored ending without invented cumulative choices', version => {
-    const project = JSON.parse(JSON.stringify(fixture)) as ProjectV1;
-    Object.assign(project.story!, { nodeId: 'completed', completedAt: '2026-10-18T00:00:00.000Z' });
-    const summary = createReunionArtifact(project).summary;
-    summary.definitionVersion = version; summary.ending = 'home';
-    expect(createResultPresentation(summary)).toMatchObject({ stamp: '归家', decisions: [], explanation: '' });
   });
   it('wraps by measured glyph width, retains paragraphs and handles empty text', () => {
     const measure = (text: string) => Array.from(text).reduce((n, char) => n + (char === 'W' ? 2 : 1), 0);
