@@ -230,7 +230,7 @@ test('quick trial voice mute is released by entering the existing formal perform
 });
 
 test('result replay mute is released on entering the still-narrated curtain',async({page})=>{
- await instrument(page);await seed(page,choiceAt('curtain'),'/result');
+ await page.emulateMedia({reducedMotion:'no-preference'});await instrument(page);await seed(page,choiceAt('curtain'),'/result');
  await expect(page.locator('.reunion-artifact')).toHaveAttribute('data-state','ready');await page.locator('#result-replay').click();
  await expect(page.locator('#result-replay-player .canvas-stage-status')).toHaveAttribute('data-state','ready');await page.locator('#replay-play').click();await active(page);
  await page.locator('#replay-voice-toggle').click();await expect(page.locator('#replay-voice-toggle')).toHaveAttribute('aria-pressed','false');
