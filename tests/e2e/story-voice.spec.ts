@@ -2,7 +2,7 @@ import {readFileSync} from 'node:fs';
 import {test,expect} from './formal-fixture';
 import type {Page} from '@playwright/test';
 import type {ProjectV1,StoryNodeId} from '../../src/domain/types';
-import definition from '../../src/content/stories/reunion-v5.json' with {type:'json'};
+import definition from '../../src/content/stories/reunion.json' with {type:'json'};
 import fixture from '../fixtures/project-v1.json' with {type:'json'};
 import {CHOICE_RUNS} from '../helpers/choice-cases';
 import type {ChoiceRun} from '../helpers/choice-cases';
@@ -13,7 +13,7 @@ test.setTimeout(60000);
 test.beforeEach(async({page})=>{await page.emulateMedia({reducedMotion:'reduce'});});
 type Clip={src:string;speaker:string;text:string};
 type Catalog={lines:Clip[];timings:Record<string,{full:number[];guided:number[]}>};
-const catalog=()=>JSON.parse(readFileSync(new URL('../../src/content/voice-v5.json',import.meta.url),'utf8')) as Catalog;
+const catalog=()=>JSON.parse(readFileSync(new URL('../../src/content/voice.json',import.meta.url),'utf8')) as Catalog;
 type MediaState={src:string|null;lastSrc:string;paused:boolean;time:number;ready:number;volume:number;playingEvents:number;endedEvents:number};
 const runtime=(p:Page)=>p.locator('#story-runtime');
 const voiceStatus=(p:Page)=>p.locator('#story-voice-status');
@@ -55,7 +55,7 @@ async function stored(p:Page){return p.evaluate(async()=>{
 });}
 async function ready(p:Page,id:StoryNodeId){await expect(runtime(p)).toHaveAttribute('data-node',id);await expect(p.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready',{timeout:15000});}
 const media=(p:Page)=>p.evaluate(()=>Reflect.get(window,'__voiceMedia')() as MediaState[]);
-const voices=(p:Page)=>media(p).then(items=>items.filter(item=>item.src?.includes('/audio/voice-v5/')));
+const voices=(p:Page)=>media(p).then(items=>items.filter(item=>item.src?.includes('/audio/voice/')));
 async function active(p:Page,src?:string){
  const matches=(actual:string|null)=>!src||actual?.replace(/^\.\//,'/')===src.replace(/^\.\//,'/');
  try{await expect.poll(async()=>{const rows=await voices(p);return rows.some(item=>matches(item.src)&&!item.paused&&item.ready>=2&&item.time>.05&&item.playingEvents>0);}).toBe(true);}
@@ -126,7 +126,7 @@ test('voice and music intents are independent, survive routes, and default on af
 test('blocked speech reports its state without frame retries and the retry button unlocks it',async({page})=>{
  await instrument(page);await page.addInitScript(()=>{
   const native=HTMLMediaElement.prototype.play;Reflect.set(window,'__rejectVoice',true);Reflect.set(window,'__voiceAttempts',0);
-  HTMLMediaElement.prototype.play=function(){if(this.src.includes('/audio/voice-v5/')){Reflect.set(window,'__voiceAttempts',Number(Reflect.get(window,'__voiceAttempts'))+1);if(Reflect.get(window,'__rejectVoice'))return Promise.reject(new DOMException('Injected voice gesture refusal','NotAllowedError'));}return native.call(this);};
+  HTMLMediaElement.prototype.play=function(){if(this.src.includes('/audio/voice/')){Reflect.set(window,'__voiceAttempts',Number(Reflect.get(window,'__voiceAttempts'))+1);if(Reflect.get(window,'__rejectVoice'))return Promise.reject(new DOMException('Injected voice gesture refusal','NotAllowedError'));}return native.call(this);};
  });
  await seed(page,choiceAt('intro'));await ready(page,'intro');await expect(voiceStatus(page)).toHaveAttribute('data-state','blocked');
  const attempts=await page.evaluate(()=>Number(Reflect.get(window,'__voiceAttempts')));await page.waitForTimeout(250);expect(await page.evaluate(()=>Number(Reflect.get(window,'__voiceAttempts')))).toBe(attempts);
@@ -134,7 +134,7 @@ test('blocked speech reports its state without frame retries and the retry butto
 });
 
 test('a failed speech resource reports failure and succeeds after explicit retry',async({page})=>{
- await instrument(page);let refuse=true;await page.route('**/audio/voice-v5/*.mp3',route=>refuse?route.abort('failed'):route.continue());
+ await instrument(page);let refuse=true;await page.route('**/audio/voice/*.mp3',route=>refuse?route.abort('failed'):route.continue());
  await seed(page,choiceAt('intro'));await ready(page,'intro');await runtime(page).click();await expect(voiceStatus(page)).toHaveAttribute('data-state','error');
  refuse=false;await page.locator('#story-voice-toggle').click();await active(page);await expect(page.locator('#story-voice-toggle')).toHaveAttribute('aria-pressed','true');
 });
@@ -179,7 +179,7 @@ test('result replay speaks the selected variant, seeks and closes without writin
 });
 
 test('restored v1 through v4 do not request new v5 speech assets',async({page})=>{
- await instrument(page);const requests:string[]=[];page.on('request',request=>{if(request.url().includes('/audio/voice-v5/'))requests.push(request.url());});
+ await instrument(page);const requests:string[]=[];page.on('request',request=>{if(request.url().includes('/audio/voice/'))requests.push(request.url());});
  for(const version of [1,2,3,4]){
   const project=structuredClone(fixture) as ProjectV1;Object.assign(project.story!,{definitionVersion:version,nodeId:'memory-separate',approach:null,approachSource:null,assistedNodeIds:[],completedAt:null});
   if(version!==1)Object.assign(project.story!,{ending:null,endingSource:null});await seed(page,project);await ready(page,'memory-separate');await runtime(page).click();
@@ -190,7 +190,7 @@ test('restored v1 through v4 do not request new v5 speech assets',async({page})=
 
 test('speech follows the document base when deployed under a subdirectory',async({page})=>{
  await instrument(page);await seed(page,choiceAt('intro'));
- const nested:string[]=[];page.on('request',request=>{if(new URL(request.url()).pathname.startsWith('/nested/audio/voice-v5/'))nested.push(request.url());});
+ const nested:string[]=[];page.on('request',request=>{if(new URL(request.url()).pathname.startsWith('/nested/audio/voice/'))nested.push(request.url());});
  await page.route('**/nested/**',async route=>{
   const url=new URL(route.request().url());url.pathname=url.pathname.replace(/^\/nested\//,'/');
   const response=await route.fetch({url:url.href});await route.fulfill({response});

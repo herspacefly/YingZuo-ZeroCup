@@ -11,7 +11,7 @@ const output=path.join(root,'docs/evidence/t38/natural-guided.json');
 const origin=process.env.YINGZUO_PROBE_ORIGIN??'http://127.0.0.1:4173';
 const hash=p=>createHash('sha256').update(readFileSync(path.join(root,p))).digest('hex');
 const report={kind:'natural-clock-guided-v5',startedAt:new Date().toISOString(),origin,
- indexSha256:hash('dist/index.html'),voiceCatalogSha256:hash('src/content/voice-v5.json'),
+ indexSha256:hash('dist/index.html'),voiceCatalogSha256:hash('src/content/voice.json'),
  constraints:{nativeRaf:true,nativePerformanceNow:true,nativeAudio:true,playbackRate:1,subtitleSeeking:false,nodeSkipping:false,mode:'guided',reducedMotion:'reduce',humanListeningVerified:false},
  plannedChoices:{journeyIntent:'home',mountainPact:'shared',approach:'call-first',finalAction:'fulfill',ending:'home'},
  actions:[],nodes:[],runtimeTransitions:[],unexpectedPauses:[],pageErrors:[],requestFailures:[],result:'running'};
@@ -88,7 +88,7 @@ try{
    await page.locator('#'+id).press('Enter');lastMoving=Date.now();checkpoint();
   }
   if(Date.now()-lastMoving>45000&&!['playing','loading'].includes(snapshot.phase))throw Error('No advancing time or available normal action for 45s: '+snapshot.nodeId+' '+snapshot.phase+' '+snapshot.message);
-  if(elapsed()-lastProgress>=60000){lastProgress=elapsed();console.log(JSON.stringify({event:'progress',...report.latest,voicePlayingEvents:snapshot.audio.audio.reduce((n,item)=>n+(item.source.includes('/voice-v5/')?item.playingCount:0),0)}));checkpoint();}
+  if(elapsed()-lastProgress>=60000){lastProgress=elapsed();console.log(JSON.stringify({event:'progress',...report.latest,voicePlayingEvents:snapshot.audio.audio.reduce((n,item)=>n+(item.source.includes('/voice/')?item.playingCount:0),0)}));checkpoint();}
   await page.waitForTimeout(300);
  }
  if(report.result!=='passed')throw Error('15-minute natural run limit reached');
@@ -96,7 +96,7 @@ try{
   const db=await new Promise((yes,no)=>{const q=indexedDB.open('yingzuo-v1',1);q.onsuccess=()=>yes(q.result);q.onerror=()=>no(q.error);});
   const raw=await new Promise((yes,no)=>{const q=db.transaction('snapshots').objectStore('snapshots').get('draft');q.onsuccess=()=>yes(q.result);q.onerror=()=>no(q.error);});db.close();return JSON.parse(raw);
  });
- const voice=report.media.audio.filter(item=>item.source.includes('/audio/voice-v5/')),song=report.media.audio.filter(item=>item.source.includes('jingju-curtain.mp3'));
+ const voice=report.media.audio.filter(item=>item.source.includes('/audio/voice/')),song=report.media.audio.filter(item=>item.source.includes('jingju-curtain.mp3'));
  report.summary={wallMs:elapsed(),nodeCount:report.nodes.length,choiceCount:report.actions.filter(item=>item.kind==='explicit-choice').length,voiceMediaCount:voice.length,voicePlayingEvents:voice.reduce((n,item)=>n+item.playingCount,0),voiceEndedEvents:voice.reduce((n,item)=>n+item.endedCount,0),voiceCompletedMedia:voice.filter(item=>item.playingCount>0&&item.endedCount>0).length,voicePlayedMedia:voice.filter(item=>item.playingCount>0).length,voiceErrors:voice.reduce((n,item)=>n+item.errorCount,0),curtainVocalPlayingEvents:song.reduce((n,item)=>n+item.playingCount,0),curtainVocalMaxTime:Math.max(0,...song.map(item=>item.maxTime)),allPlaybackRatesOne:report.media.audio.every(item=>item.rates.every(rate=>rate===1)),unexpectedPauses:report.unexpectedPauses.length,ending:report.savedProject.story.ending,completedAt:report.savedProject.story.completedAt};
  if(report.summary.choiceCount!==4||report.savedProject.story.nodeId!=='completed'||!report.summary.voicePlayingEvents||!report.summary.curtainVocalPlayingEvents||!report.summary.allPlaybackRatesOne||report.summary.voiceCompletedMedia!==report.summary.voicePlayedMedia||report.summary.voiceErrors||report.pageErrors.length)throw Error('Natural run completed but evidence criteria failed: '+JSON.stringify(report.summary));
  console.log(JSON.stringify({event:'complete',result:report.result,...report.summary}));

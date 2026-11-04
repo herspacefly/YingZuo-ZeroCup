@@ -1,5 +1,5 @@
-import catalogJson from './voice-v5.json' with {type:'json'};
-import authoredJson from './stories/reunion-v5.json' with {type:'json'};
+import catalogJson from './voice.json' with {type:'json'};
+import authoredJson from './stories/reunion.json' with {type:'json'};
 import type { StoryDefinition, StoryNode } from '../domain/story-types';
 import type { StoryVersion } from '../domain/types';
 

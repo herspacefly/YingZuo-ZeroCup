@@ -10,7 +10,7 @@ REQUEST=json.loads((ROOT/'.preflight/t38-voice-request.json').read_text(encoding
 if version('edge-tts') != REQUEST['engineVersion']:
     raise RuntimeError(f"Install edge-tts=={REQUEST['engineVersion']} before generating; refusing inaccurate provenance")
 CHECKPOINT=ROOT/'.preflight/t38-voice-results.json'
-CATALOG=ROOT/'src/content/voice-v5.json'
+CATALOG=ROOT/'src/content/voice.json'
 RESULTS=json.loads(CHECKPOINT.read_text(encoding='utf-8')) if CHECKPOINT.exists() else ({l['id']:l for l in json.loads(CATALOG.read_text(encoding='utf-8'))['lines']} if CATALOG.exists() else {})
 LINES=REQUEST['lines'][:4] if '--samples' in sys.argv else REQUEST['lines']
 SEM=asyncio.Semaphore(3)

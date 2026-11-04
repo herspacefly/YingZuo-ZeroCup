@@ -5,7 +5,7 @@ test('v5 rehearsal is silent and storage failure cancels the formal voice channe
  await page.addInitScript(()=>{
   const Native=window.Audio,players:HTMLAudioElement[]=[];
   window.Audio=class extends Native{constructor(src?:string){super(src);players.push(this);}};
-  Reflect.set(window,'__isolationVoices',()=>players.filter(p=>p.src.includes('/audio/voice-v5/')).map(p=>({paused:p.paused,time:p.currentTime,ready:p.readyState})));
+  Reflect.set(window,'__isolationVoices',()=>players.filter(p=>p.src.includes('/audio/voice/')).map(p=>({paused:p.paused,time:p.currentTime,ready:p.readyState})));
  });
  await page.goto('/#/story');await page.locator('#story-start').click();
  await expect(page.locator('.guide-banner')).toBeVisible();await page.locator('#story-play').click();

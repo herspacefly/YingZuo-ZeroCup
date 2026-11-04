@@ -1,3 +1,7 @@
+# T46 当前交接（2026-11-04）
+
+已领取作者最新要求：完全移除旧四份剧本，只保留唯一正式演出；修复跨入口中文配音，缩小手机顶部栏字体。owner=codex-root，branch=codex/t46-single-story-voice。正在实现，旧场不再加载但原始存储不自动清空。下文T45为上一阶段交接。
+
 # T45 当前交接（2026-11-04）
 
 [体验升级](plans/2026-11-04-experience-showcase.md)本地实现与功能验收完成，应用提交`901d2c73d3da48de2c79debf581cb2fe407e5051`，branch=codex/t45-experience-showcase。未推送部署，公开站账本最近记录仍为T44。当前dist可运行，已启动本地生产预览 http://127.0.0.1:5173/（隐藏后台进程）；首页HTTP200并加载main-CROpPVmC.js。

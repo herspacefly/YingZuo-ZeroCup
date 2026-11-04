@@ -6,7 +6,7 @@ import fixtureJSON from '../fixtures/project-v1.json' with {type:'json'};
 import future from '../fixtures/unknown-version.json' with {type:'json'};
 import corrupt from '../fixtures/corrupt-project.json' with {type:'json'};
 import {CHOICE_RUNS} from '../helpers/choice-cases';
-import choiceDefinition from '../../src/content/stories/reunion-v5.json' with {type:'json'};
+import choiceDefinition from '../../src/content/stories/reunion.json' with {type:'json'};
 const fixture=fixtureJSON as ProjectV1;
 const copy=<T>(value:T):T=>JSON.parse(JSON.stringify(value)) as T;
 function completed(approach:'call-first'|'split-first'='call-first',nodeId:'curtain'|'completed'='completed'){

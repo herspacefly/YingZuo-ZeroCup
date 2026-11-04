@@ -3,8 +3,8 @@ import {fileURLToPath} from 'node:url';
 import {join} from 'node:path';
 
 const root=fileURLToPath(new URL('../',import.meta.url));
-const catalog=JSON.parse(readFileSync(join(root,'src/content/voice-v5.json'),'utf8'));
-const story=JSON.parse(readFileSync(join(root,'src/content/stories/reunion-v5.json'),'utf8'));
+const catalog=JSON.parse(readFileSync(join(root,'src/content/voice.json'),'utf8'));
+const story=JSON.parse(readFileSync(join(root,'src/content/stories/reunion.json'),'utf8'));
 const names={narrator:'旁白',chenxiang:'沉香',mother:'母亲',guardian:'二郎神'};
 const find=cue=>catalog.lines.find(line=>line.speaker===cue.speaker&&line.text===cue.text);
 const recalls=[['你在途中说要','共同稳住'],['你在途中说要','独自承山'],['你曾决定','共同稳住'],['你曾决定','独自承山']].map(([start,pact])=>

@@ -1,7 +1,7 @@
 import {test,expect} from './formal-fixture';
 import type {Page} from '@playwright/test';
 import type {ProjectV1,StoryNodeId} from '../../src/domain/types';
-import choiceDefinition from '../../src/content/stories/reunion-v5.json' with {type:'json'};
+import choiceDefinition from '../../src/content/stories/reunion.json' with {type:'json'};
 import fixture from '../fixtures/project-v1.json' with {type:'json'};
 import {arrangeVoiceNode} from '../../src/content/voice-arrangement';
 import type {StoryNode} from '../../src/domain/story-types';

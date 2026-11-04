@@ -106,7 +106,7 @@ test('native MP3 trial ends all nine spoken lines before its no-spoiler invitati
   await page.addInitScript(()=>{
     const Original=window.Audio;const ended:string[]=[],errors:string[]=[];
     Reflect.set(window,'__trialNative',{ended,errors});
-    window.Audio=function(src?:string){const audio=new Original(src);audio.addEventListener('ended',()=>{if(audio.src.includes('/audio/voice-v5/'))ended.push(audio.src);});audio.addEventListener('error',()=>{if(audio.src.includes('/audio/voice-v5/'))errors.push(audio.src);});return audio;} as unknown as typeof Audio;
+    window.Audio=function(src?:string){const audio=new Original(src);audio.addEventListener('ended',()=>{if(audio.src.includes('/audio/voice/'))ended.push(audio.src);});audio.addEventListener('error',()=>{if(audio.src.includes('/audio/voice/'))errors.push(audio.src);});return audio;} as unknown as typeof Audio;
   });
   await page.goto('/');await expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');const source=await draft(page);
   await page.locator('#intro-quick-trial').click();await expect(page.locator('#quick-trial .canvas-stage-status')).toHaveAttribute('data-state','ready');
