@@ -1,3 +1,4 @@
+import {currentStoryFixture} from './current-story-fixture.mjs';
 // Native-clock desktop runtime probe. No application RAF/performance replacement.
 import {preview} from 'vite';import {chromium} from 'playwright';import {readFileSync,writeFileSync} from 'node:fs';import {createHash} from 'node:crypto';import os from 'node:os';import path from 'node:path';
 const outputArg=process.argv.indexOf('--output'),output=path.resolve(outputArg>=0?process.argv[outputArg+1]:'docs/evidence/runtime-desktop-current.json');
@@ -7,6 +8,7 @@ try {
  server=await preview({preview:{host:'127.0.0.1',port:0,strictPort:true}});const origin='http://127.0.0.1:'+server.httpServer.address().port;
  browser=await chromium.launch();const context=await browser.newContext({viewport:{width:1440,height:900},serviceWorkers:'block'}),page=await context.newPage();
  await page.addInitScript(()=>{
+  new MutationObserver(()=>document.querySelector('#guide-skip')?.click()).observe(document,{childList:true,subtree:true});
   const contexts=new Map();
   const state=gl=>{if(!contexts.has(gl))contexts.set(gl,{calls:0,frames:[],at:0,view:null});return contexts.get(gl);};
   for(const method of ['drawArrays','drawElements','drawArraysInstanced','drawElementsInstanced']){
@@ -18,9 +20,10 @@ try {
   Reflect.set(window,'__nativeGLFrames',()=>[...contexts].flatMap(([gl,s])=>[...s.frames,...(s.calls?[{at:s.at,calls:s.calls,view:s.view}]:[])]));
  });
  page.on('pageerror',e=>failures.push(e.message));
- async function openNode(nodeId){await page.goto(origin+'/study.html');const project=JSON.parse(readFileSync('tests/fixtures/project-v1.json','utf8'));project.story.nodeId=nodeId;if(nodeId==='guardian')project.story.approach=project.story.approachSource=null;project.story.assistedNodeIds=[];
+ async function openNode(nodeId){await page.goto(origin+'/study.html');const project=currentStoryFixture(nodeId);
  await page.evaluate(async value=>{const db=await new Promise((yes,no)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>yes(r.result);r.onerror=()=>no(r.error);});try{await new Promise((yes,no)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=yes;tx.onabort=()=>no(tx.error);});}finally{db.close();}},project);
  await page.goto(origin+'/#/story');await page.locator('.canvas-stage-status').waitFor();await page.waitForFunction(()=>document.querySelector('.canvas-stage-status')?.getAttribute('data-state')==='ready');
+ if(await page.locator('#story-runtime').getAttribute('data-state')==='playing')await page.locator('#story-pause').click();
  }
  await openNode('guardian');
  const cdp=await context.newCDPSession(page),frameId=(await cdp.send('Page.getFrameTree')).frameTree.frame.id;

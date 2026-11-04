@@ -12,17 +12,17 @@ export function reviewSubjects(kind){
     const bindings={puppets:['chenxiang-v1','mother-v1','guardian-v1'].map(id=>json(`src/content/puppets/${id}.json`)),scenes:json('src/content/scenes.json'),patterns:json('src/content/patterns.json'),palettes:json('src/content/palettes.json'),colorMapEncoding:manifest.colorMapEncoding};
     const presentation=json('public/assets/presentation/manifest.json');return [...manifest.assets.map(asset=>assetReviewSubject(asset,manifest.provenance,bindings)),{id:'asset:presentation-lotus-theatre',sha256:digest([presentation.homeArt,presentation.assets.find(asset=>asset.path.endsWith('lotus-theatre.png'))]),rightsRequired:true,license:'project-authorized'}];
   }
-  const sources=json('src/content/sources.json').sources,media=json('src/content/museum-media.json');
+  const sources=json('src/content/sources.json').sources,media=json('src/content/museum-media.json'),story=json('src/content/stories/reunion.json'),voice=json('src/content/voice.json');
+  const dialogue=readFileSync(new URL('src/content/choice-dialogue.ts',root),'utf8');
   return [
-    ...json('src/content/stories/reunion-v4.json').nodes.map(node=>({id:'story-v4:'+node.id,sha256:digest([node,json('src/content/stories/reunion-v4.json').endings]),rightsRequired:false})),
-    ...json('src/content/stories/reunion-v3.json').nodes.map(node=>({id:'story-v3:'+node.id,sha256:digest([node,json('src/content/stories/reunion-v3.json').endings]),rightsRequired:false})),
-    {id:'story-background:v3',sha256:digest(json('src/content/story-background.json')),rightsRequired:false},
+    ...story.nodes.map(node=>({id:'story:'+node.id,sha256:digest([node,story.endings,dialogue]),rightsRequired:false})),
+    {id:'story-background',sha256:digest(json('src/content/story-background.json')),rightsRequired:false},
     ...media.exhibits.map(row=>({id:'museum-reading:'+row.exhibitId,sha256:digest([row,media.sources]),rightsRequired:false})),
     ...media.media.map(row=>({id:'museum-media:'+row.id,sha256:digest([row,media.sources.find(source=>source.id===row.sourceId)]),rightsRequired:row.kind==='external',...(row.kind==='external'?{license:'unknown'}:{})})),
-    ...json('src/content/stories/reunion-v2.json').nodes.map(node=>({id:'story-v2:'+node.id,sha256:digest([node,json('src/content/stories/reunion-v2.json').endings]),rightsRequired:false})),
-    ...json('src/content/stories/reunion-v1.json').nodes.map(node=>({id:'story:'+node.id,sha256:digest(node),rightsRequired:false})),
     ...json('src/content/exhibits.json').exhibits.map(item=>exhibitReviewSubject(item,sources)),
     ...json('src/content/facts.json').facts.map(item=>({id:'fact:'+item.id,sha256:digest([item,item.sourceIds.map(id=>sources.find(s=>s.id===id))]),rightsRequired:false})),
+    ...voice.lines.map(line=>({id:'voice:'+line.id,sha256:digest([line,voice.voices[line.speaker],voice.engine,voice.engineVersion,digest(readFileSync(new URL('public'+line.src,root)))]),rightsRequired:true,license:'unknown'})),
+    {id:'voice:arrangement',sha256:digest([voice.timings,...['src/content/voice-arrangement.ts','src/audio/stage-voice.ts','src/audio/stage-session.ts'].map(file=>readFileSync(new URL(file,root),'utf8'))]),rightsRequired:false},
     {id:'sound:stage-v1',sha256:digest(readFileSync(new URL('src/audio/stage-sound.ts',root),'utf8')+readFileSync(new URL('src/content/sound-cues.ts',root),'utf8')),rightsRequired:true,license:'project-authorized'},
     ...json('src/content/music.json').tracks.map(track=>({id:'music:'+track.id,sha256:digest([track,readFileSync(new URL('src/audio/music-scene.ts',root),'utf8'),readFileSync(new URL('src/audio/stage-music.ts',root),'utf8')]),rightsRequired:true,license:track.license})),
   ];

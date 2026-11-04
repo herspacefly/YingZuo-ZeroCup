@@ -10,8 +10,9 @@ const read=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
 const digest=b=>crypto.createHash('sha256').update(b).digest('hex');
 const catalog=read('src/content/voice.json'),definition=read('src/content/stories/reunion.json');
 const errors=[],check=(ok,message)=>{if(!ok)errors.push(message);};
+check(catalog.schemaVersion===1&&catalog.definitionVersion===5&&definition.definitionVersion===5,'voice catalog must match the current story');
 const checkedTrees=['public',...(process.argv.includes('--dist')?['dist']:[])];
-const ids=new Set();let scheduleChecks=0;
+const ids=new Set(),usedClips=new Set();let scheduleChecks=0;
 for(const line of catalog.lines){
  check(!ids.has(line.id),`duplicate ${line.id}`);ids.add(line.id);
  const cast=catalog.voices[line.speaker];
@@ -35,10 +36,11 @@ for(const journeyIntent of ['home','open-road'])for(const mountainPact of ['shar
   const raw=mode==='full'?node.subtitles:node.guidedSubtitles??node.subtitles;
   check(cues.length===raw.length,`missing cue ${node.id}/${mode}`);
   check(JSON.stringify(arrangeVoiceNode(JSON.parse(JSON.stringify(node)),5))===JSON.stringify(node),`non-idempotent ${node.id}/${mode}`);
-  cues.forEach((cue,i)=>{check(ids.has(cue.clip.id),`unknown clip ${node.id}/${mode}/${i}`);check(cue.endMs<=duration+.001&&cue.startMs+cue.clip.durationMs<=cue.endMs+.001,`clip overrun ${node.id}/${mode}/${i}`);if(i)check(cue.startMs>=cues[i-1].endMs-.001,`overlap ${node.id}/${mode}/${i}`);});
+  cues.forEach((cue,i)=>{usedClips.add(cue.clip.id);check(ids.has(cue.clip.id),`unknown clip ${node.id}/${mode}/${i}`);check(cue.endMs<=duration+.001&&cue.startMs+cue.clip.durationMs<=cue.endMs+.001,`clip overrun ${node.id}/${mode}/${i}`);if(i)check(cue.startMs>=cues[i-1].endMs-.001,`overlap ${node.id}/${mode}/${i}`);});
   scheduleChecks++;
  }
 }
+for(const id of ids)check(usedClips.has(id),`unused spoken line ${id}`);
 const report={schemaVersion:1,clips:catalog.lines.length,bytes:catalog.lines.reduce((sum,l)=>sum+l.bytes,0),audioDurationMs:catalog.lines.reduce((sum,l)=>sum+l.durationMs,0),scheduleChecks,choiceCombinations:16,modes:2,checkedTrees,decodedThisRun:process.argv.includes('--decode'),catalogSha256:digest(fs.readFileSync(path.join(root,'src/content/voice.json'))),errors};
 const flag=process.argv.indexOf('--report');if(flag>=0){const dest=path.resolve(root,process.argv[flag+1]);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.writeFileSync(dest,JSON.stringify(report,null,2)+'\n');}
 console.log(JSON.stringify(report));if(errors.length)process.exitCode=1;

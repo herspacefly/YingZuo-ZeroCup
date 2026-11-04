@@ -1,3 +1,4 @@
+import {currentStoryFixture} from './current-story-fixture.mjs';
 // Reproducible observation of the existing production site. No clock, rate,
 // authored duration, subtitle position, app source, or saved progress is advanced.
 import {chromium} from '@playwright/test';
@@ -10,7 +11,7 @@ const root=fileURLToPath(new URL('../',import.meta.url));
 const output=path.join(root,'docs/evidence/t38/natural-guided.json');
 const origin=process.env.YINGZUO_PROBE_ORIGIN??'http://127.0.0.1:4173';
 const hash=p=>createHash('sha256').update(readFileSync(path.join(root,p))).digest('hex');
-const report={kind:'natural-clock-guided-v5',startedAt:new Date().toISOString(),origin,
+const report={kind:'natural-clock-guided',startedAt:new Date().toISOString(),origin,
  indexSha256:hash('dist/index.html'),voiceCatalogSha256:hash('src/content/voice.json'),
  constraints:{nativeRaf:true,nativePerformanceNow:true,nativeAudio:true,playbackRate:1,subtitleSeeking:false,nodeSkipping:false,mode:'guided',reducedMotion:'reduce',humanListeningVerified:false},
  plannedChoices:{journeyIntent:'home',mountainPact:'shared',approach:'call-first',finalAction:'fulfill',ending:'home'},
@@ -43,9 +44,7 @@ try{
    audio:items.map(record=>{record.source=record.media.getAttribute('src')||record.media.currentSrc||record.source;record.maxTime=Math.max(record.maxTime,record.media.currentTime||0);record.rates.add(record.media.playbackRate);return {id:record.id,source:record.source,currentSource:record.media.getAttribute('src'),paused:record.media.paused,time:record.media.currentTime,maxTime:record.maxTime,readyState:record.media.readyState,playingCount:record.playingCount,endedCount:record.endedCount,errorCount:record.errorCount,rates:[...record.rates]};}),events}));
   new MutationObserver(()=>document.querySelector('#guide-skip')?.click()).observe(document,{childList:true,subtree:true});
  });
- const project=JSON.parse(readFileSync(path.join(root,'tests/fixtures/project-v1.json'),'utf8'));
- Object.assign(project.story,{definitionVersion:5,nodeId:'intro',revision:0,mode:'guided',approach:null,approachSource:null,ending:null,endingSource:null,choices:{journeyIntent:null,mountainPact:null,finalAction:null},castSnapshot:null,assistedNodeIds:[],completedAt:null,runId:'natural-guided-'+Date.now()});
- delete project.story.skippedNodeIds;
+ const project=currentStoryFixture('intro',{runId:'natural-guided-'+Date.now()});
  await page.goto(origin+'/study.html');
  await page.evaluate(async value=>{
   const db=await new Promise((yes,no)=>{const q=indexedDB.open('yingzuo-v1',1);q.onupgradeneeded=()=>q.result.createObjectStore('snapshots');q.onsuccess=()=>yes(q.result);q.onerror=()=>no(q.error);});

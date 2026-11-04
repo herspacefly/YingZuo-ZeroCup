@@ -1,12 +1,13 @@
+import {currentStoryFixture} from './current-story-fixture.mjs';
 // Diagnostic only: transparent observation of native RAF arguments; never changes clock values.
 import {preview} from 'vite';import {chromium} from 'playwright';import {readFileSync,writeFileSync} from 'node:fs';import {createHash} from 'node:crypto';
 let server,browser;try{server=await preview({preview:{host:'127.0.0.1',port:0,strictPort:true}});const origin='http://127.0.0.1:'+server.httpServer.address().port;browser=await chromium.launch();const page=await browser.newPage();
-await page.addInitScript(()=>{const raf=window.requestAnimationFrame.bind(window),records=[];let lower=null,upper=null;
+await page.addInitScript(()=>{new MutationObserver(()=>document.querySelector('#guide-skip')?.click()).observe(document,{childList:true,subtree:true});const raf=window.requestAnimationFrame.bind(window),records=[];let lower=null,upper=null;
  document.addEventListener('click',e=>{if(e.target.closest?.('#story-play')){lower=performance.now();upper=null;}},true);
  document.addEventListener('click',e=>{if(e.target.closest?.('#story-play'))upper=performance.now();});
  window.requestAnimationFrame=callback=>raf(time=>{const row={nativeTimestamp:time,callbackNow:performance.now(),playHandlerBefore:lower,playHandlerAfter:upper};callback(time);row.state=document.querySelector('#story-runtime')?.getAttribute('data-state');row.message=document.querySelector('#story-runtime')?.textContent;records.push(row);});Reflect.set(window,'__nativeStartRecords',records);
 });
-await page.goto(origin+'/study.html');const project=JSON.parse(readFileSync('tests/fixtures/project-v1.json','utf8'));
+await page.goto(origin+'/study.html');const project=currentStoryFixture('call-light');
 await page.evaluate(async p=>{const db=await new Promise(yes=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>yes(r.result);});await new Promise(yes=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(p),'draft');tx.oncomplete=yes;});db.close();},project);
 await page.goto(origin+'/#/story');await page.waitForFunction(()=>document.querySelector('.canvas-stage-status')?.getAttribute('data-state')==='ready');await page.bringToFront();
 for(let i=0;i<12;i++){await page.locator('#story-play').click();await page.waitForTimeout(120);if(await page.locator('#story-runtime').getAttribute('data-state')==='playing')await page.locator('#story-pause').click();}

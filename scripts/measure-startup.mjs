@@ -1,3 +1,4 @@
+import {currentStoryFixture} from './current-story-fixture.mjs';
 // Real-clock production startup probe. Does not mark story completion or alter app clocks.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -61,7 +62,7 @@ try {
     const page = await context.newPage(), errors = [], externalRequests = [], failedRequests = [], payloadResponses = [];
     if(forcePNG) await page.addInitScript(()=>{Object.defineProperty(window,'createImageBitmap',{value:undefined});});
     if(pattern !== 'fresh') {
-      const project=JSON.parse(readFileSync(path.join(root,'tests/fixtures/project-v1.json'),'utf8'));project.story=null;project.appearance.patternId=pattern;
+      const project=currentStoryFixture();project.story=null;project.appearance.patternId=pattern;
       await page.goto(base+'/study.html');
       await page.evaluate(async value=>{
         const db=await new Promise((yes,no)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>yes(r.result);r.onerror=()=>no(r.error);});
@@ -143,7 +144,7 @@ try {
       }
       const imageFonts = [...unique.values()], imageFontBytes = imageFonts.reduce((sum, asset) => sum + asset.bytes, 0);
       if(!imageFontBytes) throw new Error('No real image/font transfer bytes recorded');
-      // New v4 intentionally ignores legacy pattern fields and keeps the authored costume.
+      // The formal story keeps the authored costume without a decorative motif overlay.
       const observedPattern=imageFonts.some(asset=>/\/(cloud|wave|flower)-v1-cut-\d\.(webp|png)$/.test(asset.path))?'legacy-overlay':null;
       const observedOriginalCostume=imageFonts.some(asset=>asset.path===originalTorsoPath||asset.path==='/assets/delivery/chenxiang-v1-torso-color.webp');
       const deliveryRequests=imageFonts.filter(asset=>asset.path.startsWith('/assets/delivery/')).length;

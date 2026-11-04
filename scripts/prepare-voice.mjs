@@ -20,7 +20,7 @@ const ordered=[...lines.values()];const samples=Object.keys(voices).map(s=>order
 const requests=[...samples,...ordered.filter(l=>!samples.includes(l))];
 fs.mkdirSync(path.join(root,'.preflight'),{recursive:true});
 fs.writeFileSync(path.join(root,'.preflight/t38-voice-request.json'),JSON.stringify({schemaVersion:1,engine:'edge-tts',engineVersion:'7.3.1',voices,lines:requests},null,2)+'\n');
-if(!process.argv.includes('--compile')){console.log(`Prepared ${requests.length} distinct v5 lines; first four are cast samples.`);process.exit(0);}
+if(!process.argv.includes('--compile')){console.log(`Prepared ${requests.length} distinct spoken lines; first four are cast samples.`);process.exit(0);}
 const results=read('.preflight/t38-voice-results.json');
 for(const line of requests){const result=results[line.id];if(!result||result.text!==line.text||result.voice!==line.voice||!(result.durationMs>0)||sha(fs.readFileSync(path.join(root,'public',line.src)))!==result.sha256)throw Error(`Missing/stale audio ${line.id}`);}
 const timings={};

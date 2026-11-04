@@ -1,13 +1,17 @@
+import {arrangeVoiceNode} from '../src/content/voice-arrangement.ts';
+import {presentChoiceDialogue} from '../src/content/choice-dialogue.ts';
+import {currentStoryFixture} from './current-story-fixture.mjs';
 // Actual prior production bundle versus candidate; no renderer copy or test hook.
 import {readFileSync,writeFileSync,realpathSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import path from 'node:path';
 import {preview} from 'vite';
 import {chromium,devices} from 'playwright';
+const definition=JSON.parse(readFileSync(new URL('../src/content/stories/reunion.json',import.meta.url),'utf8'));
 const arg=process.argv.indexOf('--baseline-dist');if(arg<0)throw new Error('--baseline-dist is required');
 const root=process.cwd(),baseline=realpathSync(process.argv[arg+1]);
 if(!baseline.startsWith(realpathSync('.preflight')+path.sep))throw new Error('Baseline must be inside project .preflight');
-const sha=x=>createHash('sha256').update(x).digest('hex'),fixture=JSON.parse(readFileSync('tests/fixtures/project-v1.json','utf8'));
+const sha=x=>createHash('sha256').update(x).digest('hex'),fixture=currentStoryFixture();
 const report={kind:'previous-bundle-versus-candidate-native-canvas-rgba-sha256',baselineIndexSha256:sha(readFileSync(path.join(baseline,'index.html'))),candidateIndexSha256:sha(readFileSync('dist/index.html')),probeSha256:sha(readFileSync(new URL(import.meta.url))),clock:'controlled story time, not a runtime/FPS/duration measurement',records:[],failures:[]};
 if(report.baselineIndexSha256===report.candidateIndexSha256)throw new Error('Expected different actual builds');
 let browser;const servers=[];
@@ -21,6 +25,7 @@ try{
       const context=await browser.newContext({...profile.use,serviceWorkers:'block'}),page=await context.newPage(),records=[],errors=[];
       page.on('pageerror',e=>errors.push(e.message));
       await page.addInitScript(()=>{
+        new MutationObserver(()=>document.querySelector('#guide-skip')?.click()).observe(document,{childList:true,subtree:true});
         let now=0,id=0;const callbacks=new Map();
         Object.defineProperty(performance,'now',{value:()=>now});window.requestAnimationFrame=cb=>{callbacks.set(++id,cb);return id;};window.cancelAnimationFrame=id=>callbacks.delete(id);
         Reflect.set(window,'__pixelAdvance',async ms=>{while(ms>0){const delta=Math.min(ms,100);ms-=delta;now+=delta;const batch=[...callbacks.values()];callbacks.clear();batch.forEach(cb=>cb(now));await Promise.resolve();}});
@@ -35,6 +40,7 @@ try{
         await page.evaluate(async value=>{const db=await new Promise((yes,no)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>yes(r.result);r.onerror=()=>no(r.error);});
           try{await new Promise((yes,no)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=yes;tx.onabort=()=>no(tx.error);});}finally{db.close();}},project);
         await page.goto(origin+route);await ready();
+        if(route==='/#/story'){if(await page.locator('#story-runtime').getAttribute('data-state')==='playing')await page.locator('#story-pause').click();if(await page.locator('#story-voice-toggle').getAttribute('aria-pressed')==='true')await page.locator('#story-voice-toggle').click();}
       }
       async function capture(label){
         await ready();const record=await page.locator('.shadow-stage').first().evaluate(async c=>({width:c.width,height:c.height,scene:c.getAttribute('data-scene'),rgbaSha256:Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',c.getContext('2d').getImageData(0,0,c.width,c.height).data))).map(x=>x.toString(16).padStart(2,'0')).join('')}));
@@ -45,9 +51,10 @@ try{
       try{
         for(const nodeId of ['intro','memory-wave','guardian','call-light','split-axe','reunion-hold']){
           report.executing={profile:profile.id,origin:origin===origins[0]?'baseline':'candidate',nodeId};
-          const project=structuredClone(fixture),early=['intro','memory-wave','guardian'].includes(nodeId);Object.assign(project.story,{nodeId,assistedNodeIds:[],revision:nodeId==='intro'?0:8,approach:early?null:nodeId==='split-axe'?'split-first':'call-first',approachSource:early?null:'user'});if(nodeId==='intro')project.story.castSnapshot=null;
+          const project=currentStoryFixture(nodeId);
           await seed(project,'/#/story');await capture(nodeId+'/entry');
-          await page.locator(nodeId==='split-axe'?'#story-assist':'#story-play').click();
+          await page.locator('#story-play').click();
+          if(nodeId==='split-axe'){const node=arrangeVoiceNode(presentChoiceDialogue(definition.nodes.find(node=>node.id===nodeId),project.story),5);await advance(node.guidedTiming.targetMs);await page.locator('#story-assist').click();}
           const deltas=nodeId==='intro'?[100,1400,3000,4000,5000,3500]:nodeId==='split-axe'?[100,1900,1000,500,1200,1800]:nodeId==='reunion-hold'?[100,400,1500,1900]:[100,400,900,1000];
           let elapsed=0;for(const delta of deltas){await advance(delta);elapsed+=delta;if(await page.locator('#story-runtime').getAttribute('data-node')!==nodeId)throw new Error('Unexpected scene transition in pixel matrix: '+nodeId);await capture(nodeId+'/'+elapsed);}
           if(nodeId==='call-light')for(const lamp of [-.4,.4,.4]){await range('#story-lamp',lamp);await advance(1);await capture(nodeId+'/lamp-'+lamp+'/'+records.length);}

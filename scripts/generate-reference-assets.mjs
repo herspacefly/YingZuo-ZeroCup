@@ -80,5 +80,4 @@ for(const puppet of puppets)save(`src/content/puppets/${puppet.id}.json`,puppet)
 const scenes=json('src/content/scenes.json');for(const scene of scenes.scenes)if(scene.id!=='plain-v1')scene.background='#C9C0AE';save('src/content/scenes.json',scenes);
 const columns=['id','type','path','creator','sourceUrl','license','credit','usage','reviewStatus','sha256'];const csv=v=>'"'+String(v).replaceAll('"','""')+'"';
 writeFileSync(path.join(root,'docs/assets.csv'),columns.join(',')+'\n'+manifest.assets.map(a=>columns.map(k=>csv(a[k])).join(',')).join('\n')+'\n');
-const definition=json('src/content/stories/reunion-v1.json');for(const node of definition.nodes)if(['call-light','split-search'].includes(node.id)){node.entryAttachments=[{actorId:'chenxiang',attachmentId:'lantern'}];if(!node.assetIds.includes('chenxiang-lantern'))node.assetIds.push('chenxiang-lantern');}save('src/content/stories/reunion-v1.json',definition);
 console.log('Generated 81 reference-cutout assets with measured rig bindings; source SHA256 '+sourceSha);

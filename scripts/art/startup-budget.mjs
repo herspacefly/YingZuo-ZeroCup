@@ -4,7 +4,7 @@ import {deliveryPath} from '../../src/content/asset-delivery.ts';
 import {loadingPolicy} from './loading-policy.mjs';
 export function startupAssetBudget(root) {
   const json=file=>JSON.parse(readFileSync(path.join(root,file),'utf8'));
-  const manifest=json('src/content/manifest.json'),delivery=json('src/content/delivery.json'),intro=json('src/content/stories/reunion-v1.json').nodes.find(n=>n.id==='intro');
+  const manifest=json('src/content/manifest.json'),delivery=json('src/content/delivery.json'),intro=json('src/content/stories/reunion.json').nodes.find(n=>n.id==='intro');
   const rows=[];
   for(const pattern of ['cloud-v1','wave-v1','flower-v1']){
     const assets=intro.assetIds.map(id=>manifest.assets.find(a=>a.id===id)).filter(a=>a&&a.type!=='alpha-mask'&&(a.type!=='carving-mask'||a.id.startsWith(pattern+'-')));
