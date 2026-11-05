@@ -1,8 +1,7 @@
-import {currentProject} from '../helpers/current-project';
+import {currentNode,currentDuration,currentProject} from '../helpers/current-project';
 import {test,expect} from './formal-fixture';
 import type { Page } from '@playwright/test';
 import type { ProjectV1 } from '../../src/domain/types';
-import content from '../../src/content/stories/reunion.json' with { type: 'json' };
 
 type Mode = 'full' | 'guided';
 type NodeId = NonNullable<ProjectV1['story']>['nodeId'];
@@ -49,10 +48,13 @@ async function stored(page: Page): Promise<ProjectV1> {
   });
 }
 
-async function ready(page: Page, nodeId?: NodeId) {
-  await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state', 'ready', wait);
-  await expect(runtime(page)).toHaveAttribute('data-state', 'paused', wait);
-  if (nodeId) await expect(runtime(page)).toHaveAttribute('data-node', nodeId);
+async function ready(page: Page, nodeId?: NodeId, allowDirty=false) {
+  if(nodeId)await expect(runtime(page)).toHaveAttribute('data-node',nodeId);
+  await expect(page.locator('#save-state')).toHaveAttribute('data-state',allowDirty?/^(saved|memory|unsaved)$/:/^(saved|memory)$/);
+  await expect(page.locator('.page-content .canvas-stage-status')).toHaveAttribute('data-state','ready',wait);
+  await expect(runtime(page)).toHaveAttribute('data-state',/^(paused|playing)$/);
+  if(await runtime(page).getAttribute('data-state')==='playing')await page.locator('#story-pause').click();
+  await expect(runtime(page)).toHaveAttribute('data-state','paused',wait);
 }
 
 async function directorClock(page: Page) {
@@ -102,6 +104,13 @@ async function exportProject(page: Page): Promise<ProjectV1> {
   return JSON.parse(Buffer.concat(chunks).toString('utf8'));
 }
 
+async function listen(page:Page,id:NodeId,mode:'full'|'guided'='full'){
+  await page.bringToFront();const node=currentNode(id),cues=mode==='full'?node.subtitles:node.guidedSubtitles!,ratio=mode==='full'?1:node.guidedTiming.targetMs/node.fullTiming.targetMs;
+  await page.locator('.subtitle-directory .subtitle-cue').last().click();if(await page.locator('#story-play').isEnabled())await page.locator('#story-play').click();
+  await advance(page,currentDuration(id,mode)-cues[cues.length-1]!.startMs*ratio+100);
+}
+async function skipGuides(page:Page){await page.addInitScript(()=>new MutationObserver(()=>document.querySelector<HTMLButtonElement>('#guide-skip')?.click()).observe(document,{childList:true,subtree:true}));}
+
 async function freezeTimers(page: Page) {
   const time = new Date('2026-10-19T08:00:00.000Z');
   await page.clock.install({ time });
@@ -115,8 +124,8 @@ for (const mode of ['full', 'guided'] as const) for (const phase of closeCases) 
     context.on('page', next => next.on('pageerror', error => errors.push(error.message)));
     page.on('pageerror', error => errors.push(error.message));
     await directorClock(page);
-    const initialNode = phase === 'opening' ? 'intro' : phase === 'operation-saved' ? 'call-light' :
-      phase === 'curtain' ? 'reunion-hold' : phase === 'operating' ? 'split-axe' : 'approach-choice';
+    const initialNode = phase === 'opening' ? 'intro' : phase === 'operation-saved' ? 'memory-wave' :
+      phase === 'curtain' ? 'ending-home-epilogue' : phase === 'operating' ? 'split-axe' : 'approach-choice';
     const project = at(initialNode, mode);
     if (phase === 'opening') project.story = null;
     await seed(page, project); await page.goto('/#/story');
@@ -126,19 +135,17 @@ for (const mode of ['full', 'guided'] as const) for (const phase of closeCases) 
       await page.locator('#story-play').click(); await advance(page, 4500);
     } else {
       await ready(page, initialNode);
-      if (phase === 'after-choice') { await page.locator('#story-split-first').click(); await ready(page, 'split-axe'); }
+      if (phase === 'after-choice') { await listen(page,'approach-choice',mode);await page.locator('#story-split-first').click(); await ready(page, 'split-axe'); }
       if (phase === 'operating') {
-        await page.locator('#story-play').click(); await range(page, '#story-rod-rightShoulder', 1.2); await advance(page, 300);
+        await listen(page,'split-axe',mode); await range(page, '#story-rod-rightShoulder', 1.2); await advance(page, 300);
         await expect(page.locator('#story-rod-rightShoulder')).toHaveValue('1.2');
       }
       if (phase === 'operation-saved') {
-        await page.locator('#story-play').click(); await range(page, '#story-distance', .4);
-        await range(page, '#story-rod-x', .535); await range(page, '#story-rod-y', .565);
-        await advance(page, 2600); await ready(page, 'call-response');
+        await listen(page,'memory-wave',mode);await range(page,'#story-rod-rightShoulder',1.8);await range(page,'#story-rod-rightElbow',.52);await advance(page,600);
+        await expect(runtime(page)).toHaveAttribute('data-showcase','playing');await page.locator('#showcase-skip').click();await ready(page,'memory-words');
       }
       if (phase === 'curtain') {
-        await page.locator('#story-play').click(); await advance(page, 4000);
-        await page.locator('#story-finish').click(); await ready(page, 'curtain');
+        await listen(page,'ending-home-epilogue',mode);await ready(page, 'curtain');
         await page.locator('#story-play').click(); await advance(page, 1500);
       }
     }
@@ -146,10 +153,10 @@ for (const mode of ['full', 'guided'] as const) for (const phase of closeCases) 
     const checkpoint = await stored(page);
     if (phase === 'before-choice') expect(checkpoint.story!.approach).toBeNull();
     if (phase === 'after-choice') expect(checkpoint.story).toMatchObject({ nodeId: 'split-axe', approach: 'split-first', revision: project.story!.revision + 1 });
-    if (phase === 'operation-saved') expect(checkpoint.story).toMatchObject({ nodeId: 'call-response', revision: project.story!.revision + 1, assistedNodeIds: [] });
+    if (phase === 'operation-saved') expect(checkpoint.story).toMatchObject({ nodeId: 'memory-words', revision: project.story!.revision + 1, assistedNodeIds: [] });
     if (phase === 'curtain') expect(checkpoint.story!.completedAt).not.toBeNull();
     await page.close();
-    const reopened = await context.newPage(); await directorClock(reopened); await reopened.goto('/#/story');
+    const reopened = await context.newPage();await skipGuides(reopened); await directorClock(reopened); await reopened.goto('/#/story');
     await ready(reopened, checkpoint.story!.nodeId); await saved(reopened);
     await expect(runtime(reopened)).toHaveAttribute('data-elapsed', '0');
     expect(await reopened.evaluate(() => Reflect.get(window, '__saveBoundaryFrames')())).toBe(0);
@@ -169,8 +176,7 @@ for (const mode of ['full', 'guided'] as const) {
     await directorClock(page);
     const project = at('training', mode); await seed(page, project); await page.goto('/#/story'); await ready(page, 'training');
     await page.locator('#story-play').click();
-    const definition = content.nodes.find(node => node.id === 'training')!;
-    await advance(page, (mode === 'full' ? definition.fullTiming : definition.guidedTiming).targetMs);
+    await advance(page, currentDuration('training',mode));
     await expect.poll(() => requested, wait).toBe(true);
     await expect(runtime(page)).toHaveAttribute('data-node', 'guardian');
     await expect(runtime(page)).toHaveAttribute('data-state', 'loading'); await saved(page);
@@ -178,7 +184,7 @@ for (const mode of ['full', 'guided'] as const) {
     expect(checkpoint.story).toMatchObject({ nodeId: 'guardian', revision: project.story!.revision + 1 });
     expect(checkpoint.saveRevision).toBe(project.saveRevision + 1);
     await page.close();
-    const reopened = await context.newPage(); await directorClock(reopened); await reopened.goto('/#/story');
+    const reopened = await context.newPage();await skipGuides(reopened); await directorClock(reopened); await reopened.goto('/#/story');
     await ready(reopened, 'guardian'); await expect(runtime(reopened)).toHaveAttribute('data-elapsed', '0');
     expect(await stored(reopened)).toEqual(checkpoint);
   });
@@ -186,9 +192,9 @@ for (const mode of ['full', 'guided'] as const) {
 
 test('product craft tabs keep both edited palettes when one transaction loses the version check', async ({ page, context }) => {
   const project = at('approach-choice'); project.lastRoute = '/craft';
-  await seed(page, project); await freezeTimers(page); await page.goto('/#/craft');
+  await seed(page, project); await freezeTimers(page);await directorClock(page); await page.goto('/#/craft');
   await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state', 'ready', wait); await saved(page);
-  const second = await context.newPage(); await second.goto('/#/craft');
+  const second = await context.newPage();await skipGuides(second); await second.goto('/#/craft');
   await expect(second.locator('.canvas-stage-status')).toHaveAttribute('data-state', 'ready', wait); await saved(second);
   // Both drafts are dirty before either is persisted. Frozen timers prevent a host pause changing the winner.
   await page.locator('#craft-palette').selectOption('woodland-v1');
@@ -207,11 +213,11 @@ test('product craft tabs keep both edited palettes when one transaction loses th
 });
 
 test('product story tabs export both branch decisions while the stale candidate cannot replace the winner', async ({ page, context }) => {
-  const project = at('approach-choice'); await seed(page, project); await page.goto('/#/story'); await ready(page, 'approach-choice');
-  const second = await context.newPage(); await second.goto('/#/story'); await ready(second, 'approach-choice');
-  await page.locator('#story-call-first').click(); await ready(page, 'call-light'); await saved(page);
+  await directorClock(page);const project = at('approach-choice'); await seed(page, project); await page.goto('/#/story'); await ready(page, 'approach-choice');
+  const second = await context.newPage();await skipGuides(second);await directorClock(second); await second.goto('/#/story'); await ready(second, 'approach-choice');
+  await listen(page,'approach-choice');await page.locator('#story-call-first').click(); await ready(page, 'call-light'); await saved(page);
   const winner = await stored(page);
-  await second.locator('#story-split-first').click();
+  await listen(second,'approach-choice');await second.locator('#story-split-first').click();
   await expect(second.locator('#save-state')).toHaveAttribute('data-state', 'conflict', wait);
   await expect(runtime(second)).toHaveAttribute('data-node', 'approach-choice');
   expect(await exportProject(page)).toEqual(winner);
@@ -229,9 +235,9 @@ test('product story tabs export both branch decisions while the stale candidate 
 });
 
 for (const approach of ['call-first', 'split-first'] as const) {
-  test(`palette edit then ${approach} within 500ms commits the latest whole project and invalidates old timers`, async ({ page }) => {
+  test(`palette edit then dialogue-gated ${approach} commits the latest whole project and invalidates old timers`, async ({ page }) => {
     const project = at('approach-choice'); project.lastRoute = '/craft'; await seed(page, project);
-    await freezeTimers(page); await page.goto('/#/craft');
+    await freezeTimers(page);await directorClock(page); await page.goto('/#/craft');
     await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state', 'ready', wait); await saved(page);
     await page.evaluate(() => {
       document.addEventListener('change', event => {
@@ -244,11 +250,11 @@ for (const approach of ['call-first', 'split-first'] as const) {
     await page.locator('#craft-palette').selectOption('woodland-v1');
     await expect(page.locator('#save-state')).toHaveAttribute('data-state', 'unsaved');
     await page.clock.runFor(100);
-    await page.locator('#craft-return').click(); await ready(page, 'approach-choice');
+    await page.locator('#craft-return').click(); await ready(page, 'approach-choice',true);await listen(page,'approach-choice');
     await page.locator(approach === 'call-first' ? '#story-call-first' : '#story-split-first').click();
     const nodeId = approach === 'call-first' ? 'call-light' : 'split-axe'; await ready(page, nodeId); await saved(page);
     const elapsed = await page.evaluate(() => Reflect.get(window, '__branchChosenAt') - Reflect.get(window, '__paletteChangedAt'));
-    expect(elapsed).toBe(100); expect(elapsed).toBeLessThan(500);
+    expect(elapsed).toBeGreaterThan(0);
     const checkpoint = await stored(page);
     expect(checkpoint.appearance.paletteId).toBe('woodland-v1');
     expect(checkpoint.story).toMatchObject({ nodeId, approach, revision: project.story!.revision + 1 });

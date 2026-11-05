@@ -1,4 +1,4 @@
-import {currentProject} from '../helpers/current-project';
+import {currentDuration,currentProject} from '../helpers/current-project';
 import {test,expect} from './formal-fixture';
 import type {Page} from '@playwright/test';
 
@@ -31,31 +31,26 @@ const probe=(page:Page)=>page.evaluate(()=>Reflect.get(window,'__cacheProbe')() 
 async function frames(page:Page,count=10){for(let i=0;i<count;i++)await page.evaluate(()=>Reflect.get(window,'__cacheFrame')(100));}
 async function range(page:Page,id:string,value:number){await page.locator(id).evaluate((input:HTMLInputElement,value)=>{input.value=String(value);input.dispatchEvent(new Event('input',{bubbles:true}));input.dispatchEvent(new Event('change',{bubbles:true}));},value);}
 
-test('opaque background is reused, moving light stays direct, resize and exit release old pixels',async({page})=>{
-  await setup(page);await page.locator('#story-play').click();await frames(page);
-  const first=await probe(page);expect(first.surfaces).toHaveLength(1);expect(first.copies).toBeGreaterThan(2);
-  await page.locator('#story-pause').click();await page.evaluate(()=>{location.hash='#/light';});await ready(page);
-  expect((await probe(page)).surfaces[0]).toEqual([0,0]);
-  await range(page,'#light-distance',.25);expect((await probe(page)).surfaces.filter(([w])=>w!>0)).toHaveLength(1);
-  const copies=(await probe(page)).copies;
-  for(const value of [-.4,.2,.5])await range(page,'#light-lamp',value);
-  expect((await probe(page)).copies).toBe(copies);
-  await range(page,'#light-distance',.3);expect((await probe(page)).copies).toBeGreaterThan(copies);
-  await page.setViewportSize({width:1025,height:769});await expect.poll(async()=>(await probe(page)).surfaces.every(([w])=>w===0)).toBe(true);
-  await range(page,'#light-distance',.29);expect((await probe(page)).surfaces.filter(([w])=>w!>0)).toHaveLength(1);
-  await page.evaluate(()=>{location.hash='#/museum';});await expect(page.locator('.museum-section')).toHaveCount(5);
-  expect((await probe(page)).surfaces.every(([w,h])=>w===0&&h===0)).toBe(true);
+test('opaque background is reused and the independent light shadow releases old pixels',async({page})=>{
+  await setup(page);await frames(page);const first=await probe(page);expect(first.surfaces).toHaveLength(1);expect(first.copies).toBeGreaterThan(2);
+  await page.locator('#story-pause').click();await page.evaluate(()=>{location.hash='#/light';});await expect(page.locator('.lamp-shadow-host canvas')).toHaveAttribute('data-state','ready');
+  expect((await probe(page)).surfaces[0]).toEqual([0,0]);const copies=(await probe(page)).copies;
+  for(const value of [-.4,.2,.5])await range(page,'#light-lamp',value);await range(page,'#light-distance',.9);
+  expect((await probe(page)).copies).toBe(copies);expect((await probe(page)).surfaces.every(([w])=>w===0)).toBe(true);
+  await page.setViewportSize({width:1025,height:769});await range(page,'#light-distance',1.1);expect((await probe(page)).copies).toBe(copies);
+  await page.evaluate(()=>{location.hash='#/craft';});await ready(page);await page.locator('#craft-palette').selectOption('woodland-v1');await expect.poll(async()=>(await probe(page)).copies).toBeGreaterThan(copies);
+  await page.evaluate(()=>{location.hash='#/museum';});await expect(page.locator('.museum-section')).toHaveCount(5);expect((await probe(page)).surfaces.every(([w,h])=>w===0&&h===0)).toBe(true);
 });
 
 test('optional backdrop allocation failure retains full original-quality drawing',async({page})=>{
-  await setup(page,true);await page.locator('#story-play').click();await frames(page);await ready(page);
+  await setup(page,true);await frames(page);await ready(page);
   const state=await probe(page);expect(state.blocked).toBe(1);expect(state.copies).toBe(0);expect(state.surfaces).toEqual([]);
   await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','playing');
   expect(await page.locator('.shadow-stage').evaluate((c:HTMLCanvasElement)=>c.getContext('2d')!.getImageData(c.width/2,c.height/2,1,1).data[3])).toBe(255);
 });
 
 test('cached drawing failure clears buffers and actual retry loads a fresh background',async({page})=>{
-  await setup(page);await page.locator('#story-play').click();await frames(page);
+  await setup(page);await frames(page);
   expect((await probe(page)).surfaces).toHaveLength(1);await page.evaluate(()=>Reflect.get(window,'__cacheFailCopy')(true));await frames(page,1);
   await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','error');expect((await probe(page)).surfaces).toEqual([[0,0]]);expect((await probe(page)).frames).toBe(0);
   await page.evaluate(()=>Reflect.get(window,'__cacheFailCopy')(false));await page.getByRole('button',{name:'重试幕面',exact:true}).click();await ready(page);
@@ -64,13 +59,13 @@ test('cached drawing failure clears buffers and actual retry loads a fresh backg
   await page.evaluate(()=>{location.hash='#/museum';});await expect(page.locator('.museum-section')).toHaveCount(5);expect((await probe(page)).surfaces.every(([w])=>w===0)).toBe(true);
 });
 
-test('stable drawing refreshes control geometry once and Three follows each new Canvas frame',async({page})=>{
+test('observation shares the paused Canvas frame and resumed controls refresh geometry once',async({page})=>{
   await setup(page);await page.locator('.spatial-toggle').first().click();await expect(page.locator('.spatial-stage').first()).toHaveAttribute('data-state','ready');
-  await page.locator('#story-play').click();await frames(page,3);
+  expect((await probe(page)).frames).toBe(0);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');
+  const observed=await page.locator('.shadow-stage').getAttribute('data-draws');await expect(page.locator('canvas.three-stage')).toHaveAttribute('data-source-draws',observed!);
+  await frames(page,3);await expect(page.locator('.shadow-stage')).toHaveAttribute('data-draws',observed!);
+  await page.locator('.spatial-toggle').first().click();await page.locator('#story-play').click();await frames(page,3);
   const before=Number(await page.locator('.shadow-stage').getAttribute('data-draws'));
-  const reads=await page.evaluate(()=>Reflect.get(window,'__cacheFrame')(100));expect(reads).toBe(1);
-  const after=await page.locator('.shadow-stage').getAttribute('data-draws');expect(Number(after)).toBeGreaterThan(before);
-  await expect(page.locator('canvas.three-stage')).toHaveAttribute('data-source-draws',after!);
-  await expect(page.locator('button[data-story-rod="rightHand"]')).toBeEnabled();
-  await page.locator('#story-pause').click();await expect(page.locator('button[data-story-rod="rightHand"]')).toBeDisabled();expect((await probe(page)).frames).toBe(0);
+  const reads=await page.evaluate(()=>Reflect.get(window,'__cacheFrame')(100));expect(reads).toBe(1);expect(Number(await page.locator('.shadow-stage').getAttribute('data-draws'))).toBeGreaterThan(before);
+  await frames(page,Math.ceil(currentDuration('guardian')/100)+1);await expect(page.locator('button[data-story-rod="rightHand"]')).toBeEnabled();await page.locator('#story-pause').click();await expect(page.locator('button[data-story-rod="rightHand"]')).toBeDisabled();expect((await probe(page)).frames).toBe(0);
 });

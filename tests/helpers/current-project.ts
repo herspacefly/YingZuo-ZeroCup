@@ -6,6 +6,9 @@ import type {Approach,EndingId,ProjectV1,StoryNodeId} from '../../src/domain/typ
 import {CHOICE_RUNS} from './choice-cases';
 import type {ChoiceRun} from './choice-cases';
 export {CHOICE_RUNS};
+export function currentNode(id:StoryNodeId){
+ return arrangeVoiceNode(definition.nodes.find(node=>node.id===id)! as unknown as StoryNode,5);
+}
 export function currentRun(id:StoryNodeId,approach:Approach='call-first',ending?:EndingId):ChoiceRun{
   const prerequisites=definition.nodes.find(node=>node.id===id)!.prerequisites;
   const needed=ending??('ending' in prerequisites?prerequisites.ending as EndingId:undefined);
@@ -33,5 +36,5 @@ export function currentProject(id:StoryNodeId='call-light',mode:'full'|'guided'=
  if(project.story!.nodeId!==id)throw new Error('Unreachable current fixture '+id);return project;
 }
 export function currentDuration(id:StoryNodeId,mode:'full'|'guided'='guided'){
- const node=arrangeVoiceNode(definition.nodes.find(node=>node.id===id)! as unknown as StoryNode,5);return (mode==='full'?node.fullTiming:node.guidedTiming).targetMs;
+ const node=currentNode(id);return (mode==='full'?node.fullTiming:node.guidedTiming).targetMs;
 }

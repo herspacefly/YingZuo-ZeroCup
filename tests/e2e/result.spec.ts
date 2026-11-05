@@ -1,5 +1,6 @@
 import {currentProject,currentRun} from '../helpers/current-project';
 import {test,expect} from './formal-fixture';
+import {writeFile} from 'node:fs/promises';
 import type { Download,Page } from '@playwright/test';
 import type { ProjectV1 } from '../../src/domain/types';
 import fixtureJSON from '../fixtures/project.json' with {type:'json'};
@@ -49,12 +50,14 @@ for(const ending of ['home','light','road','waiting','sacrifice'] as const)test(
   const explanation={home:'母子自由地牵手回家',light:'母亲恢复自由后自愿守灯',road:'母亲恢复自由，与你同行认路',waiting:'封印仍未解开',sacrifice:'永久化为山影'}[ending];
   const values=[run.journeyIntent==='home'?'接母亲回家':'为后来人留路',run.mountainPact==='shared'?'与二郎神共同承山':'独自承山，承担永久化山的代价',run.approach==='call-first'?'先举灯呼唤':'先挥斧开山',run.finalAction==='wait'?'暂缓最后一斧，留灯相守':'兑现此前约定，继续解印'];
   await page.addInitScript(()=>{
-    Reflect.set(window,'__programmeText',[]);Reflect.set(window,'__programmeScene',[]);
-    const fill=CanvasRenderingContext2D.prototype.fillText,draw=CanvasRenderingContext2D.prototype.drawImage;
+    Reflect.set(window,'__programmeText',[]);Reflect.set(window,'__programmeScene',[]);Reflect.set(window,'__programmeBorders',[]);
+    const fill=CanvasRenderingContext2D.prototype.fillText,draw=CanvasRenderingContext2D.prototype.drawImage,stroke=CanvasRenderingContext2D.prototype.strokeRect;
     CanvasRenderingContext2D.prototype.fillText=function(text,x,y,maxWidth){
       if(this.canvas.classList.contains('reunion-artifact'))Reflect.get(window,'__programmeText').push(text);
+      if(this.canvas.classList.contains('reunion-artifact')&&text.startsWith('影作 · 成果')){const metrics=this.measureText(text);Reflect.set(window,'__programmeFooter',{top:y-metrics.actualBoundingBoxAscent,bottom:y+metrics.actualBoundingBoxDescent});}
       if(maxWidth===undefined)return fill.call(this,text,x,y);return fill.call(this,text,x,y,maxWidth);
     };
+    CanvasRenderingContext2D.prototype.strokeRect=function(x,y,w,h){if(this.canvas.classList.contains('reunion-artifact')&&w>1400)Reflect.get(window,'__programmeBorders').push({y:y+h,width:this.lineWidth});return stroke.call(this,x,y,w,h);};
     CanvasRenderingContext2D.prototype.drawImage=function(this:CanvasRenderingContext2D,...args:unknown[]){
       if(this.canvas.classList.contains('reunion-artifact'))Reflect.get(window,'__programmeScene').push(args.slice(1));
       return Reflect.apply(draw,this,args);
@@ -71,10 +74,15 @@ for(const ending of ['home','light','road','waiting','sacrifice'] as const)test(
   await expect(page.locator('.result-decisions .is-decisive')).toHaveCount(decisiveCount);
   for(const value of values)await expect(page.locator('.result-decisions')).toContainText(value);
   const first=await png(page),second=await png(page);expect(first.readUInt32BE(16)).toBe(1600);expect(first.readUInt32BE(20)).toBe(1200);expect(first.equals(second)).toBe(true);
+  await writeFile(test.info().outputPath('ending-download.png'),first);
   const drawing=await page.evaluate(()=>({text:Reflect.get(window,'__programmeText') as string[],scene:Reflect.get(window,'__programmeScene') as number[][]}));
   expect(drawing.text).toContain(stamp);expect(drawing.text.join('')).toContain(choiceDefinition.endings.find(item=>item.id===ending)!.summary);
   for(const value of values)expect(drawing.text.join('')).toContain(value);
   expect(drawing.scene).toContainEqual([288,200,1024,768]);
+  const footer=await page.evaluate(()=>({text:Reflect.get(window,'__programmeFooter') as {top:number;bottom:number},borders:Reflect.get(window,'__programmeBorders') as {y:number;width:number}[]}));
+  expect(footer.text.top).toBeGreaterThan(0);expect(footer.text.bottom).toBeLessThan(1200);
+  for(const border of footer.borders)expect(footer.text.top<=border.y+border.width/2&&footer.text.bottom>=border.y-border.width/2,'footer must stay clear of decorative border strokes').toBe(false);
+  await test.info().attach('footer-layout',{contentType:'application/json',body:Buffer.from(JSON.stringify(footer))});
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);invariant(await stored(page),project);
   await page.screenshot({path:test.info().outputPath('programme-'+ending+'.png'),fullPage:true});
   if(ending==='waiting')expect(await page.locator('#result-stamp').evaluate(node=>getComputedStyle(node).animationName)).toBe('none');
@@ -136,7 +144,7 @@ test('a missing required mask fails the image truthfully and retry loads the act
 
 test('PNG encoding rejection and browser refusal report failure, while JSON remains available',async({page})=>{
   await page.addInitScript(()=>{Reflect.set(window,'__toBlob',HTMLCanvasElement.prototype.toBlob);HTMLCanvasElement.prototype.toBlob=function(callback){callback(null);};});await seed(page,completed());await page.goto('/#/result');await ready(page);
-  await page.locator('#result-png').click();await expect(page.locator('#result-operation')).toContainText('PNG 下载未完成');await expect(page.locator('#result-png')).toBeEnabled();expect(JSON.parse((await json(page)).toString('utf8')).story.completedAt).toBe('2026-10-18T00:00:00.000Z');
+  await page.locator('#result-png').click();await expect(page.locator('#result-operation')).toContainText('PNG 下载未完成');await expect(page.locator('#result-png')).toBeEnabled();expect(JSON.parse((await json(page)).toString('utf8')).story.completedAt).toBe(completed().story!.completedAt);
   await page.evaluate(()=>{HTMLCanvasElement.prototype.toBlob=Reflect.get(window,'__toBlob');Reflect.set(navigator,'msSaveOrOpenBlob',()=>false);});await page.locator('#result-png').click();await expect(page.locator('#result-operation')).toContainText('浏览器拒绝');
 });
 

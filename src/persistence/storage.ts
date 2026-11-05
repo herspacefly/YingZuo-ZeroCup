@@ -244,7 +244,7 @@ export class ProjectStorage {
     const snapshot = validateProject(candidate);
     return this.enqueue(() => this.transaction('readwrite', records => {
       const current = checkExpected(records, expected)!;
-      if (!acknowledgePrevious || !isRetiredProjectArchive(records.previousProject)) assertSupported(records.previousProject);
+      if (!isRetiredProjectArchive(records.previousProject)) assertSupported(records.previousProject);
       assertSupported(records.backup);
       if (records.previousProject !== undefined && !acknowledgePrevious) {
         throw new StorageError('archive-exists', '已有上一项目，请先提供导出或明确确认替换归档。', records);

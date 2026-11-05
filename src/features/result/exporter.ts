@@ -79,7 +79,7 @@ export function mountReunionExporter(host: HTMLElement, artifact: ReunionArtifac
     ctx.save();ctx.translate(1430,108);ctx.rotate(-Math.PI/22);ctx.strokeStyle=presentation.accent;ctx.lineWidth=3;
     ctx.strokeRect(-54,-54,108,108);ctx.lineWidth=1;ctx.strokeRect(-47,-47,94,94);ctx.fillStyle=presentation.accent;ctx.textAlign='center';ctx.font='39px '+KAI_FONT_FAMILY;ctx.fillText(presentation.stamp,0,14);ctx.restore();
     const marker=summary.runId.length>20?`…${summary.runId.slice(-20)}`:summary.runId;
-    ctx.fillStyle='#5f4934';ctx.textAlign='center';wrapped(`影作 · 成果 ${marker}:${summary.ending}　·　完成（UTC）${summary.completedAt}`,800,1164,1460,16,20,1);
+    ctx.fillStyle='#5f4934';ctx.textAlign='center';wrapped(`影作 · 成果 ${marker}:${summary.ending}　·　完成（UTC）${summary.completedAt}`,800,1190,1460,16,20,1);
   }
 
   try {

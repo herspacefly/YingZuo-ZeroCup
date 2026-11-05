@@ -1,6 +1,8 @@
 import {test,expect} from './formal-fixture';
 import type {Page,Download} from '@playwright/test';
 import fixture from '../fixtures/project.json' with {type:'json'};
+import {currentProject} from '../helpers/current-project';
+import type {StoryNodeId,PatternId} from '../../src/domain/types';
 const ready=async(page:Page)=>expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready');
 async function seed(page:Page,value:unknown){await page.goto('/study.html');await page.evaluate(async value=>{
   const db=await new Promise<IDBDatabase>((yes,no)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>yes(r.result);r.onerror=()=>no(r.error);});
@@ -9,28 +11,27 @@ async function seed(page:Page,value:unknown){await page.goto('/study.html');awai
 async function digest(page:Page){return page.locator('.shadow-stage').first().evaluate(async(canvas:HTMLCanvasElement)=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',canvas.getContext('2d')!.getImageData(0,0,canvas.width,canvas.height).data))).join(','));}
 async function bytes(file:Download){expect(await file.failure()).toBeNull();const chunks:Buffer[]=[];for await(const c of await file.createReadStream())chunks.push(Buffer.from(c));return Buffer.concat(chunks);}
 
-test('lossless delivery and canonical PNG draw identical carving, palettes, frozen duet, WebGL and result PNG',async({browser,page},info)=>{
+test('lossless delivery and canonical PNG match original textures, saved appearance fields, frozen scenes and result PNG',async({browser,page},info)=>{
   test.setTimeout(90000);const context=await browser.newContext({...info.project.use,baseURL:'http://127.0.0.1:4173'});const png=await context.newPage();
-  await png.addInitScript(()=>{Object.defineProperty(window,'createImageBitmap',{value:undefined});});
+  await png.addInitScript(()=>{Object.defineProperty(window,'createImageBitmap',{value:undefined});new MutationObserver(()=>document.querySelector<HTMLButtonElement>('#guide-skip')?.click()).observe(document,{childList:true,subtree:true});});
   const modern:string[]=[],canonical:string[]=[];page.on('request',r=>modern.push(r.url()));png.on('request',r=>canonical.push(r.url()));
   try{
     for(const target of [page,png]){await seed(target,fixture);await target.goto('/#/craft');await ready(target);}
     expect(modern.some(url=>url.includes('/assets/delivery/'))).toBe(true);expect(canonical.some(url=>url.includes('/assets/puppets/chenxiang-v1/head-color.png'))).toBe(true);
     expect([...modern,...canonical].filter(url=>/head-mask\.png/.test(url))).toEqual([]);expect(canonical.filter(url=>url.includes('/assets/delivery/'))).toEqual([]);
     for(const pattern of ['cloud-v1','wave-v1','flower-v1'])for(const palette of ['vermilion-v1','woodland-v1']){
-      for(const target of [page,png]){await target.locator('#craft-pattern').selectOption(pattern);await target.getByLabel('这一套颜色').selectOption(palette);await ready(target);}
+      const value=structuredClone(fixture);value.appearance.patternId=pattern as PatternId;value.appearance.carvedSegments=pattern==='cloud-v1'?[false,false,false]:[true,true,true];
+      for(const target of [page,png]){await seed(target,value);await target.goto('/#/craft');await ready(target);await target.getByLabel('这一套颜色').selectOption(palette);await ready(target);}
       expect(await digest(page),`${pattern}/${palette}`).toBe(await digest(png));
-      for(const target of [page,png])await target.locator('#craft-cut-3').click();expect(await digest(page)).toBe(await digest(png));
     }
     for(const target of [page,png]){await target.locator('.spatial-toggle').first().click();await expect(target.locator('.spatial-stage').first()).toHaveAttribute('data-state','ready');}
     expect((await page.locator('canvas.three-stage').screenshot()).equals(await png.locator('canvas.three-stage').screenshot())).toBe(true);
     for(const id of ['intro','road','guardian','call-light','split-axe','reunion-hold']){
-      const early=['intro','road','guardian'].includes(id);
-      const project={...fixture,story:{...fixture.story,nodeId:id,assistedNodeIds:[],revision:id==='intro'?0:8,approach:early?null:id==='split-axe'?'split-first':'call-first',approachSource:early?null:'user',...(id==='intro'?{castSnapshot:null}:{})}};
-      for(const target of [page,png]){await seed(target,project);await target.goto('/#/story');await ready(target);await expect(target.locator('#story-runtime')).toHaveAttribute('data-state','paused');}
+      const project=currentProject(id as StoryNodeId);
+      for(const target of [page,png]){await seed(target,project);await target.goto('/#/story');await ready(target);await target.locator('#story-reset').click();await expect(target.locator('#story-runtime')).toHaveAttribute('data-state','paused');await expect(target.locator('#story-runtime')).toHaveAttribute('data-elapsed','0');}
       expect(await digest(page),id+' scenery/props').toBe(await digest(png));
     }
-    const completed={...fixture,story:{...fixture.story,nodeId:'completed',revision:16,approach:'call-first',approachSource:'user',completedAt:'2026-10-19T00:00:00.000Z'}};
+    const completed=currentProject('completed');
     const output:Buffer[]=[];
     for(const target of [page,png]){await seed(target,completed);await target.goto('/#/result');await expect(target.locator('#result-png')).toBeEnabled();const wait=target.waitForEvent('download');await target.locator('#result-png').click();output.push(await bytes(await wait));}
     expect(output[0]!.equals(output[1]!)).toBe(true);

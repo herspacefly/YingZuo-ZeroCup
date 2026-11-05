@@ -123,6 +123,8 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   function clearRuntimes(){if(live){closeScope(live);if(live!==display)live.stage.dispose();}display?.stage.dispose();live=display=null;clear(stageSlot);}
   function show(rt:Runtime){
     if(!current(rt))return;rt.ready=true;
+    // Start the isolated handover lesson only after its assets are ready.
+    if(ctx.guide==='puppetry'&&interactive(rt))rt.playing=true;
     if(display!==rt){display?.stage.dispose();clear(stageSlot);stageSlot.appendChild(rt.stage.figure);rt.stage.figure.appendChild(inputHost);display=rt;rt.stage.resize();}
     message='幕面已就绪。';renderDisplayed();renderUI();resumeNext();
   }
@@ -303,7 +305,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
           wake(){if(rt.playing&&current(rt)&&!blocked())rt.clock.start();},report(text){message=text;renderUI();},
         });nodeScope.own(()=>rt.controls?.dispose());
       }
-      if(ctx.guide==='puppetry'&&interactive(rt)){rt.elapsed=rt.scene.durationMs;rt.playing=true;}
+      if(ctx.guide==='puppetry'&&interactive(rt))rt.elapsed=rt.scene.durationMs;
       if(!display){display=rt;stageSlot.appendChild(stage.figure);stage.figure.appendChild(inputHost);renderDisplayed();}sample(rt);
     }catch(error){continuity.stop();if(live){closeScope(live);if(live!==display)live.stage.dispose();live=null;}mountError=errorText(error);message=`片段未能准备：${mountError}`;ctx.notify(message);renderUI();}
   }
@@ -361,7 +363,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   life.on(confirm,'click',()=>{const rt=live;if(!rt||blocked()||!rt.ready||rt.entry.node.id!=='craft'||rt.requested)return;if(!ctx.guide)continuity.start(position(rt));handoff(rt,{...rt.entry.guard,action:'COMPLETE_INTERACTION',source:'user',evidence:{kind:'craft',presetAppearanceUsed:false}});rt.requested=true;void ctx.durable(async()=>{try{const result=await confirmCraft(ctx.store,{runId:rt.entry.guard.runId,mode:rt.mode,presetAppearanceUsed:false,guard:rt.entry.guard,now:new Date().toISOString()});if(!result.ok)continuity.stop();return result;}catch(error){continuity.stop();throw error;}});});
   life.on(nextNode,'click',()=>{const rt=live;if(!rt||blocked()||!rt.ready||rt.requested||rt.resolution||rt.completed||rt.entry.node.kind==='choice'||rt.entry.node.id==='craft')return;stop(rt,'正在进入下一片段。',true);submit(rt,{command:{...rt.entry.guard,action:'SKIP_NODE',source:'user'},facts:facts(rt)});});
   life.on(start,'click',()=>ctx.start('full'));
-  life.on(soundToggle,'click',()=>{if(ctx.audio)ctx.audio.toggleEffects();else if(soundState==='enabled')sound.mute();else void sound.enable();});
+  life.on(soundToggle,'click',()=>{if(ctx.audio){ctx.audio.toggleEffects();ctx.audio.unlock();}else if(soundState==='enabled')sound.mute();else void sound.enable();});
   life.on(play,'click',()=>{if(live)playRuntime(live,true);});
   life.on(pause,'click',()=>{if(live)stop(live,'片段已暂停；继续时从此处接续，连续动作重新计时。');});
   life.on(reset,'click',()=>{if(!blocked()&&state?.project?.story){continuity.stop();mount(state.project);}});

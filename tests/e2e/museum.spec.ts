@@ -9,7 +9,7 @@ async function open(page:Page,id:string){await page.goto('/#/museum/'+id);await 
 async function go(page:Page,id:string){await page.evaluate(id=>{location.hash='#/museum/'+id;},id);await expect(page.locator('#app-view h1')).toHaveText(exhibits.exhibits.find(e=>e.id===id)!.title);await saved(page);}
 async function change(page:Page,selector:string,value:string){await page.locator(selector).evaluate((node:HTMLInputElement,value)=>{node.value=value;node.dispatchEvent(new Event('input',{bubbles:true}));},value);}
 function invariant(a:Record<string,unknown>,b:Record<string,unknown>){for(const key of ['story','appearance','pose','stage','performance'])expect(a[key]).toEqual(b[key]);}
-async function shot(page:Page,name:string){for(const card of await page.locator('#museum-display .surface-card').all()){await card.scrollIntoViewIfNeeded();await expect(card).not.toHaveClass(/motion-awaiting/);}await page.locator('#museum-display').screenshot({path:`docs/evidence/t35/${name}-${test.info().project.name}.png`});}
+async function shot(page:Page,name:string){for(const card of await page.locator('#museum-display .surface-card').all()){await card.scrollIntoViewIfNeeded();await expect(card).not.toHaveClass(/motion-awaiting/);}await page.locator('#museum-display').screenshot({path:test.info().outputPath(`${name}-${test.info().project.name}.png`)});}
 async function noWebgl(page:Page){await page.addInitScript(()=>Object.defineProperty(window,'WebGL2RenderingContext',{value:undefined,configurable:true}));}
 
 test('seven public exhibits, clear site identity, no personal labels, and real sources first',async({page})=>{

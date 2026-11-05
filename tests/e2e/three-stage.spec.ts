@@ -1,12 +1,11 @@
 import {test,expect} from './formal-fixture';
 import type { Page } from '@playwright/test';
-import { mkdir } from 'node:fs/promises';
 import type { ProjectV1 } from '../../src/domain/types';
 import fixtureJSON from '../fixtures/project.json' with {type:'json'};
 import future from '../fixtures/unknown-version.json' with {type:'json'};
 const fixture=fixtureJSON as ProjectV1;
 const spatial=(page:Page)=>page.locator('.spatial-stage').first();
-const gpu=(page:Page)=>spatial(page).locator('canvas.three-stage');
+const gpu=(page:Page)=>page.locator('canvas.three-stage').first();
 const source=(page:Page)=>page.locator('.shadow-stage').first();
 const saved=async(page:Page)=>expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');
 async function seed(page:Page,value:unknown=fixture){await page.goto('/study.html');await page.evaluate(async value=>{
@@ -16,7 +15,7 @@ async function stored(page:Page):Promise<ProjectV1>{return page.evaluate(async()
   const db=await new Promise<IDBDatabase>((resolve,reject)=>{const r=indexedDB.open('yingzuo-v1',1);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});const value=await new Promise<string>((resolve,reject)=>{const r=db.transaction('snapshots').objectStore('snapshots').get('draft');r.onsuccess=()=>resolve(r.result as string);r.onerror=()=>reject(r.error);});db.close();return JSON.parse(value);
 });}
 async function go(page:Page,path:string){await page.evaluate(path=>{location.hash='#'+path;},path);await expect(page.locator('#app-view')).toHaveAttribute('data-route',path.startsWith('/museum')?'/museum':path);}
-async function open(page:Page){await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready');await spatial(page).locator('.spatial-toggle').click();await expect(spatial(page)).toHaveAttribute('data-state','ready');await expect(gpu(page)).toBeVisible();}
+async function open(page:Page){await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready');await spatial(page).locator('.spatial-toggle').click();await expect(spatial(page)).toHaveAttribute('data-state','ready');await expect(gpu(page)).toBeVisible();if(await spatial(page).locator('.spatial-more summary').count())await spatial(page).locator('.spatial-more summary').click();}
 async function hash(page:Page){return source(page).evaluate((canvas:HTMLCanvasElement)=>{const data=canvas.getContext('2d')!.getImageData(0,0,canvas.width,canvas.height).data;let value=2166136261;for(const byte of data)value=Math.imul(value^byte,16777619);return value;});}
 function invariant(actual:ProjectV1,expected:ProjectV1){expect(actual.story).toEqual(expected.story);expect(actual.appearance).toEqual(expected.appearance);expect(actual.stage).toEqual(expected.stage);expect(actual.pose).toEqual(expected.pose);expect(actual.performance).toEqual(expected.performance);}
 async function clock(page:Page){await page.addInitScript(()=>{
@@ -29,27 +28,30 @@ async function clock(page:Page){await page.addInitScript(()=>{
 test('four actual WebGL views share the same two-role Canvas and leave the performance untouched',async({page},info)=>{
   const modules:string[]=[];page.on('request',request=>{if(/\/assets\/renderer-/.test(request.url()))modules.push(request.url());});await seed(page);await page.goto('/#/craft');await saved(page);await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');expect(modules).toEqual([]);expect(await gpu(page).count()).toBe(0);const before=await hash(page);await open(page);
   expect(await gpu(page).evaluate((canvas:HTMLCanvasElement)=>!!canvas.getContext('webgl2'))).toBe(true);await expect(gpu(page)).toHaveAttribute('data-actors','chenxiang,mother');expect(modules.length).toBeGreaterThan(0);const images:Buffer[]=[];
-  await mkdir('docs/evidence',{recursive:true});
   for(const view of ['front','workshop','backstage','exhibit']){
     await spatial(page).locator(`button[data-view="${view}"]`).click();await expect(gpu(page)).toHaveAttribute('data-view',view);await expect(spatial(page).locator(`button[data-view="${view}"]`)).toHaveAttribute('aria-pressed','true');images.push(await gpu(page).screenshot());expect(await hash(page)).toBe(before);
-    if(view==='front'||view==='backstage')await spatial(page).screenshot({path:`docs/evidence/t06-${view}-${info.project.name.startsWith('mobile')?'mobile':'desktop'}.png`});
+    if(view==='front'||view==='backstage')await spatial(page).screenshot({path:test.info().outputPath(`t06-${view}-${info.project.name}.png`)});
   }
   expect(new Set(images.map(value=>value.toString('base64'))).size).toBe(4);await expect(spatial(page).locator('.spatial-exhibit-link')).toHaveCount(7);await spatial(page).locator('.spatial-exhibit-link').first().click();await expect(page).toHaveURL(/#\/museum\/E01$/);await saved(page);invariant(await stored(page),fixture);
 });
 
-test('carving, colors and lamp changes update the real spatial resources from the same frame',async({page})=>{
-  await seed(page);await page.goto('/#/craft');await open(page);await spatial(page).locator('button[data-view=backstage]').click();const first=await gpu(page).screenshot(),draws=await gpu(page).getAttribute('data-source-draws');await page.locator('#craft-cut-3').click();await expect.poll(()=>gpu(page).getAttribute('data-source-draws')).not.toBe(draws);await expect(spatial(page)).toHaveAttribute('data-state','ready');expect((await gpu(page).screenshot()).equals(first)).toBe(false);
-  const carved=await gpu(page).screenshot(),carvedDraws=await gpu(page).getAttribute('data-source-draws');await page.locator('#craft-palette').selectOption('vermilion-v1');await expect.poll(()=>gpu(page).getAttribute('data-source-draws')).not.toBe(carvedDraws);await expect(spatial(page)).toHaveAttribute('data-state','ready');expect((await gpu(page).screenshot()).equals(carved)).toBe(false);
-  await go(page,'/light');await open(page);await spatial(page).locator('button[data-view=backstage]').click();await page.locator('#light-lamp').evaluate((input:HTMLInputElement)=>{input.value='.6';input.dispatchEvent(new Event('input',{bubbles:true}));});await expect(gpu(page)).toHaveAttribute('data-lamp-x','0.6');await page.locator('#light-distance').evaluate((input:HTMLInputElement)=>{input.value='.4';input.dispatchEvent(new Event('input',{bubbles:true}));});await expect(gpu(page)).toHaveAttribute('data-puppet-distance','0.4');await saved(page);expect((await stored(page)).story).toEqual(fixture.story);
+test('per-part colors and lamp changes update the real spatial resources from the same frame',async({page})=>{
+  await seed(page);await page.goto('/#/craft');await open(page);await spatial(page).locator('button[data-view=backstage]').click();
+  const first=await gpu(page).screenshot(),draws=await gpu(page).getAttribute('data-source-draws');
+  await page.locator('#craft-palette').selectOption('vermilion-v1');await expect.poll(()=>gpu(page).getAttribute('data-source-draws')).not.toBe(draws);expect((await gpu(page).screenshot()).equals(first)).toBe(false);
+  await page.getByRole('button',{name:'分别给衣身、袖、下摆着色',exact:true}).click();const colors=await gpu(page).getAttribute('data-source-draws');await page.locator('#craft-body').selectOption('4');await expect.poll(()=>gpu(page).getAttribute('data-source-draws')).not.toBe(colors);
+  await go(page,'/light');await expect(gpu(page)).toHaveAttribute('data-state','ready');
+  await page.locator('#light-lamp').evaluate((input:HTMLInputElement)=>{input.value='.6';input.dispatchEvent(new Event('input',{bubbles:true}));});await expect(gpu(page)).toHaveAttribute('data-lamp-x','0.6');
+  await page.locator('#light-distance').evaluate((input:HTMLInputElement)=>{input.value='.9';input.dispatchEvent(new Event('input',{bubbles:true}));});await expect(gpu(page)).toHaveAttribute('data-lamp-depth','0.9');await saved(page);expect((await stored(page)).story).toEqual(fixture.story);
 });
 
 test('weak-device hints enforce the actual buffer and texture budget without removing controls',async({page})=>{
   await page.addInitScript(()=>{Object.defineProperty(navigator,'deviceMemory',{value:1,configurable:true});Object.defineProperty(navigator,'hardwareConcurrency',{value:1,configurable:true});});await seed(page);await page.goto('/#/craft');await open(page);
-  const sizes=await gpu(page).evaluate((canvas:HTMLCanvasElement)=>({width:canvas.width,texture:Number(canvas.dataset.textureWidth),dpr:Number(canvas.dataset.pixelRatio)}));expect(sizes.width).toBeLessThanOrEqual(512);expect(sizes.texture).toBeLessThanOrEqual(512);expect(sizes.dpr).toBeLessThanOrEqual(1);await expect(page.locator('#craft-pattern')).toBeEnabled();expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  const sizes=await gpu(page).evaluate((canvas:HTMLCanvasElement)=>({width:canvas.width,texture:Number(canvas.dataset.textureWidth),dpr:Number(canvas.dataset.pixelRatio)}));expect(sizes.width).toBeLessThanOrEqual(512);expect(sizes.texture).toBeLessThanOrEqual(512);expect(sizes.dpr).toBeLessThanOrEqual(1);await expect(page.locator('#craft-palette')).toBeEnabled();expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
 
 test('no WebGL interface keeps the complete 2D editor and never imports Three',async({page})=>{
-  await page.addInitScript(()=>{Object.defineProperty(window,'WebGL2RenderingContext',{value:undefined,configurable:true});});const modules:string[]=[];page.on('request',r=>{if(/\/assets\/renderer-/.test(r.url()))modules.push(r.url());});await seed(page);await page.goto('/#/craft');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');await expect(spatial(page).locator('.spatial-toggle')).toBeDisabled();await page.locator('#craft-cut-3').click();await saved(page);expect((await stored(page)).appearance.carvedSegments[2]).toBe(true);expect(modules).toEqual([]);
+  await page.addInitScript(()=>{Object.defineProperty(window,'WebGL2RenderingContext',{value:undefined,configurable:true});});const modules:string[]=[];page.on('request',r=>{if(/\/assets\/renderer-/.test(r.url()))modules.push(r.url());});await seed(page);await page.goto('/#/craft');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');await expect(spatial(page).locator('.spatial-toggle')).toBeDisabled();await page.locator('#craft-palette').selectOption('woodland-v1');await saved(page);expect((await stored(page)).appearance.paletteId).toBe('woodland-v1');expect(modules).toEqual([]);
 });
 
 test('renderer initialization failure returns to 2D and an explicit retry really initializes WebGL',async({page})=>{
@@ -61,7 +63,7 @@ test('actual context loss releases the old canvas, preserves 2D and allows a fre
 });
 
 test('a failed dynamic chunk leaves 2D usable and a fresh request can retry the observation',async({page})=>{
-  let fail=true,requests=0;await page.route('**/assets/renderer-*.js',route=>{requests++;return fail?route.abort():route.continue();});await seed(page);await page.goto('/#/craft');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');await spatial(page).locator('.spatial-toggle').click();await expect(spatial(page)).toHaveAttribute('data-state','error');await expect(spatial(page).locator('.spatial-status')).toContainText('请刷新页面再试');await expect(page.locator('#craft-pattern')).toBeEnabled();fail=false;await page.reload();await open(page);expect(requests).toBeGreaterThanOrEqual(2);
+  let fail=true,requests=0;await page.route('**/assets/renderer-*.js',route=>{requests++;return fail?route.abort():route.continue();});await seed(page);await page.goto('/#/craft');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');await spatial(page).locator('.spatial-toggle').click();await expect(spatial(page)).toHaveAttribute('data-state','error');await expect(spatial(page).locator('.spatial-status')).toContainText('请刷新页面再试');await expect(page.locator('#craft-palette')).toBeEnabled();fail=false;await page.reload();await open(page);expect(requests).toBeGreaterThanOrEqual(2);
 });
 
 test('closing during a delayed module load prevents a late context and still permits reopening',async({page})=>{
@@ -76,16 +78,16 @@ test('ten spatial exits release contexts and listeners without creating animatio
   await open(page);await go(page,'/museum');await page.evaluate(()=>Reflect.get(window,'__late')());expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(0);await saved(page);invariant(await stored(page),fixture);
 });
 
-test('a playing story retains one clock while all camera changes stay outside story progress',async({page})=>{
-  await clock(page);await seed(page);await page.goto('/#/story');await open(page);await page.locator('#story-play').click();expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(1);await page.evaluate(()=>Reflect.get(window,'__frame')(100));
-  for(const view of ['backstage','workshop','exhibit','front']){await spatial(page).locator(`button[data-view=${view}]`).click();await page.evaluate(()=>Reflect.get(window,'__frame')(100));expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(1);}
-  await page.locator('#story-pause').click();expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(0);await saved(page);invariant(await stored(page),fixture);
+test('story observation pauses the single clock and all camera changes stay outside story progress',async({page})=>{
+  await clock(page);await seed(page);await page.goto('/#/story');await open(page);expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(0);await page.evaluate(()=>Reflect.get(window,'__frame')(100));
+  for(const view of ['backstage','workshop','exhibit','front']){await spatial(page).locator(`button[data-view=${view}]`).click();await page.evaluate(()=>Reflect.get(window,'__frame')(100));expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(0);}
+  await spatial(page).locator('.spatial-toggle').click();await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');await page.locator('#story-play').click();expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(1);await page.locator('#story-pause').click();expect(await page.evaluate(()=>Reflect.get(window,'__rafCount'))).toBe(0);await saved(page);invariant(await stored(page),fixture);
 });
 
 test('protected future records still allow spatial examples without writing the unknown draft',async({page})=>{
-  await seed(page,future);await page.goto('/#/museum/E03');await open(page);await spatial(page).locator('button[data-view=backstage]').click();expect(await stored(page)).toEqual(future);
+  await seed(page,future);await page.goto('/#/museum/E05');await open(page);await spatial(page).locator('button[data-view=backstage]').click();expect(await stored(page)).toEqual(future);
 });
 
 test('legacy product keeps every 2D control and never executes the Three chunk',async({page})=>{
-  const modules:string[]=[];page.on('request',r=>{if(/\/assets\/renderer-/.test(r.url()))modules.push(r.url());});await page.route('http://127.0.0.1:4173/',async route=>{const response=await route.fetch();await route.fulfill({response,body:(await response.text()).replace(/<script\b[^>]*type="module"[^>]*>[\s\S]*?<\/script>/g,'').replace(/\snomodule\b/g,'')});});await seed(page);await page.goto('/#/craft');await expect(page.locator('#app-runtime')).toHaveAttribute('data-entry','legacy');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');await expect(spatial(page).locator('.spatial-toggle')).toBeDisabled();expect(modules).toEqual([]);await page.locator('#craft-cut-3').click();await saved(page);
+  const modules:string[]=[];page.on('request',r=>{if(/\/assets\/renderer-/.test(r.url()))modules.push(r.url());});await page.route('http://127.0.0.1:4173/',async route=>{const response=await route.fetch();await route.fulfill({response,body:(await response.text()).replace(/<script\b[^>]*type="module"[^>]*>[\s\S]*?<\/script>/g,'').replace(/\snomodule\b/g,'')});});await seed(page);await page.goto('/#/craft');await expect(page.locator('#app-runtime')).toHaveAttribute('data-entry','legacy');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');await expect(spatial(page).locator('.spatial-toggle')).toBeDisabled();expect(modules).toEqual([]);await page.locator('#craft-palette').selectOption('woodland-v1');await saved(page);
 });

@@ -47,7 +47,7 @@ describe('DATA-03/04 transactional project persistence', () => {
     const storage = adapter(), current = await storage.save(fresh(), null);
     await rawWrite({ 'previous-project': JSON.stringify(retired(version)) });
     const before = await storage.readRaw();
-    await expect(storage.replace(fresh(), baselineOf(current))).rejects.toMatchObject({ code: 'unsupported-version' });
+    await expect(storage.replace(fresh(), baselineOf(current))).rejects.toMatchObject({ code: 'archive-exists' });
     expect(await storage.readRaw()).toEqual(before);
     const next = await storage.replace(fresh(), baselineOf(current), true), records = await storage.readRaw();
     expect(decodeStoredProject(records.previousProject)).toEqual(current);

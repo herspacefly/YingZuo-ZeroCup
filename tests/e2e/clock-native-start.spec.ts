@@ -8,7 +8,7 @@ async function seed(page:Page){await page.goto('/study.html');await page.evaluat
 test('twelve native-clock play clicks advance without falsely pausing at the first frame',async({page},info)=>{
  // Observe the native scheduler without replacing its timestamps or delaying callbacks.
  await page.addInitScript(()=>{const native=window.requestAnimationFrame.bind(window),frames:{requested:number;timestamp:number;delivered:number}[]=[];window.requestAnimationFrame=callback=>{const requested=performance.now();return native(timestamp=>{frames.push({requested,timestamp,delivered:performance.now()});if(frames.length>600)frames.shift();callback(timestamp);});};Reflect.set(window,'__nativeFrames',frames);});
- await seed(page);await page.goto('/#/story');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');await page.bringToFront();
+ await seed(page);await page.goto('/#/story');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');await page.bringToFront();await page.locator('#story-pause').click();
  const samples=[];
  try{
  for(let n=0;n<12;n++){

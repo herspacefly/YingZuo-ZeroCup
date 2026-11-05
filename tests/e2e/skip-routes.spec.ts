@@ -15,12 +15,12 @@ for(const run of CHOICE_RUNS)test(`explicit skip ${run.journeyIntent}/${run.moun
   const node=arrangeVoiceNode(definition.nodes.find(n=>n.id===id)! as unknown as StoryNode,5);
   if(id==='craft')await page.locator('#story-confirm-craft').click();
   else if(node.kind==='choice'){
-   await expect(page.locator('#story-next-node')).toBeDisabled();await page.locator('#story-play').click();await page.evaluate(ms=>Reflect.get(window,'__advance')(ms),node.guidedTiming.targetMs);
+   await expect(page.locator('#story-next-node')).toBeDisabled();if(await page.locator('#story-play').isEnabled())await page.locator('#story-play').click();await page.evaluate(ms=>Reflect.get(window,'__advance')(ms),node.guidedTiming.targetMs);
    const button=id==='journey-choice'?'#story-choice-journey-'+run.journeyIntent:id==='mountain-pact-choice'?'#story-choice-pact-'+run.mountainPact:id==='ending-choice'?'#story-choice-final-'+run.finalAction:'#story-'+approach;await page.locator(button).click();
   }else await page.locator('#story-next-node').click();
   await expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');
  }
  await page.goto('/#/result');await expect(page.locator('#app-view h1')).toHaveText(definition.endings.find(e=>e.id===ending)!.title);await expect(page.locator('.programme-list')).toContainText('主动跳过的片段');
- await expect(page.locator('canvas.reunion-artifact')).toHaveAttribute('data-state','ready',{timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:`docs/evidence/t29-t32/ending-${ending}-${test.info().project.name}.png`,animations:'disabled'});
+ await expect(page.locator('canvas.reunion-artifact')).toHaveAttribute('data-state','ready',{timeout:15000});if(approach==='call-first')await page.locator('.result-capture').screenshot({path:test.info().outputPath(`ending-${ending}-${test.info().project.name}.png`),animations:'disabled'});
  await page.locator('#result-replay').click();await expect(page.locator('#replay-segment')).toBeVisible();await page.locator('#replay-next').click();await expect(page.locator('#replay-segment')).toHaveValue('1');
 });

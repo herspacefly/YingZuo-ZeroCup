@@ -22,7 +22,7 @@ test('native lamp dragging changes lamp geometry, leaves the puppet fixed and su
   await expect.poll(()=>page.locator('#light-summary').textContent()).not.toContain('灯位 0.00 · 灯距 1.20');await saved(page);const after=await stored(page);
   expect(after.pose).toEqual(before.pose);expect(after.appearance).toEqual(before.appearance);expect(after.stage.puppetDistance).toBe(before.stage.puppetDistance);expect(after.stage).not.toEqual(before.stage);
   expect(Number(await space.getAttribute('data-draw-calls'))).toBeLessThanOrEqual(80);
-  await space.screenshot({path:`docs/evidence/t25-t28/lamp-${test.info().project.name}.png`});
+  await space.screenshot({path:test.info().outputPath(`lamp-${test.info().project.name}.png`)});
   await space.evaluate(el=>el.dispatchEvent(new Event('webglcontextlost',{cancelable:true})));await expect(space).toHaveCount(0);await expect(page.locator('.lamp-status')).toContainText('二维灯影可完整继续');
   await page.getByRole('button',{name:'灯向右',exact:true}).click();await saved(page);const recovered=await stored(page);expect(recovered.stage.lampX).toBeGreaterThan(after.stage.lampX);
   await page.getByRole('button',{name:'重试三维灯影',exact:true}).click();await expect(space).toHaveAttribute('data-state','ready',{timeout:15000});

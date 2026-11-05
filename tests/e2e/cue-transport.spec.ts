@@ -1,9 +1,8 @@
-import {currentProject} from '../helpers/current-project';
+import {currentNode,currentProject} from '../helpers/current-project';
 import {test,expect} from './formal-fixture';
 import type {Page} from '@playwright/test';
-import content from '../../src/content/stories/reunion.json' with {type:'json'};
 import type {ProjectV1} from '../../src/domain/types';
-const node=content.nodes.find(n=>n.id==='memory-wave')!;
+const node=currentNode('memory-wave');
 const project=(mode:'full'|'guided'='guided')=>currentProject('memory-wave',mode);
 
 async function seed(page:Page,p:ProjectV1){
@@ -16,10 +15,10 @@ async function stored(page:Page){return page.evaluate(async()=>{const db=await n
 async function clock(page:Page){await page.addInitScript(()=>{let now=0,id=0;const callbacks=new Map<number,FrameRequestCallback>();Object.defineProperty(performance,'now',{value:()=>now});window.requestAnimationFrame=cb=>{callbacks.set(++id,cb);return id;};window.cancelAnimationFrame=id=>{callbacks.delete(id);};Reflect.set(window,'__advance',async(ms:number)=>{while(ms>0){const d=Math.min(100,ms);ms-=d;now+=d;const batch=[...callbacks.values()];callbacks.clear();batch.forEach(cb=>cb(now));await Promise.resolve();}});});}
 const advance=(page:Page,ms:number)=>page.evaluate(ms=>Reflect.get(window,'__advance')(ms),ms);
 const runtime=(page:Page)=>page.locator('#story-runtime');
-async function ready(page:Page){await expect(runtime(page)).toHaveAttribute('data-state','paused',{timeout:15000});await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready',{timeout:15000});}
+async function ready(page:Page){await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready',{timeout:15000});await expect(runtime(page)).toHaveAttribute('data-state',/^(paused|playing)$/);if(await runtime(page).getAttribute('data-state')==='playing')await page.locator('#story-pause').click();await expect(runtime(page)).toHaveAttribute('data-state','paused');}
 for(const mode of ['full','guided'] as const)test(`${mode}: current mode cues seek locally, preserve pause/play, reset task evidence and lock during film`,async({page})=>{
   test.setTimeout(60000);await clock(page);await seed(page,project(mode));await page.goto('/#/story');await ready(page);
-  const cues=mode==='guided'?node.guidedSubtitles:node.subtitles,ratio=mode==='guided'?node.guidedTiming.targetMs/node.fullTiming.targetMs:1,buttons=page.locator('.subtitle-directory .subtitle-cue');
+  const cues=mode==='guided'?node.guidedSubtitles!:node.subtitles,ratio=mode==='guided'?node.guidedTiming.targetMs/node.fullTiming.targetMs:1,buttons=page.locator('.subtitle-directory .subtitle-cue');
   await expect(buttons).toHaveCount(cues.length);const saved=(await stored(page)).story;
   await buttons.nth(1).click();await expect(runtime(page)).toHaveAttribute('data-elapsed',String(Math.round(cues[1]!.startMs*ratio)));await expect(runtime(page)).toHaveAttribute('data-state','paused');
   await page.locator('#story-play').click();await advance(page,300);await buttons.first().click();await expect(runtime(page)).toHaveAttribute('data-state','playing');await expect(runtime(page)).toHaveAttribute('data-elapsed','0');
@@ -39,7 +38,7 @@ test('craft keeps original image details and palette, with no added pattern or c
   const before=await page.locator('canvas.shadow-stage').evaluate(c=>(c as HTMLCanvasElement).toDataURL());
   p.appearance.patternId='flower-v1';p.appearance.carvedSegments=[false,false,false];await seed(page,p);await page.goto('/#/craft');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready',{timeout:15000});
   expect(await page.locator('canvas.shadow-stage').evaluate(c=>(c as HTMLCanvasElement).toDataURL())).toBe(before);
-  await page.locator('#craft-palette').selectOption('woodland-v1');await page.locator('#craft-confirm').click();await ready(page);await expect(runtime(page)).toHaveAttribute('data-node','memory-wave');expect((await stored(page)).story).toMatchObject({definitionVersion:5,castSnapshot:{appearance:{paletteId:'woodland-v1'}}});
+  await page.locator('#craft-palette').selectOption('woodland-v1');await page.locator('.craft-direct-entry summary').click();await page.locator('#craft-confirm').click();await ready(page);await expect(runtime(page)).toHaveAttribute('data-node','memory-wave');expect((await stored(page)).story).toMatchObject({definitionVersion:5,castSnapshot:{appearance:{paletteId:'woodland-v1'}}});
 });
 
 test('fresh guide starts the narrated story without freezing an unconfirmed costume',async({page})=>{

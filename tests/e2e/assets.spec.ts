@@ -22,7 +22,7 @@ test('all local assets decode and distinct neutral roles, cutouts and scenes dra
   await expect(page.locator('#puppet-summary')).toContainText('4 部件 · 3 活动关节');
   const base=await pixels(page,'#puppet-canvas');await page.locator('#prop').check();expect((await pixels(page,'#puppet-canvas')).hash).not.toBe(base.hash);
   await page.locator('#map').selectOption('regions');expect((await pixels(page,'#puppet-canvas')).hash).not.toBe(base.hash);
-  await expect(page.locator('#pattern-gallery img')).toHaveCount(9);await expect(page.locator('#source-list li')).toHaveCount(7);
+  await expect(page.locator('#pattern-gallery img')).toHaveCount(9);await expect(page.locator('#source-list li')).toHaveCount(9);
   await page.locator('#scene').selectOption('mountain-v1');const closed=await pixels(page,'#scene-canvas');
   await page.locator('#split').fill('100');expect((await pixels(page,'#scene-canvas')).hash).not.toBe(closed.hash);
   await page.locator('#scene').selectOption('plain-v1');await expect(page.locator('#scene-summary')).toContainText('0 层');

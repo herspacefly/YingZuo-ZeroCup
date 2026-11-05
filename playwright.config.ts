@@ -4,6 +4,8 @@ export default defineConfig({
   testDir: './tests/e2e',
   testIgnore: '**/environment-preflight.spec.ts',
   fullyParallel: true,
+  // Visual clocks and native WebGL/audio regressions must not starve each other.
+  workers: 1,
   forbidOnly: !!process.env.CI,
   retries: 0,
   reporter: process.env.YINGZUO_CORE_REPORT ? [['list'], ['json', { outputFile: process.env.YINGZUO_CORE_REPORT }]] : 'list',

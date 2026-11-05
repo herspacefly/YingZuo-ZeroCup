@@ -10,7 +10,12 @@ for(const definitionVersion of [1,2,3,4])test(`explicit archive restart replaces
     await new Promise<void>((yes,no)=>{const tx=db.transaction('snapshots','readwrite'),s=tx.objectStore('snapshots');s.put(JSON.stringify(current),'draft');s.put(JSON.stringify(current),'backup');s.put(JSON.stringify(old),'previous-project');tx.oncomplete=()=>yes();tx.onabort=()=>no(tx.error);});db.close();
   },{current,old});
   await page.goto('/#/craft');await expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');
-  await page.locator('.craft-archive-entry summary').click();await page.locator('#craft-archive-ack').check();await page.locator('#craft-restart').click();
+  await page.locator('.craft-archive-entry summary').click();
+  if(definitionVersion%2){await page.locator('#craft-archive-ack').check();await page.locator('#craft-restart').click();}
+  else{
+    await page.locator('#craft-restart').click();await expect(page.locator('#save-state')).toHaveAttribute('data-state','error');
+    await expect(page.locator('#archive-ack')).toBeVisible();await page.locator('#archive-ack').check();await page.locator('#retry-save').click();
+  }
   await expect(page.locator('#craft-return')).toBeHidden();await expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');
   const records=await page.evaluate(async()=>{
     const db=await new Promise<IDBDatabase>((yes,no)=>{const q=indexedDB.open('yingzuo-v1',1);q.onsuccess=()=>yes(q.result);q.onerror=()=>no(q.error);});

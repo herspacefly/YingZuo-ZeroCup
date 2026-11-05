@@ -1,7 +1,7 @@
+import {currentProject} from '../helpers/current-project';
 import {test,expect} from './formal-fixture';
 import type { Page } from '@playwright/test';
 import type { ProjectV1 } from '../../src/domain/types';
-import fixture from '../fixtures/project.json' with { type: 'json' };
 
 const wait = { timeout: 15_000 };
 const notice = (page: Page) => page.locator('.stage-performance').first();
@@ -10,7 +10,7 @@ const saved = (page: Page) => expect(page.locator('#save-state')).toHaveAttribut
 test.beforeEach(() => { test.setTimeout(90_000); });
 
 async function seed(page: Page, route: '/story' | '/practice' | '/result' = '/story') {
-  const project = structuredClone(fixture) as ProjectV1; project.lastRoute = route;
+  const project = currentProject(route==='/result'?'completed':'call-light','full'); project.lastRoute = route;
   if (route === '/result') { project.story!.nodeId = 'completed'; project.story!.completedAt = '2026-10-19T08:00:00.000Z'; }
   await page.goto('/study.html');
   await page.evaluate(async value => {
@@ -66,30 +66,29 @@ async function advance(page: Page, ms: number, interval = 50) {
 async function openStory(page: Page) {
   await page.goto('/#/story');
   await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state', 'ready', wait);
-  await expect(runtime(page)).toHaveAttribute('data-state', 'paused', wait); await saved(page);
+  await expect(runtime(page)).toHaveAttribute('data-state', 'playing', wait); await page.locator('#story-pause').click(); await saved(page);
 }
 async function frameCount(page: Page) { return page.evaluate(() => Reflect.get(window, '__frameCount')()) as Promise<number>; }
 
 test('ten slow seconds offer real lightweight 2D without advancing or saving, and quality can be restored', async ({ page }, info) => {
   await clock(page); const project = await seed(page); await openStory(page);
-  const spatial = page.locator('.spatial-stage'); await spatial.locator('.spatial-toggle').click();
-  await expect(spatial).toHaveAttribute('data-state', 'ready', wait);
-  const gpu = await page.locator('canvas.three-stage').elementHandle();
+  const spatial = page.locator('.spatial-stage');
   const originalWidth = await page.locator('.shadow-stage').evaluate((canvas: HTMLCanvasElement) => canvas.width);
   await page.locator('#story-play').click(); await advance(page, 9950); await expect(notice(page)).toBeHidden();
   await advance(page, 50); await expect(notice(page)).toHaveAttribute('data-state', 'suggested');
   await expect(runtime(page)).toHaveAttribute('data-state', 'playing'); expect(await frameCount(page)).toBe(1);
   expect(await stored(page)).toEqual(project);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  await page.screenshot({ path: `docs/evidence/t10-frame-rate-${info.project.name.startsWith('mobile') ? 'mobile' : 'desktop'}.png`, fullPage: true });
-  await notice(page).locator('.performance-lightweight').click();
+  await page.screenshot({ path:test.info().outputPath(`t10-frame-rate-${info.project.name}.png`), fullPage: true });
+  await spatial.locator('.spatial-toggle').click();await expect(spatial).toHaveAttribute('data-state','ready');const gpu=await page.locator('canvas.three-stage').elementHandle();
+  await expect(runtime(page)).toHaveAttribute('data-state','paused');await notice(page).locator('.performance-lightweight').click();
   await expect(notice(page)).toHaveAttribute('data-state', 'lightweight');
   await expect(page.locator('canvas.three-stage')).toHaveCount(0); await expect(spatial.locator('.spatial-toggle')).toBeDisabled();
   expect(await gpu!.evaluate((canvas: HTMLCanvasElement) => [canvas.width, canvas.height, canvas.isConnected])).toEqual([0, 0, false]);
   const lowWidth = await page.locator('.shadow-stage').evaluate((canvas: HTMLCanvasElement) => canvas.width);
   expect(lowWidth).toBeLessThanOrEqual(512); expect(lowWidth).toBeLessThanOrEqual(originalWidth);
   await expect(page.locator('.shadow-stage')).toHaveAttribute('data-quality', 'lightweight');
-  await expect(runtime(page)).toHaveAttribute('data-elapsed', '10000'); await advance(page, 50);
+  await expect(runtime(page)).toHaveAttribute('data-elapsed', '10000');await page.locator('#story-play').click(); await advance(page, 50);
   await expect(runtime(page)).toHaveAttribute('data-elapsed', '10050'); expect(await stored(page)).toEqual(project);
   await notice(page).locator('.performance-restore').click(); await expect(notice(page)).toBeHidden();
   expect(await page.locator('.shadow-stage').evaluate((canvas: HTMLCanvasElement) => canvas.width)).toBe(originalWidth);
@@ -115,7 +114,7 @@ test('pause, blur, long gaps and route disposal reset the slow streak and reject
   await page.locator('#story-play').click(); await advance(page, 4000); await expect(notice(page)).toBeHidden();
   await page.evaluate(() => { location.hash = '#/about'; }); await expect(page.locator('#app-view')).toHaveAttribute('data-route', '/about');
   await page.evaluate(() => Reflect.get(window, '__late')()); expect(await frameCount(page)).toBe(0); await expect(notice(page)).toHaveCount(0);
-  await page.evaluate(() => { location.hash = '#/story'; }); await expect(runtime(page)).toHaveAttribute('data-state', 'paused', wait);
+  await page.evaluate(() => { location.hash = '#/story'; }); await expect(runtime(page)).toHaveAttribute('data-state', 'playing', wait);await page.locator('#story-pause').click();
   await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state', 'ready', wait);
   await page.locator('#story-play').click(); await advance(page, 9950); await expect(notice(page)).toBeHidden();
   await advance(page, 50); await expect(notice(page)).toBeVisible(); expect(errors).toEqual([]);
@@ -134,7 +133,7 @@ test('lightweight choice survives short-stage route changes and refresh returns 
   await notice(page).locator('.performance-lightweight').click();
   await page.evaluate(() => { location.hash = '#/about'; }); await expect(page.locator('#app-view')).toHaveAttribute('data-route', '/about');
   await page.evaluate(() => Reflect.get(window, '__late')()); expect(await frameCount(page)).toBe(0);
-  await page.evaluate(() => { location.hash = '#/story'; }); await expect(runtime(page)).toHaveAttribute('data-state', 'paused', wait);
+  await page.evaluate(() => { location.hash = '#/story'; }); await expect(runtime(page)).toHaveAttribute('data-state', 'playing', wait);await page.locator('#story-pause').click();
   await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state', 'ready', wait);
   await expect(page.locator('.shadow-stage')).toHaveAttribute('data-quality', 'lightweight');
   await expect(notice(page)).toHaveAttribute('data-state', 'lightweight');
@@ -145,7 +144,7 @@ test('lightweight choice survives short-stage route changes and refresh returns 
   await expect(notice(page).locator('.performance-keep')).toBeVisible();
   await expect(notice(page).locator('.performance-restore')).toBeHidden();
   await notice(page).locator('.performance-lightweight').click();
-  await page.reload(); await expect(runtime(page)).toHaveAttribute('data-state', 'paused', wait);
+  await page.reload(); await expect(runtime(page)).toHaveAttribute('data-state', 'playing', wait);await page.locator('#story-pause').click();
   await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state', 'ready', wait);
   await expect(notice(page)).toBeHidden(); await expect(page.locator('.spatial-toggle')).toBeEnabled();
   await expect(page.locator('.shadow-stage')).not.toHaveAttribute('data-quality', 'lightweight');

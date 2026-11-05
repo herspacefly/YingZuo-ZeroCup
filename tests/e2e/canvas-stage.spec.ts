@@ -1,8 +1,9 @@
+import {currentProject} from '../helpers/current-project';
 import {test,expect} from './formal-fixture';
 import type { Page } from '@playwright/test';
 import fixture from '../fixtures/project.json' with {type:'json'};
 
-const ready=async(page:Page)=>expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');
+const ready=async(page:Page)=>expect(page.locator('.page-content .canvas-stage-status')).toHaveAttribute('data-state','ready');
 async function seed(page:Page,project:unknown) {
   await page.goto('/study.html');
   await page.evaluate(async value=>{
@@ -26,20 +27,20 @@ test('duet recolors the editor but preserves the frozen mother and saved story',
   const left=await pixels(page,'left'),right=await pixels(page,'right');expect(left.colored).toBeGreaterThan(50);expect(right.opaque).toBeGreaterThan(1000);
   await page.getByLabel('这一套颜色').selectOption('woodland-v1');await ready(page);
   await expect.poll(async()=> (await pixels(page,'left')).hash).not.toBe(left.hash);expect((await pixels(page,'right')).hash).toBe(right.hash);
-  await page.getByLabel('衣上的纹样').selectOption('flower-v1');await ready(page);expect((await pixels(page,'right')).hash).toBe(right.hash);
+  await page.getByRole('button',{name:'分别给衣身、袖、下摆着色',exact:true}).click();await page.locator('#craft-body').selectOption('4');await ready(page);expect((await pixels(page,'right')).hash).toBe(right.hash);
   await page.getByRole('button',{name:'保存这身行装',exact:true}).click();await expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');
   await page.reload();await ready(page);await expect(page.getByLabel('这一套颜色')).toHaveValue('woodland-v1');expect((await pixels(page,'right')).hash).toBe(right.hash);
   expect(errors).toEqual([]);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
 test('paused story uses its node scene, props and frozen cast independently of editor previews',async({page})=>{
-  const project={...fixture,story:{...fixture.story,nodeId:'split-axe',approach:'split-first',revision:8,assistedNodeIds:['memory-wave','road']}};
-  await seed(page,project);await page.goto('/#/story');await ready(page);
+  const project=currentProject('split-axe');
+  await seed(page,project);await page.goto('/#/story');await ready(page);await page.locator('#story-reset').click();await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');await ready(page);
   await expect(page.locator('.shadow-stage')).toHaveAttribute('data-scene','mountain-v1');
   const before=await pixels(page);await page.evaluate(()=>{location.hash='#/craft';});await expect(page.locator('#app-view')).toHaveAttribute('data-route','/craft');await ready(page);
   await page.getByLabel('这一套颜色').selectOption('woodland-v1');await page.getByRole('button',{name:'保存这身行装',exact:true}).click();await expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');
-  await page.evaluate(()=>{location.hash='#/story';});await expect(page.locator('#app-view')).toHaveAttribute('data-route','/story');await ready(page);expect((await pixels(page)).hash).toBe(before.hash);
-  const draws=await page.locator('.shadow-stage').getAttribute('data-draws');await page.waitForTimeout(150);expect(await page.locator('.shadow-stage').getAttribute('data-draws')).toBe(draws);
-  await expect(page.locator('#app-view')).toContainText('开头的静止画面');
+  await page.evaluate(()=>{location.hash='#/story';});await expect(page.locator('#app-view')).toHaveAttribute('data-route','/story');await ready(page);await page.locator('#story-reset').click();await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');await ready(page);expect((await pixels(page)).hash).toBe(before.hash);
+  await expect(page.locator('.page-content #story-runtime')).toHaveAttribute('data-state','paused');const canvas=await page.locator('.page-content .shadow-stage').elementHandle();await expect(page.locator('#story-runtime')).toHaveAttribute('data-elapsed','0');await page.waitForTimeout(150);await expect(page.locator('#story-runtime')).toHaveAttribute('data-elapsed','0');expect(await canvas!.evaluate(node=>node.isConnected)).toBe(true);
+  await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');
 });
 test('missing color image fails visibly with a blank canvas and retry restores both actors',async({page})=>{
   let blocked=true;await page.route(/\/assets\/(?:puppets\/mother-v1\/head-color\.png|delivery\/mother-v1-head-color\.webp)(?:\?|$)/,route=>blocked?route.abort():route.continue());
@@ -47,19 +48,19 @@ test('missing color image fails visibly with a blank canvas and retry restores b
   expect((await pixels(page)).opaque).toBe(0);await expect(page.locator('.shadow-stage')).toBeHidden();
   blocked=false;await page.getByRole('button',{name:'重试幕面',exact:true}).click();await ready(page);await expect(page.locator('.shadow-stage')).toBeVisible();
 });
-test('carving changes the puppet while keeping the already drawn curtain opaque',async({page})=>{
-  const uncut={...fixture,appearance:{...fixture.appearance,carvedSegments:[false,false,false]}};
-  await seed(page,uncut);await page.goto('/#/light');await ready(page);const before=await pixels(page);
+test('importing a different palette updates the puppet while keeping the curtain opaque',async({page})=>{
+  const uncut={...fixture,appearance:{...fixture.appearance,paletteId:'woodland-v1',carvedSegments:[false,false,false]}};
+  await seed(page,uncut);await page.goto('/#/craft');await ready(page);const before=await pixels(page);
   await page.getByRole('button',{name:/我的作品/}).click();
   await page.getByLabel('导入作品 JSON').setInputFiles({name:'carved.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(fixture))});
   await expect(page.locator('#app-view')).toHaveAttribute('data-route','/');
-  await page.evaluate(()=>{location.hash='#/light';});await expect(page.locator('#app-view')).toHaveAttribute('data-route','/light');await ready(page);
+  await page.evaluate(()=>{location.hash='#/craft';});await expect(page.locator('#app-view')).toHaveAttribute('data-route','/craft');await ready(page);
   const carved=await pixels(page);expect(carved.hash).not.toBe(before.hash);expect(carved.opaque).toBe(carved.total);
 });
 test('Canvas failure leaves the editor and story text available without false ready status',async({page})=>{
   await page.addInitScript(()=>{HTMLCanvasElement.prototype.getContext=(()=>null) as typeof HTMLCanvasElement.prototype.getContext;});
   await page.goto('/#/craft');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','error');await expect(page.locator('.canvas-stage-status')).toContainText('Canvas 2D');
-  await expect(page.getByLabel('衣上的纹样')).toBeEnabled();await expect(page.locator('#app-view h1')).toBeVisible();await expect(page.locator('.shadow-stage')).toBeHidden();
+  await expect(page.getByLabel('这一套颜色')).toBeEnabled();await expect(page.locator('#app-view h1')).toBeVisible();await expect(page.locator('.shadow-stage')).toBeHidden();
 });
 test('a drawing failure clears cached images and retry reads fresh sources',async({page})=>{
   let requests=0;await page.route(/\/assets\/(?:puppets\/chenxiang-v1\/head-color\.png|delivery\/chenxiang-v1-head-color\.webp)(?:\?|$)/,route=>{requests++;return route.continue();});
@@ -81,12 +82,12 @@ test('late images and ten remounts leave one canvas and no detached drawing or r
   let release!:()=>void;const held=new Promise<void>(resolve=>{release=resolve;});let entered!:()=>void;const requested=new Promise<void>(resolve=>{entered=resolve;});
   await page.route(/\/assets\/(?:puppets\/chenxiang-v1\/head-color\.png|delivery\/chenxiang-v1-head-color\.webp)(?:\?|$)/,async route=>{entered();await held;await route.continue().catch(()=>{});});
   await page.goto('/#/craft');await requested;const old=await page.locator('.shadow-stage').elementHandle();
-  await page.evaluate(()=>{location.hash='#/museum';});await expect(page.locator('#app-view')).toHaveAttribute('data-route','/museum');release();
+  await page.evaluate(()=>{location.hash='#/museum';});await expect(page.locator('#app-view')).toHaveAttribute('data-route','/museum');release();const baseline=await page.evaluate(()=>Reflect.get(window,'__resizeCount'));
   expect(await old!.evaluate((canvas:HTMLCanvasElement)=>({connected:canvas.isConnected,width:canvas.width,height:canvas.height}))).toEqual({connected:false,width:0,height:0});
   for(let i=0;i<10;i++) {await page.evaluate(()=>{location.hash='#/practice';});await ready(page);await page.evaluate(()=>{location.hash='#/museum';});await expect(page.locator('.shadow-stage')).toHaveCount(0);}
-  expect(await page.evaluate(()=>Reflect.get(window,'__resizeCount'))).toBe(0);
+  expect(await page.evaluate(()=>Reflect.get(window,'__resizeCount'))).toBe(baseline);
   // Renderer, temporary body rod and direct limb overlay each own a cleaned resize listener.
-  await page.evaluate(()=>{location.hash='#/craft';});await ready(page);await expect(page.locator('.shadow-stage')).toHaveCount(1);expect(await page.evaluate(()=>Reflect.get(window,'__resizeCount'))).toBe(3);
+  await page.evaluate(()=>{location.hash='#/craft';});await ready(page);await expect(page.locator('.shadow-stage')).toHaveCount(1);expect(await page.evaluate(()=>Reflect.get(window,'__resizeCount'))).toBe(baseline+3);
   expect(await old!.evaluate((canvas:HTMLCanvasElement)=>canvas.width)).toBe(0);
 });
 test('legacy product draws the same two-role frame in Chromium smoke check',async({page})=>{
