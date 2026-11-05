@@ -80,7 +80,7 @@ export const mountResult:PageFactory=(host,ctx)=>{
       head.querySelector('h1')!.textContent=result?'这一回，终于相见。':'这一场，还在路上。';title.textContent=result?'一幕团圆 · 本场已团圆':'先把这一场，慢慢演完。';
       head.querySelector('.page-lead')!.textContent=result?'把母子相见的这一刻，留在同一张幕上。':'团圆之后，属于这一场的造型、选择与协作会在这里留下。';
       resume.href=continueHash(state.project);for(const [index,group] of detailGroups.entries()){clear(group.list);group.card.hidden=!result&&index>0;}detailGroups[0]!.head.textContent=result?'本场行装':'当前进度';
-      const ending=endingFor(state.project?.story);
+      const ending=result?endingFor(state.project?.story):null;
       if(ending){head.querySelector('h1')!.textContent=ending.title;title.textContent='本场终章 · '+ending.title;head.querySelector('.page-lead')!.textContent=ending.summary;caption.textContent='1600 × 1200 · 本场终章留影';png.textContent='下载终章留影 PNG';}
       const path=result?definitionFor(state.project?.story).nodes.filter(node=>node.actors.includes('chenxiang')&&node.kind==='interaction'&&node.id!=='craft'&&(node.prerequisites.approach===null||node.prerequisites.approach===result.approach)&&(!node.prerequisites.ending||node.prerequisites.ending===result.ending)):[];
       const rows:[string,string][]=result?[

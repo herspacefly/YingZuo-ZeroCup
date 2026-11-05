@@ -32,8 +32,8 @@ fieldset { border:0; padding:0; margin:0; min-width:0; } legend { font-family:in
 .carve-segments [aria-pressed=true] { background:#d7a253; color:#17130f; } .craft-confirmation { border-top:1px solid #66503b; margin-top:24px; padding-top:20px; }
 .craft-confirmation .button { display:flex; width:100%; } .craft-trial { border-top:1px solid #66503b; margin-top:20px; padding-top:14px; } .craft-trial .direction-pad { max-width:520px; }
 @media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
- button:not(.rod-handle):not(.limb-handle):not(:disabled),a.button { transition:background-color .18s ease,border-color .18s ease,box-shadow .18s ease,color .18s ease,transform .18s ease; }
- button:not(.rod-handle):not(.limb-handle):not(:disabled):hover,a.button:hover { transform:translateY(-1px); }
- button:not(.rod-handle):not(.limb-handle):not(:disabled):active,a.button:active { transform:translateY(0); }
+ button:not(.rod-handle):not(.limb-handle):not(.museum-rod-handle):not(.trial-lamp-handle):not(:disabled),a.button { transition:background-color .18s ease,border-color .18s ease,box-shadow .18s ease,color .18s ease,transform .18s ease; }
+ button:not(.rod-handle):not(.limb-handle):not(.museum-rod-handle):not(.trial-lamp-handle):not(:disabled):hover,a.button:hover { transform:translateY(-1px); }
+ button:not(.rod-handle):not(.limb-handle):not(.museum-rod-handle):not(.trial-lamp-handle):not(:disabled):active,a.button:active { transform:translateY(0); }
 }
 @media(prefers-reduced-motion:reduce) { button,.button,select { transition:none; } }

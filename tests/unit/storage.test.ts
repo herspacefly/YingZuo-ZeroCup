@@ -8,6 +8,7 @@ import { MAX_PROJECT_BYTES } from '../../src/domain/limits';
 import { serializeProject } from '../../src/domain/migrations';
 import { validateProject } from '../../src/domain/validation';
 import { baselineOf, decodeStoredProject, ProjectStorage, SNAPSHOT_STORE } from '../../src/persistence/storage';
+import { currentProject } from '../helpers/current-project';
 
 const NOW = '2026-10-16T09:00:00.000Z';
 let factory: IDBFactory;
@@ -35,6 +36,46 @@ beforeEach(() => { factory = new IDBFactory(); });
 afterEach(() => { vi.restoreAllMocks(); instances.splice(0).forEach(storage => storage.close()); });
 
 describe('DATA-03/04 transactional project persistence', () => {
+  function retired(version: number) {
+    const value = currentProject('intro') as unknown as Record<string, any>;
+    value.story.definitionVersion = version;
+    delete value.story.choices;
+    if (version === 1) { delete value.story.ending; delete value.story.endingSource; }
+    return value;
+  }
+  it.each([1, 2, 3, 4])('replaces only an explicitly acknowledged retired archive %s, keeping the current project as the new archive', async version => {
+    const storage = adapter(), current = await storage.save(fresh(), null);
+    await rawWrite({ 'previous-project': JSON.stringify(retired(version)) });
+    const before = await storage.readRaw();
+    await expect(storage.replace(fresh(), baselineOf(current))).rejects.toMatchObject({ code: 'unsupported-version' });
+    expect(await storage.readRaw()).toEqual(before);
+    const next = await storage.replace(fresh(), baselineOf(current), true), records = await storage.readRaw();
+    expect(decodeStoredProject(records.previousProject)).toEqual(current);
+    expect(decodeStoredProject(records.backup)).toEqual(next);
+    expect(decodeStoredProject(records.draft)).toEqual(next);
+  });
+  it.each(['schema', 'asset', 'cast', 'lamp', 'unknown-story', 'unknown-field'])('never treats a retired archive with %s future data as disposable', async signal => {
+    const storage = adapter(), current = await storage.save(fresh(), null), old = retired(4);
+    if (signal === 'schema') old.schemaVersion = 2;
+    if (signal === 'asset') old.assetVersion = 2;
+    if (signal === 'cast') { old.story.castSnapshot = currentProject('road').story!.castSnapshot; old.story.castSnapshot.assetVersion = 2; }
+    if (signal === 'lamp') old.stage.lampGeometry = { version: 2, depth: 1.5 };
+    if (signal === 'unknown-story') old.story.definitionVersion = 6;
+    if (signal === 'unknown-field') old.story.futureChoice = 'preserve';
+    await rawWrite({ 'previous-project': JSON.stringify(old) });
+    const before = await storage.readRaw();
+    await expect(storage.replace(fresh(), baselineOf(current), true)).rejects.toMatchObject({ code: 'unsupported-version' });
+    expect(await storage.readRaw()).toEqual(before);
+  });
+  it('keeps retired draft and backup protected even when replacement is acknowledged', async () => {
+    const storage = adapter(), current = await storage.save(fresh(), null);
+    await rawWrite({ backup: JSON.stringify(retired(1)) });
+    const before = await storage.readRaw();
+    await expect(storage.replace(fresh(), baselineOf(current), true)).rejects.toMatchObject({ code: 'unsupported-version' });
+    expect(await storage.readRaw()).toEqual(before);
+    await rawWrite({ draft: JSON.stringify(retired(1)) });
+    await expect(storage.replace(fresh(), baselineOf(current), true)).rejects.toMatchObject({ code: 'unsupported-version' });
+  });
   it('resets all four history keys in one transaction and fences old-tab saves with a new identity', async () => {
     const a = adapter('resetter'), b = adapter('old-tab');
     const first = await a.save(fresh(), null);

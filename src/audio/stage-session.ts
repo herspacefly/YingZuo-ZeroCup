@@ -90,11 +90,16 @@ export function createStageAudioSession(options: StageAudioSessionOptions) {
     if(voiceIntent&&['blocked','error'].includes(voiceEngine.getStatus().state)){void voiceEngine.enable();return;}
     voiceIntent=!voiceIntent;if(voiceIntent)void voiceEngine.enable();else voiceEngine.mute();
   }
+  function toggleEffects() {
+    if (disposed) return;
+    if (effectsIntent && ['blocked', 'error'].includes(engine.getStatus().state)) { void effects.enable(); return; }
+    if (effectsIntent) effects.mute(); else void effects.enable();
+  }
   function dispose() {
     if (disposed) return;
     disposed = true;voiceEngine.dispose(); music.dispose(); engine.dispose(); scene = null;voiceSample=null;voiceScene=null;
   }
-  return { effects, voice, setVoice, setScene, setActive, enterStory, unlock, toggleMusic, toggleVoice, dispose,
+  return { effects, voice, setVoice, setScene, setActive, enterStory, unlock, toggleMusic, toggleVoice, toggleEffects, dispose,
     musicEnabled: () => musicIntent, effectsEnabled: () => effectsIntent, voiceEnabled:()=>voiceIntent,
   };
 }

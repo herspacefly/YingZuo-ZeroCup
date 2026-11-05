@@ -27,6 +27,17 @@ function setup(blocked=false){
   return {session,statuses,permit(){permitted=true;},get resumes(){return resumes;},get plays(){return plays;},get pauses(){return pauses;},get closed(){return closed;},get voices(){return voices;},get audible(){return audible;}};
 }
 describe('per-document default-on audio session',()=>{
+  it('retries blocked effects once without muting other channels or resuming the scene',async()=>{
+    const fixture=setup(true),{session}=fixture;
+    session.setScene({nodeId:'intro',mode:'full',elapsedMs:0,playing:false},true);session.unlock();await flush();
+    expect(session.effects.getStatus().state).toBe('blocked');
+    session.toggleMusic();session.voice.mute();fixture.permit();session.toggleEffects();await flush();
+    expect(session.effects.getStatus().state).toBe('enabled');expect(session.effectsEnabled()).toBe(true);
+    expect(session.musicEnabled()).toBe(false);expect(session.voiceEnabled()).toBe(false);expect(fixture.voices).toBe(0);
+    session.toggleEffects();expect(session.effects.getStatus().state).toBe('muted');expect(session.effectsEnabled()).toBe(false);
+    session.setScene(null,false);session.unlock();await flush();expect(session.effects.getStatus().state).toBe('muted');
+    session.dispose();session.toggleEffects();expect(session.effects.getStatus().state).toBe('disposed');
+  });
   it('attempts default-on play and resume synchronously, keeps manual mute over route changes, and resets with a fresh document',async()=>{
     const fixture=setup(),{session}=fixture;
     expect(session.musicEnabled()).toBe(true);expect(session.effectsEnabled()).toBe(true);

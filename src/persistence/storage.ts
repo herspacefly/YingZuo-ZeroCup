@@ -1,4 +1,5 @@
 import { parseProjectJSON, serializeProject } from '../domain/migrations';
+import { isRetiredProjectArchive } from '../domain/retired-archive';
 import type { ProjectBaseline, ProjectV1 } from '../domain/types';
 import { validateProject } from '../domain/validation';
 
@@ -243,7 +244,8 @@ export class ProjectStorage {
     const snapshot = validateProject(candidate);
     return this.enqueue(() => this.transaction('readwrite', records => {
       const current = checkExpected(records, expected)!;
-      assertSupported(records.previousProject); assertSupported(records.backup);
+      if (!acknowledgePrevious || !isRetiredProjectArchive(records.previousProject)) assertSupported(records.previousProject);
+      assertSupported(records.backup);
       if (records.previousProject !== undefined && !acknowledgePrevious) {
         throw new StorageError('archive-exists', '已有上一项目，请先提供导出或明确确认替换归档。', records);
       }

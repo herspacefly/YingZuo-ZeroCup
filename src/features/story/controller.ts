@@ -78,9 +78,9 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   soundToggle.setAttribute('aria-describedby',soundStatus.id);append(soundPanel,soundToggle,soundStatus);
   let soundState:StageSoundStatus['state']='muted',soundDisposed=false;
   const reportSound=(update:StageSoundStatus)=>{
-    if(soundDisposed)return;soundState=update.state;soundStatus.textContent=['blocked','error','unavailable'].includes(update.state)?update.message:'';soundStatus.setAttribute('data-state',update.state);
+    if(soundDisposed)return;soundState=update.state;soundStatus.textContent=update.message;soundStatus.setAttribute('data-state',update.state);
     const enabled=ctx.audio?.effectsEnabled()??update.state==='enabled';
-    soundToggle.textContent=enabled?'关闭舞台音效':'开启舞台音效';
+    soundToggle.textContent=enabled&&['blocked','error'].includes(update.state)?'重试舞台音效':enabled?'关闭舞台音效':'开启舞台音效';
     soundToggle.setAttribute('aria-pressed',String(enabled));soundToggle.disabled=['unavailable','disposed'].includes(update.state);
   };
   const sound=ctx.audio?.effects??createStageSound(reportSound);
@@ -361,7 +361,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   life.on(confirm,'click',()=>{const rt=live;if(!rt||blocked()||!rt.ready||rt.entry.node.id!=='craft'||rt.requested)return;if(!ctx.guide)continuity.start(position(rt));handoff(rt,{...rt.entry.guard,action:'COMPLETE_INTERACTION',source:'user',evidence:{kind:'craft',presetAppearanceUsed:false}});rt.requested=true;void ctx.durable(async()=>{try{const result=await confirmCraft(ctx.store,{runId:rt.entry.guard.runId,mode:rt.mode,presetAppearanceUsed:false,guard:rt.entry.guard,now:new Date().toISOString()});if(!result.ok)continuity.stop();return result;}catch(error){continuity.stop();throw error;}});});
   life.on(nextNode,'click',()=>{const rt=live;if(!rt||blocked()||!rt.ready||rt.requested||rt.resolution||rt.completed||rt.entry.node.kind==='choice'||rt.entry.node.id==='craft')return;stop(rt,'正在进入下一片段。',true);submit(rt,{command:{...rt.entry.guard,action:'SKIP_NODE',source:'user'},facts:facts(rt)});});
   life.on(start,'click',()=>ctx.start('full'));
-  life.on(soundToggle,'click',()=>{if(ctx.audio?.effectsEnabled()??soundState==='enabled')sound.mute();else void sound.enable();});
+  life.on(soundToggle,'click',()=>{if(ctx.audio)ctx.audio.toggleEffects();else if(soundState==='enabled')sound.mute();else void sound.enable();});
   life.on(play,'click',()=>{if(live)playRuntime(live,true);});
   life.on(pause,'click',()=>{if(live)stop(live,'片段已暂停；继续时从此处接续，连续动作重新计时。');});
   life.on(reset,'click',()=>{if(!blocked()&&state?.project?.story){continuity.stop();mount(state.project);}});
