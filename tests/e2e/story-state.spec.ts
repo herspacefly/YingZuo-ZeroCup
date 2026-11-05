@@ -24,7 +24,6 @@ async function start(page:Page,mode:'full'|'guided'){
   await page.clock.pauseAt('2026-10-17T00:10:00.000Z');await page.locator('#story-mode').selectOption(mode);
   await page.locator('#story-start').click();await expect(node(page)).toHaveAttribute('data-node','intro');await saved(page);
 }
-const interactions=['memory-wave','road','guardian','call-light','call-split','split-axe','split-search','reunion-reach'];
 async function advance(page:Page,approach:'call-first'|'split-first'){
   const before=await current(page),definition=content.nodes.find(n=>n.id===before)!,mode=await page.locator('#story-mode').inputValue(),minimum=currentDuration(before as NonNullable<ProjectV1['story']>['nodeId'],mode as 'full'|'guided');
   if(definition.kind==='choice'||(definition.kind==='interaction'&&before!=='craft')){await page.locator('#story-play').click();await page.clock.runFor(minimum+100);}
@@ -34,7 +33,7 @@ async function advance(page:Page,approach:'call-first'|'split-first'){
   else if(before==='mountain-pact-choice')await page.locator('#text-choice-pact-shared').click();
   else if(before==='ending-choice')await page.locator('#text-choice-final-fulfill').click();
   else if(before==='approach-choice')await page.locator(approach==='call-first'?'#story-choose-call':'#story-choose-split').click();
-  else if(interactions.includes(before)){await page.locator('#story-assist').click();}
+  else if(definition.kind==='interaction'){await page.locator('#story-assist').click();}
   else {const mode=await page.locator('#story-mode').inputValue();const minimum=currentDuration(before as NonNullable<ProjectV1['story']>['nodeId'],mode as 'full'|'guided');await page.locator('#story-play').click();await page.clock.runFor(minimum+100);await page.locator('#story-complete').click();}
   await expect(node(page)).not.toHaveAttribute('data-node',before);await saved(page);await expect(page.locator('#node-clock')).toContainText('暂停 · 0.0');
 }

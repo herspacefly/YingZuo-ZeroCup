@@ -35,12 +35,13 @@ test('a failed ending epilogue exports and retries the same completed candidate'
  expect(candidate.story).toMatchObject({nodeId:'curtain',ending:'home'});expect(candidate.story!.completedAt).toBeTruthy();
  await page.locator('#retry-save').click();await ready(page,'curtain');expect((await stored(page)).story).toEqual(candidate.story);await page.reload();await ready(page,'curtain');expect((await stored(page)).story).toEqual(candidate.story);
 });
-test('touch cancellation and focus loss release the active body without editing the saved pose',async({page,context})=>{
+test('touch cancellation and focus loss release the active body without editing the saved pose',async({page,context,isMobile})=>{
  await clock(page);await seed(page,'road');await page.goto('/#/story');await ready(page,'road');await page.locator('#story-play').click();await advance(page,currentDuration('road')+100);
  const before=await stored(page),grip=page.locator('button[data-story-rod="body"]');await grip.scrollIntoViewIfNeeded();const box=(await grip.boundingBox())!,x=box.x+box.width/2,y=box.y+box.height/2;
- const cdp=await context.newCDPSession(page),start=Number(await page.locator('#story-rod-x').inputValue());
- await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y}]});await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:x+20,y:y-5}]});await cdp.send('Input.dispatchTouchEvent',{type:'touchCancel',touchPoints:[]});
- expect(Number(await page.locator('#story-rod-x').inputValue())).toBeGreaterThan(start);expect((await stored(page)).pose).toEqual(before.pose);
+ const cdp=await context.newCDPSession(page),start=Number(await page.locator('#story-rod-x').inputValue());if(!isMobile)await cdp.send('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:1});
+ await test.info().attach('touch-hit-target',{contentType:'application/json',body:Buffer.from(JSON.stringify(await page.evaluate(({x,y})=>({x,y,hit:document.elementFromPoint(x,y)?.outerHTML,viewport:{width:innerWidth,height:innerHeight}}),{x,y})))});
+ await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y}]});await expect(grip).toHaveAttribute('aria-pressed','true');await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:x+20,y:y-5}]});await cdp.send('Input.dispatchTouchEvent',{type:'touchCancel',touchPoints:[]});
+ await expect.poll(async()=>Number(await page.locator('#story-rod-x').inputValue())).toBeGreaterThan(start);expect((await stored(page)).pose).toEqual(before.pose);
  const ended=await page.locator('#story-rod-x').inputValue();await page.evaluate(()=>dispatchEvent(new Event('blur')));await advance(page,1000);await expect(runtime(page)).toHaveAttribute('data-state','paused');await expect(page.locator('#story-rod-x')).toHaveValue(ended);expect((await stored(page)).story).toEqual(before.story);
 });
 test('ten playing exits dispose their source Canvas and ignore late animation callbacks',async({page})=>{
