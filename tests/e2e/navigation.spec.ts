@@ -1,4 +1,5 @@
 import {test,expect} from './formal-fixture';
+import {currentProject} from '../helpers/current-project';
 import type { Download, Page } from '@playwright/test';
 import type { ProjectV1 } from '../../src/domain/types';
 import fixture from '../fixtures/project.json' with { type: 'json' };
@@ -124,9 +125,9 @@ test('workbench recovery can be explicitly reread without leaving the product st
 });
 
 test('a real curtain checkpoint produces the actual programme and prepared reunion image', async ({ page }) => {
-  const project = { ...fixture, story: { ...fixture.story, nodeId: 'curtain', revision: 15, completedAt: '2026-10-17T00:00:00.000Z' } };
+  const project = currentProject('curtain');
   await seed(page, project); await page.goto('/#/result'); await saved(page);
-  await expect(page.locator('#app-view h1')).toHaveText('这一回，终于相见。'); await expect(page.locator('.programme-list')).toContainText('先举灯呼唤');
+  await expect(page.locator('#app-view h1')).toHaveText('人间灯火'); await expect(page.locator('.programme-list')).toContainText('先举灯呼唤');
   await expect(page.locator('.programme-list')).toContainText('团圆已保存，谢幕尚未结束'); expect((await stored(page)).story).toEqual(project.story);
   await expect(page.locator('#result-png')).toBeEnabled();
 });

@@ -5,10 +5,11 @@ test('museum photo gallery keeps local lazy images, actual captions and keyboard
   await page.goto('/#/museum/E07');
   const gallery = page.locator('#museum-gallery');
   await expect(gallery.locator('.museum-photo-card')).toHaveCount(2);
-  await expect(gallery.locator('img').first()).toHaveAttribute('loading', 'lazy');
+  await expect(gallery.locator('img').first()).toHaveAttribute('loading', 'eager');await expect(gallery.locator('img').nth(1)).toHaveAttribute('loading','lazy');
   await expect(gallery).toContainText('华县');
   await expect(gallery).toContainText('华阴老腔是另一项目');
-  await expect(gallery.locator('.museum-photo-attribution').first()).toContainText('许可状态保留未知');
+  const attribution=gallery.locator('.museum-photo-attribution').first(),source=media.media.find(item=>item.id==='tangshan-ran')!;
+  await expect(attribution).toContainText(source.region);await expect(attribution).toContainText(source.originalCaption);await expect(attribution.getByRole('link',{name:'资料出处 ↗'})).toHaveAttribute('href',source.sourcePage!);await expect(attribution.getByRole('link',{name:'素材致谢',exact:true})).toHaveAttribute('href','./credits.html#'+source.id);
   const opener = gallery.locator('.museum-photo-enlarge').first();
   await opener.click();
   const dialog = page.getByRole('dialog', { name: '唐山影人 · 髯' });
@@ -16,7 +17,7 @@ test('museum photo gallery keeps local lazy images, actual captions and keyboard
   await expect(dialog.locator('img')).toHaveJSProperty('naturalWidth', 600);
   await expect(dialog.getByRole('button', { name: '关闭大图 ×' })).toBeFocused();
   await page.keyboard.press('Shift+Tab');
-  await expect(dialog.getByRole('link', { name: '查看原始图片 ↗' })).toBeFocused();
+  await expect(dialog.getByRole('link', { name: '素材致谢', exact:true })).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(dialog.getByRole('button', { name: '关闭大图 ×' })).toBeFocused();
   await page.keyboard.press('Escape');

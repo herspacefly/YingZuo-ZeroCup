@@ -325,7 +325,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   function renderUI(){
     if(disposed)return;const rt=live,node=rt?.entry.node,hasStory=!!state?.project?.story;stageSlot.parentElement?.classList.toggle('story-awaiting',!hasStory);
     captionDock.hidden=!hasStory||node?.id==='craft'||node?.kind==='terminal';
-    const destination=node?.next&&'default'in node.next?definitionFor(state?.project?.story).nodes.find(n=>n.id===(node.next as {default:string}).default):null;nextNode.hidden=!hasStory||node?.kind==='terminal';nextNode.disabled=blocked()||!rt?.ready||!!rt.resolution||!!rt.completed||!destination||node?.id==='craft';nextNode.textContent=node?.kind==='choice'?'请先选择去向':node?.id==='craft'?'请先确认这身行装':destination?'跳过本段，进入《'+destination.title+'》':'下一片段';
+    const destination=node?.next&&'default'in node.next?definitionFor(state?.project?.story).nodes.find(n=>n.id===(node.next as {default:string}).default):null;nextNode.hidden=!hasStory||node?.kind==='terminal';nextNode.disabled=blocked()||!rt?.ready||!!rt.resolution||!!rt.completed||!destination||node?.id==='craft'||node?.kind==='choice';nextNode.textContent=node?.kind==='choice'?'请先选择去向':node?.id==='craft'?'请先确认这身行装':destination?'跳过本段，进入《'+destination.title+'》':'下一片段';
     start.hidden=hasStory;start.disabled=blocked();skip.hidden=node?.id!=='intro';skip.disabled=blocked()||!rt?.ready;
     craft.hidden=node?.id!=='craft'||display!==rt;confirm.hidden=craft.hidden;confirm.disabled=blocked()||!rt?.ready||!!rt.requested;result.hidden=!['curtain','completed'].includes(node?.id??'');modeLabel.hidden=!rt;transport.hidden=!rt||node?.kind==='terminal';
     voiceControls.setVisible(!!rt&&!ctx.guide);

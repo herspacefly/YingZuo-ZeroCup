@@ -15,7 +15,7 @@ for(const run of CHOICE_RUNS)test(`explicit skip ${run.journeyIntent}/${run.moun
   const node=arrangeVoiceNode(definition.nodes.find(n=>n.id===id)! as unknown as StoryNode,5);
   if(id==='craft')await page.locator('#story-confirm-craft').click();
   else if(node.kind==='choice'){
-   await expect(page.locator('#story-next-node')).toBeDisabled();if(await page.locator('#story-play').isEnabled())await page.locator('#story-play').click();await page.evaluate(ms=>Reflect.get(window,'__advance')(ms),node.guidedTiming.targetMs);
+   await expect(page.locator('.page-content .canvas-stage-status')).toHaveAttribute('data-state','ready');await expect(page.locator('#story-next-node')).toBeDisabled();await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','playing');const cues=node.guidedSubtitles??node.subtitles,start=(cues.at(-1)?.startMs??0)*node.guidedTiming.targetMs/node.fullTiming.targetMs;if(start>0)await page.locator('.subtitle-directory button').last().click();await page.evaluate(ms=>Reflect.get(window,'__advance')(ms),node.guidedTiming.targetMs-start+200);await expect(page.locator('#story-next-node')).toBeDisabled();
    const button=id==='journey-choice'?'#story-choice-journey-'+run.journeyIntent:id==='mountain-pact-choice'?'#story-choice-pact-'+run.mountainPact:id==='ending-choice'?'#story-choice-final-'+run.finalAction:'#story-'+approach;await page.locator(button).click();
   }else await page.locator('#story-next-node').click();
   await expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');

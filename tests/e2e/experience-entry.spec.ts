@@ -9,9 +9,9 @@ test('the full journey has one next action and keeps lamp experiments out of the
   await page.locator('#journey-to-craft').click();await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready');
   await expect(page.locator('.craft-direct-entry')).not.toHaveAttribute('open');await expect(page.locator('#craft-confirm')).toBeHidden();
   await expect(page.locator('#journey-to-light')).toHaveClass(/primary/);await page.locator('#journey-to-light').click();
-  await expect(page.locator('#light-lamp')).toBeEnabled();await page.locator('#light-lamp').fill('0.2');
-  await expect(page.locator('.control-panel')).toContainText('正式演出使用各片段的舞台灯位');
-  await page.locator('#journey-to-practice').click();await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready');
+  await expect(page.locator('.page-content #light-lamp')).toBeEnabled();await page.locator('.page-content #light-lamp').fill('0.2');
+  await expect(page.locator('.page-content .control-panel')).toContainText('正式演出使用各片段的舞台灯位');
+  await page.locator('.page-content #journey-to-practice').click();await expect(page.locator('#app-view')).toHaveAttribute('data-route','/practice');await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready');
   await expect(page.locator('.guide-replay')).toBeVisible();await expect(page.locator('#journey-to-story')).toBeEnabled();
   await page.locator('#journey-to-story').click();await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','intro');
   await expect(page.locator('#story-mode')).toHaveValue('full');await expect(page.locator('#story-version-note')).toBeHidden();

@@ -1,4 +1,4 @@
-import {currentProject} from '../helpers/current-project';
+import {currentDuration,currentProject} from '../helpers/current-project';
 import {test,expect} from './formal-fixture';
 import type {Page} from '@playwright/test';
 import type {StoryNodeId} from '../../src/domain/types';
@@ -8,6 +8,7 @@ async function instrument(page:Page){await page.addInitScript(()=>{
   let now=0,id=0;const frames=new Map<number,FrameRequestCallback>();Object.defineProperty(performance,'now',{value:()=>now});window.requestAnimationFrame=cb=>{frames.set(++id,cb);return id;};window.cancelAnimationFrame=id=>{frames.delete(id);};Reflect.set(window,'__musicFrame',(delta:number)=>{now+=delta;const list=[...frames.values()];frames.clear();list.forEach(cb=>cb(now));});
 });}
 const stats=(page:Page)=>page.evaluate(()=>Reflect.get(window,'__music')() as {src:string|null;paused:boolean;time:number;ready:number}[]);
+const musicStats=(page:Page)=>stats(page).then(players=>players.filter(player=>/jinghu-instrumental|jingju-curtain/.test(player.src??'')));
 async function seed(page:Page,node:StoryNodeId){const project=currentProject(node);await page.goto('/study.html');await page.evaluate(async p=>{const db=await new Promise<IDBDatabase>((r,j)=>{const q=indexedDB.open('yingzuo-v1',1);q.onupgradeneeded=()=>q.result.createObjectStore('snapshots');q.onsuccess=()=>r(q.result);q.onerror=()=>j(q.error);});await new Promise<void>((r,j)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(p),'draft');tx.oncomplete=()=>r();tx.onabort=()=>j(tx.error);});db.close();},project);await page.goto('/#/story');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');}
 async function advance(page:Page,ms:number){await page.evaluate(async ms=>{while(ms>0){const d=Math.min(ms,100);Reflect.get(window,'__musicFrame')(d);ms-=d;await Promise.resolve();}},ms);}
 test('site music defaults on, unlocks on the first ordinary click and retains manual mute across routes',async({page})=>{
@@ -29,17 +30,19 @@ test('reunion first two seconds stay quiet and paused story stops the actual mus
   // The restored story already runs. An ordinary gesture unlocks media without toggling its transport.
   await page.locator('#story-runtime').click();await advance(page,1900);expect(await stats(page)).toEqual([]);
   await advance(page,200);await expect(page.locator('#site-music-status')).toHaveAttribute('data-state','enabled');
-  await expect.poll(async()=>(await stats(page)).length).toBe(1);expect((await stats(page))[0]!.src).toContain('jinghu-instrumental');
-  await page.locator('#story-pause').click();expect((await stats(page))[0]!.paused).toBe(true);
+  await expect.poll(async()=>(await musicStats(page)).length).toBe(1);expect((await musicStats(page))[0]!.src).toContain('jinghu-instrumental');
+  await page.locator('#story-pause').click();expect((await musicStats(page))[0]!.paused).toBe(true);
 });
 test('only actual curtain playback selects vocals, pause and mute release the media',async({page})=>{
   await instrument(page);await seed(page,'curtain');
   await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','playing');await page.locator('#story-runtime').click();
   await advance(page,100);await expect(page.locator('#site-music-status')).toHaveAttribute('data-state','enabled');
-  expect((await stats(page))[0]!.src).toContain('jingju-curtain.mp3');await expect(page.locator('#site-music-credit')).toHaveCount(0);
-  await page.locator('#story-pause').click();expect((await stats(page))[0]!.paused).toBe(true);
-  await advance(page,1000);expect((await stats(page))[0]!.paused).toBe(true);
-  await page.locator('#site-music-toggle').click();expect((await stats(page))[0]!.src).toBeNull();
+  expect((await musicStats(page))[0]!.src).toContain('jinghu-instrumental.mp3');
+  const narrationEnd=currentDuration('curtain')-40000;await advance(page,narrationEnd-101);expect((await musicStats(page))[0]!.src).toContain('jinghu-instrumental.mp3');await advance(page,101);
+  await expect.poll(async()=>(await musicStats(page)).some(player=>player.src?.includes('jingju-curtain.mp3')&&!player.paused&&player.ready>=2)).toBe(true);const vocalIndex=(await stats(page)).findIndex(player=>player.src?.includes('jingju-curtain.mp3'));await expect(page.locator('#site-music-credit')).toHaveCount(0);
+  await page.locator('#story-pause').click();expect((await stats(page))[vocalIndex]!.paused).toBe(true);
+  await advance(page,1000);expect((await stats(page))[vocalIndex]!.paused).toBe(true);
+  await page.locator('#site-music-toggle').click();expect((await stats(page))[vocalIndex]!.src).toBeNull();
 });
 test('failed audio file reports a real error and the next ordinary gesture retries',async({page})=>{
   await instrument(page);let refuse=true;await page.route('**/audio/*.mp3',r=>refuse?r.abort('failed'):r.continue());await page.goto('/#/museum');await page.locator('#app-view h1').click();await expect(page.locator('#site-music-status')).toHaveAttribute('data-state','error');refuse=false;await page.locator('#app-view h1').click();await expect(page.locator('#site-music-status')).toHaveAttribute('data-state','enabled');expect((await stats(page)).filter(p=>p.src)).toHaveLength(1);await page.goto('/study.html');
