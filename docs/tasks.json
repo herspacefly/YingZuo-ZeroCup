@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-04",
+  "updatedAt": "2026-11-05",
   "projectName": "影作·一幕团圆",
   "projectRoot": ".",
   "competitionGroup": "零组",
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T46_local_complete",
-  "activeTaskId": "T38",
+  "stage": "T47_in_progress",
+  "activeTaskId": "T47",
   "lastVerifiedCommit": "73853f3063d438f5127c5d77343876ab951cf7a8",
   "features": {
     "singlePuppetRecording": "planned_optional",
@@ -2071,6 +2071,32 @@
         "三处工作树已归档、依赖无Junction，主树依赖保持；本地生产预览HTTP200。原人耳/实体设备/IE/正式审看状态不变。 后续按用户要求将约24MB临时诊断/旧日志/失效脚本移入回收站；占用中的预览日志保留。",
         "用户明确要求后发布73853f3；Actions 41825204798检查/32项浏览器及部署成功，公开首页/脚本/中文MP3均HTTP200，见deployment.json。"
       ],
+      "phase": "G3"
+    },
+    {
+      "id": "T47",
+      "title": "修复严格审查发现的产品缺陷与回归基线",
+      "priority": "P0",
+      "status": "in_progress",
+      "dependsOn": [
+        "T46"
+      ],
+      "owner": "codex-root",
+      "branch": "codex/t47-defect-fixes",
+      "touchFiles": [
+        "src/",
+        "tests/",
+        "docs/",
+        "README.md",
+        "START_HERE.md"
+      ],
+      "acceptanceRefs": [
+        "T47"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "区分退役归档和未知格式，修复握柄定位/成果门槛/音效重试，校正并执行完整浏览器回归。",
+      "blocker": null,
+      "verification": [],
       "phase": "G3"
     }
   ],
