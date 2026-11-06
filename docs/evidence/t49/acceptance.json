@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "task": "T49",
   "updatedAt": "2026-11-06",
-  "status": "local-complete-awaiting-deployment",
+  "status": "deployed",
   "applicationCommit": "4d0f61ee8c769b5be3ac8c47886292e2ca3e46d6",
-  "pushed": false,
-  "deployed": false,
+  "pushed": true,
+  "deployed": true,
   "unit": {
     "files": 55,
     "passed": 620
@@ -56,5 +56,12 @@
     "Physical devices and Safari",
     "Real IE",
     "T13/T14/P1 unchanged"
-  ]
+  ],
+  "verifiedCommit": "13b7dfbc308a630e2fe047e0bc99f558254d452c",
+  "deployment": "deployment.json",
+  "published": {
+    "total": 20,
+    "passed": 20,
+    "failed": 0
+  }
 }

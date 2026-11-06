@@ -7,9 +7,9 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T49_local_complete",
-  "activeTaskId": "T49",
-  "lastVerifiedCommit": "4d0f61ee8c769b5be3ac8c47886292e2ca3e46d6",
+  "stage": "T49_deployed",
+  "activeTaskId": "T38",
+  "lastVerifiedCommit": "13b7dfbc308a630e2fe047e0bc99f558254d452c",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -2144,7 +2144,7 @@
       "id": "T49",
       "title": "演出完成直达节目单与完整幕面显示并发布",
       "priority": "P0",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "T48"
       ],
@@ -2164,14 +2164,15 @@
       "acceptanceRefs": [
         "T49"
       ],
-      "checkpointCommit": "4d0f61ee8c769b5be3ac8c47886292e2ca3e46d6",
-      "nextAction": "本地实现和168项相关覆盖已完成，直接合并main并推送，核对Actions部署和20项公开站点检查后登记发布。",
+      "checkpointCommit": "13b7dfbc308a630e2fe047e0bc99f558254d452c",
+      "nextAction": "已直接合并main并推送，Actions 42213072182构建/部署成功，公开站20项通过；见docs/acceptance/t49.md。T38听感和正式艺术/设备/IE状态不变。",
       "blocker": null,
       "verification": [
         "55文件620单元、类型/162模块构建、50任务状态、素材/当前故事/七展签/354配音/1216编排/18 ES5通过。",
         "本轮168项唯一相关浏览器覆盖最新167通过/1既有手机条件跳过，含根/项目子目录40项全部通过；未执行未筛选全套。",
         "五终章×两节奏×宽窄谢幕自动跳转、保存失败/重试/内存继续、返回历史与迟到回调通过。",
-        "1440/1366/1024/390/320及844×390整幕可见、零横向溢出，旋转/暂停/手动滚动及教学DOM归位通过；失败与复验分列。"
+        "1440/1366/1024/390/320及844×390整幕可见、零横向溢出，旋转/暂停/手动滚动及教学DOM归位通过；失败与复验分列。",
+        "发布检查点13b7dfb，Actions构建/40项根子目录/部署成功；公开宽窄20项全部通过，首页/主入口/中文MP3 HTTP200且字节与本地产物/源音轨一致。"
       ],
       "phase": "G3"
     }
