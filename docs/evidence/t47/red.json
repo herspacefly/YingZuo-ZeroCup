@@ -1,0 +1,45 @@
+{
+  "name": "red",
+  "startTime": "2026-11-05T04:52:35.407Z",
+  "durationMs": 44432.240000000005,
+  "reportedStats": {
+    "startTime": "2026-11-05T04:52:35.407Z",
+    "duration": 44432.240000000005,
+    "expected": 0,
+    "skipped": 2,
+    "unexpected": 2,
+    "flaky": 0
+  },
+  "notRunExcluded": 2,
+  "globalErrors": [
+    "Testing stopped early after 2 maximum allowed failures."
+  ],
+  "cases": [
+    {
+      "project": "desktop-chromium",
+      "file": "t47-regressions.spec.ts",
+      "title": [
+        "chosen endings stay in progress until the actual result checkpoint"
+      ],
+      "status": "failed",
+      "durationMs": 9347,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toHaveText(expected) failed\n\nLocator:  locator('#app-view h1')\nExpected: \"这一场，还在路上。\"\nReceived: \"人间灯火\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toHaveText\" locator('#app-view h1') with timeout 5000ms\n  - waiting for locator('#app-view h1')\n    13 × locator resolved to <h1 class=\"ink-title\">人间灯火</h1>\n       - unexpected value \"人间灯火\"\n\n\n  34 |       await page.goto('/#/result');\n  35 |       await expect(page.locator('#save-state')).toHaveAttribute('data-state', 'saved');\n> 36 |       await expect(page.locator('#app-view h1')).toHaveText('这一场，还在路上。');\n     |                                                  ^\n  37 |       await expect(page.locator('#app-view .page-lead')).not.toHaveText(ending.summary);\n  38 |       await expect(page.locator('#result-png')).toBeHidden();\n  39 |       await expect(page.locator('#result-json')).toBeHidden();\n    at tests\\e2e\\t47-regressions.spec.ts:36:50"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "t47-regressions.spec.ts",
+      "title": [
+        "museum drag handles retain their centered transform on hover and press"
+      ],
+      "status": "failed",
+      "durationMs": 8318,
+      "retry": 0,
+      "errors": [
+        "Error: expect(received).toBeCloseTo(expected, precision)\n\nExpected: 526\nReceived: 541.3213500976562\n\nExpected precision:    1\nExpected difference: < 0.05\nReceived difference:   15.32135009765625\n\n  69 |       await expect.poll(transform).toBe(before);\n  70 |       const hovered = (await handle.boundingBox())!;\n> 71 |       expect(hovered.x).toBeCloseTo(box.x, 1); expect(hovered.y).toBeCloseTo(box.y, 1);\n     |                         ^\n  72 |       await page.mouse.down(); expect(await transform()).toBe(before);\n  73 |       await page.mouse.move(x + 16, y - 20, { steps: 6 }); await page.mouse.up();\n  74 |     }\n    at tests\\e2e\\t47-regressions.spec.ts:71:25"
+      ]
+    }
+  ]
+}

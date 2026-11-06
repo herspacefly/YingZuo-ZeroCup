@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-11-06",
+  "applicationCommit": "cc03c0ca6e41599ab13de8a43e87cc76cb4b3762",
+  "testsCommit": "ad5049ea8218e50c477f4320c6f0c0fd0f65bcb4",
+  "runtime": {
+    "node": "v24.18.1",
+    "npm": "12.0.2"
+  },
+  "build": {
+    "modules": 162,
+    "main": "dist/assets/main-DB_cBg3w.js",
+    "sha256": "a2469cde7c05a8de5063037fb33405cc2b8b19c7694289aa993f249228870781",
+    "sourceUnchangedSinceBuild": true
+  },
+  "unit": {
+    "files": 55,
+    "passed": 618
+  },
+  "voice": {
+    "clips": 354,
+    "bytes": 18304560,
+    "scheduleChecks": 1216,
+    "originalBytesUnchanged": true
+  },
+  "checks": [
+    {
+      "name": "unit",
+      "command": "npm test",
+      "status": "passed",
+      "evidence": "unit.log"
+    },
+    {
+      "name": "typecheck",
+      "command": "npm run typecheck",
+      "status": "passed",
+      "evidence": "typecheck.log"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "status": "passed",
+      "evidence": "build.log"
+    },
+    {
+      "name": "assets",
+      "command": "npm run verify:assets",
+      "status": "passed",
+      "evidence": "assets.log"
+    },
+    {
+      "name": "content",
+      "command": "npm run verify:content",
+      "status": "passed",
+      "evidence": "content.log"
+    },
+    {
+      "name": "museum",
+      "command": "npm run verify:museum",
+      "status": "passed",
+      "evidence": "museum.log"
+    },
+    {
+      "name": "legacy",
+      "command": "npm run verify:legacy",
+      "status": "passed",
+      "evidence": "legacy.log"
+    },
+    {
+      "name": "voice",
+      "command": "npm run verify:voice -- --dist",
+      "status": "passed",
+      "evidence": "voice.log"
+    },
+    {
+      "name": "state",
+      "command": "npm run verify:state",
+      "status": "passed",
+      "evidence": "state.log"
+    }
+  ],
+  "humanAcceptanceUnchanged": [
+    "T10 formal content and assets",
+    "T38 listening",
+    "physical devices/Safari/real IE",
+    "T13/T14/P1"
+  ]
+}

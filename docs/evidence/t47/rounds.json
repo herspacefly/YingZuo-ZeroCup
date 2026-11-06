@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "note": "Separate diagnostic failures and precise reruns. Runner skipped stats include tests not executed after max-failures; these are not conditional skips.",
+  "rounds": [
+    {
+      "name": "red",
+      "stats": {
+        "startTime": "2026-11-05T04:52:35.407Z",
+        "duration": 44432.240000000005,
+        "expected": 0,
+        "skipped": 2,
+        "unexpected": 2,
+        "flaky": 0
+      },
+      "executed": 2,
+      "notRun": 2,
+      "globalErrors": [
+        "Testing stopped early after 2 maximum allowed failures."
+      ]
+    },
+    {
+      "name": "focused",
+      "stats": {
+        "startTime": "2026-11-05T11:58:33.086Z",
+        "duration": 187499.715,
+        "expected": 16,
+        "skipped": 4,
+        "unexpected": 6,
+        "flaky": 0
+      },
+      "executed": 22,
+      "notRun": 4,
+      "globalErrors": [
+        "Testing stopped early after 6 maximum allowed failures."
+      ]
+    },
+    {
+      "name": "focused-final",
+      "stats": {
+        "startTime": "2026-11-05T12:19:13.418Z",
+        "duration": 144335.355,
+        "expected": 32,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      },
+      "executed": 34,
+      "notRun": 0,
+      "globalErrors": []
+    },
+    {
+      "name": "baselines-round1",
+      "stats": {
+        "startTime": "2026-11-05T12:22:28.130Z",
+        "duration": 908700.836,
+        "expected": 99,
+        "skipped": 147,
+        "unexpected": 18,
+        "flaky": 0
+      },
+      "executed": 117,
+      "notRun": 147,
+      "globalErrors": [
+        "Testing stopped early after 18 maximum allowed failures."
+      ]
+    },
+    {
+      "name": "baselines-round2",
+      "stats": {
+        "startTime": "2026-11-05T12:39:43.216Z",
+        "duration": 1416345.96,
+        "expected": 254,
+        "skipped": 0,
+        "unexpected": 10,
+        "flaky": 0
+      },
+      "executed": 264,
+      "notRun": 0,
+      "globalErrors": []
+    },
+    {
+      "name": "exact-final",
+      "stats": {
+        "startTime": "2026-11-05T13:07:35.746Z",
+        "duration": 163031.839,
+        "expected": 38,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "executed": 38,
+      "notRun": 0,
+      "globalErrors": []
+    },
+    {
+      "name": "footer-red",
+      "stats": {
+        "startTime": "2026-11-05T13:11:48.576Z",
+        "duration": 5275.296,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "executed": 1,
+      "notRun": 0,
+      "globalErrors": []
+    },
+    {
+      "name": "footer-green",
+      "stats": {
+        "startTime": "2026-11-05T13:15:08.318Z",
+        "duration": 40510.416,
+        "expected": 10,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "executed": 10,
+      "notRun": 0,
+      "globalErrors": []
+    },
+    {
+      "name": "remaining",
+      "stats": {
+        "startTime": "2026-11-05T13:20:19.919Z",
+        "duration": 750964.621,
+        "expected": 114,
+        "skipped": 234,
+        "unexpected": 16,
+        "flaky": 0
+      },
+      "executed": 130,
+      "notRun": 234,
+      "globalErrors": [
+        "Testing stopped early after 16 maximum allowed failures."
+      ]
+    },
+    {
+      "name": "entry-clock",
+      "stats": {
+        "startTime": "2026-11-05T13:35:26.118Z",
+        "duration": 27443.012,
+        "expected": 6,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "executed": 6,
+      "notRun": 0,
+      "globalErrors": []
+    },
+    {
+      "name": "pending-interrupted",
+      "stats": {
+        "startTime": null,
+        "duration": null,
+        "expected": 30,
+        "unexpected": 4,
+        "skipped": 0
+      },
+      "executed": 34,
+      "notRun": 0,
+      "globalErrors": [
+        "Interrupted diagnostic run; completed outcomes retained by the live reporter. No test with no completion record is counted as passed or skipped."
+      ]
+    },
+    {
+      "name": "touch-probe",
+      "stats": {
+        "startTime": "2026-11-05T13:52:03.405Z",
+        "duration": 9719.458,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "executed": 2,
+      "notRun": 0,
+      "globalErrors": []
+    },
+    {
+      "name": "text-probe",
+      "stats": {
+        "startTime": null,
+        "duration": null,
+        "expected": 0,
+        "unexpected": 1,
+        "skipped": 0
+      },
+      "executed": 1,
+      "notRun": 0,
+      "globalErrors": [
+        "Interrupted diagnostic run; completed outcomes retained by the live reporter. No test with no completion record is counted as passed or skipped."
+      ]
+    },
+    {
+      "name": "pending-controlled",
+      "stats": {
+        "startTime": "2026-11-05T14:01:07.388Z",
+        "duration": 2175960.243,
+        "expected": 154,
+        "skipped": 1,
+        "unexpected": 4,
+        "flaky": 0
+      },
+      "executed": 159,
+      "notRun": 0,
+      "globalErrors": []
+    },
+    {
+      "name": "matrix",
+      "stats": {
+        "startTime": "2026-11-05T13:53:08.465Z",
+        "duration": 1640620.051,
+        "expected": 64,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "executed": 64,
+      "notRun": 0,
+      "globalErrors": []
+    },
+    {
+      "name": "native-final",
+      "stats": {
+        "startTime": "2026-11-06T04:51:31.563Z",
+        "duration": 206261.6,
+        "expected": 75,
+        "skipped": 1,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "executed": 76,
+      "notRun": 0,
+      "globalErrors": []
+    },
+    {
+      "name": "final-retry",
+      "stats": {
+        "startTime": "2026-11-06T04:55:21.846Z",
+        "duration": 40405.753,
+        "expected": 9,
+        "skipped": 2,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "executed": 11,
+      "notRun": 0,
+      "globalErrors": []
+    },
+    {
+      "name": "pages",
+      "stats": {
+        "startTime": "2026-11-06T04:56:21.221Z",
+        "duration": 82931.585,
+        "expected": 32,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "executed": 32,
+      "notRun": 0,
+      "globalErrors": []
+    }
+  ]
+}

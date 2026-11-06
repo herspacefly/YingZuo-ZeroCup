@@ -1,0 +1,1502 @@
+{
+  "name": "remaining",
+  "startTime": "2026-11-05T13:20:19.919Z",
+  "durationMs": 750964.621,
+  "reportedStats": {
+    "startTime": "2026-11-05T13:20:19.919Z",
+    "duration": 750964.621,
+    "expected": 114,
+    "skipped": 234,
+    "unexpected": 16,
+    "flaky": 0
+  },
+  "notRunExcluded": 234,
+  "globalErrors": [
+    "Testing stopped early after 16 maximum allowed failures."
+  ],
+  "cases": [
+    {
+      "project": "desktop-chromium",
+      "file": "backstage-observation.spec.ts",
+      "title": [
+        "backstage pauses the same instant, preserves source geometry and requires explicit resume"
+      ],
+      "status": "passed",
+      "durationMs": 7549,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "backstage-observation.spec.ts",
+      "title": [
+        "closing a pending backstage import rejects its late completion"
+      ],
+      "status": "passed",
+      "durationMs": 1059,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "backstage-observation.spec.ts",
+      "title": [
+        "failed backstage import returns to the operable curtain and can be retried"
+      ],
+      "status": "passed",
+      "durationMs": 1009,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "backstage-observation.spec.ts",
+      "title": [
+        "without WebGL, the formal curtain stays usable and no Three module is requested"
+      ],
+      "status": "passed",
+      "durationMs": 949,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "new opening, refresh and museum return play automatically; same-page pause/reset/mode stay paused"
+      ],
+      "status": "passed",
+      "durationMs": 6755,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "choice after an explicit pause starts its successor without a play click"
+      ],
+      "status": "passed",
+      "durationMs": 2291,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "save failure retry stays paused, while refresh grants a fresh entry"
+      ],
+      "status": "passed",
+      "durationMs": 2895,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "blur while entry resources load revokes autoplay and late resources cannot revive it"
+      ],
+      "status": "passed",
+      "durationMs": 1623,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "a document hidden before initialization stays paused until a fresh visible entry"
+      ],
+      "status": "passed",
+      "durationMs": 2509,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "guardian staff and result decisions have native wide/narrow visual evidence"
+      ],
+      "status": "passed",
+      "durationMs": 16107,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "clock-native-start.spec.ts",
+      "title": [
+        "twelve native-clock play clicks advance without falsely pausing at the first frame"
+      ],
+      "status": "timedOut",
+      "durationMs": 31253,
+      "retry": 0,
+      "errors": [
+        "Test timeout of 30000ms exceeded.",
+        "Error: page.evaluate: Target page, context or browser has been closed\n\n  19 |  }\n  20 |  }finally{\n> 21 |  const frames=await page.evaluate(()=>Reflect.get(window,'__nativeFrames'));\n     |                          ^\n  22 |  await info.attach('native-clock-starts',{contentType:'application/json',body:Buffer.from(JSON.stringify({nativeClock:true,noClockOverrides:true,samples,frames}))});\n  23 |  }\n  24 | });\n    at tests\\e2e\\clock-native-start.spec.ts:21:26"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "one opening click starts intro; costume confirmation carries playback into the first act"
+      ],
+      "status": "passed",
+      "durationMs": 2630,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "normal cuts continue; same-page pause stays paused and a fresh entry autoplays"
+      ],
+      "status": "passed",
+      "durationMs": 5333,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "explicit assistance after pausing starts a fresh continuous handoff"
+      ],
+      "status": "passed",
+      "durationMs": 2992,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "the final decision begins waiting without another play click"
+      ],
+      "status": "passed",
+      "durationMs": 2691,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "the final decision begins home without another play click"
+      ],
+      "status": "passed",
+      "durationMs": 2545,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "the final decision begins light without another play click"
+      ],
+      "status": "passed",
+      "durationMs": 2540,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "the final decision begins road without another play click"
+      ],
+      "status": "passed",
+      "durationMs": 2795,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "the final decision begins sacrifice without another play click"
+      ],
+      "status": "passed",
+      "durationMs": 2482,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "save failure and explicit retry never revive the former playback intent"
+      ],
+      "status": "passed",
+      "durationMs": 2765,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "blur during next actor loading cancels the one-use handoff"
+      ],
+      "status": "passed",
+      "durationMs": 2140,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "large current captions remain in view above controls and survive dialogue gaps"
+      ],
+      "status": "passed",
+      "durationMs": 2662,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "corrected mountain planes and canonical action distances have native visual evidence"
+      ],
+      "status": "passed",
+      "durationMs": 65653,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "culture-header.spec.ts",
+      "title": [
+        "culture identity and all main pages adapt at five browser widths"
+      ],
+      "status": "passed",
+      "durationMs": 13262,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "experience-entry.spec.ts",
+      "title": [
+        "the full journey has one next action and keeps lamp experiments out of the story contract"
+      ],
+      "status": "failed",
+      "durationMs": 7446,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator: locator('.canvas-stage-status').first()\nExpected: \"ready\"\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('.canvas-stage-status').first() with timeout 5000ms\n  - waiting for locator('.canvas-stage-status').first()\n\n\n  12 |   await expect(page.locator('#light-lamp')).toBeEnabled();await page.locator('#light-lamp').fill('0.2');\n  13 |   await expect(page.locator('.control-panel')).toContainText('正式演出使用各片段的舞台灯位');\n> 14 |   await page.locator('#journey-to-practice').click();await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready');\n     |                                                                                                                 ^\n  15 |   await expect(page.locator('.guide-replay')).toBeVisible();await expect(page.locator('#journey-to-story')).toBeEnabled();\n  16 |   await page.locator('#journey-to-story').click();await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','intro');\n  17 |   await expect(page.locator('#story-mode')).toHaveValue('full');await expect(page.locator('#story-version-note')).toBeHidden();\n    at tests\\e2e\\experience-entry.spec.ts:14:113"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "experience-entry.spec.ts",
+      "title": [
+        "320px home keeps its three entrances aligned and an existing performance remains the primary action"
+      ],
+      "status": "passed",
+      "durationMs": 861,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "guide-scroll.spec.ts",
+      "title": [
+        "guide locks native scrolling and navigation, then restores original overflow and position"
+      ],
+      "status": "passed",
+      "durationMs": 5284,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "guide-scroll.spec.ts",
+      "title": [
+        "keyboard can reach offscreen rehearsal alternatives and blur releases the lock"
+      ],
+      "status": "passed",
+      "durationMs": 3556,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "guide-scroll.spec.ts",
+      "title": [
+        "initial positioning failure restores the real page and releases its scroll lock"
+      ],
+      "status": "passed",
+      "durationMs": 3486,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "kai-font.spec.ts",
+      "title": [
+        "hanging web font falls back within the result readiness budget"
+      ],
+      "status": "failed",
+      "durationMs": 5624,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator: locator('.reunion-artifact')\nExpected: \"loading\"\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('.reunion-artifact') with timeout 5000ms\n  - waiting for locator('.reunion-artifact')\n\n\n  4 | async function seed(page:Page){await page.goto('/study.html');const p=structuredClone(fixture);Object.assign(p.story!,{nodeId:'completed',completedAt:'2026-10-25T01:00:00.000Z'});await page.evaluate(async value=>{const db=await new Promise<IDBDatabase>((yes,no)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>yes(r.result);r.onerror=()=>no(r.error);});await new Promise<void>((yes,no)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>yes();tx.onabort=()=>no(tx.error);});db.close();},p);}\n  5 | async function holdFont(page:Page,leaveOnLoad=false){await page.addInitScript(leaveOnLoad=>{const load=document.fonts.load.bind(document.fonts),timers=new Set<number>(),start=window.setTimeout.bind(window),stop=window.clearTimeout.bind(window);window.setTimeout=((handler:TimerHandler,delay?:number,...args:unknown[])=>{const id=start(handler,delay,...args);if(delay===3000)timers.add(id);return id;}) as typeof window.setTimeout;window.clearTimeout=id=>{if(typeof id==='number')timers.delete(id);stop(id);};Reflect.set(window,'__fontTimers',()=>timers.size);document.fonts.load=((font:string,text?:string)=>font.includes('Yingzuo Kai')?new Promise<FontFace[]>(resolve=>{Reflect.set(window,'__releaseKai',()=>resolve([]));Reflect.set(window,'__kaiStarted',performance.now());if(leaveOnLoad)start(()=>{Reflect.set(window,'__fontTimersAtExit',timers.size);location.hash='#/about';},0);}):load(font,text)) as typeof document.fonts.load;},leaveOnLoad);}\n> 6 | test('hanging web font falls back within the result readiness budget',async({page})=>{await holdFont(page);await seed(page);await page.goto('/#/result');await expect(page.locator('.reunion-artifact')).toHaveAttribute('data-state','loading');await expect(page.locator('#result-png')).toBeDisabled();await expect(page.locator('.reunion-artifact')).toHaveAttribute('data-state','ready',{timeout:8000});expect(await page.evaluate(()=>performance.now()-Reflect.get(window,'__kaiStarted'))).toBeGreaterThanOrEqual(2900);await expect(page.locator('#result-png')).toBeEnabled();expect(await page.evaluate(()=>Reflect.get(window,'__fontTimers')())).toBe(0);});\n    |                                                                                                                                                                                                          ^\n  7 | test('leaving during font loading cancels the timer and rejects late composition',async({page})=>{await holdFont(page,true);await seed(page);await page.goto('/#/result');await expect(page.locator('#app-view')).toHaveAttribute('data-route','/about');expect(await page.evaluate(()=>Reflect.get(window,'__fontTimersAtExit'))).toBe(1);expect(await page.evaluate(()=>Reflect.get(window,'__fontTimers')())).toBe(0);await page.evaluate(()=>Reflect.get(window,'__releaseKai')());await expect(page.locator('.reunion-artifact')).toHaveCount(0);});\n  8 | test('font download failure keeps programme, PNG and layout usable',async({page})=>{await page.route('**/regular-kai.*',route=>route.abort());await seed(page);await page.goto('/#/result');await expect(page.locator('.reunion-artifact')).toHaveAttribute('data-state','ready',{timeout:15000});await expect(page.locator('#result-png')).toBeEnabled();expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);});\n  9 |\n    at tests\\e2e\\kai-font.spec.ts:6:202"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "kai-font.spec.ts",
+      "title": [
+        "leaving during font loading cancels the timer and rejects late composition"
+      ],
+      "status": "failed",
+      "durationMs": 5786,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('#app-view')\nExpected: \"/about\"\nReceived: \"/result\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('#app-view') with timeout 5000ms\n  - waiting for locator('#app-view')\n    14 × locator resolved to <div id=\"app-view\" data-route=\"/result\">…</div>\n       - unexpected value \"/result\"\n\n\n  5 | async function holdFont(page:Page,leaveOnLoad=false){await page.addInitScript(leaveOnLoad=>{const load=document.fonts.load.bind(document.fonts),timers=new Set<number>(),start=window.setTimeout.bind(window),stop=window.clearTimeout.bind(window);window.setTimeout=((handler:TimerHandler,delay?:number,...args:unknown[])=>{const id=start(handler,delay,...args);if(delay===3000)timers.add(id);return id;}) as typeof window.setTimeout;window.clearTimeout=id=>{if(typeof id==='number')timers.delete(id);stop(id);};Reflect.set(window,'__fontTimers',()=>timers.size);document.fonts.load=((font:string,text?:string)=>font.includes('Yingzuo Kai')?new Promise<FontFace[]>(resolve=>{Reflect.set(window,'__releaseKai',()=>resolve([]));Reflect.set(window,'__kaiStarted',performance.now());if(leaveOnLoad)start(()=>{Reflect.set(window,'__fontTimersAtExit',timers.size);location.hash='#/about';},0);}):load(font,text)) as typeof document.fonts.load;},leaveOnLoad);}\n  6 | test('hanging web font falls back within the result readiness budget',async({page})=>{await holdFont(page);await seed(page);await page.goto('/#/result');await expect(page.locator('.reunion-artifact')).toHaveAttribute('data-state','loading');await expect(page.locator('#result-png')).toBeDisabled();await expect(page.locator('.reunion-artifact')).toHaveAttribute('data-state','ready',{timeout:8000});expect(await page.evaluate(()=>performance.now()-Reflect.get(window,'__kaiStarted'))).toBeGreaterThanOrEqual(2900);await expect(page.locator('#result-png')).toBeEnabled();expect(await page.evaluate(()=>Reflect.get(window,'__fontTimers')())).toBe(0);});\n> 7 | test('leaving during font loading cancels the timer and rejects late composition',async({page})=>{await holdFont(page,true);await seed(page);await page.goto('/#/result');await expect(page.locator('#app-view')).toHaveAttribute('data-route','/about');expect(await page.evaluate(()=>Reflect.get(window,'__fontTimersAtExit'))).toBe(1);expect(await page.evaluate(()=>Reflect.get(window,'__fontTimers')())).toBe(0);await page.evaluate(()=>Reflect.get(window,'__releaseKai')());await expect(page.locator('.reunion-artifact')).toHaveCount(0);});\n    |                                                                                                                                                                                                                   ^\n  8 | test('font download failure keeps programme, PNG and layout usable',async({page})=>{await page.route('**/regular-kai.*',route=>route.abort());await seed(page);await page.goto('/#/result');await expect(page.locator('.reunion-artifact')).toHaveAttribute('data-state','ready',{timeout:15000});await expect(page.locator('#result-png')).toBeEnabled();expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);});\n  9 |\n    at tests\\e2e\\kai-font.spec.ts:7:211"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "kai-font.spec.ts",
+      "title": [
+        "font download failure keeps programme, PNG and layout usable"
+      ],
+      "status": "failed",
+      "durationMs": 15816,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator: locator('.reunion-artifact')\nExpected: \"ready\"\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('.reunion-artifact') with timeout 15000ms\n  - waiting for locator('.reunion-artifact')\n\n\n  6 | test('hanging web font falls back within the result readiness budget',async({page})=>{await holdFont(page);await seed(page);await page.goto('/#/result');await expect(page.locator('.reunion-artifact')).toHaveAttribute('data-state','loading');await expect(page.locator('#result-png')).toBeDisabled();await expect(page.locator('.reunion-artifact')).toHaveAttribute('data-state','ready',{timeout:8000});expect(await page.evaluate(()=>performance.now()-Reflect.get(window,'__kaiStarted'))).toBeGreaterThanOrEqual(2900);await expect(page.locator('#result-png')).toBeEnabled();expect(await page.evaluate(()=>Reflect.get(window,'__fontTimers')())).toBe(0);});\n  7 | test('leaving during font loading cancels the timer and rejects late composition',async({page})=>{await holdFont(page,true);await seed(page);await page.goto('/#/result');await expect(page.locator('#app-view')).toHaveAttribute('data-route','/about');expect(await page.evaluate(()=>Reflect.get(window,'__fontTimersAtExit'))).toBe(1);expect(await page.evaluate(()=>Reflect.get(window,'__fontTimers')())).toBe(0);await page.evaluate(()=>Reflect.get(window,'__releaseKai')());await expect(page.locator('.reunion-artifact')).toHaveCount(0);});\n> 8 | test('font download failure keeps programme, PNG and layout usable',async({page})=>{await page.route('**/regular-kai.*',route=>route.abort());await seed(page);await page.goto('/#/result');await expect(page.locator('.reunion-artifact')).toHaveAttribute('data-state','ready',{timeout:15000});await expect(page.locator('#result-png')).toBeEnabled();expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);});\n    |                                                                                                                                                                                                                                             ^\n  9 |\n    at tests\\e2e\\kai-font.spec.ts:8:237"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "kai-woff.spec.ts",
+      "title": [
+        "regular Kai uses the local WOFF fallback when WOFF2 is unavailable"
+      ],
+      "status": "passed",
+      "durationMs": 540,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum-distinct.spec.ts",
+      "title": [
+        "lamp body is faint while its independently colored projection remains opaque"
+      ],
+      "status": "passed",
+      "durationMs": 5227,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum-distinct.spec.ts",
+      "title": [
+        "three rods respond to real drag, keyboard and equivalent buttons without saving posture"
+      ],
+      "status": "passed",
+      "durationMs": 9854,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum-distinct.spec.ts",
+      "title": [
+        "rod cancellation and detached old handles cannot change the next demonstration"
+      ],
+      "status": "passed",
+      "durationMs": 4128,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum-distinct.spec.ts",
+      "title": [
+        "separate optical diagram keeps fixed section and updates ray ends and shadow scale"
+      ],
+      "status": "passed",
+      "durationMs": 5458,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum-distinct.spec.ts",
+      "title": [
+        "site identity belongs to navigation header, with no extra title row"
+      ],
+      "status": "passed",
+      "durationMs": 3622,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum-media.spec.ts",
+      "title": [
+        "museum photo gallery keeps local lazy images, actual captions and keyboard modal focus"
+      ],
+      "status": "failed",
+      "durationMs": 5584,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('#museum-gallery').locator('img').first()\nExpected: \"lazy\"\nReceived: \"eager\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('#museum-gallery').locator('img').first() with timeout 5000ms\n  - waiting for locator('#museum-gallery').locator('img').first()\n    14 × locator resolved to <img class=\"\" width=\"600\" height=\"958\" loading=\"eager\" decoding=\"async\" alt=\"长须影人戴冠穿红衣，肘部与腰腹可见连接点。\" src=\"./assets/museum/tangshan-ran.jpg\"/>\n       - unexpected value \"eager\"\n\n\n   6 |   const gallery = page.locator('#museum-gallery');\n   7 |   await expect(gallery.locator('.museum-photo-card')).toHaveCount(2);\n>  8 |   await expect(gallery.locator('img').first()).toHaveAttribute('loading', 'lazy');\n     |                                                ^\n   9 |   await expect(gallery).toContainText('华县');\n  10 |   await expect(gallery).toContainText('华阴老腔是另一项目');\n  11 |   await expect(gallery.locator('.museum-photo-attribution').first()).toContainText('许可状态保留未知');\n    at tests\\e2e\\museum-media.spec.ts:8:48"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum-media.spec.ts",
+      "title": [
+        "gallery load failure reports and really retries; exiting an open modal releases it"
+      ],
+      "status": "passed",
+      "durationMs": 2345,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum-media.spec.ts",
+      "title": [
+        "all eight photo readings retain their declared counts and original files"
+      ],
+      "status": "passed",
+      "durationMs": 2117,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "seven public exhibits, clear site identity, no personal labels, and real sources first"
+      ],
+      "status": "passed",
+      "durationMs": 8529,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "museum native three-dimensional lamp drag changes light and keeps the puppet and project fixed"
+      ],
+      "status": "passed",
+      "durationMs": 5297,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "no WebGL keeps lamp sliders and buttons operable without any saved pose or lamp edits"
+      ],
+      "status": "passed",
+      "durationMs": 4590,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "lamp context loss releases the renderer and permits a real retry"
+      ],
+      "status": "passed",
+      "durationMs": 4059,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "carve by mouse and buttons, compare actual holes, reset without costume changes"
+      ],
+      "status": "passed",
+      "durationMs": 8802,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "joint controls stay in a short card and component photographs sit below the stage"
+      ],
+      "status": "passed",
+      "durationMs": 5748,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "four responsibilities alter the performance, pause, compare and reset"
+      ],
+      "status": "passed",
+      "durationMs": 9068,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "reduced motion presents complete collaboration as stills without a running clock"
+      ],
+      "status": "passed",
+      "durationMs": 1283,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "old E08 visits restore without reinstating an empty exhibit or losing records"
+      ],
+      "status": "passed",
+      "durationMs": 3528,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "repeated route exit disposes old lamp canvas and local listeners"
+      ],
+      "status": "passed",
+      "durationMs": 12970,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "museum experiments fit five responsive widths without long side cards or overflow"
+      ],
+      "status": "passed",
+      "durationMs": 14874,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "lamp asset failure retries and clears the repaired error message"
+      ],
+      "status": "passed",
+      "durationMs": 4114,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "three module failure keeps controls usable and can retry after the failure"
+      ],
+      "status": "passed",
+      "durationMs": 4607,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "ensemble waits for imagery, pauses on blur, and can resume after recovery"
+      ],
+      "status": "passed",
+      "durationMs": 4961,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "direct routes, museum children, back and refresh preserve the confirmed performance"
+      ],
+      "status": "passed",
+      "durationMs": 6573,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "URLs cannot start a story or manufacture a completed result"
+      ],
+      "status": "passed",
+      "durationMs": 2378,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "explicit guided opening and intro skip persist once, and ten remounts cannot repeat the command"
+      ],
+      "status": "passed",
+      "durationMs": 6870,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "craft saves the current editor while leaving frozen cast and decision intact"
+      ],
+      "status": "passed",
+      "durationMs": 3714,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "a failed opening stays on the old page, exports its candidate and retries the identical run"
+      ],
+      "status": "passed",
+      "durationMs": 3567,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "denied storage keeps an editable export and an explicit memory-only opening"
+      ],
+      "status": "passed",
+      "durationMs": 2166,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "archive/import use the shared serial entry, and cancel preserves the existing project"
+      ],
+      "status": "passed",
+      "durationMs": 2053,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "workbench recovery can be explicitly reread without leaving the product stuck"
+      ],
+      "status": "passed",
+      "durationMs": 2149,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "a real curtain checkpoint produces the actual programme and prepared reunion image"
+      ],
+      "status": "failed",
+      "durationMs": 5828,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('#save-state')\nExpected: \"saved\"\nReceived: \"recovery\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('#save-state') with timeout 5000ms\n  - waiting for locator('#save-state')\n    14 × locator resolved to <span role=\"status\" id=\"save-state\" data-state=\"recovery\">需要恢复</span>\n       - unexpected value \"recovery\"\n\n\n   6 | import corrupt from '../fixtures/corrupt-project.json' with { type: 'json' };\n   7 |\n>  8 | const saved = async (page: Page) => expect(page.locator('#save-state')).toHaveAttribute('data-state', 'saved');\n     |                                                                         ^\n   9 | async function record(page: Page): Promise<string> {\n  10 |   return page.evaluate(async () => {\n  11 |     const db = await new Promise<IDBDatabase>((resolve, reject) => { const r = indexedDB.open('yingzuo-v1', 1); r.onsuccess = () => resolve(r.result); r.onerror = () => reject(r.error); });\n    at saved (tests\\e2e\\navigation.spec.ts:8:73)\n    at tests\\e2e\\navigation.spec.ts:128:66"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "future records remain protected while the museum is readable"
+      ],
+      "status": "passed",
+      "durationMs": 950,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "corrupt records remain protected while the museum is readable"
+      ],
+      "status": "passed",
+      "durationMs": 926,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "alias redirects once, keyboard skip does not change route and mobile menu has real focus targets"
+      ],
+      "status": "passed",
+      "durationMs": 1857,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "navigation keeps the opened menu through reading, page switches and browser history"
+      ],
+      "status": "passed",
+      "durationMs": 4605,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "legacy product entry uses the same project and can save an editor change in Chromium"
+      ],
+      "status": "passed",
+      "durationMs": 1533,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "static product introduction remains readable without JavaScript"
+      ],
+      "status": "passed",
+      "durationMs": 620,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "all three real mouse grips change pose and reload saves the final editor without touching story"
+      ],
+      "status": "passed",
+      "durationMs": 5632,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "quick input-only trailing save and native change keep the final range and facing on reload"
+      ],
+      "status": "passed",
+      "durationMs": 2035,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "grip arrow keys use one clock, key release/blur stop motion and native range arrows still work"
+      ],
+      "status": "passed",
+      "durationMs": 1235,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "action selection, pause/resume, hidden page and long gaps retain time without catch-up"
+      ],
+      "status": "passed",
+      "durationMs": 1945,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "all five actions step visibly, keep the axe within the curtain and do not start a story"
+      ],
+      "status": "passed",
+      "durationMs": 6757,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "reduced motion uses explicit 250ms steps and never launches a loop"
+      ],
+      "status": "passed",
+      "durationMs": 900,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "actual touch drag cancels cleanly and fallback touch handles unrelated identifiers and multiple ends"
+      ],
+      "status": "passed",
+      "durationMs": 3858,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "import during an action archives the latest old pose and never overwrites the new project"
+      ],
+      "status": "passed",
+      "durationMs": 2200,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "save failure keeps the final pose exportable and automatic input never retries disk writes"
+      ],
+      "status": "passed",
+      "durationMs": 3267,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "memory-only progress stays memory after practice until an explicit save"
+      ],
+      "status": "passed",
+      "durationMs": 5077,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "Canvas failure disables input and ten playing remounts clear every practice callback"
+      ],
+      "status": "passed",
+      "durationMs": 9008,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "probe.spec.ts",
+      "title": [
+        "production canvas responds to keyboard and has no horizontal overflow"
+      ],
+      "status": "passed",
+      "durationMs": 1050,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "probe.spec.ts",
+      "title": [
+        "commits, reloads and rolls back in actual browser IndexedDB"
+      ],
+      "status": "passed",
+      "durationMs": 1286,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "probe.spec.ts",
+      "title": [
+        "stale second tab keeps its unsaved sample and reports a conflict"
+      ],
+      "status": "passed",
+      "durationMs": 1544,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "probe.spec.ts",
+      "title": [
+        "denied storage preserves an editable sample and offers a real download"
+      ],
+      "status": "passed",
+      "durationMs": 1069,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "probe.spec.ts",
+      "title": [
+        "legacy production chunks operate in Chromium smoke check, not an IE test"
+      ],
+      "status": "passed",
+      "durationMs": 1385,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "probe.spec.ts",
+      "title": [
+        "readable story and museum introduction survives disabled JavaScript"
+      ],
+      "status": "passed",
+      "durationMs": 768,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "probe.spec.ts",
+      "title": [
+        "Canvas initialization failure leaves honest readable fallback"
+      ],
+      "status": "passed",
+      "durationMs": 414,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "formal project autosaves and resumes identity and editing choices after real reload"
+      ],
+      "status": "passed",
+      "durationMs": 1848,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "imports a real project file as a new project without altering frozen cast or checkpoint"
+      ],
+      "status": "passed",
+      "durationMs": 1125,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "malformed and future-version file imports leave the existing current project intact"
+      ],
+      "status": "passed",
+      "durationMs": 1230,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "pending replacement preserves continuous typing and can be canceled without losing queued edits"
+      ],
+      "status": "passed",
+      "durationMs": 1569,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "new project autosaves keep the previous project recoverable"
+      ],
+      "status": "passed",
+      "durationMs": 1610,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "damaged draft is quarantined and backup can be edited, saved and reloaded"
+      ],
+      "status": "passed",
+      "durationMs": 1763,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "unknown stored versions remain exportable and cannot be overwritten through recovery"
+      ],
+      "status": "passed",
+      "durationMs": 899,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "two tabs retain both versions on conflict and takeover requires an explicit action"
+      ],
+      "status": "passed",
+      "durationMs": 1826,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "storage denial keeps an honest in-memory draft with a working project file download"
+      ],
+      "status": "passed",
+      "durationMs": 738,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "formal store and file export operate through legacy production chunks in Chromium smoke check"
+      ],
+      "status": "passed",
+      "durationMs": 1145,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "quick-trial.spec.ts",
+      "title": [
+        "quick trial keeps the formal draft unchanged, pauses at both operations and ends before the mountain opens"
+      ],
+      "status": "passed",
+      "durationMs": 28936,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "quick-trial.spec.ts",
+      "title": [
+        "pause, lost focus, restart and closing leave no active trial clock"
+      ],
+      "status": "passed",
+      "durationMs": 9692,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "quick-trial.spec.ts",
+      "title": [
+        "a failed curtain asset reports failure and retries without starting time or changing the draft"
+      ],
+      "status": "passed",
+      "durationMs": 8266,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "quick-trial.spec.ts",
+      "title": [
+        "320px trial, keyboard close and repeated entry retain a single usable curtain"
+      ],
+      "status": "passed",
+      "durationMs": 7665,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "quick-trial.spec.ts",
+      "title": [
+        "opening and closing the trial preserves the current performance"
+      ],
+      "status": "passed",
+      "durationMs": 2130,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "quick-trial.spec.ts",
+      "title": [
+        "native MP3 trial ends all nine spoken lines before its no-spoiler invitation"
+      ],
+      "status": "passed",
+      "durationMs": 93029,
+      "retry": 0,
+      "errors": [],
+      "attachments": [
+        {
+          "name": "native-trial",
+          "value": {
+            "ended": [
+              "http://127.0.0.1:4173/audio/voice/4e32d977bdab8c8cdbb55634.mp3",
+              "http://127.0.0.1:4173/audio/voice/0f73d23acee654e1461c301c.mp3",
+              "http://127.0.0.1:4173/audio/voice/1de29eded9315c81c0b0ca0e.mp3",
+              "http://127.0.0.1:4173/audio/voice/07396b1e911ae12271d81557.mp3",
+              "http://127.0.0.1:4173/audio/voice/ecdd3f678ce257d58dba5d63.mp3",
+              "http://127.0.0.1:4173/audio/voice/1e602caf36eeb79cd022d56c.mp3",
+              "http://127.0.0.1:4173/audio/voice/43d72a0e878b63fc3e2f4bf1.mp3",
+              "http://127.0.0.1:4173/audio/voice/af4a7fe3a748c5046c5ea4ef.mp3",
+              "http://127.0.0.1:4173/audio/voice/26d5e126b8062739f89c1a23.mp3"
+            ],
+            "errors": [],
+            "resumed": 2
+          }
+        }
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "reset-history.spec.ts",
+      "title": [
+        "clear history offers export and cancellation, then atomically restores a fresh-user home"
+      ],
+      "status": "passed",
+      "durationMs": 2278,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "reset-history.spec.ts",
+      "title": [
+        "an old live tab cannot write discarded history back after reset"
+      ],
+      "status": "passed",
+      "durationMs": 5858,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "reset-history.spec.ts",
+      "title": [
+        "a failed reset preserves all history and the retry really starts fresh"
+      ],
+      "status": "passed",
+      "durationMs": 2840,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "retired-record.spec.ts",
+      "title": [
+        "unsupported story identity 1 cannot mount or overwrite its raw record"
+      ],
+      "status": "passed",
+      "durationMs": 1456,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "retired-record.spec.ts",
+      "title": [
+        "unsupported story identity 2 cannot mount or overwrite its raw record"
+      ],
+      "status": "passed",
+      "durationMs": 1254,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "retired-record.spec.ts",
+      "title": [
+        "unsupported story identity 3 cannot mount or overwrite its raw record"
+      ],
+      "status": "passed",
+      "durationMs": 1244,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "retired-record.spec.ts",
+      "title": [
+        "unsupported story identity 4 cannot mount or overwrite its raw record"
+      ],
+      "status": "passed",
+      "durationMs": 1349,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "retired-record.spec.ts",
+      "title": [
+        "unsupported story identity 6 cannot mount or overwrite its raw record"
+      ],
+      "status": "passed",
+      "durationMs": 1297,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "site music defaults on, unlocks on the first ordinary click and retains manual mute across routes"
+      ],
+      "status": "passed",
+      "durationMs": 2354,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "reunion first two seconds stay quiet and paused story stops the actual music media"
+      ],
+      "status": "failed",
+      "durationMs": 6299,
+      "retry": 0,
+      "errors": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 1\nReceived: 2\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  30 |   await page.locator('#story-runtime').click();await advance(page,1900);expect(await stats(page)).toEqual([]);\n  31 |   await advance(page,200);await expect(page.locator('#site-music-status')).toHaveAttribute('data-state','enabled');\n> 32 |   await expect.poll(async()=>(await stats(page)).length).toBe(1);expect((await stats(page))[0]!.src).toContain('jinghu-instrumental');\n     |                                                          ^\n  33 |   await page.locator('#story-pause').click();expect((await stats(page))[0]!.paused).toBe(true);\n  34 | });\n  35 | test('only actual curtain playback selects vocals, pause and mute release the media',async({page})=>{\n    at tests\\e2e\\site-music.spec.ts:32:58"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "only actual curtain playback selects vocals, pause and mute release the media"
+      ],
+      "status": "failed",
+      "durationMs": 1969,
+      "retry": 0,
+      "errors": [
+        "Error: expect(received).toContain(expected) // indexOf\n\nExpected substring: \"jingju-curtain.mp3\"\nReceived string:    \"./audio/voice/d197bfec7f20ff02e6003c47.mp3\"\n\n  37 |   await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','playing');await page.locator('#story-runtime').click();\n  38 |   await advance(page,100);await expect(page.locator('#site-music-status')).toHaveAttribute('data-state','enabled');\n> 39 |   expect((await stats(page))[0]!.src).toContain('jingju-curtain.mp3');await expect(page.locator('#site-music-credit')).toHaveCount(0);\n     |                                       ^\n  40 |   await page.locator('#story-pause').click();expect((await stats(page))[0]!.paused).toBe(true);\n  41 |   await advance(page,1000);expect((await stats(page))[0]!.paused).toBe(true);\n  42 |   await page.locator('#site-music-toggle').click();expect((await stats(page))[0]!.src).toBeNull();\n    at tests\\e2e\\site-music.spec.ts:39:39"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "failed audio file reports a real error and the next ordinary gesture retries"
+      ],
+      "status": "passed",
+      "durationMs": 2603,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry blocked via pointer keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "durationMs": 2083,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry blocked via Enter keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "durationMs": 1434,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry blocked via Space keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "durationMs": 1321,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry resource via pointer keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "durationMs": 2377,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry resource via Enter keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "durationMs": 1557,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry resource via Space keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "durationMs": 1536,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "ten route exits keep one active global player and actual pagehide releases its source"
+      ],
+      "status": "passed",
+      "durationMs": 1262,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip home/shared/call-first/wait preserves choices and read-only replay"
+      ],
+      "status": "failed",
+      "durationMs": 9620,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toBeDisabled() failed\n\nLocator:  locator('#story-next-node')\nExpected: disabled\nReceived: enabled\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toBeDisabled\" locator('#story-next-node') with timeout 5000ms\n  - waiting for locator('#story-next-node')\n    13 × locator resolved to <button id=\"story-next-node\" class=\"button secondary story-next-node\">请先选择去向</button>\n       - unexpected value \"enabled\"\n\n\n  16 |   if(id==='craft')await page.locator('#story-confirm-craft').click();\n  17 |   else if(node.kind==='choice'){\n> 18 |    await expect(page.locator('#story-next-node')).toBeDisabled();if(await page.locator('#story-play').isEnabled())await page.locator('#story-play').click();await page.evaluate(ms=>Reflect.get(window,'__advance')(ms),node.guidedTiming.targetMs);\n     |                                                   ^\n  19 |    const button=id==='journey-choice'?'#story-choice-journey-'+run.journeyIntent:id==='mountain-pact-choice'?'#story-choice-pact-'+run.mountainPact:id==='ending-choice'?'#story-choice-final-'+run.finalAction:'#story-'+approach;await page.locator(button).click();\n  20 |   }else await page.locator('#story-next-node').click();\n  21 |   await expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');\n    at tests\\e2e\\skip-routes.spec.ts:18:51"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip home/shared/call-first/fulfill preserves choices and read-only replay"
+      ],
+      "status": "failed",
+      "durationMs": 8129,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toBeDisabled() failed\n\nLocator:  locator('#story-next-node')\nExpected: disabled\nReceived: enabled\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toBeDisabled\" locator('#story-next-node') with timeout 5000ms\n  - waiting for locator('#story-next-node')\n    14 × locator resolved to <button id=\"story-next-node\" class=\"button secondary story-next-node\">请先选择去向</button>\n       - unexpected value \"enabled\"\n\n\n  16 |   if(id==='craft')await page.locator('#story-confirm-craft').click();\n  17 |   else if(node.kind==='choice'){\n> 18 |    await expect(page.locator('#story-next-node')).toBeDisabled();if(await page.locator('#story-play').isEnabled())await page.locator('#story-play').click();await page.evaluate(ms=>Reflect.get(window,'__advance')(ms),node.guidedTiming.targetMs);\n     |                                                   ^\n  19 |    const button=id==='journey-choice'?'#story-choice-journey-'+run.journeyIntent:id==='mountain-pact-choice'?'#story-choice-pact-'+run.mountainPact:id==='ending-choice'?'#story-choice-final-'+run.finalAction:'#story-'+approach;await page.locator(button).click();\n  20 |   }else await page.locator('#story-next-node').click();\n  21 |   await expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');\n    at tests\\e2e\\skip-routes.spec.ts:18:51"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip open-road/shared/call-first/wait preserves choices and read-only replay"
+      ],
+      "status": "failed",
+      "durationMs": 8580,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toBeDisabled() failed\n\nLocator:  locator('#story-next-node')\nExpected: disabled\nReceived: enabled\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toBeDisabled\" locator('#story-next-node') with timeout 5000ms\n  - waiting for locator('#story-next-node')\n    14 × locator resolved to <button id=\"story-next-node\" class=\"button secondary story-next-node\">请先选择去向</button>\n       - unexpected value \"enabled\"\n\n\n  16 |   if(id==='craft')await page.locator('#story-confirm-craft').click();\n  17 |   else if(node.kind==='choice'){\n> 18 |    await expect(page.locator('#story-next-node')).toBeDisabled();if(await page.locator('#story-play').isEnabled())await page.locator('#story-play').click();await page.evaluate(ms=>Reflect.get(window,'__advance')(ms),node.guidedTiming.targetMs);\n     |                                                   ^\n  19 |    const button=id==='journey-choice'?'#story-choice-journey-'+run.journeyIntent:id==='mountain-pact-choice'?'#story-choice-pact-'+run.mountainPact:id==='ending-choice'?'#story-choice-final-'+run.finalAction:'#story-'+approach;await page.locator(button).click();\n  20 |   }else await page.locator('#story-next-node').click();\n  21 |   await expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');\n    at tests\\e2e\\skip-routes.spec.ts:18:51"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip open-road/shared/call-first/fulfill preserves choices and read-only replay"
+      ],
+      "status": "failed",
+      "durationMs": 8786,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toBeDisabled() failed\n\nLocator:  locator('#story-next-node')\nExpected: disabled\nReceived: enabled\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toBeDisabled\" locator('#story-next-node') with timeout 5000ms\n  - waiting for locator('#story-next-node')\n    14 × locator resolved to <button id=\"story-next-node\" class=\"button secondary story-next-node\">请先选择去向</button>\n       - unexpected value \"enabled\"\n\n\n  16 |   if(id==='craft')await page.locator('#story-confirm-craft').click();\n  17 |   else if(node.kind==='choice'){\n> 18 |    await expect(page.locator('#story-next-node')).toBeDisabled();if(await page.locator('#story-play').isEnabled())await page.locator('#story-play').click();await page.evaluate(ms=>Reflect.get(window,'__advance')(ms),node.guidedTiming.targetMs);\n     |                                                   ^\n  19 |    const button=id==='journey-choice'?'#story-choice-journey-'+run.journeyIntent:id==='mountain-pact-choice'?'#story-choice-pact-'+run.mountainPact:id==='ending-choice'?'#story-choice-final-'+run.finalAction:'#story-'+approach;await page.locator(button).click();\n  20 |   }else await page.locator('#story-next-node').click();\n  21 |   await expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');\n    at tests\\e2e\\skip-routes.spec.ts:18:51"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip home/shared/split-first/wait preserves choices and read-only replay"
+      ],
+      "status": "failed",
+      "durationMs": 8675,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toBeDisabled() failed\n\nLocator:  locator('#story-next-node')\nExpected: disabled\nReceived: enabled\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toBeDisabled\" locator('#story-next-node') with timeout 5000ms\n  - waiting for locator('#story-next-node')\n    14 × locator resolved to <button id=\"story-next-node\" class=\"button secondary story-next-node\">请先选择去向</button>\n       - unexpected value \"enabled\"\n\n\n  16 |   if(id==='craft')await page.locator('#story-confirm-craft').click();\n  17 |   else if(node.kind==='choice'){\n> 18 |    await expect(page.locator('#story-next-node')).toBeDisabled();if(await page.locator('#story-play').isEnabled())await page.locator('#story-play').click();await page.evaluate(ms=>Reflect.get(window,'__advance')(ms),node.guidedTiming.targetMs);\n     |                                                   ^\n  19 |    const button=id==='journey-choice'?'#story-choice-journey-'+run.journeyIntent:id==='mountain-pact-choice'?'#story-choice-pact-'+run.mountainPact:id==='ending-choice'?'#story-choice-final-'+run.finalAction:'#story-'+approach;await page.locator(button).click();\n  20 |   }else await page.locator('#story-next-node').click();\n  21 |   await expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');\n    at tests\\e2e\\skip-routes.spec.ts:18:51"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip home/shared/split-first/fulfill preserves choices and read-only replay"
+      ],
+      "status": "failed",
+      "durationMs": 9007,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toBeDisabled() failed\n\nLocator:  locator('#story-next-node')\nExpected: disabled\nReceived: enabled\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toBeDisabled\" locator('#story-next-node') with timeout 5000ms\n  - waiting for locator('#story-next-node')\n    14 × locator resolved to <button id=\"story-next-node\" class=\"button secondary story-next-node\">请先选择去向</button>\n       - unexpected value \"enabled\"\n\n\n  16 |   if(id==='craft')await page.locator('#story-confirm-craft').click();\n  17 |   else if(node.kind==='choice'){\n> 18 |    await expect(page.locator('#story-next-node')).toBeDisabled();if(await page.locator('#story-play').isEnabled())await page.locator('#story-play').click();await page.evaluate(ms=>Reflect.get(window,'__advance')(ms),node.guidedTiming.targetMs);\n     |                                                   ^\n  19 |    const button=id==='journey-choice'?'#story-choice-journey-'+run.journeyIntent:id==='mountain-pact-choice'?'#story-choice-pact-'+run.mountainPact:id==='ending-choice'?'#story-choice-final-'+run.finalAction:'#story-'+approach;await page.locator(button).click();\n  20 |   }else await page.locator('#story-next-node').click();\n  21 |   await expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');\n    at tests\\e2e\\skip-routes.spec.ts:18:51"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip open-road/shared/split-first/wait preserves choices and read-only replay"
+      ],
+      "status": "failed",
+      "durationMs": 9502,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toBeDisabled() failed\n\nLocator:  locator('#story-next-node')\nExpected: disabled\nReceived: enabled\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toBeDisabled\" locator('#story-next-node') with timeout 5000ms\n  - waiting for locator('#story-next-node')\n    14 × locator resolved to <button id=\"story-next-node\" class=\"button secondary story-next-node\">请先选择去向</button>\n       - unexpected value \"enabled\"\n\n\n  16 |   if(id==='craft')await page.locator('#story-confirm-craft').click();\n  17 |   else if(node.kind==='choice'){\n> 18 |    await expect(page.locator('#story-next-node')).toBeDisabled();if(await page.locator('#story-play').isEnabled())await page.locator('#story-play').click();await page.evaluate(ms=>Reflect.get(window,'__advance')(ms),node.guidedTiming.targetMs);\n     |                                                   ^\n  19 |    const button=id==='journey-choice'?'#story-choice-journey-'+run.journeyIntent:id==='mountain-pact-choice'?'#story-choice-pact-'+run.mountainPact:id==='ending-choice'?'#story-choice-final-'+run.finalAction:'#story-'+approach;await page.locator(button).click();\n  20 |   }else await page.locator('#story-next-node').click();\n  21 |   await expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');\n    at tests\\e2e\\skip-routes.spec.ts:18:51"
+      ]
+    }
+  ]
+}

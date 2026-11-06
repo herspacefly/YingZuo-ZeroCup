@@ -1,0 +1,448 @@
+{
+  "name": "final-retry",
+  "startTime": "2026-11-06T04:55:21.846Z",
+  "durationMs": 40405.753,
+  "reportedStats": {
+    "startTime": "2026-11-06T04:55:21.846Z",
+    "duration": 40405.753,
+    "expected": 9,
+    "skipped": 2,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "notRunExcluded": 0,
+  "globalErrors": [],
+  "cases": [
+    {
+      "project": "desktop-chromium",
+      "file": "museum-distinct.spec.ts",
+      "title": [
+        "three rods respond to real drag, keyboard and equivalent buttons without saving posture"
+      ],
+      "status": "passed",
+      "durationMs": 9138,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum-distinct.spec.ts",
+      "title": [
+        "three rods respond to real drag, keyboard and equivalent buttons without saving posture"
+      ],
+      "status": "passed",
+      "durationMs": 9265,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "home background card aligns with the combined edges of the two feature cards"
+      ],
+      "status": "passed",
+      "durationMs": 668,
+      "retry": 0,
+      "errors": [],
+      "attachments": [
+        {
+          "name": "home-edges",
+          "value": {
+            "card": {
+              "left": 52,
+              "right": 1388,
+              "width": 1336
+            },
+            "features": {
+              "left": 52,
+              "right": 1388,
+              "width": 1336
+            },
+            "overflow": 0
+          }
+        }
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "wide curtain retains its original height while only background painting expands horizontally"
+      ],
+      "status": "passed",
+      "durationMs": 5873,
+      "retry": 0,
+      "errors": [],
+      "attachments": [
+        {
+          "name": "background-and-actor-scale",
+          "value": {
+            "geometry": {
+              "screen": {
+                "x": 52,
+                "y": 135.984375,
+                "width": 922,
+                "height": 595.53125,
+                "right": 974
+              },
+              "slot": {
+                "x": 52,
+                "y": 42.6875,
+                "width": 922,
+                "height": 922.796875,
+                "right": 974
+              },
+              "panel": {
+                "x": 998,
+                "y": -522.671875,
+                "width": 316,
+                "height": 1488.15625,
+                "right": 1314
+              },
+              "caption": {
+                "x": 52,
+                "y": 10,
+                "width": 1262,
+                "height": 102.46875,
+                "right": 1314
+              },
+              "canvas": {
+                "x": 62,
+                "y": 145.984375,
+                "width": 902,
+                "height": 575.53125,
+                "right": 964
+              },
+              "backing": {
+                "width": 902,
+                "height": 576
+              },
+              "overflow": 0
+            },
+            "background": {
+              "width": 902,
+              "height": 576,
+              "canvasWidth": 902,
+              "canvasHeight": 576
+            },
+            "scales": [
+              [
+                384,
+                -384
+              ],
+              [
+                0.96,
+                0.96
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                384,
+                -384
+              ],
+              [
+                -0.96,
+                0.96
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "stretched background retains real rod dragging and the saved checkpoint"
+      ],
+      "status": "passed",
+      "durationMs": 1708,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "paused caption resizing redraws the curtain and repositions input geometry"
+      ],
+      "status": "passed",
+      "durationMs": 1720,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "home background card aligns with the combined edges of the two feature cards"
+      ],
+      "status": "passed",
+      "durationMs": 790,
+      "retry": 0,
+      "errors": [],
+      "attachments": [
+        {
+          "name": "home-edges",
+          "value": {
+            "card": {
+              "left": 20,
+              "right": 370,
+              "width": 350
+            },
+            "features": {
+              "left": 20,
+              "right": 370,
+              "width": 350
+            },
+            "overflow": 0
+          }
+        }
+      ]
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "wide curtain retains its original height while only background painting expands horizontally"
+      ],
+      "status": "passed",
+      "durationMs": 5866,
+      "retry": 0,
+      "errors": [],
+      "attachments": [
+        {
+          "name": "background-and-actor-scale",
+          "value": {
+            "geometry": {
+              "screen": {
+                "x": 20,
+                "y": -960.296875,
+                "width": 350,
+                "height": 282.5,
+                "right": 370
+              },
+              "slot": {
+                "x": 20,
+                "y": -1053.59375,
+                "width": 350,
+                "height": 609.765625,
+                "right": 370
+              },
+              "panel": {
+                "x": 20,
+                "y": -421.828125,
+                "width": 350,
+                "height": 1398.234375,
+                "right": 370
+              },
+              "caption": {
+                "x": 20,
+                "y": 6,
+                "width": 350,
+                "height": 156.328125,
+                "right": 370
+              },
+              "canvas": {
+                "x": 30,
+                "y": -950.296875,
+                "width": 330,
+                "height": 262.5,
+                "right": 360
+              },
+              "backing": {
+                "width": 512,
+                "height": 408
+              },
+              "overflow": 0
+            },
+            "background": {
+              "width": 512,
+              "height": 384,
+              "canvasWidth": 512,
+              "canvasHeight": 408
+            },
+            "scales": [
+              [
+                256,
+                -256
+              ],
+              [
+                0.96,
+                0.96
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                256,
+                -256
+              ],
+              [
+                -0.96,
+                0.96
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "stretched background retains real rod dragging and the saved checkpoint"
+      ],
+      "status": "passed",
+      "durationMs": 1405,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "paused caption resizing redraws the curtain and repositions input geometry"
+      ],
+      "status": "skipped",
+      "durationMs": 101,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "quick-trial.spec.ts",
+      "title": [
+        "native MP3 trial ends all nine spoken lines before its no-spoiler invitation"
+      ],
+      "status": "skipped",
+      "durationMs": 102,
+      "retry": 0,
+      "errors": []
+    }
+  ]
+}

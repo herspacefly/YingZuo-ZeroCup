@@ -1,0 +1,1502 @@
+{
+  "name": "entry-clock",
+  "startTime": "2026-11-05T13:35:26.118Z",
+  "durationMs": 27443.012,
+  "reportedStats": {
+    "startTime": "2026-11-05T13:35:26.118Z",
+    "duration": 27443.012,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "notRunExcluded": 0,
+  "globalErrors": [],
+  "cases": [
+    {
+      "project": "desktop-chromium",
+      "file": "clock-native-start.spec.ts",
+      "title": [
+        "twelve native-clock play clicks advance without falsely pausing at the first frame"
+      ],
+      "status": "passed",
+      "durationMs": 8575,
+      "retry": 0,
+      "errors": [],
+      "attachments": [
+        {
+          "name": "native-clock-starts",
+          "value": {
+            "nativeClock": true,
+            "noClockOverrides": true,
+            "samples": [
+              {
+                "before": 141,
+                "after": 274
+              },
+              {
+                "before": 391,
+                "after": 495
+              },
+              {
+                "before": 695,
+                "after": 786
+              },
+              {
+                "before": 986,
+                "after": 1151
+              },
+              {
+                "before": 1268,
+                "after": 1447
+              },
+              {
+                "before": 1781,
+                "after": 1980
+              },
+              {
+                "before": 2230,
+                "after": 2345
+              },
+              {
+                "before": 2529,
+                "after": 2712
+              },
+              {
+                "before": 3095,
+                "after": 3195
+              },
+              {
+                "before": 3429,
+                "after": 3502
+              },
+              {
+                "before": 3752,
+                "after": 3882
+              },
+              {
+                "before": 4099,
+                "after": 4237
+              }
+            ],
+            "frames": [
+              {
+                "requested": 659.1000000238419,
+                "timestamp": 616.4,
+                "delivered": 705.7999999523163
+              },
+              {
+                "requested": 706,
+                "timestamp": 749.8,
+                "delivered": 759
+              },
+              {
+                "requested": 769,
+                "timestamp": 799.8,
+                "delivered": 815.1000000238419
+              },
+              {
+                "requested": 983.2000000476837,
+                "timestamp": 1016.5,
+                "delivered": 1024
+              },
+              {
+                "requested": 1027.3999999761581,
+                "timestamp": 1066.5,
+                "delivered": 1075.8999999761581
+              },
+              {
+                "requested": 1078,
+                "timestamp": 1116.4,
+                "delivered": 1128.3999999761581
+              },
+              {
+                "requested": 1132.1000000238419,
+                "timestamp": 1183.1,
+                "delivered": 1186.6000000238419
+              },
+              {
+                "requested": 1190.6000000238419,
+                "timestamp": 1233.1,
+                "delivered": 1241.8999999761581
+              },
+              {
+                "requested": 1378.6000000238419,
+                "timestamp": 1416.464,
+                "delivered": 1424.6000000238419
+              },
+              {
+                "requested": 1427.3999999761581,
+                "timestamp": 1483.1,
+                "delivered": 1499
+              },
+              {
+                "requested": 1501.5,
+                "timestamp": 1549.8,
+                "delivered": 1557.7000000476837
+              },
+              {
+                "requested": 1560.7000000476837,
+                "timestamp": 1633.1,
+                "delivered": 1633.5
+              },
+              {
+                "requested": 1637.3999999761581,
+                "timestamp": 1683,
+                "delivered": 1695.1000000238419
+              },
+              {
+                "requested": 1892.2999999523163,
+                "timestamp": 1933.1,
+                "delivered": 1941.7999999523163
+              },
+              {
+                "requested": 1945.2999999523163,
+                "timestamp": 1983.1,
+                "delivered": 1994.2999999523163
+              },
+              {
+                "requested": 1997.1000000238419,
+                "timestamp": 2049.7,
+                "delivered": 2052
+              },
+              {
+                "requested": 2054.899999976158,
+                "timestamp": 2116.4,
+                "delivered": 2118.399999976158
+              },
+              {
+                "requested": 2121.399999976158,
+                "timestamp": 2183.1,
+                "delivered": 2194
+              },
+              {
+                "requested": 2384.2000000476837,
+                "timestamp": 2399.7,
+                "delivered": 2415.399999976158
+              },
+              {
+                "requested": 2418.2000000476837,
+                "timestamp": 2449.7,
+                "delivered": 2461.399999976158
+              },
+              {
+                "requested": 2463.2999999523163,
+                "timestamp": 2499.7,
+                "delivered": 2508.7000000476837
+              },
+              {
+                "requested": 2511.399999976158,
+                "timestamp": 2549.7,
+                "delivered": 2560.7000000476837
+              },
+              {
+                "requested": 2563.2000000476837,
+                "timestamp": 2599.7,
+                "delivered": 2615.2999999523163
+              },
+              {
+                "requested": 2617.899999976158,
+                "timestamp": 2666.4,
+                "delivered": 2671
+              },
+              {
+                "requested": 3120.2999999523163,
+                "timestamp": 3166.396,
+                "delivered": 3170.399999976158
+              },
+              {
+                "requested": 3178.100000023842,
+                "timestamp": 3216.4,
+                "delivered": 3240.7000000476837
+              },
+              {
+                "requested": 3250.7999999523163,
+                "timestamp": 3299.7,
+                "delivered": 3316.100000023842
+              },
+              {
+                "requested": 3324.5,
+                "timestamp": 3433,
+                "delivered": 3441.2000000476837
+              },
+              {
+                "requested": 3447.600000023842,
+                "timestamp": 3516.3,
+                "delivered": 3517.5
+              },
+              {
+                "requested": 3521,
+                "timestamp": 3583,
+                "delivered": 3588.7000000476837
+              },
+              {
+                "requested": 3595.7000000476837,
+                "timestamp": 3633,
+                "delivered": 3647.7000000476837
+              },
+              {
+                "requested": 3900.7000000476837,
+                "timestamp": 3899.7,
+                "delivered": 3912
+              },
+              {
+                "requested": 3912,
+                "timestamp": 3966.3,
+                "delivered": 3970.899999976158
+              },
+              {
+                "requested": 3976.399999976158,
+                "timestamp": 4033,
+                "delivered": 4034.100000023842
+              },
+              {
+                "requested": 4043.2999999523163,
+                "timestamp": 4099.6,
+                "delivered": 4115.200000047684
+              },
+              {
+                "requested": 4121.5,
+                "timestamp": 4183,
+                "delivered": 4190.399999976158
+              },
+              {
+                "requested": 4198.799999952316,
+                "timestamp": 4233,
+                "delivered": 4250.700000047684
+              },
+              {
+                "requested": 4258.399999976158,
+                "timestamp": 4316.3,
+                "delivered": 4326.299999952316
+              },
+              {
+                "requested": 4332.299999952316,
+                "timestamp": 4349.6,
+                "delivered": 4365.899999976158
+              },
+              {
+                "requested": 4650.600000023842,
+                "timestamp": 4666.3,
+                "delivered": 4672.399999976158
+              },
+              {
+                "requested": 4680,
+                "timestamp": 4716.2,
+                "delivered": 4729.200000047684
+              },
+              {
+                "requested": 4733.600000023842,
+                "timestamp": 4766.3,
+                "delivered": 4786.799999952316
+              },
+              {
+                "requested": 4794.700000047684,
+                "timestamp": 4849.6,
+                "delivered": 4860.399999976158
+              },
+              {
+                "requested": 4867.799999952316,
+                "timestamp": 4899.6,
+                "delivered": 4911.100000023842
+              },
+              {
+                "requested": 4916.399999976158,
+                "timestamp": 4949.6,
+                "delivered": 4954.5
+              },
+              {
+                "requested": 5183.299999952316,
+                "timestamp": 5182.998,
+                "delivered": 5189.600000023842
+              },
+              {
+                "requested": 5189.700000047684,
+                "timestamp": 5216.2,
+                "delivered": 5225.600000023842
+              },
+              {
+                "requested": 5231,
+                "timestamp": 5266.3,
+                "delivered": 5274.600000023842
+              },
+              {
+                "requested": 5280.399999976158,
+                "timestamp": 5316.2,
+                "delivered": 5316.399999976158
+              },
+              {
+                "requested": 5321.399999976158,
+                "timestamp": 5366.3,
+                "delivered": 5373.5
+              },
+              {
+                "requested": 5378.799999952316,
+                "timestamp": 5449.6,
+                "delivered": 5459.299999952316
+              },
+              {
+                "requested": 5466.5,
+                "timestamp": 5516.2,
+                "delivered": 5526.299999952316
+              },
+              {
+                "requested": 5529.399999976158,
+                "timestamp": 5666.3,
+                "delivered": 5676.600000023842
+              },
+              {
+                "requested": 5680.600000023842,
+                "timestamp": 5716.2,
+                "delivered": 5720.899999976158
+              },
+              {
+                "requested": 5727.899999976158,
+                "timestamp": 5749.6,
+                "delivered": 5760.299999952316
+              },
+              {
+                "requested": 5982.399999976158,
+                "timestamp": 5999.6,
+                "delivered": 6015.200000047684
+              },
+              {
+                "requested": 6019.799999952316,
+                "timestamp": 6082.9,
+                "delivered": 6098.299999952316
+              },
+              {
+                "requested": 6103.5,
+                "timestamp": 6132.9,
+                "delivered": 6147.5
+              },
+              {
+                "requested": 6152.200000047684,
+                "timestamp": 6199.5,
+                "delivered": 6201
+              },
+              {
+                "requested": 6206.700000047684,
+                "timestamp": 6266.2,
+                "delivered": 6279.899999976158
+              },
+              {
+                "requested": 6288.899999976158,
+                "timestamp": 6316.2,
+                "delivered": 6319.200000047684
+              },
+              {
+                "requested": 6576.100000023842,
+                "timestamp": 6599.564,
+                "delivered": 6601.600000023842
+              },
+              {
+                "requested": 6605.100000023842,
+                "timestamp": 6649.5,
+                "delivered": 6660.799999952316
+              },
+              {
+                "requested": 6667.899999976158,
+                "timestamp": 6699.6,
+                "delivered": 6710.100000023842
+              },
+              {
+                "requested": 6717.799999952316,
+                "timestamp": 6749.5,
+                "delivered": 6755
+              },
+              {
+                "requested": 6759.899999976158,
+                "timestamp": 6799.6,
+                "delivered": 6810.600000023842
+              },
+              {
+                "requested": 6818.299999952316,
+                "timestamp": 6849.5,
+                "delivered": 6861.700000047684
+              },
+              {
+                "requested": 6870.799999952316,
+                "timestamp": 6899.5,
+                "delivered": 6906.899999976158
+              },
+              {
+                "requested": 7136.399999976158,
+                "timestamp": 7166.2,
+                "delivered": 7169
+              },
+              {
+                "requested": 7175.100000023842,
+                "timestamp": 7216.2,
+                "delivered": 7223.100000023842
+              },
+              {
+                "requested": 7230.100000023842,
+                "timestamp": 7266.1,
+                "delivered": 7272.399999976158
+              },
+              {
+                "requested": 7279.399999976158,
+                "timestamp": 7349.5,
+                "delivered": 7355.899999976158
+              },
+              {
+                "requested": 7360.299999952316,
+                "timestamp": 7432.8,
+                "delivered": 7438.600000023842
+              },
+              {
+                "requested": 7443.399999976158,
+                "timestamp": 7482.9,
+                "delivered": 7498.399999976158
+              },
+              {
+                "requested": 7777.899999976158,
+                "timestamp": 7799.564,
+                "delivered": 7812.799999952316
+              },
+              {
+                "requested": 7818.799999952316,
+                "timestamp": 7882.8,
+                "delivered": 7884.700000047684
+              },
+              {
+                "requested": 7888.799999952316,
+                "timestamp": 7916.1,
+                "delivered": 7924.299999952316
+              },
+              {
+                "requested": 7931.700000047684,
+                "timestamp": 7982.8,
+                "delivered": 7992.799999952316
+              },
+              {
+                "requested": 7999.899999976158,
+                "timestamp": 8049.5,
+                "delivered": 8053
+              },
+              {
+                "requested": 8060.200000047684,
+                "timestamp": 8099.5,
+                "delivered": 8110.399999976158
+              },
+              {
+                "requested": 8115.399999976158,
+                "timestamp": 8149.5,
+                "delivered": 8149.799999952316
+              }
+            ],
+            "diagnosticError": ""
+          }
+        }
+      ]
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "clock-native-start.spec.ts",
+      "title": [
+        "twelve native-clock play clicks advance without falsely pausing at the first frame"
+      ],
+      "status": "passed",
+      "durationMs": 7739,
+      "retry": 0,
+      "errors": [],
+      "attachments": [
+        {
+          "name": "native-clock-starts",
+          "value": {
+            "nativeClock": true,
+            "noClockOverrides": true,
+            "samples": [
+              {
+                "before": 217,
+                "after": 392
+              },
+              {
+                "before": 475,
+                "after": 509
+              },
+              {
+                "before": 625,
+                "after": 784
+              },
+              {
+                "before": 900,
+                "after": 958
+              },
+              {
+                "before": 1091,
+                "after": 1269
+              },
+              {
+                "before": 1568,
+                "after": 1710
+              },
+              {
+                "before": 1943,
+                "after": 2127
+              },
+              {
+                "before": 2360,
+                "after": 2507
+              },
+              {
+                "before": 2740,
+                "after": 2837
+              },
+              {
+                "before": 3070,
+                "after": 3167
+              },
+              {
+                "before": 3401,
+                "after": 3523
+              },
+              {
+                "before": 3723,
+                "after": 3862
+              }
+            ],
+            "frames": [
+              {
+                "requested": 984.1999999284744,
+                "timestamp": 900.9,
+                "delivered": 1053.6999999284744
+              },
+              {
+                "requested": 1053.8999999761581,
+                "timestamp": 1050.9,
+                "delivered": 1063
+              },
+              {
+                "requested": 1071.1999999284744,
+                "timestamp": 1067.6,
+                "delivered": 1083.1999999284744
+              },
+              {
+                "requested": 1088.3999999761581,
+                "timestamp": 1100.9,
+                "delivered": 1101.0999999046326
+              },
+              {
+                "requested": 1107.3999999761581,
+                "timestamp": 1117.5,
+                "delivered": 1124.0999999046326
+              },
+              {
+                "requested": 1129.5999999046326,
+                "timestamp": 1134.2,
+                "delivered": 1149.2999999523163
+              },
+              {
+                "requested": 1153,
+                "timestamp": 1167.6,
+                "delivered": 1169.2999999523163
+              },
+              {
+                "requested": 1173.3999999761581,
+                "timestamp": 1184.2,
+                "delivered": 1190.2999999523163
+              },
+              {
+                "requested": 1195,
+                "timestamp": 1200.9,
+                "delivered": 1215.5
+              },
+              {
+                "requested": 1375.8999999761581,
+                "timestamp": 1367.6,
+                "delivered": 1377
+              },
+              {
+                "requested": 1377.0999999046326,
+                "timestamp": 1384.2,
+                "delivered": 1402.2999999523163
+              },
+              {
+                "requested": 1405.5999999046326,
+                "timestamp": 1417.5,
+                "delivered": 1422.6999999284744
+              },
+              {
+                "requested": 1425.8999999761581,
+                "timestamp": 1434.3,
+                "delivered": 1445.6999999284744
+              },
+              {
+                "requested": 1449,
+                "timestamp": 1450.9,
+                "delivered": 1466.8999999761581
+              },
+              {
+                "requested": 1469.8999999761581,
+                "timestamp": 1484.2,
+                "delivered": 1487.3999999761581
+              },
+              {
+                "requested": 1491,
+                "timestamp": 1500.9,
+                "delivered": 1509
+              },
+              {
+                "requested": 1512.6999999284744,
+                "timestamp": 1517.5,
+                "delivered": 1530.1999999284744
+              },
+              {
+                "requested": 1533.5,
+                "timestamp": 1550.8,
+                "delivered": 1552
+              },
+              {
+                "requested": 1555.5,
+                "timestamp": 1567.5,
+                "delivered": 1575.0999999046326
+              },
+              {
+                "requested": 1579.0999999046326,
+                "timestamp": 1584.2,
+                "delivered": 1597.1999999284744
+              },
+              {
+                "requested": 1600.0999999046326,
+                "timestamp": 1617.5,
+                "delivered": 1620.1999999284744
+              },
+              {
+                "requested": 1623.7999999523163,
+                "timestamp": 1634.2,
+                "delivered": 1640.5999999046326
+              },
+              {
+                "requested": 1750.5,
+                "timestamp": 1750.832,
+                "delivered": 1754.2999999523163
+              },
+              {
+                "requested": 1758.5999999046326,
+                "timestamp": 1767.5,
+                "delivered": 1775.8999999761581
+              },
+              {
+                "requested": 1779.3999999761581,
+                "timestamp": 1784.2,
+                "delivered": 1798.5999999046326
+              },
+              {
+                "requested": 1801.5999999046326,
+                "timestamp": 1817.5,
+                "delivered": 1820.0999999046326
+              },
+              {
+                "requested": 1824.5999999046326,
+                "timestamp": 1834.2,
+                "delivered": 1841.1999999284744
+              },
+              {
+                "requested": 1845.3999999761581,
+                "timestamp": 1850.9,
+                "delivered": 1863.3999999761581
+              },
+              {
+                "requested": 1866.2999999523163,
+                "timestamp": 1884.2,
+                "delivered": 1886.3999999761581
+              },
+              {
+                "requested": 1890.5999999046326,
+                "timestamp": 1900.8,
+                "delivered": 1908.7999999523163
+              },
+              {
+                "requested": 2009.0999999046326,
+                "timestamp": 2000.866,
+                "delivered": 2013.0999999046326
+              },
+              {
+                "requested": 2013.0999999046326,
+                "timestamp": 2017.5,
+                "delivered": 2033.8999999761581
+              },
+              {
+                "requested": 2038.1999999284744,
+                "timestamp": 2050.8,
+                "delivered": 2054.1999999284744
+              },
+              {
+                "requested": 2059.2999999523163,
+                "timestamp": 2067.5,
+                "delivered": 2075.5
+              },
+              {
+                "requested": 2079.5,
+                "timestamp": 2084.1,
+                "delivered": 2095.399999976158
+              },
+              {
+                "requested": 2099.399999976158,
+                "timestamp": 2100.9,
+                "delivered": 2114.5999999046326
+              },
+              {
+                "requested": 2117.2999999523163,
+                "timestamp": 2117.5,
+                "delivered": 2133.5
+              },
+              {
+                "requested": 2137,
+                "timestamp": 2150.8,
+                "delivered": 2153.2999999523163
+              },
+              {
+                "requested": 2157.5999999046326,
+                "timestamp": 2167.5,
+                "delivered": 2172.5
+              },
+              {
+                "requested": 2175.7999999523163,
+                "timestamp": 2184.2,
+                "delivered": 2192.2999999523163
+              },
+              {
+                "requested": 2196.899999976158,
+                "timestamp": 2200.8,
+                "delivered": 2210.7999999523163
+              },
+              {
+                "requested": 2215.2999999523163,
+                "timestamp": 2217.5,
+                "delivered": 2231.1999999284744
+              },
+              {
+                "requested": 2234.1999999284744,
+                "timestamp": 2250.9,
+                "delivered": 2252
+              },
+              {
+                "requested": 2255.1999999284744,
+                "timestamp": 2267.5,
+                "delivered": 2270.7999999523163
+              },
+              {
+                "requested": 2274.7999999523163,
+                "timestamp": 2284.1,
+                "delivered": 2290.899999976158
+              },
+              {
+                "requested": 2426.5,
+                "timestamp": 2417.566,
+                "delivered": 2427.6999999284744
+              },
+              {
+                "requested": 2427.6999999284744,
+                "timestamp": 2434.2,
+                "delivered": 2447.2999999523163
+              },
+              {
+                "requested": 2450.399999976158,
+                "timestamp": 2450.8,
+                "delivered": 2465.5999999046326
+              },
+              {
+                "requested": 2469.5999999046326,
+                "timestamp": 2484.1,
+                "delivered": 2485.7999999523163
+              },
+              {
+                "requested": 2490.5999999046326,
+                "timestamp": 2500.8,
+                "delivered": 2504.399999976158
+              },
+              {
+                "requested": 2507.5,
+                "timestamp": 2517.5,
+                "delivered": 2523.899999976158
+              },
+              {
+                "requested": 2527.1999999284744,
+                "timestamp": 2534.2,
+                "delivered": 2542.5
+              },
+              {
+                "requested": 2547.2999999523163,
+                "timestamp": 2550.8,
+                "delivered": 2560.6999999284744
+              },
+              {
+                "requested": 2563.5999999046326,
+                "timestamp": 2567.5,
+                "delivered": 2579.899999976158
+              },
+              {
+                "requested": 2583.0999999046326,
+                "timestamp": 2584.2,
+                "delivered": 2599.0999999046326
+              },
+              {
+                "requested": 2603.1999999284744,
+                "timestamp": 2617.5,
+                "delivered": 2618.399999976158
+              },
+              {
+                "requested": 2719,
+                "timestamp": 2717.432,
+                "delivered": 2720.399999976158
+              },
+              {
+                "requested": 2720.399999976158,
+                "timestamp": 2750.8,
+                "delivered": 2764.399999976158
+              },
+              {
+                "requested": 2922.2999999523163,
+                "timestamp": 2817.5,
+                "delivered": 2936.7999999523163
+              },
+              {
+                "requested": 2936.7999999523163,
+                "timestamp": 2984.1,
+                "delivered": 3005
+              },
+              {
+                "requested": 3015.5999999046326,
+                "timestamp": 3034.2,
+                "delivered": 3052.399999976158
+              },
+              {
+                "requested": 3064.1999999284744,
+                "timestamp": 3067.5,
+                "delivered": 3080.5999999046326
+              },
+              {
+                "requested": 3090.6999999284744,
+                "timestamp": 3100.8,
+                "delivered": 3108.5999999046326
+              },
+              {
+                "requested": 3119.0999999046326,
+                "timestamp": 3117.5,
+                "delivered": 3133.899999976158
+              },
+              {
+                "requested": 3141.899999976158,
+                "timestamp": 3134.1,
+                "delivered": 3156.6999999284744
+              },
+              {
+                "requested": 3164.6999999284744,
+                "timestamp": 3167.5,
+                "delivered": 3189.2999999523163
+              },
+              {
+                "requested": 3199,
+                "timestamp": 3234.2,
+                "delivered": 3236.399999976158
+              },
+              {
+                "requested": 3240.1999999284744,
+                "timestamp": 3250.8,
+                "delivered": 3256.0999999046326
+              },
+              {
+                "requested": 3260.2999999523163,
+                "timestamp": 3267.4,
+                "delivered": 3273.1999999284744
+              },
+              {
+                "requested": 3279.899999976158,
+                "timestamp": 3300.7,
+                "delivered": 3306.399999976158
+              },
+              {
+                "requested": 3312.2999999523163,
+                "timestamp": 3334.2,
+                "delivered": 3337.6999999284744
+              },
+              {
+                "requested": 3341.2999999523163,
+                "timestamp": 3367.4,
+                "delivered": 3371.1999999284744
+              },
+              {
+                "requested": 3559.2999999523163,
+                "timestamp": 3550.832,
+                "delivered": 3568.399999976158
+              },
+              {
+                "requested": 3568.399999976158,
+                "timestamp": 3584.1,
+                "delivered": 3595.6999999284744
+              },
+              {
+                "requested": 3606.6999999284744,
+                "timestamp": 3617.5,
+                "delivered": 3626.1999999284744
+              },
+              {
+                "requested": 3633.1999999284744,
+                "timestamp": 3634.2,
+                "delivered": 3646.7999999523163
+              },
+              {
+                "requested": 3655.0999999046326,
+                "timestamp": 3667.5,
+                "delivered": 3668.5
+              },
+              {
+                "requested": 3677.5999999046326,
+                "timestamp": 3684.1,
+                "delivered": 3693
+              },
+              {
+                "requested": 3699.0999999046326,
+                "timestamp": 3700.8,
+                "delivered": 3711.399999976158
+              },
+              {
+                "requested": 3719.6999999284744,
+                "timestamp": 3734.1,
+                "delivered": 3749.0999999046326
+              },
+              {
+                "requested": 3757.899999976158,
+                "timestamp": 3767.4,
+                "delivered": 3781.1999999284744
+              },
+              {
+                "requested": 3790.7999999523163,
+                "timestamp": 3784.1,
+                "delivered": 3811.7999999523163
+              },
+              {
+                "requested": 3824.6999999284744,
+                "timestamp": 3834.1,
+                "delivered": 3849.1999999284744
+              },
+              {
+                "requested": 3860.899999976158,
+                "timestamp": 3867.5,
+                "delivered": 3885.399999976158
+              },
+              {
+                "requested": 3896.6999999284744,
+                "timestamp": 3900.8,
+                "delivered": 3907.899999976158
+              },
+              {
+                "requested": 3918.7999999523163,
+                "timestamp": 3934.1,
+                "delivered": 3949.899999976158
+              },
+              {
+                "requested": 4150.399999976158,
+                "timestamp": 4150.732,
+                "delivered": 4153
+              },
+              {
+                "requested": 4158.699999928474,
+                "timestamp": 4150.8,
+                "delivered": 4168
+              },
+              {
+                "requested": 4174.799999952316,
+                "timestamp": 4184.1,
+                "delivered": 4197.199999928474
+              },
+              {
+                "requested": 4202.599999904633,
+                "timestamp": 4217.5,
+                "delivered": 4222.799999952316
+              },
+              {
+                "requested": 4228.299999952316,
+                "timestamp": 4234.1,
+                "delivered": 4248.5
+              },
+              {
+                "requested": 4257.699999928474,
+                "timestamp": 4267.4,
+                "delivered": 4271.399999976158
+              },
+              {
+                "requested": 4282.099999904633,
+                "timestamp": 4284.1,
+                "delivered": 4295.099999904633
+              },
+              {
+                "requested": 4302.899999976158,
+                "timestamp": 4300.8,
+                "delivered": 4317.799999952316
+              },
+              {
+                "requested": 4323.899999976158,
+                "timestamp": 4334.1,
+                "delivered": 4342.5
+              },
+              {
+                "requested": 4350.199999928474,
+                "timestamp": 4350.8,
+                "delivered": 4365.799999952316
+              },
+              {
+                "requested": 4370.899999976158,
+                "timestamp": 4367.4,
+                "delivered": 4398.599999904633
+              },
+              {
+                "requested": 4404.5,
+                "timestamp": 4417.5,
+                "delivered": 4435.5
+              },
+              {
+                "requested": 4439.099999904633,
+                "timestamp": 4467.4,
+                "delivered": 4470.099999904633
+              },
+              {
+                "requested": 4479.299999952316,
+                "timestamp": 4484.1,
+                "delivered": 4496.199999928474
+              },
+              {
+                "requested": 4502.699999928474,
+                "timestamp": 4517.4,
+                "delivered": 4524.099999904633
+              },
+              {
+                "requested": 4528.799999952316,
+                "timestamp": 4534.1,
+                "delivered": 4550.399999976158
+              },
+              {
+                "requested": 4558,
+                "timestamp": 4567.5,
+                "delivered": 4574.899999976158
+              },
+              {
+                "requested": 4754.399999976158,
+                "timestamp": 4750.732,
+                "delivered": 4758
+              },
+              {
+                "requested": 4758.099999904633,
+                "timestamp": 4767.5,
+                "delivered": 4773.799999952316
+              },
+              {
+                "requested": 4778.599999904633,
+                "timestamp": 4784,
+                "delivered": 4794.299999952316
+              },
+              {
+                "requested": 4804.799999952316,
+                "timestamp": 4817.4,
+                "delivered": 4829.799999952316
+              },
+              {
+                "requested": 4836.399999976158,
+                "timestamp": 4834.1,
+                "delivered": 4850.699999928474
+              },
+              {
+                "requested": 4857,
+                "timestamp": 4884.1,
+                "delivered": 4887.699999928474
+              },
+              {
+                "requested": 4895,
+                "timestamp": 4900.8,
+                "delivered": 4912.099999904633
+              },
+              {
+                "requested": 4919.399999976158,
+                "timestamp": 4917.4,
+                "delivered": 4938.099999904633
+              },
+              {
+                "requested": 4941.899999976158,
+                "timestamp": 4950.7,
+                "delivered": 4954.599999904633
+              },
+              {
+                "requested": 4958.899999976158,
+                "timestamp": 4967.4,
+                "delivered": 4972.799999952316
+              },
+              {
+                "requested": 4978.5,
+                "timestamp": 4984,
+                "delivered": 4992.399999976158
+              },
+              {
+                "requested": 4996.5,
+                "timestamp": 5000.7,
+                "delivered": 5006.5
+              },
+              {
+                "requested": 5010.299999952316,
+                "timestamp": 5017.4,
+                "delivered": 5026.699999928474
+              },
+              {
+                "requested": 5031,
+                "timestamp": 5084.1,
+                "delivered": 5086.399999976158
+              },
+              {
+                "requested": 5089.599999904633,
+                "timestamp": 5100.7,
+                "delivered": 5106.5
+              },
+              {
+                "requested": 5110.899999976158,
+                "timestamp": 5117.4,
+                "delivered": 5131.5
+              },
+              {
+                "requested": 5137.5,
+                "timestamp": 5134,
+                "delivered": 5149.299999952316
+              },
+              {
+                "requested": 5337,
+                "timestamp": 5334.1,
+                "delivered": 5342.5
+              },
+              {
+                "requested": 5342.5,
+                "timestamp": 5350.8,
+                "delivered": 5362.799999952316
+              },
+              {
+                "requested": 5368.299999952316,
+                "timestamp": 5384.1,
+                "delivered": 5394.099999904633
+              },
+              {
+                "requested": 5402.599999904633,
+                "timestamp": 5417.4,
+                "delivered": 5423.399999976158
+              },
+              {
+                "requested": 5429.399999976158,
+                "timestamp": 5434.1,
+                "delivered": 5444.799999952316
+              },
+              {
+                "requested": 5455.399999976158,
+                "timestamp": 5467.4,
+                "delivered": 5476.099999904633
+              },
+              {
+                "requested": 5481,
+                "timestamp": 5484,
+                "delivered": 5498.099999904633
+              },
+              {
+                "requested": 5507,
+                "timestamp": 5517.4,
+                "delivered": 5527.199999928474
+              },
+              {
+                "requested": 5533.299999952316,
+                "timestamp": 5534.1,
+                "delivered": 5550.299999952316
+              },
+              {
+                "requested": 5554.599999904633,
+                "timestamp": 5550.7,
+                "delivered": 5566.5
+              },
+              {
+                "requested": 5571,
+                "timestamp": 5584.1,
+                "delivered": 5584.199999928474
+              },
+              {
+                "requested": 5588.899999976158,
+                "timestamp": 5600.7,
+                "delivered": 5608.599999904633
+              },
+              {
+                "requested": 5618.799999952316,
+                "timestamp": 5617.3,
+                "delivered": 5631.5
+              },
+              {
+                "requested": 5640.199999928474,
+                "timestamp": 5650.7,
+                "delivered": 5653.699999928474
+              },
+              {
+                "requested": 5660.599999904633,
+                "timestamp": 5667.3,
+                "delivered": 5674.299999952316
+              },
+              {
+                "requested": 5853.5,
+                "timestamp": 5850.732,
+                "delivered": 5858.399999976158
+              },
+              {
+                "requested": 5858.399999976158,
+                "timestamp": 5867.3,
+                "delivered": 5876.699999928474
+              },
+              {
+                "requested": 5881.5,
+                "timestamp": 5884,
+                "delivered": 5900.599999904633
+              },
+              {
+                "requested": 5909.699999928474,
+                "timestamp": 5900.7,
+                "delivered": 5916.699999928474
+              },
+              {
+                "requested": 5924.5,
+                "timestamp": 5950.7,
+                "delivered": 5966
+              },
+              {
+                "requested": 5972.899999976158,
+                "timestamp": 5984,
+                "delivered": 5999.699999928474
+              },
+              {
+                "requested": 6006.599999904633,
+                "timestamp": 6017.3,
+                "delivered": 6032.699999928474
+              },
+              {
+                "requested": 6043.299999952316,
+                "timestamp": 6050.7,
+                "delivered": 6066.5
+              },
+              {
+                "requested": 6072.5,
+                "timestamp": 6084.1,
+                "delivered": 6093.899999976158
+              },
+              {
+                "requested": 6099.699999928474,
+                "timestamp": 6117.3,
+                "delivered": 6120.199999928474
+              },
+              {
+                "requested": 6128.199999928474,
+                "timestamp": 6134,
+                "delivered": 6148.199999928474
+              },
+              {
+                "requested": 6155.199999928474,
+                "timestamp": 6150.7,
+                "delivered": 6166.299999952316
+              },
+              {
+                "requested": 6173.799999952316,
+                "timestamp": 6184,
+                "delivered": 6187.5
+              },
+              {
+                "requested": 6344.899999976158,
+                "timestamp": 6333.998,
+                "delivered": 6348.899999976158
+              },
+              {
+                "requested": 6348.899999976158,
+                "timestamp": 6350.7,
+                "delivered": 6373.899999976158
+              },
+              {
+                "requested": 6384.199999928474,
+                "timestamp": 6400.7,
+                "delivered": 6411.799999952316
+              },
+              {
+                "requested": 6418.399999976158,
+                "timestamp": 6417.3,
+                "delivered": 6431.099999904633
+              },
+              {
+                "requested": 6435.099999904633,
+                "timestamp": 6434,
+                "delivered": 6450.199999928474
+              },
+              {
+                "requested": 6456,
+                "timestamp": 6467.4,
+                "delivered": 6476.199999928474
+              },
+              {
+                "requested": 6483.399999976158,
+                "timestamp": 6500.7,
+                "delivered": 6502.5
+              },
+              {
+                "requested": 6507.199999928474,
+                "timestamp": 6517.3,
+                "delivered": 6523.699999928474
+              },
+              {
+                "requested": 6528.599999904633,
+                "timestamp": 6534,
+                "delivered": 6544.299999952316
+              },
+              {
+                "requested": 6552.599999904633,
+                "timestamp": 6550.6,
+                "delivered": 6568.899999976158
+              },
+              {
+                "requested": 6572,
+                "timestamp": 6584,
+                "delivered": 6591.199999928474
+              },
+              {
+                "requested": 6596.899999976158,
+                "timestamp": 6634,
+                "delivered": 6637.399999976158
+              },
+              {
+                "requested": 6640.5,
+                "timestamp": 6650.7,
+                "delivered": 6656.299999952316
+              },
+              {
+                "requested": 6660.799999952316,
+                "timestamp": 6667.4,
+                "delivered": 6684.599999904633
+              },
+              {
+                "requested": 6862.099999904633,
+                "timestamp": 6867.332,
+                "delivered": 6871.899999976158
+              },
+              {
+                "requested": 6883.5,
+                "timestamp": 6884,
+                "delivered": 6890.399999976158
+              },
+              {
+                "requested": 6895.299999952316,
+                "timestamp": 6900.7,
+                "delivered": 6917.799999952316
+              },
+              {
+                "requested": 6921.5,
+                "timestamp": 6934,
+                "delivered": 6937.5
+              },
+              {
+                "requested": 6941.299999952316,
+                "timestamp": 6950.7,
+                "delivered": 6961.5
+              },
+              {
+                "requested": 6973.899999976158,
+                "timestamp": 6984,
+                "delivered": 6998.199999928474
+              },
+              {
+                "requested": 7002.599999904633,
+                "timestamp": 7000.6,
+                "delivered": 7011.099999904633
+              },
+              {
+                "requested": 7021.299999952316,
+                "timestamp": 7033.9,
+                "delivered": 7042.699999928474
+              },
+              {
+                "requested": 7052.399999976158,
+                "timestamp": 7050.6,
+                "delivered": 7072.899999976158
+              },
+              {
+                "requested": 7081,
+                "timestamp": 7084,
+                "delivered": 7107.099999904633
+              },
+              {
+                "requested": 7117.199999928474,
+                "timestamp": 7117.3,
+                "delivered": 7126.599999904633
+              },
+              {
+                "requested": 7132.5,
+                "timestamp": 7150.7,
+                "delivered": 7151.299999952316
+              },
+              {
+                "requested": 7156.799999952316,
+                "timestamp": 7184,
+                "delivered": 7191.599999904633
+              },
+              {
+                "requested": 7210.399999976158,
+                "timestamp": 7217.3,
+                "delivered": 7223
+              },
+              {
+                "requested": 7226.799999952316,
+                "timestamp": 7234,
+                "delivered": 7240.5
+              },
+              {
+                "requested": 7245.699999928474,
+                "timestamp": 7250.6,
+                "delivered": 7265
+              }
+            ],
+            "diagnosticError": ""
+          }
+        }
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "experience-entry.spec.ts",
+      "title": [
+        "the full journey has one next action and keeps lamp experiments out of the story contract"
+      ],
+      "status": "passed",
+      "durationMs": 2541,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "experience-entry.spec.ts",
+      "title": [
+        "320px home keeps its three entrances aligned and an existing performance remains the primary action"
+      ],
+      "status": "passed",
+      "durationMs": 1322,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "experience-entry.spec.ts",
+      "title": [
+        "the full journey has one next action and keeps lamp experiments out of the story contract"
+      ],
+      "status": "passed",
+      "durationMs": 2374,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "experience-entry.spec.ts",
+      "title": [
+        "320px home keeps its three entrances aligned and an existing performance remains the primary action"
+      ],
+      "status": "passed",
+      "durationMs": 1456,
+      "retry": 0,
+      "errors": []
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "name": "touch-probe",
+  "startTime": "2026-11-05T13:52:03.405Z",
+  "durationMs": 9719.458,
+  "reportedStats": {
+    "startTime": "2026-11-05T13:52:03.405Z",
+    "duration": 9719.458,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "notRunExcluded": 0,
+  "globalErrors": [],
+  "cases": [
+    {
+      "project": "desktop-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": [
+        "touch cancellation and focus loss release the active body without editing the saved pose"
+      ],
+      "status": "passed",
+      "durationMs": 3542,
+      "retry": 0,
+      "errors": [],
+      "attachments": [
+        {
+          "name": "touch-hit-target",
+          "value": {
+            "x": 550,
+            "y": 706.984375,
+            "hit": "<button class=\"rod-handle\" type=\"button\" data-story-rod=\"body\" aria-label=\"拖动身杆，方向键移动\" aria-describedby=\"story-rod-help\" aria-pressed=\"false\" style=\"left: 488px; top: 596.675px;\">身</button>",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            }
+          }
+        }
+      ]
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": [
+        "touch cancellation and focus loss release the active body without editing the saved pose"
+      ],
+      "status": "passed",
+      "durationMs": 3025,
+      "retry": 0,
+      "errors": [],
+      "attachments": [
+        {
+          "name": "touch-hit-target",
+          "value": {
+            "x": 195,
+            "y": 422.4375,
+            "hit": "<button class=\"rod-handle\" type=\"button\" data-story-rod=\"body\" aria-label=\"拖动身杆，方向键移动\" aria-describedby=\"story-rod-help\" aria-pressed=\"false\" style=\"left: 165px; top: 216.874px;\">身</button>",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

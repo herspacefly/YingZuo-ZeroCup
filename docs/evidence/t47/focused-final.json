@@ -1,0 +1,395 @@
+{
+  "name": "focused-final",
+  "startTime": "2026-11-05T12:19:13.418Z",
+  "durationMs": 144335.355,
+  "reportedStats": {
+    "startTime": "2026-11-05T12:19:13.418Z",
+    "duration": 144335.355,
+    "expected": 32,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  },
+  "notRunExcluded": 0,
+  "globalErrors": [],
+  "cases": [
+    {
+      "project": "desktop-chromium",
+      "file": "archive-rehearsal.spec.ts",
+      "title": [
+        "explicit archive restart replaces retired archive 1 without blocking the current session"
+      ],
+      "status": "passed",
+      "durationMs": 2343,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "archive-rehearsal.spec.ts",
+      "title": [
+        "explicit archive restart replaces retired archive 2 without blocking the current session"
+      ],
+      "status": "passed",
+      "durationMs": 2116,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "archive-rehearsal.spec.ts",
+      "title": [
+        "explicit archive restart replaces retired archive 3 without blocking the current session"
+      ],
+      "status": "passed",
+      "durationMs": 2984,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "archive-rehearsal.spec.ts",
+      "title": [
+        "explicit archive restart replaces retired archive 4 without blocking the current session"
+      ],
+      "status": "passed",
+      "durationMs": 4381,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "archive-rehearsal.spec.ts",
+      "title": [
+        "explicit archive restart replaces retired archive 1 without blocking the current session"
+      ],
+      "status": "passed",
+      "durationMs": 1921,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "archive-rehearsal.spec.ts",
+      "title": [
+        "explicit archive restart replaces retired archive 2 without blocking the current session"
+      ],
+      "status": "passed",
+      "durationMs": 2110,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "archive-rehearsal.spec.ts",
+      "title": [
+        "explicit archive restart replaces retired archive 3 without blocking the current session"
+      ],
+      "status": "passed",
+      "durationMs": 2052,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "archive-rehearsal.spec.ts",
+      "title": [
+        "explicit archive restart replaces retired archive 4 without blocking the current session"
+      ],
+      "status": "passed",
+      "durationMs": 2041,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "default-on sound plays once, pause/reset/mute and document exit release native audio"
+      ],
+      "status": "failed",
+      "durationMs": 3592,
+      "retry": 0,
+      "errors": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 1\nReceived: 0\n\n  31 | test('default-on sound plays once, pause/reset/mute and document exit release native audio',async({page})=>{\n  32 |   await prepare(page);await expect(sound(page)).toHaveAttribute('data-state','enabled');expect((await stats(page)).states).toEqual(['running']);expect(await page.evaluate(()=>Reflect.get(window,'__rafs')())).toBe(0);\n> 33 |   await page.locator('#story-play').click();await advance(page,100);expect((await stats(page)).started).toBe(1);expect(await page.evaluate(()=>Reflect.get(window,'__rafs')())).toBe(1);await page.locator('#story-pause').click();expect((await stats(page)).disconnected).toBe(1);await page.locator('#story-play').click();await advance(page,100);expect((await stats(page)).started).toBe(1);\n     |                                                                                                         ^\n  34 |   await page.locator('#story-reset').click();await expect(runtime(page)).toHaveAttribute('data-state','paused');await page.locator('#story-play').click();await advance(page,100);expect((await stats(page)).started).toBe(2);await page.locator('#story-sound-toggle').click();await expect(sound(page)).toHaveAttribute('data-state','muted');expect((await stats(page)).states).toEqual(['closed']);await page.locator('#story-sound-toggle').click();await expect(sound(page)).toHaveAttribute('data-state','enabled');await go(page,'/craft');expect((await stats(page)).states).toEqual(['closed','running']);await page.evaluate(()=>window.dispatchEvent(new PageTransitionEvent('pagehide')));expect((await stats(page)).states).toEqual(['closed','closed']);\n  35 | });\n  36 | for(const failure of ['blocked','error'])test(`${failure} effects recover with the first real click and can then be muted`,async({page})=>{\n    at tests\\e2e\\art-audio.spec.ts:33:105"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "blocked effects recover with the first real click and can then be muted"
+      ],
+      "status": "passed",
+      "durationMs": 2757,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "error effects recover with the first real click and can then be muted"
+      ],
+      "status": "passed",
+      "durationMs": 2534,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "call-split emits the actual mountain sound only when the axe resolves"
+      ],
+      "status": "passed",
+      "durationMs": 5575,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "split-axe emits the actual mountain sound only when the axe resolves"
+      ],
+      "status": "passed",
+      "durationMs": 5317,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "reunion keeps the first two seconds silent and uses the new layered design"
+      ],
+      "status": "passed",
+      "durationMs": 2154,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "missing audio capability leaves every scene control and subtitle available"
+      ],
+      "status": "passed",
+      "durationMs": 1774,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "a real context resume refusal is reported and explicit retry creates a working device"
+      ],
+      "status": "passed",
+      "durationMs": 2468,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "a pending native resume survives a route exit without reviving the old scene"
+      ],
+      "status": "passed",
+      "durationMs": 2823,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "an old native close rejection cannot hide the fresh device mute control"
+      ],
+      "status": "passed",
+      "durationMs": 2666,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "ten story exits reuse one document audio context and retain a manual mute"
+      ],
+      "status": "passed",
+      "durationMs": 13999,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "default-on sound plays once, pause/reset/mute and document exit release native audio"
+      ],
+      "status": "failed",
+      "durationMs": 2279,
+      "retry": 0,
+      "errors": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 1\nReceived: 0\n\n  31 | test('default-on sound plays once, pause/reset/mute and document exit release native audio',async({page})=>{\n  32 |   await prepare(page);await expect(sound(page)).toHaveAttribute('data-state','enabled');expect((await stats(page)).states).toEqual(['running']);expect(await page.evaluate(()=>Reflect.get(window,'__rafs')())).toBe(0);\n> 33 |   await page.locator('#story-play').click();await advance(page,100);expect((await stats(page)).started).toBe(1);expect(await page.evaluate(()=>Reflect.get(window,'__rafs')())).toBe(1);await page.locator('#story-pause').click();expect((await stats(page)).disconnected).toBe(1);await page.locator('#story-play').click();await advance(page,100);expect((await stats(page)).started).toBe(1);\n     |                                                                                                         ^\n  34 |   await page.locator('#story-reset').click();await expect(runtime(page)).toHaveAttribute('data-state','paused');await page.locator('#story-play').click();await advance(page,100);expect((await stats(page)).started).toBe(2);await page.locator('#story-sound-toggle').click();await expect(sound(page)).toHaveAttribute('data-state','muted');expect((await stats(page)).states).toEqual(['closed']);await page.locator('#story-sound-toggle').click();await expect(sound(page)).toHaveAttribute('data-state','enabled');await go(page,'/craft');expect((await stats(page)).states).toEqual(['closed','running']);await page.evaluate(()=>window.dispatchEvent(new PageTransitionEvent('pagehide')));expect((await stats(page)).states).toEqual(['closed','closed']);\n  35 | });\n  36 | for(const failure of ['blocked','error'])test(`${failure} effects recover with the first real click and can then be muted`,async({page})=>{\n    at tests\\e2e\\art-audio.spec.ts:33:105"
+      ]
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "blocked effects recover with the first real click and can then be muted"
+      ],
+      "status": "passed",
+      "durationMs": 2110,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "error effects recover with the first real click and can then be muted"
+      ],
+      "status": "passed",
+      "durationMs": 1879,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "call-split emits the actual mountain sound only when the axe resolves"
+      ],
+      "status": "passed",
+      "durationMs": 2541,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "split-axe emits the actual mountain sound only when the axe resolves"
+      ],
+      "status": "passed",
+      "durationMs": 2643,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "reunion keeps the first two seconds silent and uses the new layered design"
+      ],
+      "status": "passed",
+      "durationMs": 1909,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "missing audio capability leaves every scene control and subtitle available"
+      ],
+      "status": "passed",
+      "durationMs": 1576,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "a real context resume refusal is reported and explicit retry creates a working device"
+      ],
+      "status": "passed",
+      "durationMs": 2579,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "a pending native resume survives a route exit without reviving the old scene"
+      ],
+      "status": "passed",
+      "durationMs": 4576,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "an old native close rejection cannot hide the fresh device mute control"
+      ],
+      "status": "passed",
+      "durationMs": 2691,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "ten story exits reuse one document audio context and retain a manual mute"
+      ],
+      "status": "passed",
+      "durationMs": 13091,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "t47-regressions.spec.ts",
+      "title": [
+        "chosen endings stay in progress until the actual result checkpoint"
+      ],
+      "status": "passed",
+      "durationMs": 11279,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "t47-regressions.spec.ts",
+      "title": [
+        "museum drag handles retain their centered transform on hover and press"
+      ],
+      "status": "passed",
+      "durationMs": 6077,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "t47-regressions.spec.ts",
+      "title": [
+        "chosen endings stay in progress until the actual result checkpoint"
+      ],
+      "status": "passed",
+      "durationMs": 11234,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "t47-regressions.spec.ts",
+      "title": [
+        "museum drag handles retain their centered transform on hover and press"
+      ],
+      "status": "passed",
+      "durationMs": 4501,
+      "retry": 0,
+      "errors": []
+    }
+  ]
+}

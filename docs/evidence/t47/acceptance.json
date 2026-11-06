@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "task": "T47",
+  "updatedAt": "2026-11-06",
+  "status": "local-complete",
+  "applicationCommit": "cc03c0ca6e41599ab13de8a43e87cc76cb4b3762",
+  "verifiedCommit": "ad5049ea8218e50c477f4320c6f0c0fd0f65bcb4",
+  "branch": "codex/t47-defect-fixes",
+  "pushed": false,
+  "deployed": false,
+  "fixedProductDefects": 7,
+  "checks": "checks.json",
+  "coreBrowser": {
+    "total": 704,
+    "passed": 702,
+    "skipped": 2,
+    "failed": 0,
+    "notRun": 0,
+    "coverage": "browser-coverage.json",
+    "method": "Latest actual observation per current project/file/title identity across separate diagnostic and validation runs; not a single uninterrupted green run.",
+    "conditionalSkips": [
+      {
+        "project": "mobile-chromium",
+        "file": "quick-trial.spec.ts",
+        "reason": "Natural native MP3 trial runs on desktop; controlled-clock and native media behavior run on both profiles."
+      },
+      {
+        "project": "mobile-chromium",
+        "file": "theatre-horizontal.spec.ts",
+        "reason": "Desktop caption height cap does not apply to narrow screens."
+      }
+    ]
+  },
+  "deploymentBrowser": {
+    "passed": 32,
+    "failed": 0,
+    "skipped": 0,
+    "locations": [
+      "root",
+      "/YingZuo-ZeroCup/"
+    ],
+    "profiles": [
+      "1440x900",
+      "390x844"
+    ],
+    "evidence": "pages.json"
+  },
+  "focused": {
+    "choiceMatrix": {
+      "passed": 64,
+      "skipped": 0,
+      "evidence": "matrix.json"
+    },
+    "nativeAudioFinal": {
+      "passed": 75,
+      "skipped": 1,
+      "evidence": "native-final.json"
+    },
+    "geometryAndTouchFinal": {
+      "passed": 9,
+      "skipped": 2,
+      "evidence": "final-retry.json"
+    },
+    "nativeClockStarts": {
+      "profiles": 2,
+      "startsPerProfile": 12,
+      "evidence": "entry-clock.json"
+    },
+    "endingPng": {
+      "passed": 10,
+      "evidence": "footer-green.json"
+    }
+  },
+  "diagnostics": "rounds.json",
+  "unchanged": {
+    "projectFormat": true,
+    "originalVoiceBytes": true,
+    "singleClock": true,
+    "gapGuardMs": 250,
+    "completionThresholds": true,
+    "humanAcceptance": "unchanged"
+  },
+  "cleanup": "cleanup.json"
+}

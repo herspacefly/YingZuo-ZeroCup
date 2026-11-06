@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-06",
   "projectName": "影作·一幕团圆",
   "projectRoot": ".",
   "competitionGroup": "零组",
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T47_in_progress",
-  "activeTaskId": "T47",
-  "lastVerifiedCommit": "73853f3063d438f5127c5d77343876ab951cf7a8",
+  "stage": "T47_local_complete",
+  "activeTaskId": "T38",
+  "lastVerifiedCommit": "ad5049ea8218e50c477f4320c6f0c0fd0f65bcb4",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -2077,7 +2077,7 @@
       "id": "T47",
       "title": "修复严格审查发现的产品缺陷与回归基线",
       "priority": "P0",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "T46"
       ],
@@ -2094,13 +2094,14 @@
       "acceptanceRefs": [
         "T47"
       ],
-      "checkpointCommit": "33109bea25326bd9996119f4811106f558ed8605",
-      "nextAction": "395个唯一浏览器用例已通过；执行余309项（含64项选择矩阵）、最终音效生命周期及根/子目录回归，再整理正式证据和本地提交。",
+      "checkpointCommit": "ad5049ea8218e50c477f4320c6f0c0fd0f65bcb4",
+      "nextAction": "本地缺陷修复与回归完成，见docs/acceptance/t47.md。未推送部署；后续发布另行执行，T38人耳听感及正式素材/设备/IE等验收维持原状态。",
       "blocker": null,
       "verification": [
-        "618单元、类型/162模块构建、素材/内容/七展签/354配音/1216编排/18 ES5块通过；选择按钮修复后单元、构建、配音和ES5再验通过。",
-        "704项分组复验，395个唯一用例已通过；原生时钟宽窄各12次播放启动、首页完整体验流程通过，余309项待完成。",
-        "操偶教学加载后输入恢复、五终章宽窄PNG下载与页脚边界通过；选择节点无响应占位按钮已明确禁用，正在跑路径回归。"
+        "55文件618单元、类型/162模块构建、48任务状态、81PNG/当前故事/七展签/354配音/1216编排/18 ES5块通过。",
+        "当前704项浏览器身份全部覆盖，最新702通过/2既有条件跳过；失败、未执行和复验分别记录，见docs/evidence/t47/browser-coverage.json。",
+        "64项选择矩阵全部通过；最终原生声音75通过/1条件跳过、几何/触控9通过/2既有条件跳过；原生时钟宽窄各12次启动、五终章宽窄10项PNG通过。",
+        "根路径/项目子目录宽窄32项全部通过；原始MP3、ProjectV1、唯一时钟、250ms停顿保护和完成阈值不变。"
       ],
       "phase": "G3"
     }

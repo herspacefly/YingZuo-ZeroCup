@@ -1,0 +1,30 @@
+{
+  "name": "footer-red",
+  "startTime": "2026-11-05T13:11:48.576Z",
+  "durationMs": 5275.296,
+  "reportedStats": {
+    "startTime": "2026-11-05T13:11:48.576Z",
+    "duration": 5275.296,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "notRunExcluded": 0,
+  "globalErrors": [],
+  "cases": [
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "sacrifice programme shares causal choices with a static PNG and never waits for its stamp"
+      ],
+      "status": "failed",
+      "durationMs": 2886,
+      "retry": 0,
+      "errors": [
+        "Error: footer must stay clear of decorative border strokes\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: false\nReceived: true\n\n  82 |   const footer=await page.evaluate(()=>({text:Reflect.get(window,'__programmeFooter') as {top:number;bottom:number},borders:Reflect.get(window,'__programmeBorders') as {y:number;width:number}[]}));\n  83 |   expect(footer.text.top).toBeGreaterThan(0);expect(footer.text.bottom).toBeLessThan(1200);\n> 84 |   for(const border of footer.borders)expect(footer.text.top<=border.y+border.width/2&&footer.text.bottom>=border.y-border.width/2,'footer must stay clear of decorative border strokes').toBe(false);\n     |                                                                                                                                                                                          ^\n  85 |   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);invariant(await stored(page),project);\n  86 |   await page.screenshot({path:test.info().outputPath('programme-'+ending+'.png'),fullPage:true});\n  87 |   if(ending==='waiting')expect(await page.locator('#result-stamp').evaluate(node=>getComputedStyle(node).animationName)).toBe('none');\n    at tests\\e2e\\result.spec.ts:84:186"
+      ]
+    }
+  ]
+}

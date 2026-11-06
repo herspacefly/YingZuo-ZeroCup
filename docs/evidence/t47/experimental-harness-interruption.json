@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "status": "interrupted",
+  "casesCompleted": 1,
+  "reason": "An experimental test harness incorrectly drove RAF while the text lab uses 100ms setTimeout. The experimental harness was reverted; application code was unchanged. Stop applies only to the isolated 4178 probe, not the primary browser run.",
+  "outcomes": [
+    "timedOut"
+  ]
+}

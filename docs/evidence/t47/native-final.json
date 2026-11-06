@@ -1,0 +1,853 @@
+{
+  "name": "native-final",
+  "startTime": "2026-11-06T04:51:31.563Z",
+  "durationMs": 206261.6,
+  "reportedStats": {
+    "startTime": "2026-11-06T04:51:31.563Z",
+    "duration": 206261.6,
+    "expected": 75,
+    "skipped": 1,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "notRunExcluded": 0,
+  "globalErrors": [],
+  "cases": [
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "default-on sound plays once, pause/reset/mute and document exit release native audio"
+      ],
+      "status": "passed",
+      "durationMs": 5267,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "blocked effects recover with the first real click and can then be muted"
+      ],
+      "status": "passed",
+      "durationMs": 1416,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "error effects recover with the first real click and can then be muted"
+      ],
+      "status": "passed",
+      "durationMs": 1434,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "call-split emits the actual mountain sound only when the axe resolves"
+      ],
+      "status": "passed",
+      "durationMs": 3374,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "split-axe emits the actual mountain sound only when the axe resolves"
+      ],
+      "status": "passed",
+      "durationMs": 3572,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "reunion keeps the first two seconds silent and uses the new layered design"
+      ],
+      "status": "passed",
+      "durationMs": 2198,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "missing audio capability leaves every scene control and subtitle available"
+      ],
+      "status": "passed",
+      "durationMs": 1263,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "a real context resume refusal is reported and explicit retry creates a working device"
+      ],
+      "status": "passed",
+      "durationMs": 2095,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "a pending native resume survives a route exit without reviving the old scene"
+      ],
+      "status": "passed",
+      "durationMs": 2361,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "an old native close rejection cannot hide the fresh device mute control"
+      ],
+      "status": "passed",
+      "durationMs": 3199,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "ten story exits reuse one document audio context and retain a manual mute"
+      ],
+      "status": "passed",
+      "durationMs": 10453,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "default-on sound plays once, pause/reset/mute and document exit release native audio"
+      ],
+      "status": "passed",
+      "durationMs": 4474,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "blocked effects recover with the first real click and can then be muted"
+      ],
+      "status": "passed",
+      "durationMs": 1505,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "error effects recover with the first real click and can then be muted"
+      ],
+      "status": "passed",
+      "durationMs": 1590,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "call-split emits the actual mountain sound only when the axe resolves"
+      ],
+      "status": "passed",
+      "durationMs": 2379,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "split-axe emits the actual mountain sound only when the axe resolves"
+      ],
+      "status": "passed",
+      "durationMs": 2457,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "reunion keeps the first two seconds silent and uses the new layered design"
+      ],
+      "status": "passed",
+      "durationMs": 1634,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "missing audio capability leaves every scene control and subtitle available"
+      ],
+      "status": "passed",
+      "durationMs": 1039,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "a real context resume refusal is reported and explicit retry creates a working device"
+      ],
+      "status": "passed",
+      "durationMs": 1978,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "a pending native resume survives a route exit without reviving the old scene"
+      ],
+      "status": "passed",
+      "durationMs": 2190,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "an old native close rejection cannot hide the fresh device mute control"
+      ],
+      "status": "passed",
+      "durationMs": 2327,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "ten story exits reuse one document audio context and retain a manual mute"
+      ],
+      "status": "passed",
+      "durationMs": 8131,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice-isolation.spec.ts",
+      "title": [
+        "rehearsal is silent and storage failure cancels the formal voice channel"
+      ],
+      "status": "passed",
+      "durationMs": 1993,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice-isolation.spec.ts",
+      "title": [
+        "rehearsal is silent and storage failure cancels the formal voice channel"
+      ],
+      "status": "passed",
+      "durationMs": 1920,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "four cast voices load and play real MP3s with native media events"
+      ],
+      "status": "passed",
+      "durationMs": 3536,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "pause, resume and subtitle seek follow the director without overlapping speech"
+      ],
+      "status": "passed",
+      "durationMs": 1888,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "a naturally played sentence reaches native ended before its reserved pause expires"
+      ],
+      "status": "passed",
+      "durationMs": 9096,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal re-entry enables voice while music mute stays independent"
+      ],
+      "status": "passed",
+      "durationMs": 2062,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "blocked speech reports its state without frame retries and the retry button unlocks it"
+      ],
+      "status": "passed",
+      "durationMs": 1385,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "a failed speech resource reports failure and succeeds after explicit retry"
+      ],
+      "status": "passed",
+      "durationMs": 1167,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "blur, hidden documents and route exits stop speech and focus cannot revive it"
+      ],
+      "status": "passed",
+      "durationMs": 1194,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "curtain reserves the original vocal recording until all spoken cues finish"
+      ],
+      "status": "passed",
+      "durationMs": 1158,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "result replay speaks the selected variant, seeks and closes without writing the completed run"
+      ],
+      "status": "passed",
+      "durationMs": 3444,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "speech follows the document base when deployed under a subdirectory"
+      ],
+      "status": "passed",
+      "durationMs": 1527,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "full: all five ending epilogues play their matching local speech"
+      ],
+      "status": "passed",
+      "durationMs": 4256,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "guided: all five ending epilogues play their matching local speech"
+      ],
+      "status": "passed",
+      "durationMs": 4230,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal voice is enabled on header-tab entry after the previous scene was muted"
+      ],
+      "status": "passed",
+      "durationMs": 1845,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal voice is enabled on direct-url entry after the previous scene was muted"
+      ],
+      "status": "passed",
+      "durationMs": 2015,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal voice is enabled on refresh entry after the previous scene was muted"
+      ],
+      "status": "passed",
+      "durationMs": 1841,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal voice is enabled on practice entry after the previous scene was muted"
+      ],
+      "status": "passed",
+      "durationMs": 1926,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal voice is enabled on craft entry after the previous scene was muted"
+      ],
+      "status": "passed",
+      "durationMs": 2596,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "quick trial voice mute is released by entering the existing formal performance"
+      ],
+      "status": "passed",
+      "durationMs": 3455,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "result replay mute is released on entering the still-narrated curtain"
+      ],
+      "status": "passed",
+      "durationMs": 3705,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "same-page mute survives pause, seek and chapter advance until a fresh entry"
+      ],
+      "status": "passed",
+      "durationMs": 2678,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "four cast voices load and play real MP3s with native media events"
+      ],
+      "status": "passed",
+      "durationMs": 3218,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "pause, resume and subtitle seek follow the director without overlapping speech"
+      ],
+      "status": "passed",
+      "durationMs": 1661,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "a naturally played sentence reaches native ended before its reserved pause expires"
+      ],
+      "status": "passed",
+      "durationMs": 9125,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal re-entry enables voice while music mute stays independent"
+      ],
+      "status": "passed",
+      "durationMs": 2347,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "blocked speech reports its state without frame retries and the retry button unlocks it"
+      ],
+      "status": "passed",
+      "durationMs": 1388,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "a failed speech resource reports failure and succeeds after explicit retry"
+      ],
+      "status": "passed",
+      "durationMs": 1131,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "blur, hidden documents and route exits stop speech and focus cannot revive it"
+      ],
+      "status": "passed",
+      "durationMs": 1331,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "curtain reserves the original vocal recording until all spoken cues finish"
+      ],
+      "status": "passed",
+      "durationMs": 1264,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "result replay speaks the selected variant, seeks and closes without writing the completed run"
+      ],
+      "status": "passed",
+      "durationMs": 3018,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "speech follows the document base when deployed under a subdirectory"
+      ],
+      "status": "passed",
+      "durationMs": 1495,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "full: all five ending epilogues play their matching local speech"
+      ],
+      "status": "passed",
+      "durationMs": 5306,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "guided: all five ending epilogues play their matching local speech"
+      ],
+      "status": "passed",
+      "durationMs": 4239,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal voice is enabled on header-tab entry after the previous scene was muted"
+      ],
+      "status": "passed",
+      "durationMs": 2000,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal voice is enabled on direct-url entry after the previous scene was muted"
+      ],
+      "status": "passed",
+      "durationMs": 1770,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal voice is enabled on refresh entry after the previous scene was muted"
+      ],
+      "status": "passed",
+      "durationMs": 1724,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal voice is enabled on practice entry after the previous scene was muted"
+      ],
+      "status": "passed",
+      "durationMs": 1790,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal voice is enabled on craft entry after the previous scene was muted"
+      ],
+      "status": "passed",
+      "durationMs": 1914,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "quick trial voice mute is released by entering the existing formal performance"
+      ],
+      "status": "passed",
+      "durationMs": 1681,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "result replay mute is released on entering the still-narrated curtain"
+      ],
+      "status": "passed",
+      "durationMs": 2463,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "same-page mute survives pause, seek and chapter advance until a fresh entry"
+      ],
+      "status": "passed",
+      "durationMs": 2264,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "quick-trial.spec.ts",
+      "title": [
+        "native MP3 trial ends all nine spoken lines before its no-spoiler invitation"
+      ],
+      "status": "skipped",
+      "durationMs": 83,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "site music defaults on, unlocks on the first ordinary click and retains manual mute across routes"
+      ],
+      "status": "passed",
+      "durationMs": 1709,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "reunion first two seconds stay quiet and paused story stops the actual music media"
+      ],
+      "status": "passed",
+      "durationMs": 1098,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "only actual curtain playback selects vocals, pause and mute release the media"
+      ],
+      "status": "passed",
+      "durationMs": 1599,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "failed audio file reports a real error and the next ordinary gesture retries"
+      ],
+      "status": "passed",
+      "durationMs": 1729,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry blocked via pointer keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "durationMs": 2019,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry blocked via Enter keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "durationMs": 809,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry blocked via Space keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "durationMs": 1757,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry resource via pointer keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "durationMs": 2187,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry resource via Enter keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "durationMs": 1914,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry resource via Space keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "durationMs": 2144,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "ten route exits keep one active global player and actual pagehide releases its source"
+      ],
+      "status": "passed",
+      "durationMs": 1887,
+      "retry": 0,
+      "errors": []
+    }
+  ]
+}

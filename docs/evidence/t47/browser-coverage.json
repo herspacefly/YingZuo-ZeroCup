@@ -1,0 +1,6346 @@
+{
+  "schemaVersion": 1,
+  "total": 704,
+  "totals": {
+    "passed": 702,
+    "skipped": 2
+  },
+  "cases": [
+    {
+      "project": "desktop-chromium",
+      "file": "archive-rehearsal.spec.ts",
+      "title": [
+        "explicit archive restart replaces retired archive 1 without blocking the current session"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "archive-rehearsal.spec.ts",
+      "title": [
+        "explicit archive restart replaces retired archive 2 without blocking the current session"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "archive-rehearsal.spec.ts",
+      "title": [
+        "explicit archive restart replaces retired archive 3 without blocking the current session"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "archive-rehearsal.spec.ts",
+      "title": [
+        "explicit archive restart replaces retired archive 4 without blocking the current session"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "default-on sound plays once, pause/reset/mute and document exit release native audio"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "blocked effects recover with the first real click and can then be muted"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "error effects recover with the first real click and can then be muted"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "call-split emits the actual mountain sound only when the axe resolves"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "split-axe emits the actual mountain sound only when the axe resolves"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "reunion keeps the first two seconds silent and uses the new layered design"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "missing audio capability leaves every scene control and subtitle available"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "a real context resume refusal is reported and explicit retry creates a working device"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "a pending native resume survives a route exit without reviving the old scene"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "an old native close rejection cannot hide the fresh device mute control"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "ten story exits reuse one document audio context and retain a manual mute"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "asset-delivery.spec.ts",
+      "title": [
+        "lossless delivery and canonical PNG match original textures, saved appearance fields, frozen scenes and result PNG"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "asset-delivery.spec.ts",
+      "title": [
+        "unsupported non-premultiplied decoding uses PNG without requesting delivery files"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "asset-delivery.spec.ts",
+      "title": [
+        "damaged delivery fails visibly and explicit retry refetches a repaired image"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "asset-delivery.spec.ts",
+      "title": [
+        "a decoded bitmap arriving after route exit is closed and cannot revive its old canvas"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "assets.spec.ts",
+      "title": [
+        "all local assets decode and distinct neutral roles, cutouts and scenes draw"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "assets.spec.ts",
+      "title": [
+        "a missing required mask clears the preview and retry loads a complete actor"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "assets.spec.ts",
+      "title": [
+        "legacy asset page consumes the same PNGs in Chromium smoke check"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "assets.spec.ts",
+      "title": [
+        "Canvas failure remains readable and does not report successful assembly"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "backdrop-cache.spec.ts",
+      "title": [
+        "opaque background is reused and the independent light shadow releases old pixels"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "backdrop-cache.spec.ts",
+      "title": [
+        "optional backdrop allocation failure retains full original-quality drawing"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "backdrop-cache.spec.ts",
+      "title": [
+        "cached drawing failure clears buffers and actual retry loads a fresh background"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "backdrop-cache.spec.ts",
+      "title": [
+        "observation shares the paused Canvas frame and resumed controls refresh geometry once"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "backstage-observation.spec.ts",
+      "title": [
+        "backstage pauses the same instant, preserves source geometry and requires explicit resume"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "backstage-observation.spec.ts",
+      "title": [
+        "closing a pending backstage import rejects its late completion"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "backstage-observation.spec.ts",
+      "title": [
+        "failed backstage import returns to the operable curtain and can be retried"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "backstage-observation.spec.ts",
+      "title": [
+        "without WebGL, the formal curtain stays usable and no Three module is requested"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "duet recolors the editor but preserves the frozen mother and saved story"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "paused story uses its node scene, props and frozen cast independently of editor previews"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "missing color image fails visibly with a blank canvas and retry restores both actors"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "importing a different palette updates the puppet while keeping the curtain opaque"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "Canvas failure leaves the editor and story text available without false ready status"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "a drawing failure clears cached images and retry reads fresh sources"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "late images and ten remounts leave one canvas and no detached drawing or resize listeners"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "legacy product draws the same two-role frame in Chromium smoke check"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/shared/call-first/wait/full: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/shared/call-first/wait/guided: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/shared/call-first/fulfill/full: four decisions produce home"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/shared/call-first/fulfill/guided: four decisions produce home"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/shared/call-first/wait/full: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/shared/call-first/wait/guided: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/shared/call-first/fulfill/full: four decisions produce light"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/shared/call-first/fulfill/guided: four decisions produce light"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/shared/split-first/wait/full: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/shared/split-first/wait/guided: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/shared/split-first/fulfill/full: four decisions produce road"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/shared/split-first/fulfill/guided: four decisions produce road"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/shared/split-first/wait/full: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/shared/split-first/wait/guided: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/shared/split-first/fulfill/full: four decisions produce road"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/shared/split-first/fulfill/guided: four decisions produce road"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/self/call-first/wait/full: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/self/call-first/wait/guided: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/self/call-first/fulfill/full: four decisions produce sacrifice"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/self/call-first/fulfill/guided: four decisions produce sacrifice"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/self/call-first/wait/full: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/self/call-first/wait/guided: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/self/call-first/fulfill/full: four decisions produce sacrifice"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/self/call-first/fulfill/guided: four decisions produce sacrifice"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/self/split-first/wait/full: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/self/split-first/wait/guided: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/self/split-first/fulfill/full: four decisions produce sacrifice"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/self/split-first/fulfill/guided: four decisions produce sacrifice"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/self/split-first/wait/full: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/self/split-first/wait/guided: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/self/split-first/fulfill/full: four decisions produce sacrifice"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/self/split-first/fulfill/guided: four decisions produce sacrifice"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "new opening, refresh and museum return play automatically; same-page pause/reset/mode stay paused"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "choice after an explicit pause starts its successor without a play click"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "save failure retry stays paused, while refresh grants a fresh entry"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "blur while entry resources load revokes autoplay and late resources cannot revive it"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "a document hidden before initialization stays paused until a fresh visible entry"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "guardian staff and result decisions have native wide/narrow visual evidence"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "clock-native-start.spec.ts",
+      "title": [
+        "twelve native-clock play clicks advance without falsely pausing at the first frame"
+      ],
+      "status": "passed",
+      "round": "entry-clock"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "one opening click starts intro; costume confirmation carries playback into the first act"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "normal cuts continue; same-page pause stays paused and a fresh entry autoplays"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "explicit assistance after pausing starts a fresh continuous handoff"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "the final decision begins waiting without another play click"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "the final decision begins home without another play click"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "the final decision begins light without another play click"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "the final decision begins road without another play click"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "the final decision begins sacrifice without another play click"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "save failure and explicit retry never revive the former playback intent"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "blur during next actor loading cancels the one-use handoff"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "large current captions remain in view above controls and survive dialogue gaps"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "corrected mountain planes and canonical action distances have native visual evidence"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "original texture and per-part colors render and survive SAVE-01"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "immediate direct-craft opening freezes queued unsaved edits once and keeps guided intent"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "default opening uses the existing craft run, marks preset and preserves editor work"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "failed confirmation exports the frozen candidate while later edits queue separately and retry preserves it"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "editing and explicit archive-rehearsal preserve the old frozen run and the new editor"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "existing archive protection preserves both projects until explicit retry acknowledgement"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "lamp ranges, native keyboard, step buttons and reset save without changing story or practice pose"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "memory-only craft and lamp edits never retry writes until explicit save"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "body trial mouse, keyboard and touch are reversible and never replace the saved practice pose"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "legacy product freezes carved colors and saves lamp controls through the same Store in Chromium"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "ten craft/light remounts release input listeners and unavailable Canvas blocks freeze while editing stays available"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "cue-transport.spec.ts",
+      "title": [
+        "full: current mode cues seek locally, preserve pause/play, reset task evidence and lock during film"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "cue-transport.spec.ts",
+      "title": [
+        "guided: current mode cues seek locally, preserve pause/play, reset task evidence and lock during film"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "cue-transport.spec.ts",
+      "title": [
+        "craft keeps original image details and palette, with no added pattern or carving selection"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "cue-transport.spec.ts",
+      "title": [
+        "fresh guide starts the narrated story without freezing an unconfirmed costume"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "cue-transport.spec.ts",
+      "title": [
+        "paused result replay unlocks its cue directory when the first frame becomes ready"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "culture-header.spec.ts",
+      "title": [
+        "culture identity and all main pages adapt at five browser widths"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "full intro presents every scheduled line and saves exactly once before craft"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "guided intro presents every scheduled line and saves exactly once before craft"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "pause, resume, long gap, blur, mode switch and reload never count stopped time"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "explicit skip preserves its marker and dialogue-gated choices and interactions never auto finish"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "reduced motion keeps the current still readable and pauses on visibility loss"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "failed automatic checkpoint retains the applied frame and exact candidate until explicit retry"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "memory playback never retries storage without confirming the next scene"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "canceling a failed scene allows confirmation from the held final frame without replay"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "a normal route autosave never interrupts the playing scene"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "incoming resource error retains the previous canvas and subtitles and retry swaps only when ready"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "ten route exits, reset and late callbacks leave one clock and release all scene listeners"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "a late incoming texture after route exit cannot restore the old canvas or advance again"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "legacy entry plays the director in Chromium smoke coverage"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "Canvas failure still exposes the current story and its complete transcript"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "experience-entry.spec.ts",
+      "title": [
+        "the full journey has one next action and keeps lamp experiments out of the story contract"
+      ],
+      "status": "passed",
+      "round": "entry-clock"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "experience-entry.spec.ts",
+      "title": [
+        "320px home keeps its three entrances aligned and an existing performance remains the primary action"
+      ],
+      "status": "passed",
+      "round": "entry-clock"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": [
+        "ten slow seconds offer real lightweight 2D without advancing or saving, and quality can be restored"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": [
+        "24fps playback and a few isolated slow seconds do not show the suggestion"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": [
+        "pause, blur, long gaps and route disposal reset the slow streak and reject late callbacks"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": [
+        "continuing the current picture dismisses the suggestion without switching quality or adding clocks"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": [
+        "lightweight choice survives short-stage route changes and refresh returns to the default display"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": [
+        "practice keyboard motion shares the monitor and display quality cannot change the frozen performance"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": [
+        "read-only reunion replay offers the same suggestion and leaves the complete saved result untouched"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "guide-lifecycle.spec.ts",
+      "title": [
+        "node guide stays on its checkpoint, restores scroll and cancels on blur"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "guide-lifecycle.spec.ts",
+      "title": [
+        "legacy entry remains usable with modern DOM methods and WebGL absent"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "guide-lifecycle.spec.ts",
+      "title": [
+        "completed and skipped teaching stays remembered during routes, but a reload starts a new visit"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "guide-lifecycle.spec.ts",
+      "title": [
+        "an interrupted lesson stays quiet on this page and is offered after returning"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "guide-scroll.spec.ts",
+      "title": [
+        "guide locks native scrolling and navigation, then restores original overflow and position"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "guide-scroll.spec.ts",
+      "title": [
+        "keyboard can reach offscreen rehearsal alternatives and blur releases the lock"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "guide-scroll.spec.ts",
+      "title": [
+        "initial positioning failure restores the real page and releases its scroll lock"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "kai-font.spec.ts",
+      "title": [
+        "hanging web font falls back within the result readiness budget"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "kai-font.spec.ts",
+      "title": [
+        "leaving during font loading cancels the timer and rejects late composition"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "kai-font.spec.ts",
+      "title": [
+        "font download failure keeps programme, PNG and layout usable"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "kai-woff.spec.ts",
+      "title": [
+        "regular Kai uses the local WOFF fallback when WOFF2 is unavailable"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum-distinct.spec.ts",
+      "title": [
+        "lamp body is faint while its independently colored projection remains opaque"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum-distinct.spec.ts",
+      "title": [
+        "three rods respond to real drag, keyboard and equivalent buttons without saving posture"
+      ],
+      "status": "passed",
+      "round": "final-retry"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum-distinct.spec.ts",
+      "title": [
+        "rod cancellation and detached old handles cannot change the next demonstration"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum-distinct.spec.ts",
+      "title": [
+        "separate optical diagram keeps fixed section and updates ray ends and shadow scale"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum-distinct.spec.ts",
+      "title": [
+        "site identity belongs to navigation header, with no extra title row"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum-media.spec.ts",
+      "title": [
+        "museum photo gallery keeps local lazy images, actual captions and keyboard modal focus"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum-media.spec.ts",
+      "title": [
+        "gallery load failure reports and really retries; exiting an open modal releases it"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum-media.spec.ts",
+      "title": [
+        "all eight photo readings retain their declared counts and original files"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "seven public exhibits, clear site identity, no personal labels, and real sources first"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "museum native three-dimensional lamp drag changes light and keeps the puppet and project fixed"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "no WebGL keeps lamp sliders and buttons operable without any saved pose or lamp edits"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "lamp context loss releases the renderer and permits a real retry"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "carve by mouse and buttons, compare actual holes, reset without costume changes"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "joint controls stay in a short card and component photographs sit below the stage"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "four responsibilities alter the performance, pause, compare and reset"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "reduced motion presents complete collaboration as stills without a running clock"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "old E08 visits restore without reinstating an empty exhibit or losing records"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "repeated route exit disposes old lamp canvas and local listeners"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "museum experiments fit five responsive widths without long side cards or overflow"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "lamp asset failure retries and clears the repaired error message"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "three module failure keeps controls usable and can retry after the failure"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "ensemble waits for imagery, pauses on blur, and can resume after recovery"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "direct routes, museum children, back and refresh preserve the confirmed performance"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "URLs cannot start a story or manufacture a completed result"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "explicit guided opening and intro skip persist once, and ten remounts cannot repeat the command"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "craft saves the current editor while leaving frozen cast and decision intact"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "a failed opening stays on the old page, exports its candidate and retries the identical run"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "denied storage keeps an editable export and an explicit memory-only opening"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "archive/import use the shared serial entry, and cancel preserves the existing project"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "workbench recovery can be explicitly reread without leaving the product stuck"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "a real curtain checkpoint produces the actual programme and prepared reunion image"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "future records remain protected while the museum is readable"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "corrupt records remain protected while the museum is readable"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "alias redirects once, keyboard skip does not change route and mobile menu has real focus targets"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "navigation keeps the opened menu through reading, page switches and browser history"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "legacy product entry uses the same project and can save an editor change in Chromium"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "static product introduction remains readable without JavaScript"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "all three real mouse grips change pose and reload saves the final editor without touching story"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "quick input-only trailing save and native change keep the final range and facing on reload"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "grip arrow keys use one clock, key release/blur stop motion and native range arrows still work"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "action selection, pause/resume, hidden page and long gaps retain time without catch-up"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "all five actions step visibly, keep the axe within the curtain and do not start a story"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "reduced motion uses explicit 250ms steps and never launches a loop"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "actual touch drag cancels cleanly and fallback touch handles unrelated identifiers and multiple ends"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "import during an action archives the latest old pose and never overwrites the new project"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "save failure keeps the final pose exportable and automatic input never retries disk writes"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "memory-only progress stays memory after practice until an explicit save"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "Canvas failure disables input and ten playing remounts clear every practice callback"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "one soft curtain, semantic brush titles without replay buttons and public credits"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "craft rehearsal restores exact stored appearance and stays remembered on route return"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "lamp and limb practice are isolated, with posture controls below the screen"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "story rehearsal restores its checkpoint and explicit skip retries only once"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "font failure and reduced motion keep readable titles without ornamental animation"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "real hand and keyboard rehearsal restores the running story clock without task evidence"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "all major pages keep their columns within narrow and wide viewports"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "probe.spec.ts",
+      "title": [
+        "production canvas responds to keyboard and has no horizontal overflow"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "probe.spec.ts",
+      "title": [
+        "commits, reloads and rolls back in actual browser IndexedDB"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "probe.spec.ts",
+      "title": [
+        "stale second tab keeps its unsaved sample and reports a conflict"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "probe.spec.ts",
+      "title": [
+        "denied storage preserves an editable sample and offers a real download"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "probe.spec.ts",
+      "title": [
+        "legacy production chunks operate in Chromium smoke check, not an IE test"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "probe.spec.ts",
+      "title": [
+        "readable story and museum introduction survives disabled JavaScript"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "probe.spec.ts",
+      "title": [
+        "Canvas initialization failure leaves honest readable fallback"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "formal project autosaves and resumes identity and editing choices after real reload"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "imports a real project file as a new project without altering frozen cast or checkpoint"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "malformed and future-version file imports leave the existing current project intact"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "pending replacement preserves continuous typing and can be canceled without losing queued edits"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "new project autosaves keep the previous project recoverable"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "damaged draft is quarantined and backup can be edited, saved and reloaded"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "unknown stored versions remain exportable and cannot be overwritten through recovery"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "two tabs retain both versions on conflict and takeover requires an explicit action"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "storage denial keeps an honest in-memory draft with a working project file download"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "formal store and file export operate through legacy production chunks in Chromium smoke check"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "quick-trial.spec.ts",
+      "title": [
+        "quick trial keeps the formal draft unchanged, pauses at both operations and ends before the mountain opens"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "quick-trial.spec.ts",
+      "title": [
+        "pause, lost focus, restart and closing leave no active trial clock"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "quick-trial.spec.ts",
+      "title": [
+        "a failed curtain asset reports failure and retries without starting time or changing the draft"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "quick-trial.spec.ts",
+      "title": [
+        "320px trial, keyboard close and repeated entry retain a single usable curtain"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "quick-trial.spec.ts",
+      "title": [
+        "opening and closing the trial preserves the current performance"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "quick-trial.spec.ts",
+      "title": [
+        "native MP3 trial ends all nine spoken lines before its no-spoiler invitation"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "reset-history.spec.ts",
+      "title": [
+        "clear history offers export and cancellation, then atomically restores a fresh-user home"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "reset-history.spec.ts",
+      "title": [
+        "an old live tab cannot write discarded history back after reset"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "reset-history.spec.ts",
+      "title": [
+        "a failed reset preserves all history and the retry really starts fresh"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "unfinished and protected records never manufacture a reunion or offer result downloads"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "home programme shares causal choices with a static PNG and never waits for its stamp"
+      ],
+      "status": "passed",
+      "round": "footer-green"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "light programme shares causal choices with a static PNG and never waits for its stamp"
+      ],
+      "status": "passed",
+      "round": "footer-green"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "road programme shares causal choices with a static PNG and never waits for its stamp"
+      ],
+      "status": "passed",
+      "round": "footer-green"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "waiting programme shares causal choices with a static PNG and never waits for its stamp"
+      ],
+      "status": "passed",
+      "round": "footer-green"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "sacrifice programme shares causal choices with a static PNG and never waits for its stamp"
+      ],
+      "status": "passed",
+      "round": "footer-green"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "call-first exports a real frozen 1600x1200 PNG twice and an unchanged programme"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "split-first exports a real frozen 1600x1200 PNG twice and an unchanged programme"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "call-first replay is paused, follows only the saved branch and cannot edit the performance"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "split-first replay is paused, follows only the saved branch and cannot edit the performance"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "SAVE-03 JSON into a fresh browser preserves result identity, frozen PNG and replay decisions"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "reduced motion uses explicit still steps and clears every replay callback on ten route exits"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "a missing required mask fails the image truthfully and retry loads the actual asset"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "PNG encoding rejection and browser refusal report failure, while JSON remains available"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "late PNG encoding after exit cannot download or replace the new page"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "Canvas failure keeps programme, JSON and replay transcript without reporting a successful image"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "legacy PNG encoding fallback produces a real file and all download URLs are released"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "failed autosaving still exports the actual reunited draft and replay never retries disk implicitly"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "late required images after result exit cannot resurrect the capture or its download action"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "a PNG finishing during a pending file import cannot download the previous project"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "legacy product exports PNG and plays a read-only frozen scene through the same modules"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "retired-record.spec.ts",
+      "title": [
+        "unsupported story identity 1 cannot mount or overwrite its raw record"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "retired-record.spec.ts",
+      "title": [
+        "unsupported story identity 2 cannot mount or overwrite its raw record"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "retired-record.spec.ts",
+      "title": [
+        "unsupported story identity 3 cannot mount or overwrite its raw record"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "retired-record.spec.ts",
+      "title": [
+        "unsupported story identity 4 cannot mount or overwrite its raw record"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "retired-record.spec.ts",
+      "title": [
+        "unsupported story identity 6 cannot mount or overwrite its raw record"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "full opening: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "full before-choice: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "full after-choice: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "full operating: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "full operation-saved: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "full curtain: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "guided opening: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "guided before-choice: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "guided after-choice: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "guided operating: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "guided operation-saved: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "guided curtain: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "full: close after the guardian checkpoint commits while its required image is still loading"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "guided: close after the guardian checkpoint commits while its required image is still loading"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "product craft tabs keep both edited palettes when one transaction loses the version check"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "product story tabs export both branch decisions while the stale candidate cannot replace the winner"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "palette edit then dialogue-gated call-first commits the latest whole project and invalidates old timers"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "palette edit then dialogue-gated split-first commits the latest whole project and invalidates old timers"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "site music defaults on, unlocks on the first ordinary click and retains manual mute across routes"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "reunion first two seconds stay quiet and paused story stops the actual music media"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "only actual curtain playback selects vocals, pause and mute release the media"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "failed audio file reports a real error and the next ordinary gesture retries"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry blocked via pointer keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry blocked via Enter keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry blocked via Space keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry resource via pointer keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry resource via Enter keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry resource via Space keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "ten route exits keep one active global player and actual pagehide releases its source"
+      ],
+      "status": "passed",
+      "round": "remaining"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip home/shared/call-first/wait preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip home/shared/call-first/fulfill preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip open-road/shared/call-first/wait preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip open-road/shared/call-first/fulfill preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip home/shared/split-first/wait preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip home/shared/split-first/fulfill preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip open-road/shared/split-first/wait preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip open-road/shared/split-first/fulfill preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip home/self/call-first/wait preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip home/self/call-first/fulfill preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip open-road/self/call-first/wait preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip open-road/self/call-first/fulfill preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip home/self/split-first/wait preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip home/self/split-first/fulfill preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip open-road/self/split-first/wait preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip open-road/self/split-first/fulfill preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": [
+        "a failed ending epilogue exports and retries the same completed candidate"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": [
+        "touch cancellation and focus loss release the active body without editing the saved pose"
+      ],
+      "status": "passed",
+      "round": "touch-probe"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": [
+        "ten playing exits dispose their source Canvas and ignore late animation callbacks"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-feedback.spec.ts",
+      "title": [
+        "the real axe observer displays holding then lowering and pause clears held progress"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-feedback.spec.ts",
+      "title": [
+        "dialogue gates the handover and its phase announcement does not change on every frame"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-keyboard.spec.ts",
+      "title": [
+        "full/memory-wave: native keyboard manipulates the puppet only after narration and keeps the saved pose"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-keyboard.spec.ts",
+      "title": [
+        "full/split-axe: native keyboard manipulates the puppet only after narration and keeps the saved pose"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-keyboard.spec.ts",
+      "title": [
+        "guided/memory-wave: native keyboard manipulates the puppet only after narration and keeps the saved pose"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-keyboard.spec.ts",
+      "title": [
+        "guided/split-axe: native keyboard manipulates the puppet only after narration and keeps the saved pose"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-state.spec.ts",
+      "title": [
+        "full/call-first uses the real text controls, commits one reunion and completes curtain"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-state.spec.ts",
+      "title": [
+        "full/split-first uses the real text controls, commits one reunion and completes curtain"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-state.spec.ts",
+      "title": [
+        "guided/call-first uses the real text controls, commits one reunion and completes curtain"
+      ],
+      "status": "passed",
+      "round": "pending-interrupted"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-state.spec.ts",
+      "title": [
+        "guided/split-first uses the real text controls, commits one reunion and completes curtain"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-state.spec.ts",
+      "title": [
+        "refresh retains a confirmed choice, restarts paused and mode changes only the current short node"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-state.spec.ts",
+      "title": [
+        "a failed reunion stays at the old node, exports its exact candidate, and retries without a second result"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-state.spec.ts",
+      "title": [
+        "legacy text entry uses the same guarded store in Chromium smoke check"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice-isolation.spec.ts",
+      "title": [
+        "rehearsal is silent and storage failure cancels the formal voice channel"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "four cast voices load and play real MP3s with native media events"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "pause, resume and subtitle seek follow the director without overlapping speech"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "a naturally played sentence reaches native ended before its reserved pause expires"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal re-entry enables voice while music mute stays independent"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "blocked speech reports its state without frame retries and the retry button unlocks it"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "a failed speech resource reports failure and succeeds after explicit retry"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "blur, hidden documents and route exits stop speech and focus cannot revive it"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "curtain reserves the original vocal recording until all spoken cues finish"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "result replay speaks the selected variant, seeks and closes without writing the completed run"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "speech follows the document base when deployed under a subdirectory"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "full: all five ending epilogues play their matching local speech"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "guided: all five ending epilogues play their matching local speech"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal voice is enabled on header-tab entry after the previous scene was muted"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal voice is enabled on direct-url entry after the previous scene was muted"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal voice is enabled on refresh entry after the previous scene was muted"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal voice is enabled on practice entry after the previous scene was muted"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal voice is enabled on craft entry after the previous scene was muted"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "quick trial voice mute is released by entering the existing formal performance"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "result replay mute is released on entering the still-narrated curtain"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "same-page mute survives pause, seek and chapter advance until a fresh entry"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "t47-regressions.spec.ts",
+      "title": [
+        "chosen endings stay in progress until the actual result checkpoint"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "t47-regressions.spec.ts",
+      "title": [
+        "museum drag handles retain their centered transform on hover and press"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "home background card aligns with the combined edges of the two feature cards"
+      ],
+      "status": "passed",
+      "round": "final-retry"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "wide curtain retains its original height while only background painting expands horizontally"
+      ],
+      "status": "passed",
+      "round": "final-retry"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "stretched background retains real rod dragging and the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "final-retry"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "paused caption resizing redraws the curtain and repositions input geometry"
+      ],
+      "status": "passed",
+      "round": "final-retry"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "four actual WebGL views share the same two-role Canvas and leave the performance untouched"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "per-part colors and lamp changes update the real spatial resources from the same frame"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "weak-device hints enforce the actual buffer and texture budget without removing controls"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "no WebGL interface keeps the complete 2D editor and never imports Three"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "renderer initialization failure returns to 2D and an explicit retry really initializes WebGL"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "actual context loss releases the old canvas, preserves 2D and allows a fresh context"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "a failed dynamic chunk leaves 2D usable and a fresh request can retry the observation"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "closing during a delayed module load prevents a late context and still permits reopening"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "ten spatial exits release contexts and listeners without creating animation clocks"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "story observation pauses the single clock and all camera changes stay outside story progress"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "protected future records still allow spatial examples without writing the unknown draft"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "legacy product keeps every 2D control and never executes the Three chunk"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "workshops.spec.ts",
+      "title": [
+        "native lamp dragging changes lamp geometry, leaves the puppet fixed and survives a context loss"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "workshops.spec.ts",
+      "title": [
+        "without WebGL the lamp experiment keeps its shadow and keyboard controls"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "workshops.spec.ts",
+      "title": [
+        "practice uses the detailed original costume even when old pattern fields change"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "workshops.spec.ts",
+      "title": [
+        "museum prioritizes public photos, supports enlargement and offers a motion switch"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "archive-rehearsal.spec.ts",
+      "title": [
+        "explicit archive restart replaces retired archive 1 without blocking the current session"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "archive-rehearsal.spec.ts",
+      "title": [
+        "explicit archive restart replaces retired archive 2 without blocking the current session"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "archive-rehearsal.spec.ts",
+      "title": [
+        "explicit archive restart replaces retired archive 3 without blocking the current session"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "archive-rehearsal.spec.ts",
+      "title": [
+        "explicit archive restart replaces retired archive 4 without blocking the current session"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "default-on sound plays once, pause/reset/mute and document exit release native audio"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "blocked effects recover with the first real click and can then be muted"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "error effects recover with the first real click and can then be muted"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "call-split emits the actual mountain sound only when the axe resolves"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "split-axe emits the actual mountain sound only when the axe resolves"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "reunion keeps the first two seconds silent and uses the new layered design"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "missing audio capability leaves every scene control and subtitle available"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "a real context resume refusal is reported and explicit retry creates a working device"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "a pending native resume survives a route exit without reviving the old scene"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "an old native close rejection cannot hide the fresh device mute control"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "ten story exits reuse one document audio context and retain a manual mute"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "asset-delivery.spec.ts",
+      "title": [
+        "lossless delivery and canonical PNG match original textures, saved appearance fields, frozen scenes and result PNG"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "asset-delivery.spec.ts",
+      "title": [
+        "unsupported non-premultiplied decoding uses PNG without requesting delivery files"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "asset-delivery.spec.ts",
+      "title": [
+        "damaged delivery fails visibly and explicit retry refetches a repaired image"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "asset-delivery.spec.ts",
+      "title": [
+        "a decoded bitmap arriving after route exit is closed and cannot revive its old canvas"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "assets.spec.ts",
+      "title": [
+        "all local assets decode and distinct neutral roles, cutouts and scenes draw"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "assets.spec.ts",
+      "title": [
+        "a missing required mask clears the preview and retry loads a complete actor"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "assets.spec.ts",
+      "title": [
+        "legacy asset page consumes the same PNGs in Chromium smoke check"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "assets.spec.ts",
+      "title": [
+        "Canvas failure remains readable and does not report successful assembly"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "backdrop-cache.spec.ts",
+      "title": [
+        "opaque background is reused and the independent light shadow releases old pixels"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "backdrop-cache.spec.ts",
+      "title": [
+        "optional backdrop allocation failure retains full original-quality drawing"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "backdrop-cache.spec.ts",
+      "title": [
+        "cached drawing failure clears buffers and actual retry loads a fresh background"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "backdrop-cache.spec.ts",
+      "title": [
+        "observation shares the paused Canvas frame and resumed controls refresh geometry once"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "backstage-observation.spec.ts",
+      "title": [
+        "backstage pauses the same instant, preserves source geometry and requires explicit resume"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "backstage-observation.spec.ts",
+      "title": [
+        "closing a pending backstage import rejects its late completion"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "backstage-observation.spec.ts",
+      "title": [
+        "failed backstage import returns to the operable curtain and can be retried"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "backstage-observation.spec.ts",
+      "title": [
+        "without WebGL, the formal curtain stays usable and no Three module is requested"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "duet recolors the editor but preserves the frozen mother and saved story"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "paused story uses its node scene, props and frozen cast independently of editor previews"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "missing color image fails visibly with a blank canvas and retry restores both actors"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "importing a different palette updates the puppet while keeping the curtain opaque"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "Canvas failure leaves the editor and story text available without false ready status"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "a drawing failure clears cached images and retry reads fresh sources"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "late images and ten remounts leave one canvas and no detached drawing or resize listeners"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "legacy product draws the same two-role frame in Chromium smoke check"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/shared/call-first/wait/full: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/shared/call-first/wait/guided: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/shared/call-first/fulfill/full: four decisions produce home"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/shared/call-first/fulfill/guided: four decisions produce home"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/shared/call-first/wait/full: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/shared/call-first/wait/guided: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/shared/call-first/fulfill/full: four decisions produce light"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/shared/call-first/fulfill/guided: four decisions produce light"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/shared/split-first/wait/full: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/shared/split-first/wait/guided: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/shared/split-first/fulfill/full: four decisions produce road"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/shared/split-first/fulfill/guided: four decisions produce road"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/shared/split-first/wait/full: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/shared/split-first/wait/guided: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/shared/split-first/fulfill/full: four decisions produce road"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/shared/split-first/fulfill/guided: four decisions produce road"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/self/call-first/wait/full: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/self/call-first/wait/guided: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/self/call-first/fulfill/full: four decisions produce sacrifice"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/self/call-first/fulfill/guided: four decisions produce sacrifice"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/self/call-first/wait/full: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/self/call-first/wait/guided: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/self/call-first/fulfill/full: four decisions produce sacrifice"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/self/call-first/fulfill/guided: four decisions produce sacrifice"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/self/split-first/wait/full: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/self/split-first/wait/guided: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/self/split-first/fulfill/full: four decisions produce sacrifice"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "home/self/split-first/fulfill/guided: four decisions produce sacrifice"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/self/split-first/wait/full: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/self/split-first/wait/guided: four decisions produce waiting"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/self/split-first/fulfill/full: four decisions produce sacrifice"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "open-road/self/split-first/fulfill/guided: four decisions produce sacrifice"
+      ],
+      "status": "passed",
+      "round": "matrix"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "new opening, refresh and museum return play automatically; same-page pause/reset/mode stay paused"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "choice after an explicit pause starts its successor without a play click"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "save failure retry stays paused, while refresh grants a fresh entry"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "blur while entry resources load revokes autoplay and late resources cannot revive it"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "a document hidden before initialization stays paused until a fresh visible entry"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "guardian staff and result decisions have native wide/narrow visual evidence"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "clock-native-start.spec.ts",
+      "title": [
+        "twelve native-clock play clicks advance without falsely pausing at the first frame"
+      ],
+      "status": "passed",
+      "round": "entry-clock"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "one opening click starts intro; costume confirmation carries playback into the first act"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "normal cuts continue; same-page pause stays paused and a fresh entry autoplays"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "explicit assistance after pausing starts a fresh continuous handoff"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "the final decision begins waiting without another play click"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "the final decision begins home without another play click"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "the final decision begins light without another play click"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "the final decision begins road without another play click"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "the final decision begins sacrifice without another play click"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "save failure and explicit retry never revive the former playback intent"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "blur during next actor loading cancels the one-use handoff"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "large current captions remain in view above controls and survive dialogue gaps"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "continuous-stage.spec.ts",
+      "title": [
+        "corrected mountain planes and canonical action distances have native visual evidence"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "original texture and per-part colors render and survive SAVE-01"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "immediate direct-craft opening freezes queued unsaved edits once and keeps guided intent"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "default opening uses the existing craft run, marks preset and preserves editor work"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "failed confirmation exports the frozen candidate while later edits queue separately and retry preserves it"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "editing and explicit archive-rehearsal preserve the old frozen run and the new editor"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "existing archive protection preserves both projects until explicit retry acknowledgement"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "lamp ranges, native keyboard, step buttons and reset save without changing story or practice pose"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "memory-only craft and lamp edits never retry writes until explicit save"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "body trial mouse, keyboard and touch are reversible and never replace the saved practice pose"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "legacy product freezes carved colors and saves lamp controls through the same Store in Chromium"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "ten craft/light remounts release input listeners and unavailable Canvas blocks freeze while editing stays available"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "cue-transport.spec.ts",
+      "title": [
+        "full: current mode cues seek locally, preserve pause/play, reset task evidence and lock during film"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "cue-transport.spec.ts",
+      "title": [
+        "guided: current mode cues seek locally, preserve pause/play, reset task evidence and lock during film"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "cue-transport.spec.ts",
+      "title": [
+        "craft keeps original image details and palette, with no added pattern or carving selection"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "cue-transport.spec.ts",
+      "title": [
+        "fresh guide starts the narrated story without freezing an unconfirmed costume"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "cue-transport.spec.ts",
+      "title": [
+        "paused result replay unlocks its cue directory when the first frame becomes ready"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "culture-header.spec.ts",
+      "title": [
+        "culture identity and all main pages adapt at five browser widths"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "full intro presents every scheduled line and saves exactly once before craft"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "guided intro presents every scheduled line and saves exactly once before craft"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "pause, resume, long gap, blur, mode switch and reload never count stopped time"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "explicit skip preserves its marker and dialogue-gated choices and interactions never auto finish"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "reduced motion keeps the current still readable and pauses on visibility loss"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "failed automatic checkpoint retains the applied frame and exact candidate until explicit retry"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "memory playback never retries storage without confirming the next scene"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "canceling a failed scene allows confirmation from the held final frame without replay"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "a normal route autosave never interrupts the playing scene"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "incoming resource error retains the previous canvas and subtitles and retry swaps only when ready"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "ten route exits, reset and late callbacks leave one clock and release all scene listeners"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "a late incoming texture after route exit cannot restore the old canvas or advance again"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "legacy entry plays the director in Chromium smoke coverage"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "Canvas failure still exposes the current story and its complete transcript"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "experience-entry.spec.ts",
+      "title": [
+        "the full journey has one next action and keeps lamp experiments out of the story contract"
+      ],
+      "status": "passed",
+      "round": "entry-clock"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "experience-entry.spec.ts",
+      "title": [
+        "320px home keeps its three entrances aligned and an existing performance remains the primary action"
+      ],
+      "status": "passed",
+      "round": "entry-clock"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": [
+        "ten slow seconds offer real lightweight 2D without advancing or saving, and quality can be restored"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": [
+        "24fps playback and a few isolated slow seconds do not show the suggestion"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": [
+        "pause, blur, long gaps and route disposal reset the slow streak and reject late callbacks"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": [
+        "continuing the current picture dismisses the suggestion without switching quality or adding clocks"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": [
+        "lightweight choice survives short-stage route changes and refresh returns to the default display"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": [
+        "practice keyboard motion shares the monitor and display quality cannot change the frozen performance"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": [
+        "read-only reunion replay offers the same suggestion and leaves the complete saved result untouched"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "guide-lifecycle.spec.ts",
+      "title": [
+        "node guide stays on its checkpoint, restores scroll and cancels on blur"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "guide-lifecycle.spec.ts",
+      "title": [
+        "legacy entry remains usable with modern DOM methods and WebGL absent"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "guide-lifecycle.spec.ts",
+      "title": [
+        "completed and skipped teaching stays remembered during routes, but a reload starts a new visit"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "guide-lifecycle.spec.ts",
+      "title": [
+        "an interrupted lesson stays quiet on this page and is offered after returning"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "guide-scroll.spec.ts",
+      "title": [
+        "guide locks native scrolling and navigation, then restores original overflow and position"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "guide-scroll.spec.ts",
+      "title": [
+        "keyboard can reach offscreen rehearsal alternatives and blur releases the lock"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "guide-scroll.spec.ts",
+      "title": [
+        "initial positioning failure restores the real page and releases its scroll lock"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "kai-font.spec.ts",
+      "title": [
+        "hanging web font falls back within the result readiness budget"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "kai-font.spec.ts",
+      "title": [
+        "leaving during font loading cancels the timer and rejects late composition"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "kai-font.spec.ts",
+      "title": [
+        "font download failure keeps programme, PNG and layout usable"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "kai-woff.spec.ts",
+      "title": [
+        "regular Kai uses the local WOFF fallback when WOFF2 is unavailable"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum-distinct.spec.ts",
+      "title": [
+        "lamp body is faint while its independently colored projection remains opaque"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum-distinct.spec.ts",
+      "title": [
+        "three rods respond to real drag, keyboard and equivalent buttons without saving posture"
+      ],
+      "status": "passed",
+      "round": "final-retry"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum-distinct.spec.ts",
+      "title": [
+        "rod cancellation and detached old handles cannot change the next demonstration"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum-distinct.spec.ts",
+      "title": [
+        "separate optical diagram keeps fixed section and updates ray ends and shadow scale"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum-distinct.spec.ts",
+      "title": [
+        "site identity belongs to navigation header, with no extra title row"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum-media.spec.ts",
+      "title": [
+        "museum photo gallery keeps local lazy images, actual captions and keyboard modal focus"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum-media.spec.ts",
+      "title": [
+        "gallery load failure reports and really retries; exiting an open modal releases it"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum-media.spec.ts",
+      "title": [
+        "all eight photo readings retain their declared counts and original files"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "seven public exhibits, clear site identity, no personal labels, and real sources first"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "museum native three-dimensional lamp drag changes light and keeps the puppet and project fixed"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "no WebGL keeps lamp sliders and buttons operable without any saved pose or lamp edits"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "lamp context loss releases the renderer and permits a real retry"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "carve by mouse and buttons, compare actual holes, reset without costume changes"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "joint controls stay in a short card and component photographs sit below the stage"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "four responsibilities alter the performance, pause, compare and reset"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "reduced motion presents complete collaboration as stills without a running clock"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "old E08 visits restore without reinstating an empty exhibit or losing records"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "repeated route exit disposes old lamp canvas and local listeners"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "museum experiments fit five responsive widths without long side cards or overflow"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "lamp asset failure retries and clears the repaired error message"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "three module failure keeps controls usable and can retry after the failure"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "museum.spec.ts",
+      "title": [
+        "ensemble waits for imagery, pauses on blur, and can resume after recovery"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "direct routes, museum children, back and refresh preserve the confirmed performance"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "URLs cannot start a story or manufacture a completed result"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "explicit guided opening and intro skip persist once, and ten remounts cannot repeat the command"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "craft saves the current editor while leaving frozen cast and decision intact"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "a failed opening stays on the old page, exports its candidate and retries the identical run"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "denied storage keeps an editable export and an explicit memory-only opening"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "archive/import use the shared serial entry, and cancel preserves the existing project"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "workbench recovery can be explicitly reread without leaving the product stuck"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "a real curtain checkpoint produces the actual programme and prepared reunion image"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "future records remain protected while the museum is readable"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "corrupt records remain protected while the museum is readable"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "alias redirects once, keyboard skip does not change route and mobile menu has real focus targets"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "navigation keeps the opened menu through reading, page switches and browser history"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "legacy product entry uses the same project and can save an editor change in Chromium"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "navigation.spec.ts",
+      "title": [
+        "static product introduction remains readable without JavaScript"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "all three real mouse grips change pose and reload saves the final editor without touching story"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "quick input-only trailing save and native change keep the final range and facing on reload"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "grip arrow keys use one clock, key release/blur stop motion and native range arrows still work"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "action selection, pause/resume, hidden page and long gaps retain time without catch-up"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "all five actions step visibly, keep the axe within the curtain and do not start a story"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "reduced motion uses explicit 250ms steps and never launches a loop"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "actual touch drag cancels cleanly and fallback touch handles unrelated identifiers and multiple ends"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "import during an action archives the latest old pose and never overwrites the new project"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "save failure keeps the final pose exportable and automatic input never retries disk writes"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "memory-only progress stays memory after practice until an explicit save"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "practice.spec.ts",
+      "title": [
+        "Canvas failure disables input and ten playing remounts clear every practice callback"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "one soft curtain, semantic brush titles without replay buttons and public credits"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "craft rehearsal restores exact stored appearance and stays remembered on route return"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "lamp and limb practice are isolated, with posture controls below the screen"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "story rehearsal restores its checkpoint and explicit skip retries only once"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "font failure and reduced motion keep readable titles without ornamental animation"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "real hand and keyboard rehearsal restores the running story clock without task evidence"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "all major pages keep their columns within narrow and wide viewports"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "probe.spec.ts",
+      "title": [
+        "production canvas responds to keyboard and has no horizontal overflow"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "probe.spec.ts",
+      "title": [
+        "commits, reloads and rolls back in actual browser IndexedDB"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "probe.spec.ts",
+      "title": [
+        "stale second tab keeps its unsaved sample and reports a conflict"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "probe.spec.ts",
+      "title": [
+        "denied storage preserves an editable sample and offers a real download"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "probe.spec.ts",
+      "title": [
+        "legacy production chunks operate in Chromium smoke check, not an IE test"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "probe.spec.ts",
+      "title": [
+        "readable story and museum introduction survives disabled JavaScript"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "probe.spec.ts",
+      "title": [
+        "Canvas initialization failure leaves honest readable fallback"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "formal project autosaves and resumes identity and editing choices after real reload"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "imports a real project file as a new project without altering frozen cast or checkpoint"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "malformed and future-version file imports leave the existing current project intact"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "pending replacement preserves continuous typing and can be canceled without losing queued edits"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "new project autosaves keep the previous project recoverable"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "damaged draft is quarantined and backup can be edited, saved and reloaded"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "unknown stored versions remain exportable and cannot be overwritten through recovery"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "two tabs retain both versions on conflict and takeover requires an explicit action"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "storage denial keeps an honest in-memory draft with a working project file download"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "project-storage.spec.ts",
+      "title": [
+        "formal store and file export operate through legacy production chunks in Chromium smoke check"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "quick-trial.spec.ts",
+      "title": [
+        "quick trial keeps the formal draft unchanged, pauses at both operations and ends before the mountain opens"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "quick-trial.spec.ts",
+      "title": [
+        "pause, lost focus, restart and closing leave no active trial clock"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "quick-trial.spec.ts",
+      "title": [
+        "a failed curtain asset reports failure and retries without starting time or changing the draft"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "quick-trial.spec.ts",
+      "title": [
+        "320px trial, keyboard close and repeated entry retain a single usable curtain"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "quick-trial.spec.ts",
+      "title": [
+        "opening and closing the trial preserves the current performance"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "quick-trial.spec.ts",
+      "title": [
+        "native MP3 trial ends all nine spoken lines before its no-spoiler invitation"
+      ],
+      "status": "skipped",
+      "round": "final-retry"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "reset-history.spec.ts",
+      "title": [
+        "clear history offers export and cancellation, then atomically restores a fresh-user home"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "reset-history.spec.ts",
+      "title": [
+        "an old live tab cannot write discarded history back after reset"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "reset-history.spec.ts",
+      "title": [
+        "a failed reset preserves all history and the retry really starts fresh"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "unfinished and protected records never manufacture a reunion or offer result downloads"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "home programme shares causal choices with a static PNG and never waits for its stamp"
+      ],
+      "status": "passed",
+      "round": "footer-green"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "light programme shares causal choices with a static PNG and never waits for its stamp"
+      ],
+      "status": "passed",
+      "round": "footer-green"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "road programme shares causal choices with a static PNG and never waits for its stamp"
+      ],
+      "status": "passed",
+      "round": "footer-green"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "waiting programme shares causal choices with a static PNG and never waits for its stamp"
+      ],
+      "status": "passed",
+      "round": "footer-green"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "sacrifice programme shares causal choices with a static PNG and never waits for its stamp"
+      ],
+      "status": "passed",
+      "round": "footer-green"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "call-first exports a real frozen 1600x1200 PNG twice and an unchanged programme"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "split-first exports a real frozen 1600x1200 PNG twice and an unchanged programme"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "call-first replay is paused, follows only the saved branch and cannot edit the performance"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "split-first replay is paused, follows only the saved branch and cannot edit the performance"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "SAVE-03 JSON into a fresh browser preserves result identity, frozen PNG and replay decisions"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "reduced motion uses explicit still steps and clears every replay callback on ten route exits"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "a missing required mask fails the image truthfully and retry loads the actual asset"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "PNG encoding rejection and browser refusal report failure, while JSON remains available"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "late PNG encoding after exit cannot download or replace the new page"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "Canvas failure keeps programme, JSON and replay transcript without reporting a successful image"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "legacy PNG encoding fallback produces a real file and all download URLs are released"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "failed autosaving still exports the actual reunited draft and replay never retries disk implicitly"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "late required images after result exit cannot resurrect the capture or its download action"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "a PNG finishing during a pending file import cannot download the previous project"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "legacy product exports PNG and plays a read-only frozen scene through the same modules"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "retired-record.spec.ts",
+      "title": [
+        "unsupported story identity 1 cannot mount or overwrite its raw record"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "retired-record.spec.ts",
+      "title": [
+        "unsupported story identity 2 cannot mount or overwrite its raw record"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "retired-record.spec.ts",
+      "title": [
+        "unsupported story identity 3 cannot mount or overwrite its raw record"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "retired-record.spec.ts",
+      "title": [
+        "unsupported story identity 4 cannot mount or overwrite its raw record"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "retired-record.spec.ts",
+      "title": [
+        "unsupported story identity 6 cannot mount or overwrite its raw record"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "full opening: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "full before-choice: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "full after-choice: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "full operating: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "full operation-saved: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "full curtain: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "guided opening: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "guided before-choice: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "guided after-choice: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "guided operating: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "guided operation-saved: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "guided curtain: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "full: close after the guardian checkpoint commits while its required image is still loading"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "guided: close after the guardian checkpoint commits while its required image is still loading"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "product craft tabs keep both edited palettes when one transaction loses the version check"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "product story tabs export both branch decisions while the stale candidate cannot replace the winner"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "palette edit then dialogue-gated call-first commits the latest whole project and invalidates old timers"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "palette edit then dialogue-gated split-first commits the latest whole project and invalidates old timers"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "site music defaults on, unlocks on the first ordinary click and retains manual mute across routes"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "reunion first two seconds stay quiet and paused story stops the actual music media"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "only actual curtain playback selects vocals, pause and mute release the media"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "failed audio file reports a real error and the next ordinary gesture retries"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry blocked via pointer keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry blocked via Enter keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry blocked via Space keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry resource via pointer keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry resource via Enter keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "music retry resource via Space keeps intent and needs one activation"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "site-music.spec.ts",
+      "title": [
+        "ten route exits keep one active global player and actual pagehide releases its source"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip home/shared/call-first/wait preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip home/shared/call-first/fulfill preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip open-road/shared/call-first/wait preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip open-road/shared/call-first/fulfill preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip home/shared/split-first/wait preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip home/shared/split-first/fulfill preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip open-road/shared/split-first/wait preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip open-road/shared/split-first/fulfill preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip home/self/call-first/wait preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip home/self/call-first/fulfill preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip open-road/self/call-first/wait preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip open-road/self/call-first/fulfill preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip home/self/split-first/wait preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip home/self/split-first/fulfill preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip open-road/self/split-first/wait preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "skip-routes.spec.ts",
+      "title": [
+        "explicit skip open-road/self/split-first/fulfill preserves choices and read-only replay"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": [
+        "a failed ending epilogue exports and retries the same completed candidate"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": [
+        "touch cancellation and focus loss release the active body without editing the saved pose"
+      ],
+      "status": "passed",
+      "round": "touch-probe"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-and-resume.spec.ts",
+      "title": [
+        "ten playing exits dispose their source Canvas and ignore late animation callbacks"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-feedback.spec.ts",
+      "title": [
+        "the real axe observer displays holding then lowering and pause clears held progress"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-feedback.spec.ts",
+      "title": [
+        "dialogue gates the handover and its phase announcement does not change on every frame"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-keyboard.spec.ts",
+      "title": [
+        "full/memory-wave: native keyboard manipulates the puppet only after narration and keeps the saved pose"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-keyboard.spec.ts",
+      "title": [
+        "full/split-axe: native keyboard manipulates the puppet only after narration and keeps the saved pose"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-keyboard.spec.ts",
+      "title": [
+        "guided/memory-wave: native keyboard manipulates the puppet only after narration and keeps the saved pose"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-keyboard.spec.ts",
+      "title": [
+        "guided/split-axe: native keyboard manipulates the puppet only after narration and keeps the saved pose"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-state.spec.ts",
+      "title": [
+        "full/call-first uses the real text controls, commits one reunion and completes curtain"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-state.spec.ts",
+      "title": [
+        "full/split-first uses the real text controls, commits one reunion and completes curtain"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-state.spec.ts",
+      "title": [
+        "guided/call-first uses the real text controls, commits one reunion and completes curtain"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-state.spec.ts",
+      "title": [
+        "guided/split-first uses the real text controls, commits one reunion and completes curtain"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-state.spec.ts",
+      "title": [
+        "refresh retains a confirmed choice, restarts paused and mode changes only the current short node"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-state.spec.ts",
+      "title": [
+        "a failed reunion stays at the old node, exports its exact candidate, and retries without a second result"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-state.spec.ts",
+      "title": [
+        "legacy text entry uses the same guarded store in Chromium smoke check"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice-isolation.spec.ts",
+      "title": [
+        "rehearsal is silent and storage failure cancels the formal voice channel"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "four cast voices load and play real MP3s with native media events"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "pause, resume and subtitle seek follow the director without overlapping speech"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "a naturally played sentence reaches native ended before its reserved pause expires"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal re-entry enables voice while music mute stays independent"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "blocked speech reports its state without frame retries and the retry button unlocks it"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "a failed speech resource reports failure and succeeds after explicit retry"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "blur, hidden documents and route exits stop speech and focus cannot revive it"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "curtain reserves the original vocal recording until all spoken cues finish"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "result replay speaks the selected variant, seeks and closes without writing the completed run"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "speech follows the document base when deployed under a subdirectory"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "full: all five ending epilogues play their matching local speech"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "guided: all five ending epilogues play their matching local speech"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal voice is enabled on header-tab entry after the previous scene was muted"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal voice is enabled on direct-url entry after the previous scene was muted"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal voice is enabled on refresh entry after the previous scene was muted"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal voice is enabled on practice entry after the previous scene was muted"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "formal voice is enabled on craft entry after the previous scene was muted"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "quick trial voice mute is released by entering the existing formal performance"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "result replay mute is released on entering the still-narrated curtain"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "story-voice.spec.ts",
+      "title": [
+        "same-page mute survives pause, seek and chapter advance until a fresh entry"
+      ],
+      "status": "passed",
+      "round": "native-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "t47-regressions.spec.ts",
+      "title": [
+        "chosen endings stay in progress until the actual result checkpoint"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "t47-regressions.spec.ts",
+      "title": [
+        "museum drag handles retain their centered transform on hover and press"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "home background card aligns with the combined edges of the two feature cards"
+      ],
+      "status": "passed",
+      "round": "final-retry"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "wide curtain retains its original height while only background painting expands horizontally"
+      ],
+      "status": "passed",
+      "round": "final-retry"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "stretched background retains real rod dragging and the saved checkpoint"
+      ],
+      "status": "passed",
+      "round": "final-retry"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "paused caption resizing redraws the curtain and repositions input geometry"
+      ],
+      "status": "skipped",
+      "round": "final-retry"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "four actual WebGL views share the same two-role Canvas and leave the performance untouched"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "per-part colors and lamp changes update the real spatial resources from the same frame"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "weak-device hints enforce the actual buffer and texture budget without removing controls"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "no WebGL interface keeps the complete 2D editor and never imports Three"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "renderer initialization failure returns to 2D and an explicit retry really initializes WebGL"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "actual context loss releases the old canvas, preserves 2D and allows a fresh context"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "a failed dynamic chunk leaves 2D usable and a fresh request can retry the observation"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "closing during a delayed module load prevents a late context and still permits reopening"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "ten spatial exits release contexts and listeners without creating animation clocks"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "story observation pauses the single clock and all camera changes stay outside story progress"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "protected future records still allow spatial examples without writing the unknown draft"
+      ],
+      "status": "passed",
+      "round": "exact-final"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "three-stage.spec.ts",
+      "title": [
+        "legacy product keeps every 2D control and never executes the Three chunk"
+      ],
+      "status": "passed",
+      "round": "baselines-round2"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "workshops.spec.ts",
+      "title": [
+        "native lamp dragging changes lamp geometry, leaves the puppet fixed and survives a context loss"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "workshops.spec.ts",
+      "title": [
+        "without WebGL the lamp experiment keeps its shadow and keyboard controls"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "workshops.spec.ts",
+      "title": [
+        "practice uses the detailed original costume even when old pattern fields change"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "workshops.spec.ts",
+      "title": [
+        "museum prioritizes public photos, supports enlargement and offers a motion switch"
+      ],
+      "status": "passed",
+      "round": "pending-controlled"
+    }
+  ]
+}

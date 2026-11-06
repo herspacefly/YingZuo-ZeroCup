@@ -1,0 +1,1344 @@
+{
+  "name": "baselines-round1",
+  "startTime": "2026-11-05T12:22:28.130Z",
+  "durationMs": 908700.836,
+  "reportedStats": {
+    "startTime": "2026-11-05T12:22:28.130Z",
+    "duration": 908700.836,
+    "expected": 99,
+    "skipped": 147,
+    "unexpected": 18,
+    "flaky": 0
+  },
+  "notRunExcluded": 147,
+  "globalErrors": [
+    "Testing stopped early after 18 maximum allowed failures."
+  ],
+  "cases": [
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "default-on sound plays once, pause/reset/mute and document exit release native audio"
+      ],
+      "status": "passed",
+      "durationMs": 3938,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "blocked effects recover with the first real click and can then be muted"
+      ],
+      "status": "passed",
+      "durationMs": 1089,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "error effects recover with the first real click and can then be muted"
+      ],
+      "status": "passed",
+      "durationMs": 1542,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "call-split emits the actual mountain sound only when the axe resolves"
+      ],
+      "status": "passed",
+      "durationMs": 4231,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "split-axe emits the actual mountain sound only when the axe resolves"
+      ],
+      "status": "passed",
+      "durationMs": 3572,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "reunion keeps the first two seconds silent and uses the new layered design"
+      ],
+      "status": "passed",
+      "durationMs": 2661,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "missing audio capability leaves every scene control and subtitle available"
+      ],
+      "status": "passed",
+      "durationMs": 1599,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "a real context resume refusal is reported and explicit retry creates a working device"
+      ],
+      "status": "passed",
+      "durationMs": 2993,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "a pending native resume survives a route exit without reviving the old scene"
+      ],
+      "status": "passed",
+      "durationMs": 2989,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "an old native close rejection cannot hide the fresh device mute control"
+      ],
+      "status": "passed",
+      "durationMs": 3003,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "art-audio.spec.ts",
+      "title": [
+        "ten story exits reuse one document audio context and retain a manual mute"
+      ],
+      "status": "passed",
+      "durationMs": 15698,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "asset-delivery.spec.ts",
+      "title": [
+        "lossless delivery and canonical PNG draw identical carving, palettes, frozen duet, WebGL and result PNG"
+      ],
+      "status": "timedOut",
+      "durationMs": 91936,
+      "retry": 0,
+      "errors": [
+        "Test timeout of 90000ms exceeded.",
+        "Error: locator.click: Test timeout of 90000ms exceeded.\nCall log:\n  - waiting for locator('#story-pause')\n    - locator resolved to <button id=\"story-pause\" class=\"button secondary\">暂停</button>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not enabled\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not enabled\n    - retrying click action\n      - waiting 100ms\n    95 × waiting for element to be visible, enabled and stable\n       - element is not enabled\n     - retrying click action\n       - waiting 500ms\n    - waiting for element to be visible, enabled and stable\n\n\n  31 |     for(const id of ['intro','road','guardian','call-light','split-axe','reunion-hold']){\n  32 |       const project=currentProject(id as StoryNodeId);\n> 33 |       for(const target of [page,png]){await seed(target,project);await target.goto('/#/story');await ready(target);await expect(target.locator('#story-runtime')).toHaveAttribute('data-state','playing');await target.locator('#story-pause').click();}\n     |                                                                                                                                                                                                                                                ^\n  34 |       expect(await digest(page),id+' scenery/props').toBe(await digest(png));\n  35 |     }\n  36 |     const completed=currentProject('completed');\n    at tests\\e2e\\asset-delivery.spec.ts:33:240"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "asset-delivery.spec.ts",
+      "title": [
+        "unsupported non-premultiplied decoding uses PNG without requesting delivery files"
+      ],
+      "status": "passed",
+      "durationMs": 879,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "asset-delivery.spec.ts",
+      "title": [
+        "damaged delivery fails visibly and explicit retry refetches a repaired image"
+      ],
+      "status": "passed",
+      "durationMs": 1099,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "asset-delivery.spec.ts",
+      "title": [
+        "a decoded bitmap arriving after route exit is closed and cannot revive its old canvas"
+      ],
+      "status": "passed",
+      "durationMs": 1261,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "assets.spec.ts",
+      "title": [
+        "all local assets decode and distinct neutral roles, cutouts and scenes draw"
+      ],
+      "status": "passed",
+      "durationMs": 2209,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "assets.spec.ts",
+      "title": [
+        "a missing required mask clears the preview and retry loads a complete actor"
+      ],
+      "status": "passed",
+      "durationMs": 1556,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "assets.spec.ts",
+      "title": [
+        "legacy asset page consumes the same PNGs in Chromium smoke check"
+      ],
+      "status": "passed",
+      "durationMs": 1463,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "assets.spec.ts",
+      "title": [
+        "Canvas failure remains readable and does not report successful assembly"
+      ],
+      "status": "passed",
+      "durationMs": 862,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "backdrop-cache.spec.ts",
+      "title": [
+        "opaque background is reused and the independent light shadow releases old pixels"
+      ],
+      "status": "passed",
+      "durationMs": 4779,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "backdrop-cache.spec.ts",
+      "title": [
+        "optional backdrop allocation failure retains full original-quality drawing"
+      ],
+      "status": "passed",
+      "durationMs": 1609,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "backdrop-cache.spec.ts",
+      "title": [
+        "cached drawing failure clears buffers and actual retry loads a fresh background"
+      ],
+      "status": "passed",
+      "durationMs": 2787,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "backdrop-cache.spec.ts",
+      "title": [
+        "observation shares the paused Canvas frame and resumed controls refresh geometry once"
+      ],
+      "status": "failed",
+      "durationMs": 10661,
+      "retry": 0,
+      "errors": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 1\nReceived: 3\n\n  67 |   await page.locator('.spatial-toggle').first().click();await page.locator('#story-play').click();await frames(page,Math.ceil(currentDuration('guardian')/100)+1);\n  68 |   const before=Number(await page.locator('.shadow-stage').getAttribute('data-draws'));\n> 69 |   const reads=await page.evaluate(()=>Reflect.get(window,'__cacheFrame')(100));expect(reads).toBe(1);expect(Number(await page.locator('.shadow-stage').getAttribute('data-draws'))).toBeGreaterThan(before);\n     |                                                                                              ^\n  70 |   await expect(page.locator('button[data-story-rod=\"rightHand\"]')).toBeEnabled();await page.locator('#story-pause').click();await expect(page.locator('button[data-story-rod=\"rightHand\"]')).toBeDisabled();expect((await probe(page)).frames).toBe(0);\n  71 | });\n  72 |\n    at tests\\e2e\\backdrop-cache.spec.ts:69:94"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "duet recolors the editor but preserves the frozen mother and saved story"
+      ],
+      "status": "passed",
+      "durationMs": 2767,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "paused story uses its node scene, props and frozen cast independently of editor previews"
+      ],
+      "status": "failed",
+      "durationMs": 5571,
+      "retry": 0,
+      "errors": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: \"4\"\nReceived: \"3\"\n\n  40 |   await page.getByLabel('这一套颜色').selectOption('woodland-v1');await page.getByRole('button',{name:'保存这身行装',exact:true}).click();await expect(page.locator('#save-state')).toHaveAttribute('data-state','saved');\n  41 |   await page.evaluate(()=>{location.hash='#/story';});await expect(page.locator('#app-view')).toHaveAttribute('data-route','/story');await ready(page);await page.locator('#story-reset').click();expect((await pixels(page)).hash).toBe(before.hash);\n> 42 |   const draws=await page.locator('.shadow-stage').getAttribute('data-draws');await page.waitForTimeout(150);expect(await page.locator('.shadow-stage').getAttribute('data-draws')).toBe(draws);\n     |                                                                                                                                                                                    ^\n  43 |   await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','paused');\n  44 | });\n  45 | test('missing color image fails visibly with a blank canvas and retry restores both actors',async({page})=>{\n    at tests\\e2e\\canvas-stage.spec.ts:42:180"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "missing color image fails visibly with a blank canvas and retry restores both actors"
+      ],
+      "status": "passed",
+      "durationMs": 1465,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "importing a different palette updates the puppet while keeping the curtain opaque"
+      ],
+      "status": "passed",
+      "durationMs": 2216,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "Canvas failure leaves the editor and story text available without false ready status"
+      ],
+      "status": "passed",
+      "durationMs": 738,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "a drawing failure clears cached images and retry reads fresh sources"
+      ],
+      "status": "passed",
+      "durationMs": 1496,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "late images and ten remounts leave one canvas and no detached drawing or resize listeners"
+      ],
+      "status": "passed",
+      "durationMs": 7102,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "canvas-stage.spec.ts",
+      "title": [
+        "legacy product draws the same two-role frame in Chromium smoke check"
+      ],
+      "status": "passed",
+      "durationMs": 1675,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "original texture and per-part colors render and survive SAVE-01"
+      ],
+      "status": "passed",
+      "durationMs": 3506,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "immediate direct-craft opening freezes queued unsaved edits once and keeps guided intent"
+      ],
+      "status": "passed",
+      "durationMs": 2303,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "default opening uses the existing craft run, marks preset and preserves editor work"
+      ],
+      "status": "passed",
+      "durationMs": 2051,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "failed confirmation exports the frozen candidate while later edits queue separately and retry preserves it"
+      ],
+      "status": "passed",
+      "durationMs": 3759,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "editing and explicit archive-rehearsal preserve the old frozen run and the new editor"
+      ],
+      "status": "passed",
+      "durationMs": 2724,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "existing archive protection preserves both projects until explicit retry acknowledgement"
+      ],
+      "status": "passed",
+      "durationMs": 2328,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "lamp ranges, native keyboard, step buttons and reset save without changing story or practice pose"
+      ],
+      "status": "failed",
+      "durationMs": 5540,
+      "retry": 0,
+      "errors": [
+        "Error: expect(received).toMatchObject(expected)\n\n- Expected  - 2\n+ Received  + 2\n\n  Object {\n    \"lampGeometry\": Object {\n-     \"depth\": 0.85,\n+     \"depth\": 0.8500000000000001,\n      \"version\": 1,\n    },\n-   \"lampX\": 0.7,\n+   \"lampX\": 0.7000000000000001,\n    \"puppetDistance\": 0.2,\n  }\n\n  82 |   await range(page,'#light-lamp','.65');await range(page,'#light-distance','.79');await expect.poll(async()=>(await pixels(page)).hash).not.toBe(before.hash);await page.locator('#light-distance').focus();await page.keyboard.press('ArrowRight');await expect(page.locator('#light-distance')).toHaveValue('0.8');\n  83 |   await page.getByRole('button',{name:'灯向右',exact:true}).click();await page.getByRole('button',{name:'灯远离影偶',exact:true}).click();await page.getByRole('button',{name:'保存实验灯位',exact:true}).click();await saved(page);\n> 84 |   const project=await record(page);expect(project.stage).toMatchObject({lampX:.7,puppetDistance:.2,lampGeometry:{version:1,depth:.85}});expect(project.pose).toEqual(fixture.pose);expect(project.story).toEqual(fixture.story);await expect(page.locator('#light-summary')).toContainText('1.31×');\n     |                                                          ^\n  85 |   await page.reload();await ready(page);await expect(page.locator('#light-lamp')).toHaveValue('0.7');await expect(page.locator('#light-distance')).toHaveValue('0.85');await go(page,'/story');await ready(page);if(await page.locator('#story-pause').isEnabled())await page.locator('#story-pause').click();expect((await pixels(page)).hash).toBe(storyImage.hash);\n  86 |   await go(page,'/light');await ready(page);await page.getByRole('button',{name:'重置灯位',exact:true}).click();await page.getByRole('button',{name:'保存实验灯位',exact:true}).click();await saved(page);expect((await record(page)).stage).toEqual({...fixture.stage,lampX:0,puppetDistance:.2,lampGeometry:{version:1,depth:1.2}});\n  87 | });\n    at tests\\e2e\\craft-light.spec.ts:84:58"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "memory-only craft and lamp edits never retry writes until explicit save"
+      ],
+      "status": "passed",
+      "durationMs": 7084,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "body trial mouse, keyboard and touch are reversible and never replace the saved practice pose"
+      ],
+      "status": "failed",
+      "durationMs": 5895,
+      "retry": 0,
+      "errors": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 389564792\nReceived: -1360224654\n\n  101 |   await page.addInitScript(()=>Object.defineProperty(window,'PointerEvent',{configurable:true,value:undefined}));await page.reload();await ready(page);await grip.scrollIntoViewIfNeeded();box=(await grip.boundingBox())!;\n  102 |   const dispatch=async(type:string,target:'handle'|'window',points:{identifier:number;clientX:number;clientY:number}[])=>page.evaluate(({type,target,points})=>{const event=new Event(type,{bubbles:true,cancelable:true});Object.defineProperty(event,'changedTouches',{value:points});(target==='handle'?document.querySelector('[data-craft-rod=\"body\"]')!:window).dispatchEvent(event);},{type,target,points});\n> 103 |   const point={identifier:7,clientX:box.x+24,clientY:box.y+24},initial=await pixels(page);await dispatch('touchstart','handle',[point]);await dispatch('touchmove','window',[{...point,identifier:9,clientX:point.clientX+25}]);expect((await pixels(page)).hash).toBe(initial.hash);\n      |                                                                                                                                                                                                                                                                   ^\n  104 |   await dispatch('touchmove','window',[{...point,clientX:point.clientX+25}]);expect((await pixels(page)).hash).not.toBe(initial.hash);await dispatch('touchcancel','window',[point,{...point,identifier:9}]);\n  105 |   await saved(page);expect((await record(page)).pose).toEqual(fixture.pose);expect((await record(page)).story).toEqual(fixture.story);expect(errors).toEqual([]);\n  106 | });\n    at tests\\e2e\\craft-light.spec.ts:103:259"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "legacy product freezes carved colors and saves lamp controls through the same Store in Chromium"
+      ],
+      "status": "passed",
+      "durationMs": 3084,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "craft-light.spec.ts",
+      "title": [
+        "ten craft/light remounts release input listeners and unavailable Canvas blocks freeze while editing stays available"
+      ],
+      "status": "passed",
+      "durationMs": 25927,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "cue-transport.spec.ts",
+      "title": [
+        "full: current mode cues seek locally, preserve pause/play, reset task evidence and lock during film"
+      ],
+      "status": "passed",
+      "durationMs": 7650,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "cue-transport.spec.ts",
+      "title": [
+        "guided: current mode cues seek locally, preserve pause/play, reset task evidence and lock during film"
+      ],
+      "status": "failed",
+      "durationMs": 22171,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('#story-runtime')\nExpected: \"playing\"\nReceived: \"paused\"\nTimeout:  15000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 15000ms\n  - waiting for locator('#story-runtime')\n    4 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-showcase=\"none\" data-state=\"loading\" class=\"story-runtime\" data-node=\"memory-words\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:3:memory-words:4\">正在准备下一段，保留上一幕画面与台词。</p>\n      - unexpected value \"loading\"\n    28 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-state=\"paused\" data-showcase=\"none\" class=\"story-runtime\" data-node=\"memory-words\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:3:memory-words:4\">幕面已就绪。</p>\n       - unexpected value \"paused\"\n\n\n  16 | const advance=(page:Page,ms:number)=>page.evaluate(ms=>Reflect.get(window,'__advance')(ms),ms);\n  17 | const runtime=(page:Page)=>page.locator('#story-runtime');\n> 18 | async function ready(page:Page){await expect(runtime(page)).toHaveAttribute('data-state','playing',{timeout:15000});await page.locator('#story-pause').click();await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready',{timeout:15000});}\n     |                                                             ^\n  19 | for(const mode of ['full','guided'] as const)test(`${mode}: current mode cues seek locally, preserve pause/play, reset task evidence and lock during film`,async({page})=>{\n  20 |   test.setTimeout(60000);await clock(page);await seed(page,project(mode));await page.goto('/#/story');await ready(page);\n  21 |   const cues=mode==='guided'?node.guidedSubtitles!:node.subtitles,ratio=mode==='guided'?node.guidedTiming.targetMs/node.fullTiming.targetMs:1,buttons=page.locator('.subtitle-directory .subtitle-cue');\n    at ready (tests\\e2e\\cue-transport.spec.ts:18:61)\n    at tests\\e2e\\cue-transport.spec.ts:33:81"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "cue-transport.spec.ts",
+      "title": [
+        "craft keeps original image details and palette, with no added pattern or carving selection"
+      ],
+      "status": "timedOut",
+      "durationMs": 61381,
+      "retry": 0,
+      "errors": [
+        "Test timeout of 60000ms exceeded.",
+        "Error: locator.click: Test timeout of 60000ms exceeded.\nBrowser logs:\n\n<launching> C:\\Users\\zhang\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1248\\chrome-headless-shell-win64\\chrome-headless-shell.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\zhang\\AppData\\Local\\Temp\\playwright_chromiumdev_profile-WObs2b --remote-debugging-pipe --no-startup-window\n<launched> pid=16804\n[pid=16804][err] [1105/202725.630:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202725.633:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202725.636:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202725.640:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202725.643:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202725.647:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202725.655:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202725.667:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202725.670:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202725.675:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202725.679:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202725.683:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202725.699:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202725.716:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202725.721:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202725.728:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.116:INFO:CONSOLE:2] \"The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.300:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.300:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.300:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.301:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.302:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.305:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.309:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.318:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.320:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.321:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.324:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.325:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.329:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.340:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.342:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.345:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.500:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.501:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.502:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.504:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.505:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.509:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.509:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.522:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.524:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804][err] [1105/202726.525:INFO:CONSOLE:2] \"Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently\", source: http://127.0.0.1:4173/assets/main-CVenQ0pF.js (2)\n[pid=16804] <gracefully close start>\nCall log:\n  - waiting for locator('#craft-confirm')\n    - locator resolved to <button id=\"craft-confirm\" class=\"button secondary\">用这身行装开演</button>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n      - waiting 100ms\n    103 × waiting for element to be visible, enabled and stable\n        - element is not visible\n      - retrying click action\n        - waiting 500ms\n    - waiting for element to be visible, enabled and stable\n\n\n  39 |   p.appearance.patternId='flower-v1';p.appearance.carvedSegments=[false,false,false];await seed(page,p);await page.goto('/#/craft');await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready',{timeout:15000});\n  40 |   expect(await page.locator('canvas.shadow-stage').evaluate(c=>(c as HTMLCanvasElement).toDataURL())).toBe(before);\n> 41 |   await page.locator('#craft-palette').selectOption('woodland-v1');await page.locator('#craft-confirm').click();await ready(page);await expect(runtime(page)).toHaveAttribute('data-node','memory-wave');expect((await stored(page)).story).toMatchObject({definitionVersion:5,castSnapshot:{appearance:{paletteId:'woodland-v1'}}});\n     |                                                                                                         ^\n  42 | });\n  43 |\n  44 | test('fresh guide starts the narrated story without freezing an unconfirmed costume',async({page})=>{\n    at tests\\e2e\\cue-transport.spec.ts:41:105"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "cue-transport.spec.ts",
+      "title": [
+        "fresh guide starts the narrated story without freezing an unconfirmed costume"
+      ],
+      "status": "passed",
+      "durationMs": 3402,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "cue-transport.spec.ts",
+      "title": [
+        "paused result replay unlocks its cue directory when the first frame becomes ready"
+      ],
+      "status": "passed",
+      "durationMs": 2884,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "full intro presents every scheduled line and saves exactly once before craft"
+      ],
+      "status": "passed",
+      "durationMs": 7588,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "guided intro presents every scheduled line and saves exactly once before craft"
+      ],
+      "status": "passed",
+      "durationMs": 3235,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "pause, resume, long gap, blur, mode switch and reload never count stopped time"
+      ],
+      "status": "passed",
+      "durationMs": 5376,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "explicit skip preserves its marker and dialogue-gated choices and interactions never auto finish"
+      ],
+      "status": "passed",
+      "durationMs": 9588,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "reduced motion keeps the current still readable and pauses on visibility loss"
+      ],
+      "status": "passed",
+      "durationMs": 1954,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "failed automatic checkpoint retains the applied frame and exact candidate until explicit retry"
+      ],
+      "status": "passed",
+      "durationMs": 4654,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "memory playback never retries storage without confirming the next scene"
+      ],
+      "status": "failed",
+      "durationMs": 10291,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('#story-runtime')\nExpected: \"paused\"\nReceived: \"playing\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\n  - waiting for locator('#story-runtime')\n    14 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-showcase=\"none\" data-state=\"playing\" data-node=\"guardian\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:10:guardian:3\">正在播放当前片段，后续片段会自动接续。</p>\n       - unexpected value \"playing\"\n\n\n   8 | const first=(mode:'full'|'guided'='full')=>at('intro',mode);\n   9 | const node=(page:Page)=>page.locator('#story-runtime');\n> 10 | const ready=async(page:Page)=>{await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state','ready');if(await node(page).getAttribute('data-state')==='playing')await page.locator('#story-pause').click();await expect(node(page)).toHaveAttribute('data-state','paused');};\n     |                                                                                                                                                                                                                                                        ^\n  11 | async function seed(page:Page,project:ProjectV1){await page.goto('/study.html');await page.evaluate(async value=>{\n  12 |   const db=await new Promise<IDBDatabase>((resolve,reject)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});\n  13 |   await new Promise<void>((resolve,reject)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>resolve();tx.onabort=()=>reject(tx.error);});db.close();\n    at ready (tests\\e2e\\director.spec.ts:10:248)\n    at tests\\e2e\\director.spec.ts:93:47"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "canceling a failed scene allows confirmation from the held final frame without replay"
+      ],
+      "status": "passed",
+      "durationMs": 5080,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "a normal route autosave never interrupts the playing scene"
+      ],
+      "status": "passed",
+      "durationMs": 1841,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "incoming resource error retains the previous canvas and subtitles and retry swaps only when ready"
+      ],
+      "status": "passed",
+      "durationMs": 4436,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "ten route exits, reset and late callbacks leave one clock and release all scene listeners"
+      ],
+      "status": "passed",
+      "durationMs": 26483,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "a late incoming texture after route exit cannot restore the old canvas or advance again"
+      ],
+      "status": "passed",
+      "durationMs": 3510,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "legacy entry plays the director in Chromium smoke coverage"
+      ],
+      "status": "passed",
+      "durationMs": 1863,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "director.spec.ts",
+      "title": [
+        "Canvas failure still exposes the current story and its complete transcript"
+      ],
+      "status": "passed",
+      "durationMs": 1049,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": [
+        "ten slow seconds offer real lightweight 2D without advancing or saving, and quality can be restored"
+      ],
+      "status": "passed",
+      "durationMs": 5744,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": [
+        "24fps playback and a few isolated slow seconds do not show the suggestion"
+      ],
+      "status": "passed",
+      "durationMs": 2251,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": [
+        "pause, blur, long gaps and route disposal reset the slow streak and reject late callbacks"
+      ],
+      "status": "passed",
+      "durationMs": 7822,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": [
+        "continuing the current picture dismisses the suggestion without switching quality or adding clocks"
+      ],
+      "status": "passed",
+      "durationMs": 3050,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": [
+        "lightweight choice survives short-stage route changes and refresh returns to the default display"
+      ],
+      "status": "passed",
+      "durationMs": 6983,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": [
+        "practice keyboard motion shares the monitor and display quality cannot change the frozen performance"
+      ],
+      "status": "passed",
+      "durationMs": 1764,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "frame-rate.spec.ts",
+      "title": [
+        "read-only reunion replay offers the same suggestion and leaves the complete saved result untouched"
+      ],
+      "status": "passed",
+      "durationMs": 3139,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "guide-lifecycle.spec.ts",
+      "title": [
+        "node guide stays on its checkpoint, restores scroll and cancels on blur"
+      ],
+      "status": "passed",
+      "durationMs": 3419,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "guide-lifecycle.spec.ts",
+      "title": [
+        "legacy entry remains usable with modern DOM methods and WebGL absent"
+      ],
+      "status": "passed",
+      "durationMs": 2298,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "guide-lifecycle.spec.ts",
+      "title": [
+        "completed and skipped teaching stays remembered during routes, but a reload starts a new visit"
+      ],
+      "status": "passed",
+      "durationMs": 4691,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "guide-lifecycle.spec.ts",
+      "title": [
+        "an interrupted lesson stays quiet on this page and is offered after returning"
+      ],
+      "status": "passed",
+      "durationMs": 3405,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "one soft curtain, semantic brush titles without replay buttons and public credits"
+      ],
+      "status": "passed",
+      "durationMs": 8096,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "craft rehearsal restores exact stored appearance and stays remembered on route return"
+      ],
+      "status": "passed",
+      "durationMs": 5858,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "lamp and limb practice are isolated, with posture controls below the screen"
+      ],
+      "status": "passed",
+      "durationMs": 7510,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "story rehearsal restores its checkpoint and explicit skip retries only once"
+      ],
+      "status": "passed",
+      "durationMs": 5863,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "font failure and reduced motion keep readable titles without ornamental animation"
+      ],
+      "status": "passed",
+      "durationMs": 831,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "real hand and keyboard rehearsal restores the running story clock without task evidence"
+      ],
+      "status": "failed",
+      "durationMs": 11160,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toBeVisible() failed\n\nLocator:  locator('.limb-handle').first()\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toBeVisible\" locator('.limb-handle').first() with timeout 5000ms\n  - waiting for locator('.limb-handle').first()\n    13 × locator resolved to <button type=\"button\" class=\"limb-handle\" aria-label=\"拖动沉香左手\" data-limb=\"leftHand\">左手</button>\n       - unexpected value \"hidden\"\n\n\n  36 |  await page.evaluate(async value=>{const db=await new Promise<IDBDatabase>((resolve,reject)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});await new Promise<void>((resolve,reject)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>resolve();tx.onabort=()=>reject(tx.error);});db.close();},p);\n  37 |  await page.goto('/#/story');await expect(guide(page)).toBeVisible({timeout:15000});await page.locator('#guide-skip').click();await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','playing');await page.evaluate(ms=>Reflect.get(window,'__advance')(ms),currentDuration('memory-wave'));\n> 38 |  await expect(guide(page)).toContainText('轮到你接过影偶');const before=await stored(page);const handle=page.locator('.limb-handle').first();await expect(handle).toBeVisible();await handle.scrollIntoViewIfNeeded();await expect(handle).toBeEnabled();const box=await handle.boundingBox();await page.mouse.move(box!.x+box!.width/2,box!.y+box!.height/2);await page.mouse.down();await page.mouse.move(box!.x+box!.width/2+30,box!.y+box!.height/2-15,{steps:6});await page.mouse.up();await expect(guide(page)).toHaveCount(0);expect(await stored(page)).toBe(before);await expect(page.locator('#story-runtime')).toHaveAttribute('data-state','playing');await page.locator('#story-next-node').click();await saved(page);await expect(page.locator('.guide-replay')).toBeEnabled();await page.locator('.guide-replay').click();await expect(guide(page)).toContainText('听故事，也掌握它的节奏');await page.keyboard.press('Escape');\n     |                                                                                                                                                            ^\n  39 | });\n  40 | test('all major pages keep their columns within narrow and wide viewports',async({page})=>{\n  41 |  test.setTimeout(150000);await page.addInitScript(()=>new MutationObserver(()=>document.querySelector<HTMLButtonElement>('#guide-skip')?.click()).observe(document,{childList:true,subtree:true}));\n    at tests\\e2e\\presentation-guidance.spec.ts:38:156"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "all major pages keep their columns within narrow and wide viewports"
+      ],
+      "status": "passed",
+      "durationMs": 14074,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "unfinished and protected records never manufacture a reunion or offer result downloads"
+      ],
+      "status": "passed",
+      "durationMs": 3148,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "home programme shares causal choices with a static PNG and never waits for its stamp"
+      ],
+      "status": "passed",
+      "durationMs": 6326,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "light programme shares causal choices with a static PNG and never waits for its stamp"
+      ],
+      "status": "passed",
+      "durationMs": 5955,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "road programme shares causal choices with a static PNG and never waits for its stamp"
+      ],
+      "status": "passed",
+      "durationMs": 5938,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "waiting programme shares causal choices with a static PNG and never waits for its stamp"
+      ],
+      "status": "passed",
+      "durationMs": 2902,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "sacrifice programme shares causal choices with a static PNG and never waits for its stamp"
+      ],
+      "status": "passed",
+      "durationMs": 8053,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "call-first exports a real frozen 1600x1200 PNG twice and an unchanged programme"
+      ],
+      "status": "passed",
+      "durationMs": 6966,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "split-first exports a real frozen 1600x1200 PNG twice and an unchanged programme"
+      ],
+      "status": "passed",
+      "durationMs": 7751,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "call-first replay is paused, follows only the saved branch and cannot edit the performance"
+      ],
+      "status": "passed",
+      "durationMs": 16110,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "split-first replay is paused, follows only the saved branch and cannot edit the performance"
+      ],
+      "status": "passed",
+      "durationMs": 15936,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "SAVE-03 JSON into a fresh browser preserves result identity, frozen PNG and replay decisions"
+      ],
+      "status": "passed",
+      "durationMs": 11506,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "reduced motion uses explicit still steps and clears every replay callback on ten route exits"
+      ],
+      "status": "passed",
+      "durationMs": 18795,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "a missing required mask fails the image truthfully and retry loads the actual asset"
+      ],
+      "status": "passed",
+      "durationMs": 2558,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "PNG encoding rejection and browser refusal report failure, while JSON remains available"
+      ],
+      "status": "failed",
+      "durationMs": 3081,
+      "retry": 0,
+      "errors": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: \"2026-10-18T00:00:00.000Z\"\nReceived: \"2026-11-04T00:00:00.000Z\"\n\n  137 | test('PNG encoding rejection and browser refusal report failure, while JSON remains available',async({page})=>{\n  138 |   await page.addInitScript(()=>{Reflect.set(window,'__toBlob',HTMLCanvasElement.prototype.toBlob);HTMLCanvasElement.prototype.toBlob=function(callback){callback(null);};});await seed(page,completed());await page.goto('/#/result');await ready(page);\n> 139 |   await page.locator('#result-png').click();await expect(page.locator('#result-operation')).toContainText('PNG 下载未完成');await expect(page.locator('#result-png')).toBeEnabled();expect(JSON.parse((await json(page)).toString('utf8')).story.completedAt).toBe('2026-10-18T00:00:00.000Z');\n      |                                                                                                                                                                                                                                                          ^\n  140 |   await page.evaluate(()=>{HTMLCanvasElement.prototype.toBlob=Reflect.get(window,'__toBlob');Reflect.set(navigator,'msSaveOrOpenBlob',()=>false);});await page.locator('#result-png').click();await expect(page.locator('#result-operation')).toContainText('浏览器拒绝');\n  141 | });\n  142 |\n    at tests\\e2e\\result.spec.ts:139:250"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "late PNG encoding after exit cannot download or replace the new page"
+      ],
+      "status": "passed",
+      "durationMs": 2094,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "Canvas failure keeps programme, JSON and replay transcript without reporting a successful image"
+      ],
+      "status": "passed",
+      "durationMs": 1999,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "legacy PNG encoding fallback produces a real file and all download URLs are released"
+      ],
+      "status": "passed",
+      "durationMs": 3565,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "failed autosaving still exports the actual reunited draft and replay never retries disk implicitly"
+      ],
+      "status": "passed",
+      "durationMs": 13068,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "late required images after result exit cannot resurrect the capture or its download action"
+      ],
+      "status": "passed",
+      "durationMs": 2322,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "a PNG finishing during a pending file import cannot download the previous project"
+      ],
+      "status": "passed",
+      "durationMs": 4909,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "result.spec.ts",
+      "title": [
+        "legacy product exports PNG and plays a read-only frozen scene through the same modules"
+      ],
+      "status": "passed",
+      "durationMs": 2684,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "full opening: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "durationMs": 4401,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "full before-choice: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "durationMs": 3202,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "full after-choice: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "failed",
+      "durationMs": 17889,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('#story-runtime')\nExpected: \"paused\"\nReceived: \"playing\"\nTimeout:  15000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 15000ms\n  - waiting for locator('#story-runtime')\n    - locator resolved to <p role=\"status\" data-held=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-state=\"saving\" data-showcase=\"none\" data-elapsed=\"65884\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-node=\"approach-choice\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:12:approach-choice:1\">检查点尚未保存；画面保留在当前段。请在作品工具中重试、取消或选择仅在本页继续。</p>\n    - unexpected value \"saving\"\n    2 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-showcase=\"none\" data-state=\"loading\" class=\"story-runtime\" data-node=\"split-axe\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:13:split-axe:2\">正在准备下一段，保留上一幕画面与台词。</p>\n      - unexpected value \"loading\"\n    30 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-node=\"split-axe\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:13:split-axe:2\">正在播放当前片段，后续片段会自动接续。</p>\n       - unexpected value \"playing\"\n\n\n  51 | async function ready(page: Page, nodeId?: NodeId) {\n  52 |   await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state', 'ready', wait);\n> 53 |   await expect(runtime(page)).toHaveAttribute('data-state',/^(paused|playing)$/);if(await runtime(page).getAttribute('data-state')==='playing')await page.locator('#story-pause').click();await expect(runtime(page)).toHaveAttribute('data-state', 'paused', wait);\n     |                                                                                                                                        ^\n  54 |   if (nodeId) await expect(runtime(page)).toHaveAttribute('data-node', nodeId);\n  55 | }\n  56 |\n    at ready (tests\\e2e\\save-boundaries.spec.ts:53:136)\n    at tests\\e2e\\save-boundaries.spec.ts:135:131"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "full operating: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "durationMs": 5003,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "full operation-saved: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "failed",
+      "durationMs": 20297,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('#story-runtime')\nExpected: \"paused\"\nReceived: \"playing\"\nTimeout:  15000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 15000ms\n  - waiting for locator('#story-runtime')\n    33 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-input-revision=\"2\" data-node=\"memory-words\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:3:memory-words:2\">正在播放当前片段，后续片段会自动接续。</p>\n       - unexpected value \"playing\"\n\n\n  51 | async function ready(page: Page, nodeId?: NodeId) {\n  52 |   await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state', 'ready', wait);\n> 53 |   await expect(runtime(page)).toHaveAttribute('data-state',/^(paused|playing)$/);if(await runtime(page).getAttribute('data-state')==='playing')await page.locator('#story-pause').click();await expect(runtime(page)).toHaveAttribute('data-state', 'paused', wait);\n     |                                                                                                                                        ^\n  54 |   if (nodeId) await expect(runtime(page)).toHaveAttribute('data-node', nodeId);\n  55 | }\n  56 |\n    at ready (tests\\e2e\\save-boundaries.spec.ts:53:136)\n    at tests\\e2e\\save-boundaries.spec.ts:142:125"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "full curtain: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "failed",
+      "durationMs": 19858,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('#story-runtime')\nExpected: \"paused\"\nReceived: \"playing\"\nTimeout:  15000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 15000ms\n  - waiting for locator('#story-runtime')\n    32 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-node=\"curtain\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:21:curtain:2\">正在播放当前片段，后续片段会自动接续。</p>\n       - unexpected value \"playing\"\n\n\n  51 | async function ready(page: Page, nodeId?: NodeId) {\n  52 |   await expect(page.locator('.canvas-stage-status')).toHaveAttribute('data-state', 'ready', wait);\n> 53 |   await expect(runtime(page)).toHaveAttribute('data-state',/^(paused|playing)$/);if(await runtime(page).getAttribute('data-state')==='playing')await page.locator('#story-pause').click();await expect(runtime(page)).toHaveAttribute('data-state', 'paused', wait);\n     |                                                                                                                                        ^\n  54 |   if (nodeId) await expect(runtime(page)).toHaveAttribute('data-node', nodeId);\n  55 | }\n  56 |\n    at ready (tests\\e2e\\save-boundaries.spec.ts:53:136)\n    at tests\\e2e\\save-boundaries.spec.ts:145:56"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "guided opening: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "durationMs": 5205,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "guided before-choice: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "durationMs": 4220,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "guided after-choice: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "failed",
+      "durationMs": 18206,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('#story-runtime')\nExpected: \"paused\"\nReceived: \"playing\"\nTimeout:  15000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 15000ms\n  - waiting for locator('#story-runtime')\n    - locator resolved to <p role=\"status\" data-held=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-state=\"saving\" data-showcase=\"none\" data-elapsed=\"27952\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-node=\"approach-choice\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:12:approach-choice:1\">检查点尚未保存；画面保留在当前段。请在作品工具中重试、取消或选择仅在本页继续。</p>\n    - unexpected value \"saving\"\n    2 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-showcase=\"none\" data-state=\"loading\" class=\"story-runtime\" data-node=\"split-axe\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:13:split-axe:2\">正在准备下一段，保留上一幕画面与台词。</p>\n      - unexpected value \"loading\"\n    30 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-node=\"split-axe\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:13:split-axe:2\">正在播放当前片段，后续片段会自动接续。</p>\n       - unexpected value \"playing\"\n\n\n  51 | async function ready(page: Page, nodeId?: NodeId) {\n  52 |   if(nodeId)await expect(runtime(page)).toHaveAttribute('data-node',nodeId);\n> 53 |   await expect(page.locator('#save-state')).toHaveAttribute('data-state',/^(saved|memory)$/);\n     |                                                                                              ^\n  54 |   await expect(page.locator('.page-content .canvas-stage-status')).toHaveAttribute('data-state','ready',wait);\n  55 |   await expect(runtime(page)).toHaveAttribute('data-state',/^(paused|playing)$/);\n  56 |   if(await runtime(page).getAttribute('data-state')==='playing')await page.locator('#story-pause').click();\n    at ready (tests\\e2e\\save-boundaries.spec.ts:53:136)\n    at tests\\e2e\\save-boundaries.spec.ts:135:131"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "guided operating: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "passed",
+      "durationMs": 4344,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "guided operation-saved: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "failed",
+      "durationMs": 20112,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('#story-runtime')\nExpected: \"paused\"\nReceived: \"playing\"\nTimeout:  15000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 15000ms\n  - waiting for locator('#story-runtime')\n    3 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-showcase=\"none\" data-state=\"loading\" class=\"story-runtime\" data-input-revision=\"2\" data-node=\"memory-words\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:3:memory-words:4\">正在准备下一段，保留上一幕画面与台词。</p>\n      - unexpected value \"loading\"\n    28 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-input-revision=\"2\" data-node=\"memory-words\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:3:memory-words:4\">正在播放当前片段，后续片段会自动接续。</p>\n       - unexpected value \"playing\"\n\n\n  51 | async function ready(page: Page, nodeId?: NodeId) {\n  52 |   if(nodeId)await expect(runtime(page)).toHaveAttribute('data-node',nodeId);\n> 53 |   await expect(page.locator('#save-state')).toHaveAttribute('data-state',/^(saved|memory)$/);\n     |                                                                                              ^\n  54 |   await expect(page.locator('.page-content .canvas-stage-status')).toHaveAttribute('data-state','ready',wait);\n  55 |   await expect(runtime(page)).toHaveAttribute('data-state',/^(paused|playing)$/);\n  56 |   if(await runtime(page).getAttribute('data-state')==='playing')await page.locator('#story-pause').click();\n    at ready (tests\\e2e\\save-boundaries.spec.ts:53:136)\n    at tests\\e2e\\save-boundaries.spec.ts:142:125"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "guided curtain: close the tab and restore a fresh page at the saved checkpoint"
+      ],
+      "status": "failed",
+      "durationMs": 18054,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('#story-runtime')\nExpected: \"paused\"\nReceived: \"playing\"\nTimeout:  15000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 15000ms\n  - waiting for locator('#story-runtime')\n    - locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-node=\"curtain\" data-showcase=\"none\" data-state=\"loading\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:21:curtain:2\">正在准备下一段，保留上一幕画面与台词。</p>\n    - unexpected value \"loading\"\n    32 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-node=\"curtain\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:21:curtain:2\">正在播放当前片段，后续片段会自动接续。</p>\n       - unexpected value \"playing\"\n\n\n  51 | async function ready(page: Page, nodeId?: NodeId) {\n  52 |   if(nodeId)await expect(runtime(page)).toHaveAttribute('data-node',nodeId);\n> 53 |   await expect(page.locator('#save-state')).toHaveAttribute('data-state',/^(saved|memory)$/);\n     |                                                                                              ^\n  54 |   await expect(page.locator('.page-content .canvas-stage-status')).toHaveAttribute('data-state','ready',wait);\n  55 |   await expect(runtime(page)).toHaveAttribute('data-state',/^(paused|playing)$/);\n  56 |   if(await runtime(page).getAttribute('data-state')==='playing')await page.locator('#story-pause').click();\n    at ready (tests\\e2e\\save-boundaries.spec.ts:53:136)\n    at tests\\e2e\\save-boundaries.spec.ts:145:56"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "full: close after the guardian checkpoint commits while its required image is still loading"
+      ],
+      "status": "passed",
+      "durationMs": 5189,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "guided: close after the guardian checkpoint commits while its required image is still loading"
+      ],
+      "status": "passed",
+      "durationMs": 3653,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "product craft tabs keep both edited palettes when one transaction loses the version check"
+      ],
+      "status": "passed",
+      "durationMs": 5110,
+      "retry": 0,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "product story tabs export both branch decisions while the stale candidate cannot replace the winner"
+      ],
+      "status": "failed",
+      "durationMs": 21452,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('#story-runtime')\nExpected: \"paused\"\nReceived: \"playing\"\nTimeout:  15000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 15000ms\n  - waiting for locator('#story-runtime')\n    - locator resolved to <p role=\"status\" data-held=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-state=\"saving\" data-showcase=\"none\" data-elapsed=\"65884\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-node=\"approach-choice\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:12:approach-choice:1\">检查点尚未保存；画面保留在当前段。请在作品工具中重试、取消或选择仅在本页继续。</p>\n    - unexpected value \"saving\"\n    4 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-showcase=\"none\" data-state=\"loading\" class=\"story-runtime\" data-node=\"call-light\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:13:call-light:3\">正在准备下一段，保留上一幕画面与台词。</p>\n      - unexpected value \"loading\"\n    28 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-node=\"call-light\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:13:call-light:3\">正在播放当前片段，后续片段会自动接续。</p>\n       - unexpected value \"playing\"\n\n\n  51 | async function ready(page: Page, nodeId?: NodeId) {\n  52 |   if(nodeId)await expect(runtime(page)).toHaveAttribute('data-node',nodeId);\n> 53 |   await expect(page.locator('#save-state')).toHaveAttribute('data-state',/^(saved|memory)$/);\n     |                                                                                              ^\n  54 |   await expect(page.locator('.page-content .canvas-stage-status')).toHaveAttribute('data-state','ready',wait);\n  55 |   await expect(runtime(page)).toHaveAttribute('data-state',/^(paused|playing)$/);\n  56 |   if(await runtime(page).getAttribute('data-state')==='playing')await page.locator('#story-pause').click();\n    at ready (tests\\e2e\\save-boundaries.spec.ts:53:136)\n    at tests\\e2e\\save-boundaries.spec.ts:215:89"
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "save-boundaries.spec.ts",
+      "title": [
+        "palette edit then dialogue-gated call-first commits the latest whole project and invalidates old timers"
+      ],
+      "status": "failed",
+      "durationMs": 17128,
+      "retry": 0,
+      "errors": [
+        "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('#story-runtime')\nExpected: \"paused\"\nReceived: \"playing\"\nTimeout:  15000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 15000ms\n  - waiting for locator('#story-runtime')\n    3 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-showcase=\"none\" data-state=\"loading\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-node=\"approach-choice\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:12:approach-choice:1\">正在准备当前片段…</p>\n      - unexpected value \"loading\"\n    29 × locator resolved to <p role=\"status\" data-held=\"0\" data-elapsed=\"0\" data-coverage=\"0\" data-distance=\"1\" id=\"story-runtime\" data-showcase=\"none\" data-state=\"playing\" class=\"story-runtime\" data-showcase-elapsed=\"0\" data-interaction=\"waiting\" data-node=\"approach-choice\" data-reduced-motion=\"false\" data-token=\"fixture-run-1:12:approach-choice:1\">正在播放当前片段，后续片段会自动接续。</p>\n       - unexpected value \"playing\"\n\n\n  51 | async function ready(page: Page, nodeId?: NodeId) {\n  52 |   if(nodeId)await expect(runtime(page)).toHaveAttribute('data-node',nodeId);\n> 53 |   await expect(page.locator('#save-state')).toHaveAttribute('data-state',/^(saved|memory)$/);\n     |                                                                                              ^\n  54 |   await expect(page.locator('.page-content .canvas-stage-status')).toHaveAttribute('data-state','ready',wait);\n  55 |   await expect(runtime(page)).toHaveAttribute('data-state',/^(paused|playing)$/);\n  56 |   if(await runtime(page).getAttribute('data-state')==='playing')await page.locator('#story-pause').click();\n    at ready (tests\\e2e\\save-boundaries.spec.ts:53:136)\n    at tests\\e2e\\save-boundaries.spec.ts:250:50"
+      ]
+    }
+  ]
+}
