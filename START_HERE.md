@@ -12,6 +12,8 @@ T43根据用户截图纠正T42：首页缘起白卡与上方双卡合计外边�
 
 ## 当前实现
 
+T50正在验证逐页紧凑布局：空操偶卡、关于页标题顶距、练习两列高度差、节目单操作栏及展馆分隔已调整；保留原字号、44px目标、24px舞台栏距和T49整幕/自动跳转，见[T50验收](docs/acceptance/t50.md)。
+
 T49已实现谢幕完成自动进入节目单、移除幕前听戏/暂停卡与各尺寸整幕显示；保存失败、离页和迟到回调不会误跳，返回键不循环。教学试练按原DOM位置恢复，避免幕面偏移。已按用户授权直接合并main并推送部署，无需PR，见[T49验收](docs/acceptance/t49.md)。
 
 T47七项缺陷修复及T48组件纵距、跳段自动接续、四类选择随时确认已随`c8b17f1`推送并部署；[Actions 42202092942](https://github.com/herspacefly/YingZuo-ZeroCup/actions/runs/42202092942)构建与部署成功。各自历史验证保留在[T47验收](docs/acceptance/t47.md)和[T48验收](docs/acceptance/t48.md)。
@@ -40,6 +42,7 @@ T44已在本地完成手机菜单状态保留：展开后切页、浏览展签�
 
 | 当前增量 | 先读 |
 | --- | --- |
+| T50：逐页压缩空白与布局重排 | [T50验收](docs/acceptance/t50.md)、[主方案](docs/plans/2026-10-15-yingzuo-design-and-implementation.md) |
 | T49：谢幕直达节目单、整幕显示与发布 | [当前契约](docs/contracts/automatic-performance-v2.md)、[T49验收](docs/acceptance/t49.md) |
 | T48：紧凑间距、跳段接续与随时选择 | [验收](docs/acceptance/t48.md)、[当前契约](docs/contracts/story.md) |
 | T47：缺陷修复与回归基线 | [审查报告](docs/reviews/2026-11-05-bug-audit.md)、[实际交接](docs/STATE.md) |

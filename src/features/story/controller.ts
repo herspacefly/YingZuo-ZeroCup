@@ -92,7 +92,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   const call=element('button','button primary','先举灯呼唤'),split=element('button','button primary','先挥斧开山');
   call.id='story-call-first';split.id='story-split-first';append(choices,call,split);
   for(const [node,id]of [[start,'start'],[skip,'skip'],[play,'play'],[pause,'pause'],[reset,'reset'],[retry,'retry'],[finish,'finish'],[assist,'assist'],[mode,'mode']] as const)node.id=`story-${id}`;
-  inputHost.className='story-inputs';note.id='story-help';modeLabel.appendChild(mode);append(transport,play,pause,reset,nextNode,showcaseSkip,showcaseAgain);
+  inputHost.className='story-inputs';inputHost.hidden=true;note.id='story-help';modeLabel.appendChild(mode);append(transport,play,pause,reset,nextNode,showcaseSkip,showcaseAgain);
   append(panel,runtime,title,lead,shot,cueHost,start,skip,craft,confirm,choices,modeLabel,transport,soundPanel,finish,assist,note,inputHost,retry,result,link('先去展馆走走 →','#/museum'));soundPanel.insertAdjacentElement('afterend',voiceControls.element);
   let live:Runtime|null=null,display:Runtime|null=null,state:StoreState|null=null,key='',identity='',disposed=false,mountError='',holding:CanvasFrame|null=null;
   let message='已恢复当前片段，正在准备幕面。',guideSuspended=false,fitPending=false,fitQueued=false,stageLocated=false,stageInView=false;
@@ -365,7 +365,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
       `每次进入剧场会自动开演，暂停后可继续片段。${reduced?'已启用减少动态。':''}声音可选，静音也保留全部字幕与操作。`;
     if(display)renderSubtitles(display);
     if(rt)renderFeedback(rt);
-    if(!hasStory){title.textContent='还没有开始这一场';lead.textContent=note.textContent;shot.textContent='';subtitles.update([],[],'empty');}rt?.controls?.render();
+    if(!hasStory){title.textContent='还没有开始这一场';lead.textContent=note.textContent;shot.textContent='';subtitles.update([],[],'empty');}rt?.controls?.render();inputHost.hidden=!inputHost.querySelector('.story-rod-controls:not([hidden])');
   }
   function finishResolution(rt:Runtime){
     if(!rt.resolution)return;const ready=rt.resolution.ready;

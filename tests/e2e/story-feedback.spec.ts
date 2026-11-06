@@ -32,13 +32,13 @@ async function shoulder(page:Page,value:number){
 test('the real axe observer displays holding then lowering and pause clears held progress',async({page})=>{
   await page.emulateMedia({reducedMotion:'reduce'});await controlledClock(page);const project=currentProject('call-split');await seed(page,project);
   const feedback=page.locator('.story-feedback-inline');
-  await expect(feedback).toHaveAttribute('data-state','listening');await expect(feedback).toBeHidden();await advance(page,currentDuration('call-split')+100);await expect(feedback).toHaveAttribute('data-state','ready');await shoulder(page,1.2);await advance(page,300);
+  await expect(feedback).toHaveAttribute('data-state','listening');await expect(feedback).toBeHidden();await expect(page.locator('.story-inputs')).toBeHidden();await advance(page,currentDuration('call-split')+100);await expect(page.locator('.story-inputs')).toBeVisible();await expect(feedback).toHaveAttribute('data-state','ready');await shoulder(page,1.2);await advance(page,300);
   await expect(feedback).toHaveAttribute('data-state','holding');
   await expect(feedback.getByRole('progressbar')).toHaveAttribute('aria-valuenow','200');
   await page.locator('#story-pause').click();await expect(feedback).toHaveAttribute('data-state','paused');await expect(feedback.getByRole('progressbar')).toBeHidden();
   await advance(page,1000);await page.locator('#story-play').click();await advance(page,700);
   await expect(feedback).toHaveAttribute('data-state','lower-axe');await expect(feedback).toContainText('现在落斧');
-  await shoulder(page,0);await advance(page,100);await expect(feedback).toHaveAttribute('data-state','showcase');
+  await shoulder(page,0);await advance(page,100);await expect(feedback).toHaveAttribute('data-state','showcase');await expect(page.locator('.story-inputs')).toBeHidden();
   await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','call-split');
 });
 

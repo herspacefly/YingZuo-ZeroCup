@@ -18,16 +18,16 @@
 .stage-rail { position:absolute; left:2%; right:2%; height:1px; background:#8b6a4580; } .stage-rail.top { top:4%; } .stage-rail.bottom { bottom:4%; }
 .stage-light { position:absolute; top:8%; right:12%; width:9%; padding-top:9%; border-radius:50%; background:#dfb66d; box-shadow:0 0 55px 28px #eed4a180; }
 .stage-poem { position:absolute; top:18%; left:8%; right:8%; text-align:center; white-space:pre-line; color:#6e3929; font-size:64px;line-height:1.25; letter-spacing:.12em; }
-.hero-stage .stage-poem { font-size:88px; top:16%; } .stage-caption { margin:16px 0 0; line-height:1.8; }
+.hero-stage .stage-poem { font-size:88px; top:16%; } .stage-caption { margin:12px 0 0; line-height:1.8; }
 .mountain { position:absolute; display:block; width:70%; height:65%; transform:rotate(38deg); background:#314c5820; bottom:-47%; left:-8%; } .mountain-front { transform:rotate(-38deg); background:#314c5838; right:-18%; left:auto; bottom:-44%; }
 .story-strip { border-top:1px solid #66503b; padding:60px 0; } .story-strip .section-lead { max-width:750px; }
 .act-list { display:flex; flex-wrap:wrap; list-style:none; padding:10px 0 20px; } .act-list li { flex:1 1 190px; padding:18px 18px 18px 0; color:#d6c9b1; } .act-number { display:block; color:#d7a253; font-size:36px;line-height:1.5; margin-bottom:12px; }
 .museum-invitation { margin:20px 0 72px; padding:42px; border:1px solid #66503b; border-radius:20px; background:#25241c; background:linear-gradient(110deg,#29312b,#211b14); box-shadow:inset 0 1px 0 rgba(255,236,194,.05),0 12px 32px rgba(0,0,0,.18); } .museum-invitation h2 { font-size:36px; }
 .page-trail { display:flex; flex-wrap:wrap; border-top:1px solid #463726; border-bottom:1px solid #463726; margin-bottom:20px; } .page-trail a { margin-right:28px; }
-.workspace { display:flex; align-items:flex-start; margin:20px 0 36px; } .workspace .stage-figure { width:calc(100% - 360px); padding-right:36px; } .control-panel { width:360px; min-width:0; padding:24px; border:1px solid #715638; border-radius:18px; background:#261f16; background:linear-gradient(145deg,#2c2419,#211b14); box-shadow:inset 0 1px 0 rgba(255,236,194,.05),0 12px 30px rgba(0,0,0,.2); }
+.workspace { display:flex; align-items:flex-start; margin:16px 0 20px; } .workspace .stage-figure { width:calc(100% - 360px); padding-right:36px; } .control-panel { width:360px; min-width:0; padding:24px; border:1px solid #715638; border-radius:18px; background:#261f16; background:linear-gradient(145deg,#2c2419,#211b14); box-shadow:inset 0 1px 0 rgba(255,236,194,.05),0 12px 30px rgba(0,0,0,.2); }
 .canvas-stage-screen { position:relative; height:0; padding-top:75%; border:10px solid #553a26; border-radius:16px; background:#282117; overflow:hidden; box-shadow:0 10px 28px rgba(0,0,0,.24),0 0 0 1px #795638; }
 .shadow-stage { position:absolute; left:0; top:0; width:100%; height:100%; display:block; }
-.canvas-stage-status { min-height:26px; color:#d7a253; } .stage-caption p { margin-bottom:8px; }
+.canvas-stage-status { min-height:26px; color:#d7a253; } .stage-caption p { margin-bottom:6px; }
 .story-stage-slot { width:calc(100% - 360px); padding-right:36px; }
 .workspace .story-stage-slot .stage-figure { width:100%; padding:0; }
 .story-scene-shade { position:absolute; top:0; right:0; bottom:0; left:0; background:#17130f; pointer-events:none; }
