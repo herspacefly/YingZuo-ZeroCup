@@ -60,7 +60,7 @@ export function reduceStory(project: ProjectV1,command: StoryCommand,context: St
     if(command.mode===story.mode)return null;
     story.mode=command.mode;story.revision++;return validateProject(next);
   }
-  if(command.action!=='COMPLETE_SCENE'&&command.action!=='SKIP_NODE'&&node.id!=='craft'){const timing=story.mode==='full'?node.fullTiming:node.guidedTiming;requireFact(context.elapsedMs>=timing.minDurationMs,'请先听完这一段对白，再决定或操偶。');}
+  if(command.action==='COMPLETE_INTERACTION'&&node.id!=='craft'){const timing=story.mode==='full'?node.fullTiming:node.guidedTiming;requireFact(context.elapsedMs>=timing.minDurationMs,'请先听完这一段对白，再接过影偶。');}
   let destination: string | undefined;
   if(command.action==='CHOOSE') {
     requireFact(node.id==='approach-choice' && node.kind==='choice' && node.completion.kind==='choice' && node.next && !('default' in node.next),'当前没有可选路线。');

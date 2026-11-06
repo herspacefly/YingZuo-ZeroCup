@@ -45,11 +45,14 @@ describe('cumulative choices and stable consumers',()=>{
   expect(validateStoryDefinition(choiceDefinition,{nodeIds:STORY_NODE_IDS,jointIds:JOINT_IDS,sourceIds:sources.sources.map(s=>s.id),assetIds:assetCatalog.manifest.assets.map(a=>a.id),puppets:assetCatalog.puppets,scenes:assetCatalog.scenes.scenes})).toEqual([]);
   expect(definitionFor(null)).toBe(choiceDefinition);
  });
- for(const id of ['journey-choice','mountain-pact-choice','approach-choice','ending-choice'] as const)it(`${id}: explicit, gated and never skippable`,()=>{
+ for(const id of ['journey-choice','mountain-pact-choice','approach-choice','ending-choice'] as const)it(`${id}: immediate, explicit and never skippable`,()=>{
   const project=choiceAt(id),guard=storyGuard(project.story!),payload=choicePayload(project,CHOICE_RUNS[1]!);
-  expect(()=>reduceStory(project,{...guard,...payload},{paused:true,elapsedMs:0,now:CHOICE_NOW},choiceDefinition)).toThrow('对白');
+  const next=reduceStory(project,{...guard,...payload},{paused:true,elapsedMs:0,now:CHOICE_NOW},choiceDefinition)!;expect(next.story!.nodeId).not.toBe(id);expect(next.story!.revision).toBe(project.story!.revision+1);expect(reduceStory(next,{...guard,...payload},{paused:false,elapsedMs:0,now:CHOICE_NOW},choiceDefinition)).toBeNull();
   expect(()=>reduceStory(project,{...guard,action:'SKIP_NODE',source:'user'},{paused:false,elapsedMs:100000,now:CHOICE_NOW},choiceDefinition)).toThrow();
   expect(()=>reduceStory(project,{...guard,action:'COMPLETE_INTERACTION',source:'assistance'},{paused:false,elapsedMs:100000,now:CHOICE_NOW},choiceDefinition)).toThrow();
+ });
+ it('keeps the measured narration gate for puppetry while decisions become immediate',()=>{
+  for(const id of ['memory-wave','road','guardian','call-light','split-axe','reunion-reach'] as const){const project=choiceAt(id,id==='split-axe'?CHOICE_RUNS.find(run=>run.approach==='split-first')!:CHOICE_RUNS[1]!),node=currentStoryNode(choiceDefinition,project.story!);for(const elapsedMs of [0,node.guidedTiming.minDurationMs-1])expect(()=>reduceStory(project,{...storyGuard(project.story!),action:'COMPLETE_INTERACTION',source:'assistance'},{paused:false,elapsedMs,now:CHOICE_NOW},choiceDefinition)).toThrow('对白');}
  });
  it('rejects prefilled/missing decisions, forged derived endings and a direct ending menu',()=>{
   const before=choiceAt('journey-choice');before.story!.choices!.journeyIntent='home';expect(()=>validateProject(before)).toThrow();

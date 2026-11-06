@@ -7,8 +7,8 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T47_local_complete",
-  "activeTaskId": "T38",
+  "stage": "T48_in_progress",
+  "activeTaskId": "T48",
   "lastVerifiedCommit": "ad5049ea8218e50c477f4320c6f0c0fd0f65bcb4",
   "features": {
     "singlePuppetRecording": "planned_optional",
@@ -2103,6 +2103,36 @@
         "64项选择矩阵全部通过；最终原生声音75通过/1条件跳过、几何/触控9通过/2既有条件跳过；原生时钟宽窄各12次启动、五终章宽窄10项PNG通过。",
         "根路径/项目子目录宽窄32项全部通过；原始MP3、ProjectV1、唯一时钟、250ms停顿保护和完成阈值不变。"
       ],
+      "phase": "G3"
+    },
+    {
+      "id": "T48",
+      "title": "收紧页面纵向留白、跳段连续开演与即时选择",
+      "priority": "P0",
+      "status": "in_progress",
+      "dependsOn": [
+        "T47"
+      ],
+      "owner": "codex-root",
+      "branch": "codex/t48-spacing-and-choice-flow",
+      "touchFiles": [
+        "src/styles/",
+        "src/domain/story.ts",
+        "src/features/story/",
+        "src/features/story-lab/",
+        "tests/",
+        "docs/",
+        "README.md",
+        "START_HERE.md",
+        "AGENTS.md"
+      ],
+      "acceptanceRefs": [
+        "T48"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "按用户截图收紧组件纵距；验证所有跳段的播放意图；放开四类选择的对白时间门槛并保留存档/失焦守卫。",
+      "blocker": null,
+      "verification": [],
       "phase": "G3"
     }
   ],

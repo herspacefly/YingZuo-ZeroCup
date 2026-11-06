@@ -8,7 +8,7 @@
 
 当前静态编排的每路径节点目标合计为完整 1125 秒、导览 418 秒；包含可提前确认的制偶阅读，操偶、思考、定场和暂停另计。新增及改写对白按各段字数分配连续字幕时间，较长的山前选择延至完整 50 秒/导览 22 秒。以上是编排目标，不是实测体验或配音时长。
 
-四次选择均在本段对白结束后由用户明确确认；不能由跳段、协助、默认选项、动画结束或自动开演代选。两新增节点复用相邻场面，选择本身不改变编辑稿或冻结造型。
+四次选择在对应片段就绪后可随时由用户明确确认，包括对白播放中和主动暂停时；无需等对白结束。确认即停止当前片段的声音与时钟，经保存后进入下一段；不能由跳段、协助、默认选项、动画结束或自动开演代选。两新增节点复用相邻场面，选择本身不改变编辑稿或冻结造型。
 
 | 次序 | 节点及顺序 | 用户决定 | 命令 |
 |---|---|---|---|
@@ -44,7 +44,7 @@
 
 StoryProgress 的 definitionVersion 固定为内部识别值5；approach/approachSource 保留。必须包含 choices={journeyIntent:null|'home'|'open-road',mountainPact:null|'shared'|'self',finalAction:null|'wait'|'fulfill'}。进入演出时三个值为 null；每项在对应选择前必须为 null，完成该选择后必须有合法用户决定。endingSource 必须为 null|'choices'，ending 和 choices 均不可缺省。
 
-CHOOSE_JOURNEY、CHOOSE_PACT 与 CHOOSE_FINAL_ACTION 继续验证 runId/revision/nodeId、当前节点、对白门槛和冻结角色，使用原串行保存事务。CHOOSE_FINAL_ACTION 在同一纯 reducer 操作中记录 finalAction、派生 ending/endingSource 并转入对应原终章；不得先保存决定再用第二次异步提交计算结局。重复点击、旧 revision 和迟到回调不重复生效。
+CHOOSE_JOURNEY、CHOOSE_PACT 与 CHOOSE_FINAL_ACTION 继续验证 runId/revision/nodeId、当前节点和冻结角色，使用原串行保存事务。四类选择命令不再要求对白时长门槛，操偶与过场完成继续使用原门槛。CHOOSE_FINAL_ACTION 在同一纯 reducer 操作中记录 finalAction、派生 ending/endingSource 并转入对应原终章；不得先保存决定再用第二次异步提交计算结局。重复点击、旧 revision 和迟到回调不重复生效。
 
 路径、存档校验和只读重演都读取这组决定。末次选择前 ending/endingSource 为 null；选择后必须与 resolveEnding 的结果一致。导入时拒绝缺少已完成选择、提前出现选择、跨终章节点、篡改派生结局或非法版本；不通过静默修补替用户选择。schemaVersion 不变；其他剧本识别值均返回 unsupported-version，原始数据受保护。
 
@@ -66,6 +66,6 @@ CHOOSE_JOURNEY、CHOOSE_PACT 与 CHOOSE_FINAL_ACTION 继续验证 runId/revision
 
 ## T38 中文配音时间适配
 
-2026-10-27 经作者核对现状后批准接入：`voice.json` 保存角色、原文、合成参数、文件摘要与实测时长。`voice-arrangement.ts` 在实际选择派生对白后生成瞬时节点，不改原剧本 JSON 或 ProjectV1。完整/导览分别按同句所有合法变体的最长音频加至少400ms排时；视觉时间映射回原动作锚点。领域完成门槛、字幕定位、导演与成果重演共用该编排，不能再用原 JSON 的标称时间提交完成。
+2026-10-27 经作者核对现状后批准接入：`voice.json` 保存角色、原文、合成参数、文件摘要与实测时长。`voice-arrangement.ts` 在实际选择派生对白后生成瞬时节点，不改原剧本 JSON 或 ProjectV1。完整/导览分别按同句所有合法变体的最长音频加至少400ms排时；视觉时间映射回原动作锚点。操偶及过场的领域完成门槛、字幕定位、导演与成果重演共用该编排，不能再用原 JSON 的标称时间提交完成。
 
 配音默认开启且与音乐独立；原生人声 playing 期间音乐降至原音量25%，等待、结束和清理恢复。谢幕对白结束后保留原40秒唱段；暂停、定位、切章、失焦、后台、教学、保存阻塞及离页遵守既有撤销规则。媒体事件不能推进故事，迟到回调不能复活旧播放，`playing` 回调不得无条件重写 currentTime 形成 seek 循环。字幕和画面可在配音受阻时继续，重试按当前偏移开始。每次实际进入正式剧场都重置为配音开启，同页手动静音有效；入场不改变音乐或音效开关，隔离教学不触发正式配音。浏览器限制时提供一次点击解锁/重试，不以开关状态冒称实际起声。

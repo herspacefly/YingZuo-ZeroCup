@@ -48,11 +48,11 @@ describe('measured voice arrangement',()=>{
       expect(voiceVisualTime('curtain',mode,cues.at(-1)!.endMs+15000)).toBe(authoredVoiceNode('curtain').fullTiming.targetMs);
     }
   });
-  it('gates decisions at the measured duration and preserves the craft early confirmation',()=>{
+  it('allows early decisions without changing measured narration or craft timing',()=>{
     for(const mode of ['full','guided'] as const)for(const id of ['journey-choice','mountain-pact-choice','approach-choice','ending-choice'] as const){
       const project=choiceAt(id,CHOICE_RUNS[1]!,mode),node=currentStoryNode(choiceDefinition,project.story!);
       const duration=(mode==='full'?node.fullTiming:node.guidedTiming).targetMs,command={...storyGuard(project.story!),...choicePayload(project,CHOICE_RUNS[1]!)};
-      expect(()=>reduceStory(project,command,{paused:false,elapsedMs:duration-1,now:CHOICE_NOW},choiceDefinition)).toThrow('对白');
+      expect(reduceStory(project,command,{paused:false,elapsedMs:0,now:CHOICE_NOW},choiceDefinition)?.story?.nodeId).not.toBe(id);expect(reduceStory(project,command,{paused:true,elapsedMs:duration-1,now:CHOICE_NOW},choiceDefinition)?.story?.nodeId).not.toBe(id);
       expect(reduceStory(project,command,{paused:false,elapsedMs:duration,now:CHOICE_NOW},choiceDefinition)?.story?.nodeId).not.toBe(id);
     }
     const craft=choiceAt('craft');expect(currentStoryNode(choiceDefinition,craft.story!).fullTiming.minDurationMs).toBe(0);

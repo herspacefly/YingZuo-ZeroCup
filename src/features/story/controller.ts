@@ -329,8 +329,8 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     start.hidden=hasStory;start.disabled=blocked();skip.hidden=node?.id!=='intro';skip.disabled=blocked()||!rt?.ready;
     craft.hidden=node?.id!=='craft'||display!==rt;confirm.hidden=craft.hidden;confirm.disabled=blocked()||!rt?.ready||!!rt.requested;result.hidden=!['curtain','completed'].includes(node?.id??'');modeLabel.hidden=!rt;transport.hidden=!rt||node?.kind==='terminal';
     voiceControls.setVisible(!!rt&&!ctx.guide);
-    choices.hidden=node?.kind!=='choice';call.hidden=split.hidden=node?.id!=='approach-choice';call.disabled=split.disabled=blocked()||!rt?.ready||!!rt.requested||rt.elapsed<rt.scene.durationMs;
-    for(const option of choiceOptions(state?.project?.story)){const button=choiceButtons.get(option.id)!;button.hidden=node?.id!==option.nodeId;button.textContent=option.label;button.disabled=blocked()||!rt?.ready||!!rt.requested||rt.elapsed<rt.scene.durationMs;}
+    choices.hidden=node?.kind!=='choice';call.hidden=split.hidden=node?.id!=='approach-choice';call.disabled=split.disabled=blocked()||!rt?.ready||!!rt.requested;
+    for(const option of choiceOptions(state?.project?.story)){const button=choiceButtons.get(option.id)!;button.hidden=node?.id!==option.nodeId;button.textContent=option.label;button.disabled=blocked()||!rt?.ready||!!rt.requested;}
     play.disabled=!rt||!canPlay(rt)||rt.playing;pause.disabled=!rt?.playing&&!continuity.pending();reset.disabled=!rt||blocked();
     soundToggle.disabled=!rt||blocked()||['unavailable','disposed'].includes(soundState);
     showcaseSkip.hidden=showcaseAgain.hidden=!rt?.resolution||!rt.clip;showcaseSkip.disabled=showcaseAgain.disabled=blocked();
@@ -345,7 +345,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     runtime.setAttribute('data-held',String(rt?.reading?.heldMs??0));runtime.setAttribute('data-interaction',rt?.reading?.phase??'waiting');runtime.setAttribute('data-distance',String(rt?.reading?.distanceRatio??1));
     runtime.textContent=state?.hasPending?'检查点尚未保存；画面保留在当前段。请在作品工具中重试、取消或选择仅在本页继续。':message;
     note.textContent=!rt?'确认开演后，才会为本场留下独立的演出身份；直接打开页面不会替你开始。':node?.id==='craft'?'确认已经准备好的造型，便为本场冻结行装；也可回到制偶页调整。':
-      node?.kind==='choice'?(rt.elapsed<rt.scene.durationMs?'先听这段对白；说完以后，再亲自选择这一场的去向。':'请亲自选择这一场的去向。操作失误和使用协助不会替你决定结局。'):
+      node?.kind==='choice'?'随时选择这一场的去向；确认后立即进入下一段。操作失误和使用协助不会替你决定结局。':
       interactive(rt)&&rt.elapsed<rt.scene.durationMs?'先听这一段故事，随后会展开握柄与操偶控件。也可展开本段完整台词阅读。':
       rt.resolution&&rt.clip?'这一段已达标，握柄已收起。可暂停、跳过放映或从头再看；放映结束后只保存一次。':interactive(rt)?`${tips[node!.id]??(node!.completion.kind==='axe'?'抬起右手，稳住半秒，再亲手落斧。':node!.completion.kind==='light'?'举起灯笼，移动身躯与灯位，让灯火照进金色区域。':'用方向键移身，走进金色区域后停留。')} 金色是目标区域，白线是当前观察范围。暂停不累计动作时间；刷新后会从本段开头自动开演。`:
       `每次进入剧场会自动开演，暂停后可继续片段。${reduced?'已启用减少动态。':''}声音可选，静音也保留全部字幕与操作。`;
@@ -358,7 +358,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     if(rt.clip){const frame=rt.clip.endFrame();const actor=frame.actors.find(item=>item.actorId==='chenxiang');if(actor)rt.pose=clone(actor.pose);rt.light={lampX:frame.stage.lampX,puppetDistance:frame.stage.puppetDistance};if(rt.entry.node.completion.kind==='reach')holding=clone(frame);}
     rt.resolution=null;rt.completed=ready;if(rt.clip)safeSample(rt);offer(rt,ready);
   }
-  life.on(showcaseSkip,'click',()=>{if(live?.resolution&&live.clip&&!blocked())finishResolution(live);});
+  life.on(showcaseSkip,'click',()=>{const rt=live;if(rt?.resolution&&rt.clip&&!blocked()){if(!ctx.guide){pageActive=!document.hidden&&document.hasFocus();if(pageActive)continuity.start(position(rt));}finishResolution(rt);}});
   life.on(showcaseAgain,'click',()=>{const rt=live;if(!rt?.resolution||!rt.clip||blocked())return;rt.resolution.elapsed=0;safeSample(rt);message='从收杆定场处，再看一次。';renderUI();});
   life.on(confirm,'click',()=>{const rt=live;if(!rt||blocked()||!rt.ready||rt.entry.node.id!=='craft'||rt.requested)return;if(!ctx.guide)continuity.start(position(rt));handoff(rt,{...rt.entry.guard,action:'COMPLETE_INTERACTION',source:'user',evidence:{kind:'craft',presetAppearanceUsed:false}});rt.requested=true;void ctx.durable(async()=>{try{const result=await confirmCraft(ctx.store,{runId:rt.entry.guard.runId,mode:rt.mode,presetAppearanceUsed:false,guard:rt.entry.guard,now:new Date().toISOString()});if(!result.ok)continuity.stop();return result;}catch(error){continuity.stop();throw error;}});});
   life.on(nextNode,'click',()=>{const rt=live;if(!rt||blocked()||!rt.ready||rt.requested||rt.resolution||rt.completed||rt.entry.node.kind==='choice'||rt.entry.node.id==='craft')return;stop(rt,'正在进入下一片段。',true);submit(rt,{command:{...rt.entry.guard,action:'SKIP_NODE',source:'user'},facts:facts(rt)});});
@@ -374,9 +374,9 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     void ctx.durable(()=>submitScopedSceneCommand(ctx.store,rt.scope,{...rt.entry.guard,action:'SET_MODE',mode:selected},facts(rt)));});
   life.on(finish,'click',()=>{const rt=live;if(rt?.completed)submit(rt,{command:rt.completed.command,facts:{...rt.completed.facts,now:new Date().toISOString()}});});
   const choiceButtons=new Map<string,HTMLButtonElement>();
-  for(const option of choiceOptions(null)){const button=element('button','button secondary',option.label);button.type='button';button.id='story-choice-'+option.id;button.hidden=true;choices.appendChild(button);choiceButtons.set(option.id,button);life.on(button,'click',()=>{const rt=live;if(!rt||blocked()||!rt.ready||rt.requested||rt.entry.node.id!==option.nodeId||rt.elapsed<rt.scene.durationMs)return;submit(rt,{command:{...rt.entry.guard,...option.payload} as SceneCommand,facts:facts(rt)});});}
+  for(const option of choiceOptions(null)){const button=element('button','button secondary',option.label);button.type='button';button.id='story-choice-'+option.id;button.hidden=true;choices.appendChild(button);choiceButtons.set(option.id,button);life.on(button,'click',()=>{const rt=live;if(!rt||blocked()||!rt.ready||rt.requested||rt.entry.node.id!==option.nodeId)return;submit(rt,{command:{...rt.entry.guard,...option.payload} as SceneCommand,facts:facts(rt)});});}
   for(const [button,approach]of [[call,'call-first'],[split,'split-first']] as const)life.on(button,'click',()=>{
-    const rt=live;if(!rt||blocked()||!rt.ready||rt.entry.node.kind!=='choice')return;
+    const rt=live;if(!rt||blocked()||!rt.ready||rt.requested||rt.entry.node.id!=='approach-choice')return;
     submit(rt,{command:{...rt.entry.guard,action:'CHOOSE',approach},facts:facts(rt)});
   });
   life.on(assist,'click',()=>{

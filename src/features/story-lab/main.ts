@@ -44,11 +44,11 @@ function render(state:StoreState) {
   el('cast-summary').textContent=story?.castSnapshot?`本场冻结：${story.castSnapshot.appearance.patternId} / ${story.castSnapshot.appearance.paletteId}；已记录协助 ${story.assistedNodeIds.length} 段。`:'开演确认前，尚未冻结本场造型。';
   for(const id of ['story-craft','story-preset','story-assist','story-choose-call','story-choose-split','story-complete']){el(id).hidden=true;button(id,true);}
   const timing=story?.mode==='guided'?node?.guidedTiming:node?.fullTiming,waiting=elapsed<(timing?.minDurationMs??0);
-  const options=choiceOptions(story);for(const {b,option}of choiceButtons){b.hidden=node?.id!==option.nodeId;b.disabled=blocked||!!waiting;b.textContent=options.find(item=>item.id===option.id)!.label;}
+  const options=choiceOptions(story);for(const {b,option}of choiceButtons){b.hidden=node?.id!==option.nodeId;b.disabled=blocked;b.textContent=options.find(item=>item.id===option.id)!.label;}
   if(node){
     if(node.id==='craft')for(const id of ['story-craft','story-preset']){el(id).hidden=false;button(id,blocked||!!waiting);}
     else if(node.kind==='interaction'){el('story-assist').hidden=false;button('story-assist',blocked||paused||!!waiting);}
-    else if(node.id==='approach-choice')for(const id of ['story-choose-call','story-choose-split']){el(id).hidden=false;button(id,blocked||!!waiting);}
+    else if(node.id==='approach-choice')for(const id of ['story-choose-call','story-choose-split']){el(id).hidden=false;button(id,blocked);}
     else if(node.kind==='cinematic'||node.kind==='curtain'){
       el('story-complete').hidden=false;
       const timing=story?.mode==='guided'?node.guidedTiming:node.fullTiming;

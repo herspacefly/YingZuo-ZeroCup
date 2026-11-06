@@ -33,7 +33,7 @@ export function storyFeedback(input: StoryFeedbackInput): StoryFeedback {
   if (!input.ready) return state('loading', '正在准备幕面', '影偶与灯影就绪后，再接过这一幕。');
   if (input.observing) return state('observing', '正在看看幕后', '返回幕前后，点击继续，从这一刻接续。');
   if (input.completed) return state('complete', '动作完成', '这一刻已确认，准备进入下一段。');
-  if (input.choice && !input.listening) return state('choice', '请你选择', '这一幕的去向，由你亲自决定。');
+  if (input.choice) return state('choice', '请你选择', '可随时选择去向，也可以继续听完这一段。');
   if (!input.playing) return state('paused', '片段已暂停', '点击继续；暂停不累计操偶时间。');
   if (input.resolving) return state('showcase', '定场放映', '动作已达标，接下来看看这一幕如何展开。');
   if (input.listening) return state('listening', '听戏中', input.interactive ? '对白结束后，再由你接过影偶。' : '听这一段故事，也可以随时暂停读台词。');

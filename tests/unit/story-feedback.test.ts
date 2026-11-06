@@ -36,8 +36,8 @@ describe('story feedback mirrors the real director and observer', () => {
     expect(storyFeedback({...ready,error:true,blocked:true}).state).toBe('error');
     expect(storyFeedback({...ready,hasStory:false}).state).toBe('empty');
   });
-  it('shows an explicit choice after the dialogue stops', () => {
+  it('offers an explicit choice during and after narration', () => {
     expect(storyFeedback({...ready,interactive:false,choice:true,playing:false}).state).toBe('choice');
-    expect(storyFeedback({...ready,interactive:false,choice:true,listening:true}).state).toBe('listening');
+    expect(storyFeedback({...ready,interactive:false,choice:true,listening:true}).state).toBe('choice');
   });
 });
