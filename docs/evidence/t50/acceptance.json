@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "task": "T50",
+  "updatedAt": "2026-11-06",
+  "status": "local-complete-awaiting-deployment",
+  "applicationCommit": "7851627879c6aee9cea6a07464ce43c9a460b217",
+  "unit": {
+    "files": 55,
+    "passed": 620
+  },
+  "browser": {
+    "functionalTotal": 74,
+    "counts": {
+      "passed": 74
+    },
+    "layoutStates": 57,
+    "scope": "Related targeted regression, not unfiltered full-suite."
+  },
+  "build": {
+    "modules": 162,
+    "main": "dist/assets/main-3kfvK1UY.js",
+    "sha256": "50edc2adcd477db00a3e3f5bca48fda1ae3fe2291036a51d4ea04b8771c4402a"
+  },
+  "checks": [
+    "unit",
+    "typecheck",
+    "build",
+    "state",
+    "assets",
+    "content",
+    "museum",
+    "legacy",
+    "voice --dist"
+  ],
+  "pushed": false,
+  "deployed": false,
+  "phaseNote": "Core checks exercised unchanged theatre/result modules in the first build. The final build also contains the practice DOM/Tab-order correction, verified by layout and guidance checks. Credits-only flow changes are checked separately after that build.",
+  "screenshots": [
+    "before-desktop-_.png",
+    "before-desktop-_about.png",
+    "before-desktop-_practice.png",
+    "before-desktop-completed.png",
+    "final-desktop-_.png",
+    "final-desktop-_about.png",
+    "final-desktop-_practice.png",
+    "final-desktop-completed.png",
+    "final-mobile-_about.png",
+    "final-mobile-memory-words.png",
+    "final-small-_about.png",
+    "final-small-memory-words.png"
+  ]
+}

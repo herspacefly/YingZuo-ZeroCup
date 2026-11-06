@@ -1,0 +1,714 @@
+{
+  "schemaVersion": 1,
+  "task": "T50",
+  "runs": [
+    {
+      "phase": "core",
+      "stats": {
+        "startTime": "2026-11-06T12:25:01.273Z",
+        "duration": 631432.084,
+        "expected": 52,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "file": "result.spec.ts",
+          "title": "home programme shares causal choices with a static PNG and never waits for its stamp",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 15818
+        },
+        {
+          "file": "result.spec.ts",
+          "title": "light programme shares causal choices with a static PNG and never waits for its stamp",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 15322
+        },
+        {
+          "file": "result.spec.ts",
+          "title": "road programme shares causal choices with a static PNG and never waits for its stamp",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 13806
+        },
+        {
+          "file": "result.spec.ts",
+          "title": "waiting programme shares causal choices with a static PNG and never waits for its stamp",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 5571
+        },
+        {
+          "file": "result.spec.ts",
+          "title": "sacrifice programme shares causal choices with a static PNG and never waits for its stamp",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 13868
+        },
+        {
+          "file": "result.spec.ts",
+          "title": "call-first exports a real frozen 1600x1200 PNG twice and an unchanged programme",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 18248
+        },
+        {
+          "file": "result.spec.ts",
+          "title": "split-first exports a real frozen 1600x1200 PNG twice and an unchanged programme",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 15265
+        },
+        {
+          "file": "result.spec.ts",
+          "title": "call-first replay is paused, follows only the saved branch and cannot edit the performance",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 55783
+        },
+        {
+          "file": "result.spec.ts",
+          "title": "split-first replay is paused, follows only the saved branch and cannot edit the performance",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 51502
+        },
+        {
+          "file": "result.spec.ts",
+          "title": "a missing required mask fails the image truthfully and retry loads the actual asset",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 8627
+        },
+        {
+          "file": "result.spec.ts",
+          "title": "late PNG encoding after exit cannot download or replace the new page",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 4078
+        },
+        {
+          "file": "result.spec.ts",
+          "title": "home programme shares causal choices with a static PNG and never waits for its stamp",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 19532
+        },
+        {
+          "file": "result.spec.ts",
+          "title": "light programme shares causal choices with a static PNG and never waits for its stamp",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 12355
+        },
+        {
+          "file": "result.spec.ts",
+          "title": "road programme shares causal choices with a static PNG and never waits for its stamp",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 14352
+        },
+        {
+          "file": "result.spec.ts",
+          "title": "waiting programme shares causal choices with a static PNG and never waits for its stamp",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 8983
+        },
+        {
+          "file": "result.spec.ts",
+          "title": "sacrifice programme shares causal choices with a static PNG and never waits for its stamp",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 11954
+        },
+        {
+          "file": "result.spec.ts",
+          "title": "call-first exports a real frozen 1600x1200 PNG twice and an unchanged programme",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 14644
+        },
+        {
+          "file": "result.spec.ts",
+          "title": "split-first exports a real frozen 1600x1200 PNG twice and an unchanged programme",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 11993
+        },
+        {
+          "file": "result.spec.ts",
+          "title": "call-first replay is paused, follows only the saved branch and cannot edit the performance",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 37920
+        },
+        {
+          "file": "result.spec.ts",
+          "title": "split-first replay is paused, follows only the saved branch and cannot edit the performance",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 42995
+        },
+        {
+          "file": "result.spec.ts",
+          "title": "a missing required mask fails the image truthfully and retry loads the actual asset",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 13475
+        },
+        {
+          "file": "result.spec.ts",
+          "title": "late PNG encoding after exit cannot download or replace the new page",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 4476
+        },
+        {
+          "file": "story-feedback.spec.ts",
+          "title": "the real axe observer displays holding then lowering and pause clears held progress",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 5012
+        },
+        {
+          "file": "story-feedback.spec.ts",
+          "title": "dialogue gates the handover and its phase announcement does not change on every frame",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 4529
+        },
+        {
+          "file": "story-feedback.spec.ts",
+          "title": "the real axe observer displays holding then lowering and pause clears held progress",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 5839
+        },
+        {
+          "file": "story-feedback.spec.ts",
+          "title": "dialogue gates the handover and its phase announcement does not change on every frame",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 4893
+        },
+        {
+          "file": "t49-stage-result.spec.ts",
+          "title": "home/guided: complete curtain saves once and opens its programme",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 9741
+        },
+        {
+          "file": "t49-stage-result.spec.ts",
+          "title": "light/guided: complete curtain saves once and opens its programme",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 8938
+        },
+        {
+          "file": "t49-stage-result.spec.ts",
+          "title": "road/guided: complete curtain saves once and opens its programme",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 10240
+        },
+        {
+          "file": "t49-stage-result.spec.ts",
+          "title": "waiting/guided: complete curtain saves once and opens its programme",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 8499
+        },
+        {
+          "file": "t49-stage-result.spec.ts",
+          "title": "sacrifice/guided: complete curtain saves once and opens its programme",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 9079
+        },
+        {
+          "file": "t49-stage-result.spec.ts",
+          "title": "restored completed run replaces history and back stays outside the theatre",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 2523
+        },
+        {
+          "file": "t49-stage-result.spec.ts",
+          "title": "failed completion remains in theatre and successful retry opens the same saved result",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 5670
+        },
+        {
+          "file": "t49-stage-result.spec.ts",
+          "title": "curtain is fully visible without the listening or paused card on portrait and short screens",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 14703
+        },
+        {
+          "file": "t49-stage-result.spec.ts",
+          "title": "viewport resizing keeps a paused visible curtain on screen without changing its scene",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 3714
+        },
+        {
+          "file": "t49-stage-result.spec.ts",
+          "title": "later scene changes do not pull back a reader who scrolled away",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 4931
+        },
+        {
+          "file": "t49-stage-result.spec.ts",
+          "title": "home/guided: complete curtain saves once and opens its programme",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 10224
+        },
+        {
+          "file": "t49-stage-result.spec.ts",
+          "title": "light/guided: complete curtain saves once and opens its programme",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 10497
+        },
+        {
+          "file": "t49-stage-result.spec.ts",
+          "title": "road/guided: complete curtain saves once and opens its programme",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 9622
+        },
+        {
+          "file": "t49-stage-result.spec.ts",
+          "title": "waiting/guided: complete curtain saves once and opens its programme",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 7961
+        },
+        {
+          "file": "t49-stage-result.spec.ts",
+          "title": "sacrifice/guided: complete curtain saves once and opens its programme",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 9768
+        },
+        {
+          "file": "t49-stage-result.spec.ts",
+          "title": "restored completed run replaces history and back stays outside the theatre",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 2879
+        },
+        {
+          "file": "t49-stage-result.spec.ts",
+          "title": "failed completion remains in theatre and successful retry opens the same saved result",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 4501
+        },
+        {
+          "file": "t49-stage-result.spec.ts",
+          "title": "curtain is fully visible without the listening or paused card on portrait and short screens",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 11884
+        },
+        {
+          "file": "t49-stage-result.spec.ts",
+          "title": "viewport resizing keeps a paused visible curtain on screen without changing its scene",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 3730
+        },
+        {
+          "file": "t49-stage-result.spec.ts",
+          "title": "later scene changes do not pull back a reader who scrolled away",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 4105
+        },
+        {
+          "file": "theatre-horizontal.spec.ts",
+          "title": "home background card aligns with the combined edges of the two feature cards",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 1779
+        },
+        {
+          "file": "theatre-horizontal.spec.ts",
+          "title": "wide curtain retains its original height while only background painting expands horizontally",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 8001
+        },
+        {
+          "file": "theatre-horizontal.spec.ts",
+          "title": "stretched background retains real rod dragging and the saved checkpoint",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 6285
+        },
+        {
+          "file": "theatre-horizontal.spec.ts",
+          "title": "home background card aligns with the combined edges of the two feature cards",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 1892
+        },
+        {
+          "file": "theatre-horizontal.spec.ts",
+          "title": "wide curtain retains its original height while only background painting expands horizontally",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 8505
+        },
+        {
+          "file": "theatre-horizontal.spec.ts",
+          "title": "stretched background retains real rod dragging and the saved checkpoint",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 4894
+        }
+      ]
+    },
+    {
+      "phase": "guide",
+      "stats": {
+        "startTime": "2026-11-06T12:39:06.906Z",
+        "duration": 138010.253,
+        "expected": 9,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "file": "guide-scroll.spec.ts",
+          "title": "guide locks native scrolling and navigation, then restores original overflow and position",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 7530
+        },
+        {
+          "file": "guide-scroll.spec.ts",
+          "title": "leaving rehearsal restores the original position of the page beside the journey navigation",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 5943
+        },
+        {
+          "file": "guide-scroll.spec.ts",
+          "title": "guide locks native scrolling and navigation, then restores original overflow and position",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 6214
+        },
+        {
+          "file": "guide-scroll.spec.ts",
+          "title": "leaving rehearsal restores the original position of the page beside the journey navigation",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 4586
+        },
+        {
+          "file": "presentation-guidance.spec.ts",
+          "title": "lamp and limb practice are isolated, with posture controls below the screen",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 17009
+        },
+        {
+          "file": "presentation-guidance.spec.ts",
+          "title": "story rehearsal restores its checkpoint and explicit skip retries only once",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 13197
+        },
+        {
+          "file": "presentation-guidance.spec.ts",
+          "title": "real hand and keyboard rehearsal restores the running story clock without task evidence",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 25757
+        },
+        {
+          "file": "presentation-guidance.spec.ts",
+          "title": "lamp and limb practice are isolated, with posture controls below the screen",
+          "project": "mobile-chromium",
+          "status": "failed",
+          "durationMs": 20247,
+          "error": "Error: expect(locator).toContainText(expected) failed\n\nLocator: locator('.guide-banner')\nExpected substring: \"再带他走一步\"\nReceived string:    \"先试一遍 · 1/2 · 本次操作不保存先牵动一只手或脚拖动幕上的圆点，也可以在幕下调整一个肩、肘、髋或膝。跳过引导\"\nTimeout: 5000ms\n\nCall log:\n  - Expect \"toContainText\" locator('.guide-banner') with timeout 5000ms\n  - waiting for locator('.guide-banner')\n    13 × locator resolved to <section aria-label=\"实操引导\" aria-live=\"polite\" class=\"guide-banner\">…</section>\n       - unexpected value \"先试一遍 · 1/2 · 本次操作不保存先牵动一只手或脚拖动幕上的圆点，也可以在幕下调整一个肩、肘、髋或膝。跳过引导\"\n"
+        },
+        {
+          "file": "presentation-guidance.spec.ts",
+          "title": "story rehearsal restores its checkpoint and explicit skip retries only once",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 7692
+        },
+        {
+          "file": "presentation-guidance.spec.ts",
+          "title": "real hand and keyboard rehearsal restores the running story clock without task evidence",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 18566
+        }
+      ]
+    },
+    {
+      "phase": "guide-recheck-final",
+      "stats": {
+        "startTime": "2026-11-06T15:33:44.309Z",
+        "duration": 26185.739,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "file": "presentation-guidance.spec.ts",
+          "title": "lamp and limb practice are isolated, with posture controls below the screen",
+          "project": "desktop-chromium",
+          "status": "passed",
+          "durationMs": 10088
+        },
+        {
+          "file": "presentation-guidance.spec.ts",
+          "title": "lamp and limb practice are isolated, with posture controls below the screen",
+          "project": "mobile-chromium",
+          "status": "passed",
+          "durationMs": 7910
+        }
+      ]
+    },
+    {
+      "phase": "layout",
+      "stats": {
+        "startTime": "2026-11-06T12:37:34.842Z",
+        "duration": 89474.23199999999,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "file": "t50-layout.spec.ts",
+          "title": "page content and empty space audit",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 22599
+        },
+        {
+          "file": "t50-layout.spec.ts",
+          "title": "page content and empty space audit",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 31281
+        },
+        {
+          "file": "t50-layout.spec.ts",
+          "title": "page content and empty space audit",
+          "project": "small",
+          "status": "passed",
+          "durationMs": 27457
+        }
+      ]
+    },
+    {
+      "phase": "credits",
+      "stats": {
+        "startTime": "2026-11-06T12:44:10.250Z",
+        "duration": 28806.123,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "file": "t50-layout.spec.ts",
+          "title": "credits flow keeps all sources and keyboard order without stretched empty cards",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 2252
+        },
+        {
+          "file": "t50-layout.spec.ts",
+          "title": "credits flow keeps all sources and keyboard order without stretched empty cards",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 9776
+        },
+        {
+          "file": "t50-layout.spec.ts",
+          "title": "credits flow keeps all sources and keyboard order without stretched empty cards",
+          "project": "small",
+          "status": "passed",
+          "durationMs": 10200
+        }
+      ]
+    },
+    {
+      "phase": "hosting",
+      "stats": {
+        "startTime": "2026-11-06T12:45:06.928Z",
+        "duration": 39438.602,
+        "expected": 11,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "file": "pages.spec.ts",
+          "title": "craft entry starts voiced story: guided, current appearance",
+          "project": "root-desktop",
+          "status": "passed",
+          "durationMs": 2294
+        },
+        {
+          "file": "pages.spec.ts",
+          "title": "completed theatre opens its programme automatically within the hosting directory",
+          "project": "root-desktop",
+          "status": "passed",
+          "durationMs": 1878
+        },
+        {
+          "file": "pages.spec.ts",
+          "title": "theatre fits a full curtain without a listening card in the hosting directory",
+          "project": "root-desktop",
+          "status": "passed",
+          "durationMs": 1704
+        },
+        {
+          "file": "pages.spec.ts",
+          "title": "craft entry starts voiced story: guided, current appearance",
+          "project": "root-mobile",
+          "status": "failed",
+          "durationMs": 6439,
+          "error": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator: locator('#story-runtime')\nExpected: \"memory-wave\"\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('#story-runtime') with timeout 5000ms\n  - waiting for locator('#story-runtime')\n"
+        },
+        {
+          "file": "pages.spec.ts",
+          "title": "completed theatre opens its programme automatically within the hosting directory",
+          "project": "root-mobile",
+          "status": "passed",
+          "durationMs": 4558
+        },
+        {
+          "file": "pages.spec.ts",
+          "title": "theatre fits a full curtain without a listening card in the hosting directory",
+          "project": "root-mobile",
+          "status": "passed",
+          "durationMs": 1632
+        },
+        {
+          "file": "pages.spec.ts",
+          "title": "craft entry starts voiced story: guided, current appearance",
+          "project": "pages-desktop",
+          "status": "passed",
+          "durationMs": 2442
+        },
+        {
+          "file": "pages.spec.ts",
+          "title": "completed theatre opens its programme automatically within the hosting directory",
+          "project": "pages-desktop",
+          "status": "passed",
+          "durationMs": 1634
+        },
+        {
+          "file": "pages.spec.ts",
+          "title": "theatre fits a full curtain without a listening card in the hosting directory",
+          "project": "pages-desktop",
+          "status": "passed",
+          "durationMs": 1461
+        },
+        {
+          "file": "pages.spec.ts",
+          "title": "craft entry starts voiced story: guided, current appearance",
+          "project": "pages-mobile",
+          "status": "passed",
+          "durationMs": 1961
+        },
+        {
+          "file": "pages.spec.ts",
+          "title": "completed theatre opens its programme automatically within the hosting directory",
+          "project": "pages-mobile",
+          "status": "passed",
+          "durationMs": 1492
+        },
+        {
+          "file": "pages.spec.ts",
+          "title": "theatre fits a full curtain without a listening card in the hosting directory",
+          "project": "pages-mobile",
+          "status": "passed",
+          "durationMs": 1417
+        }
+      ]
+    },
+    {
+      "phase": "hosting-recheck",
+      "stats": {
+        "startTime": "2026-11-06T15:31:39.174Z",
+        "duration": 20859.857000000004,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "file": "pages.spec.ts",
+          "title": "craft entry starts voiced story: guided, current appearance",
+          "project": "root-mobile",
+          "status": "passed",
+          "durationMs": 3388
+        }
+      ]
+    },
+    {
+      "phase": "hosting-repeat",
+      "stats": {
+        "startTime": "2026-11-06T15:34:12.149Z",
+        "duration": 21460.137,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "file": "pages.spec.ts",
+          "title": "craft entry starts voiced story: guided, current appearance",
+          "project": "root-mobile",
+          "status": "passed",
+          "durationMs": 5696
+        },
+        {
+          "file": "pages.spec.ts",
+          "title": "craft entry starts voiced story: guided, current appearance",
+          "project": "root-mobile",
+          "status": "passed",
+          "durationMs": 2761
+        },
+        {
+          "file": "pages.spec.ts",
+          "title": "craft entry starts voiced story: guided, current appearance",
+          "project": "root-mobile",
+          "status": "passed",
+          "durationMs": 1711
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1957 @@
+{
+  "schemaVersion": 1,
+  "task": "T50",
+  "note": "Native DOM measurements and visual review. Empty SVG/Canvas candidates are content, not blank panels; loading placeholders were not treated as permanent gaps. Height can vary with runtime notices.",
+  "states": 57,
+  "profiles": [
+    {
+      "profile": "desktop",
+      "states": 19,
+      "routes": [
+        {
+          "route": "/",
+          "height": 2696,
+          "contentHeight": 2406.734375,
+          "overflow": 0,
+          "empty": [],
+          "gaps": []
+        },
+        {
+          "route": "/craft",
+          "height": 1923,
+          "contentHeight": 1444.734375,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "svg.rod-lines",
+              "height": 747,
+              "width": 976,
+              "top": 532.640625
+            },
+            {
+              "name": "svg.limb-lines",
+              "height": 747,
+              "width": 976,
+              "top": 532.640625
+            },
+            {
+              "name": "div.palette-swatches",
+              "height": 28,
+              "width": 278,
+              "top": 699.171875
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div.control-panel",
+              "before": "button.button.secondary",
+              "after": "section.journey-next",
+              "gap": 31.1875
+            },
+            {
+              "parent": "div.control-panel",
+              "before": "p#craft-summary.selection-summary",
+              "after": "button.button.secondary",
+              "gap": 30
+            }
+          ]
+        },
+        {
+          "route": "/light",
+          "height": 1658,
+          "contentHeight": 1180.03125,
+          "overflow": 0,
+          "empty": [],
+          "gaps": []
+        },
+        {
+          "route": "/practice",
+          "height": 2359,
+          "contentHeight": 1881.21875,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "svg.rod-lines",
+              "height": 747,
+              "width": 976,
+              "top": 532.640625
+            },
+            {
+              "name": "path",
+              "height": 139.0799560546875,
+              "width": 156.16000366210938,
+              "top": 928.8741455078125
+            },
+            {
+              "name": "path",
+              "height": 139.080078125,
+              "width": 156.1600341796875,
+              "top": 947.70654296875
+            },
+            {
+              "name": "svg.limb-lines",
+              "height": 747,
+              "width": 976,
+              "top": 532.640625
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "section.workspace.practice-workspace",
+              "before": "div.control-panel",
+              "after": "section.surface-card.pose-panel.motion-reveal.motion-awaiting",
+              "gap": 204.078125
+            },
+            {
+              "parent": "div.control-panel",
+              "before": "p.pending-note",
+              "after": "a.button.secondary",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/story",
+          "height": 1274,
+          "contentHeight": 796.296875,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.control-panel",
+              "before": "p",
+              "after": "button#story-start.button.primary",
+              "gap": 36
+            }
+          ]
+        },
+        {
+          "route": "/result",
+          "height": 979,
+          "contentHeight": 571.046875,
+          "overflow": 0,
+          "empty": [],
+          "gaps": []
+        },
+        {
+          "route": "/museum",
+          "height": 2826,
+          "contentHeight": 2437.765625,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "section.museum-hero.motion-reveal",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/museum/E01",
+          "height": 4648,
+          "contentHeight": 4260.5,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/museum/E02",
+          "height": 4856,
+          "contentHeight": 4468.4375,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "svg.carving-surface",
+              "height": 410,
+              "width": 591,
+              "top": 2402.578125
+            },
+            {
+              "name": "path",
+              "height": 356.1875,
+              "width": 310.0625,
+              "top": 2430.765625
+            },
+            {
+              "name": "path",
+              "height": 324.15625,
+              "width": 276.75,
+              "top": 2446.140625
+            },
+            {
+              "name": "path.carving-cut-target",
+              "height": 49.658447265625,
+              "width": 101.21875,
+              "top": 2573.297119140625
+            },
+            {
+              "name": "path.carving-cut-target",
+              "height": 49.658447265625,
+              "width": 101.21875,
+              "top": 2573.297119140625
+            },
+            {
+              "name": "svg.carving-shadow",
+              "height": 410,
+              "width": 591,
+              "top": 2402.578125
+            },
+            {
+              "name": "path",
+              "height": 356.1875,
+              "width": 310.0625,
+              "top": 2430.765625
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/museum/E03",
+          "height": 5661,
+          "contentHeight": 5273.109375,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "svg",
+              "height": 747,
+              "width": 976,
+              "top": 2854.140625
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div.control-panel",
+              "before": "p#museum-demo-reading.selection-summary",
+              "after": "button#museum-demo-reset.button.secondary",
+              "gap": 30
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/museum/E04",
+          "height": 5669,
+          "contentHeight": 5281.546875,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "line",
+              "height": 33.60009765625,
+              "width": 386.6666564941406,
+              "top": 3448.598876953125
+            },
+            {
+              "name": "line",
+              "height": 33.599853515625,
+              "width": 386.6666564941406,
+              "top": 3414.9990234375
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/museum/E05",
+          "height": 6082,
+          "contentHeight": 5694.5625,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/museum/E06",
+          "height": 4692,
+          "contentHeight": 4304.078125,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/museum/E07",
+          "height": 3634,
+          "contentHeight": 3245.90625,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/about",
+          "height": 900,
+          "contentHeight": 451.078125,
+          "overflow": 0,
+          "empty": [],
+          "gaps": []
+        },
+        {
+          "route": "credits.html",
+          "height": 4969,
+          "overflow": 0,
+          "columns": "2",
+          "music": {
+            "x": 52,
+            "y": 247.625,
+            "bottom": 811.3125,
+            "height": 563.6875
+          },
+          "voice": {
+            "x": 52,
+            "y": 827.3125,
+            "bottom": 1162.4375,
+            "height": 335.125
+          },
+          "recheckedAfterCreditsFlow": true
+        },
+        {
+          "route": "project-tools",
+          "overflow": 0
+        }
+      ],
+      "before": {
+        "/": {
+          "route": "/",
+          "height": 3094,
+          "overflow": 0,
+          "empty": [],
+          "gaps": []
+        },
+        "/craft": {
+          "route": "/craft",
+          "height": 2022,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "svg.rod-lines",
+              "height": 747,
+              "width": 976,
+              "top": 568.234375
+            },
+            {
+              "name": "svg.limb-lines",
+              "height": 747,
+              "width": 976,
+              "top": 568.234375
+            },
+            {
+              "name": "div.palette-swatches",
+              "height": 28,
+              "width": 270,
+              "top": 752.765625
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div#app-view",
+              "before": "div.page-content",
+              "after": "button.button.secondary.guide-replay",
+              "gap": 46
+            },
+            {
+              "parent": "div.control-panel",
+              "before": "button.button.secondary",
+              "after": "section.journey-next",
+              "gap": 31.1875
+            },
+            {
+              "parent": "div.control-panel",
+              "before": "p#craft-summary.selection-summary",
+              "after": "button.button.secondary",
+              "gap": 30
+            }
+          ]
+        },
+        "/light": {
+          "route": "/light",
+          "height": 1760,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "div.lamp-spatial-host",
+              "height": 260,
+              "width": 994,
+              "top": 559.234375
+            },
+            {
+              "name": "p.lamp-status",
+              "height": 25.5,
+              "width": 958,
+              "top": 886.671875
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div#app-view",
+              "before": "div.page-content",
+              "after": "button.button.secondary.guide-replay",
+              "gap": 46
+            },
+            {
+              "parent": "div.control-panel",
+              "before": "p#light-summary.selection-summary",
+              "after": "button.button.secondary",
+              "gap": 30
+            }
+          ]
+        },
+        "/practice": {
+          "route": "/practice",
+          "height": 2434,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "svg.rod-lines",
+              "height": 747,
+              "width": 976,
+              "top": 568.234375
+            },
+            {
+              "name": "path",
+              "height": 139.0799560546875,
+              "width": 156.16000366210938,
+              "top": 964.4678955078125
+            },
+            {
+              "name": "path",
+              "height": 139.080078125,
+              "width": 156.1600341796875,
+              "top": 983.30029296875
+            },
+            {
+              "name": "svg.limb-lines",
+              "height": 747,
+              "width": 976,
+              "top": 568.234375
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div#app-view",
+              "before": "div.page-content",
+              "after": "button.button.secondary.guide-replay",
+              "gap": 46
+            },
+            {
+              "parent": "div.control-panel",
+              "before": "p.pending-note",
+              "after": "a.button.secondary",
+              "gap": 28
+            }
+          ]
+        },
+        "/story": {
+          "route": "/story",
+          "height": 1346,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div#app-view",
+              "before": "div.page-content",
+              "after": "button.button.secondary.guide-replay",
+              "gap": 46
+            },
+            {
+              "parent": "div.control-panel",
+              "before": "p",
+              "after": "button#story-start.button.primary",
+              "gap": 36
+            }
+          ]
+        },
+        "/result": {
+          "route": "/result",
+          "height": 1080,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "p#result-operation.selection-summary",
+              "height": 52,
+              "width": 796,
+              "top": 560.796875
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div.page-content",
+              "before": "section.result-layout",
+              "after": "section.programme-list.result-records",
+              "gap": 28
+            },
+            {
+              "parent": "section.programme.result-programme.motion-reveal",
+              "before": "p#result-operation.selection-summary",
+              "after": "a.button.secondary",
+              "gap": 28
+            }
+          ]
+        },
+        "/museum": {
+          "route": "/museum",
+          "height": 3073,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section.museum-hero.motion-reveal",
+              "after": "section.museum-catalogue",
+              "gap": 36
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "section.museum-hero.motion-reveal",
+              "gap": 28
+            }
+          ]
+        },
+        "/museum/E01": {
+          "route": "/museum/E01",
+          "height": 4591,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "div.lamp-spatial-host",
+              "height": 240,
+              "width": 1018,
+              "top": 2341.0625
+            },
+            {
+              "name": "p.lamp-status",
+              "height": 25.5,
+              "width": 982,
+              "top": 2648.5
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-gallery.museum-gallery",
+              "after": "header.museum-demo-heading",
+              "gap": 65
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "aside.museum-theatre-return",
+              "after": "section.museum-catalogue.compact",
+              "gap": 45
+            },
+            {
+              "parent": "section#museum-display.museum-display",
+              "before": "section#museum-demo-root.museum-demo.museum-lamp-demo",
+              "after": "figure.museum-diagram.museum-diagram-layers",
+              "gap": 36
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-display.museum-display",
+              "after": "aside.museum-theatre-return",
+              "gap": 32
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        "/museum/E02": {
+          "route": "/museum/E02",
+          "height": 5059,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "svg.carving-surface",
+              "height": 410,
+              "width": 591,
+              "top": 2548.734375
+            },
+            {
+              "name": "path",
+              "height": 356.1875,
+              "width": 310.0625,
+              "top": 2576.921875
+            },
+            {
+              "name": "path",
+              "height": 324.15625,
+              "width": 276.75,
+              "top": 2592.296875
+            },
+            {
+              "name": "path.carving-cut-target",
+              "height": 49.658447265625,
+              "width": 101.21875,
+              "top": 2719.453369140625
+            },
+            {
+              "name": "path.carving-cut-target",
+              "height": 49.658447265625,
+              "width": 101.21875,
+              "top": 2719.453369140625
+            },
+            {
+              "name": "svg.carving-shadow",
+              "height": 410,
+              "width": 591,
+              "top": 2548.734375
+            },
+            {
+              "name": "path",
+              "height": 356.1875,
+              "width": 310.0625,
+              "top": 2576.921875
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-gallery.museum-gallery",
+              "after": "header.museum-demo-heading",
+              "gap": 65
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "aside.museum-theatre-return",
+              "after": "section.museum-catalogue.compact",
+              "gap": 45
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-display.museum-display",
+              "after": "aside.museum-theatre-return",
+              "gap": 32
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        "/museum/E03": {
+          "route": "/museum/E03",
+          "height": 5870,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "svg",
+              "height": 747,
+              "width": 976,
+              "top": 3000.296875
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-gallery.museum-gallery",
+              "after": "header.museum-demo-heading",
+              "gap": 65
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "aside.museum-theatre-return",
+              "after": "section.museum-catalogue.compact",
+              "gap": 45
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-display.museum-display",
+              "after": "aside.museum-theatre-return",
+              "gap": 32
+            },
+            {
+              "parent": "div.control-panel",
+              "before": "p#museum-demo-reading.selection-summary",
+              "after": "button#museum-demo-reset.button.secondary",
+              "gap": 30
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        "/museum/E04": {
+          "route": "/museum/E04",
+          "height": 5872,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "line",
+              "height": 33.60009765625,
+              "width": 386.6666564941406,
+              "top": 3590.755126953125
+            },
+            {
+              "name": "line",
+              "height": 33.599853515625,
+              "width": 386.6666564941406,
+              "top": 3557.1552734375
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-gallery.museum-gallery",
+              "after": "header.museum-demo-heading",
+              "gap": 65
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "aside.museum-theatre-return",
+              "after": "section.museum-catalogue.compact",
+              "gap": 45
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-display.museum-display",
+              "after": "aside.museum-theatre-return",
+              "gap": 32
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        "/museum/E05": {
+          "route": "/museum/E05",
+          "height": 6303,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-gallery.museum-gallery",
+              "after": "header.museum-demo-heading",
+              "gap": 65
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "aside.museum-theatre-return",
+              "after": "section.museum-catalogue.compact",
+              "gap": 45
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-display.museum-display",
+              "after": "aside.museum-theatre-return",
+              "gap": 32
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        "/museum/E06": {
+          "route": "/museum/E06",
+          "height": 4895,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-gallery.museum-gallery",
+              "after": "header.museum-demo-heading",
+              "gap": 65
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "aside.museum-theatre-return",
+              "after": "section.museum-catalogue.compact",
+              "gap": 45
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-display.museum-display",
+              "after": "aside.museum-theatre-return",
+              "gap": 32
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        "/museum/E07": {
+          "route": "/museum/E07",
+          "height": 3836,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-gallery.museum-gallery",
+              "after": "header.museum-demo-heading",
+              "gap": 65
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "aside.museum-theatre-return",
+              "after": "section.museum-catalogue.compact",
+              "gap": 45
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-display.museum-display",
+              "after": "aside.museum-theatre-return",
+              "gap": 32
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        "/about": {
+          "route": "/about",
+          "height": 1177,
+          "overflow": 0,
+          "empty": [],
+          "gaps": []
+        }
+      }
+    },
+    {
+      "profile": "mobile",
+      "states": 19,
+      "routes": [
+        {
+          "route": "/",
+          "height": 5433,
+          "contentHeight": 4988.609375,
+          "overflow": 0,
+          "empty": [],
+          "gaps": []
+        },
+        {
+          "route": "/craft",
+          "height": 2762,
+          "contentHeight": 2052.671875,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "svg.rod-lines",
+              "height": 262.5,
+              "width": 330,
+              "top": 688.890625
+            },
+            {
+              "name": "svg.limb-lines",
+              "height": 262.5,
+              "width": 330,
+              "top": 688.890625
+            },
+            {
+              "name": "div.palette-swatches",
+              "height": 28,
+              "width": 312,
+              "top": 1635.671875
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div.control-panel",
+              "before": "button.button.secondary",
+              "after": "section.journey-next",
+              "gap": 31.1875
+            },
+            {
+              "parent": "div.control-panel",
+              "before": "p#craft-summary.selection-summary",
+              "after": "button.button.secondary",
+              "gap": 30
+            }
+          ]
+        },
+        {
+          "route": "/light",
+          "height": 2376,
+          "contentHeight": 1667.09375,
+          "overflow": 0,
+          "empty": [],
+          "gaps": []
+        },
+        {
+          "route": "/practice",
+          "height": 3868,
+          "contentHeight": 3159.28125,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "svg.rod-lines",
+              "height": 262.5,
+              "width": 330,
+              "top": 688.890625
+            },
+            {
+              "name": "svg.limb-lines",
+              "height": 262.5,
+              "width": 330,
+              "top": 688.890625
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div.control-panel",
+              "before": "p.pending-note",
+              "after": "a.button.secondary",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/story",
+          "height": 1592,
+          "contentHeight": 883.15625,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.control-panel",
+              "before": "p",
+              "after": "button#story-start.button.primary",
+              "gap": 36
+            }
+          ]
+        },
+        {
+          "route": "/result",
+          "height": 1279,
+          "contentHeight": 640.03125,
+          "overflow": 0,
+          "empty": [],
+          "gaps": []
+        },
+        {
+          "route": "/museum",
+          "height": 3656,
+          "contentHeight": 3036.71875,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "section.museum-hero.motion-reveal",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/museum/E01",
+          "height": 7204,
+          "contentHeight": 6584.8125,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/museum/E02",
+          "height": 7044,
+          "contentHeight": 6425.109375,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "svg.carving-surface",
+              "height": 152.53125,
+              "width": 143,
+              "top": 3604.96875
+            },
+            {
+              "name": "path",
+              "height": 132.511474609375,
+              "width": 115.35175323486328,
+              "top": 3615.455322265625
+            },
+            {
+              "name": "path",
+              "height": 120.594970703125,
+              "width": 102.95858764648438,
+              "top": 3621.17529296875
+            },
+            {
+              "name": "svg.carving-shadow",
+              "height": 152.53125,
+              "width": 143,
+              "top": 3604.96875
+            },
+            {
+              "name": "path",
+              "height": 132.511474609375,
+              "width": 115.35174560546875,
+              "top": 3615.455322265625
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/museum/E03",
+          "height": 8972,
+          "contentHeight": 8352.625,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "svg",
+              "height": 262.5,
+              "width": 330,
+              "top": 4316.125
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div.control-panel",
+              "before": "p#museum-demo-reading.selection-summary",
+              "after": "button#museum-demo-reset.button.secondary",
+              "gap": 30
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/museum/E04",
+          "height": 7158,
+          "contentHeight": 6539.546875,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/museum/E05",
+          "height": 9863,
+          "contentHeight": 9243.953125,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/museum/E06",
+          "height": 7461,
+          "contentHeight": 6841.734375,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/museum/E07",
+          "height": 6652,
+          "contentHeight": 6033.546875,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/about",
+          "height": 1560,
+          "contentHeight": 940.828125,
+          "overflow": 0,
+          "empty": [],
+          "gaps": []
+        },
+        {
+          "route": "credits.html",
+          "height": 12391,
+          "overflow": 0,
+          "columns": "1",
+          "music": {
+            "x": 20,
+            "y": 272.5,
+            "bottom": 1024.8125,
+            "height": 752.3125
+          },
+          "voice": {
+            "x": 20,
+            "y": 1040.8125,
+            "bottom": 1470.25,
+            "height": 429.4375
+          },
+          "recheckedAfterCreditsFlow": true
+        },
+        {
+          "route": "project-tools",
+          "overflow": 0
+        }
+      ],
+      "before": {
+        "/": {
+          "route": "/",
+          "height": 5865,
+          "overflow": 0,
+          "empty": [],
+          "gaps": []
+        },
+        "/craft": {
+          "route": "/craft",
+          "height": 2877,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "svg.rod-lines",
+              "height": 262.5,
+              "width": 330,
+              "top": 706.484375
+            },
+            {
+              "name": "svg.limb-lines",
+              "height": 262.5,
+              "width": 330,
+              "top": 706.484375
+            },
+            {
+              "name": "div.palette-swatches",
+              "height": 28,
+              "width": 304,
+              "top": 1699.265625
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div#app-view",
+              "before": "div.page-content",
+              "after": "button.button.secondary.guide-replay",
+              "gap": 46
+            },
+            {
+              "parent": "div.control-panel",
+              "before": "button.button.secondary",
+              "after": "section.journey-next",
+              "gap": 31.1875
+            },
+            {
+              "parent": "div.control-panel",
+              "before": "p#craft-summary.selection-summary",
+              "after": "button.button.secondary",
+              "gap": 30
+            }
+          ]
+        },
+        "/light": {
+          "route": "/light",
+          "height": 2379,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "div.lamp-spatial-host",
+              "height": 220,
+              "width": 348,
+              "top": 649.890625
+            },
+            {
+              "name": "p.lamp-status",
+              "height": 25.5,
+              "width": 324,
+              "top": 962.765625
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div#app-view",
+              "before": "div.page-content",
+              "after": "button.button.secondary.guide-replay",
+              "gap": 46
+            },
+            {
+              "parent": "div.control-panel",
+              "before": "p#light-summary.selection-summary",
+              "after": "button.button.secondary",
+              "gap": 30
+            }
+          ]
+        },
+        "/practice": {
+          "route": "/practice",
+          "height": 3940,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "svg.rod-lines",
+              "height": 262.5,
+              "width": 330,
+              "top": 706.484375
+            },
+            {
+              "name": "svg.limb-lines",
+              "height": 262.5,
+              "width": 330,
+              "top": 706.484375
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div#app-view",
+              "before": "div.page-content",
+              "after": "button.button.secondary.guide-replay",
+              "gap": 46
+            },
+            {
+              "parent": "div.control-panel",
+              "before": "p.pending-note",
+              "after": "a.button.secondary",
+              "gap": 28
+            }
+          ]
+        },
+        "/story": {
+          "route": "/story",
+          "height": 1645,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div#app-view",
+              "before": "div.page-content",
+              "after": "button.button.secondary.guide-replay",
+              "gap": 46
+            },
+            {
+              "parent": "div.control-panel",
+              "before": "p",
+              "after": "button#story-start.button.primary",
+              "gap": 36
+            }
+          ]
+        },
+        "/result": {
+          "route": "/result",
+          "height": 1342,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "p#result-operation.selection-summary",
+              "height": 52,
+              "width": 308,
+              "top": 640.953125
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div.page-content",
+              "before": "section.result-layout",
+              "after": "section.programme-list.result-records",
+              "gap": 28
+            },
+            {
+              "parent": "section.programme.result-programme.motion-reveal",
+              "before": "p#result-operation.selection-summary",
+              "after": "a.button.secondary",
+              "gap": 28
+            }
+          ]
+        },
+        "/museum": {
+          "route": "/museum",
+          "height": 3888,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section.museum-hero.motion-reveal",
+              "after": "section.museum-catalogue",
+              "gap": 36
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "section.museum-hero.motion-reveal",
+              "gap": 28
+            }
+          ]
+        },
+        "/museum/E01": {
+          "route": "/museum/E01",
+          "height": 7300,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "div.lamp-spatial-host",
+              "height": 240,
+              "width": 348,
+              "top": 3575.796875
+            },
+            {
+              "name": "p.lamp-status",
+              "height": 25.5,
+              "width": 324,
+              "top": 3908.671875
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-gallery.museum-gallery",
+              "after": "header.museum-demo-heading",
+              "gap": 65
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "aside.museum-theatre-return",
+              "after": "section.museum-catalogue.compact",
+              "gap": 45
+            },
+            {
+              "parent": "section#museum-display.museum-display",
+              "before": "section#museum-demo-root.museum-demo.museum-lamp-demo",
+              "after": "figure.museum-diagram.museum-diagram-layers",
+              "gap": 36
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-display.museum-display",
+              "after": "aside.museum-theatre-return",
+              "gap": 32
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        "/museum/E02": {
+          "route": "/museum/E02",
+          "height": 7217,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "svg.carving-surface",
+              "height": 152.53125,
+              "width": 143,
+              "top": 3729.125
+            },
+            {
+              "name": "path",
+              "height": 132.511474609375,
+              "width": 115.35175323486328,
+              "top": 3739.611572265625
+            },
+            {
+              "name": "path",
+              "height": 120.594970703125,
+              "width": 102.95858764648438,
+              "top": 3745.33154296875
+            },
+            {
+              "name": "svg.carving-shadow",
+              "height": 152.53125,
+              "width": 143,
+              "top": 3729.125
+            },
+            {
+              "name": "path",
+              "height": 132.511474609375,
+              "width": 115.35174560546875,
+              "top": 3739.611572265625
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-gallery.museum-gallery",
+              "after": "header.museum-demo-heading",
+              "gap": 65
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "aside.museum-theatre-return",
+              "after": "section.museum-catalogue.compact",
+              "gap": 45
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-display.museum-display",
+              "after": "aside.museum-theatre-return",
+              "gap": 32
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        "/museum/E03": {
+          "route": "/museum/E03",
+          "height": 9150,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "svg",
+              "height": 262.5,
+              "width": 330,
+              "top": 4440.28125
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-gallery.museum-gallery",
+              "after": "header.museum-demo-heading",
+              "gap": 65
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "aside.museum-theatre-return",
+              "after": "section.museum-catalogue.compact",
+              "gap": 45
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-display.museum-display",
+              "after": "aside.museum-theatre-return",
+              "gap": 32
+            },
+            {
+              "parent": "div.control-panel",
+              "before": "p#museum-demo-reading.selection-summary",
+              "after": "button#museum-demo-reset.button.secondary",
+              "gap": 30
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        "/museum/E04": {
+          "route": "/museum/E04",
+          "height": 7339,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-gallery.museum-gallery",
+              "after": "header.museum-demo-heading",
+              "gap": 65
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "aside.museum-theatre-return",
+              "after": "section.museum-catalogue.compact",
+              "gap": 45
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-display.museum-display",
+              "after": "aside.museum-theatre-return",
+              "gap": 32
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        "/museum/E05": {
+          "route": "/museum/E05",
+          "height": 10054,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-gallery.museum-gallery",
+              "after": "header.museum-demo-heading",
+              "gap": 65
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "aside.museum-theatre-return",
+              "after": "section.museum-catalogue.compact",
+              "gap": 45
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-display.museum-display",
+              "after": "aside.museum-theatre-return",
+              "gap": 32
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        "/museum/E06": {
+          "route": "/museum/E06",
+          "height": 7637,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-gallery.museum-gallery",
+              "after": "header.museum-demo-heading",
+              "gap": 65
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "aside.museum-theatre-return",
+              "after": "section.museum-catalogue.compact",
+              "gap": 45
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-display.museum-display",
+              "after": "aside.museum-theatre-return",
+              "gap": 32
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        "/museum/E07": {
+          "route": "/museum/E07",
+          "height": 6829,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-gallery.museum-gallery",
+              "after": "header.museum-demo-heading",
+              "gap": 65
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "aside.museum-theatre-return",
+              "after": "section.museum-catalogue.compact",
+              "gap": 45
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "section#museum-display.museum-display",
+              "after": "aside.museum-theatre-return",
+              "gap": 32
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        "/about": {
+          "route": "/about",
+          "height": 1918,
+          "overflow": 0,
+          "empty": [],
+          "gaps": []
+        }
+      }
+    },
+    {
+      "profile": "small",
+      "states": 19,
+      "routes": [
+        {
+          "route": "/",
+          "height": 6216,
+          "contentHeight": 5769.140625,
+          "overflow": 0,
+          "empty": [],
+          "gaps": []
+        },
+        {
+          "route": "/craft",
+          "height": 2833,
+          "contentHeight": 2122.078125,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "svg.rod-lines",
+              "height": 210,
+              "width": 260,
+              "top": 744.21875
+            },
+            {
+              "name": "svg.limb-lines",
+              "height": 210,
+              "width": 260,
+              "top": 744.21875
+            },
+            {
+              "name": "div.palette-swatches",
+              "height": 28,
+              "width": 242,
+              "top": 1695.828125
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div.control-panel",
+              "before": "button.button.secondary",
+              "after": "section.journey-next",
+              "gap": 31.1875
+            },
+            {
+              "parent": "div.control-panel",
+              "before": "p#craft-summary.selection-summary",
+              "after": "button.button.secondary",
+              "gap": 30
+            }
+          ]
+        },
+        {
+          "route": "/light",
+          "height": 2507,
+          "contentHeight": 1795.59375,
+          "overflow": 0,
+          "empty": [],
+          "gaps": []
+        },
+        {
+          "route": "/practice",
+          "height": 3994,
+          "contentHeight": 3283.1875,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "svg.rod-lines",
+              "height": 210,
+              "width": 260,
+              "top": 711.078125
+            },
+            {
+              "name": "svg.limb-lines",
+              "height": 210,
+              "width": 260,
+              "top": 711.078125
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div.control-panel",
+              "before": "p.pending-note",
+              "after": "a.button.secondary",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/story",
+          "height": 1699,
+          "contentHeight": 988.078125,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.control-panel",
+              "before": "p",
+              "after": "button#story-start.button.primary",
+              "gap": 36
+            }
+          ]
+        },
+        {
+          "route": "/result",
+          "height": 1395,
+          "contentHeight": 754.015625,
+          "overflow": 0,
+          "empty": [],
+          "gaps": []
+        },
+        {
+          "route": "/museum",
+          "height": 4325,
+          "contentHeight": 3703.375,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "section.museum-hero.motion-reveal",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/museum/E01",
+          "height": 7823,
+          "contentHeight": 7201.84375,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/museum/E02",
+          "height": 8058,
+          "contentHeight": 7437.265625,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "svg.carving-surface",
+              "height": 115.1875,
+              "width": 108,
+              "top": 4024.78125
+            },
+            {
+              "name": "svg.carving-shadow",
+              "height": 115.1875,
+              "width": 108,
+              "top": 4024.78125
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/museum/E03",
+          "height": 9862,
+          "contentHeight": 9241.03125,
+          "overflow": 0,
+          "empty": [
+            {
+              "name": "svg",
+              "height": 210,
+              "width": 260,
+              "top": 4925.265625
+            }
+          ],
+          "gaps": [
+            {
+              "parent": "div.control-panel",
+              "before": "p#museum-demo-reading.selection-summary",
+              "after": "button#museum-demo-reset.button.secondary",
+              "gap": 30
+            },
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/museum/E04",
+          "height": 7715,
+          "contentHeight": 7094.296875,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/museum/E05",
+          "height": 10435,
+          "contentHeight": 9813.75,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/museum/E06",
+          "height": 7999,
+          "contentHeight": 7377.453125,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/museum/E07",
+          "height": 7236,
+          "contentHeight": 6614.84375,
+          "overflow": 0,
+          "empty": [],
+          "gaps": [
+            {
+              "parent": "div.page-content.digital-museum",
+              "before": "nav.museum-path",
+              "after": "p.exhibit-code",
+              "gap": 28
+            }
+          ]
+        },
+        {
+          "route": "/about",
+          "height": 1737,
+          "contentHeight": 1116.140625,
+          "overflow": 0,
+          "empty": [],
+          "gaps": []
+        },
+        {
+          "route": "credits.html",
+          "height": 14266,
+          "overflow": 0,
+          "columns": "1",
+          "music": {
+            "x": 20,
+            "y": 272.5,
+            "bottom": 1165.375,
+            "height": 892.875
+          },
+          "voice": {
+            "x": 20,
+            "y": 1181.375,
+            "bottom": 1673.6875,
+            "height": 492.3125
+          },
+          "recheckedAfterCreditsFlow": true
+        },
+        {
+          "route": "project-tools",
+          "overflow": 0
+        }
+      ],
+      "before": {}
+    }
+  ]
+}
