@@ -63,7 +63,7 @@ const tips:Record<string,string>={
 
 export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx:PageContext){
   const life=scope(),title=element('h2'),lead=element('p'),runtime=element('p','story-runtime'),shot=element('p','eyebrow'),cueHost=element('div','subtitles');
-  const captionDock=element('aside','story-caption-dock');captionDock.setAttribute('aria-label','当前台词');captionDock.appendChild(element('span','caption-label','幕上此刻'));
+  const captionDock=element('aside','story-caption-dock');captionDock.setAttribute('aria-label','当前台词');captionDock.tabIndex=0;captionDock.appendChild(element('span','caption-label','幕上此刻'));
   stageSlot.parentElement?.insertAdjacentElement('beforebegin',captionDock);
   runtime.id='story-runtime';runtime.setAttribute('role','status');shot.id='story-shot';
   const subtitles=mountSubtitles(cueHost,seek,captionDock),start=element('button','button primary','确认开始这一场'),skip=element('button','button secondary','先为他备好行装');
@@ -95,7 +95,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   inputHost.className='story-inputs';note.id='story-help';modeLabel.appendChild(mode);append(transport,play,pause,reset,nextNode,showcaseSkip,showcaseAgain);
   append(panel,runtime,title,lead,shot,cueHost,start,skip,craft,confirm,choices,modeLabel,transport,soundPanel,finish,assist,note,inputHost,retry,result,link('先去展馆走走 →','#/museum'));soundPanel.insertAdjacentElement('afterend',voiceControls.element);
   let live:Runtime|null=null,display:Runtime|null=null,state:StoreState|null=null,key='',identity='',disposed=false,mountError='',holding:CanvasFrame|null=null;
-  let message='已恢复当前片段，正在准备幕面。',guideSuspended=false;
+  let message='已恢复当前片段，正在准备幕面。',guideSuspended=false,fitPending=false,fitQueued=false,stageLocated=false,stageInView=false;
   const continuity=createPlaybackContinuity();
   let pageActive=!document.hidden&&document.hasFocus();
   life.on(window,'blur',()=>{pageActive=false;continuity.stop();});
@@ -103,6 +103,19 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   life.on(document,'visibilitychange',()=>{pageActive=!document.hidden&&document.hasFocus();if(!pageActive)continuity.stop();});
   const measureCaptions=()=>{stageSlot.parentElement?.style.setProperty('--caption-height',`${captionDock.getBoundingClientRect().height}px`);};
   const captionResize=typeof ResizeObserver==='function'?new ResizeObserver(measureCaptions):null;captionResize?.observe(captionDock);life.on(window,'resize',measureCaptions);
+  function fitStage(){
+    if(fitQueued||!fitPending||ctx.guide)return;fitQueued=true;
+    void Promise.resolve().then(()=>{
+      fitQueued=false;const rt=live;
+      if(!fitPending||disposed||!rt||!rt.ready||guideSuspended||!pageActive||document.hidden||document.documentElement.getAttribute('data-intro')!=='done'||rt.entry.node.kind==='terminal')return;
+      measureCaptions();const rect=rt.stage.screen.getBoundingClientRect();if(!rect.width||!rect.height)return;
+      fitPending=false;stageLocated=true;stageInView=true;window.scrollTo(0,Math.max(0,window.pageYOffset+rect.top-captionDock.getBoundingClientRect().height-20));
+    });
+  }
+  life.on(document,'yingzuo:opened',fitStage);
+  const cancelFit=()=>{fitPending=false;stageLocated=true;};life.on(window,'wheel',cancelFit);life.on(window,'touchmove',cancelFit);
+  life.on(window,'scroll',()=>{const rect=live?.stage.screen.getBoundingClientRect();stageInView=!!rect&&rect.height>0&&rect.top>=0&&rect.bottom<=window.innerHeight+1;});
+  life.on(window,'resize',()=>{if(stageInView&&!guideSuspended){fitPending=true;fitStage();}});
   const position=(rt:Runtime)=>({projectId:rt.projectId,runId:rt.entry.guard.runId,revision:rt.entry.guard.expectedRevision,nodeId:rt.entry.node.id});
   const media=window.matchMedia?.('(prefers-reduced-motion: reduce)');let reduced=media?.matches??false;
   function storeBlocked(){return disposed||!state?.project||state.hasPending||ctx.isBusy()||['loading','closed','conflict','recovery','unsupported'].includes(state.status);}
@@ -126,7 +139,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     // Start the isolated handover lesson only after its assets are ready.
     if(ctx.guide==='puppetry'&&interactive(rt))rt.playing=true;
     if(display!==rt){display?.stage.dispose();clear(stageSlot);stageSlot.appendChild(rt.stage.figure);rt.stage.figure.appendChild(inputHost);display=rt;rt.stage.resize();}
-    message='幕面已就绪。';renderDisplayed();renderUI();resumeNext();
+    message='幕面已就绪。';renderDisplayed();renderUI();resumeNext();if(!stageLocated){fitPending=true;fitStage();}
   }
   function resumeNext(){
     const rt=live;if(!rt||ctx.guide||guideSuspended||blocked()||!rt.ready)return;
@@ -138,6 +151,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     if(explicit)pageActive=!document.hidden&&document.hasFocus();
     if(!pageActive||document.hidden)return;
     if(!canPlay(rt))return;
+    if(explicit){fitPending=true;fitStage();}
     guideSuspended=false;
     if(!ctx.guide)continuity.start(position(rt));rt.playing=true;
     message=rt.resolution&&rt.clip?'正在放映这一段的编排动作。':interactive(rt)&&rt.elapsed>=rt.scene.durationMs?'这一段在等你的手。':'正在播放当前片段，后续片段会自动接续。';
@@ -267,10 +281,10 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
         onChange(open:boolean){if(disposed||!activeRuntime||!current(activeRuntime))return;message=open?'正在看看幕后。回到幕前后，请点击继续。':'已回到幕前，点击继续，从这一刻接续。';renderUI();},
       }}:{})}),nodeScope=createNodeScope(entry.token,error=>ctx.notify(`片段清理失败：${errorText(error)}`));
       stage.restoreSpatial(spatialPreference?{...spatialPreference,expanded:false}:undefined);
-      const feedbackRoot=element('section','story-feedback'),feedbackLabel=element('strong','story-feedback-label'),feedbackHint=element('p','story-feedback-hint'),feedbackProgress=element('div','story-feedback-progress'),feedbackFill=element('span');
+      const feedbackRoot=element('section','story-feedback-inline'),feedbackLabel=element('strong','story-feedback-label'),feedbackHint=element('p','story-feedback-hint'),feedbackProgress=element('div','story-feedback-progress'),feedbackFill=element('span');
       feedbackRoot.setAttribute('aria-label','当前操演状态');feedbackLabel.setAttribute('role','status');feedbackLabel.setAttribute('aria-live','polite');feedbackLabel.setAttribute('aria-atomic','true');
       feedbackProgress.setAttribute('role','progressbar');feedbackProgress.setAttribute('aria-label','稳定动作进度');feedbackProgress.setAttribute('aria-valuemin','0');feedbackProgress.hidden=true;feedbackProgress.appendChild(feedbackFill);
-      append(feedbackRoot,feedbackLabel,feedbackHint,feedbackProgress);stage.figure.insertBefore(feedbackRoot,stage.screen);
+      append(feedbackRoot,feedbackLabel,feedbackHint,feedbackProgress);panel.insertBefore(feedbackRoot,choices);nodeScope.own(()=>removeNode(feedbackRoot));
       const feedback:FeedbackView={root:feedbackRoot,label:feedbackLabel,hint:feedbackHint,progress:feedbackProgress,fill:feedbackFill,handedOver:false};
       const shade=element('div','story-scene-shade');shade.setAttribute('aria-hidden','true');stage.screen.appendChild(shade);
       const rt:Runtime={feedback,projectId:project.projectId,entry,scene,version:project.story!.definitionVersion,clip:entry.node.kind==='interaction'&&entry.node.id!=='craft'?createInteractionClip(entry.node,scene):null,scope:nodeScope,stage,shade,voiceCues:voiceCuesForNode(entry.node,project.story!.mode,project.story!.definitionVersion),sample:initialSample,elapsed:0,playing:false,ready:false,requested:false,mode:project.story!.mode,clock:null!,controls:null,
@@ -314,7 +328,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
     const feedback=storyFeedback({hasStory:!!state?.project?.story,error:!!mountError||rt.stage.getStatus().state==='error',blocked:storeBlocked(),ready:rt.ready,
       observing:rt.stage.isObserving(),playing:rt.playing,interactive:interactive(rt),listening:rt.elapsed<rt.scene.durationMs,
       choice:rt.entry.node.kind==='choice',completed:!!rt.completed,resolving:!!rt.resolution,reading:rt.reading,holdMs:'holdMs'in completion?completion.holdMs:null});
-    const view=rt.feedback;view.root.hidden=rt.entry.node.id==='craft'||rt.entry.node.kind==='terminal';
+    const view=rt.feedback;view.root.hidden=rt.entry.node.id==='craft'||rt.entry.node.kind==='terminal'||['empty','listening','paused'].includes(feedback.state);
     if(view.root.getAttribute('data-state')!==feedback.state)view.root.setAttribute('data-state',feedback.state);
     if(view.label.textContent!==feedback.label)view.label.textContent=feedback.label;
     if(view.hint.textContent!==feedback.hint)view.hint.textContent=feedback.hint;
@@ -387,7 +401,7 @@ export function mountStoryController(stageSlot:HTMLElement,panel:HTMLElement,ctx
   const motionChanged=()=>{reduced=media?.matches??false;if(live){stop(live,'动态偏好已变化，当前片段暂停。');safeSample(live);}renderUI();};
   if(media){if(media.addEventListener)media.addEventListener('change',motionChanged);else media.addListener(motionChanged);}
   return {
-    suspendForGuide(){const rt=live,wasPlaying=rt?.playing,wanted=rt&&continuity.active(position(rt));guideSuspended=true;continuity.stop();if(rt){rt.playing=false;rt.clock.stop();rt.controls?.release();updateSound({nodeId:rt.entry.node.id,mode:rt.mode,elapsedMs:rt.elapsed,playing:false});}return ()=>{guideSuspended=false;if(rt&&current(rt)&&wanted)continuity.start(position(rt));if(rt&&current(rt)&&wasPlaying&&!blocked()){rt.playing=true;rt.clock.start();renderUI();}};},
+    suspendForGuide(){const rt=live,wasPlaying=rt?.playing,wanted=rt&&continuity.active(position(rt));guideSuspended=true;continuity.stop();if(rt){rt.playing=false;rt.clock.stop();rt.controls?.release();updateSound({nodeId:rt.entry.node.id,mode:rt.mode,elapsedMs:rt.elapsed,playing:false});}return ()=>{guideSuspended=false;if(rt&&current(rt)&&wanted)continuity.start(position(rt));if(rt&&current(rt)&&wasPlaying&&!blocked()){rt.playing=true;rt.clock.start();renderUI();}fitStage();};},
     update(next:StoreState){
       const hadPending=state?.hasPending;state=next;const project=next.project,story=project?.story,nextKey=story?`${project!.projectId}:${story.runId}:${story.revision}:${story.nodeId}`:'';
       if(['error','conflict','recovery','unsupported','closed'].includes(next.status)){continuity.stop();guideSuspended=false;}

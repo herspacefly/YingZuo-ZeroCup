@@ -55,10 +55,10 @@ for(const run of CHOICE_RUNS)for(const mode of ['full','guided'] as const)test(`
    else if(node.kind==='interaction'){await page.locator('#story-assist').click();await advance(page,20000);}
    else if(node.completion.kind==='scene'&&node.completion.activation==='user')await page.locator('#story-finish').click();
   }
-  await expect(runtime(page)).not.toHaveAttribute('data-node',id);
+  if(id==='curtain'){await expect(page.locator('#app-view')).toHaveAttribute('data-route','/result');break;}await expect(runtime(page)).not.toHaveAttribute('data-node',id);
  }
- await ready(page,'completed','paused');expect(choices).toBe(4);const project=await saved(page);expect(project.story).toMatchObject({definitionVersion:5,ending:run.ending,endingSource:'choices',approach:run.approach,choices:{journeyIntent:run.journeyIntent,mountainPact:run.mountainPact,finalAction:run.finalAction}});
- await page.locator('a[href="#/result"]:visible').first().click();await expect(page.locator('.reunion-artifact')).toHaveAttribute('data-state','ready',{timeout:15000});await expect(page.getByText('行路愿望',{exact:true})).toBeVisible();
+ await expect(page.locator('#app-view')).toHaveAttribute('data-route','/result');expect(choices).toBe(4);const project=await saved(page);expect(project.story).toMatchObject({definitionVersion:5,ending:run.ending,endingSource:'choices',approach:run.approach,choices:{journeyIntent:run.journeyIntent,mountainPact:run.mountainPact,finalAction:run.finalAction}});
+ await expect(page.locator('.reunion-artifact')).toHaveAttribute('data-state','ready',{timeout:15000});await expect(page.getByText('行路愿望',{exact:true})).toBeVisible();
 });
 
 test('new opening, refresh and museum return play automatically; same-page pause/reset/mode stay paused',async({page})=>{
@@ -90,5 +90,5 @@ test('guardian staff and result decisions have native wide/narrow visual evidenc
  test.setTimeout(90000);await clock(page);await seed(page,choiceAt('guardian'));await ready(page,'guardian');await page.locator('#story-pause').click();await expect(page.locator('html')).toHaveAttribute('data-intro','done');await page.locator('.guide-complete').waitFor({state:'hidden',timeout:6000});await page.locator('.canvas-stage-screen').screenshot({path:test.info().outputPath(`staff-entry-${info.project.name}.png`)});
  await page.locator('#story-play').click();await advance(page,duration('guardian','guided')+200);await page.locator('#story-assist').click();await advance(page,3600);await expect(runtime(page)).toHaveAttribute('data-showcase','playing');await advance(page,2200);await page.locator('#story-pause').click();await page.locator('.canvas-stage-screen').screenshot({path:test.info().outputPath(`staff-action-${info.project.name}.png`)});
  await page.locator('.spatial-toggle').click();await expect(page.locator('.three-stage')).toHaveAttribute('data-state','ready',{timeout:20000});await page.locator('.three-stage').screenshot({path:test.info().outputPath(`staff-spatial-${info.project.name}.png`)});
- await seed(page,choiceAt('completed'));await page.locator('a[href="#/result"]:visible').first().click();const canvas=page.locator('.reunion-artifact');await expect(canvas).toHaveAttribute('data-state','ready',{timeout:15000});await expect(page.locator('html')).toHaveAttribute('data-intro','done');await canvas.screenshot({path:test.info().outputPath(`ending-summary-${info.project.name}.png`)});
+ await seed(page,choiceAt('completed'));await expect(page.locator('#app-view')).toHaveAttribute('data-route','/result');const canvas=page.locator('.reunion-artifact');await expect(canvas).toHaveAttribute('data-state','ready',{timeout:15000});await expect(page.locator('html')).toHaveAttribute('data-intro','done');await canvas.screenshot({path:test.info().outputPath(`ending-summary-${info.project.name}.png`)});
 });

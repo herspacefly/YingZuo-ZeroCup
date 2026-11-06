@@ -10,7 +10,7 @@ for(const run of CHOICE_RUNS)test(`explicit skip ${run.journeyIntent}/${run.moun
  await page.goto('/study.html');const project=currentProject('intro','guided',run),approach=run.approach,ending=run.ending;
  await page.evaluate(async value=>{const db=await new Promise<IDBDatabase>((resolve,reject)=>{const r=indexedDB.open('yingzuo-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('snapshots');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});await new Promise<void>((resolve,reject)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>resolve();tx.onabort=()=>reject(tx.error);});db.close();},project);
  await page.goto('/#/story');const path=storyPath(5,approach,ending);
- for(const id of path){await expect(page.locator('#story-runtime')).toHaveAttribute('data-node',id,{timeout:15000});if(id==='completed')break;
+ for(const id of path){if(id==='completed'){await expect(page.locator('#app-view')).toHaveAttribute('data-route','/result');break;}await expect(page.locator('#story-runtime')).toHaveAttribute('data-node',id,{timeout:15000});
   await expect(page.locator('.guide-banner')).toHaveCount(0);
   const node=arrangeVoiceNode(definition.nodes.find(n=>n.id===id)! as unknown as StoryNode,5);
   if(id==='craft')await page.locator('#story-confirm-craft').click();

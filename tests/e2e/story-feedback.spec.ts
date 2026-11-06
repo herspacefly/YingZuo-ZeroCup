@@ -31,8 +31,8 @@ async function shoulder(page:Page,value:number){
 
 test('the real axe observer displays holding then lowering and pause clears held progress',async({page})=>{
   await page.emulateMedia({reducedMotion:'reduce'});await controlledClock(page);const project=currentProject('call-split');await seed(page,project);
-  const feedback=page.locator('.story-feedback');
-  await expect(feedback).toHaveAttribute('data-state','listening');await advance(page,currentDuration('call-split')+100);await expect(feedback).toHaveAttribute('data-state','ready');await shoulder(page,1.2);await advance(page,300);
+  const feedback=page.locator('.story-feedback-inline');
+  await expect(feedback).toHaveAttribute('data-state','listening');await expect(feedback).toBeHidden();await advance(page,currentDuration('call-split')+100);await expect(feedback).toHaveAttribute('data-state','ready');await shoulder(page,1.2);await advance(page,300);
   await expect(feedback).toHaveAttribute('data-state','holding');
   await expect(feedback.getByRole('progressbar')).toHaveAttribute('aria-valuenow','200');
   await page.locator('#story-pause').click();await expect(feedback).toHaveAttribute('data-state','paused');await expect(feedback.getByRole('progressbar')).toBeHidden();
@@ -44,7 +44,7 @@ test('the real axe observer displays holding then lowering and pause clears held
 
 test('dialogue gates the handover and its phase announcement does not change on every frame',async({page})=>{
   await page.emulateMedia({reducedMotion:'reduce'});await controlledClock(page);const project=structuredClone(fixture) as ProjectV1;Object.assign(project.story!,{definitionVersion:5,nodeId:'memory-wave',revision:2,assistedNodeIds:[],mode:'guided',approach:null,approachSource:null,ending:null,endingSource:null,choices:{journeyIntent:null,mountainPact:null,finalAction:null}});await seed(page,project);
-  const feedback=page.locator('.story-feedback');await expect(feedback).toHaveAttribute('data-state','listening');
+  const feedback=page.locator('.story-feedback-inline');await expect(feedback).toHaveAttribute('data-state','listening');await expect(feedback).toBeHidden();
   await expect(page.locator('#story-rod-rightShoulder')).toBeDisabled();
   await advance(page,currentDuration('memory-wave')+100);await expect(feedback).toHaveAttribute('data-state','ready');await expect(page.locator('#story-rod-rightShoulder')).toBeEnabled();
   await page.locator('.story-feedback-label').evaluate(label=>{

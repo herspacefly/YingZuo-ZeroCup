@@ -1,3 +1,11 @@
+# T49 当前交接（2026-11-06）
+
+已实现自动节目单、移除幕前状态卡及全尺寸幕面适配，owner=codex-root，branch=codex/t49-completion-and-stage-fit，起点main/origin/main=c8b17f1。用户明确授权验证后直接合并main并推送，无需PR。620单元、类型/162模块构建通过，正在最终宽窄与部署路径回归。
+
+完成检查点保存/解锁后微任务重新核对身份再替换导航，避免重入与返回循环；失败不提前跳，明确memory继续仍显示未保存状态。动作反馈改入控制区，听戏/暂停卡不占幕面。全尺寸共用台词/间隙高度预算与首次就绪定位；当前幕面可见时旋转适配，用户滚走后不抢视图。
+
+复验确认旧教学退出会把真实页面恢复到导航之前，叠排位置因此偏移；已修正按原相邻节点归位，补锚点回归。首次浏览器检查因运行文件缺失未实际启动，已安装对应Playwright Chromium headless shell；失败和后续复验将分列。当前临时报告保留在.preflight/t49-*，用户DOCX/PPTX未读改。下一步完成相关回归、根/子目录验证、证据与本地提交后合并main推送，核对Actions和公开功能。正式艺术/听感/实体设备/IE等原验收状态不变。
+
 # T48 当前交接（2026-11-06）
 
 三项请求已本地完成，owner=codex-root，branch=codex/t48-spacing-and-choice-flow，未推送部署。应用检查点`4630eac54f41e3cdb0e70938f6bbdcac87f574b1`，最终测试检查点`f35f040241a7650afb3c4ebbd843a1edfb79d236`，生产入口main-S2UdIjvs.js。见[T48验收](acceptance/t48.md)与[汇总](evidence/t48/acceptance.json)。

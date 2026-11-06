@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { test, expect } from '../e2e/formal-fixture';
 import type { Page } from '@playwright/test';
+import {currentProject} from '../helpers/current-project';
 import media from '../../src/content/museum-media.json' with { type: 'json' };
 
 function observe(page: Page, baseURL: string) {
@@ -133,3 +134,15 @@ for (const mode of ['full', 'guided'] as const) for (const preset of [false, tru
   });
 }
 
+
+async function seedTheatre(page:Page,baseURL:string,node:'completed'|'memory-words'){
+ await page.goto(baseURL+'study.html');await page.evaluate(async project=>{const db=await new Promise<IDBDatabase>((yes,no)=>{const q=indexedDB.open('yingzuo-v1',1);q.onupgradeneeded=()=>q.result.createObjectStore('snapshots');q.onsuccess=()=>yes(q.result);q.onerror=()=>no(q.error);});try{await new Promise<void>((yes,no)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(project),'draft');tx.oncomplete=()=>yes();tx.onabort=()=>no(tx.error);});}finally{db.close();}},currentProject(node));
+}
+
+test('completed theatre opens its programme automatically within the hosting directory',async({page,baseURL})=>{
+ const problems=observe(page,baseURL!);await seedTheatre(page,baseURL!,'completed');await page.goto(baseURL!+'#/story');await expect(page.locator('#app-view')).toHaveAttribute('data-route','/result');await expect(page.locator('.reunion-artifact')).toHaveAttribute('data-state','ready',{timeout:20000});await page.reload();await expect(page.locator('#app-view')).toHaveAttribute('data-route','/result');expect(problems).toEqual([]);
+});
+
+test('theatre fits a full curtain without a listening card in the hosting directory',async({page,baseURL})=>{
+ const problems=observe(page,baseURL!);await seedTheatre(page,baseURL!,'memory-words');await page.goto(baseURL!+'#/story');await expect(page.locator('.page-content .canvas-stage-status')).toHaveAttribute('data-state','ready',{timeout:20000});await expect.poll(()=>page.locator('.page-content .canvas-stage-screen').evaluate(el=>{const r=el.getBoundingClientRect();return r.top>=0&&r.bottom<=innerHeight+1;}),{timeout:20000}).toBe(true);await expect(page.locator('.story-stage-slot .story-feedback-inline')).toHaveCount(0);await expect(page.locator('.control-panel .story-feedback-inline')).toBeHidden();expect(problems).toEqual([]);
+});

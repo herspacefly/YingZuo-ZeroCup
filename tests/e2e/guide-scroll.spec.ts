@@ -20,3 +20,7 @@ test('initial positioning failure restores the real page and releases its scroll
  await page.addInitScript(()=>{const scroll=Element.prototype.scrollIntoView;let failed=false;Element.prototype.scrollIntoView=function(options){if(!failed&&this.closest('.guide-preview')){failed=true;throw new Error('Injected guide positioning failure');}return scroll.call(this,options);};});
  await page.goto('/#/craft');await expect(page.locator('#app-notice')).toContainText('引导准备失败');await expect(page.locator('html')).not.toHaveAttribute('data-guiding');await expect(page.locator('.guide-preview')).toHaveCount(0);expect(await page.evaluate(()=>document.documentElement.style.getPropertyValue('overflow'))).toBe('');await expect(page.locator('.page-content #craft-palette')).toBeEnabled();
 });
+
+test('leaving rehearsal restores the original position of the page beside the journey navigation',async({page})=>{
+ await page.goto('/#/craft');await expect(page.locator('.guide-banner')).toBeVisible();expect(await page.locator('.guide-preview').evaluate(el=>el.previousElementSibling?.classList.contains('experience-path'))).toBe(true);await page.locator('#guide-skip').click();expect(await page.locator('.page-content').evaluate(el=>el.previousElementSibling?.classList.contains('experience-path'))).toBe(true);
+});

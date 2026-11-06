@@ -49,6 +49,9 @@ describe('router lifecycle and navigation guard', () => {
     expect(browser.port.read()).toBe('#/craft'); expect(mounted).toEqual(['#/craft']);
     blocked = false; browser.event('#/result'); expect(mounted).toEqual(['#/craft', '#/result']);
   });
+  it('replaces a completed route without adding another history entry or mounting twice',()=>{
+    const browser=location('#/story'),mounted:string[]=[];const router=createHashRouter(browser.port,parsed=>{mounted.push(parsed.canonicalHash);return true;});router.start();router.navigate({path:'/result',exhibitId:null},true);browser.event();expect(browser.pushes).toEqual([]);expect(browser.replacements).toEqual(['#/result']);expect(mounted).toEqual(['#/story','#/result']);
+  });
   it('has no callbacks or mutations after disposal', () => {
     const browser = location('#/'); let count = 0;
     const router = createHashRouter(browser.port, () => { count++; return true; });

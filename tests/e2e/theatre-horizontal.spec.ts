@@ -46,9 +46,9 @@ test('home background card aligns with the combined edges of the two feature car
 test('wide curtain retains its original height while only background painting expands horizontally',async({page,isMobile})=>{
   if(!isMobile)await page.setViewportSize({width:1366,height:768});await instrument(page);await seed(page);
   if(await page.locator('#story-pause').isEnabled())await page.locator('#story-pause').click();
-  if(!isMobile)await expect.poll(async()=>{const g=await geometry(page);return Math.abs(g.screen.height-Math.min(g.slot.width*.75+20,768-g.caption.height-70));}).toBeLessThan(1);
+  if(!isMobile)await expect.poll(async()=>{const g=await geometry(page);return Math.abs(g.screen.height-Math.min(g.slot.width*.75+20,768-g.caption.height-32));}).toBeLessThan(1);
   const g=await geometry(page);expect(g.screen.x).toBe(g.slot.x);expect(g.screen.width).toBe(g.slot.width);expect(g.overflow).toBeLessThanOrEqual(1);
-  if(!isMobile){expect(g.panel.x-g.screen.right).toBeCloseTo(24,0);expect(g.screen.width/g.screen.height).toBeGreaterThan(1.5);}
+  if(!isMobile){expect(g.panel.x-g.screen.right).toBeCloseTo(24,0);expect(g.screen.width/g.screen.height).toBeGreaterThan(4/3);}
   const probe=await page.evaluate(()=>Reflect.get(window,'__horizontalProbe')() as {draws:{width:number;height:number;canvasWidth:number;canvasHeight:number}[];scales:number[][]});
   expect(probe.draws.length).toBeGreaterThan(0);const background=probe.draws.filter(d=>d.canvasWidth===g.backing.width&&d.canvasHeight===g.backing.height).at(-1)!;expect(background).toBeTruthy();expect(background.width).toBe(background.canvasWidth);expect(background.height).toBeCloseTo(Math.min(background.canvasHeight,background.canvasWidth*.75),5);
   expect(probe.scales.length).toBeGreaterThan(0);expect(probe.scales.every(([x,y])=>Math.abs(Math.abs(x!)-Math.abs(y!))<1e-6)).toBe(true);
@@ -73,7 +73,7 @@ test('paused caption resizing redraws the curtain and repositions input geometry
   test.skip(isMobile,'Desktop height cap follows the caption; narrow screens retain their normal ratio.');
   await page.setViewportSize({width:1366,height:768});await controlledClock(page);await interactive(page);await page.locator('.page-content #story-pause').click();
   const before=await geometry(page);await page.locator('.story-caption-dock').evaluate(e=>{e.style.minHeight='190px';});
-  await expect.poll(async()=>Math.abs((await geometry(page)).screen.height-(768-190-70))).toBeLessThan(1);
+  await expect.poll(async()=>Math.abs((await geometry(page)).screen.height-(768-190-32))).toBeLessThan(1);
   const after=await geometry(page);expect(after.screen.width).toBe(before.screen.width);expect(after.screen.height).toBeLessThan(before.screen.height);
   await expect.poll(async()=>page.locator('.page-content .rod-lines').first().evaluate(e=>Number(e.getAttribute('viewBox')!.split(' ')[3]))).toBeCloseTo(after.canvas.height,0);
   expect(after.canvas.width/after.canvas.height).toBeCloseTo(after.backing.width/after.backing.height,2);

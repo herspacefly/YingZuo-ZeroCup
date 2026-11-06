@@ -35,7 +35,7 @@ export function createHashRouter(port: HashLocationPort, accept: (parsed: Parsed
   const unlisten = port.listen(apply);
   return {
     start: apply,
-    navigate(route: AppRoute) { if (!disposed) { port.push(routeHash(route)); apply(); } },
+    navigate(route: AppRoute, replace=false) { if (!disposed) { if(replace)port.replace(routeHash(route));else port.push(routeHash(route)); apply(); } },
     dispose() { disposed = true; unlisten(); },
   };
 }

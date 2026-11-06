@@ -156,7 +156,7 @@ async function mount() {
     const changed = !!current;
     page?.dispose();musicScene=null;clear(host); current = parsed.route;syncMusic();
     const context: PageContext = {
-      store: opened, route: parsed.route, navigate: route => router?.navigate(route), isBusy:()=>locked, run, durable, notify,
+      store: opened, route: parsed.route, navigate: (route,options) => router?.navigate(route,options?.replace), isBusy:()=>locked, run, durable, notify,
       audio,
       musicSample(sample){musicScene=sample;syncMusic();},
       edit(command) { void run(() => opened.edit(command)); },

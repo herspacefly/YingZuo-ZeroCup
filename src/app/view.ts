@@ -7,7 +7,7 @@ import type { StageAudioSession } from '../audio/stage-session';
 export interface PageContext {
   guide?: 'page'|'puppetry';
   store: ProjectStore; route: AppRoute;
-  navigate(route: AppRoute): void;
+  navigate(route: AppRoute, options?: {replace?:boolean}): void;
   isBusy():boolean;
   run(job: () => Promise<unknown>): Promise<void>;
   edit(command: EditorCommand): void;
