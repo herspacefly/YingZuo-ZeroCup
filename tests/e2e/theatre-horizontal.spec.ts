@@ -1,7 +1,6 @@
-import {currentProject} from '../helpers/current-project';
+import {currentDuration,currentProject} from '../helpers/current-project';
 import {test,expect} from './formal-fixture';
 import type {Page} from '@playwright/test';
-import type {} from '../../src/domain/types';
 
 test.beforeEach(async({page})=>{await page.emulateMedia({reducedMotion:'reduce'});});
 
@@ -10,8 +9,12 @@ async function seed(page:Page,interactive=false){
   await page.goto('/study.html');await page.evaluate(async value=>{
     const db=await new Promise<IDBDatabase>((yes,no)=>{const q=indexedDB.open('yingzuo-v1',1);q.onupgradeneeded=()=>q.result.createObjectStore('snapshots');q.onsuccess=()=>yes(q.result);q.onerror=()=>no(q.error);});
     await new Promise<void>((yes,no)=>{const tx=db.transaction('snapshots','readwrite');tx.objectStore('snapshots').put(JSON.stringify(value),'draft');tx.oncomplete=()=>yes();tx.onabort=()=>no(tx.error);});db.close();
-  },project);await page.goto('/#/story');await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready',{timeout:15000});
+  },project);await page.goto('/#/story');await expect(page.locator('.canvas-stage-status').first()).toHaveAttribute('data-state','ready',{timeout:15000});return project;
 }
+// Keep pointer/resize geometry native while controlling only director time.
+// This phase starts after all measured narration, with the same <=250ms guard.
+async function controlledClock(page:Page){await page.addInitScript(()=>{let now=0,id=0;const jobs=new Map<number,FrameRequestCallback>();Object.defineProperty(performance,'now',{value:()=>now});window.requestAnimationFrame=callback=>{jobs.set(++id,callback);return id;};window.cancelAnimationFrame=id=>jobs.delete(id);Reflect.set(window,'__horizontalAdvance',async(ms:number)=>{while(ms>0){const delta=Math.min(100,ms);ms-=delta;now+=delta;const callbacks=[...jobs.values()];jobs.clear();callbacks.forEach(callback=>callback(now));await Promise.resolve();}});});}
+async function interactive(page:Page){const project=await seed(page,true);if(await page.locator('.page-content #story-voice-toggle').getAttribute('aria-pressed')==='true')await page.locator('.page-content #story-voice-toggle').click();if(await page.locator('.page-content #story-play').isEnabled())await page.locator('.page-content #story-play').click();await page.evaluate(ms=>Reflect.get(window,'__horizontalAdvance')(ms),currentDuration('memory-wave')+100);await expect(page.locator('.page-content button[data-story-rod="rightHand"]')).toBeEnabled();return project;}
 async function geometry(page:Page){return page.evaluate(()=>{
   const rect=(selector:string)=>{const r=document.querySelector(selector)!.getBoundingClientRect();return{x:r.x,y:r.y,width:r.width,height:r.height,right:r.right};};
   const canvas=document.querySelector<HTMLCanvasElement>('.story-stage-slot canvas.shadow-stage')!;
@@ -55,27 +58,25 @@ test('wide curtain retains its original height while only background painting ex
   await page.locator('.story-workspace').evaluate(e=>window.scrollTo(0,window.scrollY+e.getBoundingClientRect().top-document.querySelector('.story-caption-dock')!.getBoundingClientRect().height-38));await page.screenshot({path:test.info().outputPath('horizontal-curtain.png')});
 });
 
-test('stretched background retains real rod dragging and the saved checkpoint',async({page})=>{
-  // Isolate pointer geometry from the separate 250ms frame-gap protection.
-  // The pointer events and Canvas drawing remain native; no story time advances.
-  await page.addInitScript(()=>{Object.defineProperty(performance,'now',{value:()=>0});window.requestAnimationFrame=()=>1;window.cancelAnimationFrame=()=>{};});
-  await seed(page,true);if(await page.locator('#story-play').isEnabled())await page.locator('#story-play').click();
+test('stretched background retains real rod dragging and the saved checkpoint',async({page,isMobile})=>{
+  await controlledClock(page);const original=await interactive(page);
   const handle=page.locator('button[data-story-rod="rightHand"]');await expect(handle).toBeEnabled();
   const shoulder=page.locator('#story-rod-rightShoulder'),before=Number(await shoulder.inputValue());await handle.scrollIntoViewIfNeeded();
-  const box=(await handle.boundingBox())!;await page.mouse.move(box.x+box.width/2,box.y+box.height/2);await page.mouse.down();await page.mouse.move(box.x+box.width/2+30,box.y+box.height/2-35,{steps:5});await page.mouse.up();
+  const box=(await handle.boundingBox())!,x=box.x+box.width/2,y=box.y+box.height/2;if(isMobile){const cdp=await page.context().newCDPSession(page);await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y}]});await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:x+30,y:y-35}]});await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await cdp.detach();}else{await page.mouse.move(x,y);await page.mouse.down();await page.mouse.move(x+30,y-35,{steps:5});await page.mouse.up();}
   await expect.poll(async()=>Math.abs(Number(await shoulder.inputValue())-before)).toBeGreaterThan(.01);
   await expect(page.locator('#story-runtime')).toHaveAttribute('data-node','memory-wave');
+  const saved=await page.evaluate(async()=>{const db=await new Promise<IDBDatabase>((yes,no)=>{const request=indexedDB.open('yingzuo-v1',1);request.onsuccess=()=>yes(request.result);request.onerror=()=>no(request.error);});try{return await new Promise<string>((yes,no)=>{const request=db.transaction('snapshots').objectStore('snapshots').get('draft');request.onsuccess=()=>yes(request.result as string);request.onerror=()=>no(request.error);});}finally{db.close();}});const project=JSON.parse(saved);expect(project.story).toEqual(original.story);expect(project.pose).toEqual(original.pose);expect(project.stage).toEqual(original.stage);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth)).toBeLessThanOrEqual(1);
 });
 
 test('paused caption resizing redraws the curtain and repositions input geometry',async({page,isMobile})=>{
   test.skip(isMobile,'Desktop height cap follows the caption; narrow screens retain their normal ratio.');
-  await page.setViewportSize({width:1366,height:768});await seed(page,true);if(await page.locator('#story-pause').isEnabled())await page.locator('#story-pause').click();
+  await page.setViewportSize({width:1366,height:768});await controlledClock(page);await interactive(page);await page.locator('.page-content #story-pause').click();
   const before=await geometry(page);await page.locator('.story-caption-dock').evaluate(e=>{e.style.minHeight='190px';});
   await expect.poll(async()=>Math.abs((await geometry(page)).screen.height-(768-190-70))).toBeLessThan(1);
   const after=await geometry(page);expect(after.screen.width).toBe(before.screen.width);expect(after.screen.height).toBeLessThan(before.screen.height);
-  await expect.poll(async()=>page.locator('.rod-lines').first().evaluate(e=>Number(e.getAttribute('viewBox')!.split(' ')[3]))).toBeCloseTo(after.canvas.height,0);
+  await expect.poll(async()=>page.locator('.page-content .rod-lines').first().evaluate(e=>Number(e.getAttribute('viewBox')!.split(' ')[3]))).toBeCloseTo(after.canvas.height,0);
   expect(after.canvas.width/after.canvas.height).toBeCloseTo(after.backing.width/after.backing.height,2);
-  await page.locator('#story-play').click();await expect.poll(async()=>page.locator('.limb-lines').first().evaluate(e=>Number(e.getAttribute('viewBox')!.split(' ')[3]))).toBeCloseTo(after.canvas.height,0);
+  await page.locator('#story-play').click();await expect.poll(async()=>page.locator('.page-content .limb-lines').first().evaluate(e=>Number(e.getAttribute('viewBox')!.split(' ')[3]))).toBeCloseTo(after.canvas.height,0);
   await page.evaluate(()=>{location.hash='#/museum';});await expect(page.locator('#app-view')).toHaveAttribute('data-route','/museum');await page.setViewportSize({width:1440,height:900});await expect(page.locator('.story-stage-slot')).toHaveCount(0);
 });
