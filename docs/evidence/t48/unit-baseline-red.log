@@ -1,0 +1,35 @@
+npm notice run yingzuo-reunion@0.0.1 test
+npm notice run vitest run
+
+ RUN  v5.0.4 D:/.MyLearning/VSCodeProject/ZeroCup
+
+ ❯ tests/unit/story-feedback.test.ts (6 tests | 1 failed) 21ms
+   ❯ story feedback mirrors the real director and observer (6)
+     × shows an explicit choice after the dialogue stops 11ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/story-feedback.test.ts > story feedback mirrors the real director and observer > shows an explicit choice after the dialogue stops
+AssertionError: expected 'choice' to be 'listening' // Object.is equality
+
+Expected: "listening"
+Received: "choice"
+
+ ❯ tests/unit/story-feedback.test.ts:41:90
+     39|   it('shows an explicit choice after the dialogue stops', () => {
+     40|     expect(storyFeedback({...ready,interactive:false,choice:true,playi…
+     41|     expect(storyFeedback({...ready,interactive:false,choice:true,liste…
+       |                                                                                          ^
+     42|   });
+     43| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 54 passed (55)
+      Tests  1 failed | 617 passed (618)
+   Start at  13:24:52
+   Duration  5.59s (tests 52%, transform 30%, import 15%, worker 3%)
+
+    Isolate  55 workers spawned · ~400ms startup each (spawn + environment, per file)
+             at least ~1.60s faster with isolate: false — reuses workers across files instead of one per file

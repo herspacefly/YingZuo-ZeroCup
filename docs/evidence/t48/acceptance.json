@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "task": "T48",
+  "updatedAt": "2026-11-06",
+  "status": "local-complete",
+  "branch": "codex/t48-spacing-and-choice-flow",
+  "applicationCommit": "4630eac54f41e3cdb0e70938f6bbdcac87f574b1",
+  "verifiedCommit": "f35f040241a7650afb3c4ebbd843a1edfb79d236",
+  "pushed": false,
+  "deployed": false,
+  "unit": {
+    "files": 55,
+    "passed": 619
+  },
+  "browser": {
+    "total": 112,
+    "passed": 111,
+    "skipped": 1,
+    "failed": 0,
+    "notRun": 0,
+    "scope": "Related targeted regression, not an unfiltered full-suite run.",
+    "evidence": "browser-coverage.json",
+    "skip": "Mobile case for desktop caption height cap only.",
+    "includesDeploymentCases": 32
+  },
+  "checks": [
+    {
+      "name": "unit",
+      "command": "npm test",
+      "status": "passed",
+      "evidence": "unit.log"
+    },
+    {
+      "name": "typecheck",
+      "command": "npm run typecheck",
+      "status": "passed",
+      "evidence": "typecheck.log"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "status": "passed",
+      "evidence": "build.log"
+    },
+    {
+      "name": "assets",
+      "command": "npm run verify:assets",
+      "status": "passed",
+      "evidence": "assets.log"
+    },
+    {
+      "name": "content",
+      "command": "npm run verify:content",
+      "status": "passed",
+      "evidence": "content.log"
+    },
+    {
+      "name": "voice",
+      "command": "npm run verify:voice -- --dist",
+      "status": "passed",
+      "evidence": "voice.log"
+    },
+    {
+      "name": "legacy",
+      "command": "npm run verify:legacy",
+      "status": "passed",
+      "evidence": "legacy.log"
+    },
+    {
+      "name": "state",
+      "command": "npm run verify:state",
+      "status": "passed",
+      "evidence": "state.log"
+    }
+  ],
+  "build": {
+    "modules": 162,
+    "main": "dist/assets/main-S2UdIjvs.js",
+    "sha256": "1798a56fd2c0758cff8ded9e815e1dc1fe034a5cda1b93412bab6664749eb773"
+  },
+  "voice": {
+    "clips": 354,
+    "bytes": 18304560,
+    "schedules": 1216,
+    "sourceAndDistMatch": true,
+    "audioBytesUnchanged": true
+  },
+  "screenshots": [
+    "craft-1440.png",
+    "craft-390.png",
+    "craft-320.png"
+  ],
+  "preserved": [
+    "ProjectV1 format",
+    "250ms frame-gap protection",
+    "single animation clock",
+    "puppetry and cinematic completion gates",
+    "run/revision/node transaction guards",
+    "original Chinese MP3s",
+    "44px click targets",
+    "24px horizontal theatre gutter"
+  ],
+  "humanAcceptance": "T10/T38/physical devices/IE/T13/T14/P1 unchanged",
+  "cleanup": "cleanup.json"
+}

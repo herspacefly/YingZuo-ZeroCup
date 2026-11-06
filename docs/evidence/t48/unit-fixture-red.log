@@ -1,0 +1,35 @@
+npm notice run yingzuo-reunion@0.0.1 test
+npm notice run vitest run
+
+ RUN  v5.0.4 D:/.MyLearning/VSCodeProject/ZeroCup
+
+ ❯ tests/unit/choice-story.test.ts (39 tests | 1 failed) 5268ms
+   ❯ cumulative choices and stable consumers (39)
+     × keeps the measured narration gate for puppetry while decisions become immediate 54ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/choice-story.test.ts > cumulative choices and stable consumers > keeps the measured narration gate for puppetry while decisions become immediate
+StoryCommandError: 当前节点不接受这个动作。
+ ❯ requireFact src/domain/story.ts:12:74
+     10|   constructor(message: string) { super(message);this.name='StoryComman…
+     11| }
+     12| const requireFact = (ok: unknown,message: string): void => {if(!ok)thr…
+       |                                                                          ^
+     13| const finiteRange=(v: number,min=0,max=Number.MAX_SAFE_INTEGER)=>typeo…
+     14| export function storyGuard(story: StoryProgress): StoryGuard {
+ ❯ reduceStory src/domain/story.ts:52:3
+ ❯ choiceStep tests/helpers/choice-story.ts:23:9
+ ❯ choiceAt tests/helpers/choice-story.ts:28:59
+ ❯ tests/unit/choice-story.test.ts:55:118
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 54 passed (55)
+      Tests  1 failed | 618 passed (619)
+   Start at  13:32:14
+   Duration  8.50s (tests 78%, transform 10%, import 10%, worker 2%)
+
+    Isolate  55 workers spawned · ~678ms startup each (spawn + environment, per file)
+             at least ~2.71s faster with isolate: false — reuses workers across files instead of one per file

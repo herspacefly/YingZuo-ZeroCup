@@ -1,0 +1,755 @@
+{
+  "name": "regression",
+  "stats": {
+    "startTime": "2026-11-06T05:32:04.541Z",
+    "duration": 162762.654,
+    "expected": 41,
+    "skipped": 1,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "globalErrors": [],
+  "cases": [
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "new opening, refresh and museum return play automatically; same-page pause/reset/mode stay paused"
+      ],
+      "status": "passed",
+      "durationMs": 4920,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "choice after an explicit pause starts its successor without a play click"
+      ],
+      "status": "passed",
+      "durationMs": 1876,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "save failure retry stays paused, while refresh grants a fresh entry"
+      ],
+      "status": "passed",
+      "durationMs": 4079,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "blur while entry resources load revokes autoplay and late resources cannot revive it"
+      ],
+      "status": "passed",
+      "durationMs": 1847,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "a document hidden before initialization stays paused until a fresh visible entry"
+      ],
+      "status": "passed",
+      "durationMs": 3435,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "new opening, refresh and museum return play automatically; same-page pause/reset/mode stay paused"
+      ],
+      "status": "passed",
+      "durationMs": 5542,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "choice after an explicit pause starts its successor without a play click"
+      ],
+      "status": "passed",
+      "durationMs": 1734,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "save failure retry stays paused, while refresh grants a fresh entry"
+      ],
+      "status": "passed",
+      "durationMs": 2781,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "blur while entry resources load revokes autoplay and late resources cannot revive it"
+      ],
+      "status": "passed",
+      "durationMs": 1169,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "choice-theatre.spec.ts",
+      "title": [
+        "a document hidden before initialization stays paused until a fresh visible entry"
+      ],
+      "status": "passed",
+      "durationMs": 2234,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "experience-entry.spec.ts",
+      "title": [
+        "the full journey has one next action and keeps lamp experiments out of the story contract"
+      ],
+      "status": "passed",
+      "durationMs": 2526,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "experience-entry.spec.ts",
+      "title": [
+        "320px home keeps its three entrances aligned and an existing performance remains the primary action"
+      ],
+      "status": "passed",
+      "durationMs": 1575,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "experience-entry.spec.ts",
+      "title": [
+        "the full journey has one next action and keeps lamp experiments out of the story contract"
+      ],
+      "status": "passed",
+      "durationMs": 1903,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "experience-entry.spec.ts",
+      "title": [
+        "320px home keeps its three entrances aligned and an existing performance remains the primary action"
+      ],
+      "status": "passed",
+      "durationMs": 1468,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "guide-scroll.spec.ts",
+      "title": [
+        "guide locks native scrolling and navigation, then restores original overflow and position"
+      ],
+      "status": "passed",
+      "durationMs": 5062,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "guide-scroll.spec.ts",
+      "title": [
+        "keyboard can reach offscreen rehearsal alternatives and blur releases the lock"
+      ],
+      "status": "passed",
+      "durationMs": 3469,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "guide-scroll.spec.ts",
+      "title": [
+        "initial positioning failure restores the real page and releases its scroll lock"
+      ],
+      "status": "passed",
+      "durationMs": 3508,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "guide-scroll.spec.ts",
+      "title": [
+        "guide locks native scrolling and navigation, then restores original overflow and position"
+      ],
+      "status": "passed",
+      "durationMs": 4550,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "guide-scroll.spec.ts",
+      "title": [
+        "keyboard can reach offscreen rehearsal alternatives and blur releases the lock"
+      ],
+      "status": "passed",
+      "durationMs": 3769,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "guide-scroll.spec.ts",
+      "title": [
+        "initial positioning failure restores the real page and releases its scroll lock"
+      ],
+      "status": "passed",
+      "durationMs": 3279,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "one soft curtain, semantic brush titles without replay buttons and public credits"
+      ],
+      "status": "passed",
+      "durationMs": 6696,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "craft rehearsal restores exact stored appearance and stays remembered on route return"
+      ],
+      "status": "passed",
+      "durationMs": 4599,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "lamp and limb practice are isolated, with posture controls below the screen"
+      ],
+      "status": "passed",
+      "durationMs": 6449,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "story rehearsal restores its checkpoint and explicit skip retries only once"
+      ],
+      "status": "passed",
+      "durationMs": 4514,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "font failure and reduced motion keep readable titles without ornamental animation"
+      ],
+      "status": "passed",
+      "durationMs": 534,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "real hand and keyboard rehearsal restores the running story clock without task evidence"
+      ],
+      "status": "passed",
+      "durationMs": 7691,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "all major pages keep their columns within narrow and wide viewports"
+      ],
+      "status": "passed",
+      "durationMs": 8327,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "one soft curtain, semantic brush titles without replay buttons and public credits"
+      ],
+      "status": "passed",
+      "durationMs": 6686,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "craft rehearsal restores exact stored appearance and stays remembered on route return"
+      ],
+      "status": "passed",
+      "durationMs": 4627,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "lamp and limb practice are isolated, with posture controls below the screen"
+      ],
+      "status": "passed",
+      "durationMs": 6167,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "story rehearsal restores its checkpoint and explicit skip retries only once"
+      ],
+      "status": "passed",
+      "durationMs": 3955,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "font failure and reduced motion keep readable titles without ornamental animation"
+      ],
+      "status": "passed",
+      "durationMs": 445,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "real hand and keyboard rehearsal restores the running story clock without task evidence"
+      ],
+      "status": "passed",
+      "durationMs": 6023,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "presentation-guidance.spec.ts",
+      "title": [
+        "all major pages keep their columns within narrow and wide viewports"
+      ],
+      "status": "passed",
+      "durationMs": 9469,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "home background card aligns with the combined edges of the two feature cards"
+      ],
+      "status": "passed",
+      "durationMs": 611,
+      "errors": [],
+      "attachments": [
+        {
+          "name": "home-edges",
+          "value": {
+            "card": {
+              "left": 52,
+              "right": 1388,
+              "width": 1336
+            },
+            "features": {
+              "left": 52,
+              "right": 1388,
+              "width": 1336
+            },
+            "overflow": 0
+          }
+        }
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "wide curtain retains its original height while only background painting expands horizontally"
+      ],
+      "status": "passed",
+      "durationMs": 7506,
+      "errors": [],
+      "attachments": [
+        {
+          "name": "background-and-actor-scale",
+          "value": {
+            "geometry": {
+              "screen": {
+                "x": 52,
+                "y": 161.875,
+                "width": 922,
+                "height": 595.53125,
+                "right": 974
+              },
+              "slot": {
+                "x": 52,
+                "y": 68.578125,
+                "width": 922,
+                "height": 922.796875,
+                "right": 974
+              },
+              "panel": {
+                "x": 998,
+                "y": -522.671875,
+                "width": 316,
+                "height": 1514.046875,
+                "right": 1314
+              },
+              "caption": {
+                "x": 52,
+                "y": 10,
+                "width": 1262,
+                "height": 102.46875,
+                "right": 1314
+              },
+              "canvas": {
+                "x": 62,
+                "y": 171.875,
+                "width": 902,
+                "height": 575.53125,
+                "right": 964
+              },
+              "backing": {
+                "width": 902,
+                "height": 576
+              },
+              "overflow": 0
+            },
+            "background": {
+              "width": 902,
+              "height": 576,
+              "canvasWidth": 902,
+              "canvasHeight": 576
+            },
+            "scales": [
+              [
+                384,
+                -384
+              ],
+              [
+                0.96,
+                0.96
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                384,
+                -384
+              ],
+              [
+                -0.96,
+                0.96
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "stretched background retains real rod dragging and the saved checkpoint"
+      ],
+      "status": "passed",
+      "durationMs": 2912,
+      "errors": []
+    },
+    {
+      "project": "desktop-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "paused caption resizing redraws the curtain and repositions input geometry"
+      ],
+      "status": "passed",
+      "durationMs": 2088,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "home background card aligns with the combined edges of the two feature cards"
+      ],
+      "status": "passed",
+      "durationMs": 729,
+      "errors": [],
+      "attachments": [
+        {
+          "name": "home-edges",
+          "value": {
+            "card": {
+              "left": 20,
+              "right": 370,
+              "width": 350
+            },
+            "features": {
+              "left": 20,
+              "right": 370,
+              "width": 350
+            },
+            "overflow": 0
+          }
+        }
+      ]
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "wide curtain retains its original height while only background painting expands horizontally"
+      ],
+      "status": "passed",
+      "durationMs": 5873,
+      "errors": [],
+      "attachments": [
+        {
+          "name": "background-and-actor-scale",
+          "value": {
+            "geometry": {
+              "screen": {
+                "x": 20,
+                "y": -954.296875,
+                "width": 350,
+                "height": 282.5,
+                "right": 370
+              },
+              "slot": {
+                "x": 20,
+                "y": -1047.59375,
+                "width": 350,
+                "height": 609.765625,
+                "right": 370
+              },
+              "panel": {
+                "x": 20,
+                "y": -421.828125,
+                "width": 350,
+                "height": 1398.234375,
+                "right": 370
+              },
+              "caption": {
+                "x": 20,
+                "y": 6,
+                "width": 350,
+                "height": 156.328125,
+                "right": 370
+              },
+              "canvas": {
+                "x": 30,
+                "y": -944.296875,
+                "width": 330,
+                "height": 262.5,
+                "right": 360
+              },
+              "backing": {
+                "width": 512,
+                "height": 408
+              },
+              "overflow": 0
+            },
+            "background": {
+              "width": 512,
+              "height": 384,
+              "canvasWidth": 512,
+              "canvasHeight": 408
+            },
+            "scales": [
+              [
+                256,
+                -256
+              ],
+              [
+                0.96,
+                0.96
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                256,
+                -256
+              ],
+              [
+                -0.96,
+                0.96
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                -1
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "stretched background retains real rod dragging and the saved checkpoint"
+      ],
+      "status": "passed",
+      "durationMs": 1418,
+      "errors": []
+    },
+    {
+      "project": "mobile-chromium",
+      "file": "theatre-horizontal.spec.ts",
+      "title": [
+        "paused caption resizing redraws the curtain and repositions input geometry"
+      ],
+      "status": "skipped",
+      "durationMs": 107,
+      "errors": [],
+      "annotations": [
+        {
+          "type": "skip",
+          "description": "Desktop height cap follows the caption; narrow screens retain their normal ratio.",
+          "location": {
+            "file": "D:\\.MyLearning\\VSCodeProject\\ZeroCup\\tests\\e2e\\theatre-horizontal.spec.ts",
+            "line": 73,
+            "column": 8
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+npm notice run yingzuo-reunion@0.0.1 build
+npm notice run npm run typecheck && vite build
+npm notice run yingzuo-reunion@0.0.1 typecheck
+npm notice run tsc --noEmit && tsc --noEmit -p tsconfig.node.json
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 162 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/assets/modulepreload-polyfill-legacy-CnvmjJHj.js    0.08 kB │ gzip:   0.09 kB
+dist/assets/probe-legacy-C_4Nm6Lp.js                     0.21 kB │ gzip:   0.18 kB
+dist/assets/study-legacy-C_4Nm6Lp.js                     0.21 kB │ gzip:   0.18 kB
+dist/assets/credits-legacy-DWSDYW7N.js                   3.47 kB │ gzip:   2.12 kB
+dist/assets/probe-legacy-BD-qN8cU.js                     5.65 kB │ gzip:   2.05 kB
+dist/assets/sources-legacy-BzU-UVWt.js                   8.07 kB │ gzip:   3.39 kB
+dist/assets/project-legacy-D5Y9gERl.js                  10.63 kB │ gzip:   4.35 kB
+dist/assets/assets-legacy-C8OEAXfY.js                   15.54 kB │ gzip:   6.45 kB
+dist/assets/story-legacy-B4P_vMkm.js                    16.57 kB │ gzip:   7.14 kB
+dist/assets/bootstrap-legacy-Ddd_J50d.js                19.31 kB │ gzip:   7.74 kB
+dist/assets/view-legacy-C4rrClGP.js                     19.64 kB │ gzip:   8.36 kB
+dist/assets/identity-legacy-SZRqrHAZ.js                 53.63 kB │ gzip:  17.15 kB
+dist/assets/asset-contract-legacy-BbJY5kOC.js           69.08 kB │ gzip:  15.98 kB
+dist/assets/dom-legacy-Uj173DgS.js                      88.66 kB │ gzip:  24.68 kB
+dist/assets/polyfills-legacy-egavuY3n.js               165.29 kB │ gzip:  61.40 kB
+dist/assets/choice-options-legacy-Dbb2lZc4.js          345.80 kB │ gzip:  84.16 kB
+dist/assets/main-legacy-CnsjfGRU.js                    392.62 kB │ gzip: 137.73 kB
+dist/assets/renderer-legacy-D47xWWX9.js                595.89 kB │ gzip: 145.63 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+dist/credits.html                                 2.34 kB │ gzip:   1.17 kB
+dist/probe.html                                   4.34 kB │ gzip:   2.13 kB
+dist/story.html                                   5.16 kB │ gzip:   2.56 kB
+dist/assets.html                                  5.41 kB │ gzip:   2.60 kB
+dist/study.html                                   5.56 kB │ gzip:   2.66 kB
+dist/project.html                                 6.34 kB │ gzip:   2.81 kB
+dist/index.html                                   7.61 kB │ gzip:   3.45 kB
+dist/assets/project-C_0wRIs_.css                  1.48 kB │ gzip:   0.61 kB
+dist/assets/story-k2KHFTZ0.css                    1.80 kB │ gzip:   0.87 kB
+dist/assets/assets-BYzpGWpB.css                   2.07 kB │ gzip:   0.94 kB
+dist/assets/probe-BaSSiRRB.css                    5.44 kB │ gzip:   1.91 kB
+dist/assets/main-DyRtGECh.css                    14.58 kB │ gzip:   4.21 kB
+dist/assets/dom-DE7LgP1S.css                     58.06 kB │ gzip:  12.73 kB
+dist/assets/probe-1RR5iXw5.js                     0.22 kB │ gzip:   0.19 kB
+dist/assets/study-1RR5iXw5.js                     0.22 kB │ gzip:   0.19 kB
+dist/assets/modulepreload-polyfill-YP0FEG5d.js    0.70 kB │ gzip:   0.39 kB
+dist/assets/credits-VLMU45Jh.js                   2.21 kB │ gzip:   1.42 kB
+dist/assets/project-CCIUsV7n.js                   4.94 kB │ gzip:   2.14 kB
+dist/assets/assets-sqq58hzr.js                    7.07 kB │ gzip:   3.01 kB
+dist/assets/story-BZ23bVUb.js                     7.67 kB │ gzip:   3.43 kB
+dist/assets/sources-BlfDQrLd.js                   8.01 kB │ gzip:   3.33 kB
+dist/assets/bootstrap-CJOZ4wnE.js                10.80 kB │ gzip:   4.53 kB
+dist/assets/view-BQbI6DIL.js                     15.45 kB │ gzip:   6.83 kB
+dist/assets/dom-Cosh4X0e.js                      30.14 kB │ gzip:  11.13 kB
+dist/assets/identity-I8ENtKM_.js                 39.71 kB │ gzip:  13.01 kB
+dist/assets/asset-contract-B8FEGTd5.js           65.20 kB │ gzip:  14.22 kB
+dist/assets/main-S2UdIjvs.js                    336.62 kB │ gzip: 120.93 kB
+dist/assets/choice-options-wHbVIeMs.js          340.24 kB │ gzip:  80.95 kB
+dist/assets/renderer-ywOGePIN.js                552.28 kB │ gzip: 136.08 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 26.47s
