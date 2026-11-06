@@ -7,9 +7,9 @@
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T49_in_progress",
+  "stage": "T49_local_complete",
   "activeTaskId": "T49",
-  "lastVerifiedCommit": "f35f040241a7650afb3c4ebbd843a1edfb79d236",
+  "lastVerifiedCommit": "4d0f61ee8c769b5be3ac8c47886292e2ca3e46d6",
   "features": {
     "singlePuppetRecording": "planned_optional",
     "onlineShare": "planned_optional"
@@ -2130,7 +2130,7 @@
         "T48"
       ],
       "checkpointCommit": "f35f040241a7650afb3c4ebbd843a1edfb79d236",
-      "nextAction": "三项请求本地实现与验收完成，见docs/acceptance/t48.md；未推送部署。T38听感及正式素材/设备/IE验收状态不变。",
+      "nextAction": "三项请求本地实现与验收完成，见docs/acceptance/t48.md；已随main检查点c8b17f1推送部署。T38听感及正式素材/设备/IE验收状态不变。",
       "blocker": null,
       "verification": [
         "55文件619单元、类型/162模块构建、49任务状态、素材/当前内容/354配音/1216编排/18 ES5块通过。",
@@ -2164,10 +2164,15 @@
       "acceptanceRefs": [
         "T49"
       ],
-      "checkpointCommit": null,
-      "nextAction": "完成节点保存后延迟导航并守卫离页/重建；移除幕面状态卡，统一视口适配和一次定位；核验后直接合并main并推送部署，不提PR。",
+      "checkpointCommit": "4d0f61ee8c769b5be3ac8c47886292e2ca3e46d6",
+      "nextAction": "本地实现和168项相关覆盖已完成，直接合并main并推送，核对Actions部署和20项公开站点检查后登记发布。",
       "blocker": null,
-      "verification": [],
+      "verification": [
+        "55文件620单元、类型/162模块构建、50任务状态、素材/当前故事/七展签/354配音/1216编排/18 ES5通过。",
+        "本轮168项唯一相关浏览器覆盖最新167通过/1既有手机条件跳过，含根/项目子目录40项全部通过；未执行未筛选全套。",
+        "五终章×两节奏×宽窄谢幕自动跳转、保存失败/重试/内存继续、返回历史与迟到回调通过。",
+        "1440/1366/1024/390/320及844×390整幕可见、零横向溢出，旋转/暂停/手动滚动及教学DOM归位通过；失败与复验分列。"
+      ],
       "phase": "G3"
     }
   ],

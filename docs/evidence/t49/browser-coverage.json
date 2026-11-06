@@ -1,0 +1,1618 @@
+{
+  "schemaVersion": 1,
+  "task": "T49",
+  "scope": "Targeted local regression, not an unfiltered full-suite run.",
+  "total": 168,
+  "counts": {
+    "passed": 167,
+    "skipped": 1
+  },
+  "cases": [
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "home/full: complete curtain saves once and opens its programme",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 3908,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "home/guided: complete curtain saves once and opens its programme",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 4853,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "light/full: complete curtain saves once and opens its programme",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 9385,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "light/guided: complete curtain saves once and opens its programme",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 8374,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "road/full: complete curtain saves once and opens its programme",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 8958,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "road/guided: complete curtain saves once and opens its programme",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 7329,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "waiting/full: complete curtain saves once and opens its programme",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 7762,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "waiting/guided: complete curtain saves once and opens its programme",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 7146,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "sacrifice/full: complete curtain saves once and opens its programme",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 7427,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "sacrifice/guided: complete curtain saves once and opens its programme",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 5547,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "restored completed run replaces history and back stays outside the theatre",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2525,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "failed completion remains in theatre and successful retry opens the same saved result",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 4005,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "explicit memory continuation opens the programme without pretending it was saved",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 3140,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "canceling a failed finish and leaving cannot be redirected by old callbacks",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2999,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "curtain is fully visible without the listening or paused card on portrait and short screens",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 12475,
+      "geometry": [
+        {
+          "viewport": [
+            1440,
+            900
+          ],
+          "top": 124.8125,
+          "bottom": 888.140625,
+          "width": 996,
+          "height": 763.328125,
+          "canvas": [
+            976,
+            743
+          ],
+          "overflow": 0
+        },
+        {
+          "viewport": [
+            1366,
+            768
+          ],
+          "top": 122.609375,
+          "bottom": 756.140625,
+          "width": 922,
+          "height": 633.53125,
+          "canvas": [
+            902,
+            614
+          ],
+          "overflow": 0
+        },
+        {
+          "viewport": [
+            1024,
+            600
+          ],
+          "top": 116.8125,
+          "bottom": 587.578125,
+          "width": 964,
+          "height": 470.765625,
+          "canvas": [
+            944,
+            451
+          ],
+          "overflow": 0
+        }
+      ],
+      "run": "fit-recheck"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "viewport resizing keeps a paused visible curtain on screen without changing its scene",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2234,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "later scene changes do not pull back a reader who scrolled away",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2906,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "home/full: complete curtain saves once and opens its programme",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 3083,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "home/guided: complete curtain saves once and opens its programme",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 5415,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "light/full: complete curtain saves once and opens its programme",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 6507,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "light/guided: complete curtain saves once and opens its programme",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 6041,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "road/full: complete curtain saves once and opens its programme",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 5214,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "road/guided: complete curtain saves once and opens its programme",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 5461,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "waiting/full: complete curtain saves once and opens its programme",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 6625,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "waiting/guided: complete curtain saves once and opens its programme",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 6109,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "sacrifice/full: complete curtain saves once and opens its programme",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 8170,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "sacrifice/guided: complete curtain saves once and opens its programme",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 6997,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "restored completed run replaces history and back stays outside the theatre",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2260,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "failed completion remains in theatre and successful retry opens the same saved result",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2235,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "explicit memory continuation opens the programme without pretending it was saved",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 1974,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "canceling a failed finish and leaving cannot be redirected by old callbacks",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2702,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "curtain is fully visible without the listening or paused card on portrait and short screens",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 12818,
+      "geometry": [
+        {
+          "viewport": [
+            390,
+            844
+          ],
+          "top": 176.171875,
+          "bottom": 458.671875,
+          "width": 350,
+          "height": 282.5,
+          "canvas": [
+            512,
+            408
+          ],
+          "overflow": 0
+        },
+        {
+          "viewport": [
+            320,
+            740
+          ],
+          "top": 176.765625,
+          "bottom": 406.765625,
+          "width": 280,
+          "height": 230,
+          "canvas": [
+            512,
+            414
+          ],
+          "overflow": 0
+        },
+        {
+          "viewport": [
+            844,
+            390
+          ],
+          "top": 116.8125,
+          "bottom": 377.578125,
+          "width": 784,
+          "height": 260.765625,
+          "canvas": [
+            1024,
+            323
+          ],
+          "overflow": 0
+        }
+      ],
+      "run": "fit-recheck"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "viewport resizing keeps a paused visible curtain on screen without changing its scene",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2771,
+      "run": "focused-release"
+    },
+    {
+      "file": "t49-stage-result.spec.ts",
+      "title": "later scene changes do not pull back a reader who scrolled away",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2887,
+      "run": "focused-release"
+    },
+    {
+      "file": "backstage-observation.spec.ts",
+      "title": "backstage pauses the same instant, preserves source geometry and requires explicit resume",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 10540,
+      "run": "regression-release"
+    },
+    {
+      "file": "backstage-observation.spec.ts",
+      "title": "closing a pending backstage import rejects its late completion",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2832,
+      "run": "regression-release"
+    },
+    {
+      "file": "backstage-observation.spec.ts",
+      "title": "failed backstage import returns to the operable curtain and can be retried",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 1963,
+      "run": "regression-release"
+    },
+    {
+      "file": "backstage-observation.spec.ts",
+      "title": "without WebGL, the formal curtain stays usable and no Three module is requested",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 3111,
+      "run": "regression-release"
+    },
+    {
+      "file": "backstage-observation.spec.ts",
+      "title": "backstage pauses the same instant, preserves source geometry and requires explicit resume",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 7270,
+      "run": "regression-release"
+    },
+    {
+      "file": "backstage-observation.spec.ts",
+      "title": "closing a pending backstage import rejects its late completion",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 1554,
+      "run": "regression-release"
+    },
+    {
+      "file": "backstage-observation.spec.ts",
+      "title": "failed backstage import returns to the operable curtain and can be retried",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 1476,
+      "run": "regression-release"
+    },
+    {
+      "file": "backstage-observation.spec.ts",
+      "title": "without WebGL, the formal curtain stays usable and no Three module is requested",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 1802,
+      "run": "regression-release"
+    },
+    {
+      "file": "choice-theatre.spec.ts",
+      "title": "new opening, refresh and museum return play automatically; same-page pause/reset/mode stay paused",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 26241,
+      "run": "regression-release"
+    },
+    {
+      "file": "choice-theatre.spec.ts",
+      "title": "choice after an explicit pause starts its successor without a play click",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 5103,
+      "run": "regression-release"
+    },
+    {
+      "file": "choice-theatre.spec.ts",
+      "title": "save failure retry stays paused, while refresh grants a fresh entry",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 17916,
+      "run": "regression-release"
+    },
+    {
+      "file": "choice-theatre.spec.ts",
+      "title": "blur while entry resources load revokes autoplay and late resources cannot revive it",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2891,
+      "run": "regression-release"
+    },
+    {
+      "file": "choice-theatre.spec.ts",
+      "title": "a document hidden before initialization stays paused until a fresh visible entry",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 5674,
+      "run": "regression-release"
+    },
+    {
+      "file": "choice-theatre.spec.ts",
+      "title": "new opening, refresh and museum return play automatically; same-page pause/reset/mode stay paused",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 11749,
+      "run": "regression-release"
+    },
+    {
+      "file": "choice-theatre.spec.ts",
+      "title": "choice after an explicit pause starts its successor without a play click",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2868,
+      "run": "regression-release"
+    },
+    {
+      "file": "choice-theatre.spec.ts",
+      "title": "save failure retry stays paused, while refresh grants a fresh entry",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 11019,
+      "run": "regression-release"
+    },
+    {
+      "file": "choice-theatre.spec.ts",
+      "title": "blur while entry resources load revokes autoplay and late resources cannot revive it",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 3512,
+      "run": "regression-release"
+    },
+    {
+      "file": "choice-theatre.spec.ts",
+      "title": "a document hidden before initialization stays paused until a fresh visible entry",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 4547,
+      "run": "regression-release"
+    },
+    {
+      "file": "guide-scroll.spec.ts",
+      "title": "guide locks native scrolling and navigation, then restores original overflow and position",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 14005,
+      "run": "regression-release"
+    },
+    {
+      "file": "guide-scroll.spec.ts",
+      "title": "keyboard can reach offscreen rehearsal alternatives and blur releases the lock",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 8015,
+      "run": "regression-release"
+    },
+    {
+      "file": "guide-scroll.spec.ts",
+      "title": "initial positioning failure restores the real page and releases its scroll lock",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 5620,
+      "run": "regression-release"
+    },
+    {
+      "file": "guide-scroll.spec.ts",
+      "title": "leaving rehearsal restores the original position of the page beside the journey navigation",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 8340,
+      "run": "regression-release"
+    },
+    {
+      "file": "guide-scroll.spec.ts",
+      "title": "guide locks native scrolling and navigation, then restores original overflow and position",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 8676,
+      "run": "regression-release"
+    },
+    {
+      "file": "guide-scroll.spec.ts",
+      "title": "keyboard can reach offscreen rehearsal alternatives and blur releases the lock",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 9301,
+      "run": "regression-release"
+    },
+    {
+      "file": "guide-scroll.spec.ts",
+      "title": "initial positioning failure restores the real page and releases its scroll lock",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 4817,
+      "run": "regression-release"
+    },
+    {
+      "file": "guide-scroll.spec.ts",
+      "title": "leaving rehearsal restores the original position of the page beside the journey navigation",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 5088,
+      "run": "regression-release"
+    },
+    {
+      "file": "presentation-guidance.spec.ts",
+      "title": "one soft curtain, semantic brush titles without replay buttons and public credits",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 16966,
+      "run": "regression-release"
+    },
+    {
+      "file": "presentation-guidance.spec.ts",
+      "title": "craft rehearsal restores exact stored appearance and stays remembered on route return",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 22880,
+      "run": "regression-release"
+    },
+    {
+      "file": "presentation-guidance.spec.ts",
+      "title": "lamp and limb practice are isolated, with posture controls below the screen",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 21079,
+      "run": "regression-release"
+    },
+    {
+      "file": "presentation-guidance.spec.ts",
+      "title": "story rehearsal restores its checkpoint and explicit skip retries only once",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 10037,
+      "run": "guidance-recheck"
+    },
+    {
+      "file": "presentation-guidance.spec.ts",
+      "title": "font failure and reduced motion keep readable titles without ornamental animation",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 767,
+      "run": "regression-release"
+    },
+    {
+      "file": "presentation-guidance.spec.ts",
+      "title": "real hand and keyboard rehearsal restores the running story clock without task evidence",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 50126,
+      "run": "guidance-recheck"
+    },
+    {
+      "file": "presentation-guidance.spec.ts",
+      "title": "all major pages keep their columns within narrow and wide viewports",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 71665,
+      "run": "regression-release"
+    },
+    {
+      "file": "presentation-guidance.spec.ts",
+      "title": "one soft curtain, semantic brush titles without replay buttons and public credits",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 15145,
+      "run": "regression-release"
+    },
+    {
+      "file": "presentation-guidance.spec.ts",
+      "title": "craft rehearsal restores exact stored appearance and stays remembered on route return",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 10809,
+      "run": "regression-release"
+    },
+    {
+      "file": "presentation-guidance.spec.ts",
+      "title": "lamp and limb practice are isolated, with posture controls below the screen",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 16691,
+      "run": "regression-release"
+    },
+    {
+      "file": "presentation-guidance.spec.ts",
+      "title": "story rehearsal restores its checkpoint and explicit skip retries only once",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 11526,
+      "run": "guidance-recheck"
+    },
+    {
+      "file": "presentation-guidance.spec.ts",
+      "title": "font failure and reduced motion keep readable titles without ornamental animation",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 766,
+      "run": "regression-release"
+    },
+    {
+      "file": "presentation-guidance.spec.ts",
+      "title": "real hand and keyboard rehearsal restores the running story clock without task evidence",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 22171,
+      "run": "guidance-recheck"
+    },
+    {
+      "file": "presentation-guidance.spec.ts",
+      "title": "all major pages keep their columns within narrow and wide viewports",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 37895,
+      "run": "regression-release"
+    },
+    {
+      "file": "story-feedback.spec.ts",
+      "title": "the real axe observer displays holding then lowering and pause clears held progress",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2539,
+      "run": "regression-release"
+    },
+    {
+      "file": "story-feedback.spec.ts",
+      "title": "dialogue gates the handover and its phase announcement does not change on every frame",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2125,
+      "run": "regression-release"
+    },
+    {
+      "file": "story-feedback.spec.ts",
+      "title": "the real axe observer displays holding then lowering and pause clears held progress",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2669,
+      "run": "regression-release"
+    },
+    {
+      "file": "story-feedback.spec.ts",
+      "title": "dialogue gates the handover and its phase announcement does not change on every frame",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2797,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "skip memory-words while playing starts its successor",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2624,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "skip memory-words while paused starts its successor",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 3008,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "skip road while playing starts its successor",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2914,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "skip road while paused starts its successor",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 3012,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "skipping a paused showcase starts the next scene once",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 15207,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "full/journey-choice accepts a decision at time zero",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 1915,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "full/mountain-pact-choice accepts a decision at time zero",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2833,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "full/approach-choice accepts a decision at time zero",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 3103,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "full/ending-choice accepts a decision at time zero",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 4290,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "guided/journey-choice accepts a decision at time zero",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2903,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "guided/mountain-pact-choice accepts a decision at time zero",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 3173,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "guided/approach-choice accepts a decision at time zero",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2689,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "guided/ending-choice accepts a decision at time zero",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2750,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "early decision save retry cannot revive canceled playback",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2498,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "skip intent is canceled by blur while the next actor loads",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2639,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "early native choice releases the former voice and starts the next narrator",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 9870,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "text rehearsal accepts all four choices without starting its clock",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2109,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "native skip after pausing starts the next scene with Chinese voice",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2146,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "page sections retain compact nonzero spacing on wide and narrow screens",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 22820,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "skip memory-words while playing starts its successor",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2501,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "skip memory-words while paused starts its successor",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 3379,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "skip road while playing starts its successor",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2429,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "skip road while paused starts its successor",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2871,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "skipping a paused showcase starts the next scene once",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 19146,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "full/journey-choice accepts a decision at time zero",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 4464,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "full/mountain-pact-choice accepts a decision at time zero",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2213,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "full/approach-choice accepts a decision at time zero",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 1998,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "full/ending-choice accepts a decision at time zero",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2796,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "guided/journey-choice accepts a decision at time zero",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2833,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "guided/mountain-pact-choice accepts a decision at time zero",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 3058,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "guided/approach-choice accepts a decision at time zero",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 3081,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "guided/ending-choice accepts a decision at time zero",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 3677,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "early decision save retry cannot revive canceled playback",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 3195,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "skip intent is canceled by blur while the next actor loads",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 3086,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "early native choice releases the former voice and starts the next narrator",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 6267,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "text rehearsal accepts all four choices without starting its clock",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2549,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "native skip after pausing starts the next scene with Chinese voice",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 9157,
+      "run": "regression-release"
+    },
+    {
+      "file": "t48-flow.spec.ts",
+      "title": "page sections retain compact nonzero spacing on wide and narrow screens",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 24661,
+      "run": "regression-release"
+    },
+    {
+      "file": "theatre-horizontal.spec.ts",
+      "title": "home background card aligns with the combined edges of the two feature cards",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 1555,
+      "run": "regression-release"
+    },
+    {
+      "file": "theatre-horizontal.spec.ts",
+      "title": "wide curtain retains its original height while only background painting expands horizontally",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 6555,
+      "run": "regression-release"
+    },
+    {
+      "file": "theatre-horizontal.spec.ts",
+      "title": "stretched background retains real rod dragging and the saved checkpoint",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 1824,
+      "run": "regression-release"
+    },
+    {
+      "file": "theatre-horizontal.spec.ts",
+      "title": "paused caption resizing redraws the curtain and repositions input geometry",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2606,
+      "run": "regression-release"
+    },
+    {
+      "file": "theatre-horizontal.spec.ts",
+      "title": "home background card aligns with the combined edges of the two feature cards",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2601,
+      "run": "regression-release"
+    },
+    {
+      "file": "theatre-horizontal.spec.ts",
+      "title": "wide curtain retains its original height while only background painting expands horizontally",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 8199,
+      "run": "regression-release"
+    },
+    {
+      "file": "theatre-horizontal.spec.ts",
+      "title": "stretched background retains real rod dragging and the saved checkpoint",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 4728,
+      "run": "regression-release"
+    },
+    {
+      "file": "theatre-horizontal.spec.ts",
+      "title": "paused caption resizing redraws the curtain and repositions input geometry",
+      "project": "mobile-chromium",
+      "status": "skipped",
+      "expectedStatus": "skipped",
+      "durationMs": 225,
+      "run": "regression-release"
+    },
+    {
+      "file": "skip-routes.spec.ts",
+      "title": "explicit skip home/shared/call-first/fulfill preserves choices and read-only replay",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 41817,
+      "run": "fit-recheck"
+    },
+    {
+      "file": "skip-routes.spec.ts",
+      "title": "explicit skip open-road/self/split-first/fulfill preserves choices and read-only replay",
+      "project": "desktop-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 41533,
+      "run": "fit-recheck"
+    },
+    {
+      "file": "skip-routes.spec.ts",
+      "title": "explicit skip home/shared/call-first/fulfill preserves choices and read-only replay",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 39685,
+      "run": "fit-recheck"
+    },
+    {
+      "file": "skip-routes.spec.ts",
+      "title": "explicit skip open-road/self/split-first/fulfill preserves choices and read-only replay",
+      "project": "mobile-chromium",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 39442,
+      "run": "fit-recheck"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "quick trial lazy scripts, images and native voice stay in the hosting directory",
+      "project": "root-desktop",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 8506,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "production entry, fonts, museum thumbnails and enlarged photos stay within the deployment directory",
+      "project": "root-desktop",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2744,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "saved colors, JSON export and native Chinese voice work after a project-directory refresh",
+      "project": "root-desktop",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 10235,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "lamp workshop loads its lazy Three module and keeps a working two-dimensional alternative",
+      "project": "root-desktop",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2483,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced story: full, current appearance",
+      "project": "root-desktop",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 1832,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced story: full, preset appearance",
+      "project": "root-desktop",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 1864,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced story: guided, current appearance",
+      "project": "root-desktop",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 4402,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced story: guided, preset appearance",
+      "project": "root-desktop",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 4924,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "completed theatre opens its programme automatically within the hosting directory",
+      "project": "root-desktop",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 3367,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "theatre fits a full curtain without a listening card in the hosting directory",
+      "project": "root-desktop",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2238,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "quick trial lazy scripts, images and native voice stay in the hosting directory",
+      "project": "root-mobile",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 8366,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "production entry, fonts, museum thumbnails and enlarged photos stay within the deployment directory",
+      "project": "root-mobile",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2294,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "saved colors, JSON export and native Chinese voice work after a project-directory refresh",
+      "project": "root-mobile",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 7167,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "lamp workshop loads its lazy Three module and keeps a working two-dimensional alternative",
+      "project": "root-mobile",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2165,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced story: full, current appearance",
+      "project": "root-mobile",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 3054,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced story: full, preset appearance",
+      "project": "root-mobile",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2091,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced story: guided, current appearance",
+      "project": "root-mobile",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2387,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced story: guided, preset appearance",
+      "project": "root-mobile",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2801,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "completed theatre opens its programme automatically within the hosting directory",
+      "project": "root-mobile",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2385,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "theatre fits a full curtain without a listening card in the hosting directory",
+      "project": "root-mobile",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 4692,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "quick trial lazy scripts, images and native voice stay in the hosting directory",
+      "project": "pages-desktop",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 8782,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "production entry, fonts, museum thumbnails and enlarged photos stay within the deployment directory",
+      "project": "pages-desktop",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 3765,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "saved colors, JSON export and native Chinese voice work after a project-directory refresh",
+      "project": "pages-desktop",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 8195,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "lamp workshop loads its lazy Three module and keeps a working two-dimensional alternative",
+      "project": "pages-desktop",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2315,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced story: full, current appearance",
+      "project": "pages-desktop",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 1894,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced story: full, preset appearance",
+      "project": "pages-desktop",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2104,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced story: guided, current appearance",
+      "project": "pages-desktop",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2359,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced story: guided, preset appearance",
+      "project": "pages-desktop",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2025,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "completed theatre opens its programme automatically within the hosting directory",
+      "project": "pages-desktop",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2406,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "theatre fits a full curtain without a listening card in the hosting directory",
+      "project": "pages-desktop",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 8263,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "quick trial lazy scripts, images and native voice stay in the hosting directory",
+      "project": "pages-mobile",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 10125,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "production entry, fonts, museum thumbnails and enlarged photos stay within the deployment directory",
+      "project": "pages-mobile",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2300,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "saved colors, JSON export and native Chinese voice work after a project-directory refresh",
+      "project": "pages-mobile",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 10013,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "lamp workshop loads its lazy Three module and keeps a working two-dimensional alternative",
+      "project": "pages-mobile",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2076,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced story: full, current appearance",
+      "project": "pages-mobile",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2566,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced story: full, preset appearance",
+      "project": "pages-mobile",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2020,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced story: guided, current appearance",
+      "project": "pages-mobile",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 1950,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "craft entry starts voiced story: guided, preset appearance",
+      "project": "pages-mobile",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 1995,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "completed theatre opens its programme automatically within the hosting directory",
+      "project": "pages-mobile",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 1641,
+      "run": "pages"
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "theatre fits a full curtain without a listening card in the hosting directory",
+      "project": "pages-mobile",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 5324,
+      "run": "pages"
+    }
+  ]
+}

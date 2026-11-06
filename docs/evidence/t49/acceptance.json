@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "task": "T49",
+  "updatedAt": "2026-11-06",
+  "status": "local-complete-awaiting-deployment",
+  "applicationCommit": "4d0f61ee8c769b5be3ac8c47886292e2ca3e46d6",
+  "pushed": false,
+  "deployed": false,
+  "unit": {
+    "files": 55,
+    "passed": 620
+  },
+  "browser": {
+    "total": 168,
+    "counts": {
+      "passed": 167,
+      "skipped": 1
+    },
+    "includesDeploymentCases": 40,
+    "scope": "Related targeted regression, not unfiltered full-suite."
+  },
+  "checks": [
+    "unit",
+    "typecheck (included in build)",
+    "build",
+    "state",
+    "assets",
+    "content",
+    "museum",
+    "voice --dist",
+    "legacy"
+  ],
+  "build": {
+    "modules": 162,
+    "main": "dist/assets/main-CmLopP13.js",
+    "sha256": "06788c55081b076e5fe9c71181ca86fe58dfe724c6914faa386b011028756342"
+  },
+  "voice": {
+    "clips": 354,
+    "bytes": 18304560,
+    "schedules": 1216,
+    "sourceAndDistMatch": true,
+    "audioBytesUnchanged": true
+  },
+  "screenshots": [
+    "theatre-1024-600.png",
+    "theatre-1366-768.png",
+    "theatre-1440-900.png",
+    "theatre-320-740.png",
+    "theatre-390-844.png",
+    "theatre-844-390.png"
+  ],
+  "unverified": [
+    "Human listening",
+    "Final artwork and content review",
+    "Physical devices and Safari",
+    "Real IE",
+    "T13/T14/P1 unchanged"
+  ]
+}
