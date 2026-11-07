@@ -2,6 +2,29 @@ import {test,expect} from './formal-fixture';
 import type {Page} from '@playwright/test';
 async function open(p:Page,id:string){await p.goto('/#/museum/'+id);await expect(p.locator('#save-state')).toHaveAttribute('data-state','saved');await expect(p.locator('.opening-curtain')).toHaveCount(0);}
 const hash=(p:Page)=>p.locator('.shadow-stage').evaluate((c:HTMLCanvasElement)=>c.toDataURL());
+
+test('lamp reports material waiting again after a failed load and retry',async({page})=>{
+ let release=()=>{};
+ let gate=new Promise<void>(resolve=>{release=resolve;}),fail=true,requests=0;
+ await page.route('**/assets/delivery/chenxiang-v1-torso-color.webp*',async route=>{
+  requests++;await gate;
+  if(fail)await route.fulfill({status:503,body:'injected material failure'});else await route.continue();
+ });
+ try{
+  await page.goto('/#/museum/E01',{waitUntil:'domcontentloaded'});
+  const status=page.locator('.museum-lamp-demo .lamp-status'),figure=page.locator('.museum-lamp-demo figure');
+  await expect(status).toHaveText('正在准备影偶素材…');await expect.poll(()=>requests).toBe(1);
+  await expect(figure).toHaveAttribute('aria-busy','true');release();
+  await expect(status).toContainText('无法加载');await expect(figure).toHaveAttribute('aria-busy','false');
+  fail=false;gate=new Promise<void>(resolve=>{release=resolve;});
+  await page.getByRole('button',{name:'重试影偶素材',exact:true}).click();
+  await expect(status).toHaveText('正在准备影偶素材…');await expect.poll(()=>requests).toBe(2);
+  await expect(figure).toHaveAttribute('aria-busy','true');release();
+  await expect(status).toContainText('二维灯影已就绪');
+  await expect(page.locator('.museum-lamp-demo .shadow-stage')).toHaveAttribute('data-state','ready');
+  await expect(figure).toHaveAttribute('aria-busy','false');
+ }finally{release();}
+});
 async function range(p:Page,id:string,value:string){await p.locator(id).evaluate((e:HTMLInputElement,v)=>{e.value=v;e.dispatchEvent(new Event('input',{bubbles:true}));},value);}
 async function raw(p:Page){return p.evaluate(async()=>{const db=await new Promise<IDBDatabase>((resolve,reject)=>{const r=indexedDB.open('yingzuo-v1',1);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});const value=await new Promise<string>(resolve=>{const r=db.transaction('snapshots').objectStore('snapshots').get('draft');r.onsuccess=()=>resolve(r.result);});db.close();return JSON.parse(value);});}
 async function picture(p:Page,name:string){for(const c of await p.locator('#museum-display .surface-card').all()){await c.scrollIntoViewIfNeeded();await expect(c).not.toHaveClass(/motion-awaiting/);await expect.poll(()=>c.evaluate(el=>getComputedStyle(el).opacity)).toBe('1');}await p.locator('#museum-display').screenshot({path:test.info().outputPath(`${name}-${test.info().project.name}.png`)});}

@@ -87,6 +87,7 @@ export const mountMuseum:PageFactory=(host,ctx)=>{
     const exit=element('aside','museum-theatre-return');append(exit,context,visit,returnLink);host.appendChild(exit);
   }
   const catalogue=element('section',selected?'museum-catalogue compact':'museum-catalogue');
+  catalogue.appendChild(link('阅读皮影知识速览 · 五区七展签 →','./museum.html','text-link'));
   if(selected)catalogue.appendChild(element('h2','','沿展签，再看一件。'));
   const sectionHost=element('div','museum-sections'),seenLabels=new Map<string,HTMLElement>();
   for(const [index,label]of museumSections.entries()){

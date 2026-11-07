@@ -1,0 +1,50 @@
+.museum-reader-nav { display:flex; flex-wrap:wrap; gap:8px 24px; }
+.museum-reader .page-heading { max-width:900px; }
+.museum-reader .page-heading .quiet-note { margin-top:12px; }
+.museum-reader-toc { margin:14px 0 24px; padding:24px; border:1px solid #715638; border-radius:18px; background:#261f16; }
+.museum-reader-toc h2 { margin:0 0 16px; font-size:26px; }
+.museum-reader-toc>ol { display:flex; flex-wrap:wrap; gap:16px 24px; margin:0; padding:0; list-style:none; }
+.museum-reader-toc>ol>li { flex:1 1 190px; min-width:0; }
+.museum-reader-toc ul { margin:0; padding:0; list-style:none; }
+.museum-reader-toc a { display:block; min-height:44px; padding:8px 0; }
+.museum-reader-zone-link { color:#d7a253; font-size:22px; }
+.museum-reader-toc li li a { font-size:16px; color:#d6c9b1; }
+.museum-reader-toc li li span { color:#c1b297; font-size:13px; }
+.museum-reader-zone { padding-top:12px; }
+.museum-reader-zone>h2 { margin:12px 0; padding:10px 0; border-bottom:1px solid #715638; }
+.museum-reader-zone>h2>span { color:#d7a253; font-size:19px; margin-right:12px; }
+.museum-reader-exhibit { padding:24px 0; border-bottom:1px solid #463726; scroll-margin-top:16px; }
+.museum-reader-exhibit .eyebrow { margin-bottom:8px; }
+.museum-reader-exhibit h3 { font-size:30px; margin:0 0 12px; }
+.museum-reader-layout { display:grid; grid-template-columns:minmax(220px,300px) minmax(0,1fr); gap:32px; }
+.museum-reader-layout>figure { min-width:0; }
+.museum-reader-layout img { display:block; width:100%; height:auto; max-height:380px; object-fit:contain; background:#e7d3a9; border:1px solid #715638; border-radius:12px; }
+.museum-reader-layout figcaption { color:#c1b297; font-size:15px; padding-top:12px; overflow-wrap:anywhere; }
+.museum-reader-layout figcaption strong { font-weight:400; color:#f2e5c9; }
+.museum-reader-layout figcaption p { margin:8px 0 0; }
+.museum-reader-copy { min-width:0; }
+.museum-reader-facts { margin:0; padding:0; list-style:none; }
+.museum-reader-facts>li { margin:0 0 16px; }
+.museum-reader-kind { display:inline-block; padding:2px 10px; margin-bottom:6px; border:1px solid #66503b; border-radius:6px; color:#d7a253; font-size:13px; }
+.museum-reader-kind.model { color:#b7c9c6; border-color:#52645d; }
+.museum-reader-kind.original { color:#e8ba9b; border-color:#8b5e45; }
+.museum-reader-facts p { margin:0; }
+.museum-reader-fact-sources { font-size:14px; color:#c1b297; overflow-wrap:anywhere; }
+.museum-reader a:hover { color:#efc17e; text-decoration:underline; text-underline-offset:4px; }
+.museum-reader-sources { margin:12px 0 20px; border-top:1px solid #463726; }
+.museum-reader-sources ul { margin:0 0 12px; padding-left:22px; }
+.museum-reader-sources li a { display:inline-block; min-height:44px; padding:8px 0; color:#d7a253; overflow-wrap:anywhere; }
+.museum-reader-copy>.text-link { margin-left:20px; }
+@media(max-width:760px) {
+  .museum-reader-layout { grid-template-columns:minmax(0,1fr); gap:20px; }
+  .museum-reader-layout>figure { display:grid; grid-template-columns:minmax(120px,35%) minmax(0,1fr); gap:16px; align-items:start; }
+  .museum-reader-layout figcaption { padding-top:0; }
+  .museum-reader-exhibit h3 { font-size:27px; }
+}
+@media(max-width:420px) {
+  .museum-reader-toc { padding:18px; }
+  .museum-reader-layout>figure { display:block; }
+  .museum-reader-layout img { max-height:300px; }
+  .museum-reader-layout figcaption { padding-top:12px; }
+  .museum-reader-copy>.text-link { display:flex; margin-left:0; }
+}

@@ -1,0 +1,84 @@
+{
+  "task": "T51",
+  "date": "2026-11-07",
+  "scope": "Local implementation; no production deployment",
+  "unit": {
+    "files": 55,
+    "passed": 620,
+    "failed": 0
+  },
+  "build": {
+    "typecheck": "passed",
+    "modules": 164,
+    "staticExhibits": 7,
+    "staticScripts": 0
+  },
+  "verification": {
+    "assets": "81 PNGs and font coverage passed",
+    "content": "current 38-node story, 16 paths and seven exhibits passed",
+    "museum": "7 exhibits, 17 image placements, 12 external originals passed",
+    "state": "52 tasks passed",
+    "legacy": "20 ES5 chunks and seven runtime entries; static museum without scripts passed",
+    "lampRegression": "4/4 desktop and simulated mobile material failure/retry and three-dimensional opacity passed"
+  },
+  "discoveries": [
+    {
+      "issue": "New source characters absent from local Kai subset",
+      "resolution": "Regenerated web font subset; 1380 characters, missing empty; verify:assets passed"
+    },
+    {
+      "issue": "E01 material loading status empty",
+      "resolution": "Initial and retry loading message and busy state verified; injected failure/retry and original three-dimensional projection 4/4"
+    },
+    {
+      "issue": "Static image layout before external CSS can overflow in slow network",
+      "resolution": "Critical body/main/image fallback verified before CSS and with stylesheet blocked; Chrome129 final 28/28"
+    },
+    {
+      "issue": "Two Playwright invocations shared test-results and deleted each other traces/downloads",
+      "resolution": "Isolated output directory; two affected root-desktop cases rechecked 2/2; original 46/48 report retained"
+    }
+  ],
+  "artifacts": {
+    "index": {
+      "file": "dist/index.html",
+      "sha256": "0e28840ecea500135ba1c3c06159d50c57ca6f9d77384822b2465076a2dbeb52"
+    },
+    "museum": {
+      "file": "dist/museum.html",
+      "sha256": "accc0ab25644bf59ebcd834c50b32a366e708561d94c7b0afd8f12d19ef09a04"
+    }
+  },
+  "pending": [],
+  "status": "passed-local",
+  "chrome129": {
+    "version": "129.0.6668.100",
+    "attempts": 42,
+    "total": 28,
+    "passed": 28,
+    "failed": 0,
+    "initialProbeFailures": 12,
+    "fixedProductDefects": 1
+  },
+  "deployment": {
+    "uniqueCases": 48,
+    "latestPassed": 48,
+    "firstPass": {
+      "passed": 46,
+      "failed": 2
+    },
+    "recheck": {
+      "passed": 2,
+      "failed": 0
+    },
+    "reports": [
+      "deployment-final.json",
+      "deployment-recheck.json"
+    ]
+  },
+  "lampRegression": {
+    "passed": 4,
+    "failed": 0,
+    "report": "lamp-regression.json"
+  }
+}

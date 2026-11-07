@@ -16,4 +16,6 @@ for (const page of ['credits.html', 'index.html', 'study.html', 'probe.html', 'p
     throw new Error(`${page} does not contain both modern and legacy bootstraps.`);
   }
 }
-console.log(`PASS: ${files.length} legacy chunks parse as ES5; all production pages contain modern and legacy entry points. IE runtime remains UNTESTED.`);
+const readable=readFileSync(path.join(root,'museum.html'),'utf8');
+if (/<script\b/i.test(readable) || !readable.includes('id="E07"')) throw new Error('museum.html must contain readable exhibits without a JavaScript bootstrap.');
+console.log(`PASS: ${files.length} legacy chunks parse as ES5; seven interactive entries retain modern/legacy bootstraps; museum.html is readable without scripts. IE runtime remains UNTESTED.`);

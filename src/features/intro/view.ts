@@ -28,7 +28,7 @@ export const mountIntro: PageFactory = (host, ctx) => {
   append(origin,element('p','eyebrow','先认识这一家人'),originTitle,element('p','',background.intro));for(const section of background.sections){const part=element('article');append(part,element('h3','',section.title),element('p','',section.text));originGrid.appendChild(part);}
   const prepare=link('明白了，为沉香备行装 →','#/craft','button primary journey-recommended');prepare.id='journey-to-craft';append(origin,originGrid,element('p','adaptation',background.adaptationNote),link('传统故事背景参考：文化和旅游部《宝莲灯》剧情介绍 ↗','https://www.mct.gov.cn/ggfw/zyjzzt/yanchu/yanchuwqhg/201909/t20190923_846995.html'),prepare);host.appendChild(origin);
   const museum = element('section', 'museum-invitation');
-  append(museum, element('p', 'eyebrow', '同台成馆'), element('h2', '', '看一出戏，\n也看看幕后的双手。'), element('p', '', '一张皮、一道刻、一束光、一双手、一出戏。五个入口，随时可以走进去。'), link('翻开展馆目录 ↗', '#/museum', 'button secondary')); features.appendChild(museum);
+  append(museum, element('p', 'eyebrow', '同台成馆'), element('h2', '', '看一出戏，\n也看看幕后的双手。'), element('p', '', '一张皮、一道刻、一束光、一双手、一出戏。五个入口，随时可以走进去。'), link('翻开展馆目录 ↗', '#/museum', 'button secondary'), link('皮影知识速览 →', './museum.html', 'text-link')); features.appendChild(museum);
   function closeTrial(restoreFocus=true){trialGeneration++;trial?.dispose();trial=null;quick.disabled=false;trialNotice.textContent='';if(restoreFocus)quick.focus();}
   life.on(quick,'click',()=>{
     if(trial){trialSlot.scrollIntoView({block:'start'});return;}

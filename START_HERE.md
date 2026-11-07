@@ -1,6 +1,6 @@
 # 《影作·一幕团圆》开发入口
 
-更新：2026-11-06。本队参加2026年零杯**零组**，主题为“匠心传成，非遗焕新”，比赛信息以开幕式PPT为准。作品据传统故事《劈山救母》原创交互改编，以互动皮影戏与数字展馆为核心，旧单偶工坊不是当前范围。
+更新：2026-11-07。本队参加2026年零杯**零组**，主题为“匠心传成，非遗焕新”，比赛信息以开幕式PPT为准。作品据传统故事《劈山救母》原创交互改编，以互动皮影戏与数字展馆为核心，旧单偶工坊不是当前范围。
 
 远程仓库现为`git@github.com:herspacefly/YingZuo-ZeroCup.git`，公开地址 <https://herspacefly.github.io/YingZuo-ZeroCup/>；本地目录名称不变。main跟踪origin/main，每次git push后由[Pages工作流](.github/workflows/pages.yml)检查、构建并部署dist，后台Source应选择GitHub Actions。配置和验证范围见[T39方案](docs/plans/2026-10-27-pages-deployment.md)，部署与正式艺术／听感／设备验收分开记录。
 
@@ -12,7 +12,9 @@ T43根据用户截图纠正T42：首页缘起白卡与上方双卡合计外边�
 
 ## 当前实现
 
-T50已本地完成逐页紧凑布局，74项相关功能及57布局状态最新通过，正在发布：空操偶卡、关于页标题顶距、练习两列高度差、节目单操作栏及展馆分隔已调整；保留原字号、44px目标、24px舞台栏距和T49整幕/自动跳转，见[T50验收](docs/acceptance/t50.md)。
+T51按作者批准方案本地实现参赛说明与静态知识速览：README顶部突出在线地址及真实得分点，注明自适应1920／1440／720宽与Chrome129、库用途和本机数据库边界；新增无需JavaScript的museum.html、元信息与站点地图，修复E01素材等待反馈。功能与实测范围见[T51验收](docs/acceptance/t51.md)，本轮尚未推送。
+
+T50逐页紧凑布局已随main检查点4131fcf发布，74项相关功能及57布局状态最新通过：空操偶卡、关于页标题顶距、练习两列高度差、节目单操作栏及展馆分隔已调整；保留原字号、44px目标、24px舞台栏距和T49整幕/自动跳转，见[T50验收](docs/acceptance/t50.md)。
 
 T49已实现谢幕完成自动进入节目单、移除幕前听戏/暂停卡与各尺寸整幕显示；保存失败、离页和迟到回调不会误跳，返回键不循环。教学试练按原DOM位置恢复，避免幕面偏移。已按用户授权直接合并main并推送部署，无需PR，见[T49验收](docs/acceptance/t49.md)。
 
@@ -42,6 +44,7 @@ T44已在本地完成手机菜单状态保留：展开后切页、浏览展签�
 
 | 当前增量 | 先读 |
 | --- | --- |
+| T51：门户参赛说明、静态知识速览与慢网反馈 | [本轮方案](docs/plans/2026-11-07-portal-compliance.md)、[T51验收](docs/acceptance/t51.md) |
 | T50：逐页压缩空白与布局重排 | [T50验收](docs/acceptance/t50.md)、[主方案](docs/plans/2026-10-15-yingzuo-design-and-implementation.md) |
 | T49：谢幕直达节目单、整幕显示与发布 | [当前契约](docs/contracts/automatic-performance-v2.md)、[T49验收](docs/acceptance/t49.md) |
 | T48：紧凑间距、跳段接续与随时选择 | [验收](docs/acceptance/t48.md)、[当前契约](docs/contracts/story.md) |

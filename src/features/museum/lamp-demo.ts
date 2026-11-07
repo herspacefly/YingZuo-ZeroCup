@@ -24,21 +24,24 @@ export function mountMuseumLamp(host:HTMLElement){
   frame.actors[0]!.pose={...defaultPose(),x:.5,y:.57,scale:.84};frame.stage={...frame.stage,lampGeometry:{version:1,depth:1.2}};frame.shadowOnly=true;frame.shadowColor='original';
   function release(){drag=null;mount.classList.remove('is-dragging');}
   function mode(fallback:boolean){two=fallback;release();mount.hidden=two;shadow.hidden=!two;toggle.textContent=two?'展开三维灯影':'改用二维灯影';toggle.setAttribute('aria-pressed',String(two));if(two){generation++;loading=false;spatial?.dispose();spatial=null;renderer.resize();}else void open();}
-  function fail(message:string){if(disposed)return;mode(true);retry.hidden=false;status.textContent=message+' 可继续使用下方滑块移动灯，或重试三维。';}
+  function fail(message:string){if(disposed)return;mode(true);figure.setAttribute('aria-busy','false');retry.hidden=false;status.textContent=message+' 可继续使用下方滑块移动灯，或重试三维。';}
   const renderer=mountCanvasRenderer(shadow,assetCatalog,result=>{
     if(disposed)return;ready=result.state==='ready';
+    figure.setAttribute('aria-busy',String(result.state==='loading'));
+    if(result.state==='loading'){retryImage.hidden=true;status.textContent='正在准备影偶素材…';return;}
     if(result.state==='error'){retryImage.hidden=false;fail(result.message);return;}
-    if(ready){const repaired=!retryImage.hidden;retryImage.hidden=true;if(two&&repaired)status.textContent='二维灯影已就绪，继续用滑块移灯，或重试三维。';if(!two&&!spatial&&!loading)void open();if(spatial){const token=generation;void spatial.update(frame).catch(error=>{if(token===generation)fail(String(error));});}}
+    if(ready){retryImage.hidden=true;if(two)status.textContent='二维灯影已就绪，继续用滑块移灯，或重试三维。';if(!two&&!spatial&&!loading)void open();if(spatial){const token=generation;void spatial.update(frame).catch(error=>{if(token===generation)fail(String(error));});}}
   });
   renderer.canvas.setAttribute('aria-label','幕前彩色影像：灯移动时影子反向偏移，灯靠近时影子放大');
   async function open(){
     if(disposed||two||loading||!ready)return;
     if(import.meta.env.LEGACY||typeof window.WebGL2RenderingContext!=='function'){fail('当前浏览器使用二维灯影。');return;}
-    const token=++generation;loading=true;retry.hidden=true;status.textContent='正在点亮木台、织幕与灯具…';
+    const token=++generation;loading=true;retry.hidden=true;figure.setAttribute('aria-busy','true');status.textContent='正在点亮木台、织幕与灯具…';
     try{const module=await import('../../renderers/three/renderer');if(disposed||two||token!==generation)return;
       const next=module.mountThreeStage(mount,renderer.canvas,{pixelRatio:Math.min(window.devicePixelRatio||1,1.5),maxWidth:window.innerWidth<600?512:1024,textureSize:window.innerWidth<600?512:1024},update=>{
         if(disposed||token!==generation)return;
         if(update.state==='error'||update.state==='lost'){fail(update.message);return;}
+        figure.setAttribute('aria-busy',String(update.state!=='ready'));
         status.textContent=update.state==='ready'?'三维灯影已就绪 · 拖动金色灯具试一试。':update.message;
       });
       if(disposed||token!==generation){next.dispose();return;}spatial=next;loading=false;next.setView('lamp-workshop');next.setLampPuppetOpacity(.22);await next.update(frame);
@@ -55,6 +58,6 @@ export function mountMuseumLamp(host:HTMLElement){
   function move(px:number,py:number){if(!drag||!spatial)return;const p=spatial.lampPlanePoint(px,py);if(p)position(p.x-drag.offset.x,p.depth-drag.offset.depth);}
   if(window.PointerEvent){life.on(mount,'pointerdown',event=>{const e=event as PointerEvent;if(e.button===0&&begin(e.clientX,e.clientY,e.pointerId,'pointer')){e.preventDefault();mount.setPointerCapture?.(e.pointerId);}});life.on(window,'pointermove',event=>{const e=event as PointerEvent;if(drag?.kind==='pointer'&&drag.id===e.pointerId){e.preventDefault();move(e.clientX,e.clientY);}});for(const n of ['pointerup','pointercancel','lostpointercapture'])life.on(window,n,release);
   }else{life.on(mount,'mousedown',event=>{const e=event as MouseEvent;if(e.button===0&&begin(e.clientX,e.clientY,0,'mouse'))e.preventDefault();});life.on(window,'mousemove',event=>{if(drag?.kind==='mouse'){const e=event as MouseEvent;move(e.clientX,e.clientY);}});life.on(window,'mouseup',release);}
-  life.on(window,'blur',release);life.on(document,'visibilitychange',()=>{if(document.hidden)release();});life.on(toggle,'click',()=>{mode(!two);if(two)status.textContent='二维灯影 · 使用滑块或按钮移灯。';});life.on(retry,'click',()=>mode(false));life.on(retryImage,'click',()=>render());life.on(reset,'click',()=>{release();position(0,1.2);});render();
+  life.on(window,'blur',release);life.on(document,'visibilitychange',()=>{if(document.hidden)release();});life.on(toggle,'click',()=>{mode(!two);if(two)status.textContent=ready?'二维灯影 · 使用滑块或按钮移灯。':'正在准备影偶素材…';});life.on(retry,'click',()=>mode(false));life.on(retryImage,'click',()=>render());life.on(reset,'click',()=>{release();position(0,1.2);});render();
   return {update(project:ProjectV1|null){const key=JSON.stringify(project?.story?.castSnapshot?.appearance??null);if(key===identity)return;identity=key;const actor=frame.actors[0]!,source=museumPreviewFrame(project).actors[0]!;if(actor.actorId==='chenxiang'&&source.actorId==='chenxiang')frame={...frame,actors:[{...actor,appearance:source.appearance}]};render();},dispose(){if(disposed)return;disposed=true;generation++;release();life.dispose();spatial?.dispose();renderer.dispose();if(root.parentNode)root.parentNode.removeChild(root);}};
 }

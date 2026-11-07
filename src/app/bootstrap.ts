@@ -182,7 +182,8 @@ async function mount() {
     }
     // Keep the user's menu choice across routes, including museum children and
     // browser back/forward, so returning to the header exposes the same links.
-    document.title = `影作 · ${host.querySelector('h1')?.textContent ?? '一幕团圆'}`;
+    const pageLabels:Record<AppRoute['path'],string>={'/':'皮影艺术数字文化馆与互动皮影戏','/craft':'制偶工坊','/light':'灯影工坊','/practice':'操偶练习','/story':'一幕团圆 · 互动皮影戏','/museum':'皮影知识与互动展馆','/result':'本场节目单','/about':'关于影作'};
+    document.title = `影作 · ${pageLabels[parsed.route.path]}${parsed.route.exhibitId?' · '+host.querySelector('h1')?.textContent:''}`;
     notify(parsed.invalid ? '这个地址暂未开放，已回到剧场首页。' : '');
     if (changed) { const title = host.querySelector('h1'); title?.setAttribute('tabindex', '-1'); title?.focus(); window.scrollTo(0, 0); }
     const state = opened.getState();

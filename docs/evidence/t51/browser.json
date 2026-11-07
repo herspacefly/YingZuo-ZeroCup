@@ -1,0 +1,1026 @@
+{
+  "kind": "chrome-129-targeted-competition-review",
+  "started": "2026-11-07T04:11:27.442Z",
+  "origin": "http://127.0.0.1:4178",
+  "executablePath": "C:\\Users\\zhang\\AppData\\Local\\Temp/yingzuo-review-chrome129/chrome-win64/chrome.exe",
+  "browserVersion": "129.0.6668.100",
+  "indexSha256": "370d8699dc0d21ffeafb0b91f8cc66813de145884baf5890a9185e284b8c8502",
+  "museumSha256": "2829e5c6ad0947d422c4ac0b71ea4597d50f559fe09b99f770799646648b40ae",
+  "cases": [
+    {
+      "name": "layout 1920 /#/",
+      "started": "2026-11-07T04:11:27.800Z",
+      "details": {
+        "width": 1920,
+        "height": 900,
+        "overflow": 0,
+        "title": "影作 · 皮影艺术数字文化馆与互动皮影戏",
+        "h1": "隔着一张幕，\n让思念有了形。",
+        "events": {
+          "pageErrors": [],
+          "requests": [],
+          "httpErrors": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "name": "layout 1920 /#/museum",
+      "started": "2026-11-07T04:11:28.407Z",
+      "details": {
+        "width": 1920,
+        "height": 900,
+        "overflow": 0,
+        "title": "影作 · 皮影知识与互动展馆",
+        "h1": "一张皮，一束光，千年戏。",
+        "events": {
+          "pageErrors": [],
+          "requests": [],
+          "httpErrors": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "name": "layout 1920 /#/about",
+      "started": "2026-11-07T04:11:28.456Z",
+      "details": {
+        "width": 1920,
+        "height": 900,
+        "overflow": 0,
+        "title": "影作 · 关于影作",
+        "h1": "借一张幕，讲一次回家。",
+        "events": {
+          "pageErrors": [],
+          "requests": [],
+          "httpErrors": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "name": "layout 1920 /museum.html",
+      "started": "2026-11-07T04:11:28.475Z",
+      "details": {
+        "width": 1920,
+        "height": 900,
+        "overflow": 0,
+        "title": "皮影知识速览：材料、刻制、操演与地方风貌 · 影作数字文化馆",
+        "h1": "从一张皮，读到一出戏。",
+        "events": {
+          "pageErrors": [],
+          "requests": [],
+          "httpErrors": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "name": "no-js 1920 /",
+      "started": "2026-11-07T04:11:28.737Z",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/modulepreload-polyfill-YP0FEG5d.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/identity-I8ENtKM_.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/dom-S8zcC3P_.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/choice-options-wHbVIeMs.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/asset-contract-B8FEGTd5.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/sources-BlfDQrLd.js'\n+   }\n+ ]\n- []\n",
+      "classification": "probe-assumption-error",
+      "explanation": "Probe originally treated the expected csp failures caused by javaScriptEnabled:false as product failures; text, links and layout had passed."
+    },
+    {
+      "name": "no-js 1920 /museum.html",
+      "started": "2026-11-07T04:11:28.871Z",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/modulepreload-polyfill-YP0FEG5d.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/identity-I8ENtKM_.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/dom-S8zcC3P_.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/choice-options-wHbVIeMs.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/asset-contract-B8FEGTd5.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/sources-BlfDQrLd.js'\n+   }\n+ ]\n- []\n",
+      "classification": "probe-assumption-error",
+      "explanation": "Probe originally treated the expected csp failures caused by javaScriptEnabled:false as product failures; text, links and layout had passed."
+    },
+    {
+      "name": "layout 1440 /#/",
+      "started": "2026-11-07T04:11:29.253Z",
+      "details": {
+        "width": 1440,
+        "height": 900,
+        "overflow": 0,
+        "title": "影作 · 皮影艺术数字文化馆与互动皮影戏",
+        "h1": "隔着一张幕，\n让思念有了形。",
+        "events": {
+          "pageErrors": [],
+          "requests": [],
+          "httpErrors": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "name": "layout 1440 /#/museum",
+      "started": "2026-11-07T04:11:29.520Z",
+      "details": {
+        "width": 1440,
+        "height": 900,
+        "overflow": 0,
+        "title": "影作 · 皮影知识与互动展馆",
+        "h1": "一张皮，一束光，千年戏。",
+        "events": {
+          "pageErrors": [],
+          "requests": [],
+          "httpErrors": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "name": "layout 1440 /#/about",
+      "started": "2026-11-07T04:11:29.579Z",
+      "details": {
+        "width": 1440,
+        "height": 900,
+        "overflow": 0,
+        "title": "影作 · 关于影作",
+        "h1": "借一张幕，讲一次回家。",
+        "events": {
+          "pageErrors": [],
+          "requests": [],
+          "httpErrors": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "name": "layout 1440 /museum.html",
+      "started": "2026-11-07T04:11:29.617Z",
+      "details": {
+        "width": 1440,
+        "height": 900,
+        "overflow": 0,
+        "title": "皮影知识速览：材料、刻制、操演与地方风貌 · 影作数字文化馆",
+        "h1": "从一张皮，读到一出戏。",
+        "events": {
+          "pageErrors": [],
+          "requests": [],
+          "httpErrors": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "name": "no-js 1440 /",
+      "started": "2026-11-07T04:11:29.928Z",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/modulepreload-polyfill-YP0FEG5d.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/identity-I8ENtKM_.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/dom-S8zcC3P_.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/choice-options-wHbVIeMs.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/asset-contract-B8FEGTd5.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/sources-BlfDQrLd.js'\n+   }\n+ ]\n- []\n",
+      "classification": "probe-assumption-error",
+      "explanation": "Probe originally treated the expected csp failures caused by javaScriptEnabled:false as product failures; text, links and layout had passed."
+    },
+    {
+      "name": "no-js 1440 /museum.html",
+      "started": "2026-11-07T04:11:30.094Z",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/modulepreload-polyfill-YP0FEG5d.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/identity-I8ENtKM_.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/dom-S8zcC3P_.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/choice-options-wHbVIeMs.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/asset-contract-B8FEGTd5.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/sources-BlfDQrLd.js'\n+   }\n+ ]\n- []\n",
+      "classification": "probe-assumption-error",
+      "explanation": "Probe originally treated the expected csp failures caused by javaScriptEnabled:false as product failures; text, links and layout had passed."
+    },
+    {
+      "name": "layout 720 /#/",
+      "started": "2026-11-07T04:11:30.522Z",
+      "details": {
+        "width": 720,
+        "height": 900,
+        "overflow": 0,
+        "title": "影作 · 皮影艺术数字文化馆与互动皮影戏",
+        "h1": "隔着一张幕，\n让思念有了形。",
+        "events": {
+          "pageErrors": [],
+          "requests": [],
+          "httpErrors": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "name": "layout 720 /#/museum",
+      "started": "2026-11-07T04:11:30.788Z",
+      "details": {
+        "width": 720,
+        "height": 900,
+        "overflow": 0,
+        "title": "影作 · 皮影知识与互动展馆",
+        "h1": "一张皮，一束光，千年戏。",
+        "events": {
+          "pageErrors": [],
+          "requests": [],
+          "httpErrors": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "name": "layout 720 /#/about",
+      "started": "2026-11-07T04:11:30.854Z",
+      "details": {
+        "width": 720,
+        "height": 900,
+        "overflow": 0,
+        "title": "影作 · 关于影作",
+        "h1": "借一张幕，讲一次回家。",
+        "events": {
+          "pageErrors": [],
+          "requests": [],
+          "httpErrors": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "name": "layout 720 /museum.html",
+      "started": "2026-11-07T04:11:30.889Z",
+      "details": {
+        "width": 720,
+        "height": 900,
+        "overflow": 0,
+        "title": "皮影知识速览：材料、刻制、操演与地方风貌 · 影作数字文化馆",
+        "h1": "从一张皮，读到一出戏。",
+        "events": {
+          "pageErrors": [],
+          "requests": [],
+          "httpErrors": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "name": "no-js 720 /",
+      "started": "2026-11-07T04:11:31.180Z",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/modulepreload-polyfill-YP0FEG5d.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/identity-I8ENtKM_.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/dom-S8zcC3P_.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/choice-options-wHbVIeMs.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/asset-contract-B8FEGTd5.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/sources-BlfDQrLd.js'\n+   }\n+ ]\n- []\n",
+      "classification": "probe-assumption-error",
+      "explanation": "Probe originally treated the expected csp failures caused by javaScriptEnabled:false as product failures; text, links and layout had passed."
+    },
+    {
+      "name": "no-js 720 /museum.html",
+      "started": "2026-11-07T04:11:31.329Z",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/modulepreload-polyfill-YP0FEG5d.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/identity-I8ENtKM_.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/dom-S8zcC3P_.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/choice-options-wHbVIeMs.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/asset-contract-B8FEGTd5.js'\n+   },\n+   {\n+     error: 'csp',\n+     url: 'http://127.0.0.1:4178/assets/sources-BlfDQrLd.js'\n+   }\n+ ]\n- []\n",
+      "classification": "probe-assumption-error",
+      "explanation": "Probe originally treated the expected csp failures caused by javaScriptEnabled:false as product failures; text, links and layout had passed."
+    },
+    {
+      "name": "craft palette native input",
+      "started": "2026-11-07T04:11:31.778Z",
+      "details": {
+        "before": "vermilion-v1",
+        "after": "indigo-v1"
+      },
+      "passed": true
+    },
+    {
+      "name": "E01 native slider and 2D/3D",
+      "started": "2026-11-07T04:11:33.186Z",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert((await p.locator('#museum-demo-reading').textContent()).includes('0.80'))\n",
+      "classification": "probe-assumption-error",
+      "explanation": "Probe had hardcoded an incorrect projection multiplier; retest checks displayed depth, actual reading change, draw count and recovery."
+    },
+    {
+      "name": "continuous seeded resize on E01",
+      "started": "2026-11-07T04:11:34.355Z",
+      "details": {
+        "seed": 51,
+        "sizes": [
+          {
+            "width": 818,
+            "height": 882,
+            "overflow": 0,
+            "title": "影作 · 皮影知识与互动展馆 · 颜色为什么能透出来",
+            "h1": "颜色为什么能透出来"
+          },
+          {
+            "width": 1218,
+            "height": 711,
+            "overflow": 0,
+            "title": "影作 · 皮影知识与互动展馆 · 颜色为什么能透出来",
+            "h1": "颜色为什么能透出来"
+          },
+          {
+            "width": 1264,
+            "height": 885,
+            "overflow": 0,
+            "title": "影作 · 皮影知识与互动展馆 · 颜色为什么能透出来",
+            "h1": "颜色为什么能透出来"
+          },
+          {
+            "width": 1619,
+            "height": 913,
+            "overflow": 0,
+            "title": "影作 · 皮影知识与互动展馆 · 颜色为什么能透出来",
+            "h1": "颜色为什么能透出来"
+          },
+          {
+            "width": 1561,
+            "height": 750,
+            "overflow": 0,
+            "title": "影作 · 皮影知识与互动展馆 · 颜色为什么能透出来",
+            "h1": "颜色为什么能透出来"
+          },
+          {
+            "width": 1212,
+            "height": 981,
+            "overflow": 0,
+            "title": "影作 · 皮影知识与互动展馆 · 颜色为什么能透出来",
+            "h1": "颜色为什么能透出来"
+          },
+          {
+            "width": 1380,
+            "height": 968,
+            "overflow": 0,
+            "title": "影作 · 皮影知识与互动展馆 · 颜色为什么能透出来",
+            "h1": "颜色为什么能透出来"
+          },
+          {
+            "width": 1355,
+            "height": 1029,
+            "overflow": 0,
+            "title": "影作 · 皮影知识与互动展馆 · 颜色为什么能透出来",
+            "h1": "颜色为什么能透出来"
+          },
+          {
+            "width": 730,
+            "height": 1068,
+            "overflow": 0,
+            "title": "影作 · 皮影知识与互动展馆 · 颜色为什么能透出来",
+            "h1": "颜色为什么能透出来"
+          },
+          {
+            "width": 754,
+            "height": 975,
+            "overflow": 0,
+            "title": "影作 · 皮影知识与互动展馆 · 颜色为什么能透出来",
+            "h1": "颜色为什么能透出来"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "name": "E01 delayed material shows loading and recovers",
+      "started": "2026-11-07T04:11:35.239Z",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(hit)\n",
+      "classification": "probe-assumption-error",
+      "explanation": "Probe checked the route-hit flag before the asynchronous WebP probe completed; retest awaits the actual held request."
+    },
+    {
+      "name": "E01 injected 503 retry loading and successful recovery",
+      "started": "2026-11-07T04:11:35.718Z",
+      "details": {
+        "attempts": 3,
+        "failed": {
+          "status": "无法加载 chenxiang-v1-torso-color，请重试。HTTP 503 可继续使用下方滑块移动灯，或重试三维。",
+          "busy": "false",
+          "canvas": "error",
+          "draws": null,
+          "three": null,
+          "shadowHidden": false
+        },
+        "loading": {
+          "status": "正在准备影偶素材…",
+          "busy": "true",
+          "canvas": "loading",
+          "draws": null,
+          "three": null,
+          "shadowHidden": false
+        },
+        "ready": {
+          "status": "二维灯影已就绪，继续用滑块移灯，或重试三维。",
+          "busy": "false",
+          "canvas": "ready",
+          "draws": "1",
+          "three": null,
+          "shadowHidden": false
+        },
+        "events": {
+          "pageErrors": [],
+          "requests": [
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-torso-regions.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-head-color.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-head-regions.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-left-upper-arm-color.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-left-upper-arm-regions.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-left-forearm-color.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-left-forearm-regions.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-left-thigh-color.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-left-thigh-regions.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-left-shin-color.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-left-shin-regions.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-right-upper-arm-color.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-right-upper-arm-regions.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-right-forearm-color.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-right-forearm-regions.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-right-thigh-color.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-right-thigh-regions.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-right-shin-color.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-right-shin-regions.webp",
+              "error": "net::ERR_ABORTED"
+            }
+          ],
+          "httpErrors": [
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-torso-color.webp",
+              "status": 503
+            }
+          ]
+        },
+        "expectedHttpError": 503
+      },
+      "passed": true
+    },
+    {
+      "name": "E01 delayed callback after route disposal",
+      "started": "2026-11-07T04:11:37.213Z",
+      "details": {
+        "route": "/about",
+        "events": {
+          "pageErrors": [],
+          "requests": [],
+          "httpErrors": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "name": "400kbps 400ms cold index readable before JS",
+      "started": "2026-11-07T04:11:38.028Z",
+      "details": {
+        "profile": {
+          "downloadBitsPerSecond": 400000,
+          "latencyMs": 400,
+          "httpCacheDisabled": true
+        },
+        "fallbackMs": 527,
+        "interactiveMs": 8593,
+        "copy": "一出戏，也是一座小小的馆。一张皮、一道刻、一束光、一双手、一出戏，五个展区随时开放。从实物照片和工艺故事开始，认识皮影的一刀一线。阅读皮影知识速览：五区七展签 →本页保留可读介绍。启用JavaScript后，可以保存造型、切换页面和接续作品。",
+        "events": {
+          "pageErrors": [],
+          "requests": [
+            {
+              "url": "http://127.0.0.1:4178/audio/jinghu-instrumental.mp3",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/presentation/lotus-theatre.png",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/presentation/title-brush.woff2",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/typography/regular-kai.woff2",
+              "error": "net::ERR_ABORTED"
+            }
+          ],
+          "httpErrors": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "name": "400kbps 400ms static museum information",
+      "started": "2026-11-07T04:11:46.623Z",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(m.overflow<=1)\n",
+      "classification": "fixed-product-defect",
+      "explanation": "Early raw HTML exposed an 800px image before external CSS arrived; minimal inline image/body/main rules added before final targeted retest."
+    },
+    {
+      "name": "no-js 1920 /",
+      "round": 2,
+      "started": "2026-11-07T04:13:37.397Z",
+      "details": {
+        "width": 1920,
+        "overflow": 0,
+        "pageErrors": [],
+        "expectedScriptBlocks": [
+          {
+            "url": "http://127.0.0.1:4178/assets/modulepreload-polyfill-YP0FEG5d.js",
+            "error": "csp"
+          },
+          {
+            "url": "http://127.0.0.1:4178/assets/identity-I8ENtKM_.js",
+            "error": "csp"
+          },
+          {
+            "url": "http://127.0.0.1:4178/assets/dom-S8zcC3P_.js",
+            "error": "csp"
+          },
+          {
+            "url": "http://127.0.0.1:4178/assets/choice-options-wHbVIeMs.js",
+            "error": "csp"
+          },
+          {
+            "url": "http://127.0.0.1:4178/assets/asset-contract-B8FEGTd5.js",
+            "error": "csp"
+          },
+          {
+            "url": "http://127.0.0.1:4178/assets/sources-BlfDQrLd.js",
+            "error": "csp"
+          }
+        ],
+        "unexpected": []
+      },
+      "passed": true
+    },
+    {
+      "name": "no-js 1920 /museum.html",
+      "round": 2,
+      "started": "2026-11-07T04:13:37.950Z",
+      "details": {
+        "width": 1920,
+        "overflow": 0,
+        "pageErrors": [],
+        "expectedScriptBlocks": [],
+        "unexpected": []
+      },
+      "passed": true
+    },
+    {
+      "name": "no-js 1440 /",
+      "round": 2,
+      "started": "2026-11-07T04:13:38.563Z",
+      "details": {
+        "width": 1440,
+        "overflow": 0,
+        "pageErrors": [],
+        "expectedScriptBlocks": [
+          {
+            "url": "http://127.0.0.1:4178/assets/modulepreload-polyfill-YP0FEG5d.js",
+            "error": "csp"
+          },
+          {
+            "url": "http://127.0.0.1:4178/assets/identity-I8ENtKM_.js",
+            "error": "csp"
+          },
+          {
+            "url": "http://127.0.0.1:4178/assets/dom-S8zcC3P_.js",
+            "error": "csp"
+          },
+          {
+            "url": "http://127.0.0.1:4178/assets/choice-options-wHbVIeMs.js",
+            "error": "csp"
+          },
+          {
+            "url": "http://127.0.0.1:4178/assets/asset-contract-B8FEGTd5.js",
+            "error": "csp"
+          },
+          {
+            "url": "http://127.0.0.1:4178/assets/sources-BlfDQrLd.js",
+            "error": "csp"
+          }
+        ],
+        "unexpected": []
+      },
+      "passed": true
+    },
+    {
+      "name": "no-js 1440 /museum.html",
+      "round": 2,
+      "started": "2026-11-07T04:13:38.860Z",
+      "details": {
+        "width": 1440,
+        "overflow": 0,
+        "pageErrors": [],
+        "expectedScriptBlocks": [],
+        "unexpected": []
+      },
+      "passed": true
+    },
+    {
+      "name": "no-js 720 /",
+      "round": 2,
+      "started": "2026-11-07T04:13:39.419Z",
+      "details": {
+        "width": 720,
+        "overflow": 0,
+        "pageErrors": [],
+        "expectedScriptBlocks": [
+          {
+            "url": "http://127.0.0.1:4178/assets/modulepreload-polyfill-YP0FEG5d.js",
+            "error": "csp"
+          },
+          {
+            "url": "http://127.0.0.1:4178/assets/identity-I8ENtKM_.js",
+            "error": "csp"
+          },
+          {
+            "url": "http://127.0.0.1:4178/assets/dom-S8zcC3P_.js",
+            "error": "csp"
+          },
+          {
+            "url": "http://127.0.0.1:4178/assets/choice-options-wHbVIeMs.js",
+            "error": "csp"
+          },
+          {
+            "url": "http://127.0.0.1:4178/assets/asset-contract-B8FEGTd5.js",
+            "error": "csp"
+          },
+          {
+            "url": "http://127.0.0.1:4178/assets/sources-BlfDQrLd.js",
+            "error": "csp"
+          }
+        ],
+        "unexpected": []
+      },
+      "passed": true
+    },
+    {
+      "name": "no-js 720 /museum.html",
+      "round": 2,
+      "started": "2026-11-07T04:13:39.713Z",
+      "details": {
+        "width": 720,
+        "overflow": 0,
+        "pageErrors": [],
+        "expectedScriptBlocks": [],
+        "unexpected": []
+      },
+      "passed": true
+    },
+    {
+      "name": "E01 native slider and 2D/3D",
+      "round": 2,
+      "started": "2026-11-07T04:13:40.301Z",
+      "details": {
+        "readingBefore": "影偶固定 · 影子倍率 1.20×。向左挪灯，影子向右；灯靠近影偶，影子变大。",
+        "readingAfter": "影偶固定 · 影子倍率 1.15×。向左挪灯，影子向右；灯靠近影偶，影子变大。",
+        "drawsBefore": 1,
+        "drawsAfter": 6,
+        "errors": []
+      },
+      "passed": true
+    },
+    {
+      "name": "E01 delayed material shows loading and recovers",
+      "round": 2,
+      "started": "2026-11-07T04:13:42.151Z",
+      "details": {
+        "loading": "正在准备影偶素材…",
+        "ready": "三维灯影已就绪 · 拖动金色灯具试一试。",
+        "errors": []
+      },
+      "passed": true
+    },
+    {
+      "name": "final knowledge entry and styled page",
+      "round": 3,
+      "started": "2026-11-07T04:16:52.726Z",
+      "details": {
+        "layout": "grid",
+        "metric": {
+          "readyState": "complete",
+          "overflow": 0,
+          "bodyFont": "\"Yingzuo Kai\", KaiTi, \"Kaiti SC\", STKaiti, serif",
+          "externalStylesheets": [
+            "http://127.0.0.1:4178/assets/site-Bo6kPyeS.css"
+          ],
+          "firstImageWidth": 238,
+          "firstImageMaxWidth": "100%"
+        },
+        "events": {
+          "pageErrors": [],
+          "requestFailures": [
+            {
+              "url": "http://127.0.0.1:4178/assets/modulepreload-polyfill-YP0FEG5d.js",
+              "error": "csp"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/identity-I8ENtKM_.js",
+              "error": "csp"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/dom-S8zcC3P_.js",
+              "error": "csp"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/choice-options-wHbVIeMs.js",
+              "error": "csp"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/asset-contract-B8FEGTd5.js",
+              "error": "csp"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/sources-BlfDQrLd.js",
+              "error": "csp"
+            }
+          ],
+          "httpErrors": []
+        },
+        "expectedScriptBlocks": [
+          {
+            "url": "http://127.0.0.1:4178/assets/modulepreload-polyfill-YP0FEG5d.js",
+            "error": "csp"
+          },
+          {
+            "url": "http://127.0.0.1:4178/assets/identity-I8ENtKM_.js",
+            "error": "csp"
+          },
+          {
+            "url": "http://127.0.0.1:4178/assets/dom-S8zcC3P_.js",
+            "error": "csp"
+          },
+          {
+            "url": "http://127.0.0.1:4178/assets/choice-options-wHbVIeMs.js",
+            "error": "csp"
+          },
+          {
+            "url": "http://127.0.0.1:4178/assets/asset-contract-B8FEGTd5.js",
+            "error": "csp"
+          },
+          {
+            "url": "http://127.0.0.1:4178/assets/sources-BlfDQrLd.js",
+            "error": "csp"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "name": "400kbps 400ms static museum information",
+      "round": 3,
+      "started": "2026-11-07T04:16:53.594Z",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(after.externalStylesheets.length>0)\n",
+      "classification": "probe-assumption-error",
+      "explanation": "DOMContentLoaded does not wait for CSS on a page without scripts, and a failed stylesheet may still be listed. Corrected test observes applied layout and captured CSS request outcome."
+    },
+    {
+      "name": "reader CSS download failure keeps information usable",
+      "round": 3,
+      "started": "2026-11-07T04:16:54.399Z",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n1 !== 0\n",
+      "classification": "probe-assumption-error",
+      "explanation": "DOMContentLoaded does not wait for CSS on a page without scripts, and a failed stylesheet may still be listed. Corrected test observes applied layout and captured CSS request outcome."
+    },
+    {
+      "name": "E01 delayed callback after route disposal",
+      "round": 3,
+      "started": "2026-11-07T04:16:54.756Z",
+      "details": {
+        "heldUrl": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-torso-color.webp",
+        "route": "/about",
+        "events": {
+          "pageErrors": [],
+          "requestFailures": [
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-torso-color.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-left-shin-color.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-left-shin-regions.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-right-upper-arm-color.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-right-upper-arm-regions.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-right-forearm-color.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-right-forearm-regions.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-right-thigh-color.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-right-thigh-regions.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-right-shin-color.webp",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "url": "http://127.0.0.1:4178/assets/delivery/chenxiang-v1-right-shin-regions.webp",
+              "error": "net::ERR_ABORTED"
+            }
+          ],
+          "httpErrors": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "name": "400kbps 400ms static museum information",
+      "round": 4,
+      "started": "2026-11-07T04:17:54.147Z",
+      "passed": false,
+      "error": "Error: page.evaluate: TypeError: Failed to execute 'getComputedStyle' on 'Window': parameter 1 is not of type 'Element'.\n    at eval (eval at evaluate (:370:30), <anonymous>:1:102)\n    at UtilityScript.evaluate (<anonymous>:372:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+      "classification": "probe-assumption-error",
+      "explanation": "The h1 can arrive before the rest of the streamed HTML. Final probe waits for E07 parsing and explicitly holds the stylesheet for deterministic pre-CSS observation."
+    },
+    {
+      "name": "reader CSS download failure keeps information usable",
+      "round": 4,
+      "started": "2026-11-07T04:17:55.134Z",
+      "details": {
+        "metric": {
+          "readyState": "interactive",
+          "overflow": 0,
+          "layout": "block",
+          "bodyFont": "KaiTi, \"Kaiti SC\", STKaiti, serif",
+          "sheets": [
+            {
+              "href": null,
+              "rules": 4
+            },
+            {
+              "href": "http://127.0.0.1:4178/assets/site-Bo6kPyeS.css",
+              "rules": "unavailable"
+            }
+          ],
+          "firstImageWidth": 592,
+          "firstImageMaxWidth": "100%"
+        },
+        "events": {
+          "errors": [],
+          "requests": [
+            {
+              "url": "http://127.0.0.1:4178/assets/site-Bo6kPyeS.css",
+              "error": "net::ERR_FAILED"
+            }
+          ],
+          "blockedCss": [
+            "http://127.0.0.1:4178/assets/site-Bo6kPyeS.css"
+          ]
+        },
+        "classification": "All stylesheet requests intentionally blocked; readable inline fallback and normal HTML anchors/details remain usable."
+      },
+      "passed": true
+    },
+    {
+      "name": "400kbps 400ms static museum information",
+      "round": 5,
+      "started": "2026-11-07T04:18:32.300Z",
+      "passed": false,
+      "error": "TimeoutError: page.screenshot: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n",
+      "classification": "probe-assumption-error",
+      "explanation": "Screenshot waits for fonts while the stylesheet was deliberately held. Screenshot removed; final check uses DOM metrics before CSS and grid after CSS."
+    },
+    {
+      "name": "400kbps 400ms static museum information",
+      "round": 6,
+      "started": "2026-11-07T04:19:55.774Z",
+      "details": {
+        "profile": {
+          "downloadBitsPerSecond": 400000,
+          "latencyMs": 400,
+          "httpCacheDisabled": true,
+          "stylesheetHeldUntilPreCssObservation": true
+        },
+        "events": {
+          "pageErrors": [],
+          "cssResponses": [
+            {
+              "url": "http://127.0.0.1:4178/assets/site-Bo6kPyeS.css",
+              "status": 200
+            }
+          ]
+        },
+        "headingMs": 527,
+        "beforeCss": {
+          "ms": 592,
+          "overflow": 0,
+          "layout": "block",
+          "imageWidth": 592,
+          "imageMaxWidth": "100%",
+          "bodyFont": "KaiTi, \"Kaiti SC\", STKaiti, serif"
+        },
+        "afterCss": {
+          "ms": 1299,
+          "overflow": 0,
+          "layout": "grid",
+          "imageWidth": 238,
+          "imageMaxWidth": "100%",
+          "bodyFont": "\"Yingzuo Kai\", KaiTi, \"Kaiti SC\", STKaiti, serif"
+        }
+      },
+      "passed": true
+    }
+  ],
+  "notes": [
+    "Isolated browser contexts; native clocks and media; not full-story or physical-device acceptance.",
+    "Injected HTTP503 and cancelled route requests are classified separately from genuine failures.",
+    "Seeded continuous resize samples do not prove every possible viewport.",
+    "All failed probe attempts remain in cases with explanations; summary reports latest observation per unique scenario."
+  ],
+  "summary": {
+    "attempts": 42,
+    "total": 28,
+    "passed": 28,
+    "failed": 0,
+    "initialProbeFailures": 12,
+    "fixedProductDefects": 1
+  },
+  "finished": "2026-11-07T04:19:57.377Z",
+  "diagnostics": [
+    {
+      "name": "slow static museum early CSS readiness",
+      "before": {
+        "ms": 531,
+        "readyState": "loading",
+        "overflow": 128,
+        "bodyFont": "\"Times New Roman\"",
+        "styles": [],
+        "images": [
+          {
+            "width": 800,
+            "maxWidth": "none"
+          }
+        ]
+      },
+      "after": {
+        "ms": 19675,
+        "readyState": "complete",
+        "overflow": 0,
+        "bodyFont": "\"Yingzuo Kai\", KaiTi, \"Kaiti SC\", STKaiti, serif",
+        "styles": [
+          "http://127.0.0.1:4178/assets/site-Bo6kPyeS.css"
+        ],
+        "images": [
+          {
+            "width": 238,
+            "maxWidth": "none"
+          }
+        ]
+      }
+    }
+  ],
+  "finalBuild": {
+    "indexSha256": "0e28840ecea500135ba1c3c06159d50c57ca6f9d77384822b2465076a2dbeb52",
+    "museumSha256": "accc0ab25644bf59ebcd834c50b32a366e708561d94c7b0afd8f12d19ef09a04",
+    "note": "Only static reader wording and fallback inline CSS changed after the earlier matrix; no other runtime changes."
+  }
+}

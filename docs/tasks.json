@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-06",
+  "updatedAt": "2026-11-07",
   "projectName": "影作·一幕团圆",
   "projectRoot": ".",
   "competitionGroup": "零组",
   "sourcePolicy": "开幕式PPT为准",
   "selectedTheme": "匠心传成，非遗焕新",
   "plan": "docs/plans/2026-10-15-yingzuo-design-and-implementation.md",
-  "stage": "T50_local_complete",
-  "activeTaskId": "T50",
+  "stage": "T51_local_complete",
+  "activeTaskId": "T38",
   "lastVerifiedCommit": "7851627879c6aee9cea6a07464ce43c9a460b217",
   "features": {
     "singlePuppetRecording": "planned_optional",
@@ -2206,6 +2206,50 @@
         "本轮74项唯一相关功能最新全部通过（含根/项目子目录12项），57布局场景覆盖1440/390/320，零横向溢出；未执行未筛选全套。",
         "原六尺寸整幕、人物/背景/操偶几何、自动节目单、真实PNG/JSON与只读重演保持；练习视觉与Tab顺序一致，教学/滚动恢复通过。",
         "首次手机教学未等待可操作就绪，补明确等待后宽窄通过；一次手机开演停留原页，未改入口条件单项及额外3次复验通过；原始失败分列。"
+      ],
+      "phase": "G3"
+    },
+    {
+      "id": "T51",
+      "title": "门户参赛说明、静态知识速览与慢网反馈",
+      "priority": "P1",
+      "status": "done",
+      "dependsOn": [
+        "T36",
+        "T46"
+      ],
+      "owner": "codex-root",
+      "branch": "main",
+      "touchFiles": [
+        "README.md",
+        "museum.html",
+        "index.html",
+        "credits.html",
+        "vite.config.ts",
+        "public/sitemap.xml",
+        "src/content/",
+        "src/features/intro/view.ts",
+        "src/features/museum/",
+        "src/styles/",
+        "tests/",
+        "scripts/verify-legacy.mjs",
+        "docs/",
+        "START_HERE.md",
+        "src/app/bootstrap.ts",
+        "public/assets/typography/"
+      ],
+      "acceptanceRefs": [
+        "T51"
+      ],
+      "checkpointCommit": null,
+      "nextAction": "本地实现和专项验证完成，未推送；发布另行执行。T38听感及正式素材/实体设备/IE验收保持原状态。",
+      "blocker": null,
+      "verification": [
+        "55文件620单元、类型/164模块构建、52任务状态、81PNG/字体覆盖、当前内容/七展签/20 ES5通过。",
+        "根/项目子目录宽窄48项最新全部通过，首轮46/48、两项因并发共享临时目录失败，隔离输出定向2/2复验通过；原始报告保留。",
+        "E01素材等待/失败/重试及既有三维淡化/彩色投影桌面窄屏4/4通过。",
+        "Chrome129.0.6668.100共28唯一场景最新28/28，含1920/1440/720、禁JS、10次连续resize、400kbps/400ms及CSS失败；分轮探针失败与已修CSS前溢出独立记录。",
+        "无需JS知识正文、元信息/站点地图、相对路径、零作品数据库启动及来源说明通过；未推送部署。"
       ],
       "phase": "G3"
     }
